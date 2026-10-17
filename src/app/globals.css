@@ -1,0 +1,61 @@
+@import "tailwindcss";
+@import "katex/dist/katex.min.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f3f4f7;
+  --foreground: #171a21;
+  --card: #ffffff;
+  --card-foreground: #171a21;
+  --muted: #eceff5;
+  --muted-foreground: #5e6776;
+  --border: #e3e6ee;
+  --primary: #2c3d86;
+  --primary-foreground: #f7f8ff;
+  --accent: #e7ebf8;
+  --accent-foreground: #1d2436;
+  --destructive: #b42318;
+  --ring: #8ea0e8;
+  --radius: 0.9rem;
+}
+
+.dark {
+  --background: #0e1014;
+  --foreground: #f4f5f7;
+  --card: #161922;
+  --card-foreground: #f4f5f7;
+  --muted: #202533;
+  --muted-foreground: #a8b0c0;
+  --border: #2b3140;
+  --primary: #d5defe;
+  --primary-foreground: #151923;
+  --accent: #242a3a;
+  --accent-foreground: #f4f5f7;
+  --destructive: #ffb4ab;
+  --ring: #9aafff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-sans);
+  --radius-lg: var(--radius);
+}
+
+* { box-sizing: border-box; }
+html, body { max-width: 100%; overflow-x: hidden; }
+body { background: var(--background); color: var(--foreground); font-family: var(--font-sans), "Segoe UI", sans-serif; }
+:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+.math-text .katex { font-size: 1.02em; }

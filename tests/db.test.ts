@@ -1,0 +1,42 @@
+import { execSync } from "child_process";
+import { existsSync, rmSync } from "fs";
+import path from "path";
+import { PrismaClient } from "@prisma/client";
+import { afterAll, beforeAll, expect, it } from "vitest";
+
+const databaseUrl = "file:./test.db";
+const databasePath = path.join(process.cwd(), "prisma", "test.db");
+const prisma = new PrismaClient({ datasources: { db: { url: databaseUrl } } });
+
+beforeAll(() => {
+  if (existsSync(databasePath)) rmSync(databasePath);
+  execSync("npx prisma db push --skip-generate --accept-data-loss", {
+    env: { ...process.env, DATABASE_URL: databaseUrl },
+    stdio: "pipe",
+  });
+});
+
+afterAll(async () => {
+  await prisma.$disconnect();
+  if (existsSync(databasePath)) rmSync(databasePath);
+});
+
+it("зберігає результат пробника і читає його після нового підключення", async () => {
+  await prisma.subject.create({
+    data: { id: "math", name: "Математика", shortName: "Математика", description: "Тест", color: "#4f6df5", sortOrder: 0 },
+  });
+  await prisma.examResult.create({
+    data: {
+      subjectId: "math",
+      date: new Date("2026-09-30T12:00:00.000Z"),
+      testType: "MANUAL",
+      title: "Результат 30 вересня",
+      ratingScore: 132,
+      countsTowardAverage: true,
+      comment: "Тестовий бал не вказано.",
+    },
+  });
+  const saved = await prisma.examResult.findFirst({ where: { title: "Результат 30 вересня" } });
+  expect(saved?.ratingScore).toBe(132);
+  expect(saved?.rawScore).toBeNull();
+});

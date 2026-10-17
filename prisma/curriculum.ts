@@ -1,0 +1,210 @@
+import { PRACTICE_SOURCE } from "../src/lib/constants";
+
+export type SeedTopic = {
+  id: string;
+  subjectId: string;
+  parentId?: string;
+  title: string;
+  summary: string;
+  formulas?: string;
+  sortOrder: number;
+};
+
+export const topics: SeedTopic[] = [
+  { id: "math-numbers", subjectId: "math", title: "Числа, відсотки та пропорції", summary: "Натуральні, цілі, раціональні й дійсні числа, відсотки, пропорції та оцінка результату.", formulas: "Відсоток: $p\\%\\ \\text{від}\\ A = A \\cdot \\dfrac{p}{100}$.", sortOrder: 10 },
+  { id: "math-expressions", subjectId: "math", title: "Алгебраїчні вирази", summary: "Формули скороченого множення, розкладання на множники, дії з дробами.", formulas: "$(a+b)^2 = a^2 + 2ab + b^2$", sortOrder: 20 },
+  { id: "math-linear", subjectId: "math", title: "Лінійні рівняння та системи", summary: "Лінійні рівняння, нерівності та системи двох рівнянь.", sortOrder: 30 },
+  { id: "math-linear-eq", subjectId: "math", parentId: "math-linear", title: "Лінійні рівняння", summary: "Рівняння вигляду $ax+b=0$ і рівносильні перетворення.", formulas: "Якщо $a \\neq 0$, то $x = -\\dfrac{b}{a}$.", sortOrder: 31 },
+  { id: "math-linear-systems", subjectId: "math", parentId: "math-linear", title: "Системи лінійних рівнянь", summary: "Підстановка та додавання для системи двох лінійних рівнянь.", sortOrder: 32 },
+  { id: "math-quadratic", subjectId: "math", title: "Квадратні рівняння", summary: "Дискримінант, теорема Вієта та розкладання квадратного тричлена.", formulas: "$D=b^2-4ac$, $x=\\dfrac{-b\\pm\\sqrt{D}}{2a}$.", sortOrder: 40 },
+  { id: "math-functions", subjectId: "math", title: "Функції та графіки", summary: "Лінійна, квадратична та обернена пропорційність. Область визначення і значень.", formulas: "$y=kx+b$, $y=ax^2+bx+c$.", sortOrder: 50 },
+  { id: "math-progressions", subjectId: "math", title: "Прогресії", summary: "Арифметична і геометрична прогресії, n-й член і сума.", formulas: "$a_n=a_1+(n-1)d$, $S_n=\\dfrac{a_1+a_n}{2}\\cdot n$.", sortOrder: 60 },
+  { id: "math-trig", subjectId: "math", title: "Тригонометрія", summary: "Означення синуса, косинуса, тангенса та основні співвідношення.", formulas: "$\\sin^2\\alpha+\\cos^2\\alpha=1$", sortOrder: 70 },
+  { id: "math-derivative", subjectId: "math", title: "Похідна", summary: "Похідна елементарних функцій, проміжки монотонності та екстремуми.", formulas: "$(x^n)'=nx^{n-1}$", sortOrder: 80 },
+  { id: "math-plane", subjectId: "math", title: "Планіметрія", summary: "Трикутники, коло, чотирикутники, площі та подібність.", formulas: "$S=\\dfrac{ah}{2}$ для трикутника.", sortOrder: 90 },
+  { id: "math-solid", subjectId: "math", title: "Стереометрія", summary: "Призма, піраміда, циліндр, конус, куля: об'єми та площі поверхонь.", formulas: "$V_{цил}=\\pi r^2 h$", sortOrder: 100 },
+  { id: "math-probability", subjectId: "math", title: "Комбінаторика та ймовірність", summary: "Правило добутку, перестановки, класична ймовірність.", formulas: "$P(A)=\\dfrac{m}{n}$ для рівноймовірних наслідків.", sortOrder: 110 },
+  { id: "ukr-phonetics", subjectId: "ukrainian", title: "Фонетика та орфоепія", summary: "Звуки, наголос і вимова. Тренувальні завдання додавайте з перевіреного джерела.", sortOrder: 10 },
+  { id: "ukr-lexis", subjectId: "ukrainian", title: "Лексикологія", summary: "Значення слова, синоніми, антоніми, пароніми та фразеологізми.", sortOrder: 20 },
+  { id: "ukr-word", subjectId: "ukrainian", title: "Будова слова", summary: "Корінь, префікс, суфікс, закінчення та основа.", sortOrder: 30 },
+  { id: "ukr-ortho", subjectId: "ukrainian", title: "Орфографія", summary: "Апостроф, префікси з-/с-, пре-/при-, написання не та разом, окремо й через дефіс.", formulas: "Не з дієсловами зазвичай пишеться окремо: не знаю.", sortOrder: 40 },
+  { id: "ukr-morph", subjectId: "ukrainian", title: "Морфологія", summary: "Частини мови, їхні ознаки та граматичні форми.", sortOrder: 50 },
+  { id: "ukr-syntax", subjectId: "ukrainian", title: "Синтаксис", summary: "Словосполучення, речення, члени речення та види складного речення.", sortOrder: 60 },
+  { id: "ukr-punct", subjectId: "ukrainian", title: "Пунктуація", summary: "Кома, тире, двокрапка в простому та складному реченні.", sortOrder: 70 },
+  { id: "ukr-style", subjectId: "ukrainian", title: "Текст і стилістика", summary: "Стилі мовлення, типи текстів, засоби зв'язку речень.", sortOrder: 80 },
+  { id: "hist-ancient", subjectId: "history", title: "Стародавня історія України", summary: "Кам'яна доба, трипільська культура, скіфи, античні міста Північного Причорномор'я.", sortOrder: 10 },
+  { id: "hist-kyiv", subjectId: "history", title: "Київська Русь", summary: "Утворення держави, князі, хрещення 988 року та розквіт за Ярослава Мудрого.", sortOrder: 20 },
+  { id: "hist-galicia", subjectId: "history", title: "Галицько-Волинська держава", summary: "Роман Мстиславич, Данило Галицький і політичний розвиток південно-західних земель.", sortOrder: 30 },
+  { id: "hist-lithuania", subjectId: "history", title: "Литовсько-польська доба", summary: "Велике князівство Литовське, Кревська унія та становище українських земель.", sortOrder: 40 },
+  { id: "hist-cossacks", subjectId: "history", title: "Козацька доба", summary: "Виникнення козацтва, Хмельниччина та Гетьманщина.", sortOrder: 50 },
+  { id: "hist-revolution", subjectId: "history", title: "Українська революція 1917–1921", summary: "Українська Центральна Рада, Гетьманат, Директорія та ЗУНР.", sortOrder: 60 },
+  { id: "hist-ww2", subjectId: "history", title: "Україна в Другій світовій війні", summary: "Початок війни, окупація, рух опору та завершення бойових дій.", sortOrder: 70 },
+  { id: "hist-soviet", subjectId: "history", title: "Україна в 1945–1991 роках", summary: "Повоєнна відбудова, шістдесятники, дисидентський рух і шлях до незалежності.", sortOrder: 80 },
+  { id: "hist-independence", subjectId: "history", title: "Незалежна Україна", summary: "Акт проголошення незалежності 24 серпня 1991 року та подальший державний розвиток.", sortOrder: 90 },
+  { id: "bio-cell", subjectId: "biology", title: "Хімічний склад і клітина", summary: "Органели еукаріотичної клітини, мембрана, ядро, мітоз і мейоз.", formulas: "Мітохондрія — синтез АТФ. Рибосома — синтез білка.", sortOrder: 10 },
+  { id: "bio-metabolism", subjectId: "biology", title: "Обмін речовин", summary: "Пластичний і енергетичний обмін, фотосинтез і дихання.", sortOrder: 20 },
+  { id: "bio-botany", subjectId: "biology", title: "Ботаніка", summary: "Тканини, органи рослини та основні відділи рослин.", sortOrder: 30 },
+  { id: "bio-zoology", subjectId: "biology", title: "Зоологія", summary: "Основні групи тварин і порівняння їхньої будови.", sortOrder: 40 },
+  { id: "bio-human", subjectId: "biology", title: "Людина та її здоров'я", summary: "Системи органів людини і базова профілактика.", sortOrder: 50 },
+  { id: "bio-genetics", subjectId: "biology", title: "Генетика", summary: "Гени, хромосоми, моногібридне схрещування.", formulas: "Закон чистоти гамет Менделя.", sortOrder: 60 },
+  { id: "bio-evolution", subjectId: "biology", title: "Еволюція", summary: "Природний добір, вид і докази еволюції.", sortOrder: 70 },
+  { id: "bio-ecology", subjectId: "biology", title: "Екологія", summary: "Екосистеми, ланцюги живлення та охорона довкілля.", sortOrder: 80 },
+];
+
+export const dependencies = [
+  { topicId: "math-quadratic", prerequisiteId: "math-linear-eq" },
+  { topicId: "math-derivative", prerequisiteId: "math-functions" },
+  { topicId: "math-linear-systems", prerequisiteId: "math-linear-eq" },
+  { topicId: "ukr-punct", prerequisiteId: "ukr-syntax" },
+  { topicId: "bio-genetics", prerequisiteId: "bio-cell" },
+];
+
+export const notes = [
+  {
+    id: "note-math-linear",
+    topicId: "math-linear-eq",
+    subjectId: "math",
+    title: "Конспект: лінійні рівняння",
+    content:
+      "Лінійне рівняння зводиться до вигляду ax + b = 0.\nДо обох частин можна додавати те саме число і множити їх на число, відмінне від нуля.\nПісля знаходження кореня підставте його в початкове рівняння.\nЦе авторський конспект для повторення, не офіційний матеріал НМТ.",
+  },
+  {
+    id: "note-ukr-ortho",
+    topicId: "ukr-ortho",
+    subjectId: "ukrainian",
+    title: "Конспект: орфографія",
+    content:
+      "Не з дієсловами зазвичай пишеться окремо: не знаю, не хочу.\nПрефікс при- часто означає наближення, приєднання або неповну дію: приїхати, приклеїти.\nПрефікс пре- може означати вищий ступінь: прекрасний.\nАпостроф ставиться після б, п, в, м, ф перед я, ю, є, ї: м'ята, комп'ютер.",
+  },
+];
+
+export const flashcards = [
+  { id: "card-quad", subjectId: "math", topicId: "math-quadratic", kind: "formula", front: "Дискримінант квадратного рівняння", back: "D = b² − 4ac" },
+  { id: "card-progress", subjectId: "math", topicId: "math-progressions", kind: "formula", front: "n-й член арифметичної прогресії", back: "aₙ = a₁ + (n − 1)d" },
+  { id: "card-baptism", subjectId: "history", topicId: "hist-kyiv", kind: "date", front: "Хрещення Русі", back: "988 рік, князь Володимир Великий" },
+  { id: "card-lyubech", subjectId: "history", topicId: "hist-kyiv", kind: "date", front: "Любецький з'їзд князів", back: "1097 рік" },
+  { id: "card-yaroslav", subjectId: "history", topicId: "hist-kyiv", kind: "person", front: "Ярослав Мудрий", back: "«Руська правда», Софійський собор у Києві" },
+  { id: "card-mitochondria", subjectId: "biology", topicId: "bio-cell", kind: "term", front: "Мітохондрія", back: "Органела, у якій синтезується АТФ" },
+  { id: "card-ribosome", subjectId: "biology", topicId: "bio-cell", kind: "term", front: "Рибосома", back: "Органела синтезу білка" },
+  { id: "card-ne", subjectId: "ukrainian", topicId: "ukr-ortho", kind: "rule", front: "Не з дієсловом", back: "Зазвичай окремо: не знаю" },
+  { id: "card-apostrophe", subjectId: "ukrainian", topicId: "ukr-ortho", kind: "rule", front: "Апостроф після м", back: "м'ята, м'ясо, ім'я" },
+];
+
+export const achievements = [
+  { id: "first-session", title: "Перший крок", description: "Завершено перше заняття.", xp: 20 },
+  { id: "first-test", title: "Перший тест", description: "Завершено перший тематичний тест.", xp: 30 },
+  { id: "streak-3", title: "Три дні поспіль", description: "Навчальна серія досягла 3 днів. Неділя не карається.", xp: 25 },
+  { id: "streak-7", title: "Тиждень у ритмі", description: "Навчальна серія досягла 7 днів.", xp: 40 },
+  { id: "topics-5", title: "П'ять тем", description: "П'ять тем позначено як засвоєні.", xp: 50 },
+  { id: "week-goal", title: "Тижневий план", description: "Тижневий план виконано щонайменше на 100%.", xp: 40 },
+];
+
+export const historicalResults = [
+  {
+    id: "seed-math-diag",
+    subjectId: "math",
+    date: "2026-09-01",
+    testType: "DIAGNOSTIC",
+    title: "Діагностичний тест",
+    source: "Перші діагностичні результати, 1–3 вересня 2026",
+    rawScore: 4,
+    maxRawScore: 32,
+    ratingScore: null,
+    belowThreshold: true,
+    partial: false,
+    countsTowardAverage: false,
+    comment: "Результат нижче порогового. Рейтинговий бал відсутній.",
+  },
+  {
+    id: "seed-ukr-diag",
+    subjectId: "ukrainian",
+    date: "2026-09-02",
+    testType: "DIAGNOSTIC",
+    title: "Діагностичний тест",
+    source: "Перші діагностичні результати, 1–3 вересня 2026",
+    rawScore: 14,
+    maxRawScore: 45,
+    ratingScore: 134,
+    belowThreshold: false,
+    partial: false,
+    countsTowardAverage: true,
+    comment: "",
+  },
+  {
+    id: "seed-hist-diag",
+    subjectId: "history",
+    date: "2026-09-03",
+    testType: "DIAGNOSTIC",
+    title: "Діагностичний тест",
+    source: "Перші діагностичні результати, 1–3 вересня 2026",
+    rawScore: null,
+    maxRawScore: null,
+    ratingScore: 138,
+    belowThreshold: false,
+    partial: false,
+    countsTowardAverage: true,
+    comment: "Точний тестовий результат потребує підтвердження.",
+  },
+  {
+    id: "seed-bio-diag",
+    subjectId: "biology",
+    date: "2026-09-03",
+    testType: "DIAGNOSTIC",
+    title: "Діагностичний тест",
+    source: "Перші діагностичні результати, 1–3 вересня 2026",
+    rawScore: 22,
+    maxRawScore: 46,
+    ratingScore: 147,
+    belowThreshold: false,
+    partial: false,
+    countsTowardAverage: true,
+    comment: "",
+  },
+  {
+    id: "seed-math-sep30",
+    subjectId: "math",
+    date: "2026-09-30",
+    testType: "MANUAL",
+    title: "Результат 30 вересня",
+    source: "Запис користувача",
+    rawScore: null,
+    maxRawScore: null,
+    ratingScore: 132,
+    belowThreshold: false,
+    partial: false,
+    countsTowardAverage: true,
+    comment: "Зафіксовано рейтинговий бал. Тестовий бал не вказано.",
+  },
+  {
+    id: "seed-hist-oct2",
+    subjectId: "history",
+    date: "2026-10-02",
+    testType: "PARTIAL",
+    title: "Частковий тест",
+    source: "Запис користувача",
+    rawScore: 8,
+    maxRawScore: 21,
+    ratingScore: null,
+    belowThreshold: false,
+    partial: true,
+    countsTowardAverage: false,
+    comment: "8 правильних із 21 перевіреного завдання. Це частковий тест, не повний пробник.",
+  },
+  {
+    id: "seed-bio-oct3",
+    subjectId: "biology",
+    date: "2026-10-03",
+    testType: "MANUAL",
+    title: "Результат 3 жовтня",
+    source: "Запис користувача",
+    rawScore: 24,
+    maxRawScore: 46,
+    ratingScore: 149,
+    belowThreshold: false,
+    partial: false,
+    countsTowardAverage: true,
+    comment: "",
+  },
+];
+
+export { PRACTICE_SOURCE };
