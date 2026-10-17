@@ -52,21 +52,23 @@ export async function syncPlan(userId?: string) {
     if (!settings.studyDays.includes(parseDateKey(day).getDay())) continue;
     for (const slot of buildSlotsForDate(day, schedule, picks, settings.planStart)) {
       const current = byKey.get(`${slot.dateKey}:${slot.templateKey}`);
-      if (!current) {
-        create.push({
-          dateKey: slot.dateKey,
-          templateKey: slot.templateKey,
-          subjectId: slot.subjectId ?? null,
-          topicId: slot.topicId ?? null,
-          title: slot.title,
-          detail: slot.detail,
-          kind: slot.kind,
-          durationMin: slot.durationMin,
-          optional: slot.optional,
-          sortOrder: slot.sortOrder,
-          status: "PLANNED",
-          userId: ownerId,
-        });
+      const replacement = {
+        dateKey: slot.dateKey,
+        templateKey: slot.templateKey,
+        subjectId: slot.subjectId ?? null,
+        topicId: slot.topicId ?? null,
+        title: slot.title,
+        detail: slot.detail,
+        kind: slot.kind,
+        durationMin: slot.durationMin,
+        optional: slot.optional,
+        sortOrder: slot.sortOrder,
+        status: "PLANNED",
+        userId: ownerId,
+      };
+      if (!current || current.status === "DROPPED") {
+        if (current) await prisma.studyTask.update({ where: { id: current.id }, data: { templateKey: null } });
+        create.push(replacement);
         continue;
       }
       if (current.status !== "PLANNED") continue;

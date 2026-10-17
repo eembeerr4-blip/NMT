@@ -15,7 +15,10 @@ model User {
   passwordHash String              @default("")
   examYear     Int                 @default(2027)
   onboarded    Boolean             @default(false)
-  createdAt    DateTime            @default(now())
+  onboardingStep String            @default("PROFILE")
+  diagnosticSkipped Boolean       @default(false)
+  planVersion Int                 @default(0)
+  createdAt   DateTime            @default(now())
   updatedAt    DateTime            @updatedAt
   settings     UserSettings?
   subjects     UserSubject[]
@@ -40,6 +43,7 @@ model UserSubject {
   subjectId String
   role      String
   active    Boolean @default(true)
+  targetScore Int?
   user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   subject   Subject @relation(fields: [subjectId], references: [id], onDelete: Cascade)
 
@@ -297,6 +301,8 @@ model ExamResult {
   ratingScore         Int?
   belowThreshold      Boolean  @default(false)
   partial             Boolean  @default(false)
+  isBaseline          Boolean  @default(false)
+  baselineKey         String?  @unique
   countsTowardAverage Boolean  @default(false)
   durationSec         Int?
   errorCount          Int?

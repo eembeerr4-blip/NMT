@@ -14,12 +14,15 @@ import { prisma } from "@/lib/prisma";
 import { readSecrets, writeSecrets } from "@/lib/secrets";
 import { examResultSchema, preferencesSchema, questionSchema } from "@/lib/validators";
 import { parseYouTubeId, searchYouTube as searchYouTubeApi, youtubeSearchUrl, youtubeWatchUrl } from "@/lib/youtube";
-import { personalSchedule } from "@/lib/plan";
 import { relocationMode } from "@/lib/shift";
 import { hashPassword, verifyPassword } from "@/lib/auth";
 import { addXp, refreshAchievements } from "@/server/progress";
 import { clearSession, createSession, getSessionUser } from "@/server/session";
 import { getSettings, syncPlan } from "@/server/sync";
+import { getOnboardingSubjects } from "@/features/onboarding/subjects";
+import { getPrioritiesForUser } from "@/features/personal-plan/data";
+import { PERSONAL_PLAN_CONFIG } from "@/features/personal-plan/config";
+import { buildPersonalizedSchedule } from "@/features/personal-plan/schedule";
 
 export type ActionState = { ok: true; message?: string; id?: string } | { ok: false; error: string };
 
@@ -441,9 +444,7 @@ export async function finishAttempt(attemptId: string, draft: Record<string, unk
       },
     });
     if (attempt.test.topicId && pending === 0) {
-      await applyMastery(attempt.test.topicId, correct, total, settings.masteryHighMin, settings.masteryMidMin);
-    } else if (attempt.test.topicId) {
-      await prisma.topic.update({ where: { id: attempt.test.topicId }, data: { status: "IN_PROGRESS", lastCorrect: correct, lastTotal: total } });
+      await applyMastery(user.id, attempt.test.topicId, correct, total, settings.masteryHighMin, settings.masteryMidMin);
     }
     await prisma.studySession.create({
       data: {
@@ -457,8 +458,8 @@ export async function finishAttempt(attemptId: string, draft: Record<string, unk
       },
     });
     if (attempt.test.topicId) await completeOpenTask(user.id, attempt.test.topicId);
-    await addXp(30 + correct * 2, "Завершений тест");
-    await refreshAchievements();
+    await addXp(user.id, 30 + correct * 2, "Завершений тест");
+    await refreshAchievements(user.id);
     refresh();
     return { ok: true };
   } catch (error) {
@@ -553,22 +554,21 @@ export async function completeLesson(topicId: string, studied: boolean): Promise
   }
 }
 
-async function applyMastery(topicId: string, correct: number, total: number, highMin: number, midMin: number) {
-  const user = await actor();
+async function applyMastery(userId: string, topicId: string, correct: number, total: number, highMin: number, midMin: number) {
   const status = learningStatus(correct, total, highMin, midMin);
-  const repeats = await prisma.mistake.aggregate({ where: { userId: user.id, topicId, status: { not: "FIXED" } }, _sum: { repeatCount: true } });
+  const repeats = await prisma.mistake.aggregate({ where: { userId, topicId, status: { not: "FIXED" } }, _sum: { repeatCount: true } });
   await prisma.userTopicProgress.upsert({
-    where: { userId_topicId: { userId: user.id, topicId } },
+    where: { userId_topicId: { userId, topicId } },
     update: { status, lastCorrect: correct, lastTotal: total },
-    create: { userId: user.id, topicId, status, lastCorrect: correct, lastTotal: total },
+    create: { userId, topicId, status, lastCorrect: correct, lastTotal: total },
   });
-  await prisma.reviewSchedule.deleteMany({ where: { userId: user.id, topicId, status: "PENDING" } });
+  await prisma.reviewSchedule.deleteMany({ where: { userId, topicId, status: "PENDING" } });
   const intervals = reviewIntervals(correct, total, highMin, midMin, repeats._sum.repeatCount ?? 0);
   const priority = status === "MASTERED" ? 0 : status === "NEEDS_REVIEW" ? 1 : 3;
   await prisma.reviewSchedule.createMany({
     data: intervals.map((days) => ({
       topicId,
-      userId: user.id,
+      userId,
       dueKey: addDateKeys(dateKey(), days),
       intervalDays: days,
       priority,
@@ -579,6 +579,12 @@ async function applyMastery(topicId: string, correct: number, total: number, hig
 
 export async function gradeManually(answerId: string, correct: boolean): Promise<ActionState> {
   try {
+    const user = await actor();
+    const current = await prisma.answer.findUnique({
+      where: { id: answerId },
+      include: { attempt: { include: { test: true } }, question: true },
+    });
+    if (!current || current.attempt.userId !== user.id) return { ok: false, error: "Ця відповідь належить іншому профілю." };
     const answer = await prisma.answer.update({
       where: { id: answerId },
       data: { isCorrect: correct, needsManualReview: false },
@@ -593,8 +599,8 @@ export async function gradeManually(answerId: string, correct: boolean): Promise
       data: { correctCount, pendingCount: pending, percent: answers.length ? (correctCount / answers.length) * 100 : 0 },
     });
     if (pending === 0 && answer.attempt.test.topicId) {
-      const settings = await getSettings();
-      await applyMastery(answer.attempt.test.topicId, correctCount, answers.length, settings.masteryHighMin, settings.masteryMidMin);
+      const settings = await getSettings(user.id);
+      await applyMastery(user.id, answer.attempt.test.topicId, correctCount, answers.length, settings.masteryHighMin, settings.masteryMidMin);
     }
     refresh();
     return { ok: true };
@@ -628,7 +634,7 @@ export async function saveExamResult(raw: unknown): Promise<ActionState> {
       if (!existing || existing.userId !== user.id) return { ok: false, error: "Цей результат належить іншому профілю." };
       await prisma.examResult.update({ where: { id: data.id }, data: payload });
     } else await prisma.examResult.create({ data: { ...payload, userId: user.id } });
-    await addXp(20, "Записаний результат");
+    await addXp(user.id, 20, "Записаний результат");
     refresh();
     return { ok: true };
   } catch (error) {
@@ -668,8 +674,8 @@ export async function setTaskStatus(id: string, status: "PLANNED" | "IN_PROGRESS
           kind: task.kind,
         },
       });
-      await addXp(15, "Завершене заняття");
-      await refreshAchievements();
+      await addXp(user.id, 15, "Завершене заняття");
+      await refreshAchievements(user.id);
     }
     refresh();
     return { ok: true };
@@ -739,13 +745,10 @@ export async function createCustomTask(input: { dateKey: string; title: string; 
 
 export async function recalculateFuturePlan(): Promise<ActionState> {
   try {
-    const today = dateKey();
-    const planned = await prisma.studyTask.findMany({ where: { status: "PLANNED", dateKey: { gte: today } } });
-    const ids = planned.filter((task) => task.templateKey?.startsWith("d")).map((task) => task.id);
-    if (ids.length) await prisma.studyTask.deleteMany({ where: { id: { in: ids } } });
-    await syncPlan();
+    const user = await actor();
+    await syncPlan(user.id);
     refresh();
-    return { ok: true, message: "Майбутні заплановані заняття перераховано. Виконані й перенесені залишились." };
+    return { ok: true, message: "Ваш майбутній план оновлено без видалення завершених або перенесених занять." };
   } catch (error) {
     return fail(error);
   }
@@ -753,9 +756,11 @@ export async function recalculateFuturePlan(): Promise<ActionState> {
 
 export async function logStudyMinutes(input: { subjectId?: string; topicId?: string; minutes: number; note?: string }): Promise<ActionState> {
   try {
+    const user = await actor();
     if (input.minutes <= 0) return { ok: false, error: "Вкажіть тривалість у хвилинах." };
     await prisma.studySession.create({
       data: {
+        userId: user.id,
         subjectId: input.subjectId || null,
         topicId: input.topicId || null,
         startedAt: new Date(),
@@ -765,8 +770,8 @@ export async function logStudyMinutes(input: { subjectId?: string; topicId?: str
         note: input.note ?? "",
       },
     });
-    await addXp(10, "Записаний навчальний час");
-    await refreshAchievements();
+    await addXp(user.id, 10, "Записаний навчальний час");
+    await refreshAchievements(user.id);
     refresh();
     return { ok: true };
   } catch (error) {
@@ -776,8 +781,11 @@ export async function logStudyMinutes(input: { subjectId?: string; topicId?: str
 
 export async function completeReview(id: string): Promise<ActionState> {
   try {
+    const user = await actor();
+    const review = await prisma.reviewSchedule.findUnique({ where: { id } });
+    if (!review || review.userId !== user.id) return { ok: false, error: "Це повторення належить іншому профілю." };
     await prisma.reviewSchedule.update({ where: { id }, data: { status: "DONE", completedAt: new Date() } });
-    await addXp(10, "Повторення");
+    await addXp(user.id, 10, "Повторення");
     refresh();
     return { ok: true };
   } catch (error) {
@@ -787,17 +795,15 @@ export async function completeReview(id: string): Promise<ActionState> {
 
 export async function reviewFlashcard(id: string, grade: "again" | "good"): Promise<ActionState> {
   try {
+    const user = await actor();
     const card = await prisma.flashcard.findUnique({ where: { id } });
-    if (!card) return { ok: false, error: "Картку не знайдено." };
+    if (!card || card.userId !== user.id) return { ok: false, error: "Картка не належить цьому профілю." };
     if (grade === "again") {
       await prisma.flashcard.update({ where: { id }, data: { intervalDays: 1, dueKey: addDateKeys(dateKey(), 1), lapses: { increment: 1 } } });
-      if (card.topicId) {
-        await prisma.topic.update({ where: { id: card.topicId }, data: { status: "NEEDS_REVIEW" } });
-      }
     } else {
       const interval = Math.max(1, Math.round((card.intervalDays || 1) * card.ease));
       await prisma.flashcard.update({ where: { id }, data: { intervalDays: interval, dueKey: addDateKeys(dateKey(), interval), reps: { increment: 1 } } });
-      await addXp(5, "Картка");
+      await addXp(user.id, 5, "Картка");
     }
     refresh();
     return { ok: true };
@@ -808,9 +814,11 @@ export async function reviewFlashcard(id: string, grade: "again" | "good"): Prom
 
 export async function saveFlashcard(input: { subjectId?: string; topicId?: string; kind: string; front: string; back: string }): Promise<ActionState> {
   try {
+    const user = await actor();
     if (!input.front.trim() || !input.back.trim()) return { ok: false, error: "Заповніть обидва боки картки." };
     await prisma.flashcard.create({
       data: {
+        userId: user.id,
         subjectId: input.subjectId || null,
         topicId: input.topicId || null,
         kind: input.kind,
@@ -838,9 +846,10 @@ export async function setMistakeMeta(id: string, category: string, status: strin
 
 export async function savePreferences(raw: unknown): Promise<ActionState> {
   try {
+    const user = await actor();
     const data = preferencesSchema.parse(raw);
     await prisma.userSettings.update({
-      where: { id: (await getSettings()).id },
+      where: { id: (await getSettings(user.id)).id },
       data: {
         theme: data.theme,
         examDate: data.examDate ? noonUtc(data.examDate) : null,
@@ -865,9 +874,10 @@ export async function savePreferences(raw: unknown): Promise<ActionState> {
 
 export async function saveSchedule(rawJson: string): Promise<ActionState> {
   try {
+    const user = await actor();
     const parsed = JSON.parse(rawJson) as ScheduleConfig;
     if (!parsed.days || !parsed.rotation || !parsed.anchorMockDate) return { ok: false, error: "У розкладі бракує днів, ротації або дати першого пробника." };
-    await prisma.userSettings.update({ where: { id: (await getSettings()).id }, data: { scheduleJson: JSON.stringify(parsed) } });
+    await prisma.userSettings.update({ where: { id: (await getSettings(user.id)).id }, data: { scheduleJson: JSON.stringify(parsed) } });
     refresh();
     return { ok: true, message: "Розклад збережено. Перерахуйте майбутній план на сторінці календаря." };
   } catch (error) {
@@ -877,11 +887,12 @@ export async function saveSchedule(rawJson: string): Promise<ActionState> {
 
 export async function saveFormat(rawJson: string): Promise<ActionState> {
   try {
+    const user = await actor();
     const parsed = JSON.parse(rawJson) as typeof DEFAULT_FORMAT;
     if (typeof parsed.officialFormatConfirmed !== "boolean" || typeof parsed.year !== "number") {
       return { ok: false, error: "Формат має містити year і officialFormatConfirmed." };
     }
-    await prisma.userSettings.update({ where: { id: (await getSettings()).id }, data: { formatJson: JSON.stringify({ ...DEFAULT_FORMAT, ...parsed }) } });
+    await prisma.userSettings.update({ where: { id: (await getSettings(user.id)).id }, data: { formatJson: JSON.stringify({ ...DEFAULT_FORMAT, ...parsed }) } });
     refresh();
     return { ok: true, message: "Конфігурацію формату збережено. Без підтвердженої таблиці рейтинговий бал не обчислюється." };
   } catch (error) {
@@ -1113,83 +1124,350 @@ export async function claimOwner() {
   const owner = await prisma.user.findUnique({ where: { id: "owner" } });
   if (!owner || owner.passwordHash) return { ok: false as const, error: "Профіль власника вже захищено паролем." };
   await createSession(owner.id);
-  redirect("/onboarding");
+  return { ok: true as const };
 }
 
-export async function completeOnboarding(input: {
+export async function beginPersonalOnboarding(input: {
   firstName: string;
   lastName: string;
   nickname: string;
   password: string;
-  examYear: number;
-  targetScore: number;
-  electiveId: string;
-  intensity: "light" | "standard" | "intense";
-  dailyMinutes: number;
-  preferredTime: string;
-  studyDays: number[];
 }) {
-  if (input.firstName.trim().length < 2) return { ok: false as const, error: "Вкажіть ім'я." };
-  if (!/^[a-z0-9_-]{3,24}$/i.test(input.nickname.trim())) return { ok: false as const, error: "Нікнейм: 3–24 латинські літери, цифри, _ або -." };
-  if (input.password.length < 8) return { ok: false as const, error: "Пароль має містити щонайменше 8 символів." };
-  if (!ELECTIVE_SUBJECT_IDS.includes(input.electiveId as never)) return { ok: false as const, error: "Оберіть один предмет на вибір." };
+  const firstName = input.firstName.trim();
+  const lastName = input.lastName.trim();
   const nickname = input.nickname.trim().toLowerCase();
-  let existing = await getSessionUser();
-  if (existing?.onboarded) {
-    await clearSession();
-    existing = null;
+  if (firstName.length < 2) return { ok: false as const, error: "Вкажіть ім’я." };
+  if (!/^[a-z0-9_-]{3,24}$/i.test(nickname)) return { ok: false as const, error: "Нікнейм: 3–24 латинські літери, цифри, _ або -." };
+
+  const current = await getSessionUser();
+  if (current?.onboarded) return { ok: false as const, error: "Цей профіль уже налаштований. Увійдіть до навчання." };
+  if (current) return { ok: true as const };
+  if (input.password.length < 8) return { ok: false as const, error: "Пароль має містити щонайменше 8 символів." };
+
+  try {
+    const user = await prisma.user.create({
+      data: {
+        firstName,
+        lastName,
+        nickname,
+        passwordHash: hashPassword(input.password),
+        examYear: 2027,
+        onboardingStep: "SUBJECTS",
+      },
+    });
+    await createSession(user.id);
+  } catch (error) {
+    if (error instanceof Error && "code" in error && error.code === "P2002") {
+      return { ok: false as const, error: "Такий нікнейм уже зайнятий." };
+    }
+    throw error;
   }
-  const user = existing ?? await prisma.user.create({ data: { firstName: input.firstName.trim(), nickname, passwordHash: hashPassword(input.password), examYear: input.examYear, lastName: input.lastName.trim() } });
-  const taken = await prisma.user.findUnique({ where: { nickname } });
-  if (taken && taken.id !== user.id) return { ok: false as const, error: "Такий нікнейм уже зайнятий." };
-  await prisma.user.update({
-    where: { id: user.id },
+  return { ok: true as const };
+}
+
+export async function saveOnboardingSubjects(electiveId: string): Promise<ActionState> {
+  try {
+    const user = await actor();
+    if (user.onboarded) return { ok: false, error: "Профіль уже налаштований." };
+    const allowedElective = getOnboardingSubjects().some((subject) => subject.id === electiveId && subject.role === "elective");
+    if (!allowedElective) return { ok: false, error: "Оберіть доступний предмет на вибір." };
+    const requiredIds = REQUIRED_SUBJECT_IDS as readonly string[];
+    const available = await prisma.subject.findMany({
+      where: { id: { in: [...requiredIds, electiveId] } },
+      select: { id: true },
+    });
+    if (requiredIds.some((id) => !available.some((subject) => subject.id === id)) || !available.some((subject) => subject.id === electiveId)) {
+      return { ok: false, error: "Не всі обрані предмети доступні в бібліотеці. Зверніться до адміністратора." };
+    }
+
+    await prisma.$transaction(async (tx) => {
+      await tx.userSubject.updateMany({ where: { userId: user.id, role: "ELECTIVE", active: true }, data: { active: false } });
+      await Promise.all([
+        ...requiredIds.map((subjectId) => tx.userSubject.upsert({
+          where: { userId_subjectId: { userId: user.id, subjectId } },
+          update: { role: "REQUIRED", active: true },
+          create: { userId: user.id, subjectId, role: "REQUIRED", active: true },
+        })),
+        tx.userSubject.upsert({
+          where: { userId_subjectId: { userId: user.id, subjectId: electiveId } },
+          update: { role: "ELECTIVE", active: true },
+          create: { userId: user.id, subjectId: electiveId, role: "ELECTIVE", active: true },
+        }),
+        tx.user.update({ where: { id: user.id }, data: { onboardingStep: "DIAGNOSTIC", diagnosticSkipped: false } }),
+      ]);
+    });
+    refresh();
+    return { ok: true };
+  } catch (error) {
+    return fail(error);
+  }
+}
+
+const baselineInputSchema = z.object({
+  id: z.string().optional(),
+  subjectId: z.string().min(1),
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  title: z.string().trim().max(200).default("Стартовий тест"),
+  ratingScore: z.number().int().min(100).max(200).nullable(),
+  rawScore: z.number().int().nonnegative().nullable(),
+  maxRawScore: z.number().int().positive().nullable(),
+  belowThreshold: z.boolean().default(false),
+  partial: z.boolean().default(false),
+  comment: z.string().trim().max(2000).default(""),
+}).refine((value) => value.ratingScore !== null || value.rawScore !== null, {
+  message: "Вкажіть рейтинговий бал або тестовий результат.",
+}).refine((value) => value.rawScore === null || value.maxRawScore === null || value.rawScore <= value.maxRawScore, {
+  message: "Тестовий бал не може перевищувати максимальний бал.",
+});
+
+export async function saveBaselineResult(raw: unknown): Promise<ActionState> {
+  try {
+    const user = await actor();
+    const data = baselineInputSchema.parse(raw);
+    const selected = await prisma.userSubject.findUnique({
+      where: { userId_subjectId: { userId: user.id, subjectId: data.subjectId } },
+    });
+    if (!selected?.active) return { ok: false, error: "Результат можна додати лише для активного предмета вашого профілю." };
+
+    const existing = data.id
+      ? await prisma.examResult.findUnique({ where: { id: data.id } })
+      : await prisma.examResult.findFirst({
+        where: { userId: user.id, subjectId: data.subjectId, isBaseline: true },
+        orderBy: [{ date: "desc" }, { createdAt: "desc" }],
+      });
+    if (data.id && (!existing || existing.userId !== user.id || !existing.isBaseline || existing.subjectId !== data.subjectId)) {
+      return { ok: false, error: "Цей стартовий результат не належить вашому профілю." };
+    }
+    const resultData = {
+      subjectId: data.subjectId,
+      userId: user.id,
+      date: noonUtc(data.date),
+      testType: "DIAGNOSTIC",
+      title: data.title || "Стартовий тест",
+      source: "ЗНО.Освіта.ua",
+      rawScore: data.rawScore,
+      maxRawScore: data.maxRawScore,
+      ratingScore: data.ratingScore,
+      belowThreshold: data.belowThreshold,
+      partial: data.partial,
+      isBaseline: true,
+      baselineKey: `${user.id}:${data.subjectId}`,
+      countsTowardAverage: false,
+      durationSec: null,
+      errorCount: null,
+      comment: data.comment,
+    };
+    if (data.id || existing) {
+      await prisma.examResult.update({ where: { id: existing!.id }, data: resultData });
+    } else {
+      await prisma.examResult.upsert({
+        where: { baselineKey: `${user.id}:${data.subjectId}` },
+        update: resultData,
+        create: resultData,
+      });
+    }
+    await prisma.user.update({
+      where: { id: user.id },
+      data: {
+        diagnosticSkipped: false,
+        ...(!user.onboarded ? { onboardingStep: "DIAGNOSTIC" } : {}),
+      },
+    });
+    refresh();
+    return { ok: true, message: "Стартовий результат збережено. Рейтинговий і тестовий бали не перераховуються." };
+  } catch (error) {
+    return fail(error);
+  }
+}
+
+export async function skipBaselineDiagnostic(): Promise<ActionState> {
+  try {
+    const user = await actor();
+    if (user.onboarded) return { ok: false, error: "Профіль уже налаштований." };
+    await prisma.user.update({ where: { id: user.id }, data: { diagnosticSkipped: true, onboardingStep: "TARGETS" } });
+    refresh();
+    return { ok: true, message: "Діагностику пропущено. Результати залишаться невідомими, їх можна додати пізніше." };
+  } catch (error) {
+    return fail(error);
+  }
+}
+
+export async function continueAfterDiagnostic(): Promise<ActionState> {
+  try {
+    const user = await actor();
+    if (user.onboarded) return { ok: false, error: "Профіль уже налаштований." };
+    const activeCount = await prisma.userSubject.count({ where: { userId: user.id, active: true } });
+    if (activeCount !== 4) return { ok: false, error: "Спочатку оберіть чотири активні предмети." };
+    await prisma.user.update({ where: { id: user.id }, data: { onboardingStep: "TARGETS" } });
+    refresh();
+    return { ok: true };
+  } catch (error) {
+    return fail(error);
+  }
+}
+
+export async function saveSubjectTargets(raw: unknown): Promise<ActionState> {
+  try {
+    const user = await actor();
+    if (user.onboarded) return { ok: false, error: "Профіль уже налаштований." };
+    const input = z.array(z.object({
+      subjectId: z.string().min(1),
+      targetScore: z.number().int().min(100).max(200),
+    })).length(4).parse(raw);
+    const active = await prisma.userSubject.findMany({ where: { userId: user.id, active: true }, select: { subjectId: true } });
+    if (active.length !== 4 || new Set(input.map((item) => item.subjectId)).size !== 4 ||
+      active.some((item) => !input.some((target) => target.subjectId === item.subjectId))) {
+      return { ok: false, error: "Перевірте чотири активні предмети й ціль для кожного." };
+    }
+    await prisma.$transaction([
+      ...input.map((target) => prisma.userSubject.update({
+        where: { userId_subjectId: { userId: user.id, subjectId: target.subjectId } },
+        data: { targetScore: target.targetScore },
+      })),
+      prisma.user.update({ where: { id: user.id }, data: { onboardingStep: "SCHEDULE" } }),
+    ]);
+    refresh();
+    return { ok: true };
+  } catch (error) {
+    return fail(error);
+  }
+}
+
+const scheduleInputSchema = z.object({
+  dailyMinutes: z.number().int().min(PERSONAL_PLAN_CONFIG.schedule.minimumDailyMinutes).max(PERSONAL_PLAN_CONFIG.schedule.maximumDailyMinutes),
+  studyDays: z.array(z.number().int().min(0).max(6)).min(PERSONAL_PLAN_CONFIG.schedule.minimumStudyDays).max(7),
+  preferredTime: z.string().regex(/^\d{2}:\d{2}$/),
+  planStart: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  examDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).or(z.literal("")),
+});
+
+async function saveUserSettings(userId: string, values: {
+  targetScore: number;
+  dailyMinutes: number;
+  intensity: string;
+  preferredTime: string;
+  studyDaysJson: string;
+  planStart: string;
+  scheduleJson: string;
+  examDate: Date | null;
+}) {
+  const existing = await prisma.userSettings.findUnique({ where: { userId } });
+  if (existing) {
+    await prisma.userSettings.update({ where: { id: existing.id }, data: values });
+    return;
+  }
+  const legacyOwnerSettings = userId === "owner"
+    ? await prisma.userSettings.findUnique({ where: { id: "default" } })
+    : null;
+  if (legacyOwnerSettings && !legacyOwnerSettings.userId) {
+    await prisma.userSettings.update({
+      where: { id: legacyOwnerSettings.id },
+      data: { ...values, userId },
+    });
+    return;
+  }
+  await prisma.userSettings.create({
     data: {
-      firstName: input.firstName.trim(),
-      lastName: input.lastName.trim(),
-      nickname,
-      examYear: input.examYear,
-      onboarded: true,
-      passwordHash: user.passwordHash && existing ? user.passwordHash : hashPassword(input.password),
-    },
-  });
-  if (!existing || !existing.passwordHash) {
-    await prisma.user.update({ where: { id: user.id }, data: { passwordHash: hashPassword(input.password) } });
-  }
-  const schedule = personalSchedule(input.electiveId, input.intensity);
-  const settingsId = user.id === "owner" ? "default" : user.id;
-  await prisma.userSettings.upsert({
-    where: { id: settingsId },
-    update: {
-      userId: user.id,
-      targetScore: input.targetScore,
-      dailyMinutes: input.dailyMinutes,
-      intensity: input.intensity,
-      preferredTime: input.preferredTime,
-      studyDaysJson: JSON.stringify(input.studyDays),
-      scheduleJson: JSON.stringify(schedule),
-    },
-    create: {
-      id: settingsId,
-      userId: user.id,
-      targetScore: input.targetScore,
-      dailyMinutes: input.dailyMinutes,
-      intensity: input.intensity,
-      preferredTime: input.preferredTime,
-      studyDaysJson: JSON.stringify(input.studyDays),
-      scheduleJson: JSON.stringify(schedule),
+      id: userId,
+      userId,
+      ...values,
       formatJson: JSON.stringify(DEFAULT_FORMAT),
     },
   });
-  await prisma.userSubject.deleteMany({ where: { userId: user.id } });
-  await prisma.userSubject.createMany({
-    data: [
-      ...REQUIRED_SUBJECT_IDS.map((subjectId) => ({ userId: user.id, subjectId, role: "REQUIRED", active: true })),
-      { userId: user.id, subjectId: input.electiveId, role: "ELECTIVE", active: true },
-    ],
+}
+
+async function persistPersonalSchedule(userId: string, data: z.infer<typeof scheduleInputSchema>) {
+  const studyDays = [...new Set(data.studyDays)];
+  if (studyDays.length < 2) throw new Error("Оберіть щонайменше два різні навчальні дні.");
+  const active = await prisma.userSubject.findMany({
+    where: { userId, active: true },
+    select: { subjectId: true, targetScore: true },
   });
-  if (!existing) await createSession(user.id);
-  redirect("/");
+  if (active.length !== 4 || active.some((item) => item.targetScore === null)) {
+    throw new Error("Спершу оберіть чотири предмети й задайте кожному цільовий бал.");
+  }
+  const priorities = await getPrioritiesForUser(userId, active);
+  const schedule = buildPersonalizedSchedule({ priorities, dailyMinutes: data.dailyMinutes, studyDays });
+  const targetScore = Math.round(active.reduce((sum, item) => sum + (item.targetScore ?? 0), 0) / active.length);
+  await saveUserSettings(userId, {
+      targetScore,
+      dailyMinutes: data.dailyMinutes,
+      intensity: data.dailyMinutes <= 60 ? "light" : data.dailyMinutes >= 120 ? "intense" : "standard",
+      preferredTime: data.preferredTime,
+      studyDaysJson: JSON.stringify(studyDays),
+      planStart: data.planStart,
+      scheduleJson: JSON.stringify(schedule),
+      examDate: data.examDate ? noonUtc(data.examDate) : null,
+    });
+  return schedule;
+}
+
+export async function savePersonalScheduleDraft(raw: unknown): Promise<ActionState> {
+  try {
+    const user = await actor();
+    if (user.onboarded) return { ok: false, error: "Профіль уже налаштований." };
+    const data = scheduleInputSchema.parse(raw);
+    await persistPersonalSchedule(user.id, data);
+    await prisma.user.update({ where: { id: user.id }, data: { onboardingStep: "SCHEDULE" } });
+    refresh();
+    return { ok: true, message: "Час, дні та початок підготовки збережено в цьому профілі." };
+  } catch (error) {
+    return fail(error);
+  }
+}
+
+export async function createPersonalStudyPlan(raw: unknown): Promise<ActionState> {
+  try {
+    const user = await actor();
+    if (user.onboarded) return { ok: false, error: "Профіль уже налаштований." };
+    const data = scheduleInputSchema.parse(raw);
+    await persistPersonalSchedule(user.id, data);
+    await syncPlan(user.id);
+    await prisma.user.update({
+      where: { id: user.id },
+      data: { onboarded: true, onboardingStep: "COMPLETE", planVersion: { increment: 1 } },
+    });
+    refresh();
+    return { ok: true, message: "Персональний план створено." };
+  } catch (error) {
+    return fail(error);
+  }
+}
+
+export async function updatePersonalTargets(raw: unknown): Promise<ActionState> {
+  try {
+    const user = await actor();
+    const targets = z.array(z.object({
+      subjectId: z.string().min(1),
+      targetScore: z.number().int().min(100).max(200),
+    })).length(4).parse(raw);
+    const active = await prisma.userSubject.findMany({
+      where: { userId: user.id, active: true },
+      select: { subjectId: true },
+    });
+    if (active.length !== 4 || new Set(targets.map((item) => item.subjectId)).size !== 4 ||
+      active.some((item) => !targets.some((target) => target.subjectId === item.subjectId))) {
+      return { ok: false, error: "Перевір цільові бали для чотирьох активних предметів." };
+    }
+    await prisma.$transaction(targets.map((target) => prisma.userSubject.update({
+      where: { userId_subjectId: { userId: user.id, subjectId: target.subjectId } },
+      data: { targetScore: target.targetScore },
+    })));
+    const settings = await getSettings(user.id);
+    await persistPersonalSchedule(user.id, {
+      dailyMinutes: settings.dailyMinutes,
+      studyDays: settings.studyDays,
+      preferredTime: settings.preferredTime,
+      planStart: settings.planStart,
+      examDate: settings.examDate?.toISOString().slice(0, 10) ?? "",
+    });
+    await syncPlan(user.id);
+    await prisma.user.update({ where: { id: user.id }, data: { planVersion: { increment: 1 } } });
+    refresh();
+    return { ok: true, message: "Цілі оновлено, майбутні заплановані заняття узгоджено з новими пріоритетами." };
+  } catch (error) {
+    return fail(error);
+  }
 }
 
 export async function changeElective(subjectId: string, confirmed: boolean): Promise<ActionState> {
@@ -1213,7 +1491,16 @@ export async function changeElective(subjectId: string, confirmed: boolean): Pro
       create: { userId: user.id, subjectId, role: "ELECTIVE", active: true },
     });
     const settings = await getSettings(user.id);
-    const schedule = personalSchedule(subjectId, settings.intensity === "light" || settings.intensity === "intense" ? settings.intensity : "standard");
+    const activeSubjects = await prisma.userSubject.findMany({
+      where: { userId: user.id, active: true },
+      select: { subjectId: true, targetScore: true },
+    });
+    const priorities = await getPrioritiesForUser(user.id, activeSubjects);
+    const schedule = buildPersonalizedSchedule({
+      priorities,
+      dailyMinutes: settings.dailyMinutes,
+      studyDays: settings.studyDays,
+    });
     await prisma.userSettings.update({ where: { userId: user.id }, data: { scheduleJson: JSON.stringify(schedule) } });
     await syncPlan(user.id);
     refresh();

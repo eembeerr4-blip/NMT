@@ -1,6 +1,7 @@
 import { z } from "zod";
+import { SUBJECTS, type SubjectId } from "@/lib/constants";
 
-export const subjectIdSchema = z.enum(["math", "ukrainian", "history", "biology"]);
+export const subjectIdSchema = z.enum(SUBJECTS.map((subject) => subject.id) as [SubjectId, ...SubjectId[]]);
 
 export const examResultSchema = z.object({
   id: z.string().optional(),

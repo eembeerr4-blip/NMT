@@ -1,9 +1,10 @@
+import Link from "next/link";
 import { BackupRestoreForm, SettingsForm } from "@/components/forms";
 import { Button, Card, PageHeader } from "@/components/ui";
 import { ELECTIVE_SUBJECT_IDS, SUBJECTS } from "@/lib/constants";
+import { ElectiveSubjectForm } from "@/features/personal-plan/elective-subject-form";
 import { readSecrets } from "@/lib/secrets";
 import { dateKey } from "@/lib/dates";
-import { changeElective } from "@/server/actions";
 import { requireUser } from "@/server/session";
 import { getSettings } from "@/server/sync";
 
@@ -11,20 +12,26 @@ export default async function SettingsPage() {
   const user = await requireUser();
   const settings = await getSettings(user.id);
   const elective = user.subjects.find((item) => item.role === "ELECTIVE" && item.active)?.subjectId;
+  const electiveOptions = SUBJECTS.filter((subject) => (ELECTIVE_SUBJECT_IDS as readonly string[]).includes(subject.id));
   const secrets = readSecrets();
   return (
     <div className="space-y-6">
-      <PageHeader title="Налаштування" description={`${user.firstName}, тут можна змінити навантаження і предмет на вибір. Історичні результати не видаляються.`} />
+      <PageHeader
+        title="Налаштування"
+        description={`${user.firstName}, тут можна змінити навантаження і предмет на вибір. Історичні результати не видаляються.`}
+        action={<Button asChild variant="outline"><Link href="/goals">Мої цілі за предметами</Link></Button>}
+      />
+      <Card className="flex flex-wrap items-center justify-between gap-3 p-4">
+        <div>
+          <h2 className="font-medium">Стартові результати</h2>
+          <p className="mt-1 text-sm text-muted-foreground">Переглянь або онови baseline для своїх активних предметів.</p>
+        </div>
+        <Button asChild variant="outline"><Link href="/baseline">Керувати результатами</Link></Button>
+      </Card>
       <Card className="space-y-3 p-4">
         <h2 className="font-medium">Предмет на вибір</h2>
         <p className="text-sm text-muted-foreground">Зараз: {SUBJECTS.find((subject) => subject.id === elective)?.name ?? "не обрано"}. Майбутні заняття попереднього предмета зникнуть з активного розкладу, завершені залишаться.</p>
-        <form action={async (formData) => { "use server"; await changeElective(String(formData.get("subjectId") ?? ""), formData.get("confirm") === "on"); }} className="flex flex-wrap items-center gap-2">
-          <select name="subjectId" defaultValue={elective} className="h-10 rounded-lg border border-border bg-card px-3 text-sm">
-            {SUBJECTS.filter((subject) => (ELECTIVE_SUBJECT_IDS as readonly string[]).includes(subject.id)).map((subject) => <option key={subject.id} value={subject.id}>{subject.name}</option>)}
-          </select>
-          <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="confirm" /> Підтверджую зміну</label>
-          <Button type="submit" variant="outline">Змінити предмет</Button>
-        </form>
+        <ElectiveSubjectForm subjects={electiveOptions} selected={elective ?? electiveOptions[0]?.id ?? ""} />
       </Card>
       <Card className="p-4">
         <SettingsForm

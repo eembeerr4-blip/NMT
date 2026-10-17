@@ -37,6 +37,15 @@ describe("рейтингові розрахунки", () => {
     expect(averageForSubject(points, "history").value).toBe(138);
   });
 
+  it("не включає зовнішній стартовий результат у середнє внутрішніх результатів", () => {
+    const withBaseline = [
+      ...points,
+      { subjectId: "math", date: "2026-10-01", ratingScore: 200, partial: false, belowThreshold: false, countsTowardAverage: false },
+    ];
+    expect(averageForSubject(withBaseline, "math").value).toBe(132);
+    expect(averageOfLatestFull(withBaseline, ["math"]).value).toBe(132);
+  });
+
   it("показує зміну біології від першого результату", () => {
     expect(changeFromInitial(points, "biology").value).toBe(2);
     expect(changeFromPrevious(points, "biology").value).toBe(2);
