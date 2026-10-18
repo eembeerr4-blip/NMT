@@ -1,4 +1,5 @@
 "use server";
+import {userFacingError} from "@/lib/errors";
 import {z} from "zod";
 import {revalidatePath} from "next/cache";
 import {canEditContent} from "@/lib/permissions";
@@ -11,5 +12,5 @@ export async function saveSubjectDetails(input:unknown):Promise<ActionState>{
  const parsed=subjectSchema.safeParse(input);if(!parsed.success)return {ok:false,error:parsed.error.issues[0]?.message??"Перевірте поля форми."};
  const {id,...data}=parsed.data;
  try{return await auditedWrite<ActionState>(user,{action:"SUBJECT_UPDATED",entityType:"subject",entityId:id},async tx=>{await tx.subject.update({where:{id},data});revalidatePath("/","layout");return {ok:true};});}
- catch{return {ok:false,error:"Не вдалося зберегти предмет. Перевірте дані й спробуйте ще раз."};}
+ catch(error){return {ok:false,error:userFacingError(error)};}
 }

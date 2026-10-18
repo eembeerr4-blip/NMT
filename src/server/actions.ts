@@ -1,5 +1,6 @@
 "use server";
 
+import { UserError, userFacingError } from "@/lib/errors";
 import { auditedWrite, recordAudit } from "@/server/audit-log";
 import { canEditContent, isAdministrator, isOwner, canManageRole, effectiveRole } from "@/lib/permissions";
 import { prepareQuestion } from "@/lib/question-input";
@@ -33,33 +34,30 @@ function refresh() {
 
 async function actor() {
   const user = await getSessionUser();
-  if (!user) throw new Error("Потрібен вхід до профілю.");
+  if (!user) throw new UserError("Потрібен вхід до профілю.");
   return user;
 }
 
 async function administrator() {
   const user = await actor();
-  if (!isAdministrator(user)) throw new Error("Ця дія доступна лише адміністратору платформи.");
+  if (!isAdministrator(user)) throw new UserError("Ця дія доступна лише адміністратору платформи.");
   return user;
 }
 
 async function owner() {
   const user = await actor();
-  if (!isOwner(user)) throw new Error("Ця дія доступна лише власнику платформи.");
+  if (!isOwner(user)) throw new UserError("Ця дія доступна лише власнику платформи.");
   return user;
 }
 
 async function editor() {
   const user = await actor();
-  if (!canEditContent(user)) throw new Error("Редагування спільних матеріалів доступне лише редактору.");
+  if (!canEditContent(user)) throw new UserError("Редагування спільних матеріалів доступне лише редактору.");
   return user;
 }
 
 function fail(error: unknown): ActionState {
-  if (error instanceof SyntaxError) return { ok: false, error: "Не вдалося прочитати JSON. Перевірте дужки, лапки та коми." };
-  if (error instanceof z.ZodError) return { ok: false, error: error.issues[0]?.message ?? "Перевірте поля форми." };
-  if (error instanceof Error) return { ok: false, error: error.message };
-  return { ok: false, error: "Не вдалося виконати дію." };
+  return { ok: false, error: userFacingError(error) };
 }
 
 async function readableAnswer(questionId: string, value: unknown) {
@@ -290,9 +288,9 @@ export async function deleteNote(id: string): Promise<ActionState> {
 async function persistQuestion(tx: import("@prisma/client").Prisma.TransactionClient, raw: unknown) {
  const q=prepareQuestion(raw);
  const topic=await tx.topic.findUnique({where:{id:q.topicId}});
- if(!topic||topic.subjectId!==q.subjectId)throw new Error("Тема не належить до вибраного предмета.");
+ if(!topic||topic.subjectId!==q.subjectId)throw new UserError("Тема не належить до вибраного предмета.");
  const {options,id,...data}=q;
- if(id && await tx.testQuestion.count({where:{questionId:id}}))throw new Error("Завдання вже використане у спробі. Створіть нову версію, щоб зберегти історію.");
+ if(id && await tx.testQuestion.count({where:{questionId:id}}))throw new UserError("Завдання вже використане у спробі. Створіть нову версію, щоб зберегти історію.");
  const saved=await tx.question.upsert({where:{id:id||randomUUID()},update:data,create:{...data,id:id||randomUUID()}});
  await tx.questionOption.deleteMany({where:{questionId:saved.id}});
  if(options.length) await tx.questionOption.createMany({data:options.map(o=>({...o,questionId:saved.id}))});
@@ -315,7 +313,7 @@ await tx.question.update({where:{id},data:{verificationStatus:"REJECTED"}});refr
 export async function importQuestions(rawJson: string): Promise<ActionState> {
  try {
   const user = await editor();
-  if(rawJson.length>2000000)throw new Error("Файл завеликий (до 2 МБ).");
+  if(rawJson.length>2000000)throw new UserError("Файл завеликий (до 2 МБ).");
   const items=z.array(questionSchema).min(1).max(500).parse(JSON.parse(rawJson));
   // Preflight the entire batch. No partial import if a later question is invalid.
   items.forEach(prepareQuestion);
