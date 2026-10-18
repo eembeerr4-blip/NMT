@@ -1,0 +1,111 @@
+{
+  "questions": [
+    {
+      "id": "qa-unused-MATCHING",
+      "type": "MATCHING",
+      "prompt": "QA unused MATCHING",
+      "correctAnswer": "{\"qa-unused-MATCHINGl\":\"qa-unused-MATCHINGr\"}",
+      "options": [
+        {
+          "id": "qa-unused-MATCHINGl",
+          "label": "1",
+          "matchKey": "left"
+        },
+        {
+          "id": "qa-unused-MATCHINGr",
+          "label": "А",
+          "matchKey": "right"
+        }
+      ]
+    },
+    {
+      "id": "qa-unused-NUMERIC",
+      "type": "NUMERIC",
+      "prompt": "QA unused NUMERIC",
+      "correctAnswer": "3",
+      "options": []
+    },
+    {
+      "id": "qa-unused-SEQUENCE",
+      "type": "SEQUENCE",
+      "prompt": "QA unused SEQUENCE",
+      "correctAnswer": "[\"qa-unused-SEQUENCEa\",\"qa-unused-SEQUENCEb\"]",
+      "options": [
+        {
+          "id": "qa-unused-SEQUENCEa",
+          "label": "А",
+          "matchKey": null
+        },
+        {
+          "id": "qa-unused-SEQUENCEb",
+          "label": "Б",
+          "matchKey": null
+        }
+      ]
+    },
+    {
+      "id": "qa-unused-SINGLE_CHOICE",
+      "type": "SINGLE_CHOICE",
+      "prompt": "QA unused SINGLE_CHOICE",
+      "correctAnswer": "qa-unused-SINGLE_CHOICEa",
+      "options": [
+        {
+          "id": "qa-unused-SINGLE_CHOICEa",
+          "label": "А",
+          "matchKey": null
+        },
+        {
+          "id": "qa-unused-SINGLE_CHOICEb",
+          "label": "Б",
+          "matchKey": null
+        }
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "id": "qa-attempt-a",
+      "userId": "student_a",
+      "status": "COMPLETED",
+      "correctCount": 2,
+      "totalCount": 3,
+      "answers": [
+        {
+          "questionId": "qa-q1"
+        },
+        {
+          "questionId": "qa-q2"
+        },
+        {
+          "questionId": "qa-q3"
+        }
+      ]
+    },
+    {
+      "id": "fix-fault-1440",
+      "userId": "student_a",
+      "status": "COMPLETED",
+      "correctCount": 3,
+      "totalCount": 3,
+      "answers": [
+        {
+          "questionId": "qa-q1"
+        },
+        {
+          "questionId": "qa-q2"
+        },
+        {
+          "questionId": "qa-q3"
+        }
+      ]
+    }
+  ],
+  "xp": 2,
+  "sessions": 2,
+  "integrity": [
+    {
+      "integrity_check": "ok"
+    }
+  ],
+  "foreignKeys": []
+}

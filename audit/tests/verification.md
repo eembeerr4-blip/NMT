@@ -12,4 +12,10 @@ Baseline a37d8cb. C01–C09 in scope; C10 explicitly deferred, onboarding untouc
 - Questions: real database round-trip and grading for SINGLE_CHOICE, MATCHING, SEQUENCE, NUMERIC with stable IDs; student and used-question protection.
 - Theory-only lesson requires acknowledgment; empty material is rejected. SQLite integrity and foreign keys pass.
 
-Chrome acceptance and final SHA will be recorded after the source commit. No schema or migration changes.
+Typecheck (`npx tsc --noEmit --incremental false`) and `npm run lint`: PASS. Production build (`npm run build`) on the isolated source snapshot with its own copied dependencies: PASS. No schema or migration changes.
+
+Chrome source SHA: **86394a35e8db56bceeaedbab73bb2038c6c0c77c** (application changes in 2b6e7a2; tooling exclusions in 86394a3). Compared all 145 tracked src files against the runnable snapshot: zero differences. Later commits contain QA evidence/docs only.
+
+Chrome: 113 recorded observations, including 60 route/role/viewport checks (5 authenticated profiles × 6 affected routes × 2 widths), 10 anonymous route checks, two anonymous API views, mutation/recovery scenarios and a production smoke. This is focused acceptance for C01–C09, not a claim that the older 504-row whole-product matrix passed.
+
+See [Chrome acceptance](Chrome-acceptance.md), [structured summary](chrome-summary.json), [network evidence](chrome-network.json), and [merge plan](../merge-plan.md).

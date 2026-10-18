@@ -1,0 +1,897 @@
+[
+  {
+    "method": "GET",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/api/export/backup",
+    "status": 401
+  },
+  {
+    "method": "GET",
+    "url": "/api/export/backup",
+    "status": 401
+  },
+  {
+    "method": "GET",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/learn/qa-empty",
+    "status": 307
+  },
+  {
+    "method": "GET",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/qa-attempt-a",
+    "status": 307
+  },
+  {
+    "method": "GET",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/settings",
+    "status": 307
+  },
+  {
+    "method": "GET",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-NUMERIC",
+    "status": 307
+  },
+  {
+    "method": "GET",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/admin/users",
+    "status": 307
+  },
+  {
+    "method": "GET",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/learn/qa-empty",
+    "status": 307
+  },
+  {
+    "method": "GET",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/qa-attempt-a",
+    "status": 307
+  },
+  {
+    "method": "GET",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/settings",
+    "status": 307
+  },
+  {
+    "method": "GET",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-NUMERIC",
+    "status": 307
+  },
+  {
+    "method": "GET",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/admin/users",
+    "status": 307
+  },
+  {
+    "method": "GET",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/qa-attempt-a",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/qa-attempt-a",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/tests/qa-attempt-a",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/qa-attempt-a",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/tests/qa-attempt-a",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/tests/qa-attempt-a",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/qa-attempt-a",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/learn/qa-empty",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/learn/qa-empty",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/learn/qa-empty",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/settings",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/settings",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/settings",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/calendar?view=day&date=2026-10-20",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/calendar?view=day&date=2026-10-20",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/calendar?view=day&date=2026-10-20",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/calendar?view=day&date=2026-10-20",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/calendar?view=day&date=2026-10-20",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/calendar?view=day&date=2026-10-21",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/calendar?view=day&date=2026-10-21",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/calendar?view=day&date=2026-10-21",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/calendar?view=day&date=2026-10-21",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/fix-fault-1440",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/tests/fix-fault-1440",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/tests/fix-fault-1440",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/fix-fault-1440",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/tests/fix-fault-1440",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/tests/fix-fault-1440",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/fix-fault-1440",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/fix-fault-1440",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/settings",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/learn/qa-empty",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/qa-attempt-a",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-NUMERIC",
+    "status": 404
+  },
+  {
+    "method": "GET",
+    "url": "/admin/questions/qa-unused-NUMERIC",
+    "status": 404
+  },
+  {
+    "method": "GET",
+    "url": "/admin/users",
+    "status": 404
+  },
+  {
+    "method": "GET",
+    "url": "/settings",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/learn/qa-empty",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/qa-attempt-a",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-NUMERIC",
+    "status": 404
+  },
+  {
+    "method": "GET",
+    "url": "/admin/questions/qa-unused-NUMERIC",
+    "status": 404
+  },
+  {
+    "method": "GET",
+    "url": "/admin/users",
+    "status": 404
+  },
+  {
+    "method": "GET",
+    "url": "/",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/settings",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/learn/qa-empty",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/qa-attempt-a",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-NUMERIC",
+    "status": 404
+  },
+  {
+    "method": "GET",
+    "url": "/admin/questions/qa-unused-NUMERIC",
+    "status": 404
+  },
+  {
+    "method": "GET",
+    "url": "/admin/users",
+    "status": 404
+  },
+  {
+    "method": "GET",
+    "url": "/settings",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/learn/qa-empty",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/qa-attempt-a",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-NUMERIC",
+    "status": 404
+  },
+  {
+    "method": "GET",
+    "url": "/admin/questions/qa-unused-NUMERIC",
+    "status": 404
+  },
+  {
+    "method": "GET",
+    "url": "/admin/users",
+    "status": 404
+  },
+  {
+    "method": "GET",
+    "url": "/notes",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/results?edit=qa-result-a",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/settings",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/learn/qa-empty",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/qa-attempt-a",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-NUMERIC",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/admin/questions/qa-unused-NUMERIC",
+    "status": 404
+  },
+  {
+    "method": "GET",
+    "url": "/admin/users",
+    "status": 404
+  },
+  {
+    "method": "GET",
+    "url": "/settings",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/learn/qa-empty",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/qa-attempt-a",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-NUMERIC",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/admin/questions/qa-unused-NUMERIC",
+    "status": 404
+  },
+  {
+    "method": "GET",
+    "url": "/admin/users",
+    "status": 404
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-NUMERIC",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-SINGLE_CHOICE",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/editor/questions/qa-unused-SINGLE_CHOICE",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-MATCHING",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/editor/questions/qa-unused-MATCHING",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-SEQUENCE",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/editor/questions/qa-unused-SEQUENCE",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-NUMERIC",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/editor/questions/qa-unused-NUMERIC",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-SINGLE_CHOICE",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/editor/questions/qa-unused-SINGLE_CHOICE",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-MATCHING",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/editor/questions/qa-unused-MATCHING",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-SEQUENCE",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/editor/questions/qa-unused-SEQUENCE",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-NUMERIC",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/editor/questions/qa-unused-NUMERIC",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/settings",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/learn/qa-empty",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/qa-attempt-a",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-NUMERIC",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/admin/questions/qa-unused-NUMERIC",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/admin/users",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/settings",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/learn/qa-empty",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/qa-attempt-a",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-NUMERIC",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/admin/questions/qa-unused-NUMERIC",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/admin/users",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/admin/questions/qa-unused-NUMERIC",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/admin/questions/qa-unused-NUMERIC",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/admin/questions",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/settings",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/learn/qa-empty",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/qa-attempt-a",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-NUMERIC",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/admin/questions/qa-unused-NUMERIC",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/admin/users",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/settings",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/learn/qa-empty",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/qa-attempt-a",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/editor/questions/qa-unused-NUMERIC",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/admin/questions/qa-unused-NUMERIC",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/admin/users",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/admin/users",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/login",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/fix-save-a",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/tests/fix-save-a",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/fix-save-a",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/tests/fix-save-a",
+    "status": 200
+  },
+  {
+    "method": "POST",
+    "url": "/tests/fix-save-a",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "/tests/fix-save-a",
+    "status": 200
+  }
+]

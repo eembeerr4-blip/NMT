@@ -1,0 +1,1436 @@
+From 2b6e7a247904a3f92c11e753434285de392a7ef3 Mon Sep 17 00:00:00 2001
+From: eembeerr4-blip <eembeerr4@gmail.com>
+Date: Sun, 18 Oct 2026 21:55:12 +0300
+Subject: [PATCH 1/2] Fix draft recovery, atomic test completion and
+ reliability workflows
+
+---
+ audit/NMT-fix-plan.md                   |  21 ++++
+ audit/tests/.gitignore                  |   3 +
+ audit/tests/prepare-chrome.ts           |  34 ++++++
+ audit/tests/verification.md             |  15 +++
+ src/app/(main)/learn/[topicId]/page.tsx |   2 +-
+ src/app/(main)/settings/page.tsx        |  14 +--
+ src/app/(main)/tests/[id]/page.tsx      |   2 +
+ src/app/admin/questions/[id]/page.tsx   |  41 +------
+ src/app/editor/questions/[id]/page.tsx  |   3 +
+ src/components/elective-form.tsx        |  32 ++++++
+ src/components/forms.tsx                |   9 +-
+ src/components/question-editor.tsx      |  40 +++++++
+ src/components/test-runner.tsx          |  84 ++++++---------
+ src/components/use-attempt-draft.ts     |  25 +++++
+ src/lib/attempt-draft.test.ts           |  41 +++++++
+ src/lib/attempt-draft.ts                |  86 +++++++++++++++
+ src/lib/question-input.ts               |  17 +--
+ src/lib/task-origin.ts                  |   4 +
+ src/proxy.test.ts                       |  13 +++
+ src/proxy.ts                            |   3 +
+ src/server/actions.ts                   | 135 +++++++++++++-----------
+ src/server/audit-actions.test.ts        |  17 +--
+ src/server/progress.ts                  |  29 ++---
+ src/server/sync.ts                      |  53 ++++++----
+ tests/reliability-database.test.ts      | 112 ++++++++++++++++++++
+ 25 files changed, 622 insertions(+), 213 deletions(-)
+ create mode 100644 audit/NMT-fix-plan.md
+ create mode 100644 audit/tests/.gitignore
+ create mode 100644 audit/tests/prepare-chrome.ts
+ create mode 100644 audit/tests/verification.md
+ create mode 100644 src/app/editor/questions/[id]/page.tsx
+ create mode 100644 src/components/elective-form.tsx
+ create mode 100644 src/components/question-editor.tsx
+ create mode 100644 src/components/use-attempt-draft.ts
+ create mode 100644 src/lib/attempt-draft.test.ts
+ create mode 100644 src/lib/attempt-draft.ts
+ create mode 100644 src/lib/task-origin.ts
+ create mode 100644 src/proxy.test.ts
+ create mode 100644 tests/reliability-database.test.ts
+
+diff --git a/audit/NMT-fix-plan.md b/audit/NMT-fix-plan.md
+new file mode 100644
+index 0000000..13902c1
+--- /dev/null
++++ b/audit/NMT-fix-plan.md
+@@ -0,0 +1,21 @@
++# NMT reliability fixes
++
++Baseline: a37d8cb27642ab8fe1982aaf5810f42e165856a5. Branch: fix/reliability.
++Worktree: D:/Вайб-кодинг/nmt-reliability.
++
++Scope: C01–C09. C10 deferred: the explicit instruction “onboarding не рухати” takes precedence. No content, onboarding branch, production database, schema or migration changes.
++
++| Block | Scope | Acceptance |
++|---|---|---|
++| B01 P1 M | C01 local/server draft recovery and save status | Immediate reload restores edits; failed saves retain local data; stale acknowledgements do not discard new edits. |
++| B02 P1 L | C02 transaction/CAS/idempotent finish | Fault rolls back answers/progress/XP; concurrent and repeated finish produce one result. |
++| B03 P1 M | C03 timer and retry | Failed finish shows error and retry; local draft is removed only on success. |
++| B04 P1 M | C04 calendar provenance | Custom/moved/DONE survive sync and recalculation. |
++| B05 P2 S | C05 editor route | Editor can edit through /editor; student denied; admin return stays /admin. |
++| B06 P2 L | C06 option identity roundtrip | Text-only edit preserves a valid answer for all supported types; used question remains protected. |
++| B07 P2 M | C07 theory-only completion | Theory without verified questions can complete after explicit acknowledgement; empty lesson cannot. |
++| B08 P2 M | C08/C09 elective transaction + API contract | Fault preserves elective/tasks/schedule; action errors visible; unauthenticated API returns JSON 401. |
++
++Sequence: isolated QA schema deployment → implementation → unit/integration fault/race/ownership → tsc --noEmit --incremental false / lint / isolated npm test → Chrome → commit SHA → merge only after acceptance. No push. No production migration/restore.
++
++Artifacts: audit/patches, audit/tests, audit/merge-plan.md. Record actual results and remaining limits, never transfer the old 504-row matrix to PASS without executing it.
+diff --git a/audit/tests/.gitignore b/audit/tests/.gitignore
+new file mode 100644
+index 0000000..c11f4df
+--- /dev/null
++++ b/audit/tests/.gitignore
+@@ -0,0 +1,3 @@
++*.db*
++*.log
++screens/
+diff --git a/audit/tests/prepare-chrome.ts b/audit/tests/prepare-chrome.ts
+new file mode 100644
+index 0000000..ab2fa87
+--- /dev/null
++++ b/audit/tests/prepare-chrome.ts
+@@ -0,0 +1,34 @@
++import {PrismaClient} from '@prisma/client';
++import {hashPassword} from '../../src/lib/auth';
++import {SUBJECTS,DEFAULT_SCHEDULE,DEFAULT_FORMAT} from '../../src/lib/constants';
++const url='file:D:/Вайб-кодинг/nmt-reliability/audit/tests/chrome.db';
++if(process.env.DATABASE_URL!==url)throw Error('QA database only');
++const db=new PrismaClient();
++async function main(){
++ if(await db.user.count())throw Error('Fresh QA database required');
++ await db.subject.createMany({data:SUBJECTS.map((s,i)=>({id:s.id,name:s.name,shortName:s.shortName,color:s.color,description:s.description,sortOrder:i}))});
++ for(const [id,role] of [['owner','OWNER'],['qa_admin','ADMIN'],['qa_editor','EDITOR'],['student_a','STUDENT'],['student_b','STUDENT']]){
++  await db.user.create({data:{id,role,nickname:id,firstName:id,onboarded:true,diagnosticSkipped:true,passwordHash:hashPassword('Nmt-Ui-QA-Only-2026')}});
++  await db.userSubject.createMany({data:['math','ukrainian','history','biology'].map(subjectId=>({userId:id,subjectId,active:true,role:subjectId==='biology'?'ELECTIVE':'REQUIRED'}))});
++  await db.userSettings.create({data:{id:id==='owner'?'default':id,userId:id,scheduleJson:JSON.stringify(DEFAULT_SCHEDULE),formatJson:JSON.stringify(DEFAULT_FORMAT)}});
++ }
++ const lesson={objectives:['Розв’язати рівняння'],prerequisites:[],theory:'Виконуйте однакові дії з обома частинами рівняння.',rules:['Зберігайте рівність'],examples:[{task:'x + 2 = 5',solution:'x = 3'}],mistakes:['Зміна лише однієї частини'],summary:'Перевірте відповідь підстановкою',sources:[]};
++ for(const [id,title] of [['qa-linear','QA Лінійні рівняння'],['qa-empty','QA Урок без питань']])await db.topic.create({data:{id,subjectId:'math',title,sortOrder:id==='qa-linear'?0:1,summary:'Disposable QA fixture',lessonJson:JSON.stringify(lesson)}});
++ for(let i=1;i<=3;i++)await db.question.create({data:{id:'qa-q'+i,subjectId:'math',topicId:'qa-linear',type:'NUMERIC',difficulty:'EASY',prompt:`Знайдіть x: x + ${i} = ${i+3}`,correctAnswer:'3',explanation:'Віднімаємо однакове число з обох частин.',verificationStatus:'VERIFIED'}});
++ for(const type of ['SINGLE_CHOICE','MATCHING','SEQUENCE','NUMERIC']){
++  const id='qa-unused-'+type;const opts=type==='NUMERIC'?[]:type==='MATCHING'?[{id:id+'l',label:'1',text:'Один',matchKey:'left',sortOrder:0},{id:id+'r',label:'А',text:'1',matchKey:'right',sortOrder:1}]:[{id:id+'a',label:'А',text:'Перший',sortOrder:0},{id:id+'b',label:'Б',text:'Другий',sortOrder:1}];
++  const correctAnswer=type==='NUMERIC'?'3':type==='MATCHING'?JSON.stringify({[id+'l']:id+'r'}):type==='SEQUENCE'?JSON.stringify([id+'a',id+'b']):id+'a';
++  await db.question.create({data:{id,subjectId:'math',topicId:'qa-linear',type,difficulty:'EASY',prompt:'QA unused '+type,explanation:'QA explanation',correctAnswer,verificationStatus:'VERIFIED',options:{create:opts}}});
++ }
++ await db.test.create({data:{id:'qa-test',subjectId:'math',topicId:'qa-linear',title:'QA Тест 3 питання',kind:'TOPIC',questions:{create:[1,2,3].map((n,i)=>({questionId:'qa-q'+n,sortOrder:i}))}}});
++ await db.testAttempt.create({data:{id:'qa-attempt-a',testId:'qa-test',userId:'student_a'}});
++ await db.videoLesson.create({data:{id:'qa-video',topicId:'qa-linear',youtubeId:'qa_no_external_video',url:'https://www.youtube.com/watch?v=qa_no_external_video',title:'QA null duration',durationSec:null}});
++ await db.note.create({data:{id:'qa-note-a',userId:'student_a',title:'A PRIVATE SENTINEL',content:'Only student A',topicId:'qa-linear'}});
++ await db.examResult.create({data:{id:'qa-result-a',userId:'student_a',subjectId:'math',date:new Date(),testType:'QA',title:'A PRIVATE RESULT',ratingScore:150,countsTowardAverage:true}});
++ await db.studyTask.create({data:{id:'qa-task-a',userId:'student_a',subjectId:'math',topicId:'qa-linear',dateKey:'2026-10-18',title:'QA custom task A',kind:'CUSTOM',durationMin:15}});
++ await db.flashcard.create({data:{id:'qa-card-a',userId:'student_a',subjectId:'math',topicId:'qa-linear',kind:'QA',front:'A private card',back:'Only A',dueKey:'2026-10-17'}});
++ await db.reviewSchedule.create({data:{id:'qa-review-a',userId:'student_a',topicId:'qa-linear',dueKey:'2026-10-17',intervalDays:1}});
++ console.log('QA fixtures ready: 5 profiles + ANON. No working data copied.');
++}
++main().finally(()=>db.$disconnect());
++
+diff --git a/audit/tests/verification.md b/audit/tests/verification.md
+new file mode 100644
+index 0000000..33df4df
+--- /dev/null
++++ b/audit/tests/verification.md
+@@ -0,0 +1,15 @@
++# Reliability verification
++
++Baseline a37d8cb. C01–C09 in scope; C10 explicitly deferred, onboarding untouched.
++
++- New draft/proxy/question unit pass: 20/20.
++- Full isolated suite: **163 passed, 8 skipped**, 27 passing files, 2 skipped files (171 tests total).
++- The 8 existing opt-in audit tests need a separate legacy audit dataset and remain skipped; no automatic PASS claimed.
++- Every DB-writing test either overrides Prisma with a fresh temporary database, uses worktree-local prisma/test.db, or is explicitly opt-in and skipped. Default DATABASE_URL was forced to the isolated audit/tests/suite.db. No .env copied.
++- Reliability integration: early Answer fault rolls back answers/mistakes/progress/reviews/sessions/XP; late achievement failure rolls back the entire result and task changes; concurrent finish and retries produce one result; stale saveDraft cannot overwrite COMPLETED; B cannot finish/save A's attempt.
++- Elective integration: midway UserSettings failure rolls back tasks/membership/settings; simultaneous choices leave one elective; DONE history retained.
++- Calendar integration: custom/moved/DONE survive synchronization, study-day changes and recalculation.
++- Questions: real database round-trip and grading for SINGLE_CHOICE, MATCHING, SEQUENCE, NUMERIC with stable IDs; student and used-question protection.
++- Theory-only lesson requires acknowledgment; empty material is rejected. SQLite integrity and foreign keys pass.
++
++Chrome acceptance and final SHA will be recorded after the source commit. No schema or migration changes.
+diff --git a/src/app/(main)/learn/[topicId]/page.tsx b/src/app/(main)/learn/[topicId]/page.tsx
+index 1450d88..165ede8 100644
+--- a/src/app/(main)/learn/[topicId]/page.tsx
++++ b/src/app/(main)/learn/[topicId]/page.tsx
+@@ -68,7 +68,7 @@ export default async function LessonPage({ params }: { params: Promise<{ topicId
+               <TopicActions topicId={topic.id} hasQuestions={verifiedCount > 0} />
+               {attempt ? <p className="text-sm">Останній результат: {attempt.correctCount ?? 0}/{attempt.totalCount ?? 0}{attempt.finishedAt ? ` · ${formatUk(attempt.finishedAt)}` : ""}. <Link className="underline" href={`/tests/${attempt.id}`}>Розбір</Link></p> : <p className="text-sm text-muted-foreground">{"Результат з'явиться після завершення завдання."}</p>}
+               {review ? <p className="text-sm">Наступне повторення: {formatUk(review.dueKey)}.</p> : <p className="text-sm text-muted-foreground">{"Повторення з'явиться після завершення уроку або тесту."}</p>}
+-              {verifiedCount > 0 && lesson && !topic.children.length ? <CompleteLesson topicId={topic.id} needsPractice /> : <p className="text-sm">Завершення стане доступним після додавання уроку та перевіреної практики.</p>}
++              {lesson?.theory.trim() && !topic.children.length ? <CompleteLesson topicId={topic.id} needsPractice={verifiedCount > 0} /> : <p className="text-sm">Завершення стане доступним після додавання матеріалу уроку.</p>}
+               {next ? <Link className="block text-sm underline" href={`/learn/${next.id}`}>Наступний урок: {next.title}</Link> : <Link className="block text-sm underline" href={`/subjects/${topic.subjectId}`}>До предмета</Link>}
+             </Card>
+             {lesson?.sources?.length ? <p className="px-1 text-xs text-muted-foreground">Авторський навчальний матеріал NMT Academy. Не є офіційним завданням НМТ.</p> : null}
+diff --git a/src/app/(main)/settings/page.tsx b/src/app/(main)/settings/page.tsx
+index 28d4a13..a582d0b 100644
+--- a/src/app/(main)/settings/page.tsx
++++ b/src/app/(main)/settings/page.tsx
+@@ -1,8 +1,8 @@
++import { ElectiveForm } from "@/components/elective-form";
+ import { SettingsWorkspace } from "@/components/settings-workspace";
+ import { SettingsForm } from "@/components/forms";
+-import { Button, Card, PageHeader } from "@/components/ui";
+-import { ELECTIVE_SUBJECT_IDS, SUBJECTS } from "@/lib/constants";
+-import { changeElective } from "@/server/actions";
++import { Card, PageHeader } from "@/components/ui";
++import { SUBJECTS } from "@/lib/constants";
+ import { requireUser } from "@/server/session";
+ import { getSettings } from "@/server/sync";
+ 
+@@ -27,13 +27,7 @@ export default async function SettingsPage() {
+       <Card className="space-y-3 p-4">
+         <h2 className="font-medium">Предмет на вибір</h2>
+         <p className="text-sm text-muted-foreground">Зараз: {SUBJECTS.find((subject) => subject.id === elective)?.name ?? "не обрано"}. Майбутні заняття попереднього предмета буде замінено; завершені заняття й результати збережуться.</p>
+-        <form action={async (formData) => { "use server"; await changeElective(String(formData.get("subjectId") ?? ""), formData.get("confirm") === "on"); }} className="flex flex-wrap items-center gap-2">
+-          <select name="subjectId" defaultValue={elective} className="h-10 rounded-lg border border-border bg-card px-3 text-sm">
+-            {SUBJECTS.filter((subject) => (ELECTIVE_SUBJECT_IDS as readonly string[]).includes(subject.id)).map((subject) => <option key={subject.id} value={subject.id}>{subject.name}</option>)}
+-          </select>
+-          <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="confirm" /> Підтверджую зміну</label>
+-          <Button type="submit" variant="outline">Змінити предмет</Button>
+-        </form>
++        <ElectiveForm elective={elective} />
+       </Card>
+       <Card className="p-4">
+         <SettingsForm showTheme={false}
+diff --git a/src/app/(main)/tests/[id]/page.tsx b/src/app/(main)/tests/[id]/page.tsx
+index 440f3cc..b96c340 100644
+--- a/src/app/(main)/tests/[id]/page.tsx
++++ b/src/app/(main)/tests/[id]/page.tsx
+@@ -27,6 +27,8 @@ export default async function AttemptPage({ params }: { params: Promise<{ id: st
+       <div className="space-y-4">
+         <PageHeader title={attempt.test.title} description="Правильні відповіді приховані до завершення. Чернетка зберігається в базі й у браузері." />
+         <TestRunner
++          key={`${user.id}:${attempt.id}`}
++          userId={user.id}
+           attemptId={attempt.id}
+           startedAt={attempt.startedAt.toISOString()}
+           timeLimitSec={attempt.test.timeLimitSec}
+diff --git a/src/app/admin/questions/[id]/page.tsx b/src/app/admin/questions/[id]/page.tsx
+index 01db17e..cf1278e 100644
+--- a/src/app/admin/questions/[id]/page.tsx
++++ b/src/app/admin/questions/[id]/page.tsx
+@@ -1,40 +1,3 @@
+-import Link from "next/link";
+-import { notFound } from "next/navigation";
+-import { QuestionForm } from "@/components/forms";
+-import { Button, Card, PageHeader } from "@/components/ui";
+-import { prisma } from "@/lib/prisma";
+-import { requireAdministrator } from "@/server/session";
+-
++import { QuestionEditor } from "@/components/question-editor";
+ export const dynamic = "force-dynamic";
+-
+-export default async function EditQuestionPage({ params }: { params: Promise<{ id: string }> }) {
+-  await requireAdministrator();
+-  const { id } = await params;
+-  const [question, topics] = await Promise.all([
+-    prisma.question.findUnique({ where: { id }, include: { options: { orderBy: { sortOrder: "asc" } } } }),
+-    prisma.topic.findMany({ orderBy: { sortOrder: "asc" }, select: { id: true, title: true, subjectId: true } }),
+-  ]);
+-  if (!question) notFound();
+-  return (
+-    <>
+-      <PageHeader title="Редагувати завдання" description="Після зміни завдання буде повторно перевірено. Завдання, пов’язане з тестами, не можна змінити так, щоб пошкодити історію спроб." action={<Button asChild variant="outline"><Link href="/admin/questions">До банку завдань</Link></Button>} />
+-      {question.topicId ? <Button asChild variant="outline"><Link href={`/learn/${question.topicId}`}>Переглянути як учень</Link></Button> : null}
+-      <Card className="max-w-4xl p-4 sm:p-6">
+-        <QuestionForm topics={topics} initial={{
+-          id: question.id,
+-          subjectId: question.subjectId,
+-          topicId: question.topicId,
+-          subtopic: question.subtopic,
+-          type: question.type,
+-          difficulty: question.difficulty,
+-          prompt: question.prompt,
+-          explanation: question.explanation,
+-          correctAnswer: question.correctAnswer,
+-          source: question.source,
+-          verificationStatus: question.verificationStatus,
+-          options: question.options.map(({ label, text, matchKey }) => ({ label, text, matchKey })),
+-        }} />
+-      </Card>
+-    </>
+-  );
+-}
++export default async function Page({params}:{params:Promise<{id:string}>}) { return QuestionEditor({params,basePath:"/admin"}); }
+diff --git a/src/app/editor/questions/[id]/page.tsx b/src/app/editor/questions/[id]/page.tsx
+new file mode 100644
+index 0000000..1363bd6
+--- /dev/null
++++ b/src/app/editor/questions/[id]/page.tsx
+@@ -0,0 +1,3 @@
++import { QuestionEditor } from "@/components/question-editor";
++export const dynamic = "force-dynamic";
++export default async function Page({params}:{params:Promise<{id:string}>}) { return QuestionEditor({params,basePath:"/editor"}); }
+diff --git a/src/components/elective-form.tsx b/src/components/elective-form.tsx
+new file mode 100644
+index 0000000..d5de4a8
+--- /dev/null
++++ b/src/components/elective-form.tsx
+@@ -0,0 +1,32 @@
++"use client";
++
++import { useState } from "react";
++import { ELECTIVE_SUBJECT_IDS, SUBJECTS } from "@/lib/constants";
++import { changeElective, type ActionState } from "@/server/actions";
++import { Button } from "./ui";
++
++export function ElectiveForm({ elective }: { elective?: string }) {
++  const [result, setResult] = useState<ActionState | null>(null);
++  const [pending, setPending] = useState(false);
++  return <form className="space-y-3" onSubmit={async event => {
++    event.preventDefault();
++    if(pending) return;
++    const form = new FormData(event.currentTarget);
++    setPending(true);
++    setResult(null);
++    try { setResult(await changeElective(String(form.get("subjectId") ?? ""), form.get("confirm") === "on")); }
++    catch { setResult({ok:false,error:"Не вдалося змінити предмет. Перевірте з’єднання та спробуйте ще раз."}); }
++    finally { setPending(false); }
++  }}>
++    <fieldset disabled={pending} className="flex flex-wrap items-center gap-2">
++      <label className="grid gap-1 text-sm">Новий предмет
++        <select name="subjectId" defaultValue={elective} className="h-10 rounded-lg border border-border bg-card px-3 text-sm">
++          {SUBJECTS.filter(subject=>(ELECTIVE_SUBJECT_IDS as readonly string[]).includes(subject.id)).map(subject=><option key={subject.id} value={subject.id}>{subject.name}</option>)}
++        </select>
++      </label>
++      <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="confirm"/>Підтверджую зміну</label>
++      <Button type="submit" variant="outline">{pending ? "Зміна предмета…" : "Змінити предмет"}</Button>
++    </fieldset>
++    {result ? <p role={result.ok ? "status" : "alert"} className="text-sm">{result.ok ? result.message : result.error}</p> : null}
++  </form>;
++}
+diff --git a/src/components/forms.tsx b/src/components/forms.tsx
+index ca1888d..8079dad 100644
+--- a/src/components/forms.tsx
++++ b/src/components/forms.tsx
+@@ -92,10 +92,10 @@ type QuestionInitial = {
+   correctAnswer: string;
+   source: string;
+   verificationStatus: string;
+-  options: { label: string; text: string; matchKey: string | null }[];
++  options: { id?: string; label: string; text: string; matchKey: string | null }[];
+ };
+ 
+-export function QuestionForm({ topics, initial }: { topics: { id: string; title: string; subjectId: string }[]; initial?: QuestionInitial }) {
++export function QuestionForm({ topics, initial, returnTo = "/admin/questions" }: { topics: { id: string; title: string; subjectId: string }[]; initial?: QuestionInitial; returnTo?: "/admin/questions" | "/editor/questions" }) {
+   const router = useRouter();
+   const [subject, setSubject] = useState(initial?.subjectId ?? "ukrainian");
+   const [message, setMessage] = useState("");
+@@ -107,7 +107,8 @@ export function QuestionForm({ topics, initial }: { topics: { id: string; title:
+       const lines = String(form.get("options") ?? "").split("\n").map((line) => line.trim()).filter(Boolean);
+       const options = lines.map((line) => {
+         const [label, text, matchKey] = line.split("|");
+-        return { label: label.trim(), text: (text ?? "").trim(), matchKey: matchKey?.trim() || undefined };
++        const previous = initial?.options.find(option => option.label === label.trim());
++        return { id: previous?.id, label: label.trim(), text: (text ?? "").trim(), matchKey: matchKey?.trim() || undefined };
+       });
+       const result = await saveQuestion({
+         id: String(form.get("id") || "") || undefined,
+@@ -125,7 +126,7 @@ export function QuestionForm({ topics, initial }: { topics: { id: string; title:
+       });
+       setMessage(result.ok ? (initial ? "Зміни завдання збережено." : "Завдання збережено.") : result.error);
+       if (result.ok) {
+-        if (initial) router.push("/admin/questions");
++        if (initial) router.push(returnTo);
+         else { submittedForm.reset(); setSubject("ukrainian"); }
+       }
+     }}>
+diff --git a/src/components/question-editor.tsx b/src/components/question-editor.tsx
+new file mode 100644
+index 0000000..753e863
+--- /dev/null
++++ b/src/components/question-editor.tsx
+@@ -0,0 +1,40 @@
++import Link from "next/link";
++import { notFound } from "next/navigation";
++import { QuestionForm } from "@/components/forms";
++import { Button, Card, PageHeader } from "@/components/ui";
++import { prisma } from "@/lib/prisma";
++import { requireAdministrator, requireContentEditor } from "@/server/session";
++
++
++export async function QuestionEditor({ params, basePath }: { params: Promise<{ id: string }>; basePath: "/admin" | "/editor" }) {
++  if (basePath === "/admin") await requireAdministrator();
++  else await requireContentEditor();
++  const { id } = await params;
++  const [question, topics] = await Promise.all([
++    prisma.question.findUnique({ where: { id }, include: { options: { orderBy: { sortOrder: "asc" } } } }),
++    prisma.topic.findMany({ orderBy: { sortOrder: "asc" }, select: { id: true, title: true, subjectId: true } }),
++  ]);
++  if (!question) notFound();
++  return (
++    <>
++      <PageHeader title="Редагувати завдання" description="Після зміни завдання буде повторно перевірено. Завдання, пов’язане з тестами, не можна змінити так, щоб пошкодити історію спроб." action={<Button asChild variant="outline"><Link href={`${basePath}/questions`}>До банку завдань</Link></Button>} />
++      {question.topicId ? <Button asChild variant="outline"><Link href={`/learn/${question.topicId}`}>Переглянути як учень</Link></Button> : null}
++      <Card className="max-w-4xl p-4 sm:p-6">
++        <QuestionForm topics={topics} returnTo={`${basePath}/questions`} initial={{
++          id: question.id,
++          subjectId: question.subjectId,
++          topicId: question.topicId,
++          subtopic: question.subtopic,
++          type: question.type,
++          difficulty: question.difficulty,
++          prompt: question.prompt,
++          explanation: question.explanation,
++          correctAnswer: question.correctAnswer,
++          source: question.source,
++          verificationStatus: question.verificationStatus,
++          options: question.options.map(({ id, label, text, matchKey }) => ({ id, label, text, matchKey })),
++        }} />
++      </Card>
++    </>
++  );
++}
+diff --git a/src/components/test-runner.tsx b/src/components/test-runner.tsx
+index f92c9ff..658c6c7 100644
+--- a/src/components/test-runner.tsx
++++ b/src/components/test-runner.tsx
+@@ -2,8 +2,9 @@
+ 
+ import { useEffect, useMemo, useRef, useState } from "react";
+ import { useRouter } from "next/navigation";
++import { useAttemptDraft } from "./use-attempt-draft";
+ import { stableShuffle } from "@/lib/grade";
+-import { finishAttempt, saveDraft } from "@/server/actions";
++import { finishAttempt } from "@/server/actions";
+ import { MathText } from "@/components/math-text";
+ import { Badge, Button, Card, Progress } from "@/components/ui";
+ 
+@@ -11,6 +12,7 @@ type Option = { id: string; label: string; text: string; matchKey: string | null
+ type PublicQuestion = { id: string; type: string; difficulty: string; prompt: string; options: Option[] };
+ 
+ export function TestRunner({
++  userId,
+   attemptId,
+   questions,
+   initialDraft,
+@@ -19,6 +21,7 @@ export function TestRunner({
+   timeLimitSec,
+   timerEnabled,
+ }: {
++  userId: string;
+   attemptId: string;
+   questions: PublicQuestion[];
+   initialDraft: Record<string, unknown>;
+@@ -28,16 +31,11 @@ export function TestRunner({
+   timerEnabled: boolean;
+ }) {
+   const router = useRouter();
+-  const [index, setIndex] = useState(initialIndex);
+-  const [answers, setAnswers] = useState<Record<string, unknown>>(() => {
+-    const base = { ...initialDraft };
+-    for (const item of questions) {
+-      if (item.type === "SEQUENCE" && base[item.id] === undefined) {
+-        base[item.id] = stableShuffle(item.options, `${attemptId}:${item.id}`).map((option) => option.id);
+-      }
+-    }
+-    return base;
+-  });
++  const base = { ...initialDraft };
++  for (const item of questions) if(item.type === "SEQUENCE" && base[item.id] === undefined) base[item.id]=stableShuffle(item.options, attemptId+":"+item.id).map(option=>option.id);
++  const {view,ready,controller}=useAttemptDraft(userId,attemptId,base,initialIndex,questions.map(q=>q.id));
++  const {answers,index}=view;
++  const setIndex=(value:number|((current:number)=>number))=>controller.current?.navigate(typeof value === "function" ? value(index):value);
+   const [now, setNow] = useState(() => new Date(startedAt).getTime());
+   const [error, setError] = useState("");
+   const [pending, setPending] = useState(false);
+@@ -53,47 +51,33 @@ export function TestRunner({
+   }, []);
+ 
+   useEffect(() => {
+-    window.localStorage.setItem(`attempt:${attemptId}`, JSON.stringify(answers));
+-    const timer = window.setTimeout(() => {
+-      void saveDraft(attemptId, answers, index);
+-    }, 450);
+-    return () => window.clearTimeout(timer);
+-  }, [answers, index, attemptId]);
+-
+-  useEffect(() => {
+-    const onLeave = (event: BeforeUnloadEvent) => {
+-      event.preventDefault();
+-    };
+-    window.addEventListener("beforeunload", onLeave);
+-    return () => window.removeEventListener("beforeunload", onLeave);
+-  }, []);
++    if(!ready)return;
++    const onLeave=(event:BeforeUnloadEvent)=>{ if(view.status!=="saved"){event.preventDefault();} };
++    window.addEventListener("beforeunload",onLeave);
++    return()=>window.removeEventListener("beforeunload",onLeave);
++  },[ready,view.status]);
+ 
+   useEffect(() => {
+-    if (remaining === null || remaining > 0 || autoFinished.current) return;
++    if (!ready || remaining === null || remaining > 0 || autoFinished.current) return;
+     autoFinished.current = true;
+-    void finishAttempt(attemptId, answers).then(() => {
+-      window.localStorage.removeItem(`attempt:${attemptId}`);
+-      router.refresh();
+-    });
+-  }, [remaining, attemptId, answers, router]);
++    queueMicrotask(() => { void finish(); });
++  });
+ 
+   const skipped = useMemo(() => questions.filter((item) => answers[item.id] === undefined || answers[item.id] === "" || answers[item.id] === null), [answers, questions]);
+ 
+-  function setAnswer(value: unknown) {
+-    setAnswers((current) => ({ ...current, [question.id]: value }));
+-  }
+-
++  function setAnswer(value:unknown) {controller.current?.change(question.id,value);}
++  const finishing=useRef(false);
+   async function finish() {
+-    setPending(true);
+-    setError("");
+-    const result = await finishAttempt(attemptId, answers);
+-    if (!result.ok) {
+-      setError(result.error);
+-      setPending(false);
+-      return;
+-    }
+-    window.localStorage.removeItem(`attempt:${attemptId}`);
+-    router.refresh();
++    if(finishing.current || !ready || !controller.current)return;
++    finishing.current=true;setPending(true);setError("");
++    const draft=controller.current;
++    await draft.pause();
++    try {
++      const result=await finishAttempt(attemptId,draft.snapshot().answers);
++      if(!result.ok){setError(result.error);draft.resume();return;}
++      draft.complete();router.refresh();
++    } catch {setError("Не вдалося завершити тест. Відповіді збережені в чернетці. Спробуйте ще раз.");draft.resume();}
++    finally {finishing.current=false;setPending(false);}
+   }
+ 
+   if (!question) return null;
+@@ -109,18 +93,20 @@ export function TestRunner({
+         </div>
+         <MathText text={question.prompt} />
+         <div className="mt-4">
+-          <AnswerInput question={question} value={answers[question.id]} onChange={setAnswer} />
++          <fieldset disabled={pending || !ready}><AnswerInput question={question} value={answers[question.id]} onChange={setAnswer} /></fieldset>
+         </div>
+         <div className="mt-6 flex flex-wrap gap-2">
+           <Button type="button" variant="outline" onClick={() => setIndex((value) => Math.max(0, value - 1))} disabled={index === 0}>Назад</Button>
+           <Button type="button" variant="outline" onClick={() => setIndex((value) => Math.min(questions.length - 1, value + 1))} disabled={index === questions.length - 1}>Далі</Button>
+-          <Button type="button" onClick={() => setConfirmFinish(true)} disabled={pending}>{pending ? "Завершення..." : "Завершити"}</Button>
++          <Button type="button" onClick={() => setConfirmFinish(true)} disabled={pending || !ready}>{pending ? "Завершення..." : "Завершити"}</Button>
+         </div>
++        {view.error ? <div role="alert" className="text-sm"><p>{view.error}</p><Button type="button" variant="outline" onClick={()=>void controller.current?.flush()}>Повторити збереження</Button></div> : null}
++        {error ? <Button type="button" onClick={()=>void finish()} disabled={pending}>Повторити завершення</Button> : null}
+         {confirmFinish ? <div role="alertdialog" aria-labelledby="finish-title" aria-describedby="finish-description" className="space-y-3 rounded-xl border border-border bg-muted p-4"><h2 id="finish-title" className="font-semibold">Завершити тест?</h2><p id="finish-description" className="text-sm text-muted-foreground">{skipped.length ? "Без відповіді залишилося " + skipped.length + " із " + questions.length + " завдань. Ви можете повернутися до них або завершити спробу." : "Усі завдання мають відповідь. Після завершення відкриється результат."}</p><div className="flex flex-wrap gap-2"><Button variant="outline" disabled={pending} onClick={()=>setConfirmFinish(false)}>Повернутися до тесту</Button><Button disabled={pending} onClick={()=>void finish()}>{pending?"Завершення…":"Так, завершити тест"}</Button></div></div>:null}
+-        {error ? <p className="mt-3 text-sm text-destructive">{error}</p> : null}
++        {error ? <p role="alert" className="mt-3 text-sm text-destructive">{error}</p> : null}
+       </Card>
+       <Card className="space-y-3 p-4 lg:sticky lg:top-20 lg:self-start">
+-        <div><div className="text-sm font-semibold">Навігація</div><div className="mt-1 text-xs text-muted-foreground">Відповіді збережено автоматично</div></div>
++        <div><div className="text-sm font-semibold">Навігація</div><div role="status" className="mt-1 text-xs text-muted-foreground">{!ready ? "Відновлення чернетки…" : view.status === "saved" ? "Відповіді збережено" : view.status === "saving" ? "Збереження відповідей…" : view.status === "error" ? "Помилка збереження" : "Є незбережені зміни"}</div></div>
+         <div className="grid grid-cols-6 gap-1.5 lg:grid-cols-4">
+           {questions.map((item, itemIndex) => {
+             const answered = answers[item.id] !== undefined && answers[item.id] !== "" && answers[item.id] !== null;
+diff --git a/src/components/use-attempt-draft.ts b/src/components/use-attempt-draft.ts
+new file mode 100644
+index 0000000..c14bfcd
+--- /dev/null
++++ b/src/components/use-attempt-draft.ts
+@@ -0,0 +1,25 @@
++"use client";
++import {useEffect,useRef,useState} from "react";
++import {AttemptDraft,type DraftAnswers,type DraftView} from "@/lib/attempt-draft";
++import {saveDraft} from "@/server/actions";
++
++export function useAttemptDraft(userId:string,attemptId:string,server:DraftAnswers,index:number,allowed:string[]) {
++  const controller=useRef<AttemptDraft|null>(null);
++  const initial=useRef({server,index,allowed});
++  const [ready,setReady]=useState(false);
++  const [view,setView]=useState<DraftView>({answers:server,index,status:"saved",error:""});
++  useEffect(()=>{
++    let cancelled=false;
++    // Restore after hydration, before enabling inputs. No server/client render mismatch.
++    queueMicrotask(()=>{
++      if(cancelled)return;
++      const storage={getItem:(key:string)=>window.localStorage.getItem(key),setItem:(key:string,value:string)=>window.localStorage.setItem(key,value),removeItem:(key:string)=>window.localStorage.removeItem(key)};
++      const draft=new AttemptDraft({key:`attempt:${userId}:${attemptId}`,storage,...initial.current,save:(answers,index)=>saveDraft(attemptId,answers,index),notify:setView});
++      controller.current=draft;draft.start();setReady(true);
++    });
++    const online=()=>{void controller.current?.flush();};
++    window.addEventListener("online",online);
++    return()=>{cancelled=true;window.removeEventListener("online",online);controller.current?.dispose();controller.current=null;};
++  },[userId,attemptId]);
++  return {view,ready,controller};
++}
+diff --git a/src/lib/attempt-draft.test.ts b/src/lib/attempt-draft.test.ts
+new file mode 100644
+index 0000000..9ddde8b
+--- /dev/null
++++ b/src/lib/attempt-draft.test.ts
+@@ -0,0 +1,41 @@
++import {afterEach,expect,it,vi} from "vitest";
++import {AttemptDraft,recoverDraft,type DraftSaveResult,type DraftView} from "./attempt-draft";
++function fixture(save:(answers:Record<string,unknown>,index:number)=>Promise<DraftSaveResult>=async()=>({ok:true})){
++  const values=new Map<string,string>();
++  const storage={getItem:(key:string)=>values.get(key)??null,setItem:(key:string,value:string)=>{values.set(key,value);},removeItem:(key:string)=>{values.delete(key);}};
++  const views:DraftView[]=[];
++  const options={key:"attempt:A:one",storage,server:{q1:"server",q2:"kept"},index:0,allowed:["q1","q2"],save,notify:(view:DraftView)=>views.push(view)};
++  return {values,storage,views,options,draft:new AttemptDraft(options)};
++}
++afterEach(()=>vi.useRealTimers());
++it("persists before debounce and merges unacknowledged edits after an immediate reload",()=>{
++  vi.useFakeTimers();const f=fixture();f.draft.change("q1","local");f.draft.dispose();
++  const restored=new AttemptDraft(f.options);expect(restored.snapshot().answers).toEqual({q1:"local",q2:"kept"});expect(restored.snapshot().status).toBe("pending");restored.dispose();
++});
++it("retains fresh server answers when an acknowledged local snapshot is stale",()=>{
++  expect(recoverDraft({q1:"new-server"},JSON.stringify({version:1,answers:{q1:"old-local"},pending:[],index:0}),["q1"],0).answers.q1).toBe("new-server");
++});
++it("ignores corrupt local data, unknown question ids and invalid indexes",()=>{
++  expect(recoverDraft({q1:"server"},"{bad",["q1"],0).answers).toEqual({q1:"server"});
++  const r=recoverDraft({q1:"server"},JSON.stringify({version:1,answers:{other:"secret"},pending:["other"],index:900}),["q1"],0);expect(r.answers).toEqual({q1:"server"});expect(r.index).toBe(0);
++});
++it("never marks an offline or rejected save as saved and restores it for retry",async()=>{
++  vi.useFakeTimers();let online=false;const f=fixture(async()=>online?{ok:true}:{ok:false,error:"Offline"});f.draft.change("q1","edit");expect(await f.draft.flush()).toBe(false);expect(f.draft.snapshot()).toMatchObject({status:"error",error:"Offline"});expect(f.values.has(f.options.key)).toBe(true);
++  online=true;expect(await f.draft.flush()).toBe(true);expect(f.draft.snapshot().status).toBe("saved");expect(JSON.parse(f.values.get(f.options.key)!).pending).toEqual([]);f.draft.dispose();
++});
++it("serializes saves and does not let an older acknowledgement discard newer edits",async()=>{
++  vi.useFakeTimers();let resolveFirst!:(v:DraftSaveResult)=>void;const sent:Record<string,unknown>[]=[];
++  const f=fixture(async answers=>{sent.push({...answers});if(sent.length===1)return new Promise<DraftSaveResult>(resolve=>{resolveFirst=resolve;});return {ok:true};});
++  f.draft.change("q1","first");const first=f.draft.flush();f.draft.change("q1","second");const second=f.draft.flush();resolveFirst({ok:true});await first;await second;
++  expect(sent.map(row=>row.q1)).toEqual(["first","second"]);expect(f.draft.snapshot()).toMatchObject({answers:{q1:"second"},status:"saved"});f.draft.dispose();
++});
++it("keeps a failed completion draft while paused and clears it only after confirmed success",async()=>{
++  vi.useFakeTimers();const f=fixture();f.draft.change("q1","recoverable");await f.draft.pause();expect(f.values.has(f.options.key)).toBe(true);f.draft.resume();expect(f.draft.snapshot().answers.q1).toBe("recoverable");f.draft.complete();expect(f.values.has(f.options.key)).toBe(false);
++});
++it("does not read another user's scoped draft",()=>{
++  vi.useFakeTimers();const f=fixture();f.draft.change("q1","A only");const b=new AttemptDraft({...f.options,key:"attempt:B:one",server:{}});expect(b.snapshot().answers).toEqual({});f.draft.dispose();b.dispose();
++});
++it("surfaces unavailable local storage, then accepts a durable server save",async()=>{
++  vi.useFakeTimers();const f=fixture();const storage={getItem:()=>{throw Error("blocked");},setItem:()=>{throw Error("quota");},removeItem:()=>{throw Error("blocked");}};
++  const d=new AttemptDraft({...f.options,storage});d.change("q1","value");expect(d.snapshot().status).toBe("error");expect(await d.flush()).toBe(true);expect(d.snapshot().status).toBe("saved");d.complete();
++});
+diff --git a/src/lib/attempt-draft.ts b/src/lib/attempt-draft.ts
+new file mode 100644
+index 0000000..e79454b
+--- /dev/null
++++ b/src/lib/attempt-draft.ts
+@@ -0,0 +1,86 @@
++export type DraftAnswers = Record<string, unknown>;
++export type DraftSaveResult = {ok:true} | {ok:false;error:string};
++export type DraftView = {answers:DraftAnswers;index:number;status:"saved"|"saving"|"pending"|"error";error:string};
++type Storage = Pick<globalThis.Storage,"getItem"|"setItem"|"removeItem">;
++type StoredDraft = {version:1;answers:DraftAnswers;index:number;pending:string[]};
++
++/** Unacknowledged local fields override only their own server fields. */
++export function recoverDraft(server:DraftAnswers, raw:string|null, allowed:readonly string[], initialIndex:number) {
++  const answers = Object.fromEntries(Object.entries(server).filter(([id])=>allowed.includes(id)));
++  const pending = new Set<string>();
++  let index=initialIndex;
++  try {
++    const local:StoredDraft = JSON.parse(raw ?? "null");
++    if(local?.version===1 && local.answers && typeof local.answers==="object" && !Array.isArray(local.answers) && Array.isArray(local.pending)) {
++      for(const id of local.pending) if(allowed.includes(id) && Object.hasOwn(local.answers,id)) {
++        answers[id]=local.answers[id];
++        if(JSON.stringify(answers[id])!==JSON.stringify(server[id])) pending.add(id);
++      }
++      if(Number.isInteger(local.index))index=local.index;
++    }
++  } catch { /* A damaged local entry must not hide the server draft. */ }
++  return {answers,pending,index:Math.max(0,Math.min(Math.max(0,allowed.length-1),index))};
++}
++
++export class AttemptDraft {
++  private view:DraftView;
++  private pending:Set<string>;
++  private revision=0;
++  private timer:ReturnType<typeof setTimeout>|undefined;
++  private flight:Promise<boolean>|null=null;
++  private stopped=false;
++  private disposed=false;
++  private dirty=false;
++
++  constructor(private readonly options:{key:string;storage:Storage;server:DraftAnswers;index:number;allowed:readonly string[];save:(answers:DraftAnswers,index:number)=>Promise<DraftSaveResult>;notify:(view:DraftView)=>void}) {
++    let raw:string|null=null;
++    let error="";
++    try {raw=options.storage.getItem(options.key);} catch {error="Браузер не дозволяє зберегти локальну чернетку. Дочекайтеся збереження на сервері.";}
++    const recovered=recoverDraft(options.server,raw,options.allowed,options.index);
++    this.pending=recovered.pending;
++    this.dirty=this.pending.size>0 || recovered.index!==options.index;
++    this.view={answers:recovered.answers,index:recovered.index,status:error?"error":this.dirty?"pending":"saved",error};
++  }
++  snapshot(){return this.view;}
++  start(){this.emit();if(this.dirty)this.schedule();}
++  private emit(){if(!this.disposed)this.options.notify({...this.view,answers:{...this.view.answers}});}
++  private persist(){
++    try {this.options.storage.setItem(this.options.key,JSON.stringify({version:1,answers:this.view.answers,index:this.view.index,pending:[...this.pending]}));return true;}
++    catch {this.view.status="error";this.view.error="Локальна чернетка не збережена. Не закривайте сторінку до збереження на сервері.";return false;}
++  }
++  change(id:string,value:unknown){
++    if(this.stopped || !this.options.allowed.includes(id))return;
++    this.pending.add(id);this.view.answers={...this.view.answers,[id]:value};this.changed();
++  }
++  navigate(index:number){if(this.stopped)return;this.view.index=Math.max(0,Math.min(this.options.allowed.length-1,index));this.changed();}
++  private changed(){this.revision++;this.dirty=true;this.view.status="pending";this.view.error="";this.persist();this.emit();this.schedule();}
++  private schedule(){clearTimeout(this.timer);this.timer=setTimeout(()=>{void this.flush();},450);}
++  async flush():Promise<boolean>{
++    clearTimeout(this.timer);
++    if(this.stopped)return false;
++    if(this.flight){const ok=await this.flight;return ok && this.dirty ? this.flush() : ok;}
++    if(!this.dirty)return true;
++    const revision=this.revision;
++    const sent={...this.view.answers};const index=this.view.index;
++    this.view.status="saving";this.emit();
++    this.flight=(async()=>{
++      try {
++        const result=await this.options.save(sent,index);
++        if(!result.ok)throw new Error(result.error);
++        for(const id of this.pending)if(JSON.stringify(this.view.answers[id])===JSON.stringify(sent[id]))this.pending.delete(id);
++        this.dirty=this.revision!==revision;
++        this.view.status=this.dirty?"pending":"saved";this.view.error="";
++        this.persist();
++        // A confirmed server save is durable even if local storage is unavailable.
++        if(!this.dirty){this.view.status="saved";this.view.error="";}
++        return true;
++      }catch(error){this.view.status="error";this.view.error=error instanceof Error?error.message:"Не вдалося зберегти відповіді.";return false;}
++      finally{this.flight=null;this.emit();}
++    })();
++    return this.flight;
++  }
++  async pause(){clearTimeout(this.timer);this.stopped=true;if(this.flight)await this.flight;}
++  resume(){this.stopped=false;this.emit();if(this.dirty)this.schedule();}
++  complete(){this.stopped=true;clearTimeout(this.timer);try{this.options.storage.removeItem(this.options.key);}catch{/* The completed server attempt is authoritative. */}}
++  dispose(){clearTimeout(this.timer);this.disposed=true;this.stopped=true;}
++}
+diff --git a/src/lib/question-input.ts b/src/lib/question-input.ts
+index 31386e8..ebfa516 100644
+--- a/src/lib/question-input.ts
++++ b/src/lib/question-input.ts
+@@ -1,14 +1,15 @@
+ import { randomUUID } from "crypto";
+ import { questionSchema } from "./validators";
+-export function prepareQuestion(raw: unknown) {
++import { UserError } from "./errors";
++export function prepareQuestion(raw: unknown, { preserveIds = false } = {}) {
+  const q=questionSchema.parse(raw);
+- const options=q.options.map((o,index)=>({...o,id:randomUUID(),sortOrder:index}));
+- const refs=new Map<string,string>();q.options.forEach((o,i)=>{if(refs.has(o.label))throw new Error("Мітки варіантів мають бути унікальними.");refs.set(o.label,options[i].id);if(o.id)refs.set(o.id,options[i].id)});
+- const ref=(v:unknown)=>{const id=refs.get(String(v));if(!id)throw new Error("Правильна відповідь посилається на невідомий варіант.");return id};
++ const options=q.options.map((o,index)=>({...o,id:preserveIds && o.id ? o.id : randomUUID(),sortOrder:index}));
++ const refs=new Map<string,string>();q.options.forEach((o,i)=>{if(refs.has(o.label))throw new UserError("Мітки варіантів мають бути унікальними.");refs.set(o.label,options[i].id);if(o.id)refs.set(o.id,options[i].id)});
++ const ref=(v:unknown)=>{const id=refs.get(String(v));if(!id)throw new UserError("Правильна відповідь посилається на невідомий варіант.");return id};
+  let answer=q.correctAnswer;
+- if(q.type==='NUMERIC'&&!/^-?\d+([.,]\d+)?$/.test(answer.trim()))throw new Error("Введіть числову відповідь.");
+- if(q.type==='SINGLE_CHOICE'){if(options.length<2)throw new Error("Потрібно щонайменше два варіанти.");answer=ref(answer)}
+- if(q.type==='SEQUENCE'){const a=JSON.parse(answer) as unknown;if(!Array.isArray(a)||a.length!==options.length||new Set(a).size!==options.length||a.length<2)throw new Error("Послідовність має містити кожен варіант рівно один раз.");answer=JSON.stringify(a.map(ref))}
+- if(q.type==='MATCHING'){const a=JSON.parse(answer) as Record<string,string>;if(!a||Array.isArray(a)||typeof a!=='object')throw new Error("Відповідність має бути JSON-об’єктом.");const left=q.options.filter(o=>o.matchKey==='left');const right=q.options.filter(o=>o.matchKey==='right');if(!left.length||!right.length||Object.keys(a).length!==left.length)throw new Error("Вкажіть усі ліві й праві варіанти.");const mapped:Record<string,string>={};for(const [l,r] of Object.entries(a)){if(!left.some(o=>o.label===l||o.id===l)||!right.some(o=>o.label===r||o.id===r))throw new Error("Пари мають поєднувати лівий та правий варіанти.");mapped[ref(l)]=ref(r)}answer=JSON.stringify(mapped)}
++ if(q.type==='NUMERIC'&&!/^-?\d+([.,]\d+)?$/.test(answer.trim()))throw new UserError("Введіть числову відповідь.");
++ if(q.type==='SINGLE_CHOICE'){if(options.length<2)throw new UserError("Потрібно щонайменше два варіанти.");answer=ref(answer)}
++ if(q.type==='SEQUENCE'){const a=JSON.parse(answer) as unknown;if(!Array.isArray(a)||a.length!==options.length||new Set(a).size!==options.length||a.length<2)throw new UserError("Послідовність має містити кожен варіант рівно один раз.");answer=JSON.stringify(a.map(ref))}
++ if(q.type==='MATCHING'){const a=JSON.parse(answer) as Record<string,string>;if(!a||Array.isArray(a)||typeof a!=='object')throw new UserError("Відповідність має бути JSON-об’єктом.");const left=q.options.filter(o=>o.matchKey==='left');const right=q.options.filter(o=>o.matchKey==='right');if(!left.length||!right.length||Object.keys(a).length!==left.length)throw new UserError("Вкажіть усі ліві й праві варіанти.");const mapped:Record<string,string>={};for(const [l,r] of Object.entries(a)){if(!left.some(o=>o.label===l||o.id===l)||!right.some(o=>o.label===r||o.id===r))throw new UserError("Пари мають поєднувати лівий та правий варіанти.");mapped[ref(l)]=ref(r)}answer=JSON.stringify(mapped)}
+  return {...q,correctAnswer:answer,options};
+ }
+diff --git a/src/lib/task-origin.ts b/src/lib/task-origin.ts
+new file mode 100644
+index 0000000..32dcdfa
+--- /dev/null
++++ b/src/lib/task-origin.ts
+@@ -0,0 +1,4 @@
++/** Only keys emitted by buildSlotsForDate belong to the automatic planner. */
++export function isAutoPlanned(task: { templateKey: string | null; movedFromId?: string | null }) {
++  return !task.movedFromId && /^d[0-6]-s\d+$/.test(task.templateKey ?? "");
++}
+diff --git a/src/proxy.test.ts b/src/proxy.test.ts
+new file mode 100644
+index 0000000..82227b0
+--- /dev/null
++++ b/src/proxy.test.ts
+@@ -0,0 +1,13 @@
++import {expect,it} from "vitest";
++import {NextRequest} from "next/server";
++import {proxy} from "./proxy";
++it("returns JSON 401 for missing API sessions rather than login HTML",async()=>{
++ for(const pathname of ["/api/export/backup","/api/ai/stream","/api/export/results"]){const response=proxy(new NextRequest("http://qa.test"+pathname));expect(response.status).toBe(401);expect(response.headers.get("location")).toBeNull();expect(await response.json()).toEqual({error:"Потрібен вхід."});}
++});
++it("keeps login/onboarding open and redirects ordinary protected pages",()=>{
++ expect(proxy(new NextRequest("http://qa.test/login")).status).toBe(200);expect(proxy(new NextRequest("http://qa.test/onboarding")).status).toBe(200);
++ expect(proxy(new NextRequest("http://qa.test/settings")).headers.get("location")).toBe("http://qa.test/login");
++});
++it("leaves cookie validation to the endpoint, never treating presence as authorization",()=>{
++ expect(proxy(new NextRequest("http://qa.test/api/export/backup",{headers:{cookie:"nmt_user=invalid"}})).headers.get("x-middleware-next")).toBe("1");
++});
+diff --git a/src/proxy.ts b/src/proxy.ts
+index 23af6aa..497bcfe 100644
+--- a/src/proxy.ts
++++ b/src/proxy.ts
+@@ -4,6 +4,9 @@ export function proxy(request: NextRequest) {
+   const { pathname } = request.nextUrl;
+   if (pathname.startsWith("/login") || pathname.startsWith("/onboarding") || pathname.startsWith("/_next")) return NextResponse.next();
+   if (!request.cookies.get("nmt_user")?.value) {
++    if (pathname === "/api" || pathname.startsWith("/api/")) {
++      return NextResponse.json({ error: "Потрібен вхід." }, { status: 401 });
++    }
+     const url = request.nextUrl.clone();
+     url.pathname = "/login";
+     return NextResponse.redirect(url);
+diff --git a/src/server/actions.ts b/src/server/actions.ts
+index 421f7d6..1d95edc 100644
+--- a/src/server/actions.ts
++++ b/src/server/actions.ts
+@@ -1,5 +1,8 @@
+ "use server";
+ 
++import type { Prisma } from "@prisma/client";
++import { parseLesson } from "@/lib/lesson";
++
+ import { UserError, userFacingError } from "@/lib/errors";
+ import { auditedWrite, recordAudit } from "@/server/audit-log";
+ import { canEditContent, isAdministrator, isOwner, canManageRole, effectiveRole } from "@/lib/permissions";
+@@ -25,7 +28,7 @@ import { isValidNickname, normalizeNickname } from "@/lib/nickname";
+ import { addXp, refreshAchievements } from "@/server/progress";
+ import { isLocked, registerFail, clearFails } from "@/lib/login-throttle";
+ import { clearSession, createSession, getSessionUser } from "@/server/session";
+-import { getSettings, syncPlan } from "@/server/sync";
++import { getSettings, syncPlan, syncPlanWithClient, rebuildFuturePlan } from "@/server/sync";
+ 
+ export type ActionState = { ok: true; message?: string; id?: string } | { ok: false; error: string };
+ 
+@@ -68,8 +71,8 @@ function fail(error: unknown): ActionState {
+   return { ok: false, error: userFacingError(error) };
+ }
+ 
+-async function readableAnswer(questionId: string, value: unknown) {
+-  const question = await prisma.question.findUnique({ where: { id: questionId }, include: { options: true } });
++async function readableAnswer(questionId: string, value: unknown, db: Prisma.TransactionClient = prisma) {
++  const question = await db.question.findUnique({ where: { id: questionId }, include: { options: true } });
+   if (!question) return String(value ?? "—");
+   const options = new Map(question.options.map((option) => [option.id, option.text]));
+   if (question.type === "SINGLE_CHOICE") return options.get(String(value)) ?? "Відповіді немає";
+@@ -294,7 +297,13 @@ export async function deleteNote(id: string): Promise<ActionState> {
+ }
+ 
+ async function persistQuestion(tx: import("@prisma/client").Prisma.TransactionClient, raw: unknown) {
+- const q=prepareQuestion(raw);
++ const parsed = questionSchema.parse(raw);
++ if (parsed.id) {
++   const previous = await tx.questionOption.findMany({where:{questionId:parsed.id},select:{id:true}});
++   const allowed = new Set(previous.map(option=>option.id));
++   if(parsed.options.some(option=>option.id && !allowed.has(option.id))) throw new UserError("Варіант відповіді не належить цьому завданню.");
++ }
++ const q=prepareQuestion(parsed, {preserveIds:Boolean(parsed.id)});
+  const topic=await tx.topic.findUnique({where:{id:q.topicId}});
+  if(!topic||topic.subjectId!==q.subjectId)throw new UserError("Тема не належить до вибраного предмета.");
+  const {options,id,...data}=q;
+@@ -325,7 +334,7 @@ export async function importQuestions(rawJson: string): Promise<ActionState> {
+   if(rawJson.length>2000000)throw new UserError("Файл завеликий (до 2 МБ).");
+   const items=z.array(questionSchema).min(1).max(500).parse(JSON.parse(rawJson));
+   // Preflight the entire batch. No partial import if a later question is invalid.
+-  items.forEach(prepareQuestion);
++  items.forEach(item => prepareQuestion(item));
+   const result=await prisma.$transaction(async tx=>{
+    let imported=0, skipped=0;
+    for(const item of items){
+@@ -452,25 +461,29 @@ function scaleTargets(total: number) {
+ export async function saveDraft(attemptId: string, draft: Record<string, unknown>, currentIndex: number): Promise<ActionState> {
+   try {
+     const user = await actor();
+-    const attempt = await prisma.testAttempt.findUnique({ where: { id: attemptId, userId: user.id } });
+-    if (!attempt || attempt.userId !== user.id || attempt.status !== "IN_PROGRESS") return { ok: false, error: "Спробу вже завершено." };
+-    await prisma.testAttempt.update({ where: { id: attemptId, userId: user.id }, data: { draftJson: JSON.stringify(draft), currentIndex } });
+-    return { ok: true };
+-  } catch (error) {
+-    return fail(error);
+-  }
++    const updated = await prisma.testAttempt.updateMany({where:{id:attemptId,userId:user.id,status:"IN_PROGRESS"},data:{draftJson:JSON.stringify(draft),currentIndex}});
++    return updated.count ? {ok:true} : {ok:false,error:"Спробу вже завершено або вона недоступна."};
++  } catch(error) { return fail(error); }
+ }
+ 
+ export async function finishAttempt(attemptId: string, draft: Record<string, unknown>): Promise<ActionState> {
+   try {
+     const user = await actor();
+-    const attempt = await prisma.testAttempt.findUnique({
++    const settings = await getSettings(user.id);
++    await prisma.$transaction(async (tx) => {
++    // Acquire the SQLite write lock before reading. The state change is invisible outside this transaction.
++    const claimed = await tx.testAttempt.updateMany({where:{id:attemptId,userId:user.id,status:"IN_PROGRESS"},data:{status:"FINALIZING"}});
++    if (!claimed.count) {
++      const existing = await tx.testAttempt.findUnique({where:{id:attemptId,userId:user.id}});
++      if(existing?.status === "COMPLETED") return;
++      throw new UserError("Спроба недоступна або вже завершується. Спробуйте ще раз.");
++    }
++    const attempt = await tx.testAttempt.findUnique({
+       where: { id: attemptId, userId: user.id },
+       include: { test: { include: { questions: { include: { question: true }, orderBy: { sortOrder: "asc" } } } } },
+     });
+-    if (!attempt || attempt.userId !== user.id || attempt.status !== "IN_PROGRESS") return { ok: false, error: "Спробу вже завершено або вона належить іншому профілю." };
+-    const settings = await getSettings(user.id);
+-    await prisma.answer.deleteMany({ where: { attemptId } });
++    if (!attempt || attempt.userId !== user.id) throw new UserError("Спроба недоступна.");
++    await tx.answer.deleteMany({ where: { attemptId } });
+     let correct = 0;
+     let pending = 0;
+     for (const row of attempt.test.questions) {
+@@ -479,7 +492,7 @@ export async function finishAttempt(attemptId: string, draft: Record<string, unk
+       const graded = gradeAnswer({ type: question.type, correctAnswer: question.correctAnswer, userAnswer: userValue });
+       if (graded.isCorrect) correct += 1;
+       if (graded.needsManualReview) pending += 1;
+-      await prisma.answer.create({
++      await tx.answer.create({
+         data: {
+           attemptId,
+           questionId: question.id,
+@@ -489,12 +502,12 @@ export async function finishAttempt(attemptId: string, draft: Record<string, unk
+         },
+       });
+       if (graded.isCorrect === false && question.topicId && (attempt.test.kind !== "DIAGNOSTIC" || (userValue !== null && userValue !== ""))) {
+-        await rememberMistake(question, userValue);
++        await rememberMistake(question, userValue, tx, user.id);
+       }
+     }
+     const total = attempt.test.questions.length;
+     const durationSec = Math.max(1, Math.round((Date.now() - attempt.startedAt.getTime()) / 1000));
+-    await prisma.testAttempt.update({
++    await tx.testAttempt.update({
+       where: { id: attemptId, userId: user.id },
+       data: {
+         status: "COMPLETED",
+@@ -508,17 +521,17 @@ export async function finishAttempt(attemptId: string, draft: Record<string, unk
+       },
+     });
+     if (attempt.test.kind === "DIAGNOSTIC") {
+-      const answers=await prisma.answer.findMany({where:{attemptId,isCorrect:false},include:{question:true}});
++      const answers=await tx.answer.findMany({where:{attemptId,isCorrect:false},include:{question:true}});
+       const weakTopics=[...new Set(answers.filter(a=>a.userAnswer !== "null" && a.userAnswer !== '""').map(a=>a.question.topicId).filter((id):id is string=>Boolean(id)))];
+-      for(const topicId of weakTopics)await prisma.userTopicProgress.upsert({where:{userId_topicId:{userId:user.id,topicId}},update:{status:"NEEDS_REVIEW"},create:{userId:user.id,topicId,status:"NEEDS_REVIEW"}});
+-      await recalculateFuturePlan();
++      for(const topicId of weakTopics)await tx.userTopicProgress.upsert({where:{userId_topicId:{userId:user.id,topicId}},update:{status:"NEEDS_REVIEW"},create:{userId:user.id,topicId,status:"NEEDS_REVIEW"}});
++      await rebuildFuturePlan(user.id, tx);
+     }
+     if (attempt.test.topicId && pending === 0) {
+-      await applyMastery(attempt.test.topicId, correct, total, settings.masteryHighMin, settings.masteryMidMin);
++      await applyMastery(attempt.test.topicId, correct, total, settings.masteryHighMin, settings.masteryMidMin, tx, user.id);
+     } else if (attempt.test.topicId) {
+-      await prisma.userTopicProgress.upsert({ where: { userId_topicId: { userId: user.id, topicId: attempt.test.topicId } }, update: { status: "IN_PROGRESS", lastCorrect: correct, lastTotal: total }, create: { userId: user.id, topicId: attempt.test.topicId, status: "IN_PROGRESS", lastCorrect: correct, lastTotal: total } });
++      await tx.userTopicProgress.upsert({ where: { userId_topicId: { userId: user.id, topicId: attempt.test.topicId } }, update: { status: "IN_PROGRESS", lastCorrect: correct, lastTotal: total }, create: { userId: user.id, topicId: attempt.test.topicId, status: "IN_PROGRESS", lastCorrect: correct, lastTotal: total } });
+     }
+-    await prisma.studySession.create({
++    await tx.studySession.create({
+       data: {
+         subjectId: attempt.test.subjectId,
+         topicId: attempt.test.topicId,
+@@ -529,9 +542,10 @@ export async function finishAttempt(attemptId: string, draft: Record<string, unk
+         userId: user.id,
+       },
+     });
+-    if (attempt.test.topicId) await completeOpenTask(user.id, attempt.test.topicId);
+-    await addXp(30 + correct * 2, "Завершений тест");
+-    await refreshAchievements();
++    if (attempt.test.topicId) await completeOpenTask(user.id, attempt.test.topicId, tx);
++    await addXp(30 + correct * 2, "Завершений тест", tx, user.id);
++    await refreshAchievements(tx, user.id);
++    }, {maxWait: 15000, timeout: 30000});
+     refresh();
+     return { ok: true };
+   } catch (error) {
+@@ -539,19 +553,19 @@ export async function finishAttempt(attemptId: string, draft: Record<string, unk
+   }
+ }
+ 
+-async function rememberMistake(question: { id: string; subjectId: string; topicId: string | null; prompt: string; explanation: string; correctAnswer: string; type: string }, userValue: unknown) {
+-  const user = await actor();
+-  const existing = await prisma.mistake.findFirst({ where: { userId: user.id, questionId: question.id, status: { not: "FIXED" } } });
+-  const userAnswer = await readableAnswer(question.id, userValue);
+-  const correctAnswer = await readableCorrect(question);
++async function rememberMistake(question: { id: string; subjectId: string; topicId: string | null; prompt: string; explanation: string; correctAnswer: string; type: string }, userValue: unknown, db: Prisma.TransactionClient = prisma, userId?: string) {
++  const user = userId ? {id:userId} : await actor();
++  const existing = await db.mistake.findFirst({ where: { userId: user.id, questionId: question.id, status: { not: "FIXED" } } });
++  const userAnswer = await readableAnswer(question.id, userValue, db);
++  const correctAnswer = await readableCorrect(question, db);
+   if (existing) {
+-    await prisma.mistake.update({
++    await db.mistake.update({
+       where: { id: existing.id, userId: user.id },
+       data: { repeatCount: { increment: 1 }, userAnswer, date: new Date(), status: "OPEN" },
+     });
+     return;
+   }
+-  await prisma.mistake.create({
++  await db.mistake.create({
+     data: {
+       subjectId: question.subjectId,
+       topicId: question.topicId,
+@@ -565,11 +579,11 @@ async function rememberMistake(question: { id: string; subjectId: string; topicI
+   });
+ }
+ 
+-async function readableCorrect(question: { id: string; type: string; correctAnswer: string }) {
+-  if (question.type === "SINGLE_CHOICE") return readableAnswer(question.id, question.correctAnswer);
++async function readableCorrect(question: { id: string; type: string; correctAnswer: string }, db: Prisma.TransactionClient = prisma) {
++  if (question.type === "SINGLE_CHOICE") return readableAnswer(question.id, question.correctAnswer, db);
+   if (question.type === "SEQUENCE" || question.type === "MATCHING") {
+     try {
+-      return readableAnswer(question.id, JSON.parse(question.correctAnswer));
++      return readableAnswer(question.id, JSON.parse(question.correctAnswer), db);
+     } catch {
+       return question.correctAnswer;
+     }
+@@ -577,13 +591,13 @@ async function readableCorrect(question: { id: string; type: string; correctAnsw
+   return question.correctAnswer;
+ }
+ 
+-async function completeOpenTask(userId: string, topicId: string) {
+-  const task = await prisma.studyTask.findFirst({
++async function completeOpenTask(userId: string, topicId: string, db: Prisma.TransactionClient = prisma) {
++  const task = await db.studyTask.findFirst({
+     where: { userId, topicId, status: { in: ["PLANNED", "IN_PROGRESS"] }, dateKey: { lte: dateKey() } },
+     orderBy: { dateKey: "asc" },
+   });
+   if (!task) return;
+-  await prisma.studyTask.update({ where: { id: task.id }, data: { status: "DONE", completedAt: new Date() } });
++  await db.studyTask.update({ where: { id: task.id }, data: { status: "DONE", completedAt: new Date() } });
+ }
+ 
+ export async function completeLesson(topicId: string, studied: boolean): Promise<ActionState> {
+@@ -597,6 +611,7 @@ export async function completeLesson(topicId: string, studied: boolean): Promise
+       orderBy: { finishedAt: "desc" },
+     });
+     if (verified > 0 && !attempt) return { ok: false, error: "Спочатку завершіть домашнє завдання. Відкриття сторінки урок не зараховує." };
++    if (verified === 0 && !parseLesson(topic.lessonJson)?.theory.trim()) return {ok:false,error:"Матеріал уроку ще не додано."};
+     if (verified === 0 && !studied) return { ok: false, error: "Позначте, що конспект опрацьовано. Для цієї теми ще немає перевірених завдань." };
+     const progress = await prisma.userTopicProgress.findUnique({ where: { userId_topicId: { userId: user.id, topicId } } });
+     if (!progress || progress.status === "NOT_STARTED") {
+@@ -626,19 +641,19 @@ export async function completeLesson(topicId: string, studied: boolean): Promise
+   }
+ }
+ 
+-async function applyMastery(topicId: string, correct: number, total: number, highMin: number, midMin: number) {
+-  const user = await actor();
++async function applyMastery(topicId: string, correct: number, total: number, highMin: number, midMin: number, db: Prisma.TransactionClient = prisma, userId?: string) {
++  const user = userId ? {id:userId} : await actor();
+   const status = learningStatus(correct, total, highMin, midMin);
+-  const repeats = await prisma.mistake.aggregate({ where: { userId: user.id, topicId, status: { not: "FIXED" } }, _sum: { repeatCount: true } });
+-  await prisma.userTopicProgress.upsert({
++  const repeats = await db.mistake.aggregate({ where: { userId: user.id, topicId, status: { not: "FIXED" } }, _sum: { repeatCount: true } });
++  await db.userTopicProgress.upsert({
+     where: { userId_topicId: { userId: user.id, topicId } },
+     update: { status, lastCorrect: correct, lastTotal: total },
+     create: { userId: user.id, topicId, status, lastCorrect: correct, lastTotal: total },
+   });
+-  await prisma.reviewSchedule.deleteMany({ where: { userId: user.id, topicId, status: "PENDING" } });
++  await db.reviewSchedule.deleteMany({ where: { userId: user.id, topicId, status: "PENDING" } });
+   const intervals = reviewIntervals(correct, total, highMin, midMin, repeats._sum.repeatCount ?? 0);
+   const priority = status === "MASTERED" ? 0 : status === "NEEDS_REVIEW" ? 1 : 3;
+-  await prisma.reviewSchedule.createMany({
++  await db.reviewSchedule.createMany({
+     data: intervals.map((days) => ({
+       topicId,
+       userId: user.id,
+@@ -815,11 +830,7 @@ export async function createCustomTask(input: { dateKey: string; title: string;
+ export async function recalculateFuturePlan(): Promise<ActionState> {
+   try {
+     const user = await actor();
+-    const today = dateKey();
+-    const planned = await prisma.studyTask.findMany({ where: { userId: user.id, status: "PLANNED", dateKey: { gte: today } } });
+-    const ids = planned.filter((task) => task.templateKey?.startsWith("d")).map((task) => task.id);
+-    if (ids.length) await prisma.studyTask.deleteMany({ where: { id: { in: ids }, userId: user.id } });
+-    await syncPlan(user.id);
++    await prisma.$transaction(tx => rebuildFuturePlan(user.id, tx), {maxWait:15000,timeout:30000});
+     refreshPages("/calendar", "/", "/analytics", "/curriculum");
+     return { ok: true, message: "Майбутні заплановані заняття перераховано. Виконані й перенесені залишились." };
+   } catch (error) {
+@@ -1283,25 +1294,29 @@ export async function changeElective(subjectId: string, confirmed: boolean): Pro
+     const user = await actor();
+     if (!confirmed) return { ok: false, error: "Підтвердьте зміну предмета." };
+     if (!ELECTIVE_SUBJECT_IDS.includes(subjectId as never)) return { ok: false, error: "Це не предмет на вибір." };
+-    const current = user.subjects.find((item) => item.role === "ELECTIVE" && item.active);
+-    if (current?.subjectId === subjectId) return { ok: true, message: "Цей предмет уже обрано." };
++    await prisma.$transaction(async (tx) => {
++    // Serialize competing changes before reading the current elective.
++    await tx.user.update({where:{id:user.id},data:{updatedAt:new Date()}});
++    const current = await tx.userSubject.findFirst({where:{userId:user.id,role:"ELECTIVE",active:true}});
++    if (current?.subjectId === subjectId) return;
+     const today = dateKey();
+     if (current) {
+-      await prisma.studyTask.updateMany({
++      await tx.studyTask.updateMany({
+         where: { userId: user.id, subjectId: current.subjectId, status: "PLANNED", dateKey: { gte: today } },
+         data: { status: "DROPPED", notes: "Предмет на вибір змінено. Завершені заняття збережено." },
+       });
+-      await prisma.userSubject.update({ where: { id: current.id }, data: { active: false } });
++      await tx.userSubject.updateMany({ where: { userId:user.id, role:"ELECTIVE", active:true }, data: { active: false } });
+     }
+-    await prisma.userSubject.upsert({
++    await tx.userSubject.upsert({
+       where: { userId_subjectId: { userId: user.id, subjectId } },
+       update: { active: true, role: "ELECTIVE" },
+       create: { userId: user.id, subjectId, role: "ELECTIVE", active: true },
+     });
+-    const settings = await getSettings(user.id);
++    const settings = await getSettings(user.id, tx);
+     const schedule = personalSchedule(subjectId, settings.intensity === "light" || settings.intensity === "intense" ? settings.intensity : "standard");
+-    await prisma.userSettings.update({ where: { userId: user.id }, data: { scheduleJson: JSON.stringify(schedule) } });
+-    await syncPlan(user.id);
++    await tx.userSettings.update({ where: { userId: user.id }, data: { scheduleJson: JSON.stringify(schedule) } });
++    await syncPlanWithClient(user.id, tx);
++    }, {maxWait:15000,timeout:30000});
+     refresh();
+     return { ok: true, message: "Предмет на вибір змінено. Минулі результати залишились в історії." };
+   } catch (error) {
+diff --git a/src/server/audit-actions.test.ts b/src/server/audit-actions.test.ts
+index 958b000..068c5ad 100644
+--- a/src/server/audit-actions.test.ts
++++ b/src/server/audit-actions.test.ts
+@@ -5,6 +5,7 @@ const mock = vi.hoisted(() => ({
+   user: vi.fn(),
+   xp: vi.fn(),
+   sync: vi.fn(),
++  rebuild: vi.fn(),
+   prisma: {
+     $transaction: vi.fn(),
+     $queryRaw: vi.fn(),
+@@ -12,7 +13,7 @@ const mock = vi.hoisted(() => ({
+     flashcard: { create: vi.fn(), findUnique: vi.fn(), update: vi.fn() },
+     studySession: { create: vi.fn() },
+     studyTask: { findUnique: vi.fn(), update: vi.fn(), findMany: vi.fn(), deleteMany: vi.fn() },
+-    testAttempt: { findUnique: vi.fn(), update: vi.fn() },
++    testAttempt: { findUnique: vi.fn(), update: vi.fn(), updateMany: vi.fn() },
+     note: { update: vi.fn(), delete: vi.fn() },
+     reviewSchedule: { update: vi.fn() },
+     mistake: { update: vi.fn() },
+@@ -31,7 +32,7 @@ vi.mock("next/cache", () => ({ revalidatePath: vi.fn() }));
+ vi.mock("next/headers", () => ({ headers: vi.fn() }));
+ vi.mock("next/navigation", () => ({ redirect: vi.fn() }));
+ vi.mock("@/server/progress", () => ({ addXp: mock.xp, refreshAchievements: vi.fn() }));
+-vi.mock("@/server/sync", () => ({ getSettings: vi.fn(), syncPlan: mock.sync }));
++vi.mock("@/server/sync", () => ({ getSettings: vi.fn(), syncPlan: mock.sync, rebuildFuturePlan: mock.rebuild }));
+ 
+ import { updateUserRole, buildBackup, completeOnboarding, completeReview, deleteNote, logStudyMinutes, recalculateFuturePlan, restoreBackup, reviewFlashcard, saveDraft, saveFlashcard, saveFormat, saveSchedule, setTaskStatus } from "./actions";
+ import { verifyPasswordAsync } from "@/lib/auth";
+@@ -55,8 +56,9 @@ describe("personal learning data isolation", () => {
+   });
+ 
+   it("rejects updating another learner's draft", async () => {
+-    mock.prisma.testAttempt.findUnique.mockResolvedValue({ userId: "learner-b", status: "IN_PROGRESS" });
++    mock.prisma.testAttempt.updateMany.mockResolvedValue({count:0});
+     expect((await saveDraft("other-attempt", { answer: "4" }, 2)).ok).toBe(false);
++    expect(mock.prisma.testAttempt.updateMany).toHaveBeenCalledWith(expect.objectContaining({where:{id:"other-attempt",userId:"learner-a",status:"IN_PROGRESS"}}));
+     expect(mock.prisma.testAttempt.update).not.toHaveBeenCalled();
+   });
+ 
+@@ -78,11 +80,10 @@ describe("personal learning data isolation", () => {
+     expect(mock.prisma.userTopicProgress.upsert).toHaveBeenCalledWith(expect.objectContaining({ where: { userId_topicId: { userId: "learner-a", topicId: "math-linear-eq" } } }));
+   });
+ 
+-  it("recalculates only the current learner's future tasks", async () => {
+-    mock.prisma.studyTask.findMany.mockResolvedValue([]);
+-    await recalculateFuturePlan();
+-    expect(mock.prisma.studyTask.findMany).toHaveBeenCalledWith(expect.objectContaining({ where: expect.objectContaining({ userId: "learner-a" }) }));
+-    expect(mock.sync).toHaveBeenCalledWith("learner-a");
++  it("recalculates the current learner's plan inside the same transaction", async () => {
++    expect((await recalculateFuturePlan()).ok).toBe(true);
++    expect(mock.rebuild).toHaveBeenCalledWith("learner-a",mock.prisma);
++    expect(mock.prisma.$transaction).toHaveBeenCalled();
+   });
+ 
+   it("does not double count an already completed task", async () => {
+diff --git a/src/server/progress.ts b/src/server/progress.ts
+index 7941e76..9edb7e4 100644
+--- a/src/server/progress.ts
++++ b/src/server/progress.ts
+@@ -1,24 +1,25 @@
++import type { Prisma } from "@prisma/client";
+ import { SUBJECT_IDS } from "@/lib/constants";
+ import { getSessionUser } from "@/server/session";
+ import { dateKey, startOfWeekMonday } from "@/lib/dates";
+ import { prisma } from "@/lib/prisma";
+ import { computeStreak, weekCompletion } from "@/lib/scoring";
+ 
+-export async function addXp(amount: number, reason: string) {
+-  const user = await getSessionUser();
++export async function addXp(amount: number, reason: string, db: Prisma.TransactionClient = prisma, userId?: string) {
++  const user = userId ? {id:userId} : await getSessionUser();
+   if (!user) throw new Error("Потрібен вхід до профілю.");
+-  await prisma.xpEvent.create({ data: { amount, reason, userId: user.id } });
++  await db.xpEvent.create({ data: { amount, reason, userId: user.id } });
+ }
+ 
+-export async function refreshAchievements() {
+-  const user = await getSessionUser();
++export async function refreshAchievements(db: Prisma.TransactionClient = prisma, userId?: string) {
++  const user = userId ? {id:userId} : await getSessionUser();
+   if (!user) return;
+   const [sessionCount, attemptCount, mastered, events, tasks] = await Promise.all([
+-    prisma.studySession.count({ where: { userId: user.id, durationMin: { gt: 0 } } }),
+-    prisma.testAttempt.count({ where: { userId: user.id, status: "COMPLETED" } }),
+-    prisma.userTopicProgress.count({ where: { userId: user.id, status: "MASTERED" } }),
+-    prisma.studySession.findMany({ where: { userId: user.id, durationMin: { gt: 0 } }, select: { startedAt: true } }),
+-    prisma.studyTask.findMany({ where: { userId: user.id } }),
++    db.studySession.count({ where: { userId: user.id, durationMin: { gt: 0 } } }),
++    db.testAttempt.count({ where: { userId: user.id, status: "COMPLETED" } }),
++    db.userTopicProgress.count({ where: { userId: user.id, status: "MASTERED" } }),
++    db.studySession.findMany({ where: { userId: user.id, durationMin: { gt: 0 } }, select: { startedAt: true } }),
++    db.studyTask.findMany({ where: { userId: user.id } }),
+   ]);
+   const active = events.map((event) => dateKey(event.startedAt));
+   const streak = computeStreak(active, dateKey());
+@@ -36,15 +37,17 @@ export async function refreshAchievements() {
+     completion >= 100 ? "week-goal" : "",
+   ].filter(Boolean);
+   if (unlocks.length === 0) return;
+-  const templates = await prisma.achievement.findMany({ where: { id: { in: unlocks } } });
++  const templates = await db.achievement.findMany({ where: { id: { in: unlocks } } });
+   for (const template of templates) {
+     const id = user.id === "owner" && template.userId === user.id ? template.id : `${user.id}:${template.id}`;
+-    await prisma.$transaction(async (tx) => {
++    const unlock = async (tx: Prisma.TransactionClient) => {
+       const current = await tx.achievement.findUnique({ where: { id } });
+       if (current?.unlockedAt) return;
+       await tx.achievement.upsert({ where: { id }, update: { unlockedAt: new Date(), userId: user.id }, create: { id, title: template.title, description: template.description, xp: template.xp, userId: user.id, unlockedAt: new Date() } });
+       await tx.xpEvent.create({ data: { amount: template.xp, reason: template.title, userId: user.id } });
+-    });
++    };
++    if (db === prisma) await prisma.$transaction(unlock);
++    else await unlock(db);
+   }
+ }
+ 
+diff --git a/src/server/sync.ts b/src/server/sync.ts
+index dfcc4ed..26998dc 100644
+--- a/src/server/sync.ts
++++ b/src/server/sync.ts
+@@ -1,3 +1,5 @@
++import type { Prisma } from "@prisma/client";
++import { isAutoPlanned } from "@/lib/task-origin";
+ import { cache } from "react";
+ import { fitDailyLoad } from "@/lib/fit-daily-load";
+ import { DEFAULT_SCHEDULE, type ScheduleConfig } from "@/lib/constants";
+@@ -6,11 +8,11 @@ import { prisma } from "@/lib/prisma";
+ import { buildSlotsForDate, eachDate, windowFor, type TopicPick } from "@/lib/plan";
+ import { getSessionUser } from "@/server/session";
+ 
+-export async function getSettings(userId?: string) {
++export async function getSettings(userId?: string, db: Prisma.TransactionClient = prisma) {
+   const id = userId ?? (await getSessionUser())?.id;
+   const settings = id
+-    ? await prisma.userSettings.findUnique({ where: { userId: id } })
+-    : await prisma.userSettings.findUnique({ where: { id: "default" } });
++    ? await db.userSettings.findUnique({ where: { userId: id } })
++    : await db.userSettings.findUnique({ where: { id: "default" } });
+   if (!settings) throw new Error("Базу ще не заповнено. Запустіть npm run db:setup.");
+   return {
+     ...settings,
+@@ -20,19 +22,21 @@ export async function getSettings(userId?: string) {
+   };
+ }
+ 
+-export const syncPlan = cache(async (userId?: string) => {
+-  const settings = await getSettings(userId);
++export const syncPlan = cache(async (userId?: string) => syncPlanWithClient(userId));
++
++export async function syncPlanWithClient(userId?: string, db: Prisma.TransactionClient = prisma) {
++  const settings = await getSettings(userId, db);
+   const ownerId = settings.userId;
+   if (!ownerId) return;
+   const schedule = settings.schedule.days ? settings.schedule : DEFAULT_SCHEDULE;
+   const [topics, progress] = await Promise.all([
+-    prisma.topic.findMany({ select: { id: true, subjectId: true, title: true, status: true, sortOrder: true, parentId: true } }),
+-    prisma.userTopicProgress.findMany({ where: { userId: ownerId } }),
++    db.topic.findMany({ select: { id: true, subjectId: true, title: true, status: true, sortOrder: true, parentId: true } }),
++    db.userTopicProgress.findMany({ where: { userId: ownerId } }),
+   ]);
+   const progressStatus = new Map(progress.map((item) => [item.topicId, item.status]));
+   const picks: TopicPick[] = topics.map((topic) => ({ ...topic, parentId: topic.parentId, status: progressStatus.get(topic.id) ?? "NOT_STARTED" }));
+   const { from, to } = windowFor(dateKey(), settings.planStart);
+-  const existing = await prisma.studyTask.findMany({
++  const existing = await db.studyTask.findMany({
+     where: { userId: ownerId, dateKey: { gte: from, lte: to } },
+   });
+   const byKey = new Map(existing.map((task) => [`${task.dateKey}:${task.templateKey}`, task]));
+@@ -52,10 +56,10 @@ export const syncPlan = cache(async (userId?: string) => {
+   }[] = [];
+   for (const day of eachDate(from, to)) {
+     const dayTasks=existing.filter(t=>t.dateKey===day);
+-    const fixed=dayTasks.filter(t=>(!t.templateKey || t.status==="DONE" || t.status==="IN_PROGRESS") && !["MOVED","SKIPPED","DROPPED"].includes(t.status)).reduce((sum,t)=>sum+t.durationMin,0);
++    const fixed=dayTasks.filter(t=>(!isAutoPlanned(t) || t.status==="DONE" || t.status==="IN_PROGRESS") && !["MOVED","SKIPPED","DROPPED"].includes(t.status)).reduce((sum,t)=>sum+t.durationMin,0);
+     const slots=settings.studyDays.includes(parseDateKey(day).getDay()) ? fitDailyLoad(buildSlotsForDate(day, schedule, picks, settings.planStart).filter(slot=>!dayTasks.some(t=>t.templateKey===slot.templateKey && ["DONE","IN_PROGRESS","MOVED","SKIPPED"].includes(t.status))), Math.max(0,settings.dailyMinutes-fixed)).filter(slot=>slot.durationMin>0 || slot.kind==="rest") : [];
+-    for(const task of dayTasks.filter(t=>t.templateKey && t.status==="PLANNED" && !slots.some(slot=>slot.templateKey===t.templateKey))){
+-      await prisma.studyTask.update({where:{id:task.id},data:{status:"DROPPED",notes:"Автоплан: змінено навчальні дні або денний ліміт."}});
++    for(const task of dayTasks.filter(t=>isAutoPlanned(t) && t.status==="PLANNED" && !slots.some(slot=>slot.templateKey===t.templateKey))){
++      await db.studyTask.update({where:{id:task.id},data:{status:"DROPPED",notes:"Автоплан: змінено навчальні дні або денний ліміт."}});
+     }
+     for (const slot of slots) {
+       const current = byKey.get(`${slot.dateKey}:${slot.templateKey}`);
+@@ -76,11 +80,11 @@ export const syncPlan = cache(async (userId?: string) => {
+         });
+         continue;
+       }
+-      if (current.status === "DROPPED" && current.notes.startsWith("Автоплан:")) { await prisma.studyTask.update({where:{id:current.id},data:{status:"PLANNED",notes:""}}); current.status="PLANNED"; }
++      if (current.status === "DROPPED" && current.notes.startsWith("Автоплан:")) { await db.studyTask.update({where:{id:current.id},data:{status:"PLANNED",notes:""}}); current.status="PLANNED"; }
+       if (current.status !== "PLANNED") continue;
+       const same = current.subjectId === (slot.subjectId ?? null) && current.topicId === (slot.topicId ?? null) && current.title === slot.title && current.detail === slot.detail && current.durationMin === slot.durationMin;
+       if (!same) {
+-        await prisma.studyTask.update({
++        await db.studyTask.update({
+           where: { id: current.id },
+           data: {
+             subjectId: slot.subjectId,
+@@ -96,29 +100,29 @@ export const syncPlan = cache(async (userId?: string) => {
+     }
+   }
+   for (const task of create) {
+-    await prisma.studyTask.upsert({ where: { userId_dateKey_templateKey: { userId: task.userId, dateKey: task.dateKey, templateKey: task.templateKey } }, update: {}, create: task });
++    await db.studyTask.upsert({ where: { userId_dateKey_templateKey: { userId: task.userId, dateKey: task.dateKey, templateKey: task.templateKey } }, update: {}, create: task });
+   }
+-  await shiftOverdue(ownerId, settings.dailyMinutes, settings.studyDays);
+-});
++  await shiftOverdue(ownerId, settings.dailyMinutes, settings.studyDays, db);
++}
+ 
+-async function shiftOverdue(userId: string, cap: number, studyDays: number[]) {
++async function shiftOverdue(userId: string, cap: number, studyDays: number[], db: Prisma.TransactionClient) {
+   const today = dateKey();
+-  const overdue = await prisma.studyTask.findMany({
++  const overdue = await db.studyTask.findMany({
+     where: { userId, status: "PLANNED", dateKey: { lt: today }, optional: false, kind: { notIn: ["rest"] } },
+     orderBy: [{ dateKey: "asc" }, { sortOrder: "asc" }],
+   });
+   for (const task of overdue) {
+     if (task.durationMin > cap) {
+-      await prisma.studyTask.update({ where: { id: task.id }, data: { notes: "Заняття довше за денний ліміт. Розділіть його або змініть навантаження." } });
++      await db.studyTask.update({ where: { id: task.id }, data: { notes: "Заняття довше за денний ліміт. Розділіть його або змініть навантаження." } });
+       continue;
+     }
+     let cursor = today;
+     for (let step = 0; step < 21; step += 1) {
+       if (!studyDays.includes(parseDateKey(cursor).getDay())) { cursor = addDateKeys(cursor, 1); continue; }
+-      const dayTasks = await prisma.studyTask.findMany({ where: { userId, dateKey: cursor, status: { in: ["PLANNED", "IN_PROGRESS"] } } });
++      const dayTasks = await db.studyTask.findMany({ where: { userId, dateKey: cursor, status: { in: ["PLANNED", "IN_PROGRESS"] } } });
+       const used = dayTasks.reduce((sum, item) => sum + item.durationMin, 0);
+       if (used + task.durationMin <= cap) {
+-        await prisma.studyTask.update({
++        await db.studyTask.update({
+           where: { id: task.id },
+           data: { dateKey: cursor, movedFromId: task.movedFromId ?? task.id, notes: task.notes || "Автоматично перенесено на вільний день" },
+         }).catch(() => undefined);
+@@ -128,3 +132,10 @@ async function shiftOverdue(userId: string, cap: number, studyDays: number[]) {
+     }
+   }
+ }
++
++export async function rebuildFuturePlan(userId: string, db: Prisma.TransactionClient = prisma) {
++  const planned = await db.studyTask.findMany({where:{userId,status:"PLANNED",dateKey:{gte:dateKey()}}});
++  const ids = planned.filter(isAutoPlanned).map(task=>task.id);
++  if(ids.length) await db.studyTask.deleteMany({where:{userId,id:{in:ids}}});
++  await syncPlanWithClient(userId, db);
++}
+diff --git a/tests/reliability-database.test.ts b/tests/reliability-database.test.ts
+new file mode 100644
+index 0000000..c7c91eb
+--- /dev/null
++++ b/tests/reliability-database.test.ts
+@@ -0,0 +1,112 @@
++import {afterAll,afterEach,beforeAll,expect,it,vi} from "vitest";
++import {execFileSync} from "node:child_process";
++import {existsSync,unlinkSync,rmdirSync,writeFileSync} from "node:fs";
++import path from "node:path";
++const auth=vi.hoisted(()=>({id:"A"}));
++vi.mock("@/lib/prisma",async()=>{
++ const {PrismaClient}=await import("@prisma/client");const {mkdtempSync}=await import("node:fs");const {tmpdir}=await import("node:os");const path=await import("node:path");
++ const folder=mkdtempSync(path.join(tmpdir(),"nmt-reliability-"));const database=path.join(folder,"qa.db");
++ return {prisma:new PrismaClient({datasourceUrl:"file:"+database.replaceAll("\\","/")}),folder,database};
++});
++vi.mock("@/server/session",()=>({getSessionUser:()=>prisma.user.findUnique({where:{id:auth.id},include:{subjects:true}}),createSession:vi.fn(),clearSession:vi.fn()}));
++vi.mock("next/cache",()=>({revalidatePath:vi.fn()}));
++vi.mock("next/headers",()=>({headers:vi.fn()}));
++vi.mock("next/navigation",()=>({redirect:vi.fn(),notFound:()=>{throw Error("NOT_FOUND");},useRouter:vi.fn()}));
++import {prisma} from "@/lib/prisma";
++import {initializeSQLite} from "@/lib/sqlite-init";
++import {DEFAULT_FORMAT,DEFAULT_SCHEDULE,SUBJECTS} from "@/lib/constants";
++import {dateKey,addDateKeys} from "@/lib/dates";
++import {gradeAnswer} from "@/lib/grade";
++import {finishAttempt,saveDraft,changeElective,recalculateFuturePlan,moveTask,saveQuestion,completeLesson} from "@/server/actions";
++import {syncPlanWithClient} from "@/server/sync";
++
++async function counts(){return {answers:await prisma.answer.count(),mistakes:await prisma.mistake.count(),progress:await prisma.userTopicProgress.count(),reviews:await prisma.reviewSchedule.count(),sessions:await prisma.studySession.count(),xp:await prisma.xpEvent.count()};}
++beforeAll(async()=>{
++ const {database}=await import("@/lib/prisma") as unknown as {database:string};writeFileSync(database,"");
++ execFileSync(process.execPath,[path.join(process.cwd(),"node_modules/prisma/build/index.js"),"migrate","deploy"],{env:{...process.env,DATABASE_URL:"file:"+database.replaceAll("\\","/")},stdio:"pipe",timeout:60000});await initializeSQLite(prisma);
++ await prisma.subject.createMany({data:SUBJECTS.map((s,i)=>({id:s.id,name:s.name,shortName:s.shortName,description:s.description,color:s.color,sortOrder:i}))});
++ for(const id of ["A","B","staff"]){
++  await prisma.user.create({data:{id,nickname:id,firstName:id,onboarded:true,role:id==="staff"?"EDITOR":"STUDENT"}});
++  await prisma.userSubject.createMany({data:["math","ukrainian","history","biology"].map(subjectId=>({userId:id,subjectId,active:true,role:subjectId==="biology"?"ELECTIVE":"REQUIRED"}))});
++  await prisma.userSettings.create({data:{id,userId:id,scheduleJson:JSON.stringify(DEFAULT_SCHEDULE),formatJson:JSON.stringify(DEFAULT_FORMAT)}});
++ }
++ await prisma.topic.create({data:{id:"topic",subjectId:"math",title:"QA",sortOrder:0}});
++ for(let i=1;i<=3;i++)await prisma.question.create({data:{id:"q"+i,subjectId:"math",topicId:"topic",type:"NUMERIC",difficulty:"EASY",prompt:"2 + 2",correctAnswer:"4",explanation:"2+2=4",verificationStatus:"VERIFIED"}});
++ await prisma.test.create({data:{id:"test",subjectId:"math",topicId:"topic",title:"QA",kind:"TOPIC",questions:{create:[1,2,3].map((n,i)=>({questionId:"q"+n,sortOrder:i}))}}});
++},60000);
++afterEach(async()=>{await prisma.$executeRawUnsafe("DROP TRIGGER IF EXISTS qa_answer_failure");await prisma.$executeRawUnsafe("DROP TRIGGER IF EXISTS qa_elective_failure");await prisma.$executeRawUnsafe("DROP TRIGGER IF EXISTS qa_achievement_failure");auth.id="A";vi.restoreAllMocks();});
++afterAll(async()=>{await prisma.$disconnect();const {folder,database}=await import("@/lib/prisma") as unknown as {folder:string;database:string};for(const suffix of ["","-wal","-shm"]){if(existsSync(database+suffix))unlinkSync(database+suffix);}rmdirSync(folder);});
++
++it("rolls back ALL finish writes when the second answer fails; a retry succeeds exactly once",async()=>{
++ await prisma.testAttempt.create({data:{id:"fault",testId:"test",userId:"A"}});const before=await counts();
++ await prisma.$executeRawUnsafe("CREATE TRIGGER qa_answer_failure BEFORE INSERT ON Answer WHEN NEW.attemptId='fault' AND NEW.questionId='q2' BEGIN SELECT RAISE(ABORT,'QA controlled failure'); END");
++ vi.spyOn(console,"error").mockImplementation(()=>{});
++ expect((await finishAttempt("fault",{q1:"99",q2:"4",q3:"4"})).ok).toBe(false);
++ expect(await counts()).toEqual(before);expect((await prisma.testAttempt.findUniqueOrThrow({where:{id:"fault"}})).status).toBe("IN_PROGRESS");
++ await prisma.$executeRawUnsafe("DROP TRIGGER qa_answer_failure");expect((await finishAttempt("fault",{q1:"99",q2:"4",q3:"4"})).ok).toBe(true);
++ const after=await counts();expect(after.answers-before.answers).toBe(3);expect(after.sessions-before.sessions).toBe(1);expect(after.xp-before.xp).toBe(1);
++ expect((await finishAttempt("fault",{q1:"0"})).ok).toBe(true);expect(await counts()).toEqual(after);
++ expect((await saveDraft("fault",{q1:"stale"},0)).ok).toBe(false);expect((await prisma.testAttempt.findUniqueOrThrow({where:{id:"fault"}})).draftJson).toContain('"99"');
++});
++it("concurrent finish calls cannot duplicate answers, progress, sessions or XP",async()=>{
++ await prisma.testAttempt.create({data:{id:"race",testId:"test",userId:"A"}});const before=await counts();
++ const result=await Promise.all([finishAttempt("race",{q1:"4",q2:"4",q3:"4"}),finishAttempt("race",{q1:"4",q2:"4",q3:"4"})]);
++ expect(result.every(r=>r.ok)).toBe(true);const after=await counts();expect(after.answers-before.answers).toBe(3);expect(after.sessions-before.sessions).toBe(1);expect(after.xp-before.xp).toBe(1);
++ expect((await prisma.testAttempt.findUniqueOrThrow({where:{id:"race"}})).correctCount).toBe(3);
++},40000);
++it("B cannot claim, finish or save A's attempt and no data changes",async()=>{
++ await prisma.testAttempt.create({data:{id:"owned",testId:"test",userId:"A"}});auth.id="B";const before=await counts();
++ expect((await finishAttempt("owned",{q1:"4"})).ok).toBe(false);expect((await saveDraft("owned",{q1:"4"},0)).ok).toBe(false);expect(await counts()).toEqual(before);expect((await prisma.testAttempt.findUniqueOrThrow({where:{id:"owned"}})).status).toBe("IN_PROGRESS");
++});
++it("rolls back task cancellation, elective membership AND schedule on a midway failure",async()=>{
++ const when=addDateKeys(dateKey(),2);await prisma.studyTask.create({data:{id:"old-elective",userId:"A",subjectId:"biology",dateKey:when,title:"Keep on rollback",kind:"study",durationMin:10}});
++ const before={subjects:await prisma.userSubject.findMany({where:{userId:"A"},orderBy:{id:"asc"}}),settings:await prisma.userSettings.findUnique({where:{userId:"A"}}),task:await prisma.studyTask.findUnique({where:{id:"old-elective"}})};
++ await prisma.$executeRawUnsafe("CREATE TRIGGER qa_elective_failure BEFORE UPDATE ON UserSettings WHEN NEW.userId='A' BEGIN SELECT RAISE(ABORT,'QA elective failure'); END");vi.spyOn(console,"error").mockImplementation(()=>{});
++ expect((await changeElective("geography",true)).ok).toBe(false);
++ expect(await prisma.userSubject.findMany({where:{userId:"A"},orderBy:{id:"asc"}})).toEqual(before.subjects);expect(await prisma.userSettings.findUnique({where:{userId:"A"}})).toEqual(before.settings);expect(await prisma.studyTask.findUnique({where:{id:"old-elective"}})).toEqual(before.task);
++});
++it("serializes elective changes and retains exactly one elective and all DONE history",async()=>{
++ await prisma.studyTask.create({data:{id:"done-biology",userId:"A",subjectId:"biology",dateKey:dateKey(),title:"Done",kind:"study",status:"DONE",durationMin:10}});
++ expect((await changeElective("geography",false)).ok).toBe(false);expect((await changeElective("geography",true)).ok).toBe(true);
++ const results=await Promise.all([changeElective("chemistry",true),changeElective("physics",true)]);expect(results.every(r=>r.ok)).toBe(true);
++ expect(await prisma.userSubject.count({where:{userId:"A",role:"ELECTIVE",active:true}})).toBe(1);expect((await prisma.studyTask.findUniqueOrThrow({where:{id:"done-biology"}})).status).toBe("DONE");
++},40000);
++it("custom/moved/DONE tasks survive sync, reduced study days and explicit recalculation",async()=>{
++ const when=addDateKeys(dateKey(),3);
++ for(const [id,templateKey,status] of [["custom","custom-fixture","PLANNED"],["done","d1-s99","DONE"]])await prisma.studyTask.create({data:{id,userId:"A",subjectId:"math",dateKey:when,title:id,templateKey,status,kind:"custom",durationMin:10}});
++ expect((await moveTask("custom",addDateKeys(when,1))).ok).toBe(true);
++ const moved=await prisma.studyTask.findFirstOrThrow({where:{movedFromId:"custom"}});
++ await prisma.userSettings.update({where:{userId:"A"},data:{studyDaysJson:"[]"}});await syncPlanWithClient("A");expect((await recalculateFuturePlan()).ok).toBe(true);
++ expect((await prisma.studyTask.findUniqueOrThrow({where:{id:moved.id}})).status).toBe("PLANNED");expect((await prisma.studyTask.findUniqueOrThrow({where:{id:"done"}})).status).toBe("DONE");expect((await prisma.studyTask.findUniqueOrThrow({where:{id:"custom"}})).status).toBe("MOVED");
++});
++it("an acknowledged theory-only lesson can finish, but empty content or missing acknowledgement cannot",async()=>{
++ const lessonJson=JSON.stringify({objectives:[],theory:"Теоретичний матеріал",examples:[],rules:[],mistakes:[],summary:""});
++ await prisma.topic.create({data:{id:"theory",subjectId:"math",title:"Theory",sortOrder:1,lessonJson}});await prisma.topic.create({data:{id:"empty",subjectId:"math",title:"Empty",sortOrder:2}});
++ expect((await completeLesson("theory",false)).ok).toBe(false);expect((await completeLesson("empty",true)).ok).toBe(false);expect((await completeLesson("theory",true)).ok).toBe(true);
++ expect(await prisma.studySession.count({where:{userId:"A",topicId:"theory"}})).toBe(1);expect(await prisma.reviewSchedule.count({where:{userId:"A",topicId:"theory"}})).toBe(1);
++});
++for(const type of ["SINGLE_CHOICE","MATCHING","SEQUENCE","NUMERIC"]){
++ it(`round-trips text-only edits for ${type} without losing option ids or grading`,async()=>{
++  auth.id="staff";const base={subjectId:"math",topicId:"topic",type,difficulty:"EASY",prompt:"QA original prompt",explanation:"QA explanation",source:"QA",verificationStatus:"VERIFIED"};
++  const options=type==="NUMERIC"?[]:type==="MATCHING"?[{label:"1",text:"one",matchKey:"left"},{label:"А",text:"1",matchKey:"right"}]:[{label:"А",text:"one"},{label:"Б",text:"two"}];
++  const answer=type==="NUMERIC"?"4":type==="MATCHING"?'{"1":"А"}':type==="SEQUENCE"?'["Б","А"]':"А";
++  const created=await saveQuestion({...base,options,correctAnswer:answer});expect(created.ok).toBe(true);if(!created.ok || !created.id)throw Error("Missing question");
++  const old=await prisma.question.findUniqueOrThrow({where:{id:created.id},include:{options:{orderBy:{sortOrder:"asc"}}}});
++  expect((await saveQuestion({...base,id:old.id,prompt:"QA edited prompt",correctAnswer:old.correctAnswer,options:old.options})).ok).toBe(true);
++  const updated=await prisma.question.findUniqueOrThrow({where:{id:old.id},include:{options:{orderBy:{sortOrder:"asc"}}}});expect(updated.options.map(o=>o.id)).toEqual(old.options.map(o=>o.id));expect(updated.correctAnswer).toBe(old.correctAnswer);
++  const userAnswer=type==="MATCHING"||type==="SEQUENCE"?JSON.parse(updated.correctAnswer):updated.correctAnswer;expect(gradeAnswer({...updated,userAnswer}).isCorrect).toBe(true);
++ });
++}
++it("students cannot edit shared questions; used questions remain immutable",async()=>{
++ const used=await prisma.question.findUniqueOrThrow({where:{id:"q1"},include:{options:true}});auth.id="A";expect((await saveQuestion({...used,prompt:"Forbidden edit"})).ok).toBe(false);
++ auth.id="staff";expect((await saveQuestion({...used,prompt:"Used edit"})).ok).toBe(false);expect((await prisma.question.findUniqueOrThrow({where:{id:"q1"}})).prompt).toBe(used.prompt);
++});
++it("rolls back even a late achievement failure after the result, mastery, task and XP were written",async()=>{
++ await prisma.achievement.create({data:{id:"first-test",title:"QA first test",description:"QA",xp:5}});
++ await prisma.testAttempt.create({data:{id:"late-fault",testId:"test",userId:"A"}});
++ await prisma.studyTask.create({data:{id:"late-task",topicId:"topic",userId:"A",dateKey:dateKey(),title:"QA pending",kind:"study",durationMin:10}});
++ const before=await counts();const progress=await prisma.userTopicProgress.findMany({where:{userId:"A"}});const tasks=await prisma.studyTask.findMany({where:{userId:"A"},orderBy:{id:"asc"}});const reviews=await prisma.reviewSchedule.findMany({where:{userId:"A"},orderBy:{id:"asc"}});
++ await prisma.$executeRawUnsafe("CREATE TRIGGER qa_achievement_failure BEFORE INSERT ON Achievement WHEN NEW.userId='A' BEGIN SELECT RAISE(ABORT,'QA late failure'); END");vi.spyOn(console,"error").mockImplementation(()=>{});
++ expect((await finishAttempt("late-fault",{q1:"4",q2:"4",q3:"4"})).ok).toBe(false);expect(await counts()).toEqual(before);expect(await prisma.userTopicProgress.findMany({where:{userId:"A"}})).toEqual(progress);expect(await prisma.studyTask.findMany({where:{userId:"A"},orderBy:{id:"asc"}})).toEqual(tasks);expect(await prisma.reviewSchedule.findMany({where:{userId:"A"},orderBy:{id:"asc"}})).toEqual(reviews);expect((await prisma.testAttempt.findUniqueOrThrow({where:{id:"late-fault"}})).status).toBe("IN_PROGRESS");
++});
++it("finishes with intact SQLite constraints",async()=>{expect(await prisma.$queryRawUnsafe("PRAGMA integrity_check")).toEqual([{integrity_check:"ok"}]);expect(await prisma.$queryRawUnsafe("PRAGMA foreign_key_check")).toEqual([]);});
+-- 
+2.55.0.windows.3
+

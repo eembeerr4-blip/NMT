@@ -1,0 +1,40 @@
+{
+  "attempt": {
+    "status": "COMPLETED",
+    "finishedAt": "2026-10-18T19:03:31.483Z",
+    "draftJson": "{\"qa-q1\":\"3\",\"qa-q2\":\"3\",\"qa-q3\":\"3\"}"
+  },
+  "answers": [
+    {
+      "questionId": "qa-q1",
+      "userAnswer": "\"3\""
+    },
+    {
+      "questionId": "qa-q2",
+      "userAnswer": "\"3\""
+    },
+    {
+      "questionId": "qa-q3",
+      "userAnswer": "\"3\""
+    }
+  ],
+  "tasks": [
+    {
+      "dateKey": "2026-10-20",
+      "status": "MOVED",
+      "templateKey": "custom-3f9d51b4-f1d7-465d-864c-240ad290f3d9",
+      "movedFromId": null
+    },
+    {
+      "dateKey": "2026-10-21",
+      "status": "PLANNED",
+      "templateKey": "moved-cmve6z1vx005kut3krej3egag",
+      "movedFromId": "cmve6z1vx005kut3krej3egag"
+    }
+  ],
+  "electives": [
+    {
+      "subjectId": "geography"
+    }
+  ]
+}

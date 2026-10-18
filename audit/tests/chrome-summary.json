@@ -1,0 +1,36 @@
+{
+  "testedSourceSha": "86394a35e8db56bceeaedbab73bb2038c6c0c77c",
+  "observations": 113,
+  "authenticatedRouteChecks": 60,
+  "anonymousRouteChecks": 10,
+  "sourceFilesCompared": 145,
+  "sourceMismatches": [],
+  "questionRoundTrip": [
+    {
+      "id": "qa-unused-MATCHING",
+      "answerPreserved": true,
+      "optionIdsPreserved": true
+    },
+    {
+      "id": "qa-unused-NUMERIC",
+      "answerPreserved": true,
+      "optionIdsPreserved": true
+    },
+    {
+      "id": "qa-unused-SEQUENCE",
+      "answerPreserved": true,
+      "optionIdsPreserved": true
+    },
+    {
+      "id": "qa-unused-SINGLE_CHOICE",
+      "answerPreserved": true,
+      "optionIdsPreserved": true
+    }
+  ],
+  "console": {
+    "total": 17,
+    "extension": 1,
+    "hydration": 0
+  },
+  "networkRequests": 179
+}

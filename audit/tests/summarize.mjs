@@ -1,0 +1,16 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+const root=process.cwd();const out=path.join(root,'audit/tests');
+const qa='D:/Вайб-кодинг/nmt-reliability-qa-20261018';
+const json=name=>JSON.parse(fs.readFileSync(path.join(out,name),'utf8').replace(/^\uFEFF/,''));
+const rows=json('chrome-observations.json');const before=json('chrome-state-before-edit.json');const after=json('chrome-state-after-edit.json');
+const digest=file=>crypto.createHash('sha256').update(fs.readFileSync(file,'utf8').replaceAll('\r\n','\n')).digest('hex');
+const files=execFileSync('git',['ls-files','src'],{encoding:'utf8'}).trim().split(/\r?\n/);
+const mismatches=files.filter(file=>digest(path.join(root,file))!==digest(path.join(qa,file)));
+const network=fs.readFileSync(path.join(out,'qa-server.log'),'utf8').split(/\r?\n/).map(line=>line.match(/^ (GET|POST) (\/\S*) (\d{3})/)).filter(Boolean).map(m=>({method:m[1],url:m[2],status:Number(m[3])}));
+fs.writeFileSync(path.join(out,'chrome-network.json'),JSON.stringify(network,null,2));
+const consoleEntries=json('chrome-console.json');
+const summary={testedSourceSha:'86394a35e8db56bceeaedbab73bb2038c6c0c77c',observations:rows.length,authenticatedRouteChecks:rows.filter(row=>row.id.startsWith('matrix-')).length,anonymousRouteChecks:rows.filter(row=>row.id.startsWith('ANON-')).length,sourceFilesCompared:files.length,sourceMismatches:mismatches,questionRoundTrip:before.questions.map(q=>{const saved=after.questions.find(row=>row.id===q.id);return {id:q.id,answerPreserved:q.correctAnswer===saved.correctAnswer,optionIdsPreserved:JSON.stringify(q.options.map(o=>o.id))===JSON.stringify(saved.options.map(o=>o.id))};}),console:{total:consoleEntries.length,extension:consoleEntries.filter(e=>e.url?.startsWith('chrome-extension:')).length,hydration:consoleEntries.filter(e=>/hydrat/i.test(e.message)).length},networkRequests:network.length};
+fs.writeFileSync(path.join(out,'chrome-summary.json'),JSON.stringify(summary,null,2));console.log(JSON.stringify(summary,null,2));

@@ -1,0 +1,104 @@
+[
+  {
+    "level": "error",
+    "message": "NotAllowedError: play() failed because the user didn't interact with the document first. https://goo.gl/xX8pDD",
+    "timestamp": "2026-10-18T19:00:35.121Z",
+    "url": "chrome-extension://difoiogjjojoaoomphldepapgpbgkhkb/content-all.js"
+  },
+  {
+    "level": "error",
+    "message": "Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).",
+    "timestamp": "2026-10-18T19:04:12.253Z",
+    "url": "http://127.0.0.1:3001/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js"
+  },
+  {
+    "level": "error",
+    "message": "Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).",
+    "timestamp": "2026-10-18T19:04:13.958Z",
+    "url": "http://127.0.0.1:3001/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js"
+  },
+  {
+    "level": "error",
+    "message": "Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).",
+    "timestamp": "2026-10-18T19:04:14.411Z",
+    "url": "http://127.0.0.1:3001/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js"
+  },
+  {
+    "level": "error",
+    "message": "Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).",
+    "timestamp": "2026-10-18T19:04:17.041Z",
+    "url": "http://127.0.0.1:3001/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js"
+  },
+  {
+    "level": "error",
+    "message": "Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).",
+    "timestamp": "2026-10-18T19:04:17.502Z",
+    "url": "http://127.0.0.1:3001/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js"
+  },
+  {
+    "level": "error",
+    "message": "Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).",
+    "timestamp": "2026-10-18T19:04:17.863Z",
+    "url": "http://127.0.0.1:3001/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js"
+  },
+  {
+    "level": "error",
+    "message": "Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).",
+    "timestamp": "2026-10-18T19:04:34.937Z",
+    "url": "http://127.0.0.1:3001/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js"
+  },
+  {
+    "level": "error",
+    "message": "Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).",
+    "timestamp": "2026-10-18T19:04:35.364Z",
+    "url": "http://127.0.0.1:3001/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js"
+  },
+  {
+    "level": "error",
+    "message": "Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).",
+    "timestamp": "2026-10-18T19:04:36.662Z",
+    "url": "http://127.0.0.1:3001/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js"
+  },
+  {
+    "level": "error",
+    "message": "Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).",
+    "timestamp": "2026-10-18T19:04:39.308Z",
+    "url": "http://127.0.0.1:3001/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js"
+  },
+  {
+    "level": "error",
+    "message": "Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).",
+    "timestamp": "2026-10-18T19:04:39.694Z",
+    "url": "http://127.0.0.1:3001/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js"
+  },
+  {
+    "level": "error",
+    "message": "Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).",
+    "timestamp": "2026-10-18T19:04:40.986Z",
+    "url": "http://127.0.0.1:3001/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js"
+  },
+  {
+    "level": "error",
+    "message": "Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).",
+    "timestamp": "2026-10-18T19:05:00.649Z",
+    "url": "http://127.0.0.1:3001/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js"
+  },
+  {
+    "level": "error",
+    "message": "Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).",
+    "timestamp": "2026-10-18T19:05:01.035Z",
+    "url": "http://127.0.0.1:3001/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js"
+  },
+  {
+    "level": "error",
+    "message": "Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).",
+    "timestamp": "2026-10-18T19:05:04.012Z",
+    "url": "http://127.0.0.1:3001/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js"
+  },
+  {
+    "level": "error",
+    "message": "Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).",
+    "timestamp": "2026-10-18T19:05:05.198Z",
+    "url": "http://127.0.0.1:3001/_next/static/chunks/node_modules_next_dist_05y3oi5z9mc_3._.js"
+  }
+]

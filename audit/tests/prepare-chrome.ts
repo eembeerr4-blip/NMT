@@ -31,4 +31,3 @@ async function main(){
  console.log('QA fixtures ready: 5 profiles + ANON. No working data copied.');
 }
 main().finally(()=>db.$disconnect());
-

@@ -1,0 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
+const {PrismaClient}=require('@prisma/client');
+const db=new PrismaClient({datasourceUrl:'file:D:/Вайб-кодинг/nmt-reliability/audit/tests/chrome.db'});
+(async()=>{console.log(JSON.stringify({questions:await db.question.findMany({where:{id:{startsWith:'qa-unused-'}},select:{id:true,type:true,prompt:true,correctAnswer:true,options:{select:{id:true,label:true,matchKey:true},orderBy:{sortOrder:'asc'}}},orderBy:{id:'asc'}}),attempts:await db.testAttempt.findMany({select:{id:true,userId:true,status:true,correctCount:true,totalCount:true,answers:{select:{questionId:true}}}}),xp:await db.xpEvent.count({where:{userId:'student_a'}}),sessions:await db.studySession.count({where:{userId:'student_a',kind:'test'}}),integrity:await db.$queryRawUnsafe('PRAGMA integrity_check'),foreignKeys:await db.$queryRawUnsafe('PRAGMA foreign_key_check')},null,2));})().finally(()=>db.$disconnect());
