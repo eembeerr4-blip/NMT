@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { createHash, randomBytes } from "crypto";
 import { cookies } from "next/headers";
 import { notFound, redirect } from "next/navigation";
@@ -34,17 +35,17 @@ export async function clearSession() {
   jar.delete(COOKIE);
 }
 
-export async function getSessionUser() {
+export const getSessionUser = cache(async () => {
   const jar = await cookies();
   const token = jar.get(COOKIE)?.value;
   if (!token) return null;
   const session = await prisma.session.findUnique({
     where: { tokenHash: hashToken(token) },
-    include: { user: { include: { subjects: true } } },
+    include: { user: { omit: { passwordHash: true }, include: { subjects: true } } },
   });
   if (!session || session.expiresAt < new Date()) return null;
   return session.user;
-}
+});
 
 export async function requireUser() {
   const user = await getSessionUser();

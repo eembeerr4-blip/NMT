@@ -1,4 +1,3 @@
-import { createHash } from "crypto";
 import { NextResponse, type NextRequest } from "next/server";
 
 export function proxy(request: NextRequest) {
@@ -9,13 +8,8 @@ export function proxy(request: NextRequest) {
     url.pathname = "/login";
     return NextResponse.redirect(url);
   }
-  const password = process.env.APP_PASSWORD;
-  if (!password) return NextResponse.next();
-  const expected = createHash("sha256").update(`nmt-academy:${password}`).digest("hex");
-  if (request.cookies.get("nmt_session")?.value === expected) return NextResponse.next();
-  const url = request.nextUrl.clone();
-  url.pathname = "/login";
-  return NextResponse.redirect(url);
+  // This is only a cookie-presence shortcut. requireUser() validates the server session.
+  return NextResponse.next();
 }
 
 export const config = {

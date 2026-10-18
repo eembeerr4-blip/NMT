@@ -19,8 +19,9 @@ import { examResultSchema, preferencesSchema, questionSchema } from "@/lib/valid
 import { parseYouTubeId, searchYouTube as searchYouTubeApi, youtubeSearchUrl, youtubeWatchUrl } from "@/lib/youtube";
 import { personalSchedule } from "@/lib/plan";
 import { relocationMode } from "@/lib/shift";
-import { hashPassword, verifyPassword } from "@/lib/auth";
+import { hashPasswordAsync, verifyPasswordAsync, DUMMY_HASH } from "@/lib/auth";
 import { addXp, refreshAchievements } from "@/server/progress";
+import { isLocked, registerFail, clearFails } from "@/lib/login-throttle";
 import { clearSession, createSession, getSessionUser } from "@/server/session";
 import { getSettings, syncPlan } from "@/server/sync";
 
@@ -1141,10 +1142,17 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
 }
 
 export async function login(nickname: string, password: string, rememberMe = false) {
-  const user = await prisma.user.findUnique({ where: { nickname: nickname.trim().toLowerCase() } });
-  if (!user || !user.passwordHash || !verifyPassword(password, user.passwordHash)) {
-    return { ok: false as const, error: "Невірний нікнейм або пароль." };
+  const key = nickname.trim().toLowerCase();
+  if(isLocked(key))return {ok:false as const,error:"Забагато спроб. Спробуйте за 15 хвилин."};
+  const user=await prisma.user.findUnique({where:{nickname:key}});
+  const valid=await verifyPasswordAsync(password,user?.passwordHash||DUMMY_HASH);
+  if(!user||!user.passwordHash||!valid){
+    registerFail(key);
+    await recordAudit({id:user?.id??"anonymous",role:user?.role??"STUDENT",firstName:key},{action:"AUTH_LOGIN_FAILED",entityType:"session"});
+    return {ok:false as const,error:"Невірний нікнейм або пароль."};
   }
+  clearFails(key);
+  await prisma.session.deleteMany({where:{expiresAt:{lt:new Date()}}});
   await createSession(user.id, rememberMe);
   await recordAudit(user,{action:"AUTH_LOGIN",entityType:"session"});
   redirect(user.onboarded ? "/" : "/onboarding");
@@ -1189,12 +1197,13 @@ export async function completeOnboarding(input: {
   if (!Number.isInteger(input.dailyMinutes) || input.dailyMinutes < 15 || input.dailyMinutes > 720 || !/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(input.preferredTime)) return { ok: false as const, error: "Перевірте час і тривалість занять." };
   if (!input.studyDays.length || input.studyDays.some((day) => !Number.isInteger(day) || day < 0 || day > 6)) return { ok: false as const, error: "Оберіть навчальні дні." };
   const signedIn = await getSessionUser();
-  const existing = signedIn?.onboarded ? null : signedIn;
+  // Password material is intentionally excluded from session users.
+  const existing = signedIn && !signedIn.onboarded ? await prisma.user.findUnique({ where: { id: signedIn.id } }) : null;
   const taken = await prisma.user.findUnique({ where: { nickname } });
   if (taken && taken.id !== existing?.id) return { ok: false as const, error: "Такий нікнейм уже зайнятий." };
   let user;
   try {
-    user = existing ?? await prisma.user.create({ data: { firstName: input.firstName.trim(), nickname, passwordHash: hashPassword(input.password), examYear: input.examYear, lastName: input.lastName.trim() } });
+    user = existing ?? await prisma.user.create({ data: { firstName: input.firstName.trim(), nickname, passwordHash: await hashPasswordAsync(input.password), examYear: input.examYear, lastName: input.lastName.trim() } });
   } catch (error) {
     if ((error as { code?: string }).code === "P2002") return { ok: false as const, error: "Такий нікнейм уже зайнятий." };
     throw error;
@@ -1207,11 +1216,11 @@ export async function completeOnboarding(input: {
       nickname,
       examYear: input.examYear,
       onboarded: true,
-      passwordHash: user.passwordHash && existing ? user.passwordHash : hashPassword(input.password),
+      passwordHash: user.passwordHash && existing ? user.passwordHash : await hashPasswordAsync(input.password),
     },
   });
   if (!existing || !existing.passwordHash) {
-    await prisma.user.update({ where: { id: user.id }, data: { passwordHash: hashPassword(input.password) } });
+    await prisma.user.update({ where: { id: user.id }, data: { passwordHash: await hashPasswordAsync(input.password) } });
   }
   const schedule = personalSchedule(input.electiveId, input.intensity);
   const settingsId = user.id === "owner" ? "default" : user.id;
