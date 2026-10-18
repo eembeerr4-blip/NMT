@@ -1,8 +1,8 @@
+import { ElectiveForm } from "@/components/elective-form";
 import { SettingsWorkspace } from "@/components/settings-workspace";
 import { SettingsForm } from "@/components/forms";
-import { Button, Card, PageHeader } from "@/components/ui";
-import { ELECTIVE_SUBJECT_IDS, SUBJECTS } from "@/lib/constants";
-import { changeElective } from "@/server/actions";
+import { Card, PageHeader } from "@/components/ui";
+import { SUBJECTS } from "@/lib/constants";
 import { requireUser } from "@/server/session";
 import { getSettings } from "@/server/sync";
 
@@ -27,13 +27,7 @@ export default async function SettingsPage() {
       <Card className="space-y-3 p-4">
         <h2 className="font-medium">Предмет на вибір</h2>
         <p className="text-sm text-muted-foreground">Зараз: {SUBJECTS.find((subject) => subject.id === elective)?.name ?? "не обрано"}. Майбутні заняття попереднього предмета буде замінено; завершені заняття й результати збережуться.</p>
-        <form action={async (formData) => { "use server"; await changeElective(String(formData.get("subjectId") ?? ""), formData.get("confirm") === "on"); }} className="flex flex-wrap items-center gap-2">
-          <select name="subjectId" defaultValue={elective} className="h-10 rounded-lg border border-border bg-card px-3 text-sm">
-            {SUBJECTS.filter((subject) => (ELECTIVE_SUBJECT_IDS as readonly string[]).includes(subject.id)).map((subject) => <option key={subject.id} value={subject.id}>{subject.name}</option>)}
-          </select>
-          <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="confirm" /> Підтверджую зміну</label>
-          <Button type="submit" variant="outline">Змінити предмет</Button>
-        </form>
+        <ElectiveForm elective={elective} />
       </Card>
       <Card className="p-4">
         <SettingsForm showTheme={false}

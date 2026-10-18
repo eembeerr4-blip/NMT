@@ -27,6 +27,8 @@ export default async function AttemptPage({ params }: { params: Promise<{ id: st
       <div className="space-y-4">
         <PageHeader title={attempt.test.title} description="Правильні відповіді приховані до завершення. Чернетка зберігається в базі й у браузері." />
         <TestRunner
+          key={`${user.id}:${attempt.id}`}
+          userId={user.id}
           attemptId={attempt.id}
           startedAt={attempt.startedAt.toISOString()}
           timeLimitSec={attempt.test.timeLimitSec}

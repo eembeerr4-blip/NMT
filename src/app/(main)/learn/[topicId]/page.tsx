@@ -68,7 +68,7 @@ export default async function LessonPage({ params }: { params: Promise<{ topicId
               <TopicActions topicId={topic.id} hasQuestions={verifiedCount > 0} />
               {attempt ? <p className="text-sm">Останній результат: {attempt.correctCount ?? 0}/{attempt.totalCount ?? 0}{attempt.finishedAt ? ` · ${formatUk(attempt.finishedAt)}` : ""}. <Link className="underline" href={`/tests/${attempt.id}`}>Розбір</Link></p> : <p className="text-sm text-muted-foreground">{"Результат з'явиться після завершення завдання."}</p>}
               {review ? <p className="text-sm">Наступне повторення: {formatUk(review.dueKey)}.</p> : <p className="text-sm text-muted-foreground">{"Повторення з'явиться після завершення уроку або тесту."}</p>}
-              {verifiedCount > 0 && lesson && !topic.children.length ? <CompleteLesson topicId={topic.id} needsPractice /> : <p className="text-sm">Завершення стане доступним після додавання уроку та перевіреної практики.</p>}
+              {lesson?.theory.trim() && !topic.children.length ? <CompleteLesson topicId={topic.id} needsPractice={verifiedCount > 0} /> : <p className="text-sm">Завершення стане доступним після додавання матеріалу уроку.</p>}
               {next ? <Link className="block text-sm underline" href={`/learn/${next.id}`}>Наступний урок: {next.title}</Link> : <Link className="block text-sm underline" href={`/subjects/${topic.subjectId}`}>До предмета</Link>}
             </Card>
             {lesson?.sources?.length ? <p className="px-1 text-xs text-muted-foreground">Авторський навчальний матеріал NMT Academy. Не є офіційним завданням НМТ.</p> : null}

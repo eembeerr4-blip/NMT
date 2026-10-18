@@ -2,8 +2,9 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAttemptDraft } from "./use-attempt-draft";
 import { stableShuffle } from "@/lib/grade";
-import { finishAttempt, saveDraft } from "@/server/actions";
+import { finishAttempt } from "@/server/actions";
 import { MathText } from "@/components/math-text";
 import { Badge, Button, Card, Progress } from "@/components/ui";
 
@@ -11,6 +12,7 @@ type Option = { id: string; label: string; text: string; matchKey: string | null
 type PublicQuestion = { id: string; type: string; difficulty: string; prompt: string; options: Option[] };
 
 export function TestRunner({
+  userId,
   attemptId,
   questions,
   initialDraft,
@@ -19,6 +21,7 @@ export function TestRunner({
   timeLimitSec,
   timerEnabled,
 }: {
+  userId: string;
   attemptId: string;
   questions: PublicQuestion[];
   initialDraft: Record<string, unknown>;
@@ -28,16 +31,11 @@ export function TestRunner({
   timerEnabled: boolean;
 }) {
   const router = useRouter();
-  const [index, setIndex] = useState(initialIndex);
-  const [answers, setAnswers] = useState<Record<string, unknown>>(() => {
-    const base = { ...initialDraft };
-    for (const item of questions) {
-      if (item.type === "SEQUENCE" && base[item.id] === undefined) {
-        base[item.id] = stableShuffle(item.options, `${attemptId}:${item.id}`).map((option) => option.id);
-      }
-    }
-    return base;
-  });
+  const base = { ...initialDraft };
+  for (const item of questions) if(item.type === "SEQUENCE" && base[item.id] === undefined) base[item.id]=stableShuffle(item.options, attemptId+":"+item.id).map(option=>option.id);
+  const {view,ready,controller}=useAttemptDraft(userId,attemptId,base,initialIndex,questions.map(q=>q.id));
+  const {answers,index}=view;
+  const setIndex=(value:number|((current:number)=>number))=>controller.current?.navigate(typeof value === "function" ? value(index):value);
   const [now, setNow] = useState(() => new Date(startedAt).getTime());
   const [error, setError] = useState("");
   const [pending, setPending] = useState(false);
@@ -53,47 +51,33 @@ export function TestRunner({
   }, []);
 
   useEffect(() => {
-    window.localStorage.setItem(`attempt:${attemptId}`, JSON.stringify(answers));
-    const timer = window.setTimeout(() => {
-      void saveDraft(attemptId, answers, index);
-    }, 450);
-    return () => window.clearTimeout(timer);
-  }, [answers, index, attemptId]);
+    if(!ready)return;
+    const onLeave=(event:BeforeUnloadEvent)=>{ if(view.status!=="saved"){event.preventDefault();} };
+    window.addEventListener("beforeunload",onLeave);
+    return()=>window.removeEventListener("beforeunload",onLeave);
+  },[ready,view.status]);
 
   useEffect(() => {
-    const onLeave = (event: BeforeUnloadEvent) => {
-      event.preventDefault();
-    };
-    window.addEventListener("beforeunload", onLeave);
-    return () => window.removeEventListener("beforeunload", onLeave);
-  }, []);
-
-  useEffect(() => {
-    if (remaining === null || remaining > 0 || autoFinished.current) return;
+    if (!ready || remaining === null || remaining > 0 || autoFinished.current) return;
     autoFinished.current = true;
-    void finishAttempt(attemptId, answers).then(() => {
-      window.localStorage.removeItem(`attempt:${attemptId}`);
-      router.refresh();
-    });
-  }, [remaining, attemptId, answers, router]);
+    queueMicrotask(() => { void finish(); });
+  });
 
   const skipped = useMemo(() => questions.filter((item) => answers[item.id] === undefined || answers[item.id] === "" || answers[item.id] === null), [answers, questions]);
 
-  function setAnswer(value: unknown) {
-    setAnswers((current) => ({ ...current, [question.id]: value }));
-  }
-
+  function setAnswer(value:unknown) {controller.current?.change(question.id,value);}
+  const finishing=useRef(false);
   async function finish() {
-    setPending(true);
-    setError("");
-    const result = await finishAttempt(attemptId, answers);
-    if (!result.ok) {
-      setError(result.error);
-      setPending(false);
-      return;
-    }
-    window.localStorage.removeItem(`attempt:${attemptId}`);
-    router.refresh();
+    if(finishing.current || !ready || !controller.current)return;
+    finishing.current=true;setPending(true);setError("");
+    const draft=controller.current;
+    await draft.pause();
+    try {
+      const result=await finishAttempt(attemptId,draft.snapshot().answers);
+      if(!result.ok){setError(result.error);draft.resume();return;}
+      draft.complete();router.refresh();
+    } catch {setError("Не вдалося завершити тест. Відповіді збережені в чернетці. Спробуйте ще раз.");draft.resume();}
+    finally {finishing.current=false;setPending(false);}
   }
 
   if (!question) return null;
@@ -109,18 +93,20 @@ export function TestRunner({
         </div>
         <MathText text={question.prompt} />
         <div className="mt-4">
-          <AnswerInput question={question} value={answers[question.id]} onChange={setAnswer} />
+          <fieldset disabled={pending || !ready}><AnswerInput question={question} value={answers[question.id]} onChange={setAnswer} /></fieldset>
         </div>
         <div className="mt-6 flex flex-wrap gap-2">
           <Button type="button" variant="outline" onClick={() => setIndex((value) => Math.max(0, value - 1))} disabled={index === 0}>Назад</Button>
           <Button type="button" variant="outline" onClick={() => setIndex((value) => Math.min(questions.length - 1, value + 1))} disabled={index === questions.length - 1}>Далі</Button>
-          <Button type="button" onClick={() => setConfirmFinish(true)} disabled={pending}>{pending ? "Завершення..." : "Завершити"}</Button>
+          <Button type="button" onClick={() => setConfirmFinish(true)} disabled={pending || !ready}>{pending ? "Завершення..." : "Завершити"}</Button>
         </div>
+        {view.error ? <div role="alert" className="text-sm"><p>{view.error}</p><Button type="button" variant="outline" onClick={()=>void controller.current?.flush()}>Повторити збереження</Button></div> : null}
+        {error ? <Button type="button" onClick={()=>void finish()} disabled={pending}>Повторити завершення</Button> : null}
         {confirmFinish ? <div role="alertdialog" aria-labelledby="finish-title" aria-describedby="finish-description" className="space-y-3 rounded-xl border border-border bg-muted p-4"><h2 id="finish-title" className="font-semibold">Завершити тест?</h2><p id="finish-description" className="text-sm text-muted-foreground">{skipped.length ? "Без відповіді залишилося " + skipped.length + " із " + questions.length + " завдань. Ви можете повернутися до них або завершити спробу." : "Усі завдання мають відповідь. Після завершення відкриється результат."}</p><div className="flex flex-wrap gap-2"><Button variant="outline" disabled={pending} onClick={()=>setConfirmFinish(false)}>Повернутися до тесту</Button><Button disabled={pending} onClick={()=>void finish()}>{pending?"Завершення…":"Так, завершити тест"}</Button></div></div>:null}
-        {error ? <p className="mt-3 text-sm text-destructive">{error}</p> : null}
+        {error ? <p role="alert" className="mt-3 text-sm text-destructive">{error}</p> : null}
       </Card>
       <Card className="space-y-3 p-4 lg:sticky lg:top-20 lg:self-start">
-        <div><div className="text-sm font-semibold">Навігація</div><div className="mt-1 text-xs text-muted-foreground">Відповіді збережено автоматично</div></div>
+        <div><div className="text-sm font-semibold">Навігація</div><div role="status" className="mt-1 text-xs text-muted-foreground">{!ready ? "Відновлення чернетки…" : view.status === "saved" ? "Відповіді збережено" : view.status === "saving" ? "Збереження відповідей…" : view.status === "error" ? "Помилка збереження" : "Є незбережені зміни"}</div></div>
         <div className="grid grid-cols-6 gap-1.5 lg:grid-cols-4">
           {questions.map((item, itemIndex) => {
             const answered = answers[item.id] !== undefined && answers[item.id] !== "" && answers[item.id] !== null;

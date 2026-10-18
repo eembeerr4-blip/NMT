@@ -1,5 +1,8 @@
 "use server";
 
+import type { Prisma } from "@prisma/client";
+import { parseLesson } from "@/lib/lesson";
+
 import { UserError, userFacingError } from "@/lib/errors";
 import { auditedWrite, recordAudit } from "@/server/audit-log";
 import { canEditContent, isAdministrator, isOwner, canManageRole, effectiveRole } from "@/lib/permissions";
@@ -25,7 +28,7 @@ import { isValidNickname, normalizeNickname } from "@/lib/nickname";
 import { addXp, refreshAchievements } from "@/server/progress";
 import { isLocked, registerFail, clearFails } from "@/lib/login-throttle";
 import { clearSession, createSession, getSessionUser } from "@/server/session";
-import { getSettings, syncPlan } from "@/server/sync";
+import { getSettings, syncPlan, syncPlanWithClient, rebuildFuturePlan } from "@/server/sync";
 
 export type ActionState = { ok: true; message?: string; id?: string } | { ok: false; error: string };
 
@@ -68,8 +71,8 @@ function fail(error: unknown): ActionState {
   return { ok: false, error: userFacingError(error) };
 }
 
-async function readableAnswer(questionId: string, value: unknown) {
-  const question = await prisma.question.findUnique({ where: { id: questionId }, include: { options: true } });
+async function readableAnswer(questionId: string, value: unknown, db: Prisma.TransactionClient = prisma) {
+  const question = await db.question.findUnique({ where: { id: questionId }, include: { options: true } });
   if (!question) return String(value ?? "—");
   const options = new Map(question.options.map((option) => [option.id, option.text]));
   if (question.type === "SINGLE_CHOICE") return options.get(String(value)) ?? "Відповіді немає";
@@ -294,7 +297,13 @@ export async function deleteNote(id: string): Promise<ActionState> {
 }
 
 async function persistQuestion(tx: import("@prisma/client").Prisma.TransactionClient, raw: unknown) {
- const q=prepareQuestion(raw);
+ const parsed = questionSchema.parse(raw);
+ if (parsed.id) {
+   const previous = await tx.questionOption.findMany({where:{questionId:parsed.id},select:{id:true}});
+   const allowed = new Set(previous.map(option=>option.id));
+   if(parsed.options.some(option=>option.id && !allowed.has(option.id))) throw new UserError("Варіант відповіді не належить цьому завданню.");
+ }
+ const q=prepareQuestion(parsed, {preserveIds:Boolean(parsed.id)});
  const topic=await tx.topic.findUnique({where:{id:q.topicId}});
  if(!topic||topic.subjectId!==q.subjectId)throw new UserError("Тема не належить до вибраного предмета.");
  const {options,id,...data}=q;
@@ -325,7 +334,7 @@ export async function importQuestions(rawJson: string): Promise<ActionState> {
   if(rawJson.length>2000000)throw new UserError("Файл завеликий (до 2 МБ).");
   const items=z.array(questionSchema).min(1).max(500).parse(JSON.parse(rawJson));
   // Preflight the entire batch. No partial import if a later question is invalid.
-  items.forEach(prepareQuestion);
+  items.forEach(item => prepareQuestion(item));
   const result=await prisma.$transaction(async tx=>{
    let imported=0, skipped=0;
    for(const item of items){
@@ -452,25 +461,29 @@ function scaleTargets(total: number) {
 export async function saveDraft(attemptId: string, draft: Record<string, unknown>, currentIndex: number): Promise<ActionState> {
   try {
     const user = await actor();
-    const attempt = await prisma.testAttempt.findUnique({ where: { id: attemptId, userId: user.id } });
-    if (!attempt || attempt.userId !== user.id || attempt.status !== "IN_PROGRESS") return { ok: false, error: "Спробу вже завершено." };
-    await prisma.testAttempt.update({ where: { id: attemptId, userId: user.id }, data: { draftJson: JSON.stringify(draft), currentIndex } });
-    return { ok: true };
-  } catch (error) {
-    return fail(error);
-  }
+    const updated = await prisma.testAttempt.updateMany({where:{id:attemptId,userId:user.id,status:"IN_PROGRESS"},data:{draftJson:JSON.stringify(draft),currentIndex}});
+    return updated.count ? {ok:true} : {ok:false,error:"Спробу вже завершено або вона недоступна."};
+  } catch(error) { return fail(error); }
 }
 
 export async function finishAttempt(attemptId: string, draft: Record<string, unknown>): Promise<ActionState> {
   try {
     const user = await actor();
-    const attempt = await prisma.testAttempt.findUnique({
+    const settings = await getSettings(user.id);
+    await prisma.$transaction(async (tx) => {
+    // Acquire the SQLite write lock before reading. The state change is invisible outside this transaction.
+    const claimed = await tx.testAttempt.updateMany({where:{id:attemptId,userId:user.id,status:"IN_PROGRESS"},data:{status:"FINALIZING"}});
+    if (!claimed.count) {
+      const existing = await tx.testAttempt.findUnique({where:{id:attemptId,userId:user.id}});
+      if(existing?.status === "COMPLETED") return;
+      throw new UserError("Спроба недоступна або вже завершується. Спробуйте ще раз.");
+    }
+    const attempt = await tx.testAttempt.findUnique({
       where: { id: attemptId, userId: user.id },
       include: { test: { include: { questions: { include: { question: true }, orderBy: { sortOrder: "asc" } } } } },
     });
-    if (!attempt || attempt.userId !== user.id || attempt.status !== "IN_PROGRESS") return { ok: false, error: "Спробу вже завершено або вона належить іншому профілю." };
-    const settings = await getSettings(user.id);
-    await prisma.answer.deleteMany({ where: { attemptId } });
+    if (!attempt || attempt.userId !== user.id) throw new UserError("Спроба недоступна.");
+    await tx.answer.deleteMany({ where: { attemptId } });
     let correct = 0;
     let pending = 0;
     for (const row of attempt.test.questions) {
@@ -479,7 +492,7 @@ export async function finishAttempt(attemptId: string, draft: Record<string, unk
       const graded = gradeAnswer({ type: question.type, correctAnswer: question.correctAnswer, userAnswer: userValue });
       if (graded.isCorrect) correct += 1;
       if (graded.needsManualReview) pending += 1;
-      await prisma.answer.create({
+      await tx.answer.create({
         data: {
           attemptId,
           questionId: question.id,
@@ -489,12 +502,12 @@ export async function finishAttempt(attemptId: string, draft: Record<string, unk
         },
       });
       if (graded.isCorrect === false && question.topicId && (attempt.test.kind !== "DIAGNOSTIC" || (userValue !== null && userValue !== ""))) {
-        await rememberMistake(question, userValue);
+        await rememberMistake(question, userValue, tx, user.id);
       }
     }
     const total = attempt.test.questions.length;
     const durationSec = Math.max(1, Math.round((Date.now() - attempt.startedAt.getTime()) / 1000));
-    await prisma.testAttempt.update({
+    await tx.testAttempt.update({
       where: { id: attemptId, userId: user.id },
       data: {
         status: "COMPLETED",
@@ -508,17 +521,17 @@ export async function finishAttempt(attemptId: string, draft: Record<string, unk
       },
     });
     if (attempt.test.kind === "DIAGNOSTIC") {
-      const answers=await prisma.answer.findMany({where:{attemptId,isCorrect:false},include:{question:true}});
+      const answers=await tx.answer.findMany({where:{attemptId,isCorrect:false},include:{question:true}});
       const weakTopics=[...new Set(answers.filter(a=>a.userAnswer !== "null" && a.userAnswer !== '""').map(a=>a.question.topicId).filter((id):id is string=>Boolean(id)))];
-      for(const topicId of weakTopics)await prisma.userTopicProgress.upsert({where:{userId_topicId:{userId:user.id,topicId}},update:{status:"NEEDS_REVIEW"},create:{userId:user.id,topicId,status:"NEEDS_REVIEW"}});
-      await recalculateFuturePlan();
+      for(const topicId of weakTopics)await tx.userTopicProgress.upsert({where:{userId_topicId:{userId:user.id,topicId}},update:{status:"NEEDS_REVIEW"},create:{userId:user.id,topicId,status:"NEEDS_REVIEW"}});
+      await rebuildFuturePlan(user.id, tx);
     }
     if (attempt.test.topicId && pending === 0) {
-      await applyMastery(attempt.test.topicId, correct, total, settings.masteryHighMin, settings.masteryMidMin);
+      await applyMastery(attempt.test.topicId, correct, total, settings.masteryHighMin, settings.masteryMidMin, tx, user.id);
     } else if (attempt.test.topicId) {
-      await prisma.userTopicProgress.upsert({ where: { userId_topicId: { userId: user.id, topicId: attempt.test.topicId } }, update: { status: "IN_PROGRESS", lastCorrect: correct, lastTotal: total }, create: { userId: user.id, topicId: attempt.test.topicId, status: "IN_PROGRESS", lastCorrect: correct, lastTotal: total } });
+      await tx.userTopicProgress.upsert({ where: { userId_topicId: { userId: user.id, topicId: attempt.test.topicId } }, update: { status: "IN_PROGRESS", lastCorrect: correct, lastTotal: total }, create: { userId: user.id, topicId: attempt.test.topicId, status: "IN_PROGRESS", lastCorrect: correct, lastTotal: total } });
     }
-    await prisma.studySession.create({
+    await tx.studySession.create({
       data: {
         subjectId: attempt.test.subjectId,
         topicId: attempt.test.topicId,
@@ -529,9 +542,10 @@ export async function finishAttempt(attemptId: string, draft: Record<string, unk
         userId: user.id,
       },
     });
-    if (attempt.test.topicId) await completeOpenTask(user.id, attempt.test.topicId);
-    await addXp(30 + correct * 2, "Завершений тест");
-    await refreshAchievements();
+    if (attempt.test.topicId) await completeOpenTask(user.id, attempt.test.topicId, tx);
+    await addXp(30 + correct * 2, "Завершений тест", tx, user.id);
+    await refreshAchievements(tx, user.id);
+    }, {maxWait: 15000, timeout: 30000});
     refresh();
     return { ok: true };
   } catch (error) {
@@ -539,19 +553,19 @@ export async function finishAttempt(attemptId: string, draft: Record<string, unk
   }
 }
 
-async function rememberMistake(question: { id: string; subjectId: string; topicId: string | null; prompt: string; explanation: string; correctAnswer: string; type: string }, userValue: unknown) {
-  const user = await actor();
-  const existing = await prisma.mistake.findFirst({ where: { userId: user.id, questionId: question.id, status: { not: "FIXED" } } });
-  const userAnswer = await readableAnswer(question.id, userValue);
-  const correctAnswer = await readableCorrect(question);
+async function rememberMistake(question: { id: string; subjectId: string; topicId: string | null; prompt: string; explanation: string; correctAnswer: string; type: string }, userValue: unknown, db: Prisma.TransactionClient = prisma, userId?: string) {
+  const user = userId ? {id:userId} : await actor();
+  const existing = await db.mistake.findFirst({ where: { userId: user.id, questionId: question.id, status: { not: "FIXED" } } });
+  const userAnswer = await readableAnswer(question.id, userValue, db);
+  const correctAnswer = await readableCorrect(question, db);
   if (existing) {
-    await prisma.mistake.update({
+    await db.mistake.update({
       where: { id: existing.id, userId: user.id },
       data: { repeatCount: { increment: 1 }, userAnswer, date: new Date(), status: "OPEN" },
     });
     return;
   }
-  await prisma.mistake.create({
+  await db.mistake.create({
     data: {
       subjectId: question.subjectId,
       topicId: question.topicId,
@@ -565,11 +579,11 @@ async function rememberMistake(question: { id: string; subjectId: string; topicI
   });
 }
 
-async function readableCorrect(question: { id: string; type: string; correctAnswer: string }) {
-  if (question.type === "SINGLE_CHOICE") return readableAnswer(question.id, question.correctAnswer);
+async function readableCorrect(question: { id: string; type: string; correctAnswer: string }, db: Prisma.TransactionClient = prisma) {
+  if (question.type === "SINGLE_CHOICE") return readableAnswer(question.id, question.correctAnswer, db);
   if (question.type === "SEQUENCE" || question.type === "MATCHING") {
     try {
-      return readableAnswer(question.id, JSON.parse(question.correctAnswer));
+      return readableAnswer(question.id, JSON.parse(question.correctAnswer), db);
     } catch {
       return question.correctAnswer;
     }
@@ -577,13 +591,13 @@ async function readableCorrect(question: { id: string; type: string; correctAnsw
   return question.correctAnswer;
 }
 
-async function completeOpenTask(userId: string, topicId: string) {
-  const task = await prisma.studyTask.findFirst({
+async function completeOpenTask(userId: string, topicId: string, db: Prisma.TransactionClient = prisma) {
+  const task = await db.studyTask.findFirst({
     where: { userId, topicId, status: { in: ["PLANNED", "IN_PROGRESS"] }, dateKey: { lte: dateKey() } },
     orderBy: { dateKey: "asc" },
   });
   if (!task) return;
-  await prisma.studyTask.update({ where: { id: task.id }, data: { status: "DONE", completedAt: new Date() } });
+  await db.studyTask.update({ where: { id: task.id }, data: { status: "DONE", completedAt: new Date() } });
 }
 
 export async function completeLesson(topicId: string, studied: boolean): Promise<ActionState> {
@@ -597,6 +611,7 @@ export async function completeLesson(topicId: string, studied: boolean): Promise
       orderBy: { finishedAt: "desc" },
     });
     if (verified > 0 && !attempt) return { ok: false, error: "Спочатку завершіть домашнє завдання. Відкриття сторінки урок не зараховує." };
+    if (verified === 0 && !parseLesson(topic.lessonJson)?.theory.trim()) return {ok:false,error:"Матеріал уроку ще не додано."};
     if (verified === 0 && !studied) return { ok: false, error: "Позначте, що конспект опрацьовано. Для цієї теми ще немає перевірених завдань." };
     const progress = await prisma.userTopicProgress.findUnique({ where: { userId_topicId: { userId: user.id, topicId } } });
     if (!progress || progress.status === "NOT_STARTED") {
@@ -626,19 +641,19 @@ export async function completeLesson(topicId: string, studied: boolean): Promise
   }
 }
 
-async function applyMastery(topicId: string, correct: number, total: number, highMin: number, midMin: number) {
-  const user = await actor();
+async function applyMastery(topicId: string, correct: number, total: number, highMin: number, midMin: number, db: Prisma.TransactionClient = prisma, userId?: string) {
+  const user = userId ? {id:userId} : await actor();
   const status = learningStatus(correct, total, highMin, midMin);
-  const repeats = await prisma.mistake.aggregate({ where: { userId: user.id, topicId, status: { not: "FIXED" } }, _sum: { repeatCount: true } });
-  await prisma.userTopicProgress.upsert({
+  const repeats = await db.mistake.aggregate({ where: { userId: user.id, topicId, status: { not: "FIXED" } }, _sum: { repeatCount: true } });
+  await db.userTopicProgress.upsert({
     where: { userId_topicId: { userId: user.id, topicId } },
     update: { status, lastCorrect: correct, lastTotal: total },
     create: { userId: user.id, topicId, status, lastCorrect: correct, lastTotal: total },
   });
-  await prisma.reviewSchedule.deleteMany({ where: { userId: user.id, topicId, status: "PENDING" } });
+  await db.reviewSchedule.deleteMany({ where: { userId: user.id, topicId, status: "PENDING" } });
   const intervals = reviewIntervals(correct, total, highMin, midMin, repeats._sum.repeatCount ?? 0);
   const priority = status === "MASTERED" ? 0 : status === "NEEDS_REVIEW" ? 1 : 3;
-  await prisma.reviewSchedule.createMany({
+  await db.reviewSchedule.createMany({
     data: intervals.map((days) => ({
       topicId,
       userId: user.id,
@@ -815,11 +830,7 @@ export async function createCustomTask(input: { dateKey: string; title: string; 
 export async function recalculateFuturePlan(): Promise<ActionState> {
   try {
     const user = await actor();
-    const today = dateKey();
-    const planned = await prisma.studyTask.findMany({ where: { userId: user.id, status: "PLANNED", dateKey: { gte: today } } });
-    const ids = planned.filter((task) => task.templateKey?.startsWith("d")).map((task) => task.id);
-    if (ids.length) await prisma.studyTask.deleteMany({ where: { id: { in: ids }, userId: user.id } });
-    await syncPlan(user.id);
+    await prisma.$transaction(tx => rebuildFuturePlan(user.id, tx), {maxWait:15000,timeout:30000});
     refreshPages("/calendar", "/", "/analytics", "/curriculum");
     return { ok: true, message: "Майбутні заплановані заняття перераховано. Виконані й перенесені залишились." };
   } catch (error) {
@@ -1283,25 +1294,29 @@ export async function changeElective(subjectId: string, confirmed: boolean): Pro
     const user = await actor();
     if (!confirmed) return { ok: false, error: "Підтвердьте зміну предмета." };
     if (!ELECTIVE_SUBJECT_IDS.includes(subjectId as never)) return { ok: false, error: "Це не предмет на вибір." };
-    const current = user.subjects.find((item) => item.role === "ELECTIVE" && item.active);
-    if (current?.subjectId === subjectId) return { ok: true, message: "Цей предмет уже обрано." };
+    await prisma.$transaction(async (tx) => {
+    // Serialize competing changes before reading the current elective.
+    await tx.user.update({where:{id:user.id},data:{updatedAt:new Date()}});
+    const current = await tx.userSubject.findFirst({where:{userId:user.id,role:"ELECTIVE",active:true}});
+    if (current?.subjectId === subjectId) return;
     const today = dateKey();
     if (current) {
-      await prisma.studyTask.updateMany({
+      await tx.studyTask.updateMany({
         where: { userId: user.id, subjectId: current.subjectId, status: "PLANNED", dateKey: { gte: today } },
         data: { status: "DROPPED", notes: "Предмет на вибір змінено. Завершені заняття збережено." },
       });
-      await prisma.userSubject.update({ where: { id: current.id }, data: { active: false } });
+      await tx.userSubject.updateMany({ where: { userId:user.id, role:"ELECTIVE", active:true }, data: { active: false } });
     }
-    await prisma.userSubject.upsert({
+    await tx.userSubject.upsert({
       where: { userId_subjectId: { userId: user.id, subjectId } },
       update: { active: true, role: "ELECTIVE" },
       create: { userId: user.id, subjectId, role: "ELECTIVE", active: true },
     });
-    const settings = await getSettings(user.id);
+    const settings = await getSettings(user.id, tx);
     const schedule = personalSchedule(subjectId, settings.intensity === "light" || settings.intensity === "intense" ? settings.intensity : "standard");
-    await prisma.userSettings.update({ where: { userId: user.id }, data: { scheduleJson: JSON.stringify(schedule) } });
-    await syncPlan(user.id);
+    await tx.userSettings.update({ where: { userId: user.id }, data: { scheduleJson: JSON.stringify(schedule) } });
+    await syncPlanWithClient(user.id, tx);
+    }, {maxWait:15000,timeout:30000});
     refresh();
     return { ok: true, message: "Предмет на вибір змінено. Минулі результати залишились в історії." };
   } catch (error) {

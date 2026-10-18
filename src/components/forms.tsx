@@ -92,10 +92,10 @@ type QuestionInitial = {
   correctAnswer: string;
   source: string;
   verificationStatus: string;
-  options: { label: string; text: string; matchKey: string | null }[];
+  options: { id?: string; label: string; text: string; matchKey: string | null }[];
 };
 
-export function QuestionForm({ topics, initial }: { topics: { id: string; title: string; subjectId: string }[]; initial?: QuestionInitial }) {
+export function QuestionForm({ topics, initial, returnTo = "/admin/questions" }: { topics: { id: string; title: string; subjectId: string }[]; initial?: QuestionInitial; returnTo?: "/admin/questions" | "/editor/questions" }) {
   const router = useRouter();
   const [subject, setSubject] = useState(initial?.subjectId ?? "ukrainian");
   const [message, setMessage] = useState("");
@@ -107,7 +107,8 @@ export function QuestionForm({ topics, initial }: { topics: { id: string; title:
       const lines = String(form.get("options") ?? "").split("\n").map((line) => line.trim()).filter(Boolean);
       const options = lines.map((line) => {
         const [label, text, matchKey] = line.split("|");
-        return { label: label.trim(), text: (text ?? "").trim(), matchKey: matchKey?.trim() || undefined };
+        const previous = initial?.options.find(option => option.label === label.trim());
+        return { id: previous?.id, label: label.trim(), text: (text ?? "").trim(), matchKey: matchKey?.trim() || undefined };
       });
       const result = await saveQuestion({
         id: String(form.get("id") || "") || undefined,
@@ -125,7 +126,7 @@ export function QuestionForm({ topics, initial }: { topics: { id: string; title:
       });
       setMessage(result.ok ? (initial ? "Зміни завдання збережено." : "Завдання збережено.") : result.error);
       if (result.ok) {
-        if (initial) router.push("/admin/questions");
+        if (initial) router.push(returnTo);
         else { submittedForm.reset(); setSubject("ukrainian"); }
       }
     }}>
