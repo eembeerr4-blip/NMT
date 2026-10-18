@@ -28,6 +28,13 @@ import { getSettings, syncPlan } from "@/server/sync";
 
 export type ActionState = { ok: true; message?: string; id?: string } | { ok: false; error: string };
 
+function refreshPages(...paths: string[]) {
+  for (const path of paths) {
+    if (path.includes("[")) revalidatePath(path, "page");
+    else revalidatePath(path);
+  }
+}
+
 function refresh() {
   revalidatePath("/", "layout");
 }
@@ -694,7 +701,7 @@ export async function saveExamResult(raw: unknown): Promise<ActionState> {
       await prisma.examResult.update({ where: { id: data.id }, data: payload });
     } else await prisma.examResult.create({ data: { ...payload, userId: user.id } });
     if (!data.id) await addXp(20, "Записаний результат");
-    refresh();
+    refreshPages("/results", "/analytics", "/", "/subjects/[slug]");
     return { ok: true };
   } catch (error) {
     return fail(error);
@@ -708,7 +715,7 @@ export async function deleteExamResult(id: string): Promise<ActionState> {
     const existing = await prisma.examResult.findUnique({ where: { id } });
     if (!existing || existing.userId !== user.id) return { ok: false, error: "Цей результат належить іншому профілю." };
     await prisma.examResult.delete({ where: { id } });
-    refresh();
+    refreshPages("/results", "/analytics", "/", "/subjects/[slug]");
     return { ok: true };
   } catch (error) {
     return fail(error);
@@ -737,7 +744,7 @@ export async function setTaskStatus(id: string, status: "PLANNED" | "IN_PROGRESS
       await addXp(15, "Завершене заняття");
       await refreshAchievements();
     }
-    refresh();
+    refreshPages("/calendar", "/", "/analytics", "/curriculum", "/review");
     return { ok: true };
   } catch (error) {
     return fail(error);
@@ -773,7 +780,7 @@ export async function moveTask(id: string, nextDate: string): Promise<ActionStat
         },
       });
     }
-    refresh();
+    refreshPages("/calendar", "/", "/analytics", "/curriculum");
     return { ok: true };
   } catch (error) {
     return fail(error);
@@ -796,7 +803,7 @@ export async function createCustomTask(input: { dateKey: string; title: string; 
         detail: "Власне заняття",
       },
     });
-    refresh();
+    refreshPages("/calendar", "/", "/analytics", "/curriculum");
     return { ok: true };
   } catch (error) {
     return fail(error);
@@ -811,7 +818,7 @@ export async function recalculateFuturePlan(): Promise<ActionState> {
     const ids = planned.filter((task) => task.templateKey?.startsWith("d")).map((task) => task.id);
     if (ids.length) await prisma.studyTask.deleteMany({ where: { id: { in: ids } } });
     await syncPlan(user.id);
-    refresh();
+    refreshPages("/calendar", "/", "/analytics", "/curriculum");
     return { ok: true, message: "Майбутні заплановані заняття перераховано. Виконані й перенесені залишились." };
   } catch (error) {
     return fail(error);
@@ -848,7 +855,7 @@ export async function completeReview(id: string): Promise<ActionState> {
     const user = await actor();
     await prisma.reviewSchedule.update({ where: { id, userId: user.id, status: "PENDING" }, data: { status: "DONE", completedAt: new Date() } });
     await addXp(10, "Повторення");
-    refresh();
+    refreshPages("/review", "/calendar", "/", "/analytics");
     return { ok: true };
   } catch (error) {
     return fail(error);
@@ -870,7 +877,7 @@ export async function reviewFlashcard(id: string, grade: "again" | "good"): Prom
       await prisma.flashcard.update({ where: { id }, data: { intervalDays: interval, dueKey: addDateKeys(dateKey(), interval), reps: { increment: 1 } } });
       await addXp(5, "Картка");
     }
-    refresh();
+    refreshPages("/review", "/analytics", "/", "/subjects", "/subjects/[slug]", "/topics/[id]", "/learn/[topicId]");
     return { ok: true };
   } catch (error) {
     return fail(error);
@@ -892,7 +899,7 @@ export async function saveFlashcard(input: { subjectId?: string; topicId?: strin
         dueKey: dateKey(),
       },
     });
-    refresh();
+    refreshPages("/review");
     return { ok: true };
   } catch (error) {
     return fail(error);
@@ -903,7 +910,7 @@ export async function setMistakeMeta(id: string, category: string, status: strin
   try {
     const user = await actor();
     await prisma.mistake.update({ where: { id, userId: user.id }, data: { category, status } });
-    refresh();
+    refreshPages("/mistakes", "/review", "/analytics", "/");
     return { ok: true };
   } catch (error) {
     return fail(error);
@@ -1389,7 +1396,7 @@ export async function updateUserRole(id: string, rawRole: string): Promise<Actio
       if(previousRole===role) return {ok:true as const,message:"Цю роль уже призначено."};
       await tx.user.update({where:{id},data:{role}});
       await recordAudit(current,{action:"USER_ROLE_CHANGED",entityType:"user",entityId:id,metadata:{role,previousRole}},tx);
-      refresh();
+      refreshPages("/admin/users", "/admin", "/admin/audit");
       return {ok:true as const};
     });
   } catch(error) { return fail(error); }
