@@ -21,6 +21,17 @@ import {finishAttempt,saveDraft,changeElective,recalculateFuturePlan,moveTask,sa
 import {syncPlanWithClient} from "@/server/sync";
 
 async function counts(){return {answers:await prisma.answer.count(),mistakes:await prisma.mistake.count(),progress:await prisma.userTopicProgress.count(),reviews:await prisma.reviewSchedule.count(),sessions:await prisma.studySession.count(),xp:await prisma.xpEvent.count()};}
+it("C04: sync never silently shifts overdue custom or personally moved tasks",async()=>{
+ const past=addDateKeys(dateKey(),-1);
+ await prisma.studyTask.createMany({data:[
+  {id:"QA-past-custom",userId:"A",dateKey:past,title:"QA-own date",kind:"custom",durationMin:10,templateKey:"custom-QA-past"},
+  {id:"QA-past-moved",userId:"A",dateKey:past,title:"QA-own move",kind:"study",durationMin:10,templateKey:"moved-QA-past",movedFromId:"QA-past-original"}
+ ]});
+ const before=await prisma.studyTask.findMany({where:{id:{in:["QA-past-custom","QA-past-moved"]}},orderBy:{id:"asc"}});
+ await syncPlanWithClient("A",prisma);await syncPlanWithClient("A",prisma);
+ const after=await prisma.studyTask.findMany({where:{id:{in:["QA-past-custom","QA-past-moved"]}},orderBy:{id:"asc"}});
+ expect(after).toEqual(before);
+});
 it("A10: invalid dates and kinds never write tasks or move an existing task",async()=>{
  const before=await prisma.studyTask.count();
  for(const date of ["2026-02-31","2026-13-01","2026-01-01bad"]){

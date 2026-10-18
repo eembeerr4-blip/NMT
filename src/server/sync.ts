@@ -112,6 +112,7 @@ async function shiftOverdue(userId: string, cap: number, studyDays: number[], db
     orderBy: [{ dateKey: "asc" }, { sortOrder: "asc" }],
   });
   for (const task of overdue) {
+    if (!isAutoPlanned(task)) continue;
     if (task.durationMin > cap) {
       await db.studyTask.update({ where: { id: task.id }, data: { notes: "Заняття довше за денний ліміт. Розділіть його або змініть навантаження." } });
       continue;

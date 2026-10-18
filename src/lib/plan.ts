@@ -1,5 +1,6 @@
 import { DEFAULT_SCHEDULE, SUBJECTS, type ScheduleConfig, type SubjectId } from "@/lib/constants";
 import { addDateKeys, dateKey, daysBetween, parseDateKey } from "@/lib/dates";
+import { autoPlanKey } from "@/lib/task-origin";
 
 export type TopicPick = {
   id: string;
@@ -68,7 +69,7 @@ export function buildSlotsForDate(date: string, schedule: ScheduleConfig, topics
   const weekday = String(parseDateKey(date).getDay());
   const slots = schedule.days[weekday] ?? [];
   return slots.map((slot) => {
-    const templateKey = `d${weekday}-s${slot.slot}`;
+    const templateKey = autoPlanKey(Number(weekday),slot.slot);
     if (slot.kind === "mock") {
       const subjectId = mockSubjectForDate(date, schedule);
       const name = subjectId ? subjectName.get(subjectId) : undefined;
