@@ -14,7 +14,7 @@ export default async function AttemptPage({ params }: { params: Promise<{ id: st
   const { id } = await params;
   const settings = await getSettings(user.id);
   const attempt = await prisma.testAttempt.findUnique({
-    where: { id },
+    where: { id, userId: user.id },
     include: {
       answers: true,
       test: { include: { topic: true, subject: true, questions: { orderBy: { sortOrder: "asc" }, include: { question: { include: { options: { orderBy: { sortOrder: "asc" } } } } } } } },

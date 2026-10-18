@@ -49,7 +49,8 @@ export async function refreshAchievements() {
 }
 
 export async function subjectPriorities() {
-  const settings = await prisma.userSettings.findUnique({ where: { id: "default" } });
+  const user = await getSessionUser();
+  const settings = user ? await prisma.userSettings.findUnique({ where: { userId: user.id } }) : null;
   return {
     math: settings?.mathPriority ?? 35,
     ukrainian: settings?.ukrainianPriority ?? 25,

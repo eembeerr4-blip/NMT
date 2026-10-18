@@ -450,9 +450,9 @@ function scaleTargets(total: number) {
 export async function saveDraft(attemptId: string, draft: Record<string, unknown>, currentIndex: number): Promise<ActionState> {
   try {
     const user = await actor();
-    const attempt = await prisma.testAttempt.findUnique({ where: { id: attemptId } });
+    const attempt = await prisma.testAttempt.findUnique({ where: { id: attemptId, userId: user.id } });
     if (!attempt || attempt.userId !== user.id || attempt.status !== "IN_PROGRESS") return { ok: false, error: "Спробу вже завершено." };
-    await prisma.testAttempt.update({ where: { id: attemptId }, data: { draftJson: JSON.stringify(draft), currentIndex } });
+    await prisma.testAttempt.update({ where: { id: attemptId, userId: user.id }, data: { draftJson: JSON.stringify(draft), currentIndex } });
     return { ok: true };
   } catch (error) {
     return fail(error);
@@ -463,7 +463,7 @@ export async function finishAttempt(attemptId: string, draft: Record<string, unk
   try {
     const user = await actor();
     const attempt = await prisma.testAttempt.findUnique({
-      where: { id: attemptId },
+      where: { id: attemptId, userId: user.id },
       include: { test: { include: { questions: { include: { question: true }, orderBy: { sortOrder: "asc" } } } } },
     });
     if (!attempt || attempt.userId !== user.id || attempt.status !== "IN_PROGRESS") return { ok: false, error: "Спробу вже завершено або вона належить іншому профілю." };
@@ -493,7 +493,7 @@ export async function finishAttempt(attemptId: string, draft: Record<string, unk
     const total = attempt.test.questions.length;
     const durationSec = Math.max(1, Math.round((Date.now() - attempt.startedAt.getTime()) / 1000));
     await prisma.testAttempt.update({
-      where: { id: attemptId },
+      where: { id: attemptId, userId: user.id },
       data: {
         status: "COMPLETED",
         finishedAt: new Date(),
@@ -544,7 +544,7 @@ async function rememberMistake(question: { id: string; subjectId: string; topicI
   const correctAnswer = await readableCorrect(question);
   if (existing) {
     await prisma.mistake.update({
-      where: { id: existing.id },
+      where: { id: existing.id, userId: user.id },
       data: { repeatCount: { increment: 1 }, userAnswer, date: new Date(), status: "OPEN" },
     });
     return;
@@ -661,7 +661,7 @@ export async function gradeManually(answerId: string, correct: boolean): Promise
     const correctCount = answers.filter((item) => item.isCorrect).length;
     const pending = answers.filter((item) => item.needsManualReview).length;
     await prisma.testAttempt.update({
-      where: { id: answer.attemptId },
+      where: { id: answer.attemptId, userId: user.id },
       data: { correctCount, pendingCount: pending, percent: answers.length ? (correctCount / answers.length) * 100 : 0 },
     });
     if (pending === 0 && answer.attempt.test.topicId) {
@@ -696,9 +696,9 @@ export async function saveExamResult(raw: unknown): Promise<ActionState> {
       comment: data.comment,
     };
     if (data.id) {
-      const existing = await prisma.examResult.findUnique({ where: { id: data.id } });
+      const existing = await prisma.examResult.findUnique({ where: { id: data.id, userId: user.id } });
       if (!existing || existing.userId !== user.id) return { ok: false, error: "Цей результат належить іншому профілю." };
-      await prisma.examResult.update({ where: { id: data.id }, data: payload });
+      await prisma.examResult.update({ where: { id: data.id, userId: user.id }, data: payload });
     } else await prisma.examResult.create({ data: { ...payload, userId: user.id } });
     if (!data.id) await addXp(20, "Записаний результат");
     refreshPages("/results", "/analytics", "/", "/subjects/[slug]");
@@ -712,9 +712,9 @@ export async function deleteExamResult(id: string): Promise<ActionState> {
   try {
     const user = await actor();
     if (id.startsWith("seed-")) return { ok: false, error: "Стартовий історичний запис краще редагувати, а не видаляти. Якщо це помилка, змініть поля." };
-    const existing = await prisma.examResult.findUnique({ where: { id } });
+    const existing = await prisma.examResult.findUnique({ where: { id, userId: user.id } });
     if (!existing || existing.userId !== user.id) return { ok: false, error: "Цей результат належить іншому профілю." };
-    await prisma.examResult.delete({ where: { id } });
+    await prisma.examResult.delete({ where: { id, userId: user.id } });
     refreshPages("/results", "/analytics", "/", "/subjects/[slug]");
     return { ok: true };
   } catch (error) {
@@ -725,10 +725,10 @@ export async function deleteExamResult(id: string): Promise<ActionState> {
 export async function setTaskStatus(id: string, status: "PLANNED" | "IN_PROGRESS" | "DONE" | "SKIPPED"): Promise<ActionState> {
   try {
     const user = await actor();
-    const current = await prisma.studyTask.findUnique({ where: { id } });
+    const current = await prisma.studyTask.findUnique({ where: { id, userId: user.id } });
     if (!current || current.userId !== user.id) return { ok: false, error: "Це заняття належить іншому профілю." };
     if (current.status === status) return { ok: true };
-    const task = await prisma.studyTask.update({ where: { id }, data: { status, completedAt: status === "DONE" ? new Date() : null } });
+    const task = await prisma.studyTask.update({ where: { id, userId: user.id }, data: { status, completedAt: status === "DONE" ? new Date() : null } });
     if (status === "DONE" && task.kind !== "rest" && task.durationMin > 0) {
       await prisma.studySession.create({
         data: {
@@ -755,12 +755,12 @@ export async function moveTask(id: string, nextDate: string): Promise<ActionStat
   try {
     const user = await actor();
     if (!/^\d{4}-\d{2}-\d{2}$/.test(nextDate)) return { ok: false, error: "Оберіть дату." };
-    const task = await prisma.studyTask.findUnique({ where: { id } });
+    const task = await prisma.studyTask.findUnique({ where: { id, userId: user.id } });
     if (!task || task.userId !== user.id || task.status === "DONE") return { ok: false, error: "Завершене заняття не переноситься." };
     if (relocationMode(task) === "update") {
-      await prisma.studyTask.update({ where: { id }, data: { dateKey: nextDate, status: "PLANNED" } });
+      await prisma.studyTask.update({ where: { id, userId: user.id }, data: { dateKey: nextDate, status: "PLANNED" } });
     } else {
-      await prisma.studyTask.update({ where: { id }, data: { status: "MOVED" } });
+      await prisma.studyTask.update({ where: { id, userId: user.id }, data: { status: "MOVED" } });
       await prisma.studyTask.create({
         data: {
           dateKey: nextDate,
@@ -816,7 +816,7 @@ export async function recalculateFuturePlan(): Promise<ActionState> {
     const today = dateKey();
     const planned = await prisma.studyTask.findMany({ where: { userId: user.id, status: "PLANNED", dateKey: { gte: today } } });
     const ids = planned.filter((task) => task.templateKey?.startsWith("d")).map((task) => task.id);
-    if (ids.length) await prisma.studyTask.deleteMany({ where: { id: { in: ids } } });
+    if (ids.length) await prisma.studyTask.deleteMany({ where: { id: { in: ids }, userId: user.id } });
     await syncPlan(user.id);
     refreshPages("/calendar", "/", "/analytics", "/curriculum");
     return { ok: true, message: "Майбутні заплановані заняття перераховано. Виконані й перенесені залишились." };
@@ -868,13 +868,13 @@ export async function reviewFlashcard(id: string, grade: "again" | "good"): Prom
     const card = await prisma.flashcard.findUnique({ where: { id, userId: user.id } });
     if (!card) return { ok: false, error: "Картку не знайдено." };
     if (grade === "again") {
-      await prisma.flashcard.update({ where: { id }, data: { intervalDays: 1, dueKey: addDateKeys(dateKey(), 1), lapses: { increment: 1 } } });
+      await prisma.flashcard.update({ where: { id, userId: user.id }, data: { intervalDays: 1, dueKey: addDateKeys(dateKey(), 1), lapses: { increment: 1 } } });
       if (card.topicId) {
         await prisma.userTopicProgress.upsert({ where: { userId_topicId: { userId: user.id, topicId: card.topicId } }, update: { status: "NEEDS_REVIEW" }, create: { userId: user.id, topicId: card.topicId, status: "NEEDS_REVIEW" } });
       }
     } else {
       const interval = Math.max(1, Math.round((card.intervalDays || 1) * card.ease));
-      await prisma.flashcard.update({ where: { id }, data: { intervalDays: interval, dueKey: addDateKeys(dateKey(), interval), reps: { increment: 1 } } });
+      await prisma.flashcard.update({ where: { id, userId: user.id }, data: { intervalDays: interval, dueKey: addDateKeys(dateKey(), interval), reps: { increment: 1 } } });
       await addXp(5, "Картка");
     }
     refreshPages("/review", "/analytics", "/", "/subjects", "/subjects/[slug]", "/topics/[id]", "/learn/[topicId]");
