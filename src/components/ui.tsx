@@ -4,7 +4,7 @@ import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex shrink-0 items-center justify-center gap-2 rounded-xl text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:h-4 [&_svg]:w-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -12,13 +12,13 @@ const buttonVariants = cva(
         secondary: "bg-muted text-foreground hover:bg-accent",
         outline: "border border-border bg-card hover:bg-accent",
         ghost: "hover:bg-accent",
-        destructive: "bg-destructive text-white hover:opacity-90",
+        destructive: "border border-danger-border bg-danger-surface text-danger-text hover:bg-danger-hover",
       },
       size: {
-        default: "h-9 px-3.5",
-        sm: "h-8 px-2.5 text-xs",
-        lg: "h-10 px-4",
-        icon: "h-9 w-9",
+        default: "min-h-10 px-4 py-2",
+        sm: "min-h-9 px-3 py-1.5 text-sm",
+        lg: "min-h-11 px-5 py-2.5",
+        icon: "h-10 w-10",
       },
     },
     defaultVariants: { variant: "default", size: "default" },
@@ -31,11 +31,11 @@ export function Button({ className, variant, size, asChild = false, ...props }: 
 }
 
 export function Card({ className, ...props }: ComponentProps<"div">) {
-  return <div className={cn("rounded-2xl border border-border bg-card text-card-foreground shadow-sm", className)} {...props} />;
+  return <div className={cn("min-w-0 rounded-2xl border border-border bg-card text-card-foreground shadow-[var(--shadow-card)]", className)} {...props} />;
 }
 
 export function Input(props: ComponentProps<"input">) {
-  return <input {...props} className={cn("h-10 w-full rounded-lg border border-border bg-card px-3 text-sm outline-none", props.className)} />;
+  return <input {...props} className={cn("h-10 w-full rounded-lg border border-border bg-card px-3 text-sm placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/25 disabled:cursor-not-allowed disabled:opacity-60", props.className)} />;
 }
 
 export function Textarea(props: ComponentProps<"textarea">) {
@@ -66,8 +66,8 @@ export function PageHeader({ title, description, action }: { title: string; desc
   return (
     <div className="flex flex-wrap items-end justify-between gap-3">
       <div className="min-w-0">
-        <h1 className="text-2xl font-semibold tracking-tight">{title}</h1>
-        {description ? <p className="mt-1 max-w-3xl text-sm text-muted-foreground">{description}</p> : null}
+        <h1 className="text-2xl font-semibold leading-tight tracking-tight sm:text-[28px]">{title}</h1>
+        {description ? <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">{description}</p> : null}
       </div>
       {action}
     </div>

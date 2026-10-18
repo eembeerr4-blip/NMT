@@ -14,7 +14,7 @@ export default async function ResultsPage({ searchParams }: { searchParams: Prom
   const current = results.find((result) => result.id === edit);
   return (
     <div className="space-y-6">
-      <PageHeader title="Журнал результатів" description="Кожен запис зберігається окремо. Новий результат не замінює попередній." action={<a href="/api/export/results" className="text-sm underline">Експорт CSV</a>} />
+      <PageHeader title="Журнал результатів" description="Кожен запис зберігається окремо. Новий результат не замінює попередній." />
       <div className="space-y-2">
         {results.map((result) => (
           <Card key={result.id} className="p-4 text-sm">
@@ -38,7 +38,7 @@ export default async function ResultsPage({ searchParams }: { searchParams: Prom
       </div>
       <Card id="add" className="p-4">
         <h2 className="mb-3 font-medium">{current ? "Редагувати запис" : "Додати результат"}</h2>
-        <ResultForm initial={current ? {
+        <ResultForm key={current?.id ?? "new"} initial={current ? {
           id: current.id,
           date: current.date.toISOString().slice(0, 10),
           subjectId: current.subjectId as "math",

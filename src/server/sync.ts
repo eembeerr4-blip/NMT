@@ -1,3 +1,5 @@
+import { cache } from "react";
+import { fitDailyLoad } from "@/lib/fit-daily-load";
 import { DEFAULT_SCHEDULE, type ScheduleConfig } from "@/lib/constants";
 import { addDateKeys, dateKey, parseDateKey } from "@/lib/dates";
 import { prisma } from "@/lib/prisma";
@@ -18,7 +20,7 @@ export async function getSettings(userId?: string) {
   };
 }
 
-export async function syncPlan(userId?: string) {
+export const syncPlan = cache(async (userId?: string) => {
   const settings = await getSettings(userId);
   const ownerId = settings.userId;
   if (!ownerId) return;
@@ -31,7 +33,7 @@ export async function syncPlan(userId?: string) {
   const picks: TopicPick[] = topics.map((topic) => ({ ...topic, parentId: topic.parentId, status: progressStatus.get(topic.id) ?? "NOT_STARTED" }));
   const { from, to } = windowFor(dateKey(), settings.planStart);
   const existing = await prisma.studyTask.findMany({
-    where: { userId: ownerId, dateKey: { gte: from, lte: to }, templateKey: { not: null } },
+    where: { userId: ownerId, dateKey: { gte: from, lte: to } },
   });
   const byKey = new Map(existing.map((task) => [`${task.dateKey}:${task.templateKey}`, task]));
   const create: {
@@ -49,8 +51,13 @@ export async function syncPlan(userId?: string) {
     userId: string;
   }[] = [];
   for (const day of eachDate(from, to)) {
-    if (!settings.studyDays.includes(parseDateKey(day).getDay())) continue;
-    for (const slot of buildSlotsForDate(day, schedule, picks, settings.planStart)) {
+    const dayTasks=existing.filter(t=>t.dateKey===day);
+    const fixed=dayTasks.filter(t=>(!t.templateKey || t.status==="DONE" || t.status==="IN_PROGRESS") && !["MOVED","SKIPPED","DROPPED"].includes(t.status)).reduce((sum,t)=>sum+t.durationMin,0);
+    const slots=settings.studyDays.includes(parseDateKey(day).getDay()) ? fitDailyLoad(buildSlotsForDate(day, schedule, picks, settings.planStart).filter(slot=>!dayTasks.some(t=>t.templateKey===slot.templateKey && ["DONE","IN_PROGRESS","MOVED","SKIPPED"].includes(t.status))), Math.max(0,settings.dailyMinutes-fixed)).filter(slot=>slot.durationMin>0 || slot.kind==="rest") : [];
+    for(const task of dayTasks.filter(t=>t.templateKey && t.status==="PLANNED" && !slots.some(slot=>slot.templateKey===t.templateKey))){
+      await prisma.studyTask.update({where:{id:task.id},data:{status:"DROPPED",notes:"Автоплан: змінено навчальні дні або денний ліміт."}});
+    }
+    for (const slot of slots) {
       const current = byKey.get(`${slot.dateKey}:${slot.templateKey}`);
       if (!current) {
         create.push({
@@ -69,6 +76,7 @@ export async function syncPlan(userId?: string) {
         });
         continue;
       }
+      if (current.status === "DROPPED" && current.notes.startsWith("Автоплан:")) { await prisma.studyTask.update({where:{id:current.id},data:{status:"PLANNED",notes:""}}); current.status="PLANNED"; }
       if (current.status !== "PLANNED") continue;
       const same = current.subjectId === (slot.subjectId ?? null) && current.topicId === (slot.topicId ?? null) && current.title === slot.title && current.detail === slot.detail && current.durationMin === slot.durationMin;
       if (!same) {
@@ -87,22 +95,29 @@ export async function syncPlan(userId?: string) {
       }
     }
   }
-  if (create.length) await prisma.studyTask.createMany({ data: create });
-  await shiftOverdue(ownerId, settings.dailyMinutes);
-}
+  for (const task of create) {
+    await prisma.studyTask.upsert({ where: { userId_dateKey_templateKey: { userId: task.userId, dateKey: task.dateKey, templateKey: task.templateKey } }, update: {}, create: task });
+  }
+  await shiftOverdue(ownerId, settings.dailyMinutes, settings.studyDays);
+});
 
-async function shiftOverdue(userId: string, cap: number) {
+async function shiftOverdue(userId: string, cap: number, studyDays: number[]) {
   const today = dateKey();
   const overdue = await prisma.studyTask.findMany({
     where: { userId, status: "PLANNED", dateKey: { lt: today }, optional: false, kind: { notIn: ["rest"] } },
     orderBy: [{ dateKey: "asc" }, { sortOrder: "asc" }],
   });
   for (const task of overdue) {
+    if (task.durationMin > cap) {
+      await prisma.studyTask.update({ where: { id: task.id }, data: { notes: "Заняття довше за денний ліміт. Розділіть його або змініть навантаження." } });
+      continue;
+    }
     let cursor = today;
     for (let step = 0; step < 21; step += 1) {
+      if (!studyDays.includes(parseDateKey(cursor).getDay())) { cursor = addDateKeys(cursor, 1); continue; }
       const dayTasks = await prisma.studyTask.findMany({ where: { userId, dateKey: cursor, status: { in: ["PLANNED", "IN_PROGRESS"] } } });
       const used = dayTasks.reduce((sum, item) => sum + item.durationMin, 0);
-      if (used + task.durationMin <= Math.max(cap, task.durationMin)) {
+      if (used + task.durationMin <= cap) {
         await prisma.studyTask.update({
           where: { id: task.id },
           data: { dateKey: cursor, movedFromId: task.movedFromId ?? task.id, notes: task.notes || "Автоматично перенесено на вільний день" },

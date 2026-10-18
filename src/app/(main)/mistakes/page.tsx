@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MathText } from "@/components/math-text";
 import { MISTAKE_CATEGORY_LABEL, SUBJECTS } from "@/lib/constants";
 import { formatUk } from "@/lib/dates";
 import { prisma } from "@/lib/prisma";
@@ -19,14 +20,16 @@ export default async function MistakesPage({ searchParams }: { searchParams: Pro
     ...(params.from ? { date: { gte: new Date(`${params.from}T00:00:00`) } } : {}),
     ...(params.q ? { prompt: { contains: params.q } } : {}),
   };
-  const [mistakes, topics, settings] = await Promise.all([
+  const [mistakes, topics, settings, progress] = await Promise.all([
     prisma.mistake.findMany({ where, include: { subject: true, topic: true }, orderBy: { date: "desc" }, take: 50 }),
     prisma.topic.findMany(),
     getSettings(user.id),
+    prisma.userTopicProgress.findMany({ where: { userId: user.id } }),
   ]);
+  const statusByTopic = new Map(progress.map((item) => [item.topicId, item.status]));
   const counts = new Map<string, number>();
   for (const mistake of mistakes) if (mistake.topicId) counts.set(mistake.topicId, (counts.get(mistake.topicId) ?? 0) + mistake.repeatCount);
-  const recommendations = recommendTopics(topics.filter((topic) => !topics.some((child) => child.parentId === topic.id)).map((topic) => ({ ...topic, mistakeCount: counts.get(topic.id) ?? 0 })), {
+  const recommendations = recommendTopics(topics.filter((topic) => !topics.some((child) => child.parentId === topic.id)).map((topic) => ({ ...topic, status: statusByTopic.get(topic.id) ?? "NOT_STARTED", mistakeCount: counts.get(topic.id) ?? 0 })), {
     math: settings.mathPriority, ukrainian: settings.ukrainianPriority, history: settings.historyPriority, biology: settings.biologyPriority,
   }, 3);
   return (
@@ -46,10 +49,10 @@ export default async function MistakesPage({ searchParams }: { searchParams: Pro
       {mistakes.length === 0 ? <EmptyState title="Помилок за фільтром немає" text="Після тематичного тесту неправильні закриті відповіді потраплять сюди." /> : mistakes.map((mistake) => (
         <Card key={mistake.id} className="space-y-2 p-4 text-sm">
           <div className="font-medium">{mistake.subject.name} · {mistake.topic?.title ?? "Без теми"} · {formatUk(mistake.date)}</div>
-          <p>{mistake.prompt}</p>
-          <p>Ваша відповідь: {mistake.userAnswer}</p>
-          <p>Правильно: {mistake.correctAnswer}</p>
-          <p className="text-muted-foreground">{mistake.explanation}</p>
+          <MathText text={mistake.prompt} />
+          <MathText text={`Ваша відповідь: ${mistake.userAnswer}`} />
+          <MathText text={`Правильно: ${mistake.correctAnswer}`} />
+          <MathText text={mistake.explanation} className="text-muted-foreground" />
           <p>Повторів: {mistake.repeatCount}</p>
           <form action={async (formData) => { "use server"; await setMistakeMeta(mistake.id, String(formData.get("category")), String(formData.get("status"))); }} className="flex flex-wrap gap-2">
             <select name="category" defaultValue={mistake.category} className="h-9 rounded-lg border border-border bg-card px-2">{Object.entries(MISTAKE_CATEGORY_LABEL).map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select>

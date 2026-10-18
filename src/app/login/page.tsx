@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { login } from "@/server/actions";
-import { Button, Card, Input } from "@/components/ui";
+import { Card } from "@/components/ui";
+import { LoginForm, type LoginState } from "@/components/login-form";
 
 export default function LoginPage() {
   return (
@@ -8,11 +9,12 @@ export default function LoginPage() {
       <Card className="w-full space-y-3 p-6">
         <h1 className="text-xl font-semibold">Вхід до NMT Academy</h1>
         <p className="text-sm text-muted-foreground">Кожен профіль має власні результати, календар і аналітику.</p>
-        <form action={async (formData) => { "use server"; await login(String(formData.get("nickname") ?? ""), String(formData.get("password") ?? "")); }} className="space-y-3">
-          <Input name="nickname" placeholder="Нікнейм" required autoComplete="username" />
-          <Input name="password" type="password" required autoComplete="current-password" />
-          <Button type="submit">Увійти</Button>
-        </form>
+        <LoginForm action={async (_previousState: LoginState, formData: FormData) => {
+          "use server";
+          const rememberMe = formData.get("rememberMe") === "on";
+          const result = await login(String(formData.get("nickname") ?? ""), String(formData.get("password") ?? ""), rememberMe);
+          return { error: result.error };
+        }} />
         <Link href="/onboarding" className="block text-sm underline">Створити профіль</Link>
       </Card>
     </main>

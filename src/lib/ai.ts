@@ -8,6 +8,7 @@ export type AIConfig = {
   openaiApiKey?: string;
   geminiApiKey?: string;
   ollamaBaseUrl?: string;
+  signal?: AbortSignal;
 };
 
 const questionSchema = z.object({
@@ -33,6 +34,7 @@ export async function completeAI(config: AIConfig, messages: AIMessage[]) {
     if (!config.openaiApiKey) throw new Error("Немає ключа OpenAI на сервері. Підписка ChatGPT не замінює окремий API-ключ.");
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
+      signal: config.signal ?? AbortSignal.timeout(120000),
       headers: {
         Authorization: `Bearer ${config.openaiApiKey}`,
         "Content-Type": "application/json",
@@ -74,10 +76,12 @@ export async function completeAI(config: AIConfig, messages: AIMessage[]) {
   const response = await fetch(`${base}/api/chat`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ model: config.model || "qwen3:4b", messages, stream: false, think: false }),
+    body: JSON.stringify({ model: config.model || "qwen3:4b", messages: messages.map((message, index) => index === messages.length - 1 && (config.model || "qwen3:4b").startsWith("qwen3") ? { ...message, content: `${message.content}\n/no_think` } : message), stream: false, think: false, options: { num_predict: 2048, temperature: 0.3 } }),
+    signal: config.signal ?? AbortSignal.timeout(120000),
   });
   if (!response.ok) throw new Error(`Ollama недоступна (${response.status}). Перевірте, що локальний сервер запущено.`);
-  const data = (await response.json()) as { message?: { content?: string } };
+  const data = (await response.json()) as { message?: { content?: string }; done_reason?: string };
+  if (data.done_reason === "length") throw new Error("Локальна модель не завершила відповідь. Спробуйте коротше запитання; чернетку не показано.");
   const text = stripThinking(data.message?.content ?? "");
   if (!text) throw new Error("Ollama повернула порожню відповідь.");
   return text;
@@ -91,7 +95,7 @@ export function stripThinking(text: string) {
 export async function probeOllama(baseUrl = "http://127.0.0.1:11434") {
   const base = baseUrl.replace(/\/$/, "");
   try {
-    const response = await fetch(`${base}/api/tags`, { cache: "no-store" });
+    const response = await fetch(`${base}/api/tags`, { cache: "no-store", signal: AbortSignal.timeout(5000) });
     if (!response.ok) return { ok: false as const, models: [] as string[], reason: `Ollama відповіла ${response.status}.` };
     const data = (await response.json()) as { models?: { name: string }[] };
     const models = (data.models ?? []).map((model) => model.name);

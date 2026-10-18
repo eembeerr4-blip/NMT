@@ -11,7 +11,14 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "db:setup": "prisma migrate dev --name init && prisma generate && tsx prisma/seed.ts",
-    "db:seed": "tsx prisma/seed.ts"
+    "db:seed": "tsx prisma/seed.ts",
+    "db:reset:auth": "tsx prisma/reset-auth.ts",
+    "db:upgrade:personal-video": "node prisma/upgrade-personal-video.mjs --production",
+    "content:upgrade": "tsx prisma/upgrade-content.ts --production",
+    "content:audit": "tsx prisma/content-audit.ts",
+    "db:upgrade:audit": "node prisma/upgrade-audit.mjs --production",
+    "postinstall": "node scripts/localize-next-devtools.cjs",
+    "predev": "node scripts/localize-next-devtools.cjs"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"

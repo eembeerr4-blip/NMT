@@ -9,6 +9,9 @@ datasource db {
 
 model User {
   id           String              @id @default(cuid())
+  role         String              @default("STUDENT")
+  diagnosticSkipped Boolean        @default(false)
+  videoProgress UserVideoProgress[]
   firstName    String
   lastName     String              @default("")
   nickname     String              @unique
@@ -164,6 +167,7 @@ model VideoLesson {
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
   topic           Topic    @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  progress        UserVideoProgress[]
 
   @@index([topicId])
 }
@@ -450,4 +454,33 @@ model XpEvent {
   reason    String
   userId    String?
   createdAt DateTime @default(now())
+}
+
+model UserVideoProgress {
+  id String @id @default(cuid())
+  userId String
+  videoId String
+  lastPositionSec Int @default(0)
+  notes String @default("")
+  updatedAt DateTime @updatedAt
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  video VideoLesson @relation(fields: [videoId], references: [id], onDelete: Cascade)
+  @@unique([userId, videoId])
+}
+
+// Actor snapshots deliberately survive profile deletion and backup restore.
+model AuditLog {
+ id String @id @default(cuid())
+ actorId String?
+ actorName String
+ actorRole String
+ action String
+ entityType String
+ entityId String?
+ summary String
+ metadataJson String @default("{}")
+ createdAt DateTime @default(now())
+ @@index([createdAt, id])
+ @@index([action, createdAt])
+ @@index([actorId, createdAt])
 }

@@ -1,10 +1,11 @@
+import { QuestionFeedback } from "@/components/question-feedback";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { MathText } from "@/components/math-text";
 import { TestRunner } from "@/components/test-runner";
 import { Badge, Card, PageHeader } from "@/components/ui";
-import { gradeManually, reportQuestion, startTopicTest } from "@/server/actions";
+import { gradeManually, startTopicTest } from "@/server/actions";
 import { requireUser } from "@/server/session";
 import { getSettings } from "@/server/sync";
 
@@ -43,6 +44,9 @@ export default async function AttemptPage({ params }: { params: Promise<{ id: st
       </div>
     );
   }
+  const progress = attempt.test.topicId
+    ? await prisma.userTopicProgress.findUnique({ where: { userId_topicId: { userId: user.id, topicId: attempt.test.topicId } } })
+    : null;
   const config = JSON.parse(attempt.test.configJson || "{}") as { shortfall?: number; convertsToRating?: boolean };
   return (
     <div className="space-y-4">
@@ -54,8 +58,9 @@ export default async function AttemptPage({ params }: { params: Promise<{ id: st
       </div>
       {attempt.pendingCount ? <Card className="p-4 text-sm">Відкриті відповіді очікують ручної перевірки: {attempt.pendingCount}. Їх не зараховано автоматично як помилку.</Card> : null}
       {config.shortfall ? <Card className="p-4 text-sm">У банку не вистачило завдань до повного комплекту. Пропуски не заповнювались вигаданими питаннями.</Card> : null}
+      {attempt.test.kind === "DIAGNOSTIC" ? <Card className="space-y-2 p-4 text-sm"><p>Це коротка вибірка, а не оцінка всієї програми. Пропущені відповіді не означають, що тему не засвоєно.</p><p>Рекомендації оновлено за наданими неправильними відповідями. Правильна відповідь у діагностиці не позначає всю тему засвоєною.</p><Link href="/" className="underline">До оновленого плану</Link></Card> : null}
       {attempt.test.kind !== "TOPIC" ? <Card className="p-4 text-sm">Це не рейтинговий бал НМТ. {config.convertsToRating ? "" : "Таблицю переведення не застосовано."}</Card> : null}
-      {attempt.test.topic ? <p className="text-sm">Статус теми «{attempt.test.topic.title}»: <Badge>{attempt.test.topic.status === "MASTERED" ? "засвоєно" : attempt.test.topic.status === "NEEDS_REVIEW" ? "потрібне закріплення" : "повторити теорію або завершити перевірку"}</Badge></p> : null}
+      {attempt.test.topic ? <p className="text-sm">Статус теми «{attempt.test.topic.title}»: <Badge>{progress?.status === "MASTERED" ? "засвоєно" : progress?.status === "NEEDS_REVIEW" ? "потрібне закріплення" : "повторити теорію або завершити перевірку"}</Badge></p> : null}
       <div className="space-y-3">
         {attempt.test.questions.map(({ question }, index) => {
           const answer = attempt.answers.find((item) => item.questionId === question.id);
@@ -63,7 +68,7 @@ export default async function AttemptPage({ params }: { params: Promise<{ id: st
             <Card key={question.id} className="space-y-2 p-4">
               <div className="text-sm text-muted-foreground">Завдання {index + 1}</div>
               <MathText text={question.prompt} />
-              <p className="text-sm">Ваша відповідь: {displayAnswer(answer?.userAnswer, question.options)}</p>
+              <div className="text-sm"><span>Ваша відповідь: </span><MathText text={displayAnswer(answer?.userAnswer, question.options)} /></div>
               <p className="text-sm">{answer?.needsManualReview ? "Потрібна ручна перевірка" : answer?.isCorrect ? "Правильно" : "Потрібно розібрати"}</p>
               <MathText text={question.explanation} className="text-sm" />
               <p className="text-xs text-muted-foreground">{question.source}</p>
@@ -73,10 +78,7 @@ export default async function AttemptPage({ params }: { params: Promise<{ id: st
                   <form action={async () => { "use server"; await gradeManually(answer.id, false); }}><button className="text-sm underline" type="submit">Не зарахувати</button></form>
                 </div>
               ) : null}
-              <form action={async (formData) => { "use server"; await reportQuestion(question.id, String(formData.get("issue") ?? "")); }} className="flex gap-2">
-                <input name="issue" placeholder="Повідомити про помилку в завданні" className="h-9 flex-1 rounded-lg border border-border bg-card px-2 text-sm" />
-                <button className="text-sm underline" type="submit">Надіслати</button>
-              </form>
+              <QuestionFeedback id={question.id} />
             </Card>
           );
         })}

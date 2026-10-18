@@ -1,0 +1,48 @@
+import {afterAll,beforeAll,beforeEach,describe,expect,it,vi} from "vitest";
+import {rmSync} from "node:fs";
+const auth=vi.hoisted(()=>({id:"owner"}));
+vi.mock("@/lib/prisma",async()=>{
+ const {PrismaClient}=await import("@prisma/client");const {mkdtempSync}=await import("node:fs");const {tmpdir}=await import("node:os");const path=await import("node:path");
+ const folder=mkdtempSync(path.join(tmpdir(),"nmt-roles-"));return {prisma:new PrismaClient({datasources:{db:{url:`file:${path.join(folder,"roles.db").replaceAll("\\","/")}`}}}),folder};
+});
+vi.mock("@/server/session",()=>({getSessionUser:async()=>prisma.user.findUnique({where:{id:auth.id}}),createSession:vi.fn(),clearSession:vi.fn()}));
+vi.mock("next/cache",()=>({revalidatePath:vi.fn()}));
+vi.mock("next/headers",()=>({headers:vi.fn()}));
+vi.mock("next/navigation",()=>({redirect:vi.fn()}));
+import {prisma} from "@/lib/prisma";
+import {buildBackup,restoreBackup,updateUserRole} from "./actions";
+beforeAll(async()=>{
+ await prisma.$executeRawUnsafe(`CREATE TABLE User (id TEXT NOT NULL PRIMARY KEY,role TEXT NOT NULL DEFAULT 'STUDENT',diagnosticSkipped BOOLEAN NOT NULL DEFAULT false,firstName TEXT NOT NULL,lastName TEXT NOT NULL DEFAULT '',nickname TEXT NOT NULL UNIQUE,passwordHash TEXT NOT NULL DEFAULT '',examYear INTEGER NOT NULL DEFAULT 2027,onboarded BOOLEAN NOT NULL DEFAULT false,createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,updatedAt DATETIME NOT NULL)`);
+ await prisma.$executeRawUnsafe(`CREATE TABLE AuditLog (id TEXT NOT NULL PRIMARY KEY,actorId TEXT,actorName TEXT NOT NULL,actorRole TEXT NOT NULL,action TEXT NOT NULL,entityType TEXT NOT NULL,entityId TEXT,summary TEXT NOT NULL,metadataJson TEXT NOT NULL DEFAULT '{}',createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP)`);
+});
+beforeEach(async()=>{
+ await prisma.auditLog.deleteMany();await prisma.user.deleteMany();auth.id="owner";
+ for(const [id,role] of [["owner","ADMIN"],["admin","ADMIN"],["editor","EDITOR"],["student","STUDENT"]])await prisma.user.create({data:{id,role,nickname:`fixture_${id}`,firstName:"Тестовий профіль",onboarded:true}});
+});
+afterAll(async()=>{await prisma.$disconnect();const {folder}=await import("@/lib/prisma") as unknown as {folder:string};rmSync(folder,{recursive:true,force:true});});
+describe("role changes on an isolated real database",()=>{
+ it("assigns an additional owner, gives it working administrative rights and preserves the initial owner",async()=>{
+  expect((await updateUserRole("student","OWNER")).ok).toBe(true);
+  expect((await prisma.user.findUniqueOrThrow({where:{id:"owner"}})).role).toBe("ADMIN");
+  auth.id="student";expect((await updateUserRole("editor","ADMIN")).ok).toBe(true);
+  expect((await prisma.user.findUniqueOrThrow({where:{id:"editor"}})).role).toBe("ADMIN");
+  const events=await prisma.auditLog.findMany();expect(events).toHaveLength(2);expect(events.find(event=>event.actorId==="student")?.actorRole).toBe("OWNER");
+ });
+ it("denies privilege escalation and owner demotion to an administrator",async()=>{
+  auth.id="admin";for(const role of ["OWNER","ADMIN"])expect((await updateUserRole("student",role)).ok).toBe(false);
+  expect((await updateUserRole("owner","STUDENT")).ok).toBe(false);expect(await prisma.auditLog.count()).toBe(0);
+  expect((await prisma.user.findUniqueOrThrow({where:{id:"student"}})).role).toBe("STUDENT");
+ });
+ it("allows lower role management while refusing full backup and restore to admins",async()=>{
+  auth.id="admin";expect((await updateUserRole("student","EDITOR")).ok).toBe(true);
+  await expect(buildBackup()).rejects.toThrow("власнику");expect((await restoreBackup("{}","ВІДНОВИТИ")).ok).toBe(false);
+ });
+ it("rolls a role change back if the audit record cannot be saved",async()=>{
+  await prisma.$executeRawUnsafe(`CREATE TRIGGER reject_role_audit BEFORE INSERT ON AuditLog BEGIN SELECT RAISE(ABORT,'audit unavailable'); END`);
+  try{expect((await updateUserRole("student","OWNER")).ok).toBe(false);expect((await prisma.user.findUniqueOrThrow({where:{id:"student"}})).role).toBe("STUDENT");expect(await prisma.auditLog.count()).toBe(0);}finally{await prisma.$executeRawUnsafe('DROP TRIGGER reject_role_audit');}
+ });
+ it("rejects an editor or student attempting a role mutation",async()=>{
+  for(const id of ["editor","student"]){auth.id=id;expect((await updateUserRole("admin","STUDENT")).ok).toBe(false);}
+  expect(await prisma.auditLog.count()).toBe(0);
+ });
+});

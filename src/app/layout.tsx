@@ -16,6 +16,7 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1 };
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="uk" suppressHydrationWarning className={`${manrope.variable} h-full`}>
+      <head><meta name="darkreader-lock" content="" /></head>
       <body className="min-h-full font-sans antialiased">
         <ThemeProvider>{children}</ThemeProvider>
       </body>

@@ -3,10 +3,10 @@
 import { Bar, BarChart, CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 
 const colors: Record<string, string> = {
-  math: "#4f6df5",
-  ukrainian: "#c47b2b",
-  history: "#b4534a",
-  biology: "#2f8f6b",
+  math: "var(--subject-math)",
+  ukrainian: "var(--subject-ukrainian)",
+  history: "var(--subject-history)",
+  biology: "var(--subject-biology)",
 };
 
 export function RatingChart({ rows }: { rows: Record<string, string | number | null>[] }) {
@@ -18,7 +18,7 @@ export function RatingChart({ rows }: { rows: Record<string, string | number | n
           <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
           <XAxis dataKey="date" tick={{ fontSize: 12 }} />
           <YAxis domain={[100, 200]} tick={{ fontSize: 12 }} />
-          <Tooltip />
+          <Tooltip contentStyle={{background:"var(--card)",border:"1px solid var(--border)",borderRadius:12,color:"var(--foreground)"}}/>
           <Legend />
           {Object.entries(colors).map(([key, color]) => (
             <Line key={key} type="monotone" dataKey={key} name={label(key)} stroke={color} connectNulls={false} dot={{ r: 3 }} />
@@ -38,8 +38,8 @@ export function Bars({ rows, labelText }: { rows: { name: string; value: number 
           <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
           <XAxis dataKey="name" tick={{ fontSize: 12 }} />
           <YAxis tick={{ fontSize: 12 }} />
-          <Tooltip />
-          <Bar dataKey="value" name={labelText} fill="#2c3d86" radius={6} />
+          <Tooltip contentStyle={{background:"var(--card)",border:"1px solid var(--border)",borderRadius:12,color:"var(--foreground)"}}/>
+          <Bar dataKey="value" name={labelText} fill="var(--primary)" radius={6} />
         </BarChart>
       </ResponsiveContainer>
     </div>

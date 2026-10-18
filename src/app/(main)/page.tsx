@@ -1,17 +1,21 @@
+import { DiagnosticStart } from "@/components/diagnostic-start";
 import Link from "next/link";
 import { STATUS_LABEL } from "@/lib/constants";
-import { dateKey, daysBetween, formatUk, startOfWeekMonday } from "@/lib/dates";
+import { addDateKeys, dateKey, daysBetween, formatUk, startOfWeekMonday } from "@/lib/dates";
 import { prisma } from "@/lib/prisma";
 import { recommendTopics } from "@/lib/recommend";
 import { averageOfLatestFull, computeStreak, weekCompletion } from "@/lib/scoring";
-import { plural } from "@/lib/utils";
+import { ArrowRight, CalendarDays } from "lucide-react";
+import { SubjectIcon } from "@/components/subject-icon";
+import { Bars } from "@/components/charts";
 import { TaskControls } from "@/components/task-controls";
-import { Badge, Card, PageHeader, Progress } from "@/components/ui";
+import { Button, Card, PageHeader, Progress } from "@/components/ui";
 import { requireUser } from "@/server/session";
-import { getSettings } from "@/server/sync";
+import { getSettings, syncPlan } from "@/server/sync";
 
 export default async function DashboardPage() {
   const user = await requireUser();
+  await syncPlan(user.id);
   const settings = await getSettings(user.id);
   const activeIds = new Set(user.subjects.filter((item) => item.active).map((item) => item.subjectId));
   const today = dateKey();
@@ -28,7 +32,7 @@ export default async function DashboardPage() {
     prisma.subject.findMany({ where: { id: { in: [...activeIds] } }, orderBy: { sortOrder: "asc" } }),
     prisma.topic.findMany(),
     prisma.userTopicProgress.findMany({ where: { userId: user.id } }),
-    prisma.examResult.findMany({ where: { userId: user.id, subjectId: { in: [...activeIds] } } }),
+    prisma.examResult.findMany({ where: { userId: user.id, subjectId: { in: [...activeIds] } }, include: { subject: true } }),
     prisma.testAttempt.count({ where: { userId: user.id, status: "COMPLETED" } }),
     prisma.studySession.findMany({ where: { userId: user.id } }),
     prisma.xpEvent.aggregate({ where: { userId: user.id }, _sum: { amount: true } }),
@@ -64,108 +68,25 @@ export default async function DashboardPage() {
   const todayTopic = todayTask?.topicId ? topics.find((topic) => topic.id === todayTask.topicId) : continueTopic;
   const todaySubject = todayTopic ? subjects.find((subject) => subject.id === todayTopic.subjectId) : null;
 
-  return (
-    <div className="space-y-6">
-      <PageHeader title={`Привіт, ${user.firstName}! Продовжимо підготовку до НМТ-${user.examYear}?`} description={`Ціль ${settings.targetScore}. ${nextMock ? `Найближчий пробник: ${formatUk(nextMock.dateKey)}.` : "Найближчий пробник з'явиться в календарі."}`} />
-      {todayTopic ? (
-        <Card className="flex flex-wrap items-center justify-between gap-3 p-4">
-          <div>
-            <div className="text-sm text-muted-foreground">Сьогодні тобі потрібно пройти</div>
-            <div className="text-lg font-semibold">{todaySubject?.name ?? "Предмет"} — {todayTopic.title}</div>
-          </div>
-          <Link href={`/learn/${todayTopic.id}`} className="rounded-lg bg-primary px-4 py-2 text-sm text-primary-foreground">Почати навчання</Link>
-        </Card>
-      ) : <Card className="p-4 text-sm">На сьогодні тема ще не призначена. Оберіть предмет у бібліотеці.</Card>}
-      {today < settings.planStart ? <Card className="p-4 text-sm">Активна підготовка починається {formatUk(settings.planStart)}. Нижче вже зібрано план першого дня.</Card> : null}
-      <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-        <Metric label="До НМТ" value={examKey ? `${daysBetween(today, examKey)} дн.` : "Дату не задано"} href="/settings" />
-        <Metric label="Середній рейтинговий бал" value={average.value === null ? "Недостатньо даних" : String(average.value)} hint={`Ціль ${settings.targetScore}`} />
-        <Metric label="Засвоєні теми" value={`${mastered} із ${leaves.length}`} />
-        <Metric label="Завершені тести" value={String(attempts)} />
-        <Metric label="Тижневий план" value={`${weekCompletion(weekTasks)}%`} />
-        <Metric label="Навчальний час за тиждень" value={`${weekMinutes} хв`} />
-        <Metric label="Серія днів" value={String(streak)} hint="Неділя не перериває серію" />
-        <Metric label="Досвід" value={`${xp._sum.amount ?? 0} XP`} hint={achievements.length ? achievements.map((item) => item.title).join(", ") : "Досягнення ще попереду"} />
-      </section>
-      <section className="grid gap-4 lg:grid-cols-[1.4fr_0.8fr]">
-        <Card className="space-y-3 p-4">
-          <h2 className="font-medium">{focusDate === today ? "Сьогоднішній план" : `План на ${formatUk(focusDate)}`}</h2>
-          {tasks.length === 0 ? <p className="text-sm text-muted-foreground">На цей день занять немає.</p> : tasks.map((task) => (
-            <div key={task.id} className="rounded-xl border border-border p-3">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <div>
-                  <div className="font-medium">{task.title}</div>
-                  <div className="text-sm text-muted-foreground">{task.detail} · {task.durationMin} хв</div>
-                </div>
-                <Badge>{task.optional ? "Необов'язково" : "Обов'язково"}</Badge>
-              </div>
-              <div className="mt-3"><TaskControls task={task} /></div>
-            </div>
-          ))}
-          {reviews.length ? (
-            <div className="rounded-xl bg-muted p-3 text-sm">
-              <div className="font-medium">Повторення слабких тем</div>
-              {reviews.map((review) => <Link key={review.id} href={`/topics/${review.topicId}`} className="mt-1 block underline">{review.topic.title} · через інтервал {review.intervalDays} дн.</Link>)}
-            </div>
-          ) : null}
-        </Card>
-        <Card className="space-y-2 p-4">
-          <h2 className="font-medium">Швидкі дії</h2>
-          <Quick href={continueTopic ? `/topics/${continueTopic.id}` : "/subjects"} label="Продовжити навчання" />
-          <Quick href="/tests" label="Пройти тест" />
-          <Quick href="/results#add" label="Додати результат пробника" />
-          <Quick href="/mistakes" label="Повторити помилки" />
-          <Quick href="/calendar" label="Відкрити календар" />
-          <Quick href="/ai-tutor" label="Запитати AI-репетитора" />
-        </Card>
-      </section>
-      {overdue.length ? (
-        <Card className="p-4">
-          <h2 className="font-medium">Пропущені заняття</h2>
-          <div className="mt-3 space-y-2">
-            {overdue.map((task) => (
-              <div key={task.id} className="flex flex-wrap items-center justify-between gap-2 text-sm">
-                <span>{formatUk(task.dateKey)} · {task.title}</span>
-                <TaskControls task={task} />
-              </div>
-            ))}
-          </div>
-        </Card>
-      ) : null}
-      <section className="grid gap-3 md:grid-cols-2">
-        {subjects.map((subject) => {
-          const subjectLeaves = leaves.filter((topic) => topic.subjectId === subject.id);
-          const done = subjectLeaves.filter((topic) => topic.status === "MASTERED").length;
-          const percent = subjectLeaves.length ? Math.round((done / subjectLeaves.length) * 100) : 0;
-          return (
-            <Link key={subject.id} href={`/subjects/${subject.id}`} className="rounded-2xl border border-border bg-card p-4 shadow-sm">
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <div className="font-medium">{subject.name}</div>
-                  <div className="text-sm text-muted-foreground">{done} {plural(done, "тему засвоєно", "теми засвоєно", "тем засвоєно")}</div>
-                </div>
-                <span className="h-3 w-3 rounded-full" style={{ background: subject.color }} />
-              </div>
-              <div className="mt-3"><Progress value={percent} /></div>
-            </Link>
-          );
-        })}
-      </section>
-      <Card className="p-4">
-        <h2 className="font-medium">Що варто зробити далі</h2>
-        <div className="mt-3 space-y-2">
-          {recommendations.map((topic) => (
-            <Link key={topic.id} href={`/topics/${topic.id}`} className="block rounded-xl border border-border p-3 hover:bg-accent">
-              <div className="font-medium">{topic.title}</div>
-              <div className="text-sm text-muted-foreground">{STATUS_LABEL[topic.status]} · {topic.reason}</div>
-            </Link>
-          ))}
-        </div>
-      </Card>
-      <p className="text-xs text-muted-foreground">{average.value === null ? "Середній рейтинговий бал: недостатньо даних." : `Середній рейтинговий бал ${average.value}. До цілі ${settings.targetScore} залишилось ${Math.round((settings.targetScore - average.value) * 10) / 10} бала.`} Тематичні тести в цей бал не входять.</p>
+  const diagnosed = await prisma.testAttempt.findFirst({ where: { userId: user.id, status: "COMPLETED", test: { kind: "DIAGNOSTIC" } } });
+  const activity=Array.from({length:7},(_,index)=>{
+    const key=addDateKeys(weekStart,index);
+    return {name:formatUk(key,"EEEEEE"),value:sessions.filter(session=>dateKey(session.startedAt)===key).reduce((sum,session)=>sum+session.durationMin,0)};
+  });
+  return <div className="space-y-6">
+    <PageHeader title={`Привіт, ${user.firstName}!`} description={`Продовжимо підготовку до НМТ-${user.examYear}?`} action={<nav aria-label="Дні поточного тижня" className="flex flex-wrap gap-1.5">{activity.map((day,index)=>{const key=addDateKeys(weekStart,index);return <Link key={key} href={`/calendar?view=day&date=${key}`} aria-current={key===today?"date":undefined} className={`grid min-w-10 gap-1 rounded-xl border px-2.5 py-2 text-center text-xs ${key===today?"border-primary bg-primary text-primary-foreground":"border-border bg-card text-muted-foreground hover:border-primary/50"}`}><span>{day.name}</span><span className="font-semibold">{Number(key.slice(-2))}</span></Link>;})}</nav>}/>
+    <div className="grid items-stretch gap-4 xl:grid-cols-[1.35fr_1fr]">
+      <Card className="relative flex min-h-52 flex-col justify-between gap-6 overflow-hidden border-primary/25 p-5 sm:p-6"><div className="pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl"/><div className="relative space-y-3"><p className="text-sm font-semibold text-muted-foreground">Продовжити навчання</p>{todayTopic?<><div className="flex items-center gap-3"><SubjectIcon id={todayTopic.subjectId}/><div><h2 className="text-xl font-semibold">{todaySubject?.name??"Предмет"}</h2><p className="mt-1 text-sm text-muted-foreground">{todayTopic.title}</p></div></div><p className="text-sm text-muted-foreground">Поверніться до матеріалу та рухайтеся у своєму темпі.</p></>:<><h2 className="text-xl font-semibold">Почнімо з вашого предмета</h2><p className="text-sm text-muted-foreground">Уроки можна вивчати й без попередньої діагностики.</p></>}</div><div className="relative"><Button asChild><Link href={todayTopic?`/learn/${todayTopic.id}`:"/subjects"}>{todayTopic?"Продовжити урок":"Обрати предмет"}<ArrowRight className="h-4 w-4"/></Link></Button></div></Card>
+      <Card className="space-y-4 p-5 sm:p-6"><div className="flex items-center justify-between gap-3"><h2 className="font-semibold">{focusDate===today?"План на сьогодні":`План на ${formatUk(focusDate,"d MMMM")}`}</h2><Link href="/calendar" className="text-sm font-semibold text-primary">Календар →</Link></div>{tasks.length?tasks.slice(0,4).map(task=><div key={task.id} className="rounded-xl border border-border p-3"><div className="flex items-start gap-3"><span className={`mt-1 h-3 w-3 shrink-0 rounded-full border ${task.status==="DONE"?"border-primary bg-primary":"border-muted-foreground"}`}/><div className="min-w-0 flex-1"><p className="text-sm font-medium">{task.title}</p><p className="mt-1 text-xs text-muted-foreground">{task.durationMin} хв · {task.status==="DONE"?"Виконано":task.status==="IN_PROGRESS"?"У процесі":"Заплановано"}</p><details className="mt-2"><summary className="cursor-pointer text-xs text-muted-foreground">Керувати заняттям</summary><div className="pt-2"><TaskControls task={task}/></div></details></div></div></div>):<p className="py-6 text-sm text-muted-foreground">На цей день занять немає. Відпочиньте або оберіть урок самостійно.</p>}{tasks.length>4?<Link href="/calendar" className="block text-sm text-primary">Увесь план на день →</Link>:null}</Card>
     </div>
-  );
+    {!user.diagnosticSkipped&&!diagnosed?<Card className="space-y-3 p-5"><h2 className="font-semibold">Хочете визначити, з чого почати?</h2><p className="text-sm text-muted-foreground">Коротка діагностика допоможе обрати теми для повторення. Її можна пропустити.</p><DiagnosticStart/></Card>:null}
+    <section className="space-y-3"><div className="flex flex-wrap items-center justify-between gap-2"><h2 className="text-lg font-semibold">Мої предмети</h2><Link href="/subjects" className="text-sm font-semibold text-primary">Усі предмети →</Link></div><div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">{subjects.map(subject=>{const subjectLeaves=leaves.filter(topic=>topic.subjectId===subject.id);const done=subjectLeaves.filter(topic=>topic.status==="MASTERED").length;const percent=subjectLeaves.length?Math.round(done/subjectLeaves.length*100):0;return <Link key={subject.id} href={`/subjects/${subject.id}`}><Card className="h-full space-y-4 p-4 transition hover:border-primary/50"><div className="flex items-center gap-3"><SubjectIcon id={subject.id} small/><h3 className="text-sm font-semibold">{subject.name}</h3></div><div><div className="mb-2 flex justify-between text-xs text-muted-foreground"><span>Засвоєння тем</span><span className="font-semibold text-foreground">{percent}%</span></div><Progress value={percent}/></div><p className="text-xs text-muted-foreground">{done} із {subjectLeaves.length} тем засвоєно</p></Card></Link>;})}</div></section>
+    <section className="grid gap-4 xl:grid-cols-[1fr_1.35fr]"><Card className="space-y-4 p-5"><div className="flex items-center justify-between gap-3"><h2 className="font-semibold">Останні результати</h2><Link href="/results" className="text-sm font-semibold text-primary">Усі →</Link></div>{results.length?[...results].sort((a,b)=>b.date.getTime()-a.date.getTime()).slice(0,4).map(result=><Link key={result.id} href="/results" className="flex items-center gap-3 rounded-xl bg-muted/60 p-3 hover:bg-muted"><SubjectIcon id={result.subjectId} small/><div className="min-w-0 flex-1"><p className="text-sm font-medium">{result.subject.name}</p><p className="mt-0.5 text-xs text-muted-foreground">{formatUk(result.date)} · {result.title}</p></div><span className="shrink-0 text-sm font-semibold">{result.ratingScore!==null?`${result.ratingScore} балів`:result.rawScore!==null?`${result.rawScore}/${result.maxRawScore??"—"}`:"Без бала"}</span></Link>):<div className="space-y-3 py-5"><p className="text-sm text-muted-foreground">Результатів ще немає. Тут з’являться ваші збережені оцінки.</p><Button asChild variant="outline"><Link href="/results#add">Додати результат</Link></Button></div>}</Card><Card className="space-y-3 p-5"><div className="flex flex-wrap items-center justify-between gap-2"><h2 className="font-semibold">Статистика підготовки</h2><span className="text-xs text-muted-foreground">Поточний тиждень · хвилини</span></div>{weekMinutes>0?<Bars rows={activity} labelText="Навчальний час, хв"/>:<div className="flex min-h-48 flex-col items-center justify-center gap-2 rounded-xl bg-muted/40 px-5 text-center"><CalendarDays className="h-7 w-7 text-muted-foreground"/><p className="text-sm font-medium">Цього тижня навчальний час ще не записано</p><p className="text-xs leading-5 text-muted-foreground">Завершуйте заняття в календарі або записуйте час у темі — тут з’явиться ваша активність.</p></div>}</Card></section>
+    <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4"><Metric label="Середній рейтинговий бал" value={average.value===null?"Недостатньо даних":String(average.value)} hint={`Ваша ціль — ${settings.targetScore}`}/><Metric label="Засвоєні теми" value={`${mastered} із ${leaves.length}`}/><Metric label="Завершені тести" value={String(attempts)}/><Metric label="План тижня" value={`${weekCompletion(weekTasks)}%`}/></section>
+    <details className="rounded-2xl border border-border bg-card p-5"><summary className="cursor-pointer font-semibold">Рекомендації та додаткові показники</summary><div className="mt-4 space-y-4"><div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4"><Metric label="До НМТ" value={examKey?`${daysBetween(today,examKey)} дн.`:"Дату не задано"} href="/settings"/><Metric label="Серія навчання" value={`${streak} дн.`}/><Metric label="Досвід" value={`${xp._sum.amount??0} XP`} hint={achievements.length?`${achievements.length} досягнень`:"Досягнення ще попереду"}/><Metric label="Час за тиждень" value={`${weekMinutes} хв`}/></div>{recommendations.slice(0,4).map(topic=><Link key={topic.id} href={`/topics/${topic.id}`} className="block rounded-xl bg-muted p-3 text-sm"><span className="font-medium">{topic.title}</span><span className="mt-1 block text-muted-foreground">{STATUS_LABEL[topic.status]}</span></Link>)}{overdue.length?<p className="text-sm text-muted-foreground">Є незавершені заняття: <Link className="text-primary" href="/calendar">переглянути календар →</Link></p>:null}{reviews.length?<Link href="/review" className="block text-sm text-primary">Повторити теми: {reviews.length} →</Link>:null}{nextMock?<Link href="/exams" className="block text-sm text-primary">Наступний пробник: {formatUk(nextMock.dateKey)} →</Link>:null}</div></details>
+  </div>;
 }
+
 
 function Metric({ label, value, hint, href }: { label: string; value: string; hint?: string; href?: string }) {
   const body = (
@@ -178,6 +99,3 @@ function Metric({ label, value, hint, href }: { label: string; value: string; hi
   return href ? <Link href={href}>{body}</Link> : body;
 }
 
-function Quick({ href, label }: { href: string; label: string }) {
-  return <Link href={href} className="block rounded-xl border border-border px-3 py-2 text-sm hover:bg-accent">{label}</Link>;
-}

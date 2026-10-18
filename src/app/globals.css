@@ -4,36 +4,62 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #f3f4f7;
-  --foreground: #171a21;
+  --background: #F5F7FC;
+  --foreground: #17243D;
   --card: #ffffff;
-  --card-foreground: #171a21;
-  --muted: #eceff5;
-  --muted-foreground: #5e6776;
-  --border: #e3e6ee;
-  --primary: #2c3d86;
-  --primary-foreground: #f7f8ff;
-  --accent: #e7ebf8;
-  --accent-foreground: #1d2436;
+  --card-foreground: #17243D;
+  --sidebar: #FFFFFF;
+  --surface: #EEF3FB;
+  --muted: #EEF3FB;
+  --muted-foreground: #63738F;
+  --border: #DFE6F2;
+  --primary: #326BFF;
+  --primary-foreground: #FFFFFF;
+  --accent: #E9F0FF;
+  --accent-foreground: #17243D;
   --destructive: #b42318;
-  --ring: #8ea0e8;
-  --radius: 0.9rem;
+  --danger-surface: #fff1f0;
+  --danger-text: #9f241e;
+  --danger-border: #efc8c4;
+  --danger-hover: #ffe1de;
+  --ring: #326BFF;
+  --link: #2455cf;
+  --radius: 1rem;
+  --subject-math: #326BFF;
+  --subject-ukrainian: #7858b3;
+  --subject-history: #a87315;
+  --subject-biology: #16815c;
+  --subject-other: #177ba1;
+  --shadow-card: 0 8px 24px rgb(23 36 61 / 5%);
 }
 
 .dark {
-  --background: #0e1014;
-  --foreground: #f4f5f7;
-  --card: #161922;
-  --card-foreground: #f4f5f7;
-  --muted: #202533;
-  --muted-foreground: #a8b0c0;
-  --border: #2b3140;
-  --primary: #d5defe;
-  --primary-foreground: #151923;
-  --accent: #242a3a;
-  --accent-foreground: #f4f5f7;
-  --destructive: #ffb4ab;
-  --ring: #9aafff;
+  --background: #080F1E;
+  --foreground: #F2F6FF;
+  --card: #101C31;
+  --card-foreground: #F2F6FF;
+  --sidebar: #0B1425;
+  --surface: #17243B;
+  --muted: #17243B;
+  --muted-foreground: #A5B5D0;
+  --border: #263653;
+  --primary: #326BFF;
+  --primary-foreground: #FFFFFF;
+  --accent: #172C53;
+  --accent-foreground: #F2F6FF;
+  --destructive: #f7aaa3;
+  --danger-surface: #351e29;
+  --danger-text: #ffc3bc;
+  --danger-border: #69404a;
+  --danger-hover: #472630;
+  --ring: #6D91FF;
+  --link: #8aafff;
+  --subject-math: #6D9AFF;
+  --subject-ukrainian: #b6a0e8;
+  --subject-history: #e0af55;
+  --subject-biology: #63c69d;
+  --subject-other: #6ab7d8;
+  --shadow-card: 0 12px 30px rgb(0 0 0 / 16%);
 }
 
 @theme inline {
@@ -41,6 +67,8 @@
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-surface: var(--surface);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
@@ -49,6 +77,10 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
+  --color-danger-surface: var(--danger-surface);
+  --color-danger-text: var(--danger-text);
+  --color-danger-border: var(--danger-border);
+  --color-danger-hover: var(--danger-hover);
   --color-ring: var(--ring);
   --font-sans: var(--font-sans);
   --radius-lg: var(--radius);
@@ -59,3 +91,38 @@ html, body { max-width: 100%; overflow-x: hidden; }
 body { background: var(--background); color: var(--foreground); font-family: var(--font-sans), "Segoe UI", sans-serif; }
 :focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
 .math-text .katex { font-size: 1.02em; }
+
+a, button, input, select, textarea { transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease; }
+a:hover { text-decoration-color: currentColor; }
+button:not(:disabled):active { transform: translateY(1px); }
+::selection { background: color-mix(in srgb, var(--primary) 24%, transparent); }
+
+/* Shared control foundation; state values and native interactions remain unchanged. */
+@layer base {
+  body { line-height: 1.55; }
+  main { min-width: 0; }
+  h1, h2, h3 { text-wrap: balance; }
+  p { overflow-wrap: anywhere; }
+  select, input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="file"]), textarea {
+    min-width: 0; max-width: 100%; border: 1px solid var(--border); border-radius: .75rem;
+    color: var(--foreground); background-color: var(--card); padding: .6rem .75rem; font-size: .875rem;
+  }
+  select { min-height: 2.5rem; padding-right: 2rem; }
+  input::placeholder, textarea::placeholder { color: var(--muted-foreground); opacity: .85; }
+  input:disabled, textarea:disabled, select:disabled { opacity: .55; cursor: not-allowed; }
+  input[type="checkbox"], input[type="radio"] { width: 1rem; height: 1rem; flex-shrink: 0; accent-color: var(--primary); }
+  select:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+  summary { line-height: 1.6; }
+  button { cursor: pointer; }
+  button:disabled { cursor: not-allowed; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+}
+
+.dark main > div > section > a:hover { box-shadow: 0 8px 30px rgb(50 107 255 / 8%); }
+.recharts-default-tooltip { border: 1px solid var(--border) !important; border-radius: .75rem; background: var(--card) !important; color: var(--foreground); }
+.recharts-text { fill: var(--muted-foreground); }
+
+.text-primary { color: var(--link); }
+
+.math-text { min-width: 0; overflow-wrap: anywhere; }
+.math-text .katex-display { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-block: .25rem; }

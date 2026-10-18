@@ -13,14 +13,14 @@ export default async function ReviewPage() {
     prisma.reviewSchedule.findMany({ where: { ...mine, status: "PENDING", dueKey: today }, include: { topic: true } }),
     prisma.reviewSchedule.findMany({ where: { ...mine, status: "PENDING", dueKey: { lt: today } }, include: { topic: true }, orderBy: { priority: "desc" } }),
     prisma.reviewSchedule.findMany({ where: { ...mine, status: "PENDING", dueKey: { gt: today } }, include: { topic: true }, orderBy: { dueKey: "asc" }, take: 12 }),
-    prisma.topic.findMany({ where: { status: "NEEDS_REVIEW" }, take: 8 }),
+    prisma.userTopicProgress.findMany({ where: { userId: user.id, status: "NEEDS_REVIEW" }, include: { topic: true }, take: 8 }).then((rows) => rows.map((row) => row.topic)),
     prisma.reviewSchedule.findMany({ where: { ...mine, status: "DONE" }, include: { topic: true }, orderBy: { completedAt: "desc" }, take: 8 }),
     prisma.flashcard.findMany({ where: { userId: user.id, dueKey: { lte: today } }, take: 12 }),
     prisma.topic.findMany({ select: { id: true, subjectId: true, title: true }, orderBy: { title: "asc" } }),
   ]);
   return (
     <div className="space-y-6">
-      <PageHeader title="Повторення" description="Після тематичного тесту тема повертається через 1, 7 і 30 днів. Помилка на картці підвищує пріоритет теми." />
+      <PageHeader title="Повторення" description="Інтервали повторення залежать від результату: 1, 7 і 30 днів для закріплення, раніше при труднощах і пізніше при впевненому результаті." />
       <Section title="Сьогодні" items={due} empty="На сьогодні повторень немає." />
       <Section title="Прострочені" items={overdue} empty="Прострочених повторень немає." />
       <Section title="Найближчі" items={upcoming} empty="Запланованих повторень далі немає." />
@@ -32,7 +32,7 @@ export default async function ReviewPage() {
         <h2 className="font-medium">Картки</h2>
         {cards.length === 0 ? <p className="text-sm text-muted-foreground">Немає карт на сьогодні.</p> : cards.map((card) => (
           <div key={card.id} className="rounded-xl border border-border p-3">
-            <div className="text-xs text-muted-foreground">{card.kind}</div>
+            <div className="text-xs text-muted-foreground">{({formula:"Формула",date:"Дата",person:"Персоналія",term:"Термін",rule:"Правило"} as Record<string,string>)[card.kind] ?? "Картка"}</div>
             <div className="font-medium">{card.front}</div>
             <div className="text-sm">{card.back}</div>
             <div className="mt-2 flex gap-2">

@@ -1,5 +1,5 @@
 import { execSync } from "child_process";
-import { existsSync, rmSync } from "fs";
+import { existsSync, rmSync, writeFileSync } from "fs";
 import path from "path";
 import { PrismaClient } from "@prisma/client";
 import { afterAll, beforeAll, expect, it } from "vitest";
@@ -10,6 +10,8 @@ const prisma = new PrismaClient({ datasources: { db: { url: databaseUrl } } });
 
 beforeAll(() => {
   if (existsSync(databasePath)) rmSync(databasePath);
+  // Create the disposable SQLite file first; the Windows schema engine requires it.
+  writeFileSync(databasePath, "");
   execSync("npx prisma db push --skip-generate --accept-data-loss", {
     env: { ...process.env, DATABASE_URL: databaseUrl },
     stdio: "pipe",

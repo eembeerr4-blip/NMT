@@ -20,7 +20,7 @@ export async function GET() {
     result.countsTowardAverage ? "yes" : "no",
     result.comment,
   ].map(csv).join(","));
-  return new Response([header.join(","), ...lines].join("\n"), {
+  return new Response("\uFEFF" + [header.join(","), ...lines].join("\r\n"), {
     headers: {
       "Content-Type": "text/csv; charset=utf-8",
       "Content-Disposition": "attachment; filename=nmt-results.csv",
@@ -29,6 +29,7 @@ export async function GET() {
 }
 
 function csv(value: string | number) {
-  const text = String(value).replaceAll('"', '""');
+  const safe = typeof value === "string" && /^[=+@-]/.test(value) ? "'" + value : value;
+  const text = String(safe).replaceAll('"', '""');
   return `"${text}"`;
 }

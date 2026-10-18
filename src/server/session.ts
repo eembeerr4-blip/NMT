@@ -1,7 +1,9 @@
 import { createHash, randomBytes } from "crypto";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
+import { sessionCookieSecure } from "@/lib/session-cookie";
+import { isAdministrator, canEditContent } from "@/lib/permissions";
 
 const COOKIE = "nmt_user";
 
@@ -9,13 +11,20 @@ function hashToken(token: string) {
   return createHash("sha256").update(token).digest("hex");
 }
 
-export async function createSession(userId: string) {
+export async function createSession(userId: string, rememberMe = false) {
+  const ttlMs = rememberMe ? 1000 * 60 * 60 * 24 * 30 : 1000 * 60 * 60 * 8;
   const token = randomBytes(32).toString("hex");
   await prisma.session.create({
-    data: { userId, tokenHash: hashToken(token), expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30) },
+    data: { userId, tokenHash: hashToken(token), expiresAt: new Date(Date.now() + ttlMs) },
   });
   const jar = await cookies();
-  jar.set(COOKIE, token, { httpOnly: true, sameSite: "lax", path: "/", secure: process.env.NODE_ENV === "production" });
+  jar.set(COOKIE, token, {
+    httpOnly: true,
+    sameSite: "lax",
+    path: "/",
+    secure: sessionCookieSecure(),
+    maxAge: rememberMe ? Math.floor(ttlMs / 1000) : undefined,
+  });
 }
 
 export async function clearSession() {
@@ -44,6 +53,18 @@ export async function requireUser() {
   return user;
 }
 
+export async function requireAdministrator() {
+  const user = await requireUser();
+  if (!isAdministrator(user)) notFound();
+  return user;
+}
+
 export function sameUser(userId: string, ownerId: string | null | undefined) {
   return Boolean(ownerId) && ownerId === userId;
+}
+
+export async function requireContentEditor() {
+ const user=await requireUser();
+ if(!canEditContent(user))notFound();
+ return user;
 }

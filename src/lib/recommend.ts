@@ -35,7 +35,7 @@ export function recommendTopics(
         ...topic,
         score,
         minutes: Math.max(30, Math.round((priority / 100) * 150)),
-        reason: reasons.join("; "),
+        reason: [...new Set(reasons)].join("; "),
       };
     })
     .sort((a, b) => b.score - a.score || a.title.localeCompare(b.title, "uk"))

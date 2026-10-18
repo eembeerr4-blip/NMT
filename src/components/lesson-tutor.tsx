@@ -15,6 +15,7 @@ const quick = [
 export function LessonTutor({ topicId, topicTitle, provider }: { topicId: string; topicTitle: string; provider: string }) {
   const [prompt, setPrompt] = useState("");
   const [answer, setAnswer] = useState("");
+  const [videoLinks,setVideoLinks] = useState<{title:string;url:string}[]>([]);
   const [status, setStatus] = useState("");
   const [busy, setBusy] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
@@ -25,6 +26,7 @@ export function LessonTutor({ topicId, topicTitle, provider }: { topicId: string
     abortRef.current = controller;
     setBusy(true);
     setAnswer("");
+    setVideoLinks([]);
     setStatus("");
     try {
       const response = await fetch("/api/ai/stream", {
@@ -33,6 +35,7 @@ export function LessonTutor({ topicId, topicTitle, provider }: { topicId: string
         body: JSON.stringify({ mode, topicId, prompt: text }),
         signal: controller.signal,
       });
+      if (abortRef.current !== controller) return;
       if (!response.ok) {
         const data = (await response.json()) as { error?: string };
         setStatus(data.error ?? "AI зараз недоступний.");
@@ -41,6 +44,7 @@ export function LessonTutor({ topicId, topicTitle, provider }: { topicId: string
       const contentType = response.headers.get("content-type") ?? "";
       if (contentType.includes("application/json")) {
         const data = (await response.json()) as { text?: string };
+        if (!data.text?.trim()) setStatus("AI повернув порожню відповідь. Спробуйте інший запит.");
         setAnswer(data.text ?? "");
         return;
       }
@@ -55,10 +59,11 @@ export function LessonTutor({ topicId, topicTitle, provider }: { topicId: string
         setAnswer(full);
       }
     } catch (error) {
+      if (abortRef.current !== controller) return;
       if ((error as Error).name === "AbortError") setStatus("Запит скасовано.");
       else setStatus("Не вдалося отримати відповідь. Конспект і тест працюють без AI.");
     } finally {
-      setBusy(false);
+      if (abortRef.current === controller) setBusy(false);
     }
   }
 
@@ -66,19 +71,21 @@ export function LessonTutor({ topicId, topicTitle, provider }: { topicId: string
     const result = await searchYouTube(`${topicTitle} пояснення українською`, topicId);
     if (!result.ok) {
       setStatus(result.error);
-      if (result.searchUrl) setAnswer(result.searchUrl);
+      setAnswer("");
+      setVideoLinks(result.searchUrl ? [{title:"Відкрити пошук на YouTube",url:result.searchUrl}] : []);
       return;
     }
-    setAnswer(result.items.length ? result.items.map((item) => `${item.title}${item.channel ? ` · ${item.channel}` : ""}`).join("\n") : "API не повернув відео.");
-    setStatus("Знайдені відео збережено як пропозиції. Підтвердіть їх у блоці лекції. Це не перевірені вручну лекції.");
+    setAnswer("");
+    setVideoLinks(result.items.map(item=>({title:item.title,url:"https://www.youtube.com/watch?v="+encodeURIComponent(item.id)})));
+    setStatus(result.items.length ? "Знайдені відео потребують перевірки редактором. Можна відкрити оригінал." : "Відео не знайдено. Спробуйте інший запит.");
   }
 
   return (
     <div className="space-y-3">
       <div className="flex flex-wrap gap-2">
-        <Button type="button" size="sm" onClick={() => void ask("unclear", prompt || `Я не зрозумів тему «${topicTitle}». Поясни інакше.`)}>Я не зрозумів</Button>
+        <Button type="button" size="sm" disabled={busy} onClick={() => void ask("unclear", prompt || `Я не зрозумів тему «${topicTitle}». Поясни інакше.`)}>Я не зрозумів</Button>
         {quick.map((item) => (
-          <Button key={item.mode} type="button" size="sm" variant="outline" onClick={() => void ask(item.mode, prompt || `${item.label}: ${topicTitle}`)}>{item.label}</Button>
+          <Button key={item.mode} type="button" size="sm" disabled={busy} variant="outline" onClick={() => void ask(item.mode, prompt || `${item.label}: ${topicTitle}`)}>{item.label}</Button>
         ))}
         <Button type="button" size="sm" variant="outline" onClick={() => void findVideo()}>Знайди інше відео</Button>
       </div>
@@ -89,6 +96,7 @@ export function LessonTutor({ topicId, topicTitle, provider }: { topicId: string
         {provider === "none" ? <Button type="button" variant="outline" onClick={async () => { const result = await enableLocalTutor(); setStatus(result.ok ? result.message ?? "Увімкнено." : result.error); }}>{provider === "none" ? "Увімкнути локальну Ollama" : ""}</Button> : null}
       </div>
       {status ? <p className="text-sm text-muted-foreground">{status}</p> : null}
+      {videoLinks.map(link=><a key={link.url} className="block text-sm underline" href={link.url} target="_blank" rel="noreferrer">{link.title}</a>)}
       {answer ? <div className="whitespace-pre-wrap text-sm leading-relaxed">{answer}</div> : null}
     </div>
   );

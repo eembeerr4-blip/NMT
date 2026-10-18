@@ -93,7 +93,6 @@ export const NAV = [
   { href: "/mistakes", label: "Помилки" },
   { href: "/review", label: "Повторення" },
   { href: "/notes", label: "Конспекти" },
-  { href: "/ai-tutor", label: "AI-репетитор" },
   { href: "/settings", label: "Налаштування" },
 ] as const;
 

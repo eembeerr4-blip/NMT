@@ -7,8 +7,8 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { SUBJECTS } from "@/lib/constants";
 import { examResultSchema, preferencesSchema } from "@/lib/validators";
-import { askTutor, createCustomTask, createTopic, importQuestions, logStudyMinutes, saveExamResult, saveFormat, saveGeneratedQuestions, saveNote, savePreferences, saveQuestion, saveSchedule, saveSecretSettings, startExam, startTopicTest, updateTopic } from "@/server/actions";
-import { Button, Input, Label, Textarea } from "@/components/ui";
+import { createCustomTask, createTopic, importQuestions, logStudyMinutes, saveExamResult, saveFormat, saveNote, savePreferences, saveQuestion, saveSchedule, startExam, startTopicTest, updateTopic } from "@/server/actions";
+import { Button, Input, Textarea } from "@/components/ui";
 
 type ResultValues = z.infer<typeof examResultSchema>;
 
@@ -39,7 +39,7 @@ export function ResultForm({ initial }: { initial?: Partial<ResultValues> & { id
     <form className="grid gap-3 sm:grid-cols-2" onSubmit={form.handleSubmit(async (values) => {
       const result = await saveExamResult(values);
       if (!result.ok) setError(result.error);
-      else router.push("/results");
+      else { form.reset(); router.push("/results"); router.refresh(); }
     })}>
       <Field label="Дата"><Input type="date" {...form.register("date")} /></Field>
       <Field label="Предмет">
@@ -66,8 +66,8 @@ export function ResultForm({ initial }: { initial?: Partial<ResultValues> & { id
       <label className="flex items-center gap-2 text-sm"><input type="checkbox" {...form.register("partial")} /> Частковий тест</label>
       <label className="flex items-center gap-2 text-sm sm:col-span-2"><input type="checkbox" {...form.register("countsTowardAverage")} /> Враховувати в середньому рейтинговому балі. Лише для повного результату з відомим рейтингом.</label>
       <Field label="Коментар" className="sm:col-span-2"><Textarea {...form.register("comment")} /></Field>
-      {error ? <p className="text-sm text-destructive sm:col-span-2">{error}</p> : null}
-      <div className="sm:col-span-2"><Button type="submit">Зберегти результат</Button></div>
+      {error || Object.values(form.formState.errors).some((item) => item?.message) ? <p role="alert" className="text-sm text-destructive sm:col-span-2">{error || Object.values(form.formState.errors).find((item) => item?.message)?.message}</p> : null}
+      <div className="sm:col-span-2"><Button type="submit" disabled={form.formState.isSubmitting}>{form.formState.isSubmitting ? "Збереження…" : "Зберегти результат"}</Button></div>
     </form>
   );
 }
@@ -81,11 +81,13 @@ function NumberField({ label, name, form }: { label: string; name: "rawScore" | 
 }
 
 export function QuestionForm({ topics }: { topics: { id: string; title: string; subjectId: string }[] }) {
+  const [subject, setSubject] = useState("ukrainian");
   const [message, setMessage] = useState("");
   return (
     <form className="grid gap-3" onSubmit={async (event) => {
       event.preventDefault();
-      const form = new FormData(event.currentTarget);
+      const submittedForm = event.currentTarget;
+      const form = new FormData(submittedForm);
       const lines = String(form.get("options") ?? "").split("\n").map((line) => line.trim()).filter(Boolean);
       const options = lines.map((line) => {
         const [label, text, matchKey] = line.split("|");
@@ -105,13 +107,13 @@ export function QuestionForm({ topics }: { topics: { id: string; title: string; 
         options,
       });
       setMessage(result.ok ? "Завдання збережено." : result.error);
-      if (result.ok) event.currentTarget.reset();
+      if (result.ok) { submittedForm.reset(); setSubject("ukrainian"); }
     }}>
       <div className="grid gap-3 sm:grid-cols-2">
-        <Field label="Предмет"><SubjectSelect /></Field>
+        <Field label="Предмет"><select name="subjectId" className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm" value={subject} onChange={event=>setSubject(event.target.value)}>{SUBJECTS.map(item=><option key={item.id} value={item.id}>{item.name}</option>)}</select></Field>
         <Field label="Тема">
           <select name="topicId" className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm">
-            {topics.map((topic) => <option key={topic.id} value={topic.id}>{topic.title}</option>)}
+            {topics.filter(topic=>topic.subjectId===subject).map((topic) => <option key={topic.id} value={topic.id}>{topic.title}</option>)}
           </select>
         </Field>
         <Field label="Тип">
@@ -134,7 +136,7 @@ export function QuestionForm({ topics }: { topics: { id: string; title: string; 
       </div>
       <Field label="Умова"><Textarea name="prompt" required /></Field>
       <Field label="Пояснення"><Textarea name="explanation" required /></Field>
-      <Field label="Правильна відповідь"><Input name="correctAnswer" required placeholder="id варіанта, число, текст або JSON" /></Field>
+      <Field label="Правильна відповідь"><Input name="correctAnswer" required placeholder="Мітка варіанта (А), число, текст або JSON з мітками" /></Field>
       <Field label="Варіанти, по одному в рядку: мітка|текст|left або right"><Textarea name="options" /></Field>
       <Field label="Джерело"><Input name="source" placeholder="Не пишіть «офіційне», якщо це не так" /></Field>
       <input type="hidden" name="subtopic" value="" />
@@ -154,14 +156,16 @@ export function QuestionForm({ topics }: { topics: { id: string; title: string; 
 
 export function ImportQuestionsForm() {
   const [message, setMessage] = useState("");
+  const [pending,setPending]=useState(false);
   return (
     <form className="space-y-2" onSubmit={async (event) => {
       event.preventDefault();
-      const result = await importQuestions(String(new FormData(event.currentTarget).get("json") ?? ""));
-      setMessage(result.ok ? result.message ?? "Імпортовано." : result.error);
+      setPending(true);
+      try { const result = await importQuestions(String(new FormData(event.currentTarget).get("json") ?? ""));
+      setMessage(result.ok ? result.message ?? "Імпортовано." : result.error); } finally { setPending(false); }
     }}>
       <Textarea name="json" placeholder='[{"subjectId":"math","topicId":"math-linear-eq","type":"NUMERIC","difficulty":"EASY","prompt":"...","explanation":"...","correctAnswer":"1","verificationStatus":"PENDING_REVIEW","options":[]}]' />
-      <Button type="submit" variant="outline">Імпортувати JSON</Button>
+      <Button type="submit" disabled={pending} variant="outline">{pending?"Імпортування…":"Імпортувати JSON"}</Button>
       {message ? <p className="text-sm text-muted-foreground">{message}</p> : null}
     </form>
   );
@@ -173,7 +177,8 @@ export function TopicEditor({ topic }: { topic: { id: string; subjectId: string;
     <div className="space-y-4">
       <form className="grid gap-2" onSubmit={async (event) => {
         event.preventDefault();
-        const form = new FormData(event.currentTarget);
+        const submittedForm = event.currentTarget;
+      const form = new FormData(submittedForm);
         const result = await updateTopic({
           id: topic.id,
           title: String(form.get("title") ?? ""),
@@ -196,10 +201,11 @@ export function TopicEditor({ topic }: { topic: { id: string; subjectId: string;
       </form>
       <form className="grid gap-2" onSubmit={async (event) => {
         event.preventDefault();
-        const form = new FormData(event.currentTarget);
+        const submittedForm = event.currentTarget;
+      const form = new FormData(submittedForm);
         const result = await createTopic({ subjectId: topic.subjectId, parentId: topic.id, title: String(form.get("title") ?? ""), summary: String(form.get("summary") ?? "") });
         setMessage(result.ok ? "Підтему створено." : result.error);
-        if (result.ok) event.currentTarget.reset();
+        if (result.ok) submittedForm.reset();
       }}>
         <Input name="title" placeholder="Нова підтема" required />
         <Textarea name="summary" placeholder="Короткий опис" />
@@ -231,7 +237,8 @@ export function ExamStartForm() {
   return (
     <form className="grid gap-3 sm:grid-cols-2" onSubmit={async (event) => {
       event.preventDefault();
-      const form = new FormData(event.currentTarget);
+      const submittedForm = event.currentTarget;
+      const form = new FormData(submittedForm);
       const result = await startExam({
         subjectId: String(form.get("subjectId")),
         title: String(form.get("title") ?? ""),
@@ -254,7 +261,7 @@ export function ExamStartForm() {
 const preferenceFormSchema = preferencesSchema;
 type PreferenceValues = z.infer<typeof preferenceFormSchema>;
 
-export function SettingsForm({ values, scheduleJson, formatJson, secrets }: { values: PreferenceValues; scheduleJson: string; formatJson: string; secrets: { openai: boolean; gemini: boolean; youtube: boolean; ollama: string } }) {
+export function SettingsForm({ values, showTheme = true }: { values: PreferenceValues; showTheme?: boolean }) {
   const form = useForm<PreferenceValues>({ resolver: zodResolver(preferenceFormSchema), defaultValues: values });
   const [message, setMessage] = useState("");
   return (
@@ -263,62 +270,37 @@ export function SettingsForm({ values, scheduleJson, formatJson, secrets }: { va
         const result = await savePreferences(data);
         setMessage(result.ok ? result.message ?? "Збережено." : result.error);
       })}>
-        <Field label="Тема">
+        {showTheme ? <Field label="Тема">
           <select className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm" {...form.register("theme")}>
             <option value="system">Системна</option>
             <option value="light">Світла</option>
             <option value="dark">Темна</option>
           </select>
-        </Field>
+        </Field> : null}
         <Field label="Дата НМТ"><Input type="date" {...form.register("examDate")} /></Field>
         <Field label="Цільовий бал"><Input type="number" {...form.register("targetScore", { valueAsNumber: true })} /></Field>
+        <label className="flex items-center gap-2 text-sm"><input type="checkbox" {...form.register("timerEnabled")} /> Показувати таймер у тестах</label>
+        <details className="sm:col-span-2 rounded-xl border border-border p-4"><summary className="cursor-pointer text-sm font-medium">Додаткові налаштування практики</summary><div className="mt-4 grid gap-3 sm:grid-cols-2">
         <Field label="Поріг засвоєння, правильних із 12"><Input type="number" {...form.register("masteryHighMin", { valueAsNumber: true })} /></Field>
         <Field label="Поріг закріплення"><Input type="number" {...form.register("masteryMidMin", { valueAsNumber: true })} /></Field>
-        <label className="flex items-center gap-2 text-sm"><input type="checkbox" {...form.register("timerEnabled")} /> Показувати таймер у тестах</label>
-        <Field label="AI-провайдер">
-          <select className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm" {...form.register("aiProvider")}>
-            <option value="none">Без AI</option>
-            <option value="openai">OpenAI API</option>
-            <option value="gemini">Gemini API</option>
-            <option value="ollama">Ollama</option>
-          </select>
-        </Field>
-        <Field label="Модель"><Input {...form.register("aiModel")} placeholder="gpt-4o-mini, gemini-2.0-flash або llama3.1" /></Field>
         <Field label="Математика, %"><Input type="number" {...form.register("mathPriority", { valueAsNumber: true })} /></Field>
         <Field label="Українська мова, %"><Input type="number" {...form.register("ukrainianPriority", { valueAsNumber: true })} /></Field>
         <Field label="Історія України, %"><Input type="number" {...form.register("historyPriority", { valueAsNumber: true })} /></Field>
         <Field label="Біологія, %"><Input type="number" {...form.register("biologyPriority", { valueAsNumber: true })} /></Field>
-        <div className="sm:col-span-2"><Button type="submit">Зберегти налаштування</Button></div>
+        </div></details>
+        <div className="sm:col-span-2"><Button type="submit" disabled={form.formState.isSubmitting}>{form.formState.isSubmitting ? "Збереження…" : "Зберегти налаштування"}</Button></div>
       </form>
-      <JsonSaver title="Розклад" initial={scheduleJson} action={saveSchedule} />
-      <JsonSaver title="Формат НМТ і таблиці" initial={formatJson} action={saveFormat} />
-      <form className="grid gap-3" onSubmit={async (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.currentTarget);
-        const result = await saveSecretSettings({
-          openaiApiKey: String(formData.get("openai") ?? ""),
-          geminiApiKey: String(formData.get("gemini") ?? ""),
-          youtubeApiKey: String(formData.get("youtube") ?? ""),
-          ollamaBaseUrl: String(formData.get("ollama") ?? ""),
-          clearOpenai: formData.get("clearOpenai") === "on",
-          clearGemini: formData.get("clearGemini") === "on",
-          clearYoutube: formData.get("clearYoutube") === "on",
-        });
-        setMessage(result.ok ? result.message ?? "Ключі збережено." : result.error);
-        event.currentTarget.reset();
-      }}>
-        <h2 className="font-medium">Ключі API</h2>
-        <p className="text-sm text-muted-foreground">Порожнє поле не змінює збережений ключ. Поточний стан: OpenAI {secrets.openai ? "є" : "немає"}, Gemini {secrets.gemini ? "є" : "немає"}, YouTube {secrets.youtube ? "є" : "немає"}. Ключі не повертаються в браузер.</p>
-        <Input name="openai" type="password" placeholder="Новий ключ OpenAI" autoComplete="off" />
-        <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="clearOpenai" /> Очистити ключ OpenAI</label>
-        <Input name="gemini" type="password" placeholder="Новий ключ Gemini" autoComplete="off" />
-        <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="clearGemini" /> Очистити ключ Gemini</label>
-        <Input name="youtube" type="password" placeholder="YouTube Data API" autoComplete="off" />
-        <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="clearYoutube" /> Очистити ключ YouTube</label>
-        <Input name="ollama" placeholder={secrets.ollama} defaultValue={secrets.ollama} />
-        <Button type="submit" variant="outline">Зберегти ключі на сервері</Button>
-      </form>
-      {message ? <p className="text-sm text-muted-foreground">{message}</p> : null}
+      {Object.values(form.formState.errors).some(error=>error?.message)?<p role="alert" className="text-sm text-danger-text">{Object.values(form.formState.errors).find(error=>error?.message)?.message}</p>:null}
+      {message ? <p role="status" className="text-sm text-muted-foreground">{message}</p> : null}
+    </div>
+  );
+}
+
+export function PlatformConfigForm({ scheduleJson, formatJson }: { scheduleJson: string; formatJson: string }) {
+  return (
+    <div className="space-y-4">
+      <JsonSaver title="Конфігурація розкладу" initial={scheduleJson} action={saveSchedule} />
+      <JsonSaver title="Формат і таблиці оцінювання" initial={formatJson} action={saveFormat} />
     </div>
   );
 }
@@ -345,11 +327,12 @@ export function NoteForm({ topics }: { topics: { id: string; title: string; subj
   return (
     <form className="grid gap-2" onSubmit={async (event) => {
       event.preventDefault();
-      const form = new FormData(event.currentTarget);
+      const submittedForm = event.currentTarget;
+      const form = new FormData(submittedForm);
       const topic = topics.find((item) => item.id === String(form.get("topicId")));
       const result = await saveNote({ title: String(form.get("title") ?? ""), content: String(form.get("content") ?? ""), topicId: topic?.id, subjectId: topic?.subjectId });
       setMessage(result.ok ? "Конспект збережено." : result.error);
-      if (result.ok) event.currentTarget.reset();
+      if (result.ok) submittedForm.reset();
     }}>
       <Input name="title" placeholder="Заголовок" required />
       <select name="topicId" className="h-10 rounded-lg border border-border bg-card px-3 text-sm">
@@ -384,7 +367,8 @@ export function CustomTaskForm({ dateKey }: { dateKey: string }) {
   return (
     <form className="grid gap-2 sm:grid-cols-[1fr_140px_auto]" onSubmit={async (event) => {
       event.preventDefault();
-      const form = new FormData(event.currentTarget);
+      const submittedForm = event.currentTarget;
+      const form = new FormData(submittedForm);
       const result = await createCustomTask({ dateKey: String(form.get("date") || dateKey), title: String(form.get("title") ?? ""), durationMin: Number(form.get("minutes") ?? 30), subjectId: String(form.get("subjectId") || "") || undefined });
       setMessage(result.ok ? "Заняття додано." : result.error);
     }}>
@@ -398,77 +382,15 @@ export function CustomTaskForm({ dateKey }: { dateKey: string }) {
   );
 }
 
-export function TutorForm({ topics }: { topics: { id: string; title: string; subjectId: string }[] }) {
-  const [message, setMessage] = useState("");
-  const [answer, setAnswer] = useState("");
-  const [drafts, setDrafts] = useState<unknown>(null);
-  const [topicId, setTopicId] = useState(topics[0]?.id ?? "");
+export function TutorForm() {
   return (
-    <div className="space-y-4">
-      <form className="grid gap-3" onSubmit={async (event) => {
-        event.preventDefault();
-        const form = new FormData(event.currentTarget);
-        const topic = topics.find((item) => item.id === String(form.get("topicId")));
-        const result = await askTutor({ mode: String(form.get("mode")), subjectId: topic?.subjectId, topicId: topic?.id, prompt: String(form.get("prompt") ?? "") });
-        if (!result.ok) {
-          setMessage(result.error);
-          setAnswer("");
-          return;
-        }
-        setAnswer(result.text);
-        setDrafts(result.drafts);
-        setMessage(result.warning ?? "");
-        setTopicId(topic?.id ?? "");
-      }}>
-        <select name="mode" className="h-10 rounded-lg border border-border bg-card px-3 text-sm">
-          <option value="explain">Поясни тему</option>
-          <option value="homework">Дай домашнє завдання</option>
-          <option value="check">Перевір мої відповіді</option>
-          <option value="mistake">Поясни мою помилку</option>
-          <option value="mini">Проведи мінііспит</option>
-          <option value="weak">Повтори слабкі теми</option>
-        </select>
-        <select name="topicId" className="h-10 rounded-lg border border-border bg-card px-3 text-sm">
-          {topics.map((topic) => <option key={topic.id} value={topic.id}>{topic.title}</option>)}
-        </select>
-        <Textarea name="prompt" required placeholder="Що пояснити, які відповіді перевірити або яку помилку розібрати" />
-        <Button type="submit">Запитати</Button>
-      </form>
-      {message ? <p className="text-sm text-muted-foreground">{message}</p> : null}
-      {answer ? <div className="whitespace-pre-wrap rounded-2xl border border-border bg-card p-4 text-sm leading-relaxed">{answer}</div> : null}
-      {drafts ? <Button type="button" variant="outline" onClick={async () => {
-        const topic = topics.find((item) => item.id === topicId);
-        if (!topic) return;
-        const result = await saveGeneratedQuestions(drafts, topic.subjectId, topic.id);
-        setMessage(result.ok ? result.message ?? "Збережено." : result.error);
-      }}>Зберегти як чернетку, не в перевірений банк</Button> : null}
+    <div className="rounded-2xl border border-border bg-muted p-4 text-sm text-muted-foreground">
+      AI-репетитор тимчасово вимкнено. Використовуйте матеріали уроку, перевірену практику та збережений план.
     </div>
   );
 }
 
-export function BackupRestoreForm() {
-  const [message, setMessage] = useState("");
-  return (
-    <form className="space-y-2" onSubmit={async (event) => {
-      event.preventDefault();
-      const file = (event.currentTarget.elements.namedItem("file") as HTMLInputElement).files?.[0];
-      if (!file) return;
-      const confirmation = String(new FormData(event.currentTarget).get("confirmation") ?? "");
-      if (confirmation !== "ВІДНОВИТИ") {
-        setMessage("Введіть ВІДНОВИТИ, щоб замінити поточні дані.");
-        return;
-      }
-      const { restoreBackup } = await import("@/server/actions");
-      const result = await restoreBackup(await file.text(), confirmation);
-      setMessage(result.ok ? result.message ?? "Відновлено." : result.error);
-    }}>
-      <Input name="file" type="file" accept="application/json" />
-      <Input name="confirmation" placeholder="Введіть ВІДНОВИТИ" autoComplete="off" />
-      <Button type="submit" variant="destructive">Відновити з копії</Button>
-      {message ? <p className="text-sm text-muted-foreground">{message}</p> : null}
-    </form>
-  );
-}
+export { BackupRestoreForm } from "@/components/backup-restore";
 
 function SubjectSelect({ optional = false }: { optional?: boolean }) {
   return (
@@ -482,7 +404,7 @@ function SubjectSelect({ optional = false }: { optional?: boolean }) {
 function Field({ label, children, className = "" }: { label: string; children: ReactNode; className?: string }) {
   return (
     <label className={`grid gap-1 text-sm ${className}`}>
-      <Label>{label}</Label>
+      <span className="font-medium">{label}</span>
       {children}
     </label>
   );

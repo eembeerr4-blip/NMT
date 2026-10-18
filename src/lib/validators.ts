@@ -1,6 +1,7 @@
 import { z } from "zod";
+import { SUBJECTS } from "./constants";
 
-export const subjectIdSchema = z.enum(["math", "ukrainian", "history", "biology"]);
+export const subjectIdSchema = z.enum(SUBJECTS.map((subject) => subject.id));
 
 export const examResultSchema = z.object({
   id: z.string().optional(),
@@ -36,9 +37,10 @@ export const questionSchema = z.object({
   source: z.string().trim().max(300).default(""),
   verificationStatus: z.enum(["DRAFT", "PENDING_REVIEW", "VERIFIED", "REJECTED"]),
   options: z.array(z.object({
+    id: z.string().optional(),
     label: z.string().trim().min(1),
     text: z.string().trim().min(1),
-    matchKey: z.string().optional(),
+    matchKey: z.string().nullish().transform(value=>value??undefined),
   })).default([]),
 });
 

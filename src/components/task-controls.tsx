@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { moveTask, setTaskStatus } from "@/server/actions";
+import { moveTask, recalculateFuturePlan, setTaskStatus } from "@/server/actions";
 import { Badge, Button, Input } from "@/components/ui";
 
 export function TaskControls({ task }: { task: { id: string; status: string; topicId: string | null; kind: string } }) {
@@ -41,4 +41,21 @@ export function TaskControls({ task }: { task: { id: string; status: string; top
       {message ? <span className="text-xs text-muted-foreground">{message}</span> : null}
     </div>
   );
+}
+
+export function RecalculatePlanButton() {
+  const router = useRouter();
+  const [message, setMessage] = useState("");
+  const [pending, setPending] = useState(false);
+  return <div className="space-y-1">
+    <Button type="button" variant="outline" disabled={pending} onClick={async () => {
+      setPending(true);
+      try {
+        const result = await recalculateFuturePlan();
+        setMessage(result.ok ? result.message ?? "План перераховано." : result.error);
+        if (result.ok) router.refresh();
+      } finally { setPending(false); }
+    }}>{pending ? "Перерахунок…" : "Перерахувати план"}</Button>
+    {message ? <p role="status" className="max-w-md text-xs text-muted-foreground">{message}</p> : null}
+  </div>;
 }

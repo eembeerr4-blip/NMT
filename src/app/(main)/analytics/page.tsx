@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { SUBJECTS } from "@/lib/constants";
+import { SubjectIcon } from "@/components/subject-icon";
+import { Progress } from "@/components/ui";
 import { dateKey } from "@/lib/dates";
 import { prisma } from "@/lib/prisma";
 import { averageForMonth, averageForSubject, averageOfLatestFull, changeFromInitial, changeFromPrevious, formatDelta, overallChange } from "@/lib/scoring";
@@ -64,11 +66,12 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
 
   return (
     <div className="space-y-6">
-      <PageHeader title="Аналітика" description="Рейтингові лінії будуються лише з результатів, які ви позначили повними. Часткові тести сюди не входять." action={<a className="text-sm underline" href="/api/export/results">Експорт CSV</a>} />
+      <PageHeader title="Мій прогрес" description="Ваші результати, засвоєні теми та динаміка підготовки до НМТ." />
       <div className="flex flex-wrap gap-2 text-sm">
         {ranges.map((item) => <Link key={item.id} href={`/analytics?range=${item.id}`} className="rounded-lg bg-muted px-3 py-1.5">{item.label}</Link>)}
       </div>
-      <Card className="p-4"><RatingChart rows={rows} /></Card>
+      <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">{SUBJECTS.filter(subject=>activeIds.includes(subject.id)).map(subject=>{const subjectLeaves=leaves.filter(topic=>topic.subjectId===subject.id);const mastered=subjectLeaves.filter(topic=>progressStatus.get(topic.id)==="MASTERED").length;const percent=subjectLeaves.length?Math.round(mastered/subjectLeaves.length*100):0;return <Card key={subject.id} className="space-y-4 p-4"><div className="flex items-center gap-3"><SubjectIcon id={subject.id} small/><h2 className="text-sm font-semibold">{subject.name}</h2></div><div className="flex justify-between text-xs text-muted-foreground"><span>Засвоєння тем</span><b className="text-foreground">{percent}%</b></div><Progress value={percent}/></Card>;})}</section>
+      <Card className="space-y-4 p-5"><h2 className="font-semibold">Динаміка результатів</h2><RatingChart rows={rows} /></Card>
       <section className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
         <Stat title="Середній бал останніх повних результатів" value={show(averageOfLatestFull(filtered, activeIds))} />
         <Stat title="Середній бал за поточний місяць" value={show(averageForMonth(points, month))} />

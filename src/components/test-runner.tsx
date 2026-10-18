@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { stableShuffle } from "@/lib/grade";
 import { finishAttempt, saveDraft } from "@/server/actions";
 import { MathText } from "@/components/math-text";
-import { Badge, Button, Card } from "@/components/ui";
+import { Badge, Button, Card, Progress } from "@/components/ui";
 
 type Option = { id: string; label: string; text: string; matchKey: string | null; sortOrder: number };
 type PublicQuestion = { id: string; type: string; difficulty: string; prompt: string; options: Option[] };
@@ -38,9 +38,10 @@ export function TestRunner({
     }
     return base;
   });
-  const [now, setNow] = useState(() => Date.now());
+  const [now, setNow] = useState(() => new Date(startedAt).getTime());
   const [error, setError] = useState("");
   const [pending, setPending] = useState(false);
+  const [confirmFinish, setConfirmFinish] = useState(false);
   const autoFinished = useRef(false);
   const question = questions[index];
   const elapsed = Math.max(0, Math.floor((now - new Date(startedAt).getTime()) / 1000));
@@ -98,10 +99,13 @@ export function TestRunner({
   if (!question) return null;
   return (
     <div className="grid gap-4 lg:grid-cols-[1fr_220px]">
-      <Card className="p-4 sm:p-6">
-        <div className="mb-4 flex flex-wrap items-center justify-between gap-2 text-sm text-muted-foreground">
-          <span>Завдання {index + 1} з {questions.length}</span>
-          {timerEnabled ? <span>{remaining !== null ? `Залишилось ${formatClock(Math.max(0, remaining))}` : `Минуло ${formatClock(elapsed)}`}</span> : null}
+      <Card className="space-y-5 p-4 sm:p-6">
+        <div className="space-y-3">
+          <div className="flex flex-wrap items-center justify-between gap-2 text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">Завдання {index + 1} з {questions.length}</span>
+            {timerEnabled ? <span aria-live="off" className={`rounded-full px-3 py-1 font-medium ${remaining !== null && remaining <= 60 ? "bg-destructive/10 text-destructive" : "bg-muted text-foreground"}`}>{remaining !== null ? `Залишилось ${formatClock(Math.max(0, remaining))}` : `Минуло ${formatClock(elapsed)}`}</span> : null}
+          </div>
+          <Progress value={((index + 1) / questions.length) * 100} />
         </div>
         <MathText text={question.prompt} />
         <div className="mt-4">
@@ -110,24 +114,25 @@ export function TestRunner({
         <div className="mt-6 flex flex-wrap gap-2">
           <Button type="button" variant="outline" onClick={() => setIndex((value) => Math.max(0, value - 1))} disabled={index === 0}>Назад</Button>
           <Button type="button" variant="outline" onClick={() => setIndex((value) => Math.min(questions.length - 1, value + 1))} disabled={index === questions.length - 1}>Далі</Button>
-          <Button type="button" onClick={() => void finish()} disabled={pending}>{pending ? "Завершення..." : "Завершити"}</Button>
+          <Button type="button" onClick={() => setConfirmFinish(true)} disabled={pending}>{pending ? "Завершення..." : "Завершити"}</Button>
         </div>
+        {confirmFinish ? <div role="alertdialog" aria-labelledby="finish-title" aria-describedby="finish-description" className="space-y-3 rounded-xl border border-border bg-muted p-4"><h2 id="finish-title" className="font-semibold">Завершити тест?</h2><p id="finish-description" className="text-sm text-muted-foreground">{skipped.length ? "Без відповіді залишилося " + skipped.length + " із " + questions.length + " завдань. Ви можете повернутися до них або завершити спробу." : "Усі завдання мають відповідь. Після завершення відкриється результат."}</p><div className="flex flex-wrap gap-2"><Button variant="outline" disabled={pending} onClick={()=>setConfirmFinish(false)}>Повернутися до тесту</Button><Button disabled={pending} onClick={()=>void finish()}>{pending?"Завершення…":"Так, завершити тест"}</Button></div></div>:null}
         {error ? <p className="mt-3 text-sm text-destructive">{error}</p> : null}
       </Card>
-      <Card className="p-3">
-        <div className="mb-2 text-sm font-medium">Навігація</div>
-        <div className="grid grid-cols-6 gap-1 lg:grid-cols-4">
+      <Card className="space-y-3 p-4 lg:sticky lg:top-20 lg:self-start">
+        <div><div className="text-sm font-semibold">Навігація</div><div className="mt-1 text-xs text-muted-foreground">Відповіді збережено автоматично</div></div>
+        <div className="grid grid-cols-6 gap-1.5 lg:grid-cols-4">
           {questions.map((item, itemIndex) => {
             const answered = answers[item.id] !== undefined && answers[item.id] !== "" && answers[item.id] !== null;
             return (
-              <button key={item.id} type="button" onClick={() => setIndex(itemIndex)} className={`h-8 rounded-md border text-xs ${itemIndex === index ? "border-primary bg-accent" : answered ? "bg-muted" : "border-dashed"}`}>
+              <button key={item.id} type="button" aria-current={itemIndex === index ? "step" : undefined} aria-label={`Завдання ${itemIndex + 1}${answered ? ", відповідь є" : ", без відповіді"}`} onClick={() => setIndex(itemIndex)} className={`h-9 rounded-lg border text-xs font-medium ${itemIndex === index ? "border-primary bg-accent text-primary" : answered ? "border-border bg-muted text-foreground" : "border-dashed border-border text-muted-foreground hover:bg-muted"}`}>
                 {itemIndex + 1}
               </button>
             );
           })}
         </div>
-        <p className="mt-3 text-xs text-muted-foreground">Пропущено: {skipped.length}. Чернетка зберігається автоматично.</p>
-        <div className="mt-2 flex flex-wrap gap-1">
+        <p className="text-xs text-muted-foreground">Без відповіді: {skipped.length} із {questions.length}.</p>
+        <div className="flex flex-wrap gap-1">
           <Badge>{question.difficulty === "EASY" ? "Просте" : question.difficulty === "HARD" ? "Складне" : "Середнє"}</Badge>
         </div>
       </Card>
@@ -198,12 +203,12 @@ function AnswerInput({ question, value, onChange }: { question: PublicQuestion; 
     const current = (value && typeof value === "object" ? value : { work: "", final: "" }) as { work?: string; final?: string };
     return (
       <div className="space-y-3">
-        <textarea className="min-h-32 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm" placeholder="Хід розв'язання" value={current.work ?? ""} onChange={(event) => onChange({ ...current, work: event.target.value })} />
-        <input className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm" placeholder="Кінцева відповідь" value={current.final ?? ""} onChange={(event) => onChange({ ...current, final: event.target.value })} />
+        <textarea className="min-h-32 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm" aria-label="Хід розв’язання" placeholder="Хід розв'язання" value={current.work ?? ""} onChange={(event) => onChange({ ...current, work: event.target.value })} />
+        <input className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm" aria-label="Кінцева відповідь" placeholder="Кінцева відповідь" value={current.final ?? ""} onChange={(event) => onChange({ ...current, final: event.target.value })} />
       </div>
     );
   }
-  return <input className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm" value={typeof value === "string" ? value : ""} onChange={(event) => onChange(event.target.value)} placeholder={question.type === "NUMERIC" ? "Число" : "Коротка відповідь"} />;
+  return <input className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm" value={typeof value === "string" ? value : ""} onChange={(event) => onChange(event.target.value)} aria-label={question.type === "NUMERIC" ? "Числова відповідь" : "Коротка відповідь"} placeholder={question.type === "NUMERIC" ? "Число" : "Коротка відповідь"} />;
 }
 
 function formatClock(total: number) {

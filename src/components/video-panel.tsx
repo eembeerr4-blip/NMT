@@ -1,5 +1,6 @@
 "use client";
 
+import { Play } from "lucide-react";
 import { useEffect, useState } from "react";
 import { VIDEO_ROLES } from "@/lib/constants";
 import { addVideo, deleteVideo, makePrimary, saveVideoNotes, saveVideoPosition, searchYouTube, setVideoReview, setVideoRole, updateVideo } from "@/server/actions";
@@ -8,7 +9,7 @@ import { Button, Card, Input } from "@/components/ui";
 
 type Video = { id: string; youtubeId: string; url: string; title: string; isPrimary: boolean; durationSec: number | null; lastPositionSec: number; notes: string; role?: string; channel?: string; reviewStatus?: string };
 
-export function VideoPanel({ topicId, topicTitle, videos }: { topicId: string; topicTitle: string; videos: Video[] }) {
+export function VideoPanel({ topicId, topicTitle, videos, canEdit = false }: { topicId: string; topicTitle: string; videos: Video[]; canEdit?: boolean }) {
   const visible = videos.filter((video) => video.reviewStatus !== "REJECTED");
   const confirmed = visible.filter((video) => (video.reviewStatus ?? "CONFIRMED") !== "SUGGESTED");
   const [currentId, setCurrentId] = useState((confirmed.find((video) => video.isPrimary) ?? confirmed[0] ?? visible[0])?.id ?? "");
@@ -37,16 +38,17 @@ export function VideoPanel({ topicId, topicTitle, videos }: { topicId: string; t
       {primary ? (
         <Card className="overflow-hidden">
           {playing ? (
-            <YouTubeFrame video={primary} />
+            <YouTubeFrame key={primary.id} video={primary} />
           ) : (
-            <div className="flex aspect-video flex-col items-center justify-center gap-3 bg-muted px-4 text-center">
-              <p className="text-sm">Плеєр завантажується лише після запуску.</p>
-              <Button type="button" onClick={() => setPlaying(true)}>Запустити лекцію</Button>
+            <div className="relative flex aspect-video flex-col items-center justify-center gap-3 overflow-hidden bg-muted px-4 text-center" style={{backgroundImage:`linear-gradient(rgba(8,15,30,.25),rgba(8,15,30,.8)),url(https://i.ytimg.com/vi/${encodeURIComponent(primary.youtubeId)}/hqdefault.jpg)`,backgroundSize:"cover",backgroundPosition:"center"}}>
+              <p className="relative max-w-lg text-sm font-medium text-white">{primary.title||"Відеолекція"}</p>
+              <Button type="button" onClick={() => setPlaying(true)}><Play className="h-4 w-4"/>Запустити лекцію</Button>
             </div>
           )}
           <div className="flex flex-wrap items-center justify-between gap-2 p-4">
             <div>
               <div className="font-medium">{primary.title || "Лекція YouTube"}</div>
+              {primary.reviewStatus === "SUGGESTED" ? <p className="text-sm text-muted-foreground">Кандидат: повний перегляд і відтворення ще не підтверджені редактором.</p> : null}
               <div className="text-sm text-muted-foreground">
                 {primary.durationSec ? `Тривалість ${Math.round(primary.durationSec / 60)} хв` : "Тривалість з'явиться після запуску, якщо її віддасть плеєр."}
                 {primary.lastPositionSec > 0 ? ` · Зупинились на ${Math.floor(primary.lastPositionSec / 60)} хв` : ""}
@@ -69,7 +71,7 @@ export function VideoPanel({ topicId, topicTitle, videos }: { topicId: string; t
           <p className="mt-1 text-sm text-muted-foreground">Сайт не підставляє випадкові ролики. Додайте посилання, яке ви перевірили.</p>
         </Card>
       )}
-      <Card className="space-y-3 p-4">
+      {canEdit ? <details className="rounded-xl border border-border p-4"><summary className="cursor-pointer font-medium">Інструменти редактора відео</summary><Card className="space-y-3 p-4">
         <h2 className="font-medium">Додати або замінити відео</h2>
         <form action={onAdd} className="grid gap-2 sm:grid-cols-[1fr_180px_auto]">
           <Input name="url" placeholder="Посилання YouTube" required />
@@ -91,11 +93,11 @@ export function VideoPanel({ topicId, topicTitle, videos }: { topicId: string; t
           </div>
         ) : null}
         {message ? <p className="text-sm text-muted-foreground">{message}</p> : null}
-      </Card>
+      </Card></details> : null}
       {videos.length ? (
         <div className="space-y-3">
           {videos.map((video) => (
-            <VideoRow key={video.id} video={video} />
+            <VideoRow key={video.id} video={video} canEdit={canEdit} />
           ))}
         </div>
       ) : null}
@@ -103,13 +105,14 @@ export function VideoPanel({ topicId, topicTitle, videos }: { topicId: string; t
   );
 }
 
-function VideoRow({ video }: { video: Video }) {
+function VideoRow({ video, canEdit }: { video: Video; canEdit: boolean }) {
   const [notes, setNotes] = useState(video.notes);
+  const [feedback, setFeedback] = useState("");
   return (
     <Card className="space-y-2 p-4">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="text-sm font-medium">{video.title || video.youtubeId} {video.isPrimary ? "· основна" : ""}</div>
-        <div className="flex gap-2">
+        {canEdit ? <div className="flex flex-wrap gap-2">
           {!video.isPrimary ? <Button type="button" size="sm" variant="outline" onClick={() => void makePrimary(video.id)}>Зробити основною</Button> : null}
           {video.reviewStatus === "SUGGESTED" ? <Button type="button" size="sm" variant="outline" onClick={() => void setVideoReview(video.id, "CONFIRMED")}>Підтвердити</Button> : null}
           {video.reviewStatus !== "REJECTED" ? <Button type="button" size="sm" variant="ghost" onClick={() => void setVideoReview(video.id, "REJECTED")}>Відхилити</Button> : null}
@@ -117,31 +120,37 @@ function VideoRow({ video }: { video: Video }) {
             {VIDEO_ROLES.map((role) => <option key={role.id} value={role.id}>{role.label}</option>)}
           </select>
           <Button type="button" size="sm" variant="ghost" onClick={() => void deleteVideo(video.id)}>Видалити</Button>
-        </div>
+        </div> : null}
       </div>
-      <form action={async (formData) => { await updateVideo(video.id, String(formData.get("url")), String(formData.get("title"))); }} className="grid gap-2 sm:grid-cols-[1fr_180px_auto]">
+      {canEdit ? <form action={async (formData) => { const result = await updateVideo(video.id, String(formData.get("url")), String(formData.get("title"))); setFeedback(result.ok ? "Відео оновлено." : result.error); }} className="grid gap-2 sm:grid-cols-[1fr_180px_auto]">
         <Input name="url" defaultValue={video.url} />
         <Input name="title" defaultValue={video.title} />
         <Button type="submit" size="sm" variant="outline">Замінити</Button>
-      </form>
+      </form> : null}
       <textarea className="min-h-20 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm" value={notes} onChange={(event) => setNotes(event.target.value)} placeholder="Нотатки до лекції" />
-      <Button type="button" size="sm" variant="outline" onClick={() => void saveVideoNotes(video.id, notes)}>Зберегти нотатки</Button>
+      <Button type="button" size="sm" variant="outline" onClick={async () => { const result = await saveVideoNotes(video.id, notes); setFeedback(result.ok ? "Особисті нотатки збережено." : result.error); }}>Зберегти нотатки</Button>
+      {feedback ? <p role="status" className="text-sm">{feedback}</p> : null}
     </Card>
   );
 }
 
 function YouTubeFrame({ video }: { video: Video }) {
+  const [error, setError] = useState("");
   useEffect(() => {
     let player: { destroy?: () => void; getCurrentTime?: () => number; getDuration?: () => number } | null = null;
     let timer = 0;
     let cancelled = false;
+    const loadTimeout = window.setTimeout(() => { if (!cancelled) setError("YouTube не відповів. Спробуйте відкрити оригінал; конспект і практика доступні."); }, 10000);
     const mount = () => {
       if (cancelled || !window.YT?.Player) return;
       player = new window.YT.Player(`yt-${video.id}`, {
         videoId: video.youtubeId,
-        playerVars: { start: video.lastPositionSec, rel: 0, modestbranding: 1 },
+        playerVars: { start: video.lastPositionSec, rel: 0, origin: window.location.origin },
         events: {
+          onError: () => { window.clearTimeout(loadTimeout); setError("Не вдалося відтворити відео. Відкрийте оригінал або оберіть інше пояснення."); },
           onReady: (event: { target: { getDuration?: () => number } }) => {
+            window.clearTimeout(loadTimeout);
+            setError("");
             const duration = Math.round(event.target.getDuration?.() ?? 0);
             if (duration > 0) void saveVideoPosition(video.id, video.lastPositionSec, duration);
           },
@@ -164,18 +173,23 @@ function YouTubeFrame({ video }: { video: Video }) {
         const script = document.createElement("script");
         script.id = "yt-iframe-api";
         script.src = "https://www.youtube.com/iframe_api";
+        script.onerror = () => setError("Не вдалося завантажити керування YouTube. Відкрийте оригінал; конспект і практика доступні.");
         document.body.appendChild(script);
       }
     }
     return () => {
       cancelled = true;
       window.clearInterval(timer);
+      window.clearTimeout(loadTimeout);
       const current = player?.getCurrentTime?.() ?? 0;
       if (current > 1) void saveVideoPosition(video.id, current, player?.getDuration?.());
       player?.destroy?.();
     };
   }, [video.id, video.youtubeId, video.lastPositionSec]);
-  return <div className="aspect-video bg-black"><div id={`yt-${video.id}`} className="h-full w-full" /></div>;
+  return <div>
+    <div className="aspect-video bg-black"><iframe id={`yt-${video.id}`} title={video.title || "Відеолекція"} src={`https://www.youtube.com/embed/${encodeURIComponent(video.youtubeId)}?enablejsapi=1&rel=0&start=${video.lastPositionSec}`} className="h-full w-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" /></div>
+    {error ? <p role="alert" className="p-3 text-sm">{error} <a className="underline" href={video.url || youtubeWatchUrl(video.youtubeId)} target="_blank" rel="noreferrer">Відкрити на YouTube</a></p> : null}
+  </div>;
 }
 
 declare global {

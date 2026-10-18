@@ -1,0 +1,3 @@
+import {BookOpen,Calculator,FlaskConical,Globe,Landmark,Leaf, type LucideIcon} from "lucide-react";
+const icons:Record<string,LucideIcon>={math:Calculator,ukrainian:BookOpen,history:Landmark,biology:Leaf,geography:Globe,chemistry:FlaskConical};
+export function SubjectIcon({id,small=false}:{id:string;small?:boolean}){const Icon=icons[id]??BookOpen;const token=["math","ukrainian","history","biology"].includes(id)?id:"other";return <span className={`inline-flex shrink-0 items-center justify-center rounded-xl ${small?"h-9 w-9":"h-12 w-12"}`} style={{color:`var(--subject-${token})`,background:`color-mix(in srgb,var(--subject-${token}) 13%,transparent)`}}><Icon className={small?"h-4 w-4":"h-6 w-6"}/></span>;}
