@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   const user = await getSessionUser();
-  if (!user) return new Response("Потрібен вхід", { status: 401 });
+  if (!user) return Response.json({ error: "Потрібен вхід до профілю." }, { status: 401 });
   const results = await prisma.examResult.findMany({ where: { userId: user.id }, include: { subject: true }, orderBy: { date: "asc" } });
   const header = ["date", "subject", "type", "title", "raw", "max", "rating", "partial", "counts", "comment"];
   const lines = results.map((result) => [
