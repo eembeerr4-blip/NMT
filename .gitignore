@@ -46,3 +46,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# SQLite data, journal sidecars and local hardening artifacts
+*.db
+*.db-*
+*.db.backup-*
+/prisma/dev.db.pre-*
+/prisma/hardening-checkpoint.prisma
