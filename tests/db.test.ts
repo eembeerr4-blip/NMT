@@ -4,8 +4,9 @@ import path from "path";
 import { PrismaClient } from "@prisma/client";
 import { afterAll, beforeAll, expect, it } from "vitest";
 
-const databaseUrl = "file:./test.db";
+
 const databasePath = path.join(process.cwd(), "prisma", "test.db");
+const databaseUrl = "file:" + databasePath.replaceAll("\\", "/");
 const prisma = new PrismaClient({ datasources: { db: { url: databaseUrl } } });
 
 beforeAll(() => {
