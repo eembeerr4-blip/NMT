@@ -119,6 +119,7 @@ it("an acknowledged theory-only lesson can finish, but empty content or missing 
  await prisma.topic.create({data:{id:"theory",subjectId:"math",title:"Theory",sortOrder:1,lessonJson}});await prisma.topic.create({data:{id:"empty",subjectId:"math",title:"Empty",sortOrder:2}});
  expect((await completeLesson("theory",false)).ok).toBe(false);expect((await completeLesson("empty",true)).ok).toBe(false);expect((await completeLesson("theory",true)).ok).toBe(true);
  expect(await prisma.studySession.count({where:{userId:"A",topicId:"theory"}})).toBe(1);expect(await prisma.reviewSchedule.count({where:{userId:"A",topicId:"theory"}})).toBe(1);
+ expect((await prisma.userTopicProgress.findUniqueOrThrow({where:{userId_topicId:{userId:"A",topicId:"theory"}}})).status).toBe("IN_PROGRESS");
 });
 for(const type of ["SINGLE_CHOICE","MATCHING","SEQUENCE","NUMERIC"]){
  it(`round-trips text-only edits for ${type} without losing option ids or grading`,async()=>{

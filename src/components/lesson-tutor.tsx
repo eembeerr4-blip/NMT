@@ -112,7 +112,7 @@ export function CompleteLesson({ topicId, needsPractice }: { topicId: string; ne
       setMessage(result.ok ? result.message ?? "Урок зараховано." : result.error);
     }}>
       {needsPractice ? null : <label className="flex items-center gap-2 text-sm"><input name="studied" type="checkbox" /> Я опрацював конспект</label>}
-      <Button type="submit">Завершити урок</Button>
+      <Button type="submit">{needsPractice?"Завершити урок":"Позначити конспект як опрацьований"}</Button>
       {message ? <p className="text-sm text-muted-foreground">{message}</p> : null}
     </form>
   );

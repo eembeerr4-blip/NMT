@@ -636,7 +636,7 @@ export async function completeLesson(topicId: string, studied: boolean): Promise
       await prisma.reviewSchedule.create({ data: { userId: user.id, topicId, dueKey: addDateKeys(dateKey(), 1), intervalDays: 1, priority: 1, status: "PENDING" } });
     }
     refresh();
-    return { ok: true, message: "Урок зараховано. Повторення стоїть у календарі." };
+    return { ok: true, message: verified===0?"Конспект опрацьовано. Засвоєння буде визначено після практики. Повторення стоїть у календарі.":"Урок зараховано. Повторення стоїть у календарі." };
   } catch (error) {
     return fail(error);
   }
