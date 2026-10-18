@@ -12,11 +12,12 @@ beforeAll(() => {
   if (existsSync(databasePath)) rmSync(databasePath);
   // Create the disposable SQLite file first; the Windows schema engine requires it.
   writeFileSync(databasePath, "");
-  execSync("npx prisma db push --skip-generate --accept-data-loss", {
+  execSync(`"${process.execPath}" "${path.join(process.cwd(), "node_modules/prisma/build/index.js")}" db push --skip-generate --accept-data-loss`, {
     env: { ...process.env, DATABASE_URL: databaseUrl },
     stdio: "pipe",
+    timeout: 60000,
   });
-});
+}, 60000);
 
 afterAll(async () => {
   await prisma.$disconnect();

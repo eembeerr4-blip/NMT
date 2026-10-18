@@ -35,6 +35,7 @@ model Session {
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
+  @@index([expiresAt])
 }
 
 model UserSubject {
@@ -148,6 +149,7 @@ model TopicDependency {
   prerequisite   Topic  @relation("Prerequisite", fields: [prerequisiteId], references: [id], onDelete: Cascade)
 
   @@unique([topicId, prerequisiteId])
+  @@index([prerequisiteId])
 }
 
 model VideoLesson {
@@ -185,6 +187,7 @@ model Note {
 
   @@index([topicId])
   @@index([subjectId])
+  @@index([userId])
 }
 
 model Question {
@@ -273,6 +276,7 @@ model TestAttempt {
 
   @@index([status])
   @@index([userId])
+  @@index([userId, status])
 }
 
 model Answer {
@@ -287,6 +291,7 @@ model Answer {
   question           Question    @relation(fields: [questionId], references: [id], onDelete: Cascade)
 
   @@unique([attemptId, questionId])
+  @@index([questionId])
 }
 
 model ExamResult {
@@ -371,6 +376,7 @@ model ReviewSchedule {
   topic        Topic     @relation(fields: [topicId], references: [id], onDelete: Cascade)
 
   @@index([dueKey, status])
+  @@index([userId, dueKey, status])
 }
 
 model Mistake {
@@ -393,6 +399,7 @@ model Mistake {
 
   @@index([subjectId, status])
   @@index([topicId])
+  @@index([userId, status])
 }
 
 model Flashcard {
@@ -412,6 +419,7 @@ model Flashcard {
   topic        Topic?   @relation(fields: [topicId], references: [id], onDelete: SetNull)
 
   @@index([dueKey])
+  @@index([userId, dueKey])
 }
 
 model AIConversation {
@@ -454,6 +462,7 @@ model XpEvent {
   reason    String
   userId    String?
   createdAt DateTime @default(now())
+  @@index([userId, createdAt])
 }
 
 model UserVideoProgress {
