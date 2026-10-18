@@ -21,12 +21,12 @@ export default async function SettingsPage() {
           <div><div className="text-xs text-muted-foreground">Нікнейм</div><div className="mt-1 font-medium">@{user.nickname}</div></div>
           <div><div className="text-xs text-muted-foreground">Рік НМТ</div><div className="mt-1 font-medium">{user.examYear}</div></div>
         </div>
-        <p className="text-xs text-muted-foreground">Редагування профілю та зміна пароля в поточній версії не налаштовані. Ця сторінка не змінює пароль.</p>
+        <p className="text-xs text-muted-foreground">Нікнейм використовується для входу в профіль.</p>
       </Card>
 </>} learning={<>
       <Card className="space-y-3 p-4">
         <h2 className="font-medium">Предмет на вибір</h2>
-        <p className="text-sm text-muted-foreground">Зараз: {SUBJECTS.find((subject) => subject.id === elective)?.name ?? "не обрано"}. Майбутні заняття попереднього предмета зникнуть з активного розкладу, завершені залишаться.</p>
+        <p className="text-sm text-muted-foreground">Зараз: {SUBJECTS.find((subject) => subject.id === elective)?.name ?? "не обрано"}. Майбутні заняття попереднього предмета буде замінено; завершені заняття й результати збережуться.</p>
         <form action={async (formData) => { "use server"; await changeElective(String(formData.get("subjectId") ?? ""), formData.get("confirm") === "on"); }} className="flex flex-wrap items-center gap-2">
           <select name="subjectId" defaultValue={elective} className="h-10 rounded-lg border border-border bg-card px-3 text-sm">
             {SUBJECTS.filter((subject) => (ELECTIVE_SUBJECT_IDS as readonly string[]).includes(subject.id)).map((subject) => <option key={subject.id} value={subject.id}>{subject.name}</option>)}

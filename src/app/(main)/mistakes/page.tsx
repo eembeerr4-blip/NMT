@@ -3,64 +3,93 @@ import { MathText } from "@/components/math-text";
 import { MISTAKE_CATEGORY_LABEL, SUBJECTS } from "@/lib/constants";
 import { formatUk } from "@/lib/dates";
 import { prisma } from "@/lib/prisma";
-import { recommendTopics } from "@/lib/recommend";
 import { Card, EmptyState, PageHeader } from "@/components/ui";
 import { setMistakeMeta } from "@/server/actions";
 import { requireUser } from "@/server/session";
-import { getSettings } from "@/server/sync";
 
-export default async function MistakesPage({ searchParams }: { searchParams: Promise<{ subject?: string; topic?: string; category?: string; from?: string; q?: string }> }) {
+export default async function MistakesPage({ searchParams }: { searchParams: Promise<{ subject?: string; topic?: string; category?: string; status?: string; from?: string; q?: string }> }) {
   const user = await requireUser();
   const params = await searchParams;
+  const activeSubjects = user.subjects.filter((item) => item.active).map((item) => item.subjectId);
+  const query = (params.q ?? "").trim().slice(0, 120);
+  const category = params.category && Object.hasOwn(MISTAKE_CATEGORY_LABEL, params.category) ? params.category : "";
+  const status = ["OPEN", "REVIEWING", "FIXED"].includes(params.status ?? "") ? params.status : "";
+  const from = parseDateKey(params.from);
+  const selectedSubject = !activeSubjects.length || activeSubjects.includes(params.subject ?? "") ? params.subject : undefined;
+  const requestedTopic = params.topic ? await prisma.topic.findFirst({ where: { id: params.topic, ...(activeSubjects.length ? { subjectId: { in: activeSubjects } } : {}) }, select: { id: true } }) : null;
   const where = {
     userId: user.id,
-    ...(params.subject ? { subjectId: params.subject } : {}),
-    ...(params.topic ? { topicId: params.topic } : {}),
-    ...(params.category ? { category: params.category } : {}),
-    ...(params.from ? { date: { gte: new Date(`${params.from}T00:00:00`) } } : {}),
-    ...(params.q ? { prompt: { contains: params.q } } : {}),
+    ...(activeSubjects.length ? { subjectId: { in: activeSubjects } } : {}),
+    ...(selectedSubject ? { subjectId: selectedSubject } : {}),
+    ...(requestedTopic ? { topicId: requestedTopic.id } : params.topic ? { topicId: "__no_matching_topic__" } : {}),
+    ...(category ? { category } : {}),
+    ...(status ? { status } : {}),
+    ...(from ? { date: { gte: new Date(`${from}T00:00:00`) } } : {}),
+    ...(query ? { OR: [{ prompt: { contains: query } }, { topic: { title: { contains: query } } }] } : {}),
   };
-  const [mistakes, topics, settings, progress] = await Promise.all([
-    prisma.mistake.findMany({ where, include: { subject: true, topic: true }, orderBy: { date: "desc" }, take: 50 }),
-    prisma.topic.findMany(),
-    getSettings(user.id),
-    prisma.userTopicProgress.findMany({ where: { userId: user.id } }),
+  const [mistakes, topics] = await Promise.all([
+    prisma.mistake.findMany({ where, include: { subject: true, topic: true }, orderBy: { date: "desc" }, take: 100 }),
+    prisma.topic.findMany({ where: activeSubjects.length ? { subjectId: { in: activeSubjects } } : {}, orderBy: { sortOrder: "asc" } }),
   ]);
-  const statusByTopic = new Map(progress.map((item) => [item.topicId, item.status]));
-  const counts = new Map<string, number>();
-  for (const mistake of mistakes) if (mistake.topicId) counts.set(mistake.topicId, (counts.get(mistake.topicId) ?? 0) + mistake.repeatCount);
-  const recommendations = recommendTopics(topics.filter((topic) => !topics.some((child) => child.parentId === topic.id)).map((topic) => ({ ...topic, status: statusByTopic.get(topic.id) ?? "NOT_STARTED", mistakeCount: counts.get(topic.id) ?? 0 })), {
-    math: settings.mathPriority, ukrainian: settings.ukrainianPriority, history: settings.historyPriority, biology: settings.biologyPriority,
-  }, 3);
   return (
     <div className="space-y-6">
-      <PageHeader title="Журнал помилок" description="Повторна помилка в тому самому завданні збільшує лічильник, а не створює нескінченні дублікати." />
-      <form className="grid gap-2 sm:grid-cols-4">
-        <select name="subject" defaultValue={params.subject ?? ""} className="h-10 rounded-lg border border-border bg-card px-2 text-sm"><option value="">Усі предмети</option>{SUBJECTS.map((subject) => <option key={subject.id} value={subject.id}>{subject.name}</option>)}</select>
-        <select name="topic" defaultValue={params.topic ?? ""} className="h-10 rounded-lg border border-border bg-card px-2 text-sm"><option value="">Усі теми</option>{topics.map((topic) => <option key={topic.id} value={topic.id}>{topic.title}</option>)}</select>
-        <select name="category" defaultValue={params.category ?? ""} className="h-10 rounded-lg border border-border bg-card px-2 text-sm"><option value="">Усі категорії</option>{Object.entries(MISTAKE_CATEGORY_LABEL).map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select>
-        <input type="date" name="from" defaultValue={params.from ?? ""} className="h-10 rounded-lg border border-border bg-card px-2 text-sm" />
-        <button className="rounded-lg border border-border px-3 text-sm sm:col-span-4" type="submit">Фільтрувати</button>
-      </form>
-      <Card className="p-4">
-        <h2 className="font-medium">Що повторити наступним</h2>
-        {recommendations.length === 0 ? <p className="mt-2 text-sm text-muted-foreground">Поки немає відкритих помилок для рекомендації.</p> : recommendations.map((topic) => <Link key={topic.id} href={`/topics/${topic.id}`} className="mt-2 block text-sm underline">{topic.title} — {topic.reason}</Link>)}
+      <PageHeader title="Мої помилки" description="Переглядайте складні завдання, оновлюйте їхній стан і повертайтеся до теми для повторення." />
+      <Card className="p-4 sm:p-5">
+        <form className="grid gap-3 sm:grid-cols-2 xl:grid-cols-[minmax(180px,1fr)_minmax(180px,1fr)_minmax(180px,1fr)_minmax(160px,1fr)_auto]">
+          <label className="grid gap-1.5 text-sm"><span className="font-medium">Предмет</span><select name="subject" defaultValue={params.subject ?? ""}><option value="">Усі предмети</option>{user.subjects.filter((item) => item.active).map((item) => <option key={item.subjectId} value={item.subjectId}>{SUBJECTS.find((subject) => subject.id === item.subjectId)?.name ?? item.subjectId}</option>)}</select></label>
+          <label className="grid gap-1.5 text-sm"><span className="font-medium">Тема</span><select name="topic" defaultValue={params.topic ?? ""}><option value="">Усі теми</option>{topics.map((topic) => <option key={topic.id} value={topic.id}>{topic.title}</option>)}</select></label>
+          <label className="grid gap-1.5 text-sm"><span className="font-medium">Причина</span><select name="category" defaultValue={category}><option value="">Усі причини</option>{Object.entries(MISTAKE_CATEGORY_LABEL).map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select></label>
+          <label className="grid gap-1.5 text-sm"><span className="font-medium">Стан</span><select name="status" defaultValue={status}><option value="">Усі стани</option><option value="OPEN">До повторення</option><option value="REVIEWING">Повторюю</option><option value="FIXED">Виправлено</option></select></label>
+          <label className="grid gap-1.5 text-sm sm:col-span-2 xl:col-span-1"><span className="font-medium">Пошук</span><input name="q" defaultValue={query} placeholder="Завдання або тема" maxLength={120}/></label>
+          <label className="grid gap-1.5 text-sm"><span className="font-medium">Починаючи з</span><input type="date" name="from" defaultValue={from ?? ""}/></label>
+          <div className="flex items-end gap-2 sm:col-span-2 xl:col-span-5"><button className="h-10 rounded-xl bg-primary px-4 text-sm font-semibold text-primary-foreground" type="submit">Застосувати фільтри</button><Link href="/mistakes" className="inline-flex h-10 items-center rounded-xl px-3 text-sm text-muted-foreground hover:bg-muted">Скинути</Link></div>
+        </form>
+        {params.from && !from ? <p role="alert" className="mt-3 text-sm text-danger-text">Перевірте дату. Виберіть її в календарі фільтра.</p> : null}
       </Card>
-      {mistakes.length === 0 ? <EmptyState title="Помилок за фільтром немає" text="Після тематичного тесту неправильні закриті відповіді потраплять сюди." /> : mistakes.map((mistake) => (
-        <Card key={mistake.id} className="space-y-2 p-4 text-sm">
-          <div className="font-medium">{mistake.subject.name} · {mistake.topic?.title ?? "Без теми"} · {formatUk(mistake.date)}</div>
-          <MathText text={mistake.prompt} />
-          <MathText text={`Ваша відповідь: ${mistake.userAnswer}`} />
-          <MathText text={`Правильно: ${mistake.correctAnswer}`} />
-          <MathText text={mistake.explanation} className="text-muted-foreground" />
-          <p>Повторів: {mistake.repeatCount}</p>
-          <form action={async (formData) => { "use server"; await setMistakeMeta(mistake.id, String(formData.get("category")), String(formData.get("status"))); }} className="flex flex-wrap gap-2">
-            <select name="category" defaultValue={mistake.category} className="h-9 rounded-lg border border-border bg-card px-2">{Object.entries(MISTAKE_CATEGORY_LABEL).map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select>
-            <select name="status" defaultValue={mistake.status} className="h-9 rounded-lg border border-border bg-card px-2"><option value="OPEN">Відкрита</option><option value="REVIEWING">Повторюю</option><option value="FIXED">Виправлено</option></select>
-            <button className="text-sm underline" type="submit">Зберегти</button>
-          </form>
-        </Card>
-      ))}
+      {mistakes.length === 0 ? <EmptyState title="Помилок за цими фільтрами немає" text="Неправильні відповіді з тестів з’являтимуться тут автоматично. Поки можете повторити будь-яку тему з каталогу предметів." /> : <>
+        <p className="text-sm text-muted-foreground">Показано {mistakes.length}{mistakes.length === 100 ? " останніх записів" : " помилок"}.</p>
+        {mistakes.map((mistake) => (
+          <Card key={mistake.id} className="space-y-4 p-4 sm:p-5">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div className="min-w-0"><p className="text-sm text-muted-foreground">{mistake.subject.name} · {formatUk(mistake.date)}</p><h2 className="mt-1 font-semibold">{mistake.topic?.title ?? "Тема не вказана"}</h2></div>
+              <span className="rounded-full bg-muted px-3 py-1 text-xs font-medium">{mistakeStatus(mistake.status)}</span>
+            </div>
+            <MathText text={mistake.prompt} className="text-sm leading-6"/>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div className="rounded-xl bg-muted p-3"><p className="text-xs text-muted-foreground">Ваша відповідь</p><MathText text={mistake.userAnswer} className="mt-1 text-sm"/></div>
+              <div className="rounded-xl bg-muted p-3"><p className="text-xs text-muted-foreground">Правильна відповідь</p><MathText text={mistake.correctAnswer} className="mt-1 text-sm"/></div>
+            </div>
+            {mistake.explanation ? <details className="text-sm"><summary className="cursor-pointer font-medium">Пояснення</summary><MathText text={mistake.explanation} className="mt-2 text-muted-foreground"/></details> : null}
+            <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border pt-3">
+              <p className="text-sm text-muted-foreground">{MISTAKE_CATEGORY_LABEL[mistake.category] ?? "Причину не вказано"} · повторень: {mistake.repeatCount}</p>
+              <div className="flex flex-wrap items-center gap-2">
+                {mistake.topic ? <Link href={`/topics/${mistake.topic.id}`} className="inline-flex min-h-9 items-center rounded-xl border border-border px-3 text-sm font-medium hover:bg-muted">Повторити тему</Link> : null}
+                <form action={async (formData) => { "use server"; await setMistakeMeta(mistake.id, String(formData.get("category")), String(formData.get("status"))); }}>
+                  <input type="hidden" name="category" value={mistake.category}/>
+                  <select name="status" aria-label="Стан помилки" defaultValue={mistake.status} className="h-9 rounded-xl border border-border bg-card px-2 text-sm">
+                    <option value="OPEN">До повторення</option><option value="REVIEWING">Повторюю</option><option value="FIXED">Виправлено</option>
+                  </select>
+                  <button className="ml-2 h-9 rounded-xl bg-primary px-3 text-sm font-semibold text-primary-foreground" type="submit">Зберегти стан</button>
+                </form>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </>}
     </div>
   );
+}
+
+function mistakeStatus(status: string) {
+  if (status === "OPEN") return "До повторення";
+  if (status === "REVIEWING") return "Повторюю";
+  if (status === "FIXED") return "Виправлено";
+  return status;
+}
+
+function parseDateKey(value?: string) {
+  if (!value || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return undefined;
+  const [year, month, day] = value.split("-").map(Number);
+  const date = new Date(year, month - 1, day);
+  return date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day ? value : undefined;
 }

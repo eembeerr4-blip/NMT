@@ -9,31 +9,41 @@ export const dynamic = "force-dynamic";
 const pageSize = 30;
 const dateFormat = new Intl.DateTimeFormat("uk-UA", { timeZone: "Europe/Kyiv", dateStyle: "medium", timeStyle: "medium" });
 
-export default async function AdminAuditPage({ searchParams }: { searchParams: Promise<{ q?: string; action?: string; page?: string }> }) {
+export default async function AdminAuditPage({ searchParams }: { searchParams: Promise<{ q?: string; action?: string; actor?: string; from?: string; to?: string; page?: string }> }) {
   await requireAdministrator();
   const params = await searchParams;
   const query = (params.q ?? "").trim().slice(0, 120);
+  const actor = (params.actor ?? "").trim().slice(0, 120);
   const requested = Number(params.page ?? 1);
   const page = Number.isSafeInteger(requested) ? Math.max(1, Math.min(requested, 100000)) : 1;
   const action = params.action && Object.hasOwn(AUDIT_ACTIONS, params.action) ? params.action : "";
+  const from = validDate(params.from);
+  const to = validDate(params.to);
+  const dateError = params.from && !from ? "Перевірте дату початку." : params.to && !to ? "Перевірте дату завершення." : from && to && from > to ? "Дата початку має бути не пізніше дати завершення." : "";
   const where: Prisma.AuditLogWhereInput = {
+    ...(dateError ? { id: "__no_matching_event__" } : {}),
     ...(action ? { action } : {}),
-    ...(query ? { OR: [{ actorName: { contains: query } }, { summary: { contains: query } }, { entityId: { contains: query } }] } : {}),
+    ...(actor ? { actorName: { contains: actor } } : {}),
+    ...(from || to ? { createdAt: { ...(from ? { gte: from } : {}), ...(to ? { lte: endOfDay(to) } : {}) } } : {}),
+    ...(query ? { OR: [{ summary: { contains: query } }, { entityId: { contains: query } }] } : {}),
   };
   const [events, total] = await Promise.all([
     prisma.auditLog.findMany({ where, orderBy: [{ createdAt: "desc" }, { id: "desc" }], skip: (page - 1) * pageSize, take: pageSize }),
     prisma.auditLog.count({ where }),
   ]);
-  const url = (next: number) => `/admin/audit?${new URLSearchParams({ q: query, action, page: String(next) })}`;
+  const url = (next: number) => `/admin/audit?${new URLSearchParams({ q: query, action, actor, from: params.from ?? "", to: params.to ?? "", page: String(next) })}`;
   return <>
     <PageHeader title="Журнал дій" description="Реальні зміни спільних матеріалів, ролей, налаштувань, резервні операції та входи. Час — за Києвом." />
     <Card className="space-y-3 p-4">
-      <form key={`${query}:${action}`} className="flex flex-wrap gap-3" role="search">
-        <input name="q" defaultValue={query} aria-label="Пошук у журналі" placeholder="Хто виконав дію або що змінилося" className="min-w-0 flex-1 rounded-xl border border-border bg-background px-3 py-2 text-sm" />
-        <select name="action" defaultValue={action} aria-label="Тип події" className="max-w-full rounded-xl border border-border bg-background px-3 py-2 text-sm"><option value="">Усі події</option>{Object.entries(AUDIT_ACTIONS).map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select>
-        <button className="rounded-xl bg-primary px-4 py-2 text-sm text-primary-foreground" type="submit">Знайти</button>
-        <Link href="/admin/audit" className="self-center text-sm underline">Скинути</Link>
+      <form key={`${query}:${action}:${actor}:${params.from}:${params.to}`} className="grid gap-3 sm:grid-cols-2 xl:grid-cols-[minmax(0,1fr)_minmax(180px,1fr)_220px_160px_160px_auto]" role="search">
+        <label className="grid gap-1.5 text-sm"><span className="font-medium">Пошук у подіях</span><input name="q" defaultValue={query} aria-label="Пошук у журналі" placeholder="Дія або об’єкт"/></label>
+        <label className="grid gap-1.5 text-sm"><span className="font-medium">Ініціатор</span><input name="actor" defaultValue={actor} placeholder="@нікнейм або ім’я"/></label>
+        <label className="grid gap-1.5 text-sm"><span className="font-medium">Тип події</span><select name="action" defaultValue={action} aria-label="Тип події"><option value="">Усі події</option>{Object.entries(AUDIT_ACTIONS).map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select></label>
+        <label className="grid gap-1.5 text-sm"><span className="font-medium">Від</span><input type="date" name="from" defaultValue={params.from ?? ""}/></label>
+        <label className="grid gap-1.5 text-sm"><span className="font-medium">До</span><input type="date" name="to" defaultValue={params.to ?? ""}/></label>
+        <div className="flex items-end gap-2"><button className="h-10 rounded-xl bg-primary px-4 text-sm font-semibold text-primary-foreground" type="submit">Знайти</button><Link href="/admin/audit" className="inline-flex h-10 items-center rounded-xl px-3 text-sm text-muted-foreground hover:bg-muted">Скинути</Link></div>
       </form>
+      {dateError ? <p role="alert" className="text-sm text-danger-text">{dateError}</p> : null}
       <p className="text-xs text-muted-foreground">Знайдено: {total.toLocaleString("uk-UA")}. Паролі, ключі API та вміст особистих нотаток не записуються. Події до увімкнення журналу не відновлюються заднім числом.</p>
     </Card>
     {events.length ? <div className="space-y-3">{events.map(event => {
@@ -48,4 +58,17 @@ export default async function AdminAuditPage({ searchParams }: { searchParams: P
     })}</div> : <Card className="p-5"><h2 className="font-semibold">{query || action ? "Подій за цим фільтром немає" : "Подій ще немає"}</h2><p className="mt-2 text-sm text-muted-foreground">Журнал автоматично зберігатиме нові дії. Старі зміни, які не журналювалися, тут не вигадуються.</p></Card>}
     <nav aria-label="Сторінки журналу" className="flex flex-wrap items-center gap-4 text-sm">{page > 1 ? <Link href={url(page - 1)} className="underline">Назад</Link> : null}<span>Сторінка {page} · {Math.max(1, Math.ceil(total / pageSize))} усього</span>{page * pageSize < total ? <Link href={url(page + 1)} className="underline">Далі</Link> : null}</nav>
   </>;
+}
+
+function validDate(value?: string) {
+  if (!value || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return undefined;
+  const [year, month, day] = value.split("-").map(Number);
+  const date = new Date(year, month - 1, day);
+  return date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day ? date : undefined;
+}
+
+function endOfDay(date: Date) {
+  const end = new Date(date);
+  end.setHours(23, 59, 59, 999);
+  return end;
 }

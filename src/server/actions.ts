@@ -298,8 +298,9 @@ async function persistQuestion(tx: import("@prisma/client").Prisma.TransactionCl
  const topic=await tx.topic.findUnique({where:{id:q.topicId}});
  if(!topic||topic.subjectId!==q.subjectId)throw new UserError("Тема не належить до вибраного предмета.");
  const {options,id,...data}=q;
- if(id && await tx.testQuestion.count({where:{questionId:id}}))throw new UserError("Завдання вже використане у спробі. Створіть нову версію, щоб зберегти історію.");
- const saved=await tx.question.upsert({where:{id:id||randomUUID()},update:data,create:{...data,id:id||randomUUID()}});
+ if(id && await tx.testQuestion.count({where:{questionId:id}}))throw new UserError("Завдання вже використане в тесті. Архівуйте його та створіть нову версію, щоб зберегти історію.");
+ const updateData={...data,verificationStatus:data.verificationStatus==="REJECTED"?"REJECTED":"PENDING_REVIEW"};
+ const saved=await tx.question.upsert({where:{id:id||randomUUID()},update:updateData,create:{...data,id:id||randomUUID()}});
  await tx.questionOption.deleteMany({where:{questionId:saved.id}});
  if(options.length) await tx.questionOption.createMany({data:options.map(o=>({...o,questionId:saved.id}))});
  return saved.id;

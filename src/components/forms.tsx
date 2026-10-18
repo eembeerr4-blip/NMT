@@ -80,8 +80,24 @@ function NumberField({ label, name, form }: { label: string; name: "rawScore" | 
   );
 }
 
-export function QuestionForm({ topics }: { topics: { id: string; title: string; subjectId: string }[] }) {
-  const [subject, setSubject] = useState("ukrainian");
+type QuestionInitial = {
+  id: string;
+  subjectId: string;
+  topicId: string | null;
+  subtopic: string;
+  type: string;
+  difficulty: string;
+  prompt: string;
+  explanation: string;
+  correctAnswer: string;
+  source: string;
+  verificationStatus: string;
+  options: { label: string; text: string; matchKey: string | null }[];
+};
+
+export function QuestionForm({ topics, initial }: { topics: { id: string; title: string; subjectId: string }[]; initial?: QuestionInitial }) {
+  const router = useRouter();
+  const [subject, setSubject] = useState(initial?.subjectId ?? "ukrainian");
   const [message, setMessage] = useState("");
   return (
     <form className="grid gap-3" onSubmit={async (event) => {
@@ -94,6 +110,7 @@ export function QuestionForm({ topics }: { topics: { id: string; title: string; 
         return { label: label.trim(), text: (text ?? "").trim(), matchKey: matchKey?.trim() || undefined };
       });
       const result = await saveQuestion({
+        id: String(form.get("id") || "") || undefined,
         subjectId: String(form.get("subjectId")),
         topicId: String(form.get("topicId")),
         subtopic: String(form.get("subtopic") ?? ""),
@@ -106,18 +123,22 @@ export function QuestionForm({ topics }: { topics: { id: string; title: string; 
         verificationStatus: String(form.get("verificationStatus")),
         options,
       });
-      setMessage(result.ok ? "Завдання збережено." : result.error);
-      if (result.ok) { submittedForm.reset(); setSubject("ukrainian"); }
+      setMessage(result.ok ? (initial ? "Зміни завдання збережено." : "Завдання збережено.") : result.error);
+      if (result.ok) {
+        if (initial) router.push("/admin/questions");
+        else { submittedForm.reset(); setSubject("ukrainian"); }
+      }
     }}>
+      {initial ? <input type="hidden" name="id" value={initial.id}/> : null}
       <div className="grid gap-3 sm:grid-cols-2">
         <Field label="Предмет"><select name="subjectId" className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm" value={subject} onChange={event=>setSubject(event.target.value)}>{SUBJECTS.map(item=><option key={item.id} value={item.id}>{item.name}</option>)}</select></Field>
         <Field label="Тема">
-          <select name="topicId" className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm">
+          <select name="topicId" defaultValue={initial?.topicId ?? topics.find((topic)=>topic.subjectId===subject)?.id ?? ""} className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm">
             {topics.filter(topic=>topic.subjectId===subject).map((topic) => <option key={topic.id} value={topic.id}>{topic.title}</option>)}
           </select>
         </Field>
         <Field label="Тип">
-          <select name="type" className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm">
+          <select name="type" defaultValue={initial?.type ?? "SINGLE_CHOICE"} className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm">
             <option value="SINGLE_CHOICE">Одна відповідь</option>
             <option value="MATCHING">Відповідність</option>
             <option value="SEQUENCE">Послідовність</option>
@@ -127,28 +148,28 @@ export function QuestionForm({ topics }: { topics: { id: string; title: string; 
           </select>
         </Field>
         <Field label="Складність">
-          <select name="difficulty" className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm">
+          <select name="difficulty" defaultValue={initial?.difficulty ?? "EASY"} className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm">
             <option value="EASY">Просте</option>
             <option value="MEDIUM">Середнє</option>
             <option value="HARD">Складне</option>
           </select>
         </Field>
       </div>
-      <Field label="Умова"><Textarea name="prompt" required /></Field>
-      <Field label="Пояснення"><Textarea name="explanation" required /></Field>
-      <Field label="Правильна відповідь"><Input name="correctAnswer" required placeholder="Мітка варіанта (А), число, текст або JSON з мітками" /></Field>
-      <Field label="Варіанти, по одному в рядку: мітка|текст|left або right"><Textarea name="options" /></Field>
-      <Field label="Джерело"><Input name="source" placeholder="Не пишіть «офіційне», якщо це не так" /></Field>
-      <input type="hidden" name="subtopic" value="" />
+      <Field label="Умова"><Textarea name="prompt" defaultValue={initial?.prompt} required /></Field>
+      <Field label="Пояснення"><Textarea name="explanation" defaultValue={initial?.explanation} required /></Field>
+      <Field label="Правильна відповідь"><Input name="correctAnswer" defaultValue={initial?.correctAnswer} required placeholder="Мітка варіанта (А), число, текст або JSON з мітками" /></Field>
+      <Field label="Варіанти, по одному в рядку: мітка|текст|left або right"><Textarea name="options" defaultValue={initial?.options.map((option)=>`${option.label}|${option.text}|${option.matchKey??""}`).join("\n")} /></Field>
+      <Field label="Джерело"><Input name="source" defaultValue={initial?.source} placeholder="Не пишіть «офіційне», якщо це не так" /></Field>
+      <input type="hidden" name="subtopic" value={initial?.subtopic ?? ""} />
       <Field label="Статус">
-        <select name="verificationStatus" className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm" defaultValue="DRAFT">
+        <select name="verificationStatus" className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm" defaultValue={initial?.verificationStatus === "VERIFIED" ? "PENDING_REVIEW" : initial?.verificationStatus ?? "DRAFT"}>
           <option value="DRAFT">Чернетка</option>
           <option value="PENDING_REVIEW">Очікує перевірки</option>
           <option value="VERIFIED">Перевірено</option>
           <option value="REJECTED">Відхилено</option>
         </select>
       </Field>
-      <Button type="submit">Зберегти завдання</Button>
+      <Button type="submit">{initial ? "Зберегти зміни" : "Створити завдання"}</Button>
       {message ? <p className="text-sm text-muted-foreground">{message}</p> : null}
     </form>
   );
@@ -277,17 +298,20 @@ export function SettingsForm({ values, showTheme = true }: { values: PreferenceV
             <option value="dark">Темна</option>
           </select>
         </Field> : null}
-        <Field label="Дата НМТ"><Input type="date" {...form.register("examDate")} /></Field>
-        <Field label="Цільовий бал"><Input type="number" {...form.register("targetScore", { valueAsNumber: true })} /></Field>
-        <label className="flex items-center gap-2 text-sm"><input type="checkbox" {...form.register("timerEnabled")} /> Показувати таймер у тестах</label>
-        <details className="sm:col-span-2 rounded-xl border border-border p-4"><summary className="cursor-pointer text-sm font-medium">Додаткові налаштування практики</summary><div className="mt-4 grid gap-3 sm:grid-cols-2">
-        <Field label="Поріг засвоєння, правильних із 12"><Input type="number" {...form.register("masteryHighMin", { valueAsNumber: true })} /></Field>
-        <Field label="Поріг закріплення"><Input type="number" {...form.register("masteryMidMin", { valueAsNumber: true })} /></Field>
-        <Field label="Математика, %"><Input type="number" {...form.register("mathPriority", { valueAsNumber: true })} /></Field>
-        <Field label="Українська мова, %"><Input type="number" {...form.register("ukrainianPriority", { valueAsNumber: true })} /></Field>
-        <Field label="Історія України, %"><Input type="number" {...form.register("historyPriority", { valueAsNumber: true })} /></Field>
-        <Field label="Біологія, %"><Input type="number" {...form.register("biologyPriority", { valueAsNumber: true })} /></Field>
-        </div></details>
+        <Field label="Моя навчальна ціль (рейтинговий бал)">
+          <Input type="number" min={100} max={200} {...form.register("targetScore", { valueAsNumber: true })} />
+        </Field>
+        <div className="flex items-center">
+          <label className="flex items-center gap-2 text-sm"><input type="checkbox" {...form.register("timerEnabled")} /> Показувати таймер у тестах</label>
+        </div>
+        <input type="hidden" {...form.register("examDate")} />
+        <input type="hidden" {...form.register("masteryHighMin", { valueAsNumber: true })} />
+        <input type="hidden" {...form.register("masteryMidMin", { valueAsNumber: true })} />
+        <input type="hidden" {...form.register("mathPriority", { valueAsNumber: true })} />
+        <input type="hidden" {...form.register("ukrainianPriority", { valueAsNumber: true })} />
+        <input type="hidden" {...form.register("historyPriority", { valueAsNumber: true })} />
+        <input type="hidden" {...form.register("biologyPriority", { valueAsNumber: true })} />
+        <p className="text-sm text-muted-foreground sm:col-span-2">Технічні параметри плану залишаються без змін. Ціль тут застосовується до загального навчального плану.</p>
         <div className="sm:col-span-2"><Button type="submit" disabled={form.formState.isSubmitting}>{form.formState.isSubmitting ? "Збереження…" : "Зберегти налаштування"}</Button></div>
       </form>
       {Object.values(form.formState.errors).some(error=>error?.message)?<p role="alert" className="text-sm text-danger-text">{Object.values(form.formState.errors).find(error=>error?.message)?.message}</p>:null}
@@ -322,26 +346,28 @@ function JsonSaver({ title, initial, action }: { title: string; initial: string;
   );
 }
 
-export function NoteForm({ topics }: { topics: { id: string; title: string; subjectId: string }[] }) {
+export function NoteForm({ topics, note }: { topics: { id: string; title: string; subjectId: string }[]; note?: { id: string; title: string; content: string; topicId: string | null } }) {
   const [message, setMessage] = useState("");
+  const [hasError, setHasError] = useState(false);
   return (
     <form className="grid gap-2" onSubmit={async (event) => {
       event.preventDefault();
       const submittedForm = event.currentTarget;
       const form = new FormData(submittedForm);
       const topic = topics.find((item) => item.id === String(form.get("topicId")));
-      const result = await saveNote({ title: String(form.get("title") ?? ""), content: String(form.get("content") ?? ""), topicId: topic?.id, subjectId: topic?.subjectId });
-      setMessage(result.ok ? "Конспект збережено." : result.error);
-      if (result.ok) submittedForm.reset();
+      const result = await saveNote({ id: note?.id, title: String(form.get("title") ?? ""), content: String(form.get("content") ?? ""), topicId: topic?.id, subjectId: topic?.subjectId });
+      setHasError(!result.ok);
+      setMessage(result.ok ? (note ? "Зміни збережено." : "Конспект збережено.") : result.error);
+      if (result.ok && !note) submittedForm.reset();
     }}>
-      <Input name="title" placeholder="Заголовок" required />
-      <select name="topicId" className="h-10 rounded-lg border border-border bg-card px-3 text-sm">
+      <label className="grid gap-1.5 text-sm"><span className="font-medium">Назва конспекту</span><Input name="title" placeholder="Наприклад, правила пунктуації" defaultValue={note?.title} required /></label>
+      <label className="grid gap-1.5 text-sm"><span className="font-medium">Тема</span><select name="topicId" defaultValue={note?.topicId ?? ""} className="h-10 rounded-lg border border-border bg-card px-3 text-sm">
         <option value="">Без теми</option>
-        {topics.map((topic) => <option key={topic.id} value={topic.id}>{topic.title}</option>)}
-      </select>
-      <Textarea name="content" required />
-      <Button type="submit">Додати конспект</Button>
-      {message ? <p className="text-sm text-muted-foreground">{message}</p> : null}
+        {topics.map((topic) => <option key={topic.id} value={topic.id}>{SUBJECTS.find((subject) => subject.id === topic.subjectId)?.name ?? "Предмет"} · {topic.title}</option>)}
+      </select></label>
+      <label className="grid gap-1.5 text-sm"><span className="font-medium">Текст</span><Textarea name="content" defaultValue={note?.content} placeholder="Збережіть важливі правила, формули або власні спостереження" required /></label>
+      <Button type="submit">{note ? "Зберегти зміни" : "Додати конспект"}</Button>
+      {message ? <p role={hasError ? "alert" : "status"} className={`text-sm ${hasError ? "text-danger-text" : "text-muted-foreground"}`}>{message}</p> : null}
     </form>
   );
 }
