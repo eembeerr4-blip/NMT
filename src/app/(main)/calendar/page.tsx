@@ -3,7 +3,7 @@ import { syncPlan, getSettings } from "@/server/sync";
 import Link from "next/link";
 import { addMonths } from "date-fns";
 import { WEEKDAY_LABELS } from "@/lib/constants";
-import { addDateKeys, dateKey, formatUk, monthBounds, parseDateKey, startOfWeekMonday } from "@/lib/dates";
+import { addDateKeys, dateKey, formatUk, isDateKey, monthBounds, parseDateKey, startOfWeekMonday } from "@/lib/dates";
 import { prisma } from "@/lib/prisma";
 import { CustomTaskForm } from "@/components/forms";
 import { RecalculatePlanButton, TaskControls } from "@/components/task-controls";
@@ -17,7 +17,7 @@ export default async function CalendarPage({ searchParams }: { searchParams: Pro
   const settings=await getSettings(user.id);
   const params = await searchParams;
   const view = params.view === "day" || params.view === "week" || params.view === "month" ? params.view : "week";
-  const anchor = params.date && /^\d{4}-\d{2}-\d{2}$/.test(params.date) ? params.date : dateKey();
+  const anchor = isDateKey(params.date) ? params.date : dateKey();
   const month = monthBounds(parseDateKey(anchor));
   const range = view === "day"
     ? { from: anchor, to: anchor }

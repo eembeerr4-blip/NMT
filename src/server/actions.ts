@@ -13,8 +13,8 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { aiPackSchema } from "@/lib/ai";
-import { DEFAULT_FORMAT, DEFAULT_SCHEDULE, ELECTIVE_SUBJECT_IDS, REQUIRED_SUBJECT_IDS, type ScheduleConfig } from "@/lib/constants";
-import { addDateKeys, dateKey, noonUtc } from "@/lib/dates";
+import { DEFAULT_FORMAT, DEFAULT_SCHEDULE, ELECTIVE_SUBJECT_IDS, REQUIRED_SUBJECT_IDS, TASK_KINDS, type ScheduleConfig } from "@/lib/constants";
+import { addDateKeys, dateKey, isDateKey, noonUtc } from "@/lib/dates";
 import { gradeAnswer, pickBalanced } from "@/lib/grade";
 import { learningStatus, reviewIntervals } from "@/lib/mastery";
 import { prisma } from "@/lib/prisma";
@@ -772,7 +772,7 @@ export async function setTaskStatus(id: string, status: "PLANNED" | "IN_PROGRESS
 export async function moveTask(id: string, nextDate: string): Promise<ActionState> {
   try {
     const user = await actor();
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(nextDate)) return { ok: false, error: "Оберіть дату." };
+    if (!isDateKey(nextDate)) return { ok: false, error: "Оберіть коректну дату." };
     const task = await prisma.studyTask.findUnique({ where: { id, userId: user.id } });
     if (!task || task.userId !== user.id || task.status === "DONE") return { ok: false, error: "Завершене заняття не переноситься." };
     if (relocationMode(task) === "update") {
@@ -808,6 +808,8 @@ export async function moveTask(id: string, nextDate: string): Promise<ActionStat
 export async function createCustomTask(input: { dateKey: string; title: string; subjectId?: string; durationMin: number; kind?: string }): Promise<ActionState> {
   try {
     const user = await actor();
+    if (!isDateKey(input.dateKey)) return { ok: false, error: "Оберіть коректну дату." };
+    if (input.kind !== undefined && !TASK_KINDS.some(kind => kind === input.kind)) return { ok: false, error: "Оберіть тип заняття зі списку." };
     if (!input.title.trim()) return { ok: false, error: "Вкажіть назву заняття." };
     await prisma.studyTask.create({
       data: {

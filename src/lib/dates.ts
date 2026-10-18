@@ -2,15 +2,25 @@ import { addDays, format, parseISO } from "date-fns";
 import { uk } from "date-fns/locale";
 
 export function dateKey(date = new Date()) {
-  const y = date.getFullYear();
+  const y = String(date.getFullYear()).padStart(4, "0");
   const m = String(date.getMonth() + 1).padStart(2, "0");
   const d = String(date.getDate()).padStart(2, "0");
   return `${y}-${m}-${d}`;
 }
 
 export function parseDateKey(key: string) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(key)) throw new RangeError("Некоректна дата.");
   const [y, m, d] = key.split("-").map(Number);
-  return new Date(y, (m ?? 1) - 1, d ?? 1);
+  const value = new Date(0);
+  value.setHours(0, 0, 0, 0);
+  value.setFullYear(y, m - 1, d);
+  if (y < 1 || dateKey(value) !== key) throw new RangeError("Некоректна дата.");
+  return value;
+}
+
+export function isDateKey(value: unknown): value is string {
+  if (typeof value !== "string") return false;
+  try { parseDateKey(value); return true; } catch { return false; }
 }
 
 export function addDateKeys(key: string, days: number) {

@@ -17,10 +17,21 @@ import {initializeSQLite} from "@/lib/sqlite-init";
 import {DEFAULT_FORMAT,DEFAULT_SCHEDULE,SUBJECTS} from "@/lib/constants";
 import {dateKey,addDateKeys} from "@/lib/dates";
 import {gradeAnswer} from "@/lib/grade";
-import {finishAttempt,saveDraft,changeElective,recalculateFuturePlan,moveTask,saveQuestion,completeLesson,saveVideoPosition} from "@/server/actions";
+import {finishAttempt,saveDraft,changeElective,recalculateFuturePlan,moveTask,saveQuestion,completeLesson,saveVideoPosition,createCustomTask} from "@/server/actions";
 import {syncPlanWithClient} from "@/server/sync";
 
 async function counts(){return {answers:await prisma.answer.count(),mistakes:await prisma.mistake.count(),progress:await prisma.userTopicProgress.count(),reviews:await prisma.reviewSchedule.count(),sessions:await prisma.studySession.count(),xp:await prisma.xpEvent.count()};}
+it("A10: invalid dates and kinds never write tasks or move an existing task",async()=>{
+ const before=await prisma.studyTask.count();
+ for(const date of ["2026-02-31","2026-13-01","2026-01-01bad"]){
+  expect((await createCustomTask({dateKey:date,title:"QA-invalid",durationMin:10})).ok).toBe(false);
+ }
+ expect((await createCustomTask({dateKey:"2026-10-19",title:"QA-invalid-kind",durationMin:10,kind:"SQL"})).ok).toBe(false);
+ expect(await prisma.studyTask.count()).toBe(before);
+ await prisma.studyTask.create({data:{id:"QA-date-task",userId:"A",dateKey:"2026-10-19",title:"QA-original",kind:"custom",durationMin:10}});
+ expect((await moveTask("QA-date-task","2026-02-31")).ok).toBe(false);
+ expect((await prisma.studyTask.findUniqueOrThrow({where:{id:"QA-date-task"}})).dateKey).toBe("2026-10-19");
+});
 it("A15: student playback cannot change shared video duration; positions are bounded and private",async()=>{
  await prisma.videoLesson.create({data:{id:"QA-playback",topicId:"topic",title:"QA-playback",url:"https://example.invalid/video",youtubeId:"QA-video",durationSec:null}});
  expect((await saveVideoPosition("QA-playback",12.9,100)).ok).toBe(true);

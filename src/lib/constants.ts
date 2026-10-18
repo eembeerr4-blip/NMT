@@ -103,12 +103,14 @@ export const DEFAULT_FORMAT = {
   scales: {} as Record<string, Record<string, { raw: number; rating: number }[]>>,
 };
 
+export const TASK_KINDS = ["study", "mock", "analysis", "rest", "review", "custom"] as const;
+
 export type DaySlot = {
   slot: number;
   subjectId?: SubjectId;
   title: string;
   durationMin: number;
-  kind: "study" | "mock" | "analysis" | "rest" | "review" | "custom";
+  kind: (typeof TASK_KINDS)[number];
   optional?: boolean;
 };
 
