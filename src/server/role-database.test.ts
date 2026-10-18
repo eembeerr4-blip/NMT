@@ -1,5 +1,5 @@
 import {afterAll,beforeAll,beforeEach,describe,expect,it,vi} from "vitest";
-import {rmSync} from "node:fs";
+import {readFileSync,rmSync} from "node:fs";
 const auth=vi.hoisted(()=>({id:"owner"}));
 vi.mock("@/lib/prisma",async()=>{
  const {PrismaClient}=await import("@prisma/client");const {mkdtempSync}=await import("node:fs");const {tmpdir}=await import("node:os");const path=await import("node:path");
@@ -10,19 +10,25 @@ vi.mock("next/cache",()=>({revalidatePath:vi.fn()}));
 vi.mock("next/headers",()=>({headers:vi.fn()}));
 vi.mock("next/navigation",()=>({redirect:vi.fn()}));
 import {prisma} from "@/lib/prisma";
+import {hashPasswordAsync} from "@/lib/auth";
 import {buildBackup,restoreBackup,updateUserRole} from "./actions";
 beforeAll(async()=>{
  await prisma.$executeRawUnsafe(`CREATE TABLE User (id TEXT NOT NULL PRIMARY KEY,role TEXT NOT NULL DEFAULT 'STUDENT',diagnosticSkipped BOOLEAN NOT NULL DEFAULT false,firstName TEXT NOT NULL,lastName TEXT NOT NULL DEFAULT '',nickname TEXT NOT NULL UNIQUE,passwordHash TEXT NOT NULL DEFAULT '',examYear INTEGER NOT NULL DEFAULT 2027,onboarded BOOLEAN NOT NULL DEFAULT false,createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,updatedAt DATETIME NOT NULL)`);
  await prisma.$executeRawUnsafe(`CREATE TABLE AuditLog (id TEXT NOT NULL PRIMARY KEY,actorId TEXT,actorName TEXT NOT NULL,actorRole TEXT NOT NULL,action TEXT NOT NULL,entityType TEXT NOT NULL,entityId TEXT,summary TEXT NOT NULL,metadataJson TEXT NOT NULL DEFAULT '{}',createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP)`);
+ await prisma.$executeRawUnsafe(readFileSync("prisma/migrations/20261018130000_nickname_case_insensitive/migration.sql","utf8"));
 });
 beforeEach(async()=>{
  await prisma.auditLog.deleteMany();await prisma.user.deleteMany();auth.id="owner";
- for(const [id,role] of [["owner","ADMIN"],["admin","ADMIN"],["editor","EDITOR"],["student","STUDENT"]])await prisma.user.create({data:{id,role,nickname:`fixture_${id}`,firstName:"Тестовий профіль",onboarded:true}});
+ const ownerPasswordHash=await hashPasswordAsync("owner-confirmation");
+ for(const [id,role] of [["owner","ADMIN"],["admin","ADMIN"],["editor","EDITOR"],["student","STUDENT"]])await prisma.user.create({data:{id,role,nickname:`fixture_${id}`,firstName:"Тестовий профіль",onboarded:true,passwordHash:id==="owner"?ownerPasswordHash:"not-owner-password"}});
 });
 afterAll(async()=>{await prisma.$disconnect();const {folder}=await import("@/lib/prisma") as unknown as {folder:string};rmSync(folder,{recursive:true,force:true});});
 describe("role changes on an isolated real database",()=>{
+ it("enforces case-insensitive nickname uniqueness in SQLite",async()=>{
+  await expect(prisma.user.create({data:{id:"duplicate",nickname:"FIXTURE_OWNER",firstName:"Duplicate"}})).rejects.toMatchObject({code:"P2002"});
+ });
  it("assigns an additional owner, gives it working administrative rights and preserves the initial owner",async()=>{
-  expect((await updateUserRole("student","OWNER")).ok).toBe(true);
+  expect((await updateUserRole("student","OWNER",{password:"owner-confirmation",nickname:"fixture_student"})).ok).toBe(true);
   expect((await prisma.user.findUniqueOrThrow({where:{id:"owner"}})).role).toBe("ADMIN");
   auth.id="student";expect((await updateUserRole("editor","ADMIN")).ok).toBe(true);
   expect((await prisma.user.findUniqueOrThrow({where:{id:"editor"}})).role).toBe("ADMIN");
@@ -39,7 +45,13 @@ describe("role changes on an isolated real database",()=>{
  });
  it("rolls a role change back if the audit record cannot be saved",async()=>{
   await prisma.$executeRawUnsafe(`CREATE TRIGGER reject_role_audit BEFORE INSERT ON AuditLog BEGIN SELECT RAISE(ABORT,'audit unavailable'); END`);
-  try{expect((await updateUserRole("student","OWNER")).ok).toBe(false);expect((await prisma.user.findUniqueOrThrow({where:{id:"student"}})).role).toBe("STUDENT");expect(await prisma.auditLog.count()).toBe(0);}finally{await prisma.$executeRawUnsafe('DROP TRIGGER reject_role_audit');}
+  try{expect((await updateUserRole("student","OWNER",{password:"owner-confirmation",nickname:"fixture_student"})).ok).toBe(false);expect((await prisma.user.findUniqueOrThrow({where:{id:"student"}})).role).toBe("STUDENT");expect(await prisma.auditLog.count()).toBe(0);}finally{await prisma.$executeRawUnsafe('DROP TRIGGER reject_role_audit');}
+ });
+ it("requires password and exact nickname confirmation before removing owner access",async()=>{
+  expect((await updateUserRole("student","OWNER",{password:"owner-confirmation",nickname:"fixture_student"})).ok).toBe(true);
+  expect((await updateUserRole("student","STUDENT",{password:"wrong",nickname:"fixture_student"})).ok).toBe(false);
+  expect((await updateUserRole("student","STUDENT",{password:"owner-confirmation",nickname:"wrong"})).ok).toBe(false);
+  expect((await updateUserRole("student","STUDENT",{password:"owner-confirmation",nickname:"fixture_student"})).ok).toBe(true);
  });
  it("rejects an editor or student attempting a role mutation",async()=>{
   for(const id of ["editor","student"]){auth.id=id;expect((await updateUserRole("admin","STUDENT")).ok).toBe(false);}

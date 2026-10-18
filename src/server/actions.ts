@@ -1394,20 +1394,34 @@ export async function saveLessonContent(topicId: string, raw: unknown): Promise<
   }catch(error){return fail(error)}
 }
 
-export async function updateUserRole(id: string, rawRole: string): Promise<ActionState> {
+export async function updateUserRole(id: string, rawRole: string, rawConfirmation?: { password?: string; nickname?: string }): Promise<ActionState> {
   try {
     const user = await administrator();
     const role = z.enum(["OWNER", "ADMIN", "EDITOR", "STUDENT"]).parse(rawRole);
+    const confirmation = z.object({ password: z.string().max(200).optional(), nickname: z.string().max(24).optional() }).parse(rawConfirmation ?? {});
     return await prisma.$transaction(async tx => {
-      const [current, target] = await Promise.all([tx.user.findUnique({where:{id:user.id}}),tx.user.findUnique({where:{id}})]);
+      const [current, target] = await Promise.all([
+        tx.user.findUnique({where:{id:user.id},select:{id:true,role:true,passwordHash:true}}),
+        tx.user.findUnique({where:{id},select:{id:true,role:true,nickname:true}}),
+      ]);
       if (!current || !target) return {ok:false as const,error:"Профіль не знайдено."};
       if (!canManageRole(current,target,role)) return {ok:false as const,error:"Недостатньо прав для цієї зміни. Власний профіль і початковий власник захищені."};
       const previousRole=effectiveRole(target);
       if(previousRole===role) return {ok:true as const,message:"Цю роль уже призначено."};
+      const ownerSensitive=role==="OWNER"||previousRole==="OWNER";
+      if(ownerSensitive) {
+        if(effectiveRole(current)!=="OWNER") return {ok:false as const,error:"Призначати та змінювати роль власника може лише власник платформи."};
+        if(!confirmation.password||!await verifyPasswordAsync(confirmation.password,current.passwordHash)) return {ok:false as const,error:"Повторно підтвердьте особу паролем власника."};
+        if(confirmation.nickname?.normalize("NFKC").toLocaleLowerCase("uk-UA")!==target.nickname.normalize("NFKC").toLocaleLowerCase("uk-UA")) return {ok:false as const,error:"Введіть нікнейм користувача для підтвердження."};
+        if(previousRole==="OWNER"&&role!=="OWNER") {
+          const owners=await tx.user.findMany({where:{OR:[{id:"owner"},{role:"OWNER"}]},select:{id:true,role:true}});
+          if(owners.filter((ownerProfile)=>effectiveRole(ownerProfile)==="OWNER").length<=1) return {ok:false as const,error:"Не можна змінити роль останнього власника платформи."};
+        }
+      }
       await tx.user.update({where:{id},data:{role}});
       await recordAudit(current,{action:"USER_ROLE_CHANGED",entityType:"user",entityId:id,metadata:{role,previousRole}},tx);
       refreshPages("/admin/users", "/admin", "/admin/audit");
       return {ok:true as const};
-    });
+    },{timeout:20000});
   } catch(error) { return fail(error); }
 }

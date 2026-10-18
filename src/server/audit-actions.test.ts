@@ -1,11 +1,13 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const mock = vi.hoisted(() => ({
+  verifyOwnerPassword: vi.fn(),
   user: vi.fn(),
   xp: vi.fn(),
   sync: vi.fn(),
   prisma: {
     $transaction: vi.fn(),
+    $queryRaw: vi.fn(),
     auditLog: { create: vi.fn() },
     flashcard: { create: vi.fn(), findUnique: vi.fn(), update: vi.fn() },
     studySession: { create: vi.fn() },
@@ -18,6 +20,10 @@ const mock = vi.hoisted(() => ({
     user: { findUnique: vi.fn(), create: vi.fn(), update: vi.fn() },
   },
 }));
+vi.mock("@/lib/auth", async () => ({
+  ...await vi.importActual<typeof import("@/lib/auth")>("@/lib/auth"),
+  verifyPasswordAsync: mock.verifyOwnerPassword,
+}));
 
 vi.mock("@/lib/prisma", () => ({ prisma: mock.prisma }));
 vi.mock("@/server/session", () => ({ getSessionUser: mock.user, createSession: vi.fn(), clearSession: vi.fn() }));
@@ -28,9 +34,11 @@ vi.mock("@/server/progress", () => ({ addXp: mock.xp, refreshAchievements: vi.fn
 vi.mock("@/server/sync", () => ({ getSettings: vi.fn(), syncPlan: mock.sync }));
 
 import { updateUserRole, buildBackup, completeOnboarding, completeReview, deleteNote, logStudyMinutes, recalculateFuturePlan, restoreBackup, reviewFlashcard, saveDraft, saveFlashcard, saveFormat, saveSchedule, setTaskStatus } from "./actions";
+import { verifyPasswordAsync } from "@/lib/auth";
 
 beforeEach(() => {
   vi.resetAllMocks();
+  vi.mocked(verifyPasswordAsync).mockImplementation(async (password, stored) => password === "owner-confirmation" && stored === "owner-password-hash");
   mock.prisma.$transaction.mockImplementation(async callback=>callback(mock.prisma));
   mock.user.mockResolvedValue({ id: "learner-a", onboarded: true });
 });
@@ -110,17 +118,17 @@ describe("personal learning data isolation", () => {
   });
 
   it("returns a useful error for a taken nickname before creating a user", async () => {
-    mock.prisma.user.findUnique.mockResolvedValue({ id: "existing-owner" });
+    mock.prisma.$queryRaw.mockResolvedValue([{ id: "existing-owner" }]);
     const result = await completeOnboarding({ firstName: "Учень", lastName: "", nickname: "owner", password: "test-pass", examYear: 2027, targetScore: 170, electiveId: "geography", intensity: "light", dailyMinutes: 75, preferredTime: "19:30", studyDays: [1, 3, 5] });
-    expect(result).toEqual({ ok: false, error: "Такий нікнейм уже зайнятий." });
+    expect(result).toEqual({ ok: false, error: "Цей нікнейм уже зайнятий." });
     expect(mock.prisma.user.create).not.toHaveBeenCalled();
   });
 });
 
 describe("administrative role management",()=>{
- const owner={id:"owner",firstName:"Власник",role:"ADMIN"};
- const learner={id:"other",firstName:"Учень",role:"STUDENT"};
- function profiles(current=owner,target=learner){mock.user.mockResolvedValue(current);mock.prisma.user.findUnique.mockImplementation(async ({where}:{where:{id:string}})=>where.id===current.id?current:where.id===target.id?target:null);}
+ const owner={id:"owner",firstName:"Власник",role:"ADMIN",passwordHash:"owner-password-hash"};
+ const learner={id:"other",firstName:"Учень",nickname:"other",role:"STUDENT"};
+ function profiles(current:{id:string;firstName:string;role:string;passwordHash?:string}=owner,target:{id:string;firstName:string;nickname:string;role:string}=learner){mock.user.mockResolvedValue(current);mock.prisma.user.findUnique.mockImplementation(async ({where}:{where:{id:string}})=>where.id===current.id?current:where.id===target.id?target:null);}
  it("does not allow a learner to grant admin access",async()=>{
   expect((await updateUserRole("other","ADMIN")).ok).toBe(false);expect(mock.prisma.user.update).not.toHaveBeenCalled();expect(mock.prisma.auditLog.create).not.toHaveBeenCalled();
  });
@@ -132,8 +140,12 @@ describe("administrative role management",()=>{
   expect((await updateUserRole("other","EDITOR")).ok).toBe(true);expect(mock.prisma.user.update).toHaveBeenCalledWith({where:{id:"other"},data:{role:"EDITOR"}});
   expect(mock.prisma.auditLog.create).toHaveBeenCalledWith({data:expect.objectContaining({actorId:"owner",actorRole:"OWNER",action:"USER_ROLE_CHANGED",entityId:"other",metadataJson:JSON.stringify({role:"EDITOR",previousRole:"STUDENT"})})});
  });
- it("allows the owner to grant the new OWNER role",async()=>{
-  profiles();expect((await updateUserRole("other","OWNER")).ok).toBe(true);expect(mock.prisma.user.update).toHaveBeenCalledWith({where:{id:"other"},data:{role:"OWNER"}});
+ it("requires owner reauthentication and explicit target nickname before granting OWNER",async()=>{
+  profiles();expect((await updateUserRole("other","OWNER")).ok).toBe(false);
+  expect((await updateUserRole("other","OWNER",{password:"owner-confirmation",nickname:"different"})).ok).toBe(false);
+  expect(mock.prisma.user.update).not.toHaveBeenCalled();
+  expect((await updateUserRole("other","OWNER",{password:"owner-confirmation",nickname:"other"})).ok).toBe(true);
+  expect(mock.prisma.user.update).toHaveBeenCalledWith({where:{id:"other"},data:{role:"OWNER"}});
  });
  it("denies an administrator attempting to grant owner or administrator access",async()=>{
   profiles({id:"admin",firstName:"Адмін",role:"ADMIN"});for(const role of ["OWNER","ADMIN"])expect((await updateUserRole("other",role)).ok).toBe(false);expect(mock.prisma.user.update).not.toHaveBeenCalled();

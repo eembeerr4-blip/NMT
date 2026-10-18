@@ -9,43 +9,156 @@ import { canManageRole, effectiveRole, ROLE_INFO, ROLE_ORDER, type Member, type 
 import { Badge, Button, Card } from "./ui";
 
 type UserRow = { id: string; firstName: string; nickname: string; role: string; createdAt?: string; onboarded?: boolean };
-export function RoleManager({ users, currentUser: providedUser, currentUserId, currentUserRole }: { currentUser?: Member; currentUserId?: string; currentUserRole?: string; users: UserRow[] }) {
-  const currentUser=providedUser??{id:currentUserId??"",role:currentUserRole??"STUDENT"};
+
+export function RoleManager({ users, currentUser: providedUser, currentUserId, currentUserRole }: {
+  currentUser?: Member; currentUserId?: string; currentUserRole?: string; users: UserRow[];
+}) {
+  const currentUser = providedUser ?? { id: currentUserId ?? "", role: currentUserRole ?? "STUDENT" };
   const router = useRouter();
   const [message, setMessage] = useState("");
   const [pendingUser, setPendingUser] = useState("");
   const [selected, setSelected] = useState<Record<string, PlatformRole>>({});
   const [confirmation, setConfirmation] = useState<{ user: UserRow; role: PlatformRole } | null>(null);
+  const [ownerPassword, setOwnerPassword] = useState("");
+  const [confirmedNickname, setConfirmedNickname] = useState("");
+  const requiresOwnerConfirmation = confirmation?.role === "OWNER" || confirmation?.user.role === "OWNER";
 
-  async function save(user: UserRow, role: PlatformRole) {
-    setPendingUser(user.id); setMessage("");
-    try {
-      const result = await updateUserRole(user.id, role);
-      setMessage(result.ok ? `Роль профілю @${user.nickname} збережено: ${ROLE_INFO[role].label}.` : result.error);
-      if(result.ok) { setConfirmation(null); router.refresh(); }
-    } catch { setMessage("Не вдалося зберегти роль. Перевірте з’єднання та спробуйте ще раз."); }
-    finally { setPendingUser(""); }
+  function requestChange(user: UserRow, role: PlatformRole) {
+    setMessage("");
+    setOwnerPassword("");
+    setConfirmedNickname("");
+    setConfirmation({ user, role });
   }
 
-  return <section className="space-y-4" aria-labelledby="profiles-title">
-    <div><h2 id="profiles-title" className="text-lg font-semibold">Профілі та їхні ролі</h2><p className="mt-1 text-sm text-muted-foreground">Оберіть роль біля потрібного профілю та натисніть «Зберегти роль».</p></div>
-    {users.length?<div className="hidden overflow-x-auto rounded-2xl border border-border bg-card lg:block"><table className="w-full text-left text-sm"><thead className="border-b border-border bg-muted/60 text-xs text-muted-foreground"><tr><th scope="col" className="px-5 py-3.5 font-medium">Профіль</th><th scope="col" className="px-5 py-3.5 font-medium">Роль</th><th scope="col" className="px-5 py-3.5 font-medium">Стан профілю</th><th scope="col" className="px-5 py-3.5 font-medium">Дата реєстрації</th><th scope="col" className="px-5 py-3.5 font-medium">Дія</th></tr></thead><tbody className="divide-y divide-border">{users.map(user=>{const role=effectiveRole(user);const choices=ROLE_ORDER.filter(next=>canManageRole(currentUser,user,next));const value=selected[user.id]??role;return <tr key={user.id} className="hover:bg-muted/30"><td className="px-5 py-4"><div className="font-semibold">{user.firstName}{user.id===currentUser.id?<span className="ml-2 text-xs font-normal text-muted-foreground">Ви</span>:null}</div><p className="mt-1 text-xs text-muted-foreground">@{user.nickname}</p></td><td className="px-5 py-4">{choices.length?<select aria-label={`Роль профілю ${user.nickname}`} disabled={Boolean(pendingUser)} value={value} onChange={event=>setSelected({...selected,[user.id]:event.target.value as PlatformRole})}>{choices.map(next=><option key={next} value={next}>{ROLE_INFO[next].label}</option>)}</select>:<Badge>{ROLE_INFO[role].label}</Badge>}</td><td className="px-5 py-4 text-muted-foreground">{user.onboarded===undefined?"—":user.onboarded?"Налаштовано":"Потрібне налаштування"}</td><td className="px-5 py-4 text-muted-foreground">{user.createdAt?new Intl.DateTimeFormat("uk-UA",{timeZone:"Europe/Kyiv"}).format(new Date(user.createdAt)):"—"}</td><td className="px-5 py-4">{choices.length?<Button variant="outline" size="sm" disabled={Boolean(pendingUser)||value===role} onClick={()=>value==="OWNER"||role==="OWNER"?setConfirmation({user,role:value}):void save(user,value)}>{pendingUser===user.id?"Збереження…":"Зберегти роль"}</Button>:<span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground"><ShieldCheck className="h-4 w-4"/>Захищений профіль</span>}</td></tr>;})}</tbody></table></div>:null}
+  async function save() {
+    if (!confirmation) return;
+    setPendingUser(confirmation.user.id);
+    setMessage("");
+    try {
+      const details = requiresOwnerConfirmation ? { password: ownerPassword, nickname: confirmedNickname } : {};
+      const result = await updateUserRole(confirmation.user.id, confirmation.role, details);
+      setMessage(result.ok
+        ? `Роль профілю @${confirmation.user.nickname} збережено: ${ROLE_INFO[confirmation.role].label}.`
+        : result.error);
+      if (result.ok) {
+        setConfirmation(null);
+        setOwnerPassword("");
+        setConfirmedNickname("");
+        router.refresh();
+      }
+    } catch {
+      setMessage("Не вдалося зберегти роль. Перевірте з’єднання та спробуйте ще раз.");
+    } finally {
+      setPendingUser("");
+    }
+  }
 
-    {users.length ? <div className="space-y-3 lg:hidden">{users.map(user=>{
-      const role=effectiveRole(user);
-      const choices=ROLE_ORDER.filter(next=>canManageRole(currentUser,user,next));
-      const value=selected[user.id] ?? role;
-      const protectedProfile=user.id===currentUser.id||user.id==="owner";
-      return <Card key={user.id} className="grid items-center gap-4 p-4 sm:grid-cols-[minmax(0,1fr)_minmax(180px,240px)_auto] sm:p-5">
-        <div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h3 className="break-words font-semibold">{user.firstName}</h3><Badge>{ROLE_INFO[role].label}</Badge>{user.id===currentUser.id?<Badge>Ваш профіль</Badge>:null}</div><p className="mt-1 break-all text-sm text-muted-foreground">@{user.nickname}</p></div>
-        {choices.length ? <label className="grid gap-1.5 text-sm"><span className="font-medium">Роль профілю</span><select aria-label={`Роль профілю ${user.nickname}`} disabled={Boolean(pendingUser)} value={value} onChange={e=>setSelected({...selected,[user.id]:e.target.value as PlatformRole})}>{choices.map(next=><option key={next} value={next}>{ROLE_INFO[next].label}</option>)}</select></label> : <p className="text-sm text-muted-foreground">{protectedProfile ? "Захищений профіль" : "Керує лише власник"}</p>}
-        {choices.length ? <Button variant="outline" disabled={Boolean(pendingUser)||value===role} onClick={()=>value==="OWNER"||role==="OWNER" ? setConfirmation({user,role:value}) : void save(user,value)}>{pendingUser===user.id?"Збереження…":"Зберегти роль"}</Button> : <ShieldCheck className="hidden h-5 w-5 justify-self-end text-muted-foreground sm:block" aria-label="Роль захищено"/>}
-      </Card>;
-    })}</div> : <Card className="space-y-2 p-6"><h3 className="font-semibold">Профілів не знайдено</h3><p className="text-sm text-muted-foreground">Оберіть іншу роль або змініть пошуковий запит.</p></Card>}
-    {message?<p role="status" className="rounded-xl border border-border bg-muted p-3 text-sm">{message}</p>:null}
-    <Dialog.Root open={Boolean(confirmation)} onOpenChange={open=>{if(!open&&!pendingUser)setConfirmation(null);}}><Dialog.Portal><Dialog.Overlay className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"/><Dialog.Content className="fixed left-1/2 top-1/2 z-50 w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 space-y-4 rounded-2xl border border-border bg-card p-6 shadow-xl">
-      <Dialog.Title className="text-lg font-semibold">Підтвердження зміни доступу</Dialog.Title><Dialog.Description className="text-sm leading-6 text-muted-foreground">{confirmation?.role==="OWNER" ? `Профіль @${confirmation.user.nickname} отримає повний доступ власника, включно з призначенням інших власників.` : `Профіль @${confirmation?.user.nickname} втратить права власника та отримає роль «${confirmation ? ROLE_INFO[confirmation.role].label : ""}».`}</Dialog.Description>
-      <div className="flex flex-wrap justify-end gap-2"><Button variant="ghost" disabled={Boolean(pendingUser)} onClick={()=>setConfirmation(null)}>Скасувати</Button><Button disabled={Boolean(pendingUser)} onClick={()=>{if(confirmation)void save(confirmation.user,confirmation.role);}}>{pendingUser?"Збереження…":"Підтвердити зміну"}</Button></div>{message?<p role="status" className="text-sm">{message}</p>:null}
-    </Dialog.Content></Dialog.Portal></Dialog.Root>
-  </section>;
+  const ownerConfirmNameMatches = confirmedNickname.normalize("NFKC").toLocaleLowerCase("uk-UA")
+    === confirmation?.user.nickname.normalize("NFKC").toLocaleLowerCase("uk-UA");
+
+  return (
+    <section className="space-y-4" aria-labelledby="profiles-title">
+      <div>
+        <h2 id="profiles-title" className="text-lg font-semibold">Профілі та їхні ролі</h2>
+        <p className="mt-1 text-sm text-muted-foreground">Змініть роль вибраного профілю та підтвердьте дію.</p>
+      </div>
+
+      {users.length ? (
+        <div className="hidden overflow-x-auto rounded-2xl border border-border bg-card lg:block">
+          <table className="w-full text-left text-sm">
+            <thead className="border-b border-border bg-muted/60 text-xs text-muted-foreground">
+              <tr>
+                <th scope="col" className="px-5 py-3.5 font-medium">Профіль</th>
+                <th scope="col" className="px-5 py-3.5 font-medium">Роль</th>
+                <th scope="col" className="px-5 py-3.5 font-medium">Стан профілю</th>
+                <th scope="col" className="px-5 py-3.5 font-medium">Дата реєстрації</th>
+                <th scope="col" className="px-5 py-3.5 font-medium">Дія</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-border">
+              {users.map((user) => {
+                const role = effectiveRole(user);
+                const choices = ROLE_ORDER.filter((next) => canManageRole(currentUser, user, next));
+                const value = selected[user.id] ?? role;
+                return (
+                  <tr key={user.id} className="hover:bg-muted/30">
+                    <td className="px-5 py-4">
+                      <div className="font-semibold">{user.firstName}{user.id === currentUser.id ? <span className="ml-2 text-xs font-normal text-muted-foreground">Ви</span> : null}</div>
+                      <p className="mt-1 text-xs text-muted-foreground">@{user.nickname}</p>
+                    </td>
+                    <td className="px-5 py-4">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <Badge>{ROLE_INFO[role].label}</Badge>
+                        {choices.length ? <select aria-label={`Нова роль профілю ${user.nickname}`} disabled={Boolean(pendingUser)} value={value} onChange={(event) => setSelected({ ...selected, [user.id]: event.target.value as PlatformRole })}>
+                          {choices.map((next) => <option key={next} value={next}>{ROLE_INFO[next].label}</option>)}
+                        </select> : null}
+                      </div>
+                    </td>
+                    <td className="px-5 py-4"><Badge className={user.onboarded ? "text-emerald-700 dark:text-emerald-300" : "text-amber-700 dark:text-amber-300"}>{user.onboarded === undefined ? "Невідомо" : user.onboarded ? "Налаштовано" : "Не завершено"}</Badge></td>
+                    <td className="px-5 py-4 text-muted-foreground">{user.createdAt ? new Intl.DateTimeFormat("uk-UA", { timeZone: "Europe/Kyiv" }).format(new Date(user.createdAt)) : "—"}</td>
+                    <td className="px-5 py-4">
+                      {choices.length ? <Button variant="outline" size="sm" disabled={Boolean(pendingUser) || value === role} onClick={() => requestChange(user, value)}>{pendingUser === user.id ? "Збереження…" : "Змінити роль"}</Button> : <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground"><ShieldCheck className="h-4 w-4" />Захищений профіль</span>}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      ) : null}
+
+      {users.length ? (
+        <div className="space-y-3 lg:hidden">
+          {users.map((user) => {
+            const role = effectiveRole(user);
+            const choices = ROLE_ORDER.filter((next) => canManageRole(currentUser, user, next));
+            const value = selected[user.id] ?? role;
+            return (
+              <Card key={user.id} className="grid items-center gap-4 p-4">
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-2"><h3 className="break-words font-semibold">{user.firstName}</h3><Badge>{ROLE_INFO[role].label}</Badge>{user.id === currentUser.id ? <Badge>Ваш профіль</Badge> : null}</div>
+                  <p className="mt-1 break-all text-sm text-muted-foreground">@{user.nickname}</p>
+                </div>
+                {choices.length ? <label className="grid gap-1.5 text-sm"><span className="font-medium">Нова роль</span><select aria-label={`Нова роль профілю ${user.nickname}`} disabled={Boolean(pendingUser)} value={value} onChange={(event) => setSelected({ ...selected, [user.id]: event.target.value as PlatformRole })}>{choices.map((next) => <option key={next} value={next}>{ROLE_INFO[next].label}</option>)}</select></label> : <p className="text-sm text-muted-foreground">{user.id === currentUser.id || user.id === "owner" ? "Захищений профіль" : "Керує лише власник"}</p>}
+                {choices.length ? <Button variant="outline" disabled={Boolean(pendingUser) || value === role} onClick={() => requestChange(user, value)}>{pendingUser === user.id ? "Збереження…" : "Змінити роль"}</Button> : null}
+              </Card>
+            );
+          })}
+        </div>
+      ) : (
+        <Card className="space-y-2 p-6"><h3 className="font-semibold">Профілів не знайдено</h3><p className="text-sm text-muted-foreground">Змініть фільтри пошуку.</p></Card>
+      )}
+
+      {message ? <p role="status" className="rounded-xl border border-border bg-muted p-3 text-sm">{message}</p> : null}
+      <Dialog.Root open={Boolean(confirmation)} onOpenChange={(open) => {
+        if (!open && !pendingUser) {
+          setConfirmation(null);
+          setOwnerPassword("");
+          setConfirmedNickname("");
+        }
+      }}>
+        <Dialog.Portal>
+          <Dialog.Overlay className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm" />
+          <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-[90vh] w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 space-y-4 overflow-y-auto rounded-2xl border border-border bg-card p-6 shadow-xl">
+            <Dialog.Title className="text-lg font-semibold">{confirmation?.role === "OWNER" ? "Призначити роль користувачу" : "Підтвердити зміну ролі"}</Dialog.Title>
+            <Dialog.Description className="text-sm leading-6 text-muted-foreground">
+              Профіль <strong>@{confirmation?.user.nickname}</strong>: {confirmation ? ROLE_INFO[effectiveRole(confirmation.user)].label : ""} → {confirmation ? ROLE_INFO[confirmation.role].label : ""}.
+            </Dialog.Description>
+            {requiresOwnerConfirmation ? (
+              <div className="space-y-3 rounded-xl border border-amber-500/40 bg-amber-500/5 p-3">
+                <p className="text-sm font-medium">Критична зміна доступу власника. Повторно підтвердьте особу та нікнейм.</p>
+                <label className="grid gap-1.5 text-sm"><span>Пароль власника</span><input type="password" autoComplete="current-password" value={ownerPassword} onChange={(event) => setOwnerPassword(event.target.value)} /></label>
+                <label className="grid gap-1.5 text-sm"><span>Введіть нікнейм @{confirmation?.user.nickname}</span><input value={confirmedNickname} onChange={(event) => setConfirmedNickname(event.target.value)} autoComplete="off" /></label>
+              </div>
+            ) : null}
+            <div className="flex flex-wrap justify-end gap-2">
+              <Button variant="ghost" disabled={Boolean(pendingUser)} onClick={() => setConfirmation(null)}>Скасувати</Button>
+              <Button disabled={Boolean(pendingUser) || (requiresOwnerConfirmation && (!ownerPassword || !ownerConfirmNameMatches))} onClick={() => void save()}>{pendingUser ? "Збереження…" : "Підтвердити зміну"}</Button>
+            </div>
+            {message ? <p role="alert" className="text-sm text-danger-text">{message}</p> : null}
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
+    </section>
+  );
 }
