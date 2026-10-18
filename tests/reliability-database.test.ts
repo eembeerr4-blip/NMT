@@ -17,10 +17,23 @@ import {initializeSQLite} from "@/lib/sqlite-init";
 import {DEFAULT_FORMAT,DEFAULT_SCHEDULE,SUBJECTS} from "@/lib/constants";
 import {dateKey,addDateKeys} from "@/lib/dates";
 import {gradeAnswer} from "@/lib/grade";
-import {finishAttempt,saveDraft,changeElective,recalculateFuturePlan,moveTask,saveQuestion,completeLesson} from "@/server/actions";
+import {finishAttempt,saveDraft,changeElective,recalculateFuturePlan,moveTask,saveQuestion,completeLesson,saveVideoPosition} from "@/server/actions";
 import {syncPlanWithClient} from "@/server/sync";
 
 async function counts(){return {answers:await prisma.answer.count(),mistakes:await prisma.mistake.count(),progress:await prisma.userTopicProgress.count(),reviews:await prisma.reviewSchedule.count(),sessions:await prisma.studySession.count(),xp:await prisma.xpEvent.count()};}
+it("A15: student playback cannot change shared video duration; positions are bounded and private",async()=>{
+ await prisma.videoLesson.create({data:{id:"QA-playback",topicId:"topic",title:"QA-playback",url:"https://example.invalid/video",youtubeId:"QA-video",durationSec:null}});
+ expect((await saveVideoPosition("QA-playback",12.9,100)).ok).toBe(true);
+ expect((await prisma.videoLesson.findUniqueOrThrow({where:{id:"QA-playback"}})).durationSec).toBeNull();
+ expect((await prisma.userVideoProgress.findUniqueOrThrow({where:{userId_videoId:{userId:"A",videoId:"QA-playback"}}})).lastPositionSec).toBe(12);
+ expect((await saveVideoPosition("QA-playback",1000000,1000000)).ok).toBe(true);
+ expect((await prisma.userVideoProgress.findUniqueOrThrow({where:{userId_videoId:{userId:"A",videoId:"QA-playback"}}})).lastPositionSec).toBe(86400);
+ await prisma.videoLesson.update({where:{id:"QA-playback"},data:{durationSec:80}});
+ auth.id="B";expect((await saveVideoPosition("QA-playback",90)).ok).toBe(true);
+ expect((await prisma.userVideoProgress.findUniqueOrThrow({where:{userId_videoId:{userId:"B",videoId:"QA-playback"}}})).lastPositionSec).toBe(80);
+ expect((await prisma.userVideoProgress.findUniqueOrThrow({where:{userId_videoId:{userId:"A",videoId:"QA-playback"}}})).lastPositionSec).toBe(86400);
+ for(const value of [-1,NaN,Infinity])expect((await saveVideoPosition("QA-playback",value)).ok).toBe(false);
+});
 beforeAll(async()=>{
  const {database}=await import("@/lib/prisma") as unknown as {database:string};writeFileSync(database,"");
  execFileSync(process.execPath,[path.join(process.cwd(),"node_modules/prisma/build/index.js"),"migrate","deploy"],{env:{...process.env,DATABASE_URL:"file:"+database.replaceAll("\\","/")},stdio:"pipe",timeout:60000});await initializeSQLite(prisma);

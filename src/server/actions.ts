@@ -197,9 +197,10 @@ export async function saveVideoPosition(id: string, seconds: number, durationSec
     const user = await actor();
     if (!Number.isFinite(seconds) || seconds < 0) return { ok: false, error: "Некоректна позиція відео." };
     const video = await prisma.videoLesson.findUniqueOrThrow({ where: { id } });
-    const position = Math.floor(Math.min(seconds, video.durationSec || 86400));
+    // The player's duration is untrusted metadata, never a shared-content update.
+    void durationSec;
+    const position = Math.floor(Math.min(seconds, video.durationSec ?? 86400));
     await prisma.userVideoProgress.upsert({ where: { userId_videoId: { userId: user.id, videoId: id } }, update: { lastPositionSec: position }, create: { userId: user.id, videoId: id, lastPositionSec: position } });
-    if (durationSec && Number.isFinite(durationSec) && durationSec > 0 && durationSec < 86400 && !video.durationSec) await prisma.videoLesson.update({ where: { id }, data: { durationSec: Math.round(durationSec) } });
     return { ok: true };
   } catch(error) { return fail(error); }
 }
