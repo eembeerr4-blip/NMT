@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Reports and frozen QA source snapshots are not application source.
+    "audit/**",
   ]),
 ]);
 

@@ -18,4 +18,6 @@ Scope: C01–C09. C10 deferred: the explicit instruction “onboarding не ру
 
 Sequence: isolated QA schema deployment → implementation → unit/integration fault/race/ownership → tsc --noEmit --incremental false / lint / isolated npm test → Chrome → commit SHA → merge only after acceptance. No push. No production migration/restore.
 
+Tooling: exclude audit/ from TypeScript and ESLint application checks. Existing audit/ contains frozen copies of older source trees; compiling them against current aliases would produce unrelated failures after merge. Real tests remain included under src/ and tests/.
+
 Artifacts: audit/patches, audit/tests, audit/merge-plan.md. Record actual results and remaining limits, never transfer the old 504-row matrix to PASS without executing it.
