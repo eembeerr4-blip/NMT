@@ -2,7 +2,7 @@ import Link from "next/link";
 import { dateKey, formatUk } from "@/lib/dates";
 import { prisma } from "@/lib/prisma";
 import { Card, EmptyState, PageHeader } from "@/components/ui";
-import { completeReview, reviewFlashcard, saveFlashcard } from "@/server/actions";
+import { FlashcardForm, ReviewControls } from "@/components/review-controls";
 import { requireUser } from "@/server/session";
 
 export default async function ReviewPage() {
@@ -35,19 +35,10 @@ export default async function ReviewPage() {
             <div className="text-xs text-muted-foreground">{({formula:"Формула",date:"Дата",person:"Персоналія",term:"Термін",rule:"Правило"} as Record<string,string>)[card.kind] ?? "Картка"}</div>
             <div className="font-medium">{card.front}</div>
             <div className="text-sm">{card.back}</div>
-            <div className="mt-2 flex gap-2">
-              <form action={async () => { "use server"; await reviewFlashcard(card.id, "again"); }}><button className="text-sm underline" type="submit">Повторити</button></form>
-              <form action={async () => { "use server"; await reviewFlashcard(card.id, "good"); }}><button className="text-sm underline" type="submit">Знаю</button></form>
-            </div>
+            <div className="mt-2"><ReviewControls id={card.id} card /></div>
           </div>
         ))}
-        <form action={async (formData) => { "use server"; const topic = topics.find((item) => item.id === String(formData.get("topicId"))); await saveFlashcard({ topicId: topic?.id, subjectId: topic?.subjectId, kind: String(formData.get("kind") ?? "term"), front: String(formData.get("front") ?? ""), back: String(formData.get("back") ?? "") }); }} className="grid gap-2">
-          <select name="topicId" className="h-10 rounded-lg border border-border bg-card px-2 text-sm">{topics.map((topic) => <option key={topic.id} value={topic.id}>{topic.title}</option>)}</select>
-          <select name="kind" className="h-10 rounded-lg border border-border bg-card px-2 text-sm"><option value="formula">Формула</option><option value="date">Дата</option><option value="person">Персоналія</option><option value="term">Термін</option><option value="rule">Правило</option></select>
-          <input name="front" placeholder="Лицьовий бік" className="h-10 rounded-lg border border-border bg-card px-3 text-sm" required />
-          <input name="back" placeholder="Зворотний бік" className="h-10 rounded-lg border border-border bg-card px-3 text-sm" required />
-          <button className="justify-self-start rounded-lg border border-border px-3 py-2 text-sm" type="submit">Додати картку</button>
-        </form>
+        <FlashcardForm topics={topics} />
       </Card>
       <Card className="p-4">
         <h2 className="font-medium">Історія повторень</h2>
@@ -66,7 +57,7 @@ function Section({ title, items, empty }: { title: string; items: { id: string; 
         <div key={item.id} className="flex flex-wrap items-center justify-between gap-2 text-sm">
           <Link href={`/topics/${item.topicId}`} className="underline">{item.topic.title}</Link>
           <span className="text-muted-foreground">{item.dueKey}{item.priority > 1 ? " · високий пріоритет" : ""}</span>
-          <form action={async () => { "use server"; await completeReview(item.id); }}><button className="underline" type="submit">Позначено</button></form>
+          <ReviewControls id={item.id} />
         </div>
       ))}
     </Card>

@@ -1,22 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useActionFeedback } from "./use-action-feedback";
 import { ELECTIVE_SUBJECT_IDS, SUBJECTS } from "@/lib/constants";
-import { changeElective, type ActionState } from "@/server/actions";
+import { changeElective } from "@/server/actions";
 import { Button } from "./ui";
 
 export function ElectiveForm({ elective }: { elective?: string }) {
-  const [result, setResult] = useState<ActionState | null>(null);
-  const [pending, setPending] = useState(false);
+  const {pending,result,run}=useActionFeedback();
   return <form className="space-y-3" onSubmit={async event => {
     event.preventDefault();
     if(pending) return;
     const form = new FormData(event.currentTarget);
-    setPending(true);
-    setResult(null);
-    try { setResult(await changeElective(String(form.get("subjectId") ?? ""), form.get("confirm") === "on")); }
-    catch { setResult({ok:false,error:"Не вдалося змінити предмет. Перевірте з’єднання та спробуйте ще раз."}); }
-    finally { setPending(false); }
+    await run(() => changeElective(String(form.get("subjectId") ?? ""), form.get("confirm") === "on"));
   }}>
     <fieldset disabled={pending} className="flex flex-wrap items-center gap-2">
       <label className="grid gap-1 text-sm">Новий предмет

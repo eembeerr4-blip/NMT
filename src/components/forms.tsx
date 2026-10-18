@@ -9,6 +9,7 @@ import { SUBJECTS } from "@/lib/constants";
 import { examResultSchema, preferencesSchema } from "@/lib/validators";
 import { createCustomTask, createTopic, importQuestions, logStudyMinutes, saveExamResult, saveFormat, saveNote, savePreferences, saveQuestion, saveSchedule, startExam, startTopicTest, updateTopic } from "@/server/actions";
 import { Button, Input, Textarea } from "@/components/ui";
+import { useActionFeedback } from "./use-action-feedback";
 
 type ResultValues = z.infer<typeof examResultSchema>;
 
@@ -390,21 +391,21 @@ export function StudyLogForm({ subjectId, topicId }: { subjectId?: string; topic
 }
 
 export function CustomTaskForm({ dateKey }: { dateKey: string }) {
-  const [message, setMessage] = useState("");
+  const router=useRouter();
+  const {pending,result,run}=useActionFeedback();
   return (
     <form className="grid gap-2 sm:grid-cols-[1fr_140px_auto]" onSubmit={async (event) => {
       event.preventDefault();
       const submittedForm = event.currentTarget;
       const form = new FormData(submittedForm);
-      const result = await createCustomTask({ dateKey: String(form.get("date") || dateKey), title: String(form.get("title") ?? ""), durationMin: Number(form.get("minutes") ?? 30), subjectId: String(form.get("subjectId") || "") || undefined });
-      setMessage(result.ok ? "Заняття додано." : result.error);
+      await run(() => createCustomTask({ dateKey: String(form.get("date") || dateKey), title: String(form.get("title") ?? ""), durationMin: Number(form.get("minutes") ?? 30), subjectId: String(form.get("subjectId") || "") || undefined }),()=>router.refresh());
     }}>
       <Input name="title" placeholder="Власне заняття" required />
       <Input name="minutes" type="number" min={0} defaultValue={30} />
       <input type="date" name="date" defaultValue={dateKey} className="h-10 rounded-lg border border-border bg-card px-3 text-sm" />
       <SubjectSelect optional />
-      <Button type="submit">Додати</Button>
-      {message ? <p className="text-sm text-muted-foreground sm:col-span-3">{message}</p> : null}
+      <Button type="submit" disabled={pending}>{pending?"Збереження…":"Додати"}</Button>
+      {result ? <p role={result.ok?"status":"alert"} className="text-sm text-muted-foreground sm:col-span-3">{result.ok?"Заняття додано.":result.error}</p> : null}
     </form>
   );
 }
