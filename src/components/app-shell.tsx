@@ -98,11 +98,6 @@ export function AppShell({ children, name, isAdmin = false, isOwner = false, isE
           <p className="px-3 pb-2 pt-6 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">Особисте</p>
           {secondaryItems.filter(item=>["/calendar","/mistakes","/settings"].includes(item.href)).map((item) => <NavigationLink key={item.href} {...item} pathname={pathname} />)}
           <details className="pt-1"><summary className="cursor-pointer rounded-xl px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-muted">Ще розділи</summary><div className="mt-1 space-y-1">{secondaryItems.filter(item=>!["/calendar","/mistakes","/settings"].includes(item.href)).map(item=><NavigationLink key={item.href} {...item} pathname={pathname}/>)}</div></details>
-          {isAdmin ? (
-            <div className="mt-5 border-t border-border pt-4">
-              <NavigationLink href="/admin" label="Адмінпанель" icon={Settings} pathname={pathname} />
-            </div>
-          ) : null}
         </nav>
         <div className="border-t border-border p-4">
           <div className="truncate text-sm font-medium">{name ?? "Учень"}</div>
@@ -130,7 +125,6 @@ export function AppShell({ children, name, isAdmin = false, isOwner = false, isE
                         <NavigationLink {...item} pathname={pathname} />
                       </Dialog.Close>
                     ))}
-                    {isAdmin ? <Dialog.Close asChild><NavigationLink href="/admin" label={isOwner ? "Центр керування" : "Адмінпанель"} icon={Settings} pathname={pathname} /></Dialog.Close> : null}
                   </nav>
                 </Dialog.Content>
               </Dialog.Portal>
