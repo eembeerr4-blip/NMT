@@ -6,7 +6,7 @@ if(url.hostname!=="127.0.0.1"||url.protocol!=="http:"||Number(url.port)<3100)thr
 export default defineConfig({
   testDir:"e2e/beta",workers:1,fullyParallel:false,timeout:45000,
   outputDir:"test-results/beta",
-  reporter:[["list"],["json",{outputFile:"audit/reports/01-playwright.json"}]],
+  reporter:[["list"],["json",{outputFile:`audit/reports/${process.env.NMT_BETA_STAGE??"01"}-playwright.json`}]],
   use:{baseURL,channel:"chrome",headless:true,trace:"retain-on-failure",screenshot:"only-on-failure"},
   projects:[{name:"desktop",use:{viewport:{width:1440,height:900}}},{name:"mobile",use:{viewport:{width:390,height:844}}}],
   // No webServer: never invoke the legacy 3000 server or content seed.
