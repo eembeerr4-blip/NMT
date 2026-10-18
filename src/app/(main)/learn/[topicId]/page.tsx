@@ -52,9 +52,9 @@ export default async function LessonPage({ params }: { params: Promise<{ topicId
               <h2 className="font-semibold">Матеріал уроку</h2>
               <MathText text={lesson?.theory || topic.summary || "Матеріалу ще немає."} />
               {topic.formulas ? <div><h3 className="mb-1 text-sm font-medium">Формули</h3><MathText text={topic.formulas} /></div> : null}
-              {lesson?.rules.length ? <div><h3 className="mb-1 text-sm font-medium">Правила</h3><ul className="list-disc space-y-1 pl-5 text-sm">{lesson.rules.map((rule) => <li key={rule}>{rule}</li>)}</ul></div> : null}
+              {lesson?.rules.length ? <div><h3 className="mb-1 text-sm font-medium">Правила</h3><ul className="list-disc space-y-1 pl-5 text-sm">{lesson.rules.map((rule) => <li key={rule}><MathText text={rule} /></li>)}</ul></div> : null}
             </Card>
-            {lesson ? <Card className="space-y-2 p-4 text-sm"><h2 className="font-medium">Типові помилки</h2><ul className="list-disc space-y-1 pl-5">{lesson.mistakes.map((item) => <li key={item}>{item}</li>)}</ul><h2 className="pt-2 font-medium">Коротко</h2><p>{lesson.summary}</p></Card> : null}
+            {lesson ? <Card className="space-y-2 p-4 text-sm"><h2 className="font-medium">Типові помилки</h2><ul className="list-disc space-y-1 pl-5">{lesson.mistakes.map((item) => <li key={item}><MathText text={item} /></li>)}</ul><h2 className="pt-2 font-medium">Коротко</h2><MathText text={lesson.summary} /></Card> : null}
             {lesson?.sources?.length ? <Card className="space-y-2 p-4 text-sm"><h2 className="font-medium">Джерела</h2>{lesson.sources.map((source) => <a key={source.url} className="block underline" href={source.url} target="_blank" rel="noreferrer">{source.title}</a>)}</Card> : null}
           </div>}
           examples={lesson?.examples.length ? <Card className="space-y-3 p-4">

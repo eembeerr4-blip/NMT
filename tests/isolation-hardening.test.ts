@@ -4,7 +4,7 @@ import {writeFileSync,unlinkSync,rmdirSync,existsSync} from "node:fs";
 import path from "node:path";
 const auth=vi.hoisted(()=>({id:"learner-a"}));
 vi.mock("@/lib/prisma",async()=>{const {PrismaClient}=await import("@prisma/client");const {mkdtempSync}=await import("node:fs");const {tmpdir}=await import("node:os");const path=await import("node:path");const folder=mkdtempSync(path.join(tmpdir(),"nmt-hardening-"));const database=path.join(folder,"isolated.db");return {prisma:new PrismaClient({datasources:{db:{url:"file:"+database.replaceAll("\\","/")}}}),folder,database};});
-vi.mock("@/server/session",()=>({getSessionUser:()=>prisma.user.findUnique({where:{id:auth.id}}),requireUser:()=>prisma.user.findUniqueOrThrow({where:{id:auth.id}}),createSession:vi.fn(),clearSession:vi.fn()}));
+vi.mock("@/server/session",()=>({getSessionUser:()=>prisma.user.findUnique({where:{id:auth.id},include:{subjects:true}}),requireUser:()=>prisma.user.findUniqueOrThrow({where:{id:auth.id},include:{subjects:true}}),createSession:vi.fn(),clearSession:vi.fn()}));
 vi.mock("next/cache",()=>({revalidatePath:vi.fn()}));
 vi.mock("next/headers",()=>({headers:vi.fn()}));
 vi.mock("next/navigation",()=>({redirect:vi.fn(),notFound:()=>{throw new Error("NOT_FOUND")},useRouter:vi.fn()}));
@@ -29,6 +29,7 @@ beforeAll(async()=>{
  const fixture=await import("@/lib/prisma") as unknown as {database:string};writeFileSync(fixture.database,"");execFileSync(process.execPath,[path.join(process.cwd(),"node_modules/prisma/build/index.js"),"migrate","deploy"],{env:{...process.env,DATABASE_URL:"file:"+fixture.database.replaceAll("\\","/")},stdio:"pipe",timeout:60000});await initializeSQLite(prisma);
  for(const id of ["owner","learner-a","learner-b"]){await prisma.user.create({data:{id,nickname:id,firstName:id,onboarded:true,role:id==="owner"?"ADMIN":"STUDENT",passwordHash:"QA-only-unused-hash"}});await prisma.userSettings.create({data:{id:id==="owner"?"default":id,userId:id,mathPriority:id==="owner"?99:id==="learner-b"?17:35,scheduleJson:JSON.stringify(DEFAULT_SCHEDULE),formatJson:JSON.stringify(DEFAULT_FORMAT)}});}
  await prisma.subject.create({data:{id:"math",name:"Математика",shortName:"Математика",description:"QA",color:"#000",sortOrder:0}});
+ for(const userId of ["owner","learner-a","learner-b"])await prisma.userSubject.create({data:{userId,subjectId:"math",role:"mandatory",active:true}});
  await prisma.topic.create({data:{id:"qa-topic",subjectId:"math",title:"QA topic",sortOrder:0}});
  await prisma.question.create({data:{id:"qa-question",subjectId:"math",topicId:"qa-topic",type:"NUMERIC",difficulty:"EASY",prompt:"2+2",correctAnswer:"4",explanation:"4",verificationStatus:"VERIFIED"}});
  await prisma.test.create({data:{id:"qa-test",subjectId:"math",topicId:"qa-topic",title:"PRIVATE_A_ATTEMPT",kind:"TOPIC",questions:{create:{questionId:"qa-question",sortOrder:0}}}});

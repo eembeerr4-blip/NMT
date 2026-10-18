@@ -18,7 +18,9 @@
     "content:audit": "tsx prisma/content-audit.ts",
     "db:upgrade:audit": "node prisma/upgrade-audit.mjs --production",
     "postinstall": "node scripts/localize-next-devtools.cjs",
-    "predev": "node scripts/localize-next-devtools.cjs"
+    "predev": "node scripts/localize-next-devtools.cjs",
+    "content:verify:math": "tsx scripts/verify-math-content.ts",
+    "content:upgrade:math": "tsx prisma/upgrade-math-content.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
