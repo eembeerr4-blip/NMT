@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 
 export const AUDIT_ACTIONS = {
   SYSTEM_AUDIT_ENABLED: "Журнал увімкнено",
+  USER_CREATED: "Створено профіль",
   AUTH_LOGIN_FAILED: "Невдала спроба входу",
   AUTH_LOGIN: "Вхід до профілю", AUTH_LOGOUT: "Вихід із профілю",
   VIDEO_ADDED: "Додано або підтверджено відео", VIDEO_UPDATED: "Оновлено відео",

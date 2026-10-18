@@ -21,6 +21,7 @@ import { parseYouTubeId, searchYouTube as searchYouTubeApi, youtubeSearchUrl, yo
 import { personalSchedule } from "@/lib/plan";
 import { relocationMode } from "@/lib/shift";
 import { hashPasswordAsync, verifyPasswordAsync, DUMMY_HASH } from "@/lib/auth";
+import { isValidNickname, normalizeNickname } from "@/lib/nickname";
 import { addXp, refreshAchievements } from "@/server/progress";
 import { isLocked, registerFail, clearFails } from "@/lib/login-throttle";
 import { clearSession, createSession, getSessionUser } from "@/server/session";
@@ -1147,9 +1148,10 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
 }
 
 export async function login(nickname: string, password: string, rememberMe = false) {
-  const key = nickname.trim().toLowerCase();
+  const key = normalizeNickname(nickname);
   if(isLocked(key))return {ok:false as const,error:"Забагато спроб. Спробуйте за 15 хвилин."};
-  const user=await prisma.user.findUnique({where:{nickname:key}});
+  const [match]=await prisma.$queryRaw<{id:string}[]>`SELECT "id" FROM "User" WHERE "nickname" = ${key} COLLATE NOCASE LIMIT 1`;
+  const user=match?await prisma.user.findUnique({where:{id:match.id}}):null;
   const valid=await verifyPasswordAsync(password,user?.passwordHash||DUMMY_HASH);
   if(!user||!user.passwordHash||!valid){
     registerFail(key);
@@ -1193,10 +1195,10 @@ export async function completeOnboarding(input: {
   studyDays: number[];
 }) {
   if (input.firstName.trim().length < 2) return { ok: false as const, error: "Вкажіть ім'я." };
-  if (!/^[a-z0-9_-]{3,24}$/i.test(input.nickname.trim())) return { ok: false as const, error: "Нікнейм: 3–24 латинські літери, цифри, _ або -." };
+  if (!isValidNickname(input.nickname)) return { ok: false as const, error: "Нікнейм: 3–24 латинські літери, цифри, _ або -." };
   if (input.password.length < 8) return { ok: false as const, error: "Пароль має містити щонайменше 8 символів." };
   if (!ELECTIVE_SUBJECT_IDS.includes(input.electiveId as never)) return { ok: false as const, error: "Оберіть один предмет на вибір." };
-  const nickname = input.nickname.trim().toLowerCase();
+  const nickname = normalizeNickname(input.nickname);
   if (!Number.isInteger(input.examYear) || input.examYear < 2026 || input.examYear > 2100) return { ok: false as const, error: "Перевірте рік НМТ." };
   if (!Number.isInteger(input.targetScore) || input.targetScore < 100 || input.targetScore > 200) return { ok: false as const, error: "Цільовий бал має бути від 100 до 200." };
   if (!Number.isInteger(input.dailyMinutes) || input.dailyMinutes < 15 || input.dailyMinutes > 720 || !/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(input.preferredTime)) return { ok: false as const, error: "Перевірте час і тривалість занять." };
@@ -1204,13 +1206,21 @@ export async function completeOnboarding(input: {
   const signedIn = await getSessionUser();
   // Password material is intentionally excluded from session users.
   const existing = signedIn && !signedIn.onboarded ? await prisma.user.findUnique({ where: { id: signedIn.id } }) : null;
-  const taken = await prisma.user.findUnique({ where: { nickname } });
-  if (taken && taken.id !== existing?.id) return { ok: false as const, error: "Такий нікнейм уже зайнятий." };
+  const [taken] = await prisma.$queryRaw<{id:string}[]>`SELECT "id" FROM "User" WHERE "nickname" = ${nickname} COLLATE NOCASE LIMIT 1`;
+  if (taken && taken.id !== existing?.id) return { ok: false as const, error: "Цей нікнейм уже зайнятий." };
   let user;
   try {
-    user = existing ?? await prisma.user.create({ data: { firstName: input.firstName.trim(), nickname, passwordHash: await hashPasswordAsync(input.password), examYear: input.examYear, lastName: input.lastName.trim() } });
+    if (existing) user = existing;
+    else {
+      const passwordHash = await hashPasswordAsync(input.password);
+      user = await prisma.$transaction(async (tx) => {
+        const created = await tx.user.create({ data: { firstName: input.firstName.trim(), nickname, passwordHash, examYear: input.examYear, lastName: input.lastName.trim() } });
+        await recordAudit(null, { action: "USER_CREATED", entityType: "user", entityId: created.id, metadata: { role: "STUDENT" } }, tx);
+        return created;
+      });
+    }
   } catch (error) {
-    if ((error as { code?: string }).code === "P2002") return { ok: false as const, error: "Такий нікнейм уже зайнятий." };
+    if ((error as { code?: string }).code === "P2002") return { ok: false as const, error: "Цей нікнейм уже зайнятий." };
     throw error;
   }
   await prisma.user.update({
