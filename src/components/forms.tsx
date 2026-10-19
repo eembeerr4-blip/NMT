@@ -371,17 +371,16 @@ export function NoteForm({ topics, note, defaultTopicId }: { topics: { id: strin
 }
 
 export function StudyLogForm({ subjectId, topicId }: { subjectId?: string; topicId?: string }) {
-  const [message, setMessage] = useState("");
+  const {pending,result,run}=useActionFeedback();
   return (
     <form className="flex flex-wrap gap-2" onSubmit={async (event) => {
       event.preventDefault();
       const minutes = Number(new FormData(event.currentTarget).get("minutes"));
-      const result = await logStudyMinutes({ subjectId, topicId, minutes });
-      setMessage(result.ok ? "Час записано." : result.error);
+      await run(()=>logStudyMinutes({ subjectId, topicId, minutes }));
     }}>
-      <Input name="minutes" type="number" min={1} placeholder="Хвилини" className="w-32" required />
-      <Button type="submit" variant="outline">Записати час</Button>
-      {message ? <span className="text-sm text-muted-foreground">{message}</span> : null}
+      <label className="grid gap-1 text-sm"><span>Тривалість, хв</span><Input name="minutes" type="number" min={1} placeholder="Хвилини" className="w-32" required disabled={pending}/></label>
+      <Button type="submit" variant="outline" disabled={pending}>{pending?"Збереження…":"Записати час"}</Button>
+      {result ? <span role={result.ok?"status":"alert"} className="text-sm text-muted-foreground">{result.ok?"Час записано.":result.error}</span> : null}
     </form>
   );
 }

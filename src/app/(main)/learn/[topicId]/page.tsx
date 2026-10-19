@@ -71,6 +71,6 @@ export default async function LessonPage({ params }: { params: Promise<{ topicId
       <div>{previous?<Link className="d04-neighbor" href={`/learn/${previous.id}`}><ArrowLeft aria-hidden="true"/><span>Попередня тема<small>{previous.title}</small></span></Link>:<><Button className="d04-neighbor" variant="outline" disabled><ArrowLeft aria-hidden="true"/>Попередня тема</Button><p>Це перша доступна тема в цьому розділі.</p></>}</div>
       <div>{next?<Link className="d04-neighbor d04-neighbor-next" href={`/learn/${next.id}`}><span>Наступна тема<small>{next.title}</small></span><ArrowRight aria-hidden="true"/></Link>:<><Button className="d04-neighbor" variant="outline" disabled>Наступна тема<ArrowRight aria-hidden="true"/></Button><p>Наступного доступного матеріалу ще немає.</p></>}</div>
     </nav>
-    <Link href={`/subjects/${topic.subjectId}`} className="d04-back-to-subject">До тем предмета<ArrowRight aria-hidden="true"/></Link>
+    <div className="d031-lesson-links"><Link href={`/topics/${topic.id}`} className="d04-back-to-subject">До огляду теми<ArrowRight aria-hidden="true"/></Link><Link href={`/subjects/${topic.subjectId}`} className="d04-back-to-subject">До тем предмета<ArrowRight aria-hidden="true"/></Link></div>
   </div>;
 }

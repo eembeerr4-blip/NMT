@@ -65,3 +65,6 @@ next-env.d.ts
 
 # D04 isolated lesson QA, synthetic database, sessions, logs and screenshots
 /audit/d04/
+
+# D03.1 isolated QA database, browser sessions and runtime
+/audit/d031/
