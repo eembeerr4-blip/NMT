@@ -1,4 +1,16 @@
 "use client";
-import { useState } from "react";
-import { reportQuestion } from "@/server/actions";
-export function QuestionFeedback({id}:{id:string}){const [message,setMessage]=useState("");const [busy,setBusy]=useState(false);return <form className="space-y-2" onSubmit={async event=>{event.preventDefault();const form=event.currentTarget;setBusy(true);try{const result=await reportQuestion(id,String(new FormData(form).get('issue')||''));setMessage(result.ok?result.message||'Передано редактору.':result.error);if(result.ok)form.reset()}finally{setBusy(false)}}}><div className="flex flex-wrap gap-2"><input name="issue" required maxLength={1000} aria-label="Опис помилки в завданні" placeholder="Повідомити про помилку в завданні" className="min-w-0 flex-1 rounded-lg border border-border bg-card px-2 py-2 text-sm"/><button disabled={busy} className="text-sm underline" type="submit">{busy?'Надсилання…':'Надіслати'}</button></div>{message?<p role="status" className="text-sm">{message}</p>:null}</form>}
+import {reportQuestion} from "@/server/actions";
+import {useActionFeedback} from "./use-action-feedback";
+
+export function QuestionFeedback({id}:{id:string}) {
+ const {pending,result,run}=useActionFeedback();
+ return <form className="space-y-2" onSubmit={async event=>{
+  event.preventDefault();
+  const form=event.currentTarget;
+  const issue=String(new FormData(form).get('issue')||'');
+  await run(()=>reportQuestion(id,issue),()=>form.reset());
+ }}>
+  <div className="flex flex-wrap gap-2"><input name="issue" required maxLength={1000} aria-label="Опис помилки в завданні" placeholder="Повідомити про помилку в завданні" className="min-w-0 flex-1 rounded-lg border border-border bg-card px-2 py-2 text-sm"/><button disabled={pending} className="text-sm underline" type="submit">{pending?'Надсилання…':'Надіслати'}</button></div>
+  {result?<p role={result.ok?"status":"alert"} className="text-sm">{result.ok?result.message||'Передано редактору.':result.error}</p>:null}
+ </form>;
+}

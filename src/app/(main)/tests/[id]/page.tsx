@@ -21,10 +21,13 @@ export default async function AttemptPage({ params }: { params: Promise<{ id: st
     },
   });
   if (!attempt || attempt.userId !== user.id) notFound();
+  // Presentation scope only: the lesson's TOPIC practice keeps its existing runner/actions.
+  const lessonPractice = attempt.test.kind === "TOPIC" && Boolean(attempt.test.topicId);
   if (attempt.status !== "COMPLETED") {
     const draft = JSON.parse(attempt.draftJson || "{}") as Record<string, unknown>;
     return (
-      <div className="space-y-4">
+      <div className={lessonPractice ? "d04f-practice space-y-4" : "space-y-4"}>
+        {lessonPractice ? <nav className="d04f-practice-navigation" aria-label="Повернення до уроку"><Link href={`/learn/${attempt.test.topicId}`}>← До уроку</Link><span>Практика теми</span></nav> : null}
         <PageHeader title={attempt.test.title} description="Правильні відповіді приховані до завершення. Чернетка зберігається в базі й у браузері." />
         <TestRunner
           key={`${user.id}:${attempt.id}`}
@@ -51,7 +54,8 @@ export default async function AttemptPage({ params }: { params: Promise<{ id: st
     : null;
   const config = JSON.parse(attempt.test.configJson || "{}") as { shortfall?: number; convertsToRating?: boolean };
   return (
-    <div className="space-y-4">
+    <div className={lessonPractice ? "d04f-practice space-y-4" : "space-y-4"}>
+      {lessonPractice ? <nav className="d04f-practice-navigation" aria-label="Повернення до уроку"><Link href={`/learn/${attempt.test.topicId}`}>← До уроку</Link><span>Розбір практики</span></nav> : null}
       <PageHeader title="Результат" description={attempt.test.title} />
       <div className="grid gap-3 sm:grid-cols-3">
         <Card className="p-4"><div className="text-sm text-muted-foreground">Правильні</div><div className="text-2xl font-semibold">{attempt.correctCount}/{attempt.totalCount}</div></Card>

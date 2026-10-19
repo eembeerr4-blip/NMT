@@ -753,3 +753,73 @@ button:not(:disabled):active { transform: translateY(1px); }
  .d04-topic-navigation p { font-size:11px; }
  .d04-video .flex.gap-3 { width:100%; }
 }
+
+/* D04 FINAL: expanded lesson controls and TOPIC-practice surface only. */
+.d04-personal-notes details { border:1px solid var(--d01-stroke); border-radius:10px; background:var(--d01-inset); }
+.d04-personal-notes details > summary { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:48px; padding:12px 14px; list-style:none; }
+.d04-personal-notes details > summary::-webkit-details-marker { display:none; }
+.d04-personal-notes details > summary::after { content:""; width:7px; height:7px; margin:0 3px 3px; border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor; transform:rotate(45deg); flex-shrink:0; }
+.d04-personal-notes details[open] > summary::after { transform:rotate(225deg); margin-bottom:-3px; }
+.d04-personal-notes details[open] > summary { border-bottom:1px solid var(--border); }
+.d04-personal-notes .d04-note-create { padding-top:0; }
+.d04-personal-notes .d04-note details { margin-top:14px; }
+.d04-personal-notes details form { margin:0; padding:16px; gap:14px; }
+.d04-personal-notes form label { font-size:12px; }
+.d04-personal-notes form :is(input,select,button) { min-height:44px; }
+.d04-personal-notes form textarea { min-height:150px; line-height:1.8; }
+.d04-personal-notes form button[type=submit] { width:fit-content; min-width:150px; border:1px solid #3076ff; background:linear-gradient(115deg,#0069ff,#2455cf); color:white; }
+.d04-lesson :is([role=alert],[role=status]) { padding:12px 14px; border:1px solid var(--border); border-radius:9px; background:var(--d01-inset); line-height:1.7; }
+.d04-lesson [role=alert] { border-color:var(--danger-border); background:var(--danger-surface); color:var(--danger-text); }
+.d04f-video-notes h3 { font-size:14px; font-weight:650; margin-bottom:10px; }
+.d04f-video-notes textarea { line-height:1.8; min-height:130px; }
+.d04f-video-notes > .flex > div { color:var(--muted-foreground); font-size:12px; }
+.d04-video .d04f-video-notes { padding:20px; }
+.d04f-video-notes > button { margin-top:10px; }
+
+/* :has opts in only the owned TOPIC page marker rendered after the existing guard.
+   Other tests (EXAM/DIAGNOSTIC) and all accepted D01-D03.1 routes stay unchanged. */
+.min-h-screen:has(> div > main .d04f-practice) { --d01-panel:linear-gradient(135deg,#fff,#f3f7ff); --d01-inset:#edf3fc; --d01-stroke:#d5e2f4; --d01-cyan:#007c9e; background:radial-gradient(ellipse at 68% 0,#e8f1ff 0,transparent 58%),var(--background); }
+.dark .min-h-screen:has(> div > main .d04f-practice) { --background:#03111f; --sidebar:#041425; --card:#0a1e34; --muted:#102840; --border:#183650; --d01-panel:linear-gradient(135deg,#0a2139,#07192c); --d01-inset:#0b2840; --d01-stroke:#17415e; --d01-cyan:#48d9ff; background:radial-gradient(ellipse at 62% -12%,#07345a 0,transparent 54%),#03111f; }
+.min-h-screen:has(> div > main .d04f-practice) > aside { background:var(--sidebar); }
+.min-h-screen:has(> div > main .d04f-practice) > aside nav a { min-height:40px; padding-block:10px; font-size:13px; }
+.min-h-screen:has(> div > main .d04f-practice) > aside nav a[aria-current=page] { color:white; background:linear-gradient(115deg,#0069ff,#2455cf); box-shadow:0 3px 18px #006aff38; }
+.min-h-screen:has(> div > main .d04f-practice) > div > header { background:color-mix(in srgb,var(--background) 88%,transparent); }
+.min-h-screen:has(> div > main .d04f-practice) > div > main { max-width:1488px; }
+.d04f-practice { min-width:0; }
+.d04f-practice :where(h1,h2,h3,p,a,label,span) { overflow-wrap:anywhere; }
+.d04f-practice h1 { font-size:clamp(24px,2vw,30px); line-height:1.35; letter-spacing:-.03em; }
+.d04f-practice-navigation { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:12px; font-size:12px; color:var(--muted-foreground); }
+.d04f-practice-navigation a { display:inline-flex; align-items:center; min-height:44px; color:var(--link); font-size:13px; }
+.d04f-practice div.bg-card { border-color:var(--d01-stroke); background:var(--d01-panel); border-radius:14px; }
+.d04f-practice .math-text { min-width:0; max-width:100%; font-size:15px; line-height:1.85; }
+.d04f-practice .katex-display { max-width:100%; overflow-x:auto; overflow-y:hidden; }
+.d04f-practice .math-text > span:has(> .katex) { display:inline-block; max-width:100%; overflow-x:auto; vertical-align:middle; }
+.d04f-practice :is(input,select,textarea) { background:var(--card); min-height:44px; }
+.d04f-practice :is(input[type=checkbox],input[type=radio]) { min-height:0; width:18px; height:18px; accent-color:var(--link); }
+.d04f-practice :is(input,select,textarea,button,a):focus-visible { outline:2px solid var(--ring); outline-offset:4px; }
+.d04f-practice button { min-height:44px; white-space:normal; }
+.d04f-practice button.bg-action,.d04f-practice button.bg-primary { background:linear-gradient(115deg,#0069ff,#2455cf); border:1px solid #3076ff; color:white; box-shadow:0 3px 12px #006aff20; }
+.d04f-practice button[aria-label^="Завдання"] { min-width:44px; }
+.d04f-practice div:has(> button[aria-label^="Завдання"]) { grid-template-columns:repeat(auto-fit,minmax(44px,1fr)); }
+.d04f-practice fieldset label:has(input[type=radio]) { min-height:56px; align-items:center; padding:14px; border-color:var(--d01-stroke); background:var(--d01-inset); }
+.d04f-practice fieldset label:has(input:checked) { border-color:var(--link); background:color-mix(in srgb,var(--link) 12%,var(--card)); box-shadow:inset 3px 0 var(--link); }
+.d04f-practice fieldset label:has(select) { gap:14px; align-items:center; }
+.d04f-practice fieldset input[type=radio] { margin-top:0; }
+.d04f-practice [role=alert],.d04f-practice [role=alertdialog] { padding:16px; border:1px solid var(--d01-stroke); border-radius:12px; background:var(--d01-inset); font-size:13px; line-height:1.8; }
+.d04f-practice [role=alert] { border-color:var(--danger-border); color:var(--danger-text); background:var(--danger-surface); }
+.d04f-practice [role=alertdialog] h2 { font-size:16px; }
+.d04f-practice form:has(input[name=issue]) { margin-top:18px; padding:14px; border:1px solid var(--border); border-radius:10px; background:var(--d01-inset); }
+.d04f-practice form:has(input[name=issue]) input { min-width:160px; }
+.d04f-practice form:has(input[name=issue]) button { padding-inline:12px; text-decoration:none; border:1px solid var(--d01-stroke); border-radius:9px; }
+.d04f-practice > a { display:inline-flex; align-items:center; min-height:44px; color:var(--link); }
+@media(min-width:1024px) { .d04f-practice > .grid:has(fieldset) { grid-template-columns:minmax(0,1fr) 250px; } }
+@media(max-width:767px) {
+ .d04-personal-notes details form { padding:14px; }
+ .d04-personal-notes form button[type=submit] { width:100%; min-width:0; }
+ .d04-video .d04f-video-notes { padding:18px; }
+ .min-h-screen:has(> div > main .d04f-practice) > div > main { padding:20px 16px 104px; }
+ .d04f-practice h1 { font-size:23px; }
+ .d04f-practice div.bg-card { padding:18px; }
+ .d04f-practice form:has(input[name=issue]) input { flex-basis:100%; }
+ .d04f-practice .math-text { font-size:14px; }
+}

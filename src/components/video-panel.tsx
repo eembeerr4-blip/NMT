@@ -99,7 +99,7 @@ export function VideoPanel({ topicId, topicTitle, videos, canEdit = false, varia
       {videos.length ? (
         <div className="space-y-3">
           {videos.map((video) => (
-            <VideoRow key={video.id} video={video} canEdit={canEdit} />
+            <VideoRow key={video.id} video={video} canEdit={canEdit} lessonStyle={variant==="lesson"} />
           ))}
         </div>
       ) : null}
@@ -107,11 +107,12 @@ export function VideoPanel({ topicId, topicTitle, videos, canEdit = false, varia
   );
 }
 
-function VideoRow({ video, canEdit }: { video: Video; canEdit: boolean }) {
+function VideoRow({ video, canEdit, lessonStyle=false }: { video: Video; canEdit: boolean; lessonStyle?:boolean }) {
   const [notes, setNotes] = useState(video.notes);
   const {pending,result,run}=useActionFeedback();
   return (
-    <Card className="space-y-2 p-4">
+    <Card className={lessonStyle?"d04f-video-notes space-y-2 p-4":"space-y-2 p-4"}>
+      {lessonStyle?<h3>Мої нотатки до відео</h3>:null}
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="text-sm font-medium">{video.title || video.youtubeId} {video.isPrimary ? "· основна" : ""}</div>
         {canEdit ? <div className="flex flex-wrap gap-2">
