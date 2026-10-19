@@ -59,3 +59,6 @@ next-env.d.ts
 
 # D02 isolated QA data, browser sessions, logs and screenshots
 /audit/d02/
+
+# D03 private QA databases, sessions, screenshots and runtime
+/audit/d03/

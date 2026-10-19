@@ -390,3 +390,73 @@ button:not(:disabled):active { transform: translateY(1px); }
   .d02-text-link { min-height: 44px; }
   .d02-goals-grid { grid-template-columns: minmax(0,1fr); }
 }
+
+/* D03 catalogue only; subject detail retains its existing presentation. */
+.d03-catalog { display:grid; gap:24px; max-width:1080px; min-width:0; margin-inline:auto; }
+.d03-catalog #d03-library { scroll-margin-top:84px; }
+.d03-catalog h1 { font-size:clamp(24px,2vw,29px); letter-spacing:-.03em; }
+.d03-section-heading { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:12px; }
+.d03-section-heading h2 { display:flex; align-items:center; gap:9px; font-size:15px; font-weight:650; }
+.d03-section-heading h2 span { font-size:12px; font-weight:500; color:var(--muted-foreground); border:1px solid var(--border); border-radius:6px; padding:2px 6px; }
+.d03-section-heading > a { display:inline-flex; align-items:center; min-height:40px; color:var(--link); font-size:12px; font-weight:600; }
+.d03-active-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.d03-subject-link { display:block; min-width:0; border-radius:14px; --d01-subject:var(--link); }
+.d03-subject-card { display:flex; flex-direction:column; gap:12px; min-height:218px; height:100%; padding:20px; border-radius:14px; border-color:var(--d01-stroke); background:var(--d01-panel); transition:border-color .15s,box-shadow .15s; }
+.d03-subject-link:hover .d03-subject-card { border-color:var(--d01-subject); box-shadow:0 4px 24px color-mix(in srgb,var(--d01-subject) 12%,transparent); }
+.d03-card-heading { display:flex; align-items:flex-start; gap:16px; min-width:0; }
+.d03-card-heading > div { min-width:0; }
+.d03-card-heading h3 { font-size:17px; font-weight:650; line-height:1.45; overflow-wrap:anywhere; }
+.d03-card-heading .d01-subject-icon { width:58px; height:62px; border-radius:12px; }
+.d03-card-heading .d01-subject-icon > svg { width:30px; height:30px; }
+.d03-card-heading .d01-subject-icon > span { font-size:42px; }
+.d03-card-heading .d01-subject-icon > .d01-language-icon { font-size:22px; }
+.d03-description { margin-top:6px; color:var(--muted-foreground); font-size:12px; line-height:1.6; overflow-wrap:anywhere; }
+.d03-material-status { color:var(--muted-foreground); font-size:12px; line-height:1.5; }
+.d03-progress { margin-top:auto; }
+.d03-progress-copy { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:4px 10px; margin-bottom:8px; font-size:12px; color:var(--muted-foreground); }
+.d03-progress-copy strong { color:var(--foreground); font-size:15px; font-weight:650; }
+.d03-progress-track { height:6px; border-radius:8px; background:var(--muted); }
+.d03-progress-track > span { display:block; height:100%; border-radius:inherit; background:linear-gradient(90deg,var(--d01-subject),color-mix(in srgb,var(--d01-subject) 75%,#38bfee)); }
+.d03-progress-empty { margin-top:auto; color:var(--muted-foreground); font-size:12px; line-height:1.6; }
+.d03-open { display:flex; align-items:center; justify-content:space-between; gap:8px; min-height:40px; border-top:1px solid var(--border); padding-top:8px; color:var(--link); font-size:12px; font-weight:600; }
+.d03-open svg { width:15px; height:15px; flex-shrink:0; }
+.d03-library-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+.d03-library-copy { margin:-2px 0 14px; font-size:12px; line-height:1.7; color:var(--muted-foreground); }
+.d03-library-copy a,.d03-empty a { color:var(--link); text-decoration:underline; text-underline-offset:3px; }
+.d03-subject-compact { min-height:208px; padding:14px; gap:9px; }
+.d03-subject-compact .d03-card-heading { flex-direction:column; gap:10px; }
+.d03-subject-compact .d03-card-heading h3 { font-size:14px; }
+.d03-subject-compact .d01-subject-icon { width:38px; height:40px; border-radius:8px; }
+.d03-subject-compact .d01-subject-icon > svg { width:22px; height:22px; }
+.d03-subject-compact .d01-subject-icon > span { font-size:28px; }
+.d03-subject-compact .d01-subject-icon > .d01-language-icon { font-size:16px; }
+.d03-empty { display:grid; justify-items:start; gap:10px; padding:22px; background:var(--d01-panel); border-color:var(--d01-stroke); }
+.d03-empty h3 { font-size:15px; font-weight:600; }
+.d03-empty p { font-size:13px; color:var(--muted-foreground); line-height:1.7; }
+.d03-empty a { display:inline-flex; align-items:center; min-height:44px; font-size:13px; }
+.d03-catalog [data-subject=biology] { --d01-subject:#18824e; }
+.d03-catalog [data-subject=english] { --d01-subject:#087c9b; }
+.d03-catalog [data-subject=geography] { --d01-subject:#a36a12; }
+.d03-catalog [data-subject=physics] { --d01-subject:#a95b17; }
+.d03-catalog [data-subject=chemistry] { --d01-subject:#0f8289; }
+.d03-catalog [data-subject=ukrainian-literature] { --d01-subject:#8651b9; }
+.dark .d03-catalog [data-subject=biology] { --d01-subject:#67dda1; }
+.dark .d03-catalog [data-subject=english] { --d01-subject:#39d3ec; }
+.dark .d03-catalog [data-subject=geography] { --d01-subject:#edbd62; }
+.dark .d03-catalog [data-subject=physics] { --d01-subject:#f6ac67; }
+.dark .d03-catalog [data-subject=chemistry] { --d01-subject:#5fddd8; }
+.dark .d03-catalog [data-subject=ukrainian-literature] { --d01-subject:#c79bec; }
+@media(max-width:1100px) { .d03-library-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .d03-card-heading { flex-direction:column; gap:12px; } }
+@media(max-width:767px) {
+ .d03-catalog { gap:20px; }
+ .d03-active-grid { gap:10px; }
+ .d03-subject-card { padding:14px; gap:10px; min-height:220px; }
+ .d03-card-heading h3 { font-size:15px; }
+ .d03-card-heading .d01-subject-icon { width:44px; height:48px; }
+ .d03-card-heading .d01-subject-icon > span { font-size:33px; }
+ .d03-card-heading .d01-subject-icon > .d01-language-icon { font-size:18px; }
+ .d03-card-heading .d01-subject-icon > svg { width:25px; height:25px; }
+ .d03-open { min-height:44px; }
+ .d03-subject-compact .d01-subject-icon { width:36px; height:38px; }
+}
+@media(max-width:379px) { .d03-active-grid { grid-template-columns:minmax(0,1fr); } .d03-active-grid .d03-card-heading { flex-direction:row; } .d03-active-grid .d03-subject-card { min-height:200px; } }
