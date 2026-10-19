@@ -9,7 +9,7 @@
 - Цей HEAD уже містив D01–D04; урок не створювався заново, cherry-pick/merge не застосовувалися.
 - Нова гілка: `codex/d04-final`.
 - Новий worktree: `D:/Вайб-кодинг/nmt-d04-final`.
-- SHA реалізації: `FINAL_IMPLEMENTATION_SHA` — буде зафіксований після локального коміту; наступний коміт лише впише SHA у цей звіт.
+- Фінальний SHA реалізації: **`9badc6d7989df53b2b4be91a17beef1b4538b59e`**. Наступний коміт лише вписує цей SHA у звіт; його HEAD можна отримати через `git rev-parse codex/d04-final`. Код і зібраний QA runtime відповідають SHA реалізації.
 - Прочитані `docs/D04.md`, `docs/D03.1.md`, `docs/D03.md`, AGENTS і встановлений Next.js server/client guide.
 
 Окремий production QA-сервер: **http://127.0.0.1:3212/learn/qa-linear**. Він слухає тільки loopback. База: `audit/d04-final/lesson-final-qa.db`. Це новий snapshot через `VACUUM INTO` з read-only з'єднання синтетичної QA-бази D03.1, а не робочої SQLite. Робоча база та `.env` не читалися/не копіювалися. Немає migrate, db push, seed, reset, restore, встановлення залежностей або змін схеми.
