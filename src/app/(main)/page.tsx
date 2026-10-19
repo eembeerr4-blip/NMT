@@ -4,6 +4,7 @@ import { STATUS_LABEL } from "@/lib/constants";
 import { addDateKeys, dateKey, daysBetween, formatUk, startOfWeekMonday } from "@/lib/dates";
 import { prisma } from "@/lib/prisma";
 import { recommendTopics } from "@/lib/recommend";
+import { lessonAccess } from "@/lib/readiness";
 import { averageOfLatestFull, computeStreak, weekCompletion } from "@/lib/scoring";
 import { ArrowRight, CalendarDays } from "lucide-react";
 import { SubjectIcon } from "@/components/subject-icon";
@@ -30,7 +31,7 @@ export default async function DashboardPage() {
     prisma.studyTask.findMany({ where: { userId: user.id, dateKey: { lt: today, gte: settings.planStart }, status: "PLANNED", optional: false, kind: { not: "rest" } }, orderBy: { dateKey: "asc" }, take: 5 }),
     prisma.reviewSchedule.findMany({ where: { userId: user.id, status: "PENDING", dueKey: { lte: focusDate } }, include: { topic: true }, orderBy: [{ priority: "desc" }, { dueKey: "asc" }], take: 5 }),
     prisma.subject.findMany({ where: { id: { in: [...activeIds] } }, orderBy: { sortOrder: "asc" } }),
-    prisma.topic.findMany(),
+    prisma.topic.findMany({include:{questions:{where:{verificationStatus:"VERIFIED"},select:{id:true}},videos:{select:{reviewStatus:true}}}}),
     prisma.userTopicProgress.findMany({ where: { userId: user.id } }),
     prisma.examResult.findMany({ where: { userId: user.id, subjectId: { in: [...activeIds] } }, include: { subject: true } }),
     prisma.testAttempt.count({ where: { userId: user.id, status: "COMPLETED" } }),
@@ -57,15 +58,17 @@ export default async function DashboardPage() {
   const examKey = settings.examDate ? settings.examDate.toISOString().slice(0, 10) : null;
   const mistakeCount = new Map<string, number>();
   for (const mistake of mistakes) if (mistake.topicId) mistakeCount.set(mistake.topicId, (mistakeCount.get(mistake.topicId) ?? 0) + mistake.repeatCount);
-  const recommendations = recommendTopics(leaves.map((topic) => ({ ...topic, mistakeCount: mistakeCount.get(topic.id) ?? 0 })), {
+  const availableLeaves=leaves.filter(topic=>lessonAccess(topic).available);
+  const firstLesson=attempts===0&&!availableLeaves.some(topic=>topic.status!=="NOT_STARTED");
+  const recommendations = recommendTopics(availableLeaves.map((topic) => ({ ...topic, mistakeCount: mistakeCount.get(topic.id) ?? 0 })), {
     math: settings.mathPriority,
     ukrainian: settings.ukrainianPriority,
     history: settings.historyPriority,
     biology: settings.biologyPriority,
   });
-  const continueTopic = leaves.find((topic) => topic.status === "IN_PROGRESS") ?? recommendations[0];
+  const continueTopic = availableLeaves.find((topic) => topic.status === "IN_PROGRESS") ?? recommendations[0];
   const todayTask = tasks.find((task) => task.topicId && task.kind !== "rest") ?? null;
-  const todayTopic = todayTask?.topicId ? topics.find((topic) => topic.id === todayTask.topicId) : continueTopic;
+  const todayTopic = (todayTask?.topicId ? availableLeaves.find((topic) => topic.id === todayTask.topicId) : undefined) ?? continueTopic;
   const todaySubject = todayTopic ? subjects.find((subject) => subject.id === todayTopic.subjectId) : null;
 
   const diagnosed = await prisma.testAttempt.findFirst({ where: { userId: user.id, status: "COMPLETED", test: { kind: "DIAGNOSTIC" } } });
@@ -76,7 +79,7 @@ export default async function DashboardPage() {
   return <div className="space-y-6">
     <PageHeader title={`Привіт, ${user.firstName}!`} description={`Продовжимо підготовку до НМТ-${user.examYear}?`} action={<nav aria-label="Дні поточного тижня" className="flex flex-wrap gap-1.5">{activity.map((day,index)=>{const key=addDateKeys(weekStart,index);return <Link key={key} href={`/calendar?view=day&date=${key}`} aria-current={key===today?"date":undefined} className={`grid min-w-10 gap-1 rounded-xl border px-2.5 py-2 text-center text-xs ${key===today?"border-primary bg-primary text-primary-foreground":"border-border bg-card text-muted-foreground hover:border-primary/50"}`}><span>{day.name}</span><span className="font-semibold">{Number(key.slice(-2))}</span></Link>;})}</nav>}/>
     <div className="grid items-stretch gap-4 xl:grid-cols-[1.35fr_1fr]">
-      <Card className="relative flex min-h-52 flex-col justify-between gap-6 overflow-hidden border-primary/25 p-5 sm:p-6"><div className="pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl"/><div className="relative space-y-3"><p className="text-sm font-semibold text-muted-foreground">Продовжити навчання</p>{todayTopic?<><div className="flex items-center gap-3"><SubjectIcon id={todayTopic.subjectId}/><div><h2 className="text-xl font-semibold">{todaySubject?.name??"Предмет"}</h2><p className="mt-1 text-sm text-muted-foreground">{todayTopic.title}</p></div></div><p className="text-sm text-muted-foreground">Поверніться до матеріалу та рухайтеся у своєму темпі.</p></>:<><h2 className="text-xl font-semibold">Почнімо з вашого предмета</h2><p className="text-sm text-muted-foreground">Уроки можна вивчати й без попередньої діагностики.</p></>}</div><div className="relative"><Button asChild><Link href={todayTopic?`/learn/${todayTopic.id}`:"/subjects"}>{todayTopic?"Продовжити урок":"Обрати предмет"}<ArrowRight className="h-4 w-4"/></Link></Button></div></Card>
+      <Card className="relative flex min-h-52 flex-col justify-between gap-6 overflow-hidden border-primary/25 p-5 sm:p-6"><div className="pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl"/><div className="relative space-y-3"><p className="text-sm font-semibold text-muted-foreground">{firstLesson?"Перший крок":"Продовжити навчання"}</p>{todayTopic?<><div className="flex items-center gap-3"><SubjectIcon id={todayTopic.subjectId}/><div><h2 className="text-xl font-semibold">{todaySubject?.name??"Предмет"}</h2><p className="mt-1 text-sm text-muted-foreground">{todayTopic.title}</p></div></div><p className="text-sm text-muted-foreground">Поверніться до матеріалу та рухайтеся у своєму темпі.</p></>:<><h2 className="text-xl font-semibold">Матеріали готуються</h2><p className="text-sm text-muted-foreground">Оберіть предмет, щоб переглянути теми та доступні матеріали.</p></>}</div><div className="relative"><Button asChild><Link href={todayTopic?`/learn/${todayTopic.id}`:"/subjects"}>{todayTopic?(firstLesson?"Почати перший урок":"Продовжити урок"):"Переглянути предмети"}<ArrowRight className="h-4 w-4"/></Link></Button></div></Card>
       <Card className="space-y-4 p-5 sm:p-6"><div className="flex items-center justify-between gap-3"><h2 className="font-semibold">{focusDate===today?"План на сьогодні":`План на ${formatUk(focusDate,"d MMMM")}`}</h2><Link href="/calendar" className="text-sm font-semibold text-primary">Календар →</Link></div>{tasks.length?tasks.slice(0,4).map(task=><div key={task.id} className="rounded-xl border border-border p-3"><div className="flex items-start gap-3"><span className={`mt-1 h-3 w-3 shrink-0 rounded-full border ${task.status==="DONE"?"border-primary bg-primary":"border-muted-foreground"}`}/><div className="min-w-0 flex-1"><p className="text-sm font-medium">{task.title}</p><p className="mt-1 text-xs text-muted-foreground">{task.durationMin} хв · {task.status==="DONE"?"Виконано":task.status==="IN_PROGRESS"?"У процесі":"Заплановано"}</p><details className="mt-2"><summary className="cursor-pointer text-xs text-muted-foreground">Керувати заняттям</summary><div className="pt-2"><TaskControls task={task}/></div></details></div></div></div>):<p className="py-6 text-sm text-muted-foreground">На цей день занять немає. Відпочиньте або оберіть урок самостійно.</p>}{tasks.length>4?<Link href="/calendar" className="block text-sm text-primary">Увесь план на день →</Link>:null}</Card>
     </div>
     {!user.diagnosticSkipped&&!diagnosed?<Card className="space-y-3 p-5"><h2 className="font-semibold">Хочете визначити, з чого почати?</h2><p className="text-sm text-muted-foreground">Коротка діагностика допоможе обрати теми для повторення. Її можна пропустити.</p><DiagnosticStart/></Card>:null}
