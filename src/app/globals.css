@@ -94,8 +94,8 @@ html, body { max-width: 100%; overflow-x: hidden; }
 body { background: var(--background); color: var(--foreground); font-family: var(--font-sans), "Segoe UI", sans-serif; }
 :focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
 
-/* Table rows become labelled records on phones, without hiding action columns. */
-@media (max-width: 767px) {
+/* Keep action columns visible when a tablet also has the administration sidebar. */
+@media (max-width: 1023px) {
   .responsive-table, .responsive-table tbody, .responsive-table tr, .responsive-table td { display: block; width: 100%; min-width: 0; }
   .responsive-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
   .responsive-table tbody { border: 0; }

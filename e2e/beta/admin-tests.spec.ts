@@ -16,3 +16,7 @@ test("test set publication, student start, archive and protected history work",a
 test("administrative tables keep action cells inside a phone viewport",async({page},info)=>{
  await login(page,"qa_admin");for(const route of ["topics","lessons","tasks","tests"]){await page.goto(`/admin/${route}`);const table=page.locator("table");if(await table.count()){await expect(table).toHaveClass(/responsive-table/);if(info.project.name==="mobile")expect(await table.evaluate(el=>el.getBoundingClientRect().right)).toBeLessThanOrEqual(391);}}
 });
+test("administrative action columns fit beside the sidebar at tablet width",async({page})=>{
+ await page.setViewportSize({width:768,height:900});await login(page,"qa_admin");
+ for(const route of ["topics","lessons","tasks","tests"]){await page.goto(`/admin/${route}`);const table=page.locator("table");if(await table.count()){expect(await table.evaluate(el=>el.getBoundingClientRect().right)).toBeLessThanOrEqual(768);expect(await table.evaluate(el=>{const container=el.parentElement!;return container.scrollWidth-container.clientWidth;})).toBeLessThanOrEqual(1);}}
+});
