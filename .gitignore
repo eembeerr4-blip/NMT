@@ -53,3 +53,6 @@ next-env.d.ts
 *.db.backup-*
 /prisma/dev.db.pre-*
 /prisma/hardening-checkpoint.prisma
+
+# D01 private QA runtime, copied synthetic database, sessions and screenshots
+/audit/d01/

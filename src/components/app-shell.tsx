@@ -78,7 +78,7 @@ export function AppShell({ children, name, isAdmin = false, isOwner = false, isE
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="min-h-screen">
+    <div className={cn("min-h-screen", pathname === "/" && "d01-shell")}>
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:rounded-lg focus:bg-card focus:px-3 focus:py-2">
         Перейти до вмісту
       </a>
@@ -130,7 +130,7 @@ export function AppShell({ children, name, isAdmin = false, isOwner = false, isE
               </Dialog.Portal>
             </Dialog.Root>
             <HeaderSearch />
-            <span className="text-sm font-semibold md:hidden">NMT Academy</span>
+            <span className="shell-mobile-brand text-sm font-semibold md:hidden">NMT Academy</span>
           </div>
           <div className="flex shrink-0 items-center gap-2"><Link href="/search" aria-label="Пошук матеріалів" className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border sm:hidden"><Search className="h-4 w-4"/></Link><ThemeToggle/><details className="relative"><summary aria-label="Меню профілю" className="flex cursor-pointer list-none items-center gap-2 rounded-xl border border-border bg-card px-2.5 py-2 text-sm hover:bg-muted"><span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent text-xs font-bold text-link">{name?.slice(0,1).toLocaleUpperCase("uk-UA")??"У"}</span><span className="hidden max-w-36 truncate sm:inline">{name??"Профіль"}</span><ChevronDown className="h-3.5 w-3.5 text-muted-foreground"/></summary><nav aria-label="Меню профілю" onClick={event=>{if((event.target as Element).closest("a,button"))event.currentTarget.closest("details")?.removeAttribute("open");}} className="absolute right-0 top-full mt-2 w-56 rounded-2xl border border-border bg-card p-2 shadow-xl"><Link href="/settings" className="block rounded-xl px-3 py-2.5 text-sm hover:bg-muted">Мої налаштування</Link>{isAdmin?<Link href="/admin" className="block rounded-xl px-3 py-2.5 text-sm hover:bg-muted">{isOwner?"Центр керування власника":"Адмінпанель"}</Link>:null}{isEditor?<Link href="/editor" className="block rounded-xl px-3 py-2.5 text-sm hover:bg-muted">Режим редактора</Link>:null}<form action={logout} className="mt-1 border-t border-border pt-1"><button type="submit" className="w-full rounded-xl px-3 py-2.5 text-left text-sm text-muted-foreground hover:bg-muted">Вийти</button></form></nav></details></div>
         </header>
