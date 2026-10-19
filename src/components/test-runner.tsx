@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAttemptDraft } from "./use-attempt-draft";
+import { answerCompletion } from "@/lib/answer-completion";
 import { stableShuffle } from "@/lib/grade";
 import { finishAttempt } from "@/server/actions";
 import { MathText } from "@/components/math-text";
@@ -31,9 +32,7 @@ export function TestRunner({
   timerEnabled: boolean;
 }) {
   const router = useRouter();
-  const base = { ...initialDraft };
-  for (const item of questions) if(item.type === "SEQUENCE" && base[item.id] === undefined) base[item.id]=stableShuffle(item.options, attemptId+":"+item.id).map(option=>option.id);
-  const {view,ready,controller}=useAttemptDraft(userId,attemptId,base,initialIndex,questions.map(q=>q.id));
+  const {view,ready,controller}=useAttemptDraft(userId,attemptId,initialDraft,initialIndex,questions.map(q=>q.id));
   const {answers,index}=view;
   const setIndex=(value:number|((current:number)=>number))=>controller.current?.navigate(typeof value === "function" ? value(index):value);
   const [now, setNow] = useState(() => new Date(startedAt).getTime());
@@ -63,7 +62,7 @@ export function TestRunner({
     queueMicrotask(() => { void finish(); });
   });
 
-  const skipped = useMemo(() => questions.filter((item) => answers[item.id] === undefined || answers[item.id] === "" || answers[item.id] === null), [answers, questions]);
+  const skipped = useMemo(() => questions.filter((item) => answerCompletion(item,answers[item.id]) !== "complete"), [answers, questions]);
 
   function setAnswer(value:unknown) {controller.current?.change(question.id,value);}
   const finishing=useRef(false);
@@ -93,7 +92,7 @@ export function TestRunner({
         </div>
         <MathText text={question.prompt} />
         <div className="mt-4">
-          <fieldset disabled={pending || !ready}><AnswerInput question={question} value={answers[question.id]} onChange={setAnswer} /></fieldset>
+          <fieldset disabled={pending || !ready}><AnswerInput sequenceSeed={attemptId+":"+question.id} question={question} value={answers[question.id]} onChange={setAnswer} /></fieldset>
         </div>
         <div className="mt-6 flex flex-wrap gap-2">
           <Button type="button" variant="outline" onClick={() => setIndex((value) => Math.max(0, value - 1))} disabled={index === 0}>Назад</Button>
@@ -102,22 +101,23 @@ export function TestRunner({
         </div>
         {view.error ? <div role="alert" className="text-sm"><p>{view.error}</p><Button type="button" variant="outline" onClick={()=>void controller.current?.flush()}>Повторити збереження</Button></div> : null}
         {error ? <Button type="button" onClick={()=>void finish()} disabled={pending}>Повторити завершення</Button> : null}
-        {confirmFinish ? <div role="alertdialog" aria-labelledby="finish-title" aria-describedby="finish-description" className="space-y-3 rounded-xl border border-border bg-muted p-4"><h2 id="finish-title" className="font-semibold">Завершити тест?</h2><p id="finish-description" className="text-sm text-muted-foreground">{skipped.length ? "Без відповіді залишилося " + skipped.length + " із " + questions.length + " завдань. Ви можете повернутися до них або завершити спробу." : "Усі завдання мають відповідь. Після завершення відкриється результат."}</p><div className="flex flex-wrap gap-2"><Button variant="outline" disabled={pending} onClick={()=>setConfirmFinish(false)}>Повернутися до тесту</Button><Button disabled={pending} onClick={()=>void finish()}>{pending?"Завершення…":"Так, завершити тест"}</Button></div></div>:null}
+        {confirmFinish ? <div role="alertdialog" aria-labelledby="finish-title" aria-describedby="finish-description" className="space-y-3 rounded-xl border border-border bg-muted p-4"><h2 id="finish-title" className="font-semibold">Завершити тест?</h2><p id="finish-description" className="text-sm text-muted-foreground">{skipped.length ? "Без повної відповіді залишилося " + skipped.length + " із " + questions.length + " завдань. Ви можете повернутися до них або завершити спробу." : "Усі завдання мають відповідь. Після завершення відкриється результат."}</p><div className="flex flex-wrap gap-2"><Button variant="outline" disabled={pending} onClick={()=>setConfirmFinish(false)}>Повернутися до тесту</Button><Button disabled={pending} onClick={()=>void finish()}>{pending?"Завершення…":"Так, завершити тест"}</Button></div></div>:null}
         {error ? <p role="alert" className="mt-3 text-sm text-destructive">{error}</p> : null}
       </Card>
       <Card className="space-y-3 p-4 lg:sticky lg:top-20 lg:self-start">
         <div><div className="text-sm font-semibold">Навігація</div><div role="status" className="mt-1 text-xs text-muted-foreground">{!ready ? "Відновлення чернетки…" : view.status === "saved" ? "Відповіді збережено" : view.status === "saving" ? "Збереження відповідей…" : view.status === "error" ? "Помилка збереження" : "Є незбережені зміни"}</div></div>
         <div className="grid grid-cols-6 gap-1.5 lg:grid-cols-4">
           {questions.map((item, itemIndex) => {
-            const answered = answers[item.id] !== undefined && answers[item.id] !== "" && answers[item.id] !== null;
+            const completion = answerCompletion(item,answers[item.id]);
+            const answered = completion === "complete";
             return (
-              <button key={item.id} type="button" aria-current={itemIndex === index ? "step" : undefined} aria-label={`Завдання ${itemIndex + 1}${answered ? ", відповідь є" : ", без відповіді"}`} onClick={() => setIndex(itemIndex)} className={`h-9 rounded-lg border text-xs font-medium ${itemIndex === index ? "border-primary bg-accent text-primary" : answered ? "border-border bg-muted text-foreground" : "border-dashed border-border text-muted-foreground hover:bg-muted"}`}>
+              <button key={item.id} type="button" aria-current={itemIndex === index ? "step" : undefined} aria-label={`Завдання ${itemIndex + 1}${answered ? ", відповідь є" : completion === "partial" ? ", неповна відповідь" : ", без відповіді"}`} onClick={() => setIndex(itemIndex)} className={`h-9 rounded-lg border text-xs font-medium ${itemIndex === index ? "border-primary bg-accent text-primary" : answered ? "border-border bg-muted text-foreground" : "border-dashed border-border text-muted-foreground hover:bg-muted"}`}>
                 {itemIndex + 1}
               </button>
             );
           })}
         </div>
-        <p className="text-xs text-muted-foreground">Без відповіді: {skipped.length} із {questions.length}.</p>
+        <p className="text-xs text-muted-foreground">Без повної відповіді: {skipped.length} із {questions.length}.</p>
         <div className="flex flex-wrap gap-1">
           <Badge>{question.difficulty === "EASY" ? "Просте" : question.difficulty === "HARD" ? "Складне" : "Середнє"}</Badge>
         </div>
@@ -126,7 +126,7 @@ export function TestRunner({
   );
 }
 
-function AnswerInput({ question, value, onChange }: { question: PublicQuestion; value: unknown; onChange: (value: unknown) => void }) {
+function AnswerInput({ sequenceSeed, question, value, onChange }: { sequenceSeed:string; question: PublicQuestion; value: unknown; onChange: (value: unknown) => void }) {
   if (question.type === "SINGLE_CHOICE") {
     return (
       <div className="space-y-2">
@@ -158,7 +158,7 @@ function AnswerInput({ question, value, onChange }: { question: PublicQuestion; 
     );
   }
   if (question.type === "SEQUENCE") {
-    const order = Array.isArray(value) ? (value as string[]) : question.options.map((option) => option.id);
+    const order = Array.isArray(value) ? (value as string[]) : stableShuffle(question.options,sequenceSeed).map((option) => option.id);
     const move = (optionId: string, direction: number) => {
       const next = [...order];
       const from = next.indexOf(optionId);
@@ -182,6 +182,7 @@ function AnswerInput({ question, value, onChange }: { question: PublicQuestion; 
             </div>
           );
         })}
+        <Button type="button" variant="outline" onClick={()=>onChange(order)}>Підтвердити поточний порядок</Button>
       </div>
     );
   }
