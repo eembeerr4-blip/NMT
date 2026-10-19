@@ -50,7 +50,7 @@ export function VideoPanel({ topicId, topicTitle, videos, canEdit = false }: { t
               <div className="font-medium">{primary.title || "Лекція YouTube"}</div>
               {primary.reviewStatus === "SUGGESTED" ? <p className="text-sm text-muted-foreground">Кандидат: повний перегляд і відтворення ще не підтверджені редактором.</p> : null}
               <div className="text-sm text-muted-foreground">
-                {primary.durationSec ? `Тривалість ${Math.round(primary.durationSec / 60)} хв` : "Тривалість з'явиться після запуску, якщо її віддасть плеєр."}
+                {primary.durationSec ? `Тривалість ${Math.round(primary.durationSec / 60)} хв` : "Тривалість ще не вказана редактором."}
                 {primary.lastPositionSec > 0 ? ` · Зупинились на ${Math.floor(primary.lastPositionSec / 60)} хв` : ""}
               </div>
             </div>
@@ -71,6 +71,7 @@ export function VideoPanel({ topicId, topicTitle, videos, canEdit = false }: { t
           <p className="mt-1 text-sm text-muted-foreground">Сайт не підставляє випадкові ролики. Додайте посилання, яке ви перевірили.</p>
         </Card>
       )}
+      {message ? <p role="status" className="text-sm">{message}</p> : null}
       {canEdit ? <details className="rounded-xl border border-border p-4"><summary className="cursor-pointer font-medium">Інструменти редактора відео</summary><Card className="space-y-3 p-4">
         <h2 className="font-medium">Додати або замінити відео</h2>
         <form action={onAdd} className="grid gap-2 sm:grid-cols-[1fr_180px_auto]">
@@ -92,7 +93,7 @@ export function VideoPanel({ topicId, topicTitle, videos, canEdit = false }: { t
             ))}
           </div>
         ) : null}
-        {message ? <p className="text-sm text-muted-foreground">{message}</p> : null}
+
       </Card></details> : null}
       {videos.length ? (
         <div className="space-y-3">
@@ -127,7 +128,7 @@ function VideoRow({ video, canEdit }: { video: Video; canEdit: boolean }) {
         <Input name="title" defaultValue={video.title} />
         <Button type="submit" size="sm" variant="outline">Замінити</Button>
       </form> : null}
-      <textarea className="min-h-20 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm" value={notes} onChange={(event) => setNotes(event.target.value)} placeholder="Нотатки до лекції" />
+      <textarea aria-label="Нотатки до лекції" className="min-h-20 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm" value={notes} onChange={(event) => setNotes(event.target.value)} placeholder="Нотатки до лекції" />
       <Button type="button" size="sm" variant="outline" onClick={async () => { const result = await saveVideoNotes(video.id, notes); setFeedback(result.ok ? "Особисті нотатки збережено." : result.error); }}>Зберегти нотатки</Button>
       {feedback ? <p role="status" className="text-sm">{feedback}</p> : null}
     </Card>

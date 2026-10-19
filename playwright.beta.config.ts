@@ -6,6 +6,7 @@ if(url.hostname!=="127.0.0.1"||url.protocol!=="http:"||Number(url.port)<3100)thr
 export default defineConfig({
   expect:{timeout:15000},
   testDir:"e2e/beta",workers:1,fullyParallel:false,timeout:45000,
+  snapshotPathTemplate:"{testDir}/../../design/screenshots/06-baselines/{projectName}/{arg}{ext}",
   outputDir:"test-results/beta",
   reporter:[["list"],["json",{outputFile:`audit/reports/${process.env.NMT_BETA_STAGE??"01"}-playwright.json`}]],
   use:{baseURL,channel:"chrome",headless:true,trace:"retain-on-failure",screenshot:"only-on-failure"},

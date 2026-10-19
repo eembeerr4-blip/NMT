@@ -11,9 +11,10 @@
   --sidebar: #FFFFFF;
   --surface: #EEF3FB;
   --muted: #EEF3FB;
-  --muted-foreground: #63738F;
+  --muted-foreground: #5B6B86;
   --border: #DFE6F2;
   --primary: #326BFF;
+  --action: #2455CF;
   --primary-foreground: #FFFFFF;
   --accent: #E9F0FF;
   --accent-foreground: #17243D;
@@ -73,6 +74,8 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
   --color-primary: var(--primary);
+  --color-action: var(--action);
+  --color-link: var(--link);
   --color-primary-foreground: var(--primary-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);

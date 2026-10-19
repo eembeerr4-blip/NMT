@@ -8,7 +8,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:opacity-90",
+        default: "bg-action text-primary-foreground hover:opacity-90",
         secondary: "bg-muted text-foreground hover:bg-accent",
         outline: "border border-border bg-card hover:bg-accent",
         ghost: "hover:bg-accent",
@@ -50,9 +50,9 @@ export function Badge({ className, ...props }: ComponentProps<"span">) {
   return <span className={cn("inline-flex items-center rounded-full bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground", className)} {...props} />;
 }
 
-export function Progress({ value }: { value: number }) {
+export function Progress({ value, label="Навчальний прогрес" }: { value: number; label?:string }) {
   return (
-    <div className="h-2 overflow-hidden rounded-full bg-muted" aria-valuenow={value} aria-valuemin={0} aria-valuemax={100} role="progressbar">
+    <div className="h-2 overflow-hidden rounded-full bg-muted" aria-label={label} aria-valuenow={Math.max(0,Math.min(100,value))} aria-valuemin={0} aria-valuemax={100} role="progressbar">
       <div className="h-full rounded-full bg-primary transition-all" style={{ width: `${Math.max(0, Math.min(100, value))}%` }} />
     </div>
   );

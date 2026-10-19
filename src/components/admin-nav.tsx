@@ -8,6 +8,6 @@ export function AdminNav({mobile=false}:{mobile?:boolean}){
  const pathname=usePathname();
  return <nav aria-label={mobile?"Мобільна навігація адміністратора":"Навігація адміністратора"} className={mobile?"grid grid-cols-2 gap-1 pb-2 pt-2":"flex-1 space-y-1 overflow-y-auto p-3"}>{sections.map(({href,label,icon:Icon})=>{
  const active=pathname===href||(href!=="/admin"&&pathname.startsWith(href+"/"));
- return <Link key={href} href={href} aria-current={active?"page":undefined} onClick={event=>{if(mobile)event.currentTarget.closest("details")?.removeAttribute("open");}} className={cn("flex min-w-0 items-center gap-2.5 rounded-xl px-3 py-2.5 text-sm font-medium",active?"bg-accent text-primary":"text-muted-foreground hover:bg-muted hover:text-foreground")}><Icon className="h-[18px] w-[18px] shrink-0"/><span>{label}</span></Link>;
+ return <Link key={href} href={href} aria-current={active?"page":undefined} onClick={event=>{if(mobile)event.currentTarget.closest("details")?.removeAttribute("open");}} className={cn("flex min-w-0 items-center gap-2.5 rounded-xl px-3 py-2.5 text-sm font-medium",active?"bg-accent text-link":"text-muted-foreground hover:bg-muted hover:text-foreground")}><Icon className="h-[18px] w-[18px] shrink-0"/><span>{label}</span></Link>;
  })}</nav>;
 }
