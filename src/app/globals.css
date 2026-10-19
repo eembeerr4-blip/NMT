@@ -140,7 +140,7 @@ button:not(:disabled):active { transform: translateY(1px); }
 .math-text { min-width: 0; overflow-wrap: anywhere; }
 .math-text .katex-display { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-block: .25rem; }
 
-/* D01 is opt-in on the dashboard shell. Other routes retain the reviewed beta UI. */
+/* Accepted D01 shell, opt-in only on / and /curriculum (D02). */
 .d01-shell {
   --d01-panel: linear-gradient(135deg, #ffffff, #f3f7ff);
   --d01-inset: #edf3fc;
@@ -299,4 +299,94 @@ button:not(:disabled):active { transform: translateY(1px); }
   .d01-task-title { font-size: 12px; }
   .d01-task-actions { margin-left: 0; }
   .d01-footer-links { gap: 14px; }
+}
+
+/* D02 learning route: every selector is local to curriculum. */
+.d02-curriculum { display: grid; gap: 18px; min-width: 0; max-width: 1120px; margin-inline: auto; }
+.d02-curriculum h1 { font-size: clamp(23px, 2vw, 29px); letter-spacing: -.03em; }
+.d02-navigation { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.d02-navigation a { display: flex; align-items: center; justify-content: center; gap: 9px; min-height: 44px; padding: 10px; border: 1px solid var(--d01-stroke); border-radius: 10px; background: var(--d01-panel); font-size: 13px; font-weight: 600; text-align: center; }
+.d02-navigation svg { width: 16px; height: 16px; flex-shrink: 0; }
+.d02-navigation a[aria-current=page] { background: linear-gradient(115deg,#0069ff,#2455cf); border-color: #3076ff; color: white; box-shadow: 0 3px 18px #006aff30; }
+.d02-navigation a:hover { border-color: var(--link); }
+.d02-modes { display: flex; flex-wrap: wrap; gap: 6px 18px; border-bottom: 1px solid var(--border); }
+.d02-modes a { display: inline-flex; align-items: center; min-height: 40px; padding: 6px 0; border-bottom: 2px solid transparent; font-size: 12px; color: var(--muted-foreground); }
+.d02-modes a[aria-current=page] { color: var(--link); border-color: var(--link); font-weight: 600; }
+.d02-route-section { display: grid; gap: 14px; min-width: 0; }
+.d02-route-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.d02-route-heading h2 { font-size: 16px; font-weight: 650; }
+.d02-route-heading p { margin-top: 4px; font-size: 12px; color: var(--muted-foreground); line-height: 1.6; }
+.d02-route-heading > span { flex-shrink: 0; color: var(--muted-foreground); font-size: 12px; border: 1px solid var(--border); border-radius: 7px; padding: 4px 8px; }
+.d02-filters { display: flex; align-items: flex-end; flex-wrap: wrap; gap: 10px; }
+.d02-filters label { display: grid; gap: 5px; color: var(--muted-foreground); font-size: 12px; }
+.d02-filters select { height: 40px; max-width: 100%; min-width: 160px; padding: 7px 28px 7px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); color: var(--foreground); font-size: 12px; }
+.d02-filters button { min-height: 40px; }
+.d02-notice { padding: 10px 13px; border: 1px solid var(--d01-stroke); border-radius: 10px; color: var(--muted-foreground); background: var(--d01-inset); font-size: 12px; line-height: 1.7; }
+.d02-timeline { display: grid; gap: 12px; list-style: none; padding: 0; margin: 0; }
+.d02-stage { display: grid; grid-template-columns: 38px minmax(0,1fr); align-items: start; gap: 16px; position: relative; min-width: 0; }
+.d02-stage:not(:last-child)::before { content: ''; position: absolute; left: 18px; top: 24px; bottom: -37px; width: 2px; background: linear-gradient(var(--d01-stroke), color-mix(in srgb,var(--d01-cyan) 30%,var(--border))); }
+.d02-marker { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; margin-top: 24px; border: 1px solid var(--d01-stroke); border-radius: 50%; background: var(--card); color: var(--muted-foreground); font-size: 13px; font-weight: 600; }
+.d02-marker svg { width: 18px; height: 18px; }
+.d02-stage[data-stage=current] .d02-marker { color: white; border-color: #00c3df; background: linear-gradient(135deg,#007896,#0566e5); box-shadow: 0 0 20px #00b5e838; }
+.d02-stage[data-stage=done] .d02-marker { color: white; background: #087e7d; border-color: #189996; }
+.d02-stage[data-status=SKIPPED] .d02-marker { color: var(--foreground); border-style: dashed; }
+.d02-step-card { padding: 14px 16px 0; border-color: var(--d01-stroke); border-radius: 12px; background: var(--d01-panel); min-width: 0; }
+.d02-stage[data-stage=current] .d02-step-card { border-color: var(--d01-cyan); box-shadow: 0 0 0 1px color-mix(in srgb,var(--d01-cyan) 12%,transparent),0 5px 22px #006aff12; }
+.d02-step-main { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.d02-step-copy { min-width: 0; flex: 1; }
+.d02-step-copy h3 { font-size: 14px; font-weight: 600; line-height: 1.5; overflow-wrap: anywhere; }
+.d02-meta { display: flex; flex-wrap: wrap; gap: 3px 12px; margin-top: 5px; font-size: 12px; color: var(--muted-foreground); }
+.d02-meta > span { display: inline-flex; align-items: center; gap: 4px; }
+.d02-meta svg { width: 12px; height: 12px; flex-shrink: 0; }
+.d02-step-state { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 10px; margin-top: 5px; font-size: 12px; color: var(--muted-foreground); }
+.d02-status { font-weight: 600; }
+.d02-stage[data-stage=current] .d02-status, .d02-stage[data-stage=done] .d02-status { color: var(--d01-cyan); }
+.d02-step-cta { min-height: 40px; max-width: 100%; white-space: normal; flex-shrink: 0; gap: 7px; }
+.d02-step-details { margin-top: 6px; border-top: 1px solid color-mix(in srgb,var(--border) 65%,transparent); }
+.d02-step-details summary { display: list-item; padding: 8px 0; cursor: pointer; color: var(--muted-foreground); font-size: 12px; min-height: 34px; }
+.d02-step-details > div { display: grid; gap: 10px; padding: 8px 0 14px; min-width: 0; font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
+.d02-step-details form { flex-wrap: wrap; max-width: 100%; }
+.d02-step-details input { min-width: 0; max-width: 100%; }
+.d02-text-link { display: inline-flex; align-items: center; width: fit-content; min-height: 36px; color: var(--link); font-size: 12px; font-weight: 600; overflow-wrap: anywhere; }
+.d02-text-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.d02-empty { display: grid; justify-items: start; gap: 10px; padding: 24px; border-color: var(--d01-stroke); background: var(--d01-panel); }
+.d02-empty > svg { width: 28px; height: 28px; color: var(--d01-cyan); }
+.d02-empty h3 { font-size: 15px; font-weight: 600; }
+.d02-empty p { color: var(--muted-foreground); font-size: 13px; line-height: 1.7; }
+.d02-empty > div { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.d02-goals { border: 1px solid var(--border); border-radius: 12px; padding: 0 16px; }
+.d02-goals summary { padding-block: 14px; cursor: pointer; font-size: 13px; font-weight: 600; }
+.d02-goals-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; padding-bottom: 16px; }
+@media(max-width: 1100px) {
+  .d02-navigation { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .d02-step-main { flex-wrap: wrap; }
+  .d02-step-copy { flex-basis: calc(100% - 50px); }
+  .d02-step-cta { margin-left: 46px; }
+}
+@media(max-width: 767px) {
+  .d02-curriculum { gap: 14px; }
+  .d02-navigation { gap: 6px; }
+  .d02-navigation a { font-size: 12px; gap: 6px; padding: 9px 6px; }
+  .d02-navigation svg { width: 14px; height: 14px; }
+  .d02-modes { gap: 2px 12px; }
+  .d02-modes a { min-height: 44px; }
+  .d02-route-heading { align-items: flex-start; }
+  .d02-route-heading h2 { font-size: 15px; }
+  .d02-filters { display: grid; grid-template-columns: minmax(0,1fr); }
+  .d02-filters select { width: 100%; min-width: 0; height: 44px; }
+  .d02-filters button { justify-self: start; min-height: 44px; }
+  .d02-stage { grid-template-columns: 26px minmax(0,1fr); gap: 9px; }
+  .d02-stage:not(:last-child)::before { left: 12px; top: 24px; }
+  .d02-marker { width: 26px; height: 26px; font-size: 11px; }
+  .d02-marker svg { width: 15px; height: 15px; }
+  .d02-step-card { padding: 12px 11px 0; }
+  .d02-step-main { gap: 8px; }
+  .d02-step-copy { flex-basis: calc(100% - 44px); }
+  .d02-step-copy h3 { font-size: 13px; }
+  .d02-meta { gap: 4px 9px; }
+  .d02-step-cta { margin-left: 0; min-height: 44px; }
+  .d02-step-details summary { min-height: 44px; padding-block: 12px; }
+  .d02-step-details button, .d02-step-details input { min-height: 44px; height: auto; }
+  .d02-text-link { min-height: 44px; }
+  .d02-goals-grid { grid-template-columns: minmax(0,1fr); }
 }

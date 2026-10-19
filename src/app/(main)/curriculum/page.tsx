@@ -1,6 +1,10 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { Card, PageHeader, Progress } from "@/components/ui";
+import type { Prisma } from "@prisma/client";
+import { CalendarDays, ClipboardList, Library, Settings2, Route } from "lucide-react";
+import { Card, PageHeader, Progress, Button } from "@/components/ui";
+import { ListPagination, parseListPage } from "@/components/list-pagination";
+import { LearningRoute, taskStatusLabels } from "@/components/curriculum/learning-route";
 import { formatUk, dateKey } from "@/lib/dates";
 import { prisma } from "@/lib/prisma";
 import { lessonReadiness } from "@/lib/readiness";
@@ -9,21 +13,13 @@ import { getSettings, syncPlan } from "@/server/sync";
 
 type Mode = "personal" | "free" | "materials";
 
-const statusLabels: Record<string, string> = {
-  PLANNED: "Заплановано",
-  IN_PROGRESS: "У роботі",
-  DONE: "Виконано",
-  MOVED: "Перенесено",
-  DROPPED: "Скасовано",
-};
-
-export default async function Curriculum({ searchParams }: { searchParams: Promise<{ mode?: string }> }) {
+export default async function Curriculum({ searchParams }: { searchParams: Promise<{ mode?: string; page?: string; period?: string; status?: string }> }) {
   const user = await requireUser();
-  const { mode: rawMode } = await searchParams;
+  const { mode: rawMode, page: rawPage, period: rawPeriod, status: rawStatus } = await searchParams;
   const mode: Mode = rawMode === "free" || rawMode === "materials" ? rawMode : "personal";
   const tabs: { mode: Mode; label: string }[] = [
-    { mode: "personal", label: "Персональний план" },
-    { mode: "free", label: "Вільне навчання" },
+    { mode: "personal", label: "Персональний маршрут" },
+    { mode: "free", label: "Вільний вибір" },
     { mode: "materials", label: "Готовність матеріалів" },
   ];
 
@@ -67,16 +63,30 @@ export default async function Curriculum({ searchParams }: { searchParams: Promi
   const active = user.subjects.filter((item) => item.active).map((item) => item.subjectId);
   const today = dateKey();
   const planDate = today < settings.planStart ? settings.planStart : today;
-  const [tasks, topics, progress] = await Promise.all([
-    prisma.studyTask.findMany({
-      where: { userId: user.id, dateKey: { gte: planDate }, status: { notIn: ["DROPPED", "MOVED"] } },
-      include: { topic: { select: { id: true, title: true } }, subject: { select: { name: true } } },
-      orderBy: [{ dateKey: "asc" }, { sortOrder: "asc" }],
-      take: 30,
-    }),
+  const period = rawPeriod === "all" ? "all" : "upcoming";
+  const status = rawStatus && Object.hasOwn(taskStatusLabels, rawStatus) ? rawStatus : "";
+  const where: Prisma.StudyTaskWhereInput = {
+    userId: user.id,
+    ...(period === "upcoming" ? { dateKey: { gte: planDate } } : {}),
+    ...(status ? { status } : {}),
+  };
+  const pageSize = 12;
+  const [total, topics, progress] = await Promise.all([
+    prisma.studyTask.count({ where }),
     prisma.topic.findMany({ where: { subjectId: { in: active } }, select: { id: true, parentId: true, title: true, subjectId: true } }),
     prisma.userTopicProgress.findMany({ where: { userId: user.id, topic: { subjectId: { in: active } } }, select: { topicId: true, status: true } }),
   ]);
+  const page = Math.min(parseListPage(rawPage), Math.max(1, Math.ceil(total / pageSize)));
+  const tasks = await prisma.studyTask.findMany({
+    where,
+    include: {
+      topic: { select: { id: true, title: true, lessonJson: true, questions: { where: { verificationStatus: "VERIFIED" }, select: { id: true } }, videos: { select: { reviewStatus: true } } } },
+      subject: { select: { name: true } },
+    },
+    orderBy: [{ dateKey: "asc" }, { sortOrder: "asc" }, { id: "asc" }],
+    skip: (page - 1) * pageSize,
+    take: pageSize,
+  });
   const progressByTopic = new Map(progress.map((item) => [item.topicId, item.status]));
   const leafTopics = topics.filter((topic) => !topics.some((child) => child.parentId === topic.id));
   const counts = {
@@ -86,27 +96,20 @@ export default async function Curriculum({ searchParams }: { searchParams: Promi
     notStarted: leafTopics.filter((topic) => !progressByTopic.has(topic.id) || progressByTopic.get(topic.id) === "NOT_STARTED").length,
   };
   const percent = leafTopics.length ? Math.round(counts.mastered * 100 / leafTopics.length) : 0;
-  const nextTask = tasks.find((task) => task.topicId && task.status !== "DONE");
 
   return <PageFrame title="Мій навчальний план" description="Персональний маршрут зібраний з твого розкладу та збереженого прогресу." tabs={tabs} mode={mode}>
-    <section className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
-      <Card className="space-y-4 border-primary/20 bg-accent/40 p-5 sm:p-6">
-        <div><div className="text-sm font-medium text-primary">Поточна ціль</div><h2 className="mt-1 text-2xl font-semibold">Рейтинговий бал {settings.targetScore}</h2><p className="mt-1 text-sm text-muted-foreground">{settings.examDate ? `Дата іспиту: ${formatUk(settings.examDate)}` : "Дату іспиту ще не вказано."}</p></div>
-        <div><div className="mb-2 flex justify-between text-sm"><span>Засвоєні теми</span><span>{counts.mastered} з {leafTopics.length} · {percent}%</span></div><Progress value={percent} /></div>
-        <Link href={nextTask?.topicId ? `/learn/${nextTask.topicId}` : "/subjects"} className="inline-flex w-fit rounded-xl bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90">{nextTask ? `Наступна тема: ${nextTask.topic?.title ?? nextTask.title}` : "Обрати наступну тему"}</Link>
-      </Card>
-      <Card className="space-y-3 p-5">
-        <h2 className="font-semibold">Етапи підготовки</h2>
-        {[["Ще не розпочато", counts.notStarted], ["У роботі", counts.started], ["Потребують повторення", counts.review], ["Засвоєно", counts.mastered]].map(([label, value]) => <div key={String(label)} className="flex items-center justify-between border-b border-border py-2 last:border-0"><span className="text-sm text-muted-foreground">{label}</span><span className="font-semibold">{Number(value).toLocaleString("uk-UA")}</span></div>)}
-      </Card>
+    <section className="d02-route-section" aria-labelledby="d02-route-title">
+      <div className="d02-route-heading"><div><h2 id="d02-route-title">{period === "all" ? "Усі заняття та історія" : "Твій маршрут навчання"}</h2><p>{period === "all" ? "Збережені дати та всі статуси, зокрема перенесення й пропуски." : `Заняття від ${formatUk(planDate)}. Минулі записи доступні за весь період.`}</p></div><span>{total} занять</span></div>
+      <form className="d02-filters" action="/curriculum">
+        <input type="hidden" name="mode" value="personal" />
+        <label>Період<select aria-label="Період" name="period" defaultValue={period}><option value="upcoming">Від початку маршруту</option><option value="all">Увесь період та історія</option></select></label>
+        <label>Статус<select aria-label="Статус" name="status" defaultValue={status}><option value="">Усі статуси</option>{Object.entries(taskStatusLabels).map(([value, label]) => <option value={value} key={value}>{label}</option>)}</select></label>
+        <Button type="submit" size="sm" variant="outline">Показати</Button>
+      </form>
+      {settings.planStart > today && period === "upcoming" ? <p className="d02-notice">План починається {formatUk(settings.planStart)}. Сьогоднішні заняття не створюємо замість майбутніх.</p> : null}
+      {tasks.length ? <><LearningRoute tasks={tasks} offset={(page - 1) * pageSize} /><ListPagination page={page} total={total} pageSize={pageSize} pathname="/curriculum" params={{ mode: "personal", period, status }} /></> : <Card className="d02-empty"><Route aria-hidden="true" /><h3>За цими умовами занять немає</h3><p>Переглянь увесь період, обери тему самостійно або перевір розклад у налаштуваннях.</p><div><Link className="d02-text-link" href="/curriculum?mode=personal&period=all">Увесь збережений план</Link><Link className="d02-text-link" href="/curriculum?mode=free">Обрати тему</Link></div></Card>}
     </section>
-    <section className="space-y-3">
-      <div><h2 className="text-lg font-semibold">Навчальні задачі</h2><p className="text-sm text-muted-foreground">Наступні задачі у твоєму збереженому плані</p></div>
-      {tasks.length ? <div className="space-y-2">{tasks.map((task) => <Card key={task.id} className="flex flex-wrap items-center justify-between gap-3 p-4">
-        <div><div className="font-medium">{task.title}</div><div className="mt-1 text-sm text-muted-foreground">{formatUk(task.dateKey)} · {task.subject?.name ?? "Навчання"} · {task.durationMin} хв</div></div>
-        <div className="flex items-center gap-3"><span className="text-xs text-muted-foreground">{statusLabels[task.status] ?? task.status}</span>{task.topicId ? <Link href={`/learn/${task.topicId}`} className="text-sm font-medium text-primary hover:underline">До уроку →</Link> : null}</div>
-      </Card>)}</div> : <Card className="p-5 text-sm text-muted-foreground">У плані поки немає наступних задач. Перевір розклад або перейди до вільного навчання.</Card>}
-    </section>
+    <details className="d02-goals"><summary>Ціль та засвоєння тем · {counts.mastered} з {leafTopics.length}</summary><div className="d02-goals-grid"><Card className="space-y-3 p-4"><h2 className="font-semibold">Ціль: {settings.targetScore} балів</h2><p className="text-sm text-muted-foreground">{settings.examDate ? `Дата іспиту: ${formatUk(settings.examDate)}` : "Дату іспиту ще не вказано."}</p><p className="text-sm">Засвоєно {counts.mastered} з {leafTopics.length} · {percent}%</p><Progress value={percent} /><p className="text-xs text-muted-foreground">Виконане заняття не означає засвоєння теми. Тут враховано збережений навчальний прогрес.</p></Card><Card className="space-y-2 p-4"><h2 className="font-semibold">Етапи підготовки</h2>{[["Ще не розпочато", counts.notStarted], ["У роботі", counts.started], ["Потребують повторення", counts.review], ["Засвоєно", counts.mastered]].map(([label, value]) => <p key={String(label)} className="flex justify-between gap-2 text-sm"><span>{label}</span><strong>{Number(value).toLocaleString("uk-UA")}</strong></p>)}</Card></div></details>
   </PageFrame>;
 }
 
@@ -117,9 +120,16 @@ function PageFrame({ title, description, tabs, mode, children }: {
   mode: Mode;
   children: ReactNode;
 }) {
-  return <div className="space-y-6">
+  return <div className="d02-curriculum">
     <PageHeader title={title} description={description} />
-    <nav className="flex flex-wrap gap-2" aria-label="Режим навчання">{tabs.map((tab) => <Link key={tab.mode} href={tab.mode === "personal" ? "/curriculum" : `/curriculum?mode=${tab.mode}`} aria-current={mode === tab.mode ? "page" : undefined} className={`rounded-xl px-4 py-2 text-sm font-medium ${mode === tab.mode ? "bg-primary text-primary-foreground" : "border border-border bg-card text-muted-foreground hover:bg-muted"}`}>{tab.label}</Link>)}</nav>
+    <nav className="d02-navigation" aria-label="Навігація навчального плану">
+      <Link href="/curriculum?mode=personal" aria-current={mode === "personal" ? "page" : undefined}><ClipboardList aria-hidden="true" />Мій маршрут</Link>
+      <Link href="/calendar"><CalendarDays aria-hidden="true" />Календар</Link>
+      <Link href="/curriculum?mode=free" aria-current={mode === "free" ? "page" : undefined}><Library aria-hidden="true" />Усі теми</Link>
+      <Link href="/settings"><Settings2 aria-hidden="true" />Налаштування плану</Link>
+    </nav>
+    <nav className="d02-modes" aria-label="Режим навчання">{tabs.map((tab) => <Link key={tab.mode} href={`/curriculum?mode=${tab.mode}`} aria-current={mode === tab.mode ? "page" : undefined}>{tab.label}</Link>)}</nav>
+    {mode === "personal" ? null : <p className="d02-notice">{mode === "free" ? "Повна бібліотека предметів. Вибір теми тут не змінює твій персональний розклад." : "Редакційна готовність матеріалів — окремо від твого прогресу та доступності окремого уроку."}</p>}
     {children}
   </div>;
 }
