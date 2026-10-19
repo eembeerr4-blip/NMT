@@ -12,8 +12,8 @@ export function LoginForm({ action }: {
 
   return (
     <form action={formAction} className="space-y-3" aria-busy={pending}>
-      <Input name="nickname" placeholder="Нікнейм" aria-label="Нікнейм" required autoComplete="username" />
-      <Input name="password" type="password" placeholder="Пароль" aria-label="Пароль" required autoComplete="current-password" />
+      <label className="grid gap-1.5 text-sm font-medium">Нікнейм<Input name="nickname" placeholder="Нікнейм" aria-label="Нікнейм" required autoComplete="username" /></label>
+      <label className="grid gap-1.5 text-sm font-medium">Пароль<Input name="password" type="password" placeholder="Пароль" aria-label="Пароль" required autoComplete="current-password" /></label>
       <label className="flex items-center gap-2 text-sm text-muted-foreground">
         <input name="rememberMe" type="checkbox" defaultChecked />
         Запам’ятати мене на цьому пристрої

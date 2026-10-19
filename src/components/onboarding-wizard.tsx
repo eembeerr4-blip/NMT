@@ -37,10 +37,10 @@ export function OnboardingWizard({ claim }: { claim: boolean }) {
         </div> : null}
         {step === 1 ? <form className="space-y-3" onSubmit={(event) => { event.preventDefault(); setError(""); setStep(2); }}>
           <h1 className="text-2xl font-semibold">Профіль</h1>
-          <Input name="firstName" aria-label="Ім'я" placeholder="Ім'я" required minLength={2} value={profile.firstName} onChange={(e) => setProfile({ ...profile, firstName: e.target.value })} autoComplete="given-name" />
-          <Input name="lastName" aria-label="Прізвище" placeholder="Прізвище" value={profile.lastName} onChange={(e) => setProfile({ ...profile, lastName: e.target.value })} autoComplete="family-name" />
-          <Input name="nickname" aria-label="Нікнейм" placeholder="Нікнейм" required minLength={3} maxLength={24} pattern="[a-zA-Z0-9_-]{3,24}" value={profile.nickname} onChange={(e) => setProfile({ ...profile, nickname: e.target.value })} autoComplete="username" />
-          <Input name="password" aria-label="Пароль" type="password" placeholder="Пароль, щонайменше 8 символів" required minLength={8} value={profile.password} onChange={(e) => setProfile({ ...profile, password: e.target.value })} autoComplete="new-password" />
+          <label className="grid gap-1.5 text-sm font-medium">Ім’я<Input name="firstName" aria-label="Ім'я" placeholder="Ім'я" required minLength={2} value={profile.firstName} onChange={(e) => setProfile({ ...profile, firstName: e.target.value })} autoComplete="given-name" /></label>
+          <label className="grid gap-1.5 text-sm font-medium">Прізвище<Input name="lastName" aria-label="Прізвище" placeholder="Прізвище" value={profile.lastName} onChange={(e) => setProfile({ ...profile, lastName: e.target.value })} autoComplete="family-name" /></label>
+          <label className="grid gap-1.5 text-sm font-medium">Нікнейм<Input name="nickname" aria-label="Нікнейм" placeholder="Нікнейм" required minLength={3} maxLength={24} pattern="[a-zA-Z0-9_-]{3,24}" value={profile.nickname} onChange={(e) => setProfile({ ...profile, nickname: e.target.value })} autoComplete="username" /></label>
+          <label className="grid gap-1.5 text-sm font-medium">Пароль<Input name="password" aria-label="Пароль" type="password" placeholder="Пароль, щонайменше 8 символів" required minLength={8} value={profile.password} onChange={(e) => setProfile({ ...profile, password: e.target.value })} autoComplete="new-password" /></label>
           <Label>Рік НМТ<Input name="examYear" type="number" required min={2026} max={2100} value={profile.examYear} onChange={(e) => setProfile({ ...profile, examYear: Number(e.target.value) })} /></Label>
           <Label>Цільовий бал<Input name="targetScore" type="number" required min={100} max={200} value={profile.targetScore} onChange={(e) => setProfile({ ...profile, targetScore: Number(e.target.value) })} /></Label>
           <Button type="submit">Далі</Button>
