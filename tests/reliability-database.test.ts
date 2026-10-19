@@ -180,3 +180,9 @@ it("test sets enforce roles, preserve attempted history, archive safely and roll
  const [edit,start]=await Promise.all([saveTestSet({...input,id:clone.id,title:"QA-race"}),startPublishedTestSet(clone.id)]);expect(edit.ok&&start.ok).toBe(false);
  expect(await prisma.$queryRawUnsafe("PRAGMA foreign_key_check")).toEqual([]);
 });
+
+it("editing an unused test set preserves its existing test kind",async()=>{
+ auth.id="QA-admin";const created=await prisma.test.create({data:{title:"QA-kind",kind:"EXAM",subjectId:"math"}});
+ expect((await saveTestSet({id:created.id,title:"QA-kind edited",subjectId:"math",timeLimitMin:0,questionIds:["q1"]})).ok).toBe(true);
+ expect((await prisma.test.findUniqueOrThrow({where:{id:created.id}})).kind).toBe("EXAM");
+});

@@ -23,7 +23,7 @@ export async function saveTestSet(input:{id?:string;title:string;subjectId:strin
    const questions=await tx.question.findMany({where:{id:{in:ids},subjectId:input.subjectId,verificationStatus:"VERIFIED"}});
    if(questions.length!==ids.length)throw new UserError("Оберіть лише перевірені запитання одного предмета.");
    const topicId=questions.every(q=>q.topicId===questions[0].topicId)?questions[0].topicId:null;
-   const data={title:input.title.trim(),subjectId:input.subjectId,topicId,kind:"TOPIC",timeLimitSec:input.timeLimitMin?input.timeLimitMin*60:null,configJson:publicationConfig(existing?.configJson??"{}","DRAFT")};
+   const data={title:input.title.trim(),subjectId:input.subjectId,topicId,kind:existing?.kind??"TOPIC",timeLimitSec:input.timeLimitMin?input.timeLimitMin*60:null,configJson:publicationConfig(existing?.configJson??"{}","DRAFT")};
    const set=existing?await tx.test.update({where:{id:existing.id},data}):await tx.test.create({data});
    if(existing)await tx.testQuestion.deleteMany({where:{testId:set.id}});
    await tx.testQuestion.createMany({data:ids.map((questionId,sortOrder)=>({testId:set.id,questionId,sortOrder}))});
