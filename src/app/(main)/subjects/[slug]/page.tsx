@@ -1,64 +1,22 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { STATUS_LABEL } from "@/lib/constants";
-import { prisma } from "@/lib/prisma";
-import { averageForSubject, changeFromInitial, formatDelta } from "@/lib/scoring";
-import { Badge, Card, PageHeader } from "@/components/ui";
-import { requireUser } from "@/server/session";
+import {notFound} from "next/navigation";
+import {STATUS_LABEL} from "@/lib/constants";
+import {lessonAccess} from "@/lib/readiness";
+import {prisma} from "@/lib/prisma";
+import {averageForSubject,changeFromInitial,formatDelta} from "@/lib/scoring";
+import {Badge,Button,Card,EmptyState,Input,PageHeader,Stat} from "@/components/ui";
+import {requireUser} from "@/server/session";
 
-export default async function SubjectPage({ params }: { params: Promise<{ slug: string }> }) {
-  const user = await requireUser();
-  const { slug } = await params;
-  const subject = await prisma.subject.findUnique({
-    where: { id: slug },
-    include: { topics: { orderBy: { sortOrder: "asc" } }, examResults: { where: { userId: user.id }, orderBy: { date: "desc" } } },
-  });
-  if (!subject) notFound();
-  const progress = await prisma.userTopicProgress.findMany({ where: { userId: user.id, topicId: { in: subject.topics.map((topic) => topic.id) } } });
-  const statusOf = new Map(progress.map((item) => [item.topicId, item]));
-  const roots = subject.topics.filter((topic) => !topic.parentId);
-  const points = subject.examResults.map((result) => ({
-    subjectId: result.subjectId,
-    date: result.date.toISOString().slice(0, 10),
-    ratingScore: result.ratingScore,
-    partial: result.partial,
-    belowThreshold: result.belowThreshold,
-    countsTowardAverage: result.countsTowardAverage,
-  }));
-  const average = averageForSubject(points, subject.id);
-  const delta = changeFromInitial(points, subject.id);
-  return (
-    <div className="space-y-6">
-      <PageHeader title={subject.name} description={subject.description} />
-      <div className="grid gap-3 sm:grid-cols-3">
-        <Card className="p-4"><div className="text-sm text-muted-foreground">Середній рейтинговий бал</div><div className="text-xl font-semibold">{average.value ?? average.label}</div></Card>
-        <Card className="p-4"><div className="text-sm text-muted-foreground">Зміна від першого результату</div><div className="text-xl font-semibold">{formatDelta(delta.value)}</div></Card>
-        <Card className="p-4"><div className="text-sm text-muted-foreground">Записів результатів</div><div className="text-xl font-semibold">{subject.examResults.length}</div></Card>
-      </div>
-      <div className="space-y-3">
-        {roots.map((topic) => {
-          const children = subject.topics.filter((child) => child.parentId === topic.id);
-          const rows = children.length ? children : [topic];
-          return (
-            <Card key={topic.id} className="p-4">
-              <div className="flex items-center justify-between gap-3">
-                <Link href={`/topics/${topic.id}`} className="font-medium hover:underline">{topic.title}</Link>
-                <Badge>{STATUS_LABEL[statusOf.get(topic.id)?.status ?? "NOT_STARTED"]}</Badge>
-              </div>
-              {children.length ? (
-                <div className="mt-3 space-y-2">
-                  {rows.map((child) => (
-                    <Link key={child.id} href={`/topics/${child.id}`} className="flex items-center justify-between rounded-xl bg-muted px-3 py-2 text-sm">
-                      <span>{child.title}</span>
-                      <span>{STATUS_LABEL[statusOf.get(child.id)?.status ?? "NOT_STARTED"]}{statusOf.get(child.id)?.lastTotal ? ` · ${statusOf.get(child.id)?.lastCorrect}/${statusOf.get(child.id)?.lastTotal}` : ""}</span>
-                    </Link>
-                  ))}
-                </div>
-              ) : null}
-            </Card>
-          );
-        })}
-      </div>
-    </div>
-  );
+export default async function SubjectPage({params,searchParams}:{params:Promise<{slug:string}>;searchParams?:Promise<{q?:string;status?:string;page?:string}>}) {
+ const user=await requireUser();const {slug}=await params;const filters:{q?:string;status?:string;page?:string}=await(searchParams??Promise.resolve({}));
+ const subject=await prisma.subject.findUnique({where:{id:slug},include:{topics:{orderBy:{sortOrder:"asc"},include:{questions:{where:{verificationStatus:"VERIFIED"},select:{id:true}},videos:{select:{reviewStatus:true}}}},examResults:{where:{userId:user.id},orderBy:{date:"desc"}}}});
+ if(!subject)notFound();
+ const progress=await prisma.userTopicProgress.findMany({where:{userId:user.id,topicId:{in:subject.topics.map(topic=>topic.id)}}});const statuses=new Map(progress.map(item=>[item.topicId,item.status]));
+ const query=(filters.q??"").trim().slice(0,120);const status=filters.status&&STATUS_LABEL[filters.status]?filters.status:"";
+ const matches=subject.topics.filter(topic=>(!query||topic.title.toLocaleLowerCase("uk-UA").includes(query.toLocaleLowerCase("uk-UA")))&&(!status||(statuses.get(topic.id)??"NOT_STARTED")===status));
+ const pages=Math.max(1,Math.ceil(matches.length/12));const requested=Number(filters.page??1);const page=Number.isSafeInteger(requested)?Math.max(1,Math.min(requested,pages)):1;const rows=matches.slice((page-1)*12,page*12);
+ const pageUrl=(next:number)=>`/subjects/${slug}?${new URLSearchParams({page:String(next),...(query?{q:query}:{}),...(status?{status}:{})})}`;
+ const points=subject.examResults.map(result=>({subjectId:result.subjectId,date:result.date.toISOString().slice(0,10),ratingScore:result.ratingScore,partial:result.partial,belowThreshold:result.belowThreshold,countsTowardAverage:result.countsTowardAverage}));
+ const average=averageForSubject(points,subject.id);const delta=changeFromInitial(points,subject.id);
+ return <div className="space-y-6"><PageHeader title={subject.name} description={subject.description}/><div className="grid gap-3 sm:grid-cols-3"><Stat label="Середній рейтинговий бал" value={average.value??average.label}/><Stat label="Зміна від першого результату" value={formatDelta(delta.value)}/><Stat label="Записів результатів" value={subject.examResults.length}/></div><Card className="p-4"><form className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_200px_auto]"><label className="grid gap-1 text-sm">Пошук теми<Input name="q" defaultValue={query} placeholder="Назва теми"/></label><label className="grid gap-1 text-sm">Мій прогрес<select name="status" defaultValue={status}><option value="">Усі теми</option>{Object.entries(STATUS_LABEL).map(([value,label])=><option key={value} value={value}>{label}</option>)}</select></label><div className="flex items-end gap-2"><Button type="submit">Знайти</Button><Button asChild variant="ghost"><Link href={`/subjects/${slug}`}>Скинути</Link></Button></div></form></Card>{rows.length?<div className="grid gap-3 lg:grid-cols-2">{rows.map(topic=>{const section=subject.topics.some(child=>child.parentId===topic.id);const availability=lessonAccess(topic);return <Card key={topic.id} data-testid="topic-card" className="space-y-3 p-5"><div className="flex flex-wrap items-start justify-between gap-2"><p className="text-sm text-muted-foreground">{section?"Розділ":topic.parentId?subject.topics.find(parent=>parent.id===topic.parentId)?.title??"Тема":"Тема"}</p><Badge>{STATUS_LABEL[statuses.get(topic.id)??"NOT_STARTED"]}</Badge></div><h2 className="break-words font-semibold">{topic.title}</h2><p className="text-sm text-muted-foreground">{section?"Перегляньте теми цього розділу.":availability.label}</p><Button asChild variant={availability.available||section?"default":"outline"}><Link href={`/topics/${topic.id}`}>{section?"Переглянути розділ":availability.available?"Відкрити тему":"Про тему"}</Link></Button></Card>;})}</div>:<EmptyState title={query||status?"Нічого не знайдено":"Матеріал готується"} text={query||status?"Спробуйте іншу назву або скиньте фільтри.":"Теми цього предмета ще готуються. Можна переглянути інші предмети."} action={<Button asChild variant="outline"><Link href={query||status?`/subjects/${slug}`:"/subjects"}>{query||status?"Скинути фільтри":"До предметів"}</Link></Button>}/>}<nav aria-label="Сторінки тем" className="flex flex-wrap items-center justify-between gap-3 text-sm text-muted-foreground"><span>{matches.length} тем · сторінка {page} із {pages}</span><div className="flex gap-2">{page>1?<Button asChild variant="outline" size="sm"><Link href={pageUrl(page-1)}>Назад</Link></Button>:null}{page<pages?<Button asChild variant="outline" size="sm"><Link href={pageUrl(page+1)}>Далі</Link></Button>:null}</div></nav></div>;
 }

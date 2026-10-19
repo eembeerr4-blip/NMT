@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { COVERAGE_LABEL, STATUS_LABEL } from "@/lib/constants";
+import { STATUS_LABEL } from "@/lib/constants";
+import { lessonAccess } from "@/lib/readiness";
 import { formatUk } from "@/lib/dates";
 import { parseLesson } from "@/lib/lesson";
 import { prisma } from "@/lib/prisma";
@@ -9,7 +10,7 @@ import { CompleteLesson } from "@/components/lesson-tutor";
 import { MathText } from "@/components/math-text";
 import { TopicActions } from "@/components/forms";
 import { VideoPanel } from "@/components/video-panel";
-import { Badge, Card, PageHeader, Progress } from "@/components/ui";
+import { Badge, Button, Card, EmptyState, PageHeader, Progress } from "@/components/ui";
 import { LessonTabs } from "@/components/lesson-tabs";
 
 export default async function LessonPage({ params }: { params: Promise<{ topicId: string }> }) {
@@ -17,9 +18,11 @@ export default async function LessonPage({ params }: { params: Promise<{ topicId
   const { topicId } = await params;
   const topic = await prisma.topic.findUnique({
     where: { id: topicId },
-    include: { subject: true, children: true, questions: { where: { verificationStatus: "VERIFIED" }, select: { difficulty: true } }, videos: { orderBy: { createdAt: "asc" }, include: { progress: { where: { userId: user.id } } } } },
+    include: { subject: true, children: true, questions: { where: { verificationStatus: "VERIFIED" }, select: { difficulty: true } }, videos: { where:{reviewStatus:"CONFIRMED"}, orderBy: { createdAt: "asc" }, include: { progress: { where: { userId: user.id } } } } },
   });
   if (!topic) notFound();
+  const availability=lessonAccess(topic);
+  if(!availability.available&&!topic.children.length)return <div className="space-y-6"><PageHeader title={topic.title} description={topic.subject.name}/><EmptyState title="Матеріал готується" text="Цей урок ще готується. Оберіть іншу тему, щоб продовжити навчання." action={<Button asChild variant="outline"><Link href={`/subjects/${topic.subjectId}`}>До тем предмета</Link></Button>}/></div>;
   const [progress, verifiedCount, attempt, review, siblings] = await Promise.all([
     prisma.userTopicProgress.findUnique({ where: { userId_topicId: { userId: user.id, topicId } } }),
     prisma.question.count({ where: { topicId, verificationStatus: "VERIFIED" } }),
@@ -40,12 +43,13 @@ export default async function LessonPage({ params }: { params: Promise<{ topicId
       <div className="space-y-6">
         <PageHeader
           title={topic.title}
-          description={`${topic.subject.name} · орієнтовно ${topic.estimatedMin} хв · ${COVERAGE_LABEL[topic.coverage] ?? topic.coverage}`}
+          description={`${topic.subject.name} · орієнтовно ${topic.estimatedMin} хв · ${availability.label}`}
           action={<Badge>{STATUS_LABEL[status]}</Badge>}
         />
         <nav aria-label="Шлях до уроку" className="flex flex-wrap gap-2 text-sm text-muted-foreground"><Link href="/subjects">Предмети</Link><span>/</span><Link href={`/subjects/${topic.subjectId}`}>{topic.subject.name}</Link><span>/</span><span className="text-foreground">{topic.title}</span></nav>
         {topic.children.length ? <Card className="space-y-2 p-4"><h2 className="font-medium">Уроки розділу</h2>{topic.children.map(child=><Link key={child.id} className="block underline" href={"/learn/"+child.id}>{child.title}</Link>)}</Card> : null}
         <LessonTabs
+          defaultValue={availability.theory?"notes":availability.video?"video":availability.practice?"practice":"notes"}
           video={<VideoPanel topicId={topic.id} topicTitle={`${topic.subject.name} ${topic.title}`} canEdit={false} videos={topic.videos.map((video) => ({ ...video, notes: video.progress[0]?.notes ?? "", lastPositionSec: video.progress[0]?.lastPositionSec ?? 0 }))} />}
           notes={<div className="space-y-3">
             <Card className="space-y-3 p-4">
