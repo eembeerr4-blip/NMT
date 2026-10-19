@@ -1,3 +1,4 @@
+import {PUBLICATION_LABEL,testPublication} from "@/lib/test-publication";
 import { Card, EmptyState, PageHeader, Button } from "@/components/ui";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
@@ -22,7 +23,7 @@ export default async function AdminTestsPage({ searchParams }: { searchParams: P
   const [tests, total, questions, verified, drafts, rejected, subjects] = await Promise.all([
     prisma.test.findMany({
       where,
-      select: { id: true, title: true, kind: true, timeLimitSec: true, createdAt: true, subject: { select: { name: true } }, topic: { select: { title: true } }, _count: { select: { questions: true, attempts: true } } },
+      select: { id: true, title: true, kind: true, configJson:true, timeLimitSec: true, createdAt: true, subject: { select: { name: true } }, topic: { select: { title: true } }, _count: { select: { questions: true, attempts: true } } },
       orderBy: [{ createdAt: "desc" }, { id: "asc" }],
       skip: (page - 1) * pageSize,
       take: pageSize,
@@ -38,7 +39,7 @@ export default async function AdminTestsPage({ searchParams }: { searchParams: P
   const pageUrl = (next: number) => `/admin/tests?${new URLSearchParams({ page: String(next), ...(query ? { q: query } : {}), ...(params.subject ? { subject: params.subject } : {}), ...(kind ? { kind } : {}) })}`;
   return (
     <>
-      <PageHeader title="Тести та запитання" description="Керуйте перевіркою банку й переглядайте наявні тести. Зміни правил оцінювання не виконуються." action={<Button asChild variant="outline"><Link href="/admin/questions">Відкрити банк запитань</Link></Button>} />
+      <PageHeader title="Тести та запитання" description="Збирайте перевірені запитання, публікуйте набори та зберігайте історію спроб." action={<Button asChild><Link href="/admin/tests/new">Створити набір</Link></Button>} />
       <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">{[["Усього запитань", questions], ["Перевірено", verified], ["Очікують перевірки", drafts], ["Архівовано", rejected]].map(([label, value]) => <Card key={String(label)} className="p-4"><p className="text-sm text-muted-foreground">{label}</p><p className="mt-1 text-2xl font-semibold">{Number(value).toLocaleString("uk-UA")}</p></Card>)}</section>
       <Card className="space-y-4 p-4 sm:p-5">
         <form className="grid gap-3 sm:grid-cols-2 xl:grid-cols-[minmax(0,1fr)_220px_220px_auto]">
@@ -52,20 +53,20 @@ export default async function AdminTestsPage({ searchParams }: { searchParams: P
       {tests.length === 0 ? <EmptyState title="Тестів не знайдено" text="Змініть фільтри, щоб переглянути інші наявні тести." /> : (
         <Card className="overflow-hidden">
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[760px] text-left text-sm">
+            <table className="responsive-table w-full text-left text-sm">
               <thead className="border-b border-border bg-muted/60 text-xs text-muted-foreground"><tr><th className="px-4 py-3 font-medium">Тест</th><th className="px-4 py-3 font-medium">Предмет і тема</th><th className="px-4 py-3 font-medium">Склад</th><th className="px-4 py-3 font-medium">Час</th><th className="px-4 py-3 font-medium">Дія</th></tr></thead>
               <tbody className="divide-y divide-border">{tests.map((test) => <tr key={test.id} className="hover:bg-muted/30">
-                <td className="px-4 py-3"><p className="font-medium">{test.title}</p><p className="mt-1 text-xs text-muted-foreground">{testKindLabels[test.kind] ?? "Тест"}</p></td>
-                <td className="px-4 py-3 text-muted-foreground">{test.subject?.name ?? "Без предмета"}{test.topic ? ` · ${test.topic.title}` : ""}</td>
-                <td className="px-4 py-3">{test._count.questions} запитань · {test._count.attempts} спроб</td>
-                <td className="px-4 py-3 text-muted-foreground">{test.timeLimitSec ? `${Math.round(test.timeLimitSec / 60)} хв` : "Без таймера"}</td>
-                <td className="px-4 py-3"><Button asChild variant="outline" size="sm"><Link href={`/tests/${test.id}`}>Переглянути як учень</Link></Button></td>
+                <td data-label="Тест" className="px-4 py-3"><p className="font-medium">{test.title}</p><p className="mt-1 text-xs text-muted-foreground">{testKindLabels[test.kind] ?? "Тест"} · {PUBLICATION_LABEL[testPublication(test.configJson)]}</p></td>
+                <td data-label="Предмет і тема" className="px-4 py-3 text-muted-foreground">{test.subject?.name ?? "Без предмета"}{test.topic ? ` · ${test.topic.title}` : ""}</td>
+                <td data-label="Склад" className="px-4 py-3">{test._count.questions} запитань · {test._count.attempts} спроб</td>
+                <td data-label="Час" className="px-4 py-3 text-muted-foreground">{test.timeLimitSec ? `${Math.round(test.timeLimitSec / 60)} хв` : "Без таймера"}</td>
+                <td data-label="Дія" className="px-4 py-3"><Button asChild variant="outline" size="sm"><Link href={`/admin/tests/${test.id}`}>Переглянути набір</Link></Button></td>
               </tr>)}</tbody>
             </table>
           </div>
         </Card>
       )}
-      <p className="text-sm text-muted-foreground">Для тестів ще не реалізовані безпечні дії зміни параметрів або архівації. Тут доступний перегляд; повне керування не імітується.</p>
+      <p className="text-sm text-muted-foreground">Набори зі спробами захищені від зміни складу. Для оновлення створіть нову версію. Архів зберігає історію учнів.</p>
       <nav aria-label="Сторінки тестів" className="flex items-center justify-between gap-3 text-sm"><span>Сторінка {page} із {pageCount}</span><div className="flex gap-2">{page > 1 ? <Button asChild variant="outline" size="sm"><Link href={pageUrl(page - 1)}>Назад</Link></Button> : null}{page < pageCount ? <Button asChild variant="outline" size="sm"><Link href={pageUrl(page + 1)}>Далі</Link></Button> : null}</div></nav>
     </>
   );

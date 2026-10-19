@@ -1,3 +1,4 @@
+import {saveTestSet,setTestPublication,cloneTestSet,startPublishedTestSet} from "@/server/test-sets";
 import {afterAll,afterEach,beforeAll,expect,it,vi} from "vitest";
 import {execFileSync} from "node:child_process";
 import {existsSync,unlinkSync,rmdirSync,writeFileSync} from "node:fs";
@@ -160,4 +161,22 @@ it("learning load is private, atomic and preserves personal and DONE tasks",asyn
  const settings=await prisma.userSettings.findUniqueOrThrow({where:{userId:"A"}});expect([45,60]).toContain(settings.dailyMinutes);expect(new Set(JSON.parse(settings.studyDaysJson)).size).toBe(2);
  expect(await prisma.userSettings.findUniqueOrThrow({where:{userId:"B"}})).toEqual(other);
  expect(await prisma.studyTask.findMany({where:{id:{in:["QA-load-custom","QA-load-done"]}},orderBy:{id:"asc"}})).toEqual(preserved);
+});
+
+it("test sets enforce roles, preserve attempted history, archive safely and roll back failures",async()=>{
+ const input={title:"QA-published",subjectId:"math",timeLimitMin:10,questionIds:["q1"]};
+ for(const id of ["missing","A","staff"]){auth.id=id;for(const call of [()=>saveTestSet(input),()=>setTestPublication("test","PUBLISHED"),()=>cloneTestSet("test")])expect((await call()).ok).toBe(false);}
+ await prisma.user.create({data:{id:"QA-admin",nickname:"QA-admin",firstName:"QA",role:"ADMIN"}});await prisma.userSubject.create({data:{userId:"QA-admin",subjectId:"math",active:true,role:"REQUIRED"}});
+ auth.id="QA-admin";const created=await saveTestSet(input);expect(created.ok).toBe(true);if(!created.ok||!created.id)throw Error("QA setup failed");const id=created.id;
+ await prisma.test.update({where:{id},data:{configJson:JSON.stringify({grading:"QA-preserve",publication:"DRAFT"})}});
+ await prisma.$executeRawUnsafe("CREATE TRIGGER QA_publication_fail BEFORE INSERT ON AuditLog BEGIN SELECT RAISE(ABORT,'QA publication rollback'); END");
+ try {vi.spyOn(console,"error").mockImplementation(()=>{});expect((await setTestPublication(id,"PUBLISHED")).ok).toBe(false);expect(JSON.parse((await prisma.test.findUniqueOrThrow({where:{id}})).configJson).publication).toBe("DRAFT");}finally{await prisma.$executeRawUnsafe("DROP TRIGGER QA_publication_fail");}
+ expect((await setTestPublication(id,"PUBLISHED")).ok).toBe(true);expect(JSON.parse((await prisma.test.findUniqueOrThrow({where:{id}})).configJson).grading).toBe("QA-preserve");
+ auth.id="A";const attempt=await startPublishedTestSet(id);expect(attempt.ok).toBe(true);if(!attempt.ok||!attempt.id)throw Error("QA attempt failed");expect((await prisma.testAttempt.findUniqueOrThrow({where:{id:attempt.id}})).userId).toBe("A");
+ auth.id="QA-admin";expect((await saveTestSet({...input,id,title:"QA-forbidden history edit"})).ok).toBe(false);expect((await prisma.test.findUniqueOrThrow({where:{id}})).title).toBe("QA-published");
+ const clone=await cloneTestSet(id);expect(clone.ok).toBe(true);if(!clone.ok||!clone.id)throw Error("QA clone failed");expect((await prisma.testQuestion.findMany({where:{testId:clone.id}})).map(q=>q.questionId)).toEqual(["q1"]);
+ expect((await setTestPublication(id,"ARCHIVED")).ok).toBe(true);auth.id="A";expect((await startPublishedTestSet(id)).ok).toBe(false);expect((await finishAttempt(attempt.id,{q1:"4"})).ok).toBe(true);expect((await prisma.testAttempt.findUniqueOrThrow({where:{id:attempt.id}})).status).toBe("COMPLETED");
+ auth.id="QA-admin";expect((await setTestPublication(clone.id,"PUBLISHED")).ok).toBe(true);
+ const [edit,start]=await Promise.all([saveTestSet({...input,id:clone.id,title:"QA-race"}),startPublishedTestSet(clone.id)]);expect(edit.ok&&start.ok).toBe(false);
+ expect(await prisma.$queryRawUnsafe("PRAGMA foreign_key_check")).toEqual([]);
 });

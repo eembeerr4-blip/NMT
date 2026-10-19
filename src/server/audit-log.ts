@@ -3,6 +3,7 @@ import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 
 export const AUDIT_ACTIONS = {
+  TEST_SET_SAVED:"Збережено набір тесту", TEST_PUBLICATION_CHANGED:"Змінено публікацію тесту",
   SYSTEM_AUDIT_ENABLED: "Журнал увімкнено",
   USER_CREATED: "Створено профіль",
   AUTH_LOGIN_FAILED: "Невдала спроба входу",

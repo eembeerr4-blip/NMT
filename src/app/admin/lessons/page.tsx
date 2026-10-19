@@ -64,16 +64,16 @@ export default async function AdminLessonsPage({ searchParams }: { searchParams:
       {topics.length === 0 ? <EmptyState title="Уроків за цими фільтрами не знайдено" text="Змініть пошук або фільтри предмета та готовності." /> : (
         <Card className="overflow-hidden">
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[900px] text-left text-sm">
+            <table className="responsive-table w-full text-left text-sm">
               <thead className="border-b border-border bg-muted/60 text-xs text-muted-foreground"><tr><th className="px-4 py-3 font-medium">Предмет і тема</th><th className="px-4 py-3 font-medium">Матеріал</th><th className="px-4 py-3 font-medium">Навчальні ресурси</th><th className="px-4 py-3 font-medium">Готовність</th><th className="px-4 py-3 font-medium">Дії</th></tr></thead>
               <tbody className="divide-y divide-border">{topics.map((topic) => {
                 const lesson = parseLesson(topic.lessonJson);
                 return <tr key={topic.id} className="hover:bg-muted/30">
-                  <td className="px-4 py-3"><p className="text-xs text-muted-foreground">{topic.subject.name}</p><p className="mt-1 font-medium">{topic.title}</p></td>
-                  <td className="px-4 py-3">{lesson ? "Конспект готовий" : topic.summary.trim() ? "Є опис теми" : "Матеріал відсутній"}</td>
-                  <td className="px-4 py-3 text-muted-foreground">{lesson?.examples.length ?? 0} прикладів · {topic._count.questions} завдань · {topic.videos.length} відео</td>
-                  <td className="px-4 py-3"><span className="rounded-full bg-muted px-2.5 py-1 text-xs">{COVERAGE_LABEL[topic.coverage] ?? topic.coverage}</span></td>
-                  <td className="px-4 py-3"><div className="flex gap-2"><Button asChild variant="outline" size="sm"><Link href={`${base}/lessons/${topic.id}`}>Редактор</Link></Button><Button asChild variant="ghost" size="sm"><Link href={`/learn/${topic.id}`}>Як учень</Link></Button></div></td>
+                  <td data-label="Предмет і тема" className="px-4 py-3"><p className="text-xs text-muted-foreground">{topic.subject.name}</p><p className="mt-1 font-medium">{topic.title}</p></td>
+                  <td data-label="Матеріал" className="px-4 py-3">{lesson ? "Конспект готовий" : topic.summary.trim() ? "Є опис теми" : "Матеріал відсутній"}</td>
+                  <td data-label="Навчальні ресурси" className="px-4 py-3 text-muted-foreground">{lesson?.examples.length ?? 0} прикладів · {topic._count.questions} завдань · {topic.videos.length} відео</td>
+                  <td data-label="Готовність" className="px-4 py-3"><span className="rounded-full bg-muted px-2.5 py-1 text-xs">{COVERAGE_LABEL[topic.coverage] ?? topic.coverage}</span></td>
+                  <td data-label="Дії" className="px-4 py-3"><div className="flex gap-2"><Button asChild variant="outline" size="sm"><Link href={`${base}/lessons/${topic.id}`}>Редактор</Link></Button><Button asChild variant="ghost" size="sm"><Link href={`/learn/${topic.id}`}>Як учень</Link></Button></div></td>
                 </tr>;
               })}</tbody>
             </table>

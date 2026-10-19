@@ -53,13 +53,13 @@ export default async function AdminTopicsPage({ searchParams }: { searchParams: 
       {topics.length === 0 ? <EmptyState title="Тем не знайдено" text="Змініть фільтри, щоб переглянути інші навчальні матеріали." /> : (
         <Card className="overflow-hidden">
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[760px] text-left text-sm">
+            <table className="responsive-table w-full text-left text-sm">
               <thead className="border-b border-border bg-muted/60 text-xs text-muted-foreground"><tr><th className="px-4 py-3 font-medium">Предмет і тема</th><th className="px-4 py-3 font-medium">Підтеми</th><th className="px-4 py-3 font-medium">Завдання</th><th className="px-4 py-3 font-medium">Матеріали</th><th className="px-4 py-3 font-medium">Дія</th></tr></thead>
               <tbody className="divide-y divide-border">{topics.map((topic) => <tr key={topic.id} className="hover:bg-muted/30">
-                <td className="px-4 py-3"><p className="text-xs text-muted-foreground">{topic.subject.name}{topic.parent ? ` · ${topic.parent.title}` : " · Розділ"}</p><p className="mt-1 font-medium">{topic.title}</p></td>
-                <td className="px-4 py-3">{topic._count.children}</td><td className="px-4 py-3">{topic._count.questions}</td>
-                <td className="px-4 py-3"><span className="rounded-full bg-muted px-2.5 py-1 text-xs">{COVERAGE_LABEL[topic.coverage] ?? topic.coverage}</span><span className="ml-2 text-xs text-muted-foreground">{topic._count.videos} відео</span></td>
-                <td className="px-4 py-3"><Button asChild variant="outline" size="sm"><Link href={`${base}/topics/${topic.id}`}>Відкрити редактор</Link></Button></td>
+                <td data-label="Предмет і тема" className="px-4 py-3"><p className="text-xs text-muted-foreground">{topic.subject.name}{topic.parent ? ` · ${topic.parent.title}` : " · Розділ"}</p><p className="mt-1 font-medium">{topic.title}</p></td>
+                <td data-label="Підтеми" className="px-4 py-3">{topic._count.children}</td><td data-label="Завдання" className="px-4 py-3">{topic._count.questions}</td>
+                <td data-label="Матеріали" className="px-4 py-3"><span className="rounded-full bg-muted px-2.5 py-1 text-xs">{COVERAGE_LABEL[topic.coverage] ?? topic.coverage}</span><span className="ml-2 text-xs text-muted-foreground">{topic._count.videos} відео</span></td>
+                <td data-label="Дія" className="px-4 py-3"><Button asChild variant="outline" size="sm"><Link href={`${base}/topics/${topic.id}`}>Відкрити редактор</Link></Button></td>
               </tr>)}</tbody>
             </table>
           </div>

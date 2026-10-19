@@ -58,13 +58,13 @@ export default async function AdminTasksPage({ searchParams }: { searchParams: P
       {tasks.length === 0 ? <EmptyState title="Занять за фільтрами не знайдено" text="Спробуйте інший пошук або статус." /> : (
         <Card className="overflow-hidden">
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[720px] text-left text-sm">
+            <table className="responsive-table w-full text-left text-sm">
               <thead className="border-b border-border bg-muted/60 text-xs text-muted-foreground"><tr><th className="px-4 py-3 font-medium">Заняття</th><th className="px-4 py-3 font-medium">Предмет і тема</th><th className="px-4 py-3 font-medium">Дата й тривалість</th><th className="px-4 py-3 font-medium">Статус</th></tr></thead>
               <tbody className="divide-y divide-border">{tasks.map((task) => <tr key={task.id} className="hover:bg-muted/30">
-                <td className="px-4 py-3 font-medium">{task.title}<p className="mt-1 text-xs font-normal text-muted-foreground">{taskKindLabels[task.kind] ?? "Навчання"}</p></td>
-                <td className="px-4 py-3 text-muted-foreground">{task.subject?.name ?? "Без предмета"}{task.topic ? ` · ${task.topic.title}` : ""}</td>
-                <td className="px-4 py-3 text-muted-foreground">{formatUk(task.dateKey)} · {task.durationMin} хв</td>
-                <td className="px-4 py-3"><span className="rounded-full bg-muted px-2.5 py-1 text-xs">{taskStatusLabels[task.status] ?? task.status}</span></td>
+                <td data-label="Заняття" className="px-4 py-3 font-medium">{task.title}<p className="mt-1 text-xs font-normal text-muted-foreground">{taskKindLabels[task.kind] ?? "Навчання"}</p></td>
+                <td data-label="Предмет і тема" className="px-4 py-3 text-muted-foreground">{task.subject?.name ?? "Без предмета"}{task.topic ? ` · ${task.topic.title}` : ""}</td>
+                <td data-label="Дата й тривалість" className="px-4 py-3 text-muted-foreground">{formatUk(task.dateKey)} · {task.durationMin} хв</td>
+                <td data-label="Статус" className="px-4 py-3"><span className="rounded-full bg-muted px-2.5 py-1 text-xs">{taskStatusLabels[task.status] ?? task.status}</span></td>
               </tr>)}</tbody>
             </table>
           </div>
