@@ -53,3 +53,34 @@ next-env.d.ts
 *.db.backup-*
 /prisma/dev.db.pre-*
 /prisma/hardening-checkpoint.prisma
+
+# Local audit output, screenshots and QA fixtures
+/audit/
+/qa-audit/
+/design/screenshots/
+
+# Database exports, backups and SQLite sidecars (at any depth)
+*.db.*
+*.sqlite
+*.sqlite-*
+*.sqlite.*
+*.sqlite3
+*.sqlite3-*
+*.sqlite3.*
+*.bak
+*.backup
+*.backup-*
+/backups/
+/exports/
+
+# Local credentials and private signing keys
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+.npmrc
+.netrc
+.git-credentials
+credentials.json
+service-account*.json
