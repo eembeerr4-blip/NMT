@@ -349,18 +349,14 @@ function JsonSaver({ title, initial, action }: { title: string; initial: string;
 }
 
 export function NoteForm({ topics, note }: { topics: { id: string; title: string; subjectId: string }[]; note?: { id: string; title: string; content: string; topicId: string | null } }) {
-  const [message, setMessage] = useState("");
-  const [hasError, setHasError] = useState(false);
+  const {pending,result,run}=useActionFeedback();
   return (
     <form className="grid gap-2" onSubmit={async (event) => {
       event.preventDefault();
       const submittedForm = event.currentTarget;
       const form = new FormData(submittedForm);
       const topic = topics.find((item) => item.id === String(form.get("topicId")));
-      const result = await saveNote({ id: note?.id, title: String(form.get("title") ?? ""), content: String(form.get("content") ?? ""), topicId: topic?.id, subjectId: topic?.subjectId });
-      setHasError(!result.ok);
-      setMessage(result.ok ? (note ? "Зміни збережено." : "Конспект збережено.") : result.error);
-      if (result.ok && !note) submittedForm.reset();
+      await run(()=>saveNote({ id: note?.id, title: String(form.get("title") ?? ""), content: String(form.get("content") ?? ""), topicId: topic?.id, subjectId: topic?.subjectId }),()=>{if(!note)submittedForm.reset();});
     }}>
       <label className="grid gap-1.5 text-sm"><span className="font-medium">Назва конспекту</span><Input name="title" placeholder="Наприклад, правила пунктуації" defaultValue={note?.title} required /></label>
       <label className="grid gap-1.5 text-sm"><span className="font-medium">Тема</span><select name="topicId" defaultValue={note?.topicId ?? ""} className="h-10 rounded-lg border border-border bg-card px-3 text-sm">
@@ -368,8 +364,8 @@ export function NoteForm({ topics, note }: { topics: { id: string; title: string
         {topics.map((topic) => <option key={topic.id} value={topic.id}>{SUBJECTS.find((subject) => subject.id === topic.subjectId)?.name ?? "Предмет"} · {topic.title}</option>)}
       </select></label>
       <label className="grid gap-1.5 text-sm"><span className="font-medium">Текст</span><Textarea name="content" defaultValue={note?.content} placeholder="Збережіть важливі правила, формули або власні спостереження" required /></label>
-      <Button type="submit">{note ? "Зберегти зміни" : "Додати конспект"}</Button>
-      {message ? <p role={hasError ? "alert" : "status"} className={`text-sm ${hasError ? "text-danger-text" : "text-muted-foreground"}`}>{message}</p> : null}
+      <Button type="submit" disabled={pending}>{pending?"Збереження…":note ? "Зберегти зміни" : "Додати конспект"}</Button>
+      {result ? <p role={result.ok?"status":"alert"} className="text-sm">{result.ok?"Конспект збережено.":result.error}</p> : null}
     </form>
   );
 }

@@ -1,3 +1,4 @@
+import {ListPagination,parseListPage} from "@/components/list-pagination";
 import Link from "next/link";
 import { EXAM_TYPE_LABEL } from "@/lib/constants";
 import { formatUk } from "@/lib/dates";
@@ -6,15 +7,17 @@ import { Button, Card, EmptyState, PageHeader } from "@/components/ui";
 import { ResultEditorDialog, ResultDeleteButton } from "@/components/result-editor-dialog";
 import { requireUser } from "@/server/session";
 
-export default async function ResultsPage({ searchParams }: { searchParams: Promise<{ edit?: string; add?: string }> }) {
+export default async function ResultsPage({ searchParams }: { searchParams: Promise<{ edit?: string; add?: string; q?:string;page?:string }> }) {
   const user = await requireUser();
-  const { edit, add } = await searchParams;
+  const params=await searchParams;const {edit,add}=params;const query=(params.q??"").trim().slice(0,120);const page=parseListPage(params.page);
+  const where={userId:user.id,...(query?{OR:[{title:{contains:query}},{subject:{name:{contains:query}}}]}:{})};
   const results = await prisma.examResult.findMany({
-    where: { userId: user.id },
+    where, skip:(page-1)*20,take:20,
     include: { subject: true },
     orderBy: [{ date: "desc" }, { createdAt: "desc" }],
   });
-  const current = results.find((result) => result.id === edit);
+  const total=await prisma.examResult.count({where});
+  const current=edit?await prisma.examResult.findFirst({where:{id:edit,userId:user.id}}):null;
   return (
     <div className="space-y-6">
       <PageHeader
@@ -22,8 +25,9 @@ export default async function ResultsPage({ searchParams }: { searchParams: Prom
         description="Зберігайте результати діагностики, пробників і тестів окремо. Тестові та рейтингові бали показано окремо."
         action={<Button asChild><Link href="/results?add=1">Додати результат</Link></Button>}
       />
+      <form className="flex flex-wrap items-end gap-2"><label className="grid flex-1 gap-1 text-sm">Пошук результатів<input name="q" defaultValue={query} maxLength={120}/></label><Button type="submit">Знайти</Button><Button asChild variant="ghost"><Link href="/results">Скинути</Link></Button></form>
       {results.length === 0 ? (
-        <EmptyState title="Результатів ще немає" text="Додайте результат пробника або дочекайтеся першої завершеної діагностики." />
+        <EmptyState title={query?"За цим запитом результатів немає":"Результатів ще немає"} text="Додайте результат пробника або дочекайтеся першої завершеної діагностики." />
       ) : (
         <div className="space-y-3">
           {results.map((result) => {
@@ -64,6 +68,7 @@ export default async function ResultsPage({ searchParams }: { searchParams: Prom
           })}
         </div>
       )}
+      <ListPagination page={page} total={total} pathname="/results" params={{q:query}}/>
       {current || add ? (
         <ResultEditorDialog
           open
