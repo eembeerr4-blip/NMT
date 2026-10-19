@@ -10,7 +10,7 @@ import { Button, Card, Input } from "@/components/ui";
 
 type Video = { id: string; youtubeId: string; url: string; title: string; isPrimary: boolean; durationSec: number | null; lastPositionSec: number; notes: string; role?: string; channel?: string; reviewStatus?: string };
 
-export function VideoPanel({ topicId, topicTitle, videos, canEdit = false }: { topicId: string; topicTitle: string; videos: Video[]; canEdit?: boolean }) {
+export function VideoPanel({ topicId, topicTitle, videos, canEdit = false, variant="default" }: { topicId: string; topicTitle: string; videos: Video[]; canEdit?: boolean; variant?:"default"|"lesson" }) {
   const visible = videos.filter((video) => video.reviewStatus !== "REJECTED");
   const confirmed = visible.filter((video) => (video.reviewStatus ?? "CONFIRMED") !== "SUGGESTED");
   const [currentId, setCurrentId] = useState((confirmed.find((video) => video.isPrimary) ?? confirmed[0] ?? visible[0])?.id ?? "");
@@ -35,7 +35,7 @@ export function VideoPanel({ topicId, topicTitle, videos, canEdit = false }: { t
   }
 
   return (
-    <div className="space-y-4">
+    <div className={variant==="lesson"?"d04-video space-y-4":"space-y-4"}>
       {primary ? (
         <Card className="overflow-hidden">
           {playing ? (
@@ -69,7 +69,7 @@ export function VideoPanel({ topicId, topicTitle, videos, canEdit = false }: { t
       ) : (
         <Card className="p-5">
           <h2 className="font-medium">Відео ще не додано</h2>
-          <p className="mt-1 text-sm text-muted-foreground">Сайт не підставляє випадкові ролики. Додайте посилання, яке ви перевірили.</p>
+          <p className="mt-1 text-sm text-muted-foreground">{variant==="lesson"&&!canEdit?"Вивчайте доступну теорію та приклади. Відеопояснення з’явиться після перевірки редактором.":"Сайт не підставляє випадкові ролики. Додайте посилання, яке ви перевірили."}</p>
         </Card>
       )}
       {message ? <p role="status" className="text-sm">{message}</p> : null}

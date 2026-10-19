@@ -348,7 +348,7 @@ function JsonSaver({ title, initial, action }: { title: string; initial: string;
   );
 }
 
-export function NoteForm({ topics, note }: { topics: { id: string; title: string; subjectId: string }[]; note?: { id: string; title: string; content: string; topicId: string | null } }) {
+export function NoteForm({ topics, note, defaultTopicId }: { topics: { id: string; title: string; subjectId: string }[]; note?: { id: string; title: string; content: string; topicId: string | null }; defaultTopicId?: string }) {
   const {pending,result,run}=useActionFeedback();
   return (
     <form className="grid gap-2" onSubmit={async (event) => {
@@ -359,7 +359,7 @@ export function NoteForm({ topics, note }: { topics: { id: string; title: string
       await run(()=>saveNote({ id: note?.id, title: String(form.get("title") ?? ""), content: String(form.get("content") ?? ""), topicId: topic?.id, subjectId: topic?.subjectId }),()=>{if(!note)submittedForm.reset();});
     }}>
       <label className="grid gap-1.5 text-sm"><span className="font-medium">Назва конспекту</span><Input name="title" placeholder="Наприклад, правила пунктуації" defaultValue={note?.title} required /></label>
-      <label className="grid gap-1.5 text-sm"><span className="font-medium">Тема</span><select name="topicId" defaultValue={note?.topicId ?? ""} className="h-10 rounded-lg border border-border bg-card px-3 text-sm">
+        <label className="grid gap-1.5 text-sm"><span className="font-medium">Тема</span><select name="topicId" defaultValue={note ? note.topicId ?? "" : defaultTopicId ?? ""} className="h-10 rounded-lg border border-border bg-card px-3 text-sm">
         <option value="">Без теми</option>
         {topics.map((topic) => <option key={topic.id} value={topic.id}>{SUBJECTS.find((subject) => subject.id === topic.subjectId)?.name ?? "Предмет"} · {topic.title}</option>)}
       </select></label>

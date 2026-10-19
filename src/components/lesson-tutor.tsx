@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { completeLesson, enableLocalTutor, searchYouTube } from "@/server/actions";
 import { Button } from "@/components/ui";
+import { useActionFeedback } from "./use-action-feedback";
 
 const quick = [
   { mode: "simpler", label: "Поясни простіше" },
@@ -103,17 +104,16 @@ export function LessonTutor({ topicId, topicTitle, provider }: { topicId: string
 }
 
 export function CompleteLesson({ topicId, needsPractice }: { topicId: string; needsPractice: boolean }) {
-  const [message, setMessage] = useState("");
+  const {pending,result,run}=useActionFeedback();
   return (
     <form className="space-y-2" onSubmit={async (event) => {
       event.preventDefault();
       const studied = new FormData(event.currentTarget).get("studied") === "on";
-      const result = await completeLesson(topicId, studied);
-      setMessage(result.ok ? result.message ?? "Урок зараховано." : result.error);
+      await run(()=>completeLesson(topicId, studied));
     }}>
-      {needsPractice ? null : <label className="flex items-center gap-2 text-sm"><input name="studied" type="checkbox" /> Я опрацював конспект</label>}
-      <Button type="submit">{needsPractice?"Завершити урок":"Позначити конспект як опрацьований"}</Button>
-      {message ? <p className="text-sm text-muted-foreground">{message}</p> : null}
+      {needsPractice ? null : <label className="flex items-center gap-2 text-sm"><input name="studied" type="checkbox" disabled={pending} /> Я опрацював конспект</label>}
+      <Button type="submit" disabled={pending}>{pending?"Збереження…":needsPractice?"Завершити урок":"Позначити конспект як опрацьований"}</Button>
+      {result ? <p role={result.ok?"status":"alert"} className="text-sm text-muted-foreground">{result.ok?result.message??"Урок зараховано.":result.error}</p> : null}
     </form>
   );
 }
