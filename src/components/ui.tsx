@@ -74,11 +74,26 @@ export function PageHeader({ title, description, action }: { title: string; desc
   );
 }
 
-export function EmptyState({ title, text }: { title: string; text: string }) {
+export function EmptyState({ title, text, action }: { title: string; text: string; action?: ReactNode }) {
   return (
     <Card className="p-6">
       <h2 className="font-medium">{title}</h2>
       <p className="mt-1 text-sm text-muted-foreground">{text}</p>
+      {action ? <div className="mt-4">{action}</div> : null}
     </Card>
   );
 }
+
+export function ErrorState({title="Не вдалося завантажити дані",text="Спробуйте ще раз. Збережені результати залишилися на місці.",action}:{title?:string;text?:string;action?:ReactNode}) {
+  return <Card className="space-y-3 p-6"><div role="alert"><h2 className="font-semibold">{title}</h2><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></div>{action}</Card>;
+}
+export function LoadingState({text="Завантаження…"}:{text?:string}) {
+  return <div role="status" aria-live="polite" className="space-y-3"><p className="text-sm text-muted-foreground">{text}</p><Skeleton className="h-24"/><Skeleton className="h-12"/></div>;
+}
+export function Stat({label,value,description}:{label:string;value:ReactNode;description?:string}) {
+  return <Card className="space-y-2 p-4"><p className="text-sm text-muted-foreground">{label}</p><p className="text-2xl font-semibold tabular-nums">{value}</p>{description?<p className="text-sm leading-5 text-muted-foreground">{description}</p>:null}</Card>;
+}
+export function FormField({id,label,hint,error,children}:{id:string;label:string;hint?:string;error?:string;children:ReactNode}) {
+  return <div className="space-y-1.5"><label htmlFor={id} className="block text-sm font-medium">{label}</label>{children}{hint?<p id={`${id}-hint`} className="text-sm text-muted-foreground">{hint}</p>:null}{error?<p id={`${id}-error`} role="alert" className="text-sm text-danger-text">{error}</p>:null}</div>;
+}
+export const ProgressBar = Progress;

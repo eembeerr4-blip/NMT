@@ -90,6 +90,16 @@
 html, body { max-width: 100%; overflow-x: hidden; }
 body { background: var(--background); color: var(--foreground); font-family: var(--font-sans), "Segoe UI", sans-serif; }
 :focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+/* Table rows become labelled records on phones, without hiding action columns. */
+@media (max-width: 767px) {
+  .responsive-table, .responsive-table tbody, .responsive-table tr, .responsive-table td { display: block; width: 100%; min-width: 0; }
+  .responsive-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .responsive-table tbody { border: 0; }
+  .responsive-table tr { padding: 0.75rem 1rem; }
+  .responsive-table td { padding: 0.375rem 0; overflow-wrap: anywhere; }
+  .responsive-table td[data-label]::before { content: attr(data-label); display: block; margin-bottom: 0.25rem; font-size: 0.75rem; color: var(--muted-foreground); }
+}
 .math-text .katex { font-size: 1.02em; }
 
 a, button, input, select, textarea { transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease; }
