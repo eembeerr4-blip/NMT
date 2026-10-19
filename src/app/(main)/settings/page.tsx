@@ -1,4 +1,5 @@
 import { ElectiveForm } from "@/components/elective-form";
+import { LearningTimeForm } from "@/components/learning-time-form";
 import { SettingsWorkspace } from "@/components/settings-workspace";
 import { SettingsForm } from "@/components/forms";
 import { Card, PageHeader } from "@/components/ui";
@@ -24,6 +25,7 @@ export default async function SettingsPage() {
         <p className="text-xs text-muted-foreground">Нікнейм використовується для входу в профіль.</p>
       </Card>
 </>} learning={<>
+      <LearningTimeForm dailyMinutes={settings.dailyMinutes} studyDays={settings.studyDays}/>
       <Card className="space-y-3 p-4">
         <h2 className="font-medium">Предмет на вибір</h2>
         <p className="text-sm text-muted-foreground">Зараз: {SUBJECTS.find((subject) => subject.id === elective)?.name ?? "не обрано"}. Майбутні заняття попереднього предмета буде замінено; завершені заняття й результати збережуться.</p>

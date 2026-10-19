@@ -17,7 +17,7 @@ import {initializeSQLite} from "@/lib/sqlite-init";
 import {DEFAULT_FORMAT,DEFAULT_SCHEDULE,SUBJECTS} from "@/lib/constants";
 import {dateKey,addDateKeys} from "@/lib/dates";
 import {gradeAnswer} from "@/lib/grade";
-import {finishAttempt,saveDraft,changeElective,recalculateFuturePlan,moveTask,saveQuestion,completeLesson,saveVideoPosition,createCustomTask} from "@/server/actions";
+import {finishAttempt,saveLearningTime,saveDraft,changeElective,recalculateFuturePlan,moveTask,saveQuestion,completeLesson,saveVideoPosition,createCustomTask} from "@/server/actions";
 import {syncPlanWithClient} from "@/server/sync";
 
 async function counts(){return {answers:await prisma.answer.count(),mistakes:await prisma.mistake.count(),progress:await prisma.userTopicProgress.count(),reviews:await prisma.reviewSchedule.count(),sessions:await prisma.studySession.count(),xp:await prisma.xpEvent.count()};}
@@ -146,3 +146,18 @@ it("rolls back even a late achievement failure after the result, mastery, task a
  expect((await finishAttempt("late-fault",{q1:"4",q2:"4",q3:"4"})).ok).toBe(false);expect(await counts()).toEqual(before);expect(await prisma.userTopicProgress.findMany({where:{userId:"A"}})).toEqual(progress);expect(await prisma.studyTask.findMany({where:{userId:"A"},orderBy:{id:"asc"}})).toEqual(tasks);expect(await prisma.reviewSchedule.findMany({where:{userId:"A"},orderBy:{id:"asc"}})).toEqual(reviews);expect((await prisma.testAttempt.findUniqueOrThrow({where:{id:"late-fault"}})).status).toBe("IN_PROGRESS");
 });
 it("finishes with intact SQLite constraints",async()=>{expect(await prisma.$queryRawUnsafe("PRAGMA integrity_check")).toEqual([{integrity_check:"ok"}]);expect(await prisma.$queryRawUnsafe("PRAGMA foreign_key_check")).toEqual([]);});
+
+it("learning load is private, atomic and preserves personal and DONE tasks",async()=>{
+ const future=addDateKeys(dateKey(),2);
+ await prisma.studyTask.createMany({data:[{id:"QA-load-custom",userId:"A",dateKey:future,title:"QA-custom",kind:"custom",durationMin:10,templateKey:"custom-QA-load"},{id:"QA-load-done",userId:"A",dateKey:future,title:"QA-done",kind:"study",durationMin:10,status:"DONE",templateKey:"QA-done"}]});
+ const preserved=await prisma.studyTask.findMany({where:{id:{in:["QA-load-custom","QA-load-done"]}},orderBy:{id:"asc"}});
+ const other=await prisma.userSettings.findUniqueOrThrow({where:{userId:"B"}});
+ for(const input of [{dailyMinutes:0,studyDays:[1]},{dailyMinutes:45,studyDays:[]},{dailyMinutes:45,studyDays:[7]}])expect((await saveLearningTime(input)).ok).toBe(false);
+ const before=await prisma.userSettings.findUniqueOrThrow({where:{userId:"A"}});
+ await prisma.$executeRawUnsafe("CREATE TRIGGER qa_load_fail BEFORE INSERT ON AuditLog BEGIN SELECT RAISE(ABORT,'QA load rollback'); END");
+ try {vi.spyOn(console,"error").mockImplementation(()=>{});expect((await saveLearningTime({dailyMinutes:45,studyDays:[1,3]})).ok).toBe(false);expect(await prisma.userSettings.findUniqueOrThrow({where:{userId:"A"}})).toEqual(before);}finally{await prisma.$executeRawUnsafe("DROP TRIGGER qa_load_fail");}
+ const results=await Promise.all([saveLearningTime({dailyMinutes:45,studyDays:[1,3]}),saveLearningTime({dailyMinutes:60,studyDays:[2,4,2]})]);expect(results.every(result=>result.ok)).toBe(true);
+ const settings=await prisma.userSettings.findUniqueOrThrow({where:{userId:"A"}});expect([45,60]).toContain(settings.dailyMinutes);expect(new Set(JSON.parse(settings.studyDaysJson)).size).toBe(2);
+ expect(await prisma.userSettings.findUniqueOrThrow({where:{userId:"B"}})).toEqual(other);
+ expect(await prisma.studyTask.findMany({where:{id:{in:["QA-load-custom","QA-load-done"]}},orderBy:{id:"asc"}})).toEqual(preserved);
+});

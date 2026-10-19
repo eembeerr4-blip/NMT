@@ -933,6 +933,22 @@ export async function setMistakeMeta(id: string, category: string, status: strin
   }
 }
 
+export async function saveLearningTime(input:{dailyMinutes:number;studyDays:number[]}):Promise<ActionState> {
+  try {
+    const user=await actor();
+    if(!input||!Number.isInteger(input.dailyMinutes)||input.dailyMinutes<15||input.dailyMinutes>720) return {ok:false,error:"Оберіть від 15 до 720 хвилин на день."};
+    if(!Array.isArray(input.studyDays)||!input.studyDays.length||input.studyDays.some(day=>!Number.isInteger(day)||day<0||day>6))return {ok:false,error:"Оберіть хоча б один навчальний день."};
+    await prisma.$transaction(async tx=>{
+      // The first write serializes a settings change with planner updates.
+      await tx.userSettings.update({where:{userId:user.id},data:{dailyMinutes:input.dailyMinutes,studyDaysJson:JSON.stringify([...new Set(input.studyDays)].sort())}});
+      await rebuildFuturePlan(user.id,tx);
+      await recordAudit(user,{action:"SETTINGS_SAVED",entityType:"settings",entityId:user.id,metadata:{fields:["preferences"]}},tx);
+    },{maxWait:15000,timeout:30000});
+    refreshPages("/settings","/plan","/calendar","/");
+    return {ok:true,message:"Час навчання збережено. Майбутній автоплан оновлено."};
+  } catch(error){return fail(error);}
+}
+
 export async function savePreferences(raw: unknown): Promise<ActionState> {
   try {
     const user = await actor();
