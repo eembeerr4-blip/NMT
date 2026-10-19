@@ -396,10 +396,10 @@ export function CustomTaskForm({ dateKey }: { dateKey: string }) {
       const form = new FormData(submittedForm);
       await run(() => createCustomTask({ dateKey: String(form.get("date") || dateKey), title: String(form.get("title") ?? ""), durationMin: Number(form.get("minutes") ?? 30), subjectId: String(form.get("subjectId") || "") || undefined }),()=>router.refresh());
     }}>
-      <Input name="title" placeholder="Власне заняття" required />
-      <Input name="minutes" type="number" min={0} defaultValue={30} />
-      <input type="date" name="date" defaultValue={dateKey} className="h-10 rounded-lg border border-border bg-card px-3 text-sm" />
-      <SubjectSelect optional />
+      <label className="grid gap-1 text-sm">Назва заняття<Input name="title" placeholder="Власне заняття" required /></label>
+      <label className="grid gap-1 text-sm">Тривалість, хвилин<Input name="minutes" type="number" min={0} defaultValue={30} /></label>
+      <label className="grid gap-1 text-sm">Дата заняття<input type="date" name="date" defaultValue={dateKey} className="h-10 rounded-lg border border-border bg-card px-3 text-sm" /></label>
+      <label className="grid gap-1 text-sm">Предмет<SubjectSelect optional /></label>
       <Button type="submit" disabled={pending}>{pending?"Збереження…":"Додати"}</Button>
       {result ? <p role={result.ok?"status":"alert"} className="text-sm text-muted-foreground sm:col-span-3">{result.ok?"Заняття додано.":result.error}</p> : null}
     </form>

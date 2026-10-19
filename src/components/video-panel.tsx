@@ -1,5 +1,6 @@
 "use client";
 
+import {useActionFeedback} from "./use-action-feedback";
 import { Play } from "lucide-react";
 import { useEffect, useState } from "react";
 import { VIDEO_ROLES } from "@/lib/constants";
@@ -108,29 +109,29 @@ export function VideoPanel({ topicId, topicTitle, videos, canEdit = false }: { t
 
 function VideoRow({ video, canEdit }: { video: Video; canEdit: boolean }) {
   const [notes, setNotes] = useState(video.notes);
-  const [feedback, setFeedback] = useState("");
+  const {pending,result,run}=useActionFeedback();
   return (
     <Card className="space-y-2 p-4">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="text-sm font-medium">{video.title || video.youtubeId} {video.isPrimary ? "· основна" : ""}</div>
         {canEdit ? <div className="flex flex-wrap gap-2">
-          {!video.isPrimary ? <Button type="button" size="sm" variant="outline" onClick={() => void makePrimary(video.id)}>Зробити основною</Button> : null}
-          {video.reviewStatus === "SUGGESTED" ? <Button type="button" size="sm" variant="outline" onClick={() => void setVideoReview(video.id, "CONFIRMED")}>Підтвердити</Button> : null}
-          {video.reviewStatus !== "REJECTED" ? <Button type="button" size="sm" variant="ghost" onClick={() => void setVideoReview(video.id, "REJECTED")}>Відхилити</Button> : null}
-          <select className="h-8 rounded-lg border border-border bg-card px-2 text-xs" defaultValue={video.role ?? "primary"} onChange={(event) => void setVideoRole(video.id, event.target.value)}>
+          {!video.isPrimary ? <Button type="button" size="sm" variant="outline" disabled={pending} onClick={() => run(()=>makePrimary(video.id))}>Зробити основною</Button> : null}
+          {video.reviewStatus === "SUGGESTED" ? <Button type="button" size="sm" variant="outline" disabled={pending} onClick={() => run(()=>setVideoReview(video.id, "CONFIRMED"))}>Підтвердити</Button> : null}
+          {video.reviewStatus !== "REJECTED" ? <Button type="button" size="sm" variant="ghost" disabled={pending} onClick={() => run(()=>setVideoReview(video.id, "REJECTED"))}>Відхилити</Button> : null}
+          <select className="h-8 rounded-lg border border-border bg-card px-2 text-xs" aria-label="Роль відео" disabled={pending} defaultValue={video.role ?? "primary"} onChange={(event) => {const role=event.target.value;void run(()=>setVideoRole(video.id,role));}}>
             {VIDEO_ROLES.map((role) => <option key={role.id} value={role.id}>{role.label}</option>)}
           </select>
-          <Button type="button" size="sm" variant="ghost" onClick={() => void deleteVideo(video.id)}>Видалити</Button>
+          <Button type="button" size="sm" variant="ghost" disabled={pending} onClick={() => {if(window.confirm("Видалити це відео з теми?"))void run(()=>deleteVideo(video.id));}}>Видалити</Button>
         </div> : null}
       </div>
-      {canEdit ? <form action={async (formData) => { const result = await updateVideo(video.id, String(formData.get("url")), String(formData.get("title"))); setFeedback(result.ok ? "Відео оновлено." : result.error); }} className="grid gap-2 sm:grid-cols-[1fr_180px_auto]">
+      {canEdit ? <form action={async (formData) => { await run(()=>updateVideo(video.id, String(formData.get("url")), String(formData.get("title")))); }} className="grid gap-2 sm:grid-cols-[1fr_180px_auto]">
         <Input name="url" defaultValue={video.url} />
         <Input name="title" defaultValue={video.title} />
         <Button type="submit" size="sm" variant="outline">Замінити</Button>
       </form> : null}
       <textarea aria-label="Нотатки до лекції" className="min-h-20 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm" value={notes} onChange={(event) => setNotes(event.target.value)} placeholder="Нотатки до лекції" />
-      <Button type="button" size="sm" variant="outline" onClick={async () => { const result = await saveVideoNotes(video.id, notes); setFeedback(result.ok ? "Особисті нотатки збережено." : result.error); }}>Зберегти нотатки</Button>
-      {feedback ? <p role="status" className="text-sm">{feedback}</p> : null}
+      <Button type="button" size="sm" variant="outline" disabled={pending} onClick={async () => { await run(()=>saveVideoNotes(video.id,notes)); }}>Зберегти нотатки</Button>
+      {result ? <p role={result.ok?"status":"alert"} className="text-sm">{result.ok?result.message??"Зміни збережено.":result.error}</p> : null}
     </Card>
   );
 }
