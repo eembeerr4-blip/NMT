@@ -118,10 +118,10 @@ describe("personal learning data isolation", () => {
     expect(mock.prisma.user.update).not.toHaveBeenCalled();
   });
 
-  it("returns a useful error for a taken nickname before creating a user", async () => {
+  it("blocks a second account through onboarding instead of bypassing invitations", async () => {
     mock.prisma.$queryRaw.mockResolvedValue([{ id: "existing-owner" }]);
     const result = await completeOnboarding({ firstName: "Учень", lastName: "", nickname: "owner", password: "test-pass", examYear: 2027, targetScore: 170, electiveId: "geography", intensity: "light", dailyMinutes: 75, preferredTime: "19:30", studyDays: [1, 3, 5] });
-    expect(result).toEqual({ ok: false, error: "Цей нікнейм уже зайнятий." });
+    expect(result).toEqual({ ok: false, error: "Для налаштування потрібен новий профіль." });
     expect(mock.prisma.user.create).not.toHaveBeenCalled();
   });
 });

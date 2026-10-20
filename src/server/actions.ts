@@ -1081,7 +1081,7 @@ export async function saveGeneratedQuestions(raw: unknown, subjectId: string, to
 
 export async function buildBackup() {
   const user=await owner();
-  const [users, userSubjects, progress, videoProgress] = await Promise.all([prisma.user.findMany(), prisma.userSubject.findMany(), prisma.userTopicProgress.findMany(), prisma.userVideoProgress.findMany()]);
+  const [users, userSubjects, progress, videoProgress, oauthAccounts] = await Promise.all([prisma.user.findMany(), prisma.userSubject.findMany(), prisma.userTopicProgress.findMany(), prisma.userVideoProgress.findMany(), prisma.oAuthAccount.findMany()]);
   const [settings, subjects, topics, dependencies, videos, notes, questions, options, tests, testQuestions, attempts, answers, examResults, sessions, tasks, reviews, mistakes, flashcards, conversations, messages, achievements, xp] = await Promise.all([
     prisma.userSettings.findMany(),
     prisma.subject.findMany(),
@@ -1108,7 +1108,8 @@ export async function buildBackup() {
   ]);
   await recordAudit(user,{action:"BACKUP_CREATED",entityType:"backup"});
   const auditLogs=await prisma.auditLog.findMany({orderBy:[{createdAt:"asc"},{id:"asc"}]});
-  return { auditLogs, version: 3, users, userSubjects, progress, videoProgress, exportedAt: new Date().toISOString(), settings, subjects, topics, dependencies, videos, notes, questions, options, tests, testQuestions, attempts, answers, examResults, sessions, tasks, reviews, mistakes, flashcards, conversations, messages, achievements, xp };
+  // Never export active verification/reset tokens, OAuth state, or unused invitations.
+  return { auditLogs, version: 4, users, userSubjects, progress, videoProgress, oauthAccounts, exportedAt: new Date().toISOString(), settings, subjects, topics, dependencies, videos, notes, questions, options, tests, testQuestions, attempts, answers, examResults, sessions, tasks, reviews, mistakes, flashcards, conversations, messages, achievements, xp };
 }
 
 export async function restoreBackup(rawJson: string, confirmation?: string): Promise<ActionState> {
@@ -1116,7 +1117,7 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
     const user=await owner();
     if (confirmation !== "ВІДНОВИТИ") return { ok: false, error: "Відновлення скасовано. Введіть ВІДНОВИТИ." };
     const data = JSON.parse(rawJson) as Awaited<ReturnType<typeof buildBackup>>;
-    if ((data.version === 3 && !Array.isArray(data.videoProgress)) || ![2, 3].includes(data.version) || !Array.isArray(data.users) || !data.users.some((user) => user.id === "owner" && user.passwordHash) || !Array.isArray(data.userSubjects) || !Array.isArray(data.progress) || !Array.isArray(data.messages) || !Array.isArray(data.subjects) || !Array.isArray(data.settings)) return { ok: false, error: "Файл резервної копії не підходить." };
+    if ((data.version >= 3 && !Array.isArray(data.videoProgress)) || (data.version === 4 && !Array.isArray(data.oauthAccounts)) || ![2, 3, 4].includes(data.version) || !Array.isArray(data.users) || !data.users.some((user) => user.id === "owner" && user.passwordHash) || !Array.isArray(data.userSubjects) || !Array.isArray(data.progress) || !Array.isArray(data.messages) || !Array.isArray(data.subjects) || !Array.isArray(data.settings)) return { ok: false, error: "Файл резервної копії не підходить." };
     await prisma.$transaction(async (tx) => {
       await tx.answer.deleteMany();
       await tx.testQuestion.deleteMany();
@@ -1140,8 +1141,13 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
       await tx.subject.deleteMany();
       await tx.userSettings.deleteMany();
       await tx.session.deleteMany();
+      await tx.authToken.deleteMany();
+      await tx.oAuthFlow.deleteMany();
+      await tx.invitation.deleteMany();
+      await tx.oAuthAccount.deleteMany();
       await tx.user.deleteMany();
       if (data.users.length) await tx.user.createMany({ data: data.users });
+      if (data.oauthAccounts?.length) await tx.oAuthAccount.createMany({ data: data.oauthAccounts });
       if (data.subjects.length) await tx.subject.createMany({ data: data.subjects });
       if (data.settings.length) await tx.userSettings.createMany({ data: data.settings });
       if (data.topics.length) await tx.topic.createMany({ data: data.topics });
@@ -1181,13 +1187,13 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
 export async function login(nickname: string, password: string, rememberMe = false) {
   const key = normalizeNickname(nickname);
   if(isLocked(key))return {ok:false as const,error:"Забагато спроб. Спробуйте за 15 хвилин."};
-  const [match]=await prisma.$queryRaw<{id:string}[]>`SELECT "id" FROM "User" WHERE "nickname" = ${key} COLLATE NOCASE LIMIT 1`;
+  const [match]=await prisma.$queryRaw<{id:string}[]>`SELECT "id" FROM "User" WHERE "nickname" = ${key} COLLATE NOCASE OR "email" = ${key} COLLATE NOCASE LIMIT 1`;
   const user=match?await prisma.user.findUnique({where:{id:match.id}}):null;
   const valid=await verifyPasswordAsync(password,user?.passwordHash||DUMMY_HASH);
-  if(!user||!user.passwordHash||!valid){
+  if(!user||!user.passwordHash||!valid||(user.email&&!user.emailVerifiedAt)){
     registerFail(key);
     await recordAudit({id:user?.id??"anonymous",role:user?.role??"STUDENT",firstName:key},{action:"AUTH_LOGIN_FAILED",entityType:"session"});
-    return {ok:false as const,error:"Невірний нікнейм або пароль."};
+    return {ok:false as const,error:"Невірні дані входу або email ще не підтверджено."};
   }
   clearFails(key);
   await prisma.session.deleteMany({where:{expiresAt:{lt:new Date()}}});
@@ -1225,35 +1231,25 @@ export async function completeOnboarding(input: {
   preferredTime: string;
   studyDays: number[];
 }) {
+  const signedIn = await getSessionUser();
+  if (!signedIn || signedIn.onboarded) return { ok: false as const, error: "Для налаштування потрібен новий профіль." };
   if (input.firstName.trim().length < 2) return { ok: false as const, error: "Вкажіть ім'я." };
   if (!isValidNickname(input.nickname)) return { ok: false as const, error: "Нікнейм: 3–24 латинські літери, цифри, _ або -." };
-  if (input.password.length < 8) return { ok: false as const, error: "Пароль має містити щонайменше 8 символів." };
+  if (input.password && input.password.length < 8) return { ok: false as const, error: "Пароль має містити щонайменше 8 символів." };
   if (!ELECTIVE_SUBJECT_IDS.includes(input.electiveId as never)) return { ok: false as const, error: "Оберіть один предмет на вибір." };
   const nickname = normalizeNickname(input.nickname);
   if (!Number.isInteger(input.examYear) || input.examYear < 2026 || input.examYear > 2100) return { ok: false as const, error: "Перевірте рік НМТ." };
   if (!Number.isInteger(input.targetScore) || input.targetScore < 100 || input.targetScore > 200) return { ok: false as const, error: "Цільовий бал має бути від 100 до 200." };
   if (!Number.isInteger(input.dailyMinutes) || input.dailyMinutes < 15 || input.dailyMinutes > 720 || !/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(input.preferredTime)) return { ok: false as const, error: "Перевірте час і тривалість занять." };
   if (!input.studyDays.length || input.studyDays.some((day) => !Number.isInteger(day) || day < 0 || day > 6)) return { ok: false as const, error: "Оберіть навчальні дні." };
-  const signedIn = await getSessionUser();
   // Password material is intentionally excluded from session users.
-  const existing = signedIn && !signedIn.onboarded ? await prisma.user.findUnique({ where: { id: signedIn.id } }) : null;
+  const existing = await prisma.user.findUnique({ where: { id: signedIn.id } });
+  if (!existing) return { ok: false as const, error: "Профіль не знайдено." };
+  if (existing.id === "owner" && !existing.passwordHash && !input.password) return { ok: false as const, error: "Встановіть пароль власника." };
   const [taken] = await prisma.$queryRaw<{id:string}[]>`SELECT "id" FROM "User" WHERE "nickname" = ${nickname} COLLATE NOCASE LIMIT 1`;
   if (taken && taken.id !== existing?.id) return { ok: false as const, error: "Цей нікнейм уже зайнятий." };
-  let user;
-  try {
-    if (existing) user = existing;
-    else {
-      const passwordHash = await hashPasswordAsync(input.password);
-      user = await prisma.$transaction(async (tx) => {
-        const created = await tx.user.create({ data: { firstName: input.firstName.trim(), nickname, passwordHash, examYear: input.examYear, lastName: input.lastName.trim() } });
-        await recordAudit(null, { action: "USER_CREATED", entityType: "user", entityId: created.id, metadata: { role: "STUDENT" } }, tx);
-        return created;
-      });
-    }
-  } catch (error) {
-    if ((error as { code?: string }).code === "P2002") return { ok: false as const, error: "Цей нікнейм уже зайнятий." };
-    throw error;
-  }
+  const user = existing;
+  const passwordHash = input.password ? await hashPasswordAsync(input.password) : existing.passwordHash;
   await prisma.user.update({
     where: { id: user.id },
     data: {
@@ -1262,12 +1258,9 @@ export async function completeOnboarding(input: {
       nickname,
       examYear: input.examYear,
       onboarded: true,
-      passwordHash: user.passwordHash && existing ? user.passwordHash : await hashPasswordAsync(input.password),
+      passwordHash,
     },
   });
-  if (!existing || !existing.passwordHash) {
-    await prisma.user.update({ where: { id: user.id }, data: { passwordHash: await hashPasswordAsync(input.password) } });
-  }
   const schedule = personalSchedule(input.electiveId, input.intensity);
   const settingsId = user.id === "owner" ? "default" : user.id;
   await prisma.userSettings.upsert({
@@ -1301,10 +1294,6 @@ export async function completeOnboarding(input: {
     ],
   });
   await syncPlan(user.id);
-  if (!existing) {
-    if (signedIn) await clearSession();
-    await createSession(user.id, true);
-  }
   redirect("/");
 }
 

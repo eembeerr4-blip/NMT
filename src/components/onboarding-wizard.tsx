@@ -8,14 +8,16 @@ import { Button, Card, Input, Label } from "@/components/ui";
 const required = SUBJECTS.filter((subject) => (REQUIRED_SUBJECT_IDS as readonly string[]).includes(subject.id));
 const electives = SUBJECTS.filter((subject) => (ELECTIVE_SUBJECT_IDS as readonly string[]).includes(subject.id));
 
-export function OnboardingWizard({ claim }: { claim: boolean }) {
+export function OnboardingWizard({ claim, account }: { claim: boolean; account?: {
+  firstName: string; lastName: string; nickname: string; examYear: number; hasPassword: boolean;
+} }) {
   const [step, setStep] = useState(claim ? 1 : 0);
   const [error, setError] = useState("");
   const [pending, setPending] = useState(false);
   const [elective, setElective] = useState("biology");
   const [intensity, setIntensity] = useState<"light" | "standard" | "intense">("standard");
   const [days, setDays] = useState<number[]>([1, 2, 3, 4, 5, 6]);
-  const [profile, setProfile] = useState({ firstName: "", lastName: "", nickname: "", password: "", examYear: 2027, targetScore: 150, dailyMinutes: 150, preferredTime: "18:00" });
+  const [profile, setProfile] = useState({ firstName: account?.firstName ?? "", lastName: account?.lastName ?? "", nickname: account?.nickname ?? "", password: "", examYear: account?.examYear ?? 2027, targetScore: 150, dailyMinutes: 150, preferredTime: "18:00" });
 
   async function finish() {
     setError("");
@@ -40,7 +42,7 @@ export function OnboardingWizard({ claim }: { claim: boolean }) {
           <label className="grid gap-1.5 text-sm font-medium">Ім’я<Input name="firstName" aria-label="Ім'я" placeholder="Ім'я" required minLength={2} value={profile.firstName} onChange={(e) => setProfile({ ...profile, firstName: e.target.value })} autoComplete="given-name" /></label>
           <label className="grid gap-1.5 text-sm font-medium">Прізвище<Input name="lastName" aria-label="Прізвище" placeholder="Прізвище" value={profile.lastName} onChange={(e) => setProfile({ ...profile, lastName: e.target.value })} autoComplete="family-name" /></label>
           <label className="grid gap-1.5 text-sm font-medium">Нікнейм<Input name="nickname" aria-label="Нікнейм" placeholder="Нікнейм" required minLength={3} maxLength={24} pattern="[a-zA-Z0-9_-]{3,24}" value={profile.nickname} onChange={(e) => setProfile({ ...profile, nickname: e.target.value })} autoComplete="username" /></label>
-          <label className="grid gap-1.5 text-sm font-medium">Пароль<Input name="password" aria-label="Пароль" type="password" placeholder="Пароль, щонайменше 8 символів" required minLength={8} value={profile.password} onChange={(e) => setProfile({ ...profile, password: e.target.value })} autoComplete="new-password" /></label>
+          {claim && !account?.hasPassword ? <label className="grid gap-1.5 text-sm font-medium">Пароль власника<Input name="password" aria-label="Пароль" type="password" placeholder="Пароль, щонайменше 8 символів" required minLength={8} value={profile.password} onChange={(e) => setProfile({ ...profile, password: e.target.value })} autoComplete="new-password" /></label> : null}
           <Label>Рік НМТ<Input name="examYear" type="number" required min={2026} max={2100} value={profile.examYear} onChange={(e) => setProfile({ ...profile, examYear: Number(e.target.value) })} /></Label>
           <Label>Цільовий бал<Input name="targetScore" type="number" required min={100} max={200} value={profile.targetScore} onChange={(e) => setProfile({ ...profile, targetScore: Number(e.target.value) })} /></Label>
           <Button type="submit">Далі</Button>

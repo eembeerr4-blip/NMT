@@ -9,6 +9,10 @@ datasource db {
 
 model User {
   id           String              @id @default(cuid())
+  email        String?             @unique
+  emailVerifiedAt DateTime?
+  oauthAccounts OAuthAccount[]
+  authTokens AuthToken[]
   role         String              @default("STUDENT")
   diagnosticSkipped Boolean        @default(false)
   videoProgress UserVideoProgress[]
@@ -24,6 +28,60 @@ model User {
   subjects     UserSubject[]
   sessions     Session[]
   progress     UserTopicProgress[]
+}
+
+model OAuthAccount {
+  id String @id @default(cuid())
+  userId String
+  provider String
+  providerSubject String
+  createdAt DateTime @default(now())
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerSubject])
+  @@unique([userId, provider])
+}
+
+model AuthToken {
+  id String @id @default(cuid())
+  userId String
+  purpose String
+  targetEmail String?
+  tokenHash String @unique
+  expiresAt DateTime
+  consumedAt DateTime?
+  createdAt DateTime @default(now())
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, purpose])
+  @@index([expiresAt])
+}
+
+model Invitation {
+  id String @id @default(cuid())
+  codeHash String @unique
+  email String
+  expiresAt DateTime
+  consumedAt DateTime?
+  consumedById String?
+  createdAt DateTime @default(now())
+  createdById String
+
+  @@index([email])
+  @@index([expiresAt])
+}
+
+model OAuthFlow {
+  id String @id @default(cuid())
+  stateHash String @unique
+  codeVerifier String
+  nonce String
+  invitationId String?
+  linkUserId String?
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([expiresAt])
 }
 
 model Session {

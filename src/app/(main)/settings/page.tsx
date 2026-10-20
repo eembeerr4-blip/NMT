@@ -6,6 +6,8 @@ import { Card, PageHeader } from "@/components/ui";
 import { SUBJECTS } from "@/lib/constants";
 import { requireUser } from "@/server/session";
 import { getSettings } from "@/server/sync";
+import { startGoogleAuth } from "@/server/google-oauth";
+import { EmailLinkForm, ProfileEditForm } from "@/components/account-forms";
 
 export default async function SettingsPage() {
   const user = await requireUser();
@@ -21,8 +23,15 @@ export default async function SettingsPage() {
           <div><div className="text-xs text-muted-foreground">Ім’я</div><div className="mt-1 font-medium">{user.firstName} {user.lastName}</div></div>
           <div><div className="text-xs text-muted-foreground">Нікнейм</div><div className="mt-1 font-medium">@{user.nickname}</div></div>
           <div><div className="text-xs text-muted-foreground">Рік НМТ</div><div className="mt-1 font-medium">{user.examYear}</div></div>
+          <div><div className="text-xs text-muted-foreground">Email</div><div className="mt-1 font-medium">{user.email ?? "Не вказано"}</div></div>
         </div>
-        <p className="text-xs text-muted-foreground">Нікнейм використовується для входу в профіль.</p>
+        <p className="text-xs text-muted-foreground">Для входу можна використати нікнейм або підтверджений email.</p>
+        <ProfileEditForm firstName={user.firstName} lastName={user.lastName} examYear={user.examYear} />
+        <EmailLinkForm currentEmail={user.email} />
+        {process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET && process.env.AUTH_BASE_URL ? <form action={startGoogleAuth}>
+          <input type="hidden" name="mode" value="link" />
+          <button type="submit" className="rounded-lg border border-border px-3 py-2 text-sm">Прив’язати Google до цього профілю</button>
+        </form> : null}
       </Card>
 </>} learning={<>
       <LearningTimeForm dailyMinutes={settings.dailyMinutes} studyDays={settings.studyDays}/>

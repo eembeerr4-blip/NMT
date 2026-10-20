@@ -13,7 +13,7 @@ import {prisma} from "@/lib/prisma";
 import {hashPasswordAsync} from "@/lib/auth";
 import {buildBackup,restoreBackup,updateUserRole} from "./actions";
 beforeAll(async()=>{
- await prisma.$executeRawUnsafe(`CREATE TABLE User (id TEXT NOT NULL PRIMARY KEY,role TEXT NOT NULL DEFAULT 'STUDENT',diagnosticSkipped BOOLEAN NOT NULL DEFAULT false,firstName TEXT NOT NULL,lastName TEXT NOT NULL DEFAULT '',nickname TEXT NOT NULL UNIQUE,passwordHash TEXT NOT NULL DEFAULT '',examYear INTEGER NOT NULL DEFAULT 2027,onboarded BOOLEAN NOT NULL DEFAULT false,createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,updatedAt DATETIME NOT NULL)`);
+ await prisma.$executeRawUnsafe(`CREATE TABLE User (id TEXT NOT NULL PRIMARY KEY,role TEXT NOT NULL DEFAULT 'STUDENT',diagnosticSkipped BOOLEAN NOT NULL DEFAULT false,firstName TEXT NOT NULL,lastName TEXT NOT NULL DEFAULT '',nickname TEXT NOT NULL UNIQUE,email TEXT UNIQUE,emailVerifiedAt DATETIME,passwordHash TEXT NOT NULL DEFAULT '',examYear INTEGER NOT NULL DEFAULT 2027,onboarded BOOLEAN NOT NULL DEFAULT false,createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,updatedAt DATETIME NOT NULL)`);
  await prisma.$executeRawUnsafe(`CREATE TABLE AuditLog (id TEXT NOT NULL PRIMARY KEY,actorId TEXT,actorName TEXT NOT NULL,actorRole TEXT NOT NULL,action TEXT NOT NULL,entityType TEXT NOT NULL,entityId TEXT,summary TEXT NOT NULL,metadataJson TEXT NOT NULL DEFAULT '{}',createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP)`);
  await prisma.$executeRawUnsafe(readFileSync("prisma/migrations/20261018130000_nickname_case_insensitive/migration.sql","utf8"));
 });

@@ -13,7 +13,7 @@ vi.mock("next/navigation",()=>({redirect:(url:string)=>{throw Error("REDIRECT:"+
 vi.mock("next/cache",()=>({revalidatePath:vi.fn()}));
 import {prisma} from "@/lib/prisma";
 import {hashPasswordAsync} from "@/lib/auth";
-import {login,logout} from "@/server/actions";
+import {login,logout,restoreBackup} from "@/server/actions";
 import {getSessionUser} from "@/server/session";
 import {GET as backup} from "@/app/api/export/backup/route";
 
@@ -21,7 +21,7 @@ beforeAll(async()=>{
  const {database}=await import("@/lib/prisma") as unknown as {database:string};writeFileSync(database,"");
  execFileSync(process.execPath,[path.join(process.cwd(),"node_modules/prisma/build/index.js"),"migrate","deploy"],{env:{...process.env,DATABASE_URL:"file:"+database.replaceAll("\\","/")},stdio:"pipe",timeout:60000});
  const passwordHash=await hashPasswordAsync("QA-disposable-password");
- for(const [id,role] of [["QA-student","STUDENT"],["QA-owner","OWNER"]])await prisma.user.create({data:{id,nickname:id.toLowerCase(),role,firstName:id,onboarded:true,passwordHash}});
+ for(const [id,role] of [["QA-student","STUDENT"],["owner","OWNER"]])await prisma.user.create({data:{id,nickname:id==="owner"?"qa-owner":id.toLowerCase(),role,firstName:id,onboarded:true,passwordHash}});
 },60000);
 afterAll(async()=>{await prisma.$disconnect();const {folder,database}=await import("@/lib/prisma") as unknown as {folder:string;database:string};for(const suffix of ["","-wal","-shm"]){if(existsSync(database+suffix))unlinkSync(database+suffix);}rmdirSync(folder);});
 
@@ -39,9 +39,19 @@ it("beta regression: real sessions enforce anonymous 401, student 403, owner 200
  await expect(login("qa-student","QA-disposable-password")).rejects.toThrow("REDIRECT:/");expect((await backup()).status).toBe(403);
  await expect(logout()).rejects.toThrow("REDIRECT:/login");
  await expect(login("qa-owner","QA-disposable-password")).rejects.toThrow("REDIRECT:/");
+ await prisma.oAuthAccount.create({data:{userId:"QA-student",provider:"google",providerSubject:"qa-google-subject"}});
+ await prisma.authToken.create({data:{userId:"QA-student",purpose:"RESET_PASSWORD",tokenHash:"qa-secret-token-hash",expiresAt:new Date(Date.now()+60000)}});
+ await prisma.invitation.create({data:{codeHash:"qa-invite-secret-hash",email:"qa@example.com",createdById:"owner",expiresAt:new Date(Date.now()+60000)}});
  const response=await backup();expect(response.status).toBe(200);
  const snapshot=await response.json();expect(snapshot.users).toHaveLength(2);
+ expect(snapshot.version).toBe(4);expect(snapshot.oauthAccounts).toHaveLength(1);
+ expect(JSON.stringify(snapshot)).not.toContain("qa-secret-token-hash");
+ expect(JSON.stringify(snapshot)).not.toContain("qa-invite-secret-hash");
  // Contains password hashes: deliberately never print the backup body.
  expect(snapshot.users.every((user:{passwordHash:string})=>Boolean(user.passwordHash))).toBe(true);
- await expect(logout()).rejects.toThrow("REDIRECT:/login");
+ const restored=await restoreBackup(JSON.stringify(snapshot),"ВІДНОВИТИ");
+ expect(restored,JSON.stringify(restored)).toMatchObject({ok:true});
+ expect(await prisma.oAuthAccount.count({where:{providerSubject:"qa-google-subject"}})).toBe(1);
+ expect(await prisma.authToken.count()).toBe(0);
+ expect(await prisma.invitation.count()).toBe(0);
 });
