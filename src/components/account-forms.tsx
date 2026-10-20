@@ -17,13 +17,13 @@ function Feedback({ state }: { state: AccountState }) {
 export function RegistrationForm() {
   const [state, action, pending] = useActionState(registerAction, {});
   return <form action={action} className="space-y-3">
-    <label className="grid gap-1 text-sm">Особисте запрошення<Input name="invitation" required autoComplete="off" /></label>
-    <label className="grid gap-1 text-sm">Email<Input name="email" type="email" required autoComplete="email" /></label>
-    <label className="grid gap-1 text-sm">Ім’я<Input name="firstName" required minLength={2} autoComplete="given-name" /></label>
-    <label className="grid gap-1 text-sm">Нікнейм<Input name="nickname" required minLength={3} maxLength={24} pattern="[a-zA-Z0-9_-]{3,24}" autoComplete="username" /></label>
-    <label className="grid gap-1 text-sm">Пароль<Input name="password" type="password" required minLength={8} autoComplete="new-password" /></label>
+    <label className="grid gap-1 text-sm">Код запрошення<Input name="invitation" required autoComplete="off" /></label>
+    <label className="grid gap-1 text-sm">Нікнейм<Input name="nickname" required minLength={3} maxLength={24} pattern={"[A-Za-z0-9_\\-]{3,24}"} autoComplete="username" /></label>
+    <label className="grid gap-1 text-sm">Електронна пошта<Input name="email" type="email" required autoComplete="email" /></label>
+    <label className="grid gap-1 text-sm">Пароль для акаунта<Input name="password" type="password" required minLength={8} autoComplete="new-password" /></label>
+    <p className="text-xs text-muted-foreground">Це пароль від NMT Academy, а не від вашої електронної пошти. Ім’я для звертання можна змінити в налаштуваннях профілю.</p>
     <Feedback state={state} />
-    <Button type="submit" disabled={pending}>{pending ? "Створення…" : "Створити профіль"}</Button>
+    <Button type="submit" disabled={pending}>{pending ? "Реєстрація…" : "Зареєструватися"}</Button>
   </form>;
 }
 

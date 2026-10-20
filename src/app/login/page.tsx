@@ -24,7 +24,7 @@ export default function LoginPage() {
         </form> : <p className="text-xs text-muted-foreground">Вхід Google стане доступним після налаштування власником.</p>}
         <div className="flex flex-wrap gap-4 text-sm">
           <Link href="/forgot-password" className="underline">Забули пароль?</Link>
-          <Link href="/register" className="underline">Створити профіль за запрошенням</Link>
+          <Link href="/register" className="underline">Зареєструватися</Link>
         </div>
       </Card>
     </main>

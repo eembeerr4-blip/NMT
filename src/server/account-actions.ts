@@ -23,7 +23,7 @@ export async function registerAction(_state: AccountState, form: FormData): Prom
   const result = await registerWithEmail({
     invitationCode: String(form.get("invitation") ?? ""),
     email: String(form.get("email") ?? ""),
-    firstName: String(form.get("firstName") ?? ""),
+    firstName: String(form.get("firstName") ?? form.get("nickname") ?? ""),
     nickname: String(form.get("nickname") ?? ""),
     password: String(form.get("password") ?? ""),
   });
