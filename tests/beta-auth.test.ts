@@ -34,6 +34,23 @@ it("beta regression: wrong password, case-insensitive login, logout, repeat logi
  await expect(prisma.user.create({data:{id:"QA-duplicate",nickname:"QA-STUDENT",firstName:"QA-duplicate"}})).rejects.toMatchObject({code:"P2002"});
  await expect(logout()).rejects.toThrow("REDIRECT:/login");
 });
+it("shares one limit across nickname and email aliases without exposing the account",async()=>{
+ const passwordHash=await hashPasswordAsync("QA-disposable-password");
+ await prisma.user.create({data:{id:"QA-rate-alias",nickname:"qa-rate-alias",email:"rate-alias@example.test",emailVerifiedAt:new Date(),firstName:"Rate",passwordHash,onboarded:true}});
+ try {
+  let message="";
+  for(let index=0;index<10;index++){
+   const result=await login(index%2===0?"QA-RATE-ALIAS":"RATE-ALIAS@EXAMPLE.TEST","wrong-password");
+   expect(result.ok).toBe(false);
+   message=result.error;
+  }
+  const locked=await login("qa-rate-alias","QA-disposable-password");
+  expect(locked).toEqual({ok:false,error:message});
+  expect((await login("unknown-rate-alias","wrong-password")).error).toBe(message);
+  await expect(login("qa-student","QA-disposable-password")).rejects.toThrow("REDIRECT:/");
+  await expect(logout()).rejects.toThrow("REDIRECT:/login");
+ } finally { await prisma.user.delete({where:{id:"QA-rate-alias"}}); }
+});
 it("beta regression: real sessions enforce anonymous 401, student 403, owner 200 on backup",async()=>{
  expect((await backup()).status).toBe(401);
  await expect(login("qa-student","QA-disposable-password")).rejects.toThrow("REDIRECT:/");expect((await backup()).status).toBe(403);

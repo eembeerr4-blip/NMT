@@ -12,7 +12,7 @@ export default async function OnboardingPage() {
   if (!signedIn && !claim) redirect("/register");
   if (signedIn?.onboarded) redirect("/");
   return <OnboardingWizard claim={claim} account={signedIn ? {
-    firstName: signedIn.firstName, lastName: signedIn.lastName, nickname: signedIn.nickname,
+    id: signedIn.id, firstName: signedIn.firstName, lastName: signedIn.lastName, nickname: signedIn.nickname,
     examYear: signedIn.examYear, hasPassword: Boolean((await prisma.user.findUnique({ where: { id: signedIn.id }, select: { passwordHash: true } }))?.passwordHash),
   } : undefined} />;
 }

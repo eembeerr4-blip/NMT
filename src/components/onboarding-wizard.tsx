@@ -1,23 +1,61 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ELECTIVE_SUBJECT_IDS, REQUIRED_SUBJECT_IDS, SUBJECTS } from "@/lib/constants";
 import { claimOwner, completeOnboarding } from "@/server/actions";
 import { Button, Card, Input, Label } from "@/components/ui";
+import { parseOnboardingDraft, serializeOnboardingDraft } from "@/lib/onboarding-draft";
 
 const required = SUBJECTS.filter((subject) => (REQUIRED_SUBJECT_IDS as readonly string[]).includes(subject.id));
 const electives = SUBJECTS.filter((subject) => (ELECTIVE_SUBJECT_IDS as readonly string[]).includes(subject.id));
 
 export function OnboardingWizard({ claim, account }: { claim: boolean; account?: {
-  firstName: string; lastName: string; nickname: string; examYear: number; hasPassword: boolean;
+  id: string; firstName: string; lastName: string; nickname: string; examYear: number; hasPassword: boolean;
 } }) {
+  const storageKey = `nmt:onboarding:v1:${account?.id ?? "claim-owner"}`;
   const [step, setStep] = useState(claim ? 1 : 0);
   const [error, setError] = useState("");
+  const [storageWarning, setStorageWarning] = useState("");
+  const [restoring, setRestoring] = useState(true);
   const [pending, setPending] = useState(false);
   const [elective, setElective] = useState("biology");
   const [intensity, setIntensity] = useState<"light" | "standard" | "intense">("standard");
   const [days, setDays] = useState<number[]>([1, 2, 3, 4, 5, 6]);
   const [profile, setProfile] = useState({ firstName: account?.firstName ?? "", lastName: account?.lastName ?? "", nickname: account?.nickname ?? "", password: "", examYear: account?.examYear ?? 2027, targetScore: 150, dailyMinutes: 150, preferredTime: "18:00" });
+
+  useEffect(() => {
+    let active = true;
+    let draft = null as ReturnType<typeof parseOnboardingDraft>;
+    let warning = "";
+    try {
+      const raw = sessionStorage.getItem(storageKey);
+      if (raw) {
+        draft = parseOnboardingDraft(raw);
+        if (!draft) warning = "Чернетку не вдалося відновити. Дані вже створеного профілю збережені; перевірте поля перед продовженням.";
+      }
+    } catch {
+      warning = "Браузер не дозволяє відновити чернетку. Поточні поля залишаться на сторінці, але не оновлюйте її до завершення.";
+    }
+    queueMicrotask(() => {
+      if (!active) return;
+      if (warning) setStorageWarning(warning);
+      if (draft) {
+        setStep(draft.step);
+        setElective(draft.elective);
+        setIntensity(draft.intensity);
+        setDays(draft.days);
+        setProfile({ ...draft.profile, password: "" });
+      }
+      setRestoring(false);
+    });
+    return () => { active = false; };
+  }, [storageKey]);
+
+  useEffect(() => {
+    if (restoring) return;
+    try { sessionStorage.setItem(storageKey, serializeOnboardingDraft({ step, elective, intensity, days, profile })); }
+    catch { queueMicrotask(() => setStorageWarning("Браузер не дозволяє зберегти чернетку. Поточні поля залишаться на сторінці, але не оновлюйте її до завершення.")); }
+  }, [storageKey, restoring, step, elective, intensity, days, profile]);
 
   async function finish() {
     setError("");
@@ -31,6 +69,9 @@ export function OnboardingWizard({ claim, account }: { claim: boolean; account?:
   return (
     <main className="mx-auto flex min-h-screen max-w-3xl items-center px-4 py-8">
       <Card className="w-full space-y-5 p-6">
+        {storageWarning ? <p role="alert" className="rounded-lg border border-danger-border bg-danger-surface p-3 text-sm text-danger-text">{storageWarning}</p> : null}
+        {restoring ? <p role="status" className="text-sm text-muted-foreground">Відновлення чернетки…</p> : null}
+        {!restoring ? <>
         {step === 0 ? <div className="space-y-4">
           <p className="text-sm text-muted-foreground">NMT Academy</p>
           <h1 className="text-3xl font-semibold">Твоя персональна платформа підготовки до НМТ</h1>
@@ -41,7 +82,7 @@ export function OnboardingWizard({ claim, account }: { claim: boolean; account?:
           <h1 className="text-2xl font-semibold">Профіль</h1>
           <label className="grid gap-1.5 text-sm font-medium">Ім’я<Input name="firstName" aria-label="Ім'я" placeholder="Ім'я" required minLength={2} value={profile.firstName} onChange={(e) => setProfile({ ...profile, firstName: e.target.value })} autoComplete="given-name" /></label>
           <label className="grid gap-1.5 text-sm font-medium">Прізвище<Input name="lastName" aria-label="Прізвище" placeholder="Прізвище" value={profile.lastName} onChange={(e) => setProfile({ ...profile, lastName: e.target.value })} autoComplete="family-name" /></label>
-          <label className="grid gap-1.5 text-sm font-medium">Нікнейм<Input name="nickname" aria-label="Нікнейм" placeholder="Нікнейм" required minLength={3} maxLength={24} pattern="[a-zA-Z0-9_-]{3,24}" value={profile.nickname} onChange={(e) => setProfile({ ...profile, nickname: e.target.value })} autoComplete="username" /></label>
+          <label className="grid gap-1.5 text-sm font-medium">Нікнейм<Input name="nickname" aria-label="Нікнейм" placeholder="Нікнейм" required minLength={3} maxLength={24} pattern={"[A-Za-z0-9_\\-]{3,24}"} value={profile.nickname} onChange={(e) => setProfile({ ...profile, nickname: e.target.value })} autoComplete="username" /></label>
           {claim && !account?.hasPassword ? <label className="grid gap-1.5 text-sm font-medium">Пароль власника<Input name="password" aria-label="Пароль" type="password" placeholder="Пароль, щонайменше 8 символів" required minLength={8} value={profile.password} onChange={(e) => setProfile({ ...profile, password: e.target.value })} autoComplete="new-password" /></label> : null}
           <Label>Рік НМТ<Input name="examYear" type="number" required min={2026} max={2100} value={profile.examYear} onChange={(e) => setProfile({ ...profile, examYear: Number(e.target.value) })} /></Label>
           <Label>Цільовий бал<Input name="targetScore" type="number" required min={100} max={200} value={profile.targetScore} onChange={(e) => setProfile({ ...profile, targetScore: Number(e.target.value) })} /></Label>
@@ -71,6 +112,7 @@ export function OnboardingWizard({ claim, account }: { claim: boolean; account?:
           {error ? <p role="alert" className="text-sm text-destructive">{error}</p> : null}
           <div className="flex gap-2"><Button type="button" variant="outline" disabled={pending} onClick={() => setStep(3)}>Назад</Button><Button type="submit" disabled={pending}>{pending ? "Створення…" : "Створити план"}</Button></div>
         </form> : null}
+        </> : null}
       </Card>
     </main>
   );

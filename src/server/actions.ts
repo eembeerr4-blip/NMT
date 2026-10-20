@@ -26,7 +26,7 @@ import { relocationMode } from "@/lib/shift";
 import { hashPasswordAsync, verifyPasswordAsync, DUMMY_HASH } from "@/lib/auth";
 import { isValidNickname, normalizeNickname } from "@/lib/nickname";
 import { addXp, refreshAchievements } from "@/server/progress";
-import { isLocked, registerFail, clearFails } from "@/lib/login-throttle";
+import { isLoginLimited, registerLoginFailure, clearAccountFailures, trustedClientIp } from "@/lib/login-throttle";
 import { clearSession, createSession, getSessionUser } from "@/server/session";
 import { getSettings, syncPlan, syncPlanWithClient, rebuildFuturePlan } from "@/server/sync";
 
@@ -1186,16 +1186,23 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
 
 export async function login(nickname: string, password: string, rememberMe = false) {
   const key = normalizeNickname(nickname);
-  if(isLocked(key))return {ok:false as const,error:"Забагато спроб. Спробуйте за 15 хвилин."};
+  const clientIp = trustedClientIp(await headers());
+  const denied = {ok:false as const,error:"Не вдалося увійти. Перевірте дані або спробуйте пізніше."};
+  if (isLoginLimited(`identifier:${key}`, clientIp)) return denied;
   const [match]=await prisma.$queryRaw<{id:string}[]>`SELECT "id" FROM "User" WHERE "nickname" = ${key} COLLATE NOCASE OR "email" = ${key} COLLATE NOCASE LIMIT 1`;
   const user=match?await prisma.user.findUnique({where:{id:match.id}}):null;
+  const accountKey = user ? `user:${user.id}` : `identifier:${key}`;
+  if (isLoginLimited(accountKey, clientIp)) {
+    await verifyPasswordAsync(password, DUMMY_HASH);
+    return denied;
+  }
   const valid=await verifyPasswordAsync(password,user?.passwordHash||DUMMY_HASH);
   if(!user||!user.passwordHash||!valid||(user.email&&!user.emailVerifiedAt)){
-    registerFail(key);
+    registerLoginFailure(accountKey, clientIp);
     await recordAudit({id:user?.id??"anonymous",role:user?.role??"STUDENT",firstName:key},{action:"AUTH_LOGIN_FAILED",entityType:"session"});
-    return {ok:false as const,error:"Невірні дані входу або email ще не підтверджено."};
+    return denied;
   }
-  clearFails(key);
+  clearAccountFailures(accountKey);
   await prisma.session.deleteMany({where:{expiresAt:{lt:new Date()}}});
   await createSession(user.id, rememberMe);
   await recordAudit(user,{action:"AUTH_LOGIN",entityType:"session"});
