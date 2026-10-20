@@ -4,6 +4,8 @@ import { Card } from "@/components/ui";
 import { LoginForm, type LoginState } from "@/components/login-form";
 import { startGoogleAuth } from "@/server/google-oauth";
 
+export const dynamic = "force-dynamic";
+
 export default function LoginPage() {
   return (
     <main className="mx-auto flex min-h-screen max-w-md items-center px-4">
