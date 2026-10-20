@@ -4,7 +4,7 @@ import {useActionFeedback} from "./use-action-feedback";
 
 export function QuestionFeedback({id}:{id:string}) {
  const {pending,result,run}=useActionFeedback();
- return <form className="space-y-2" onSubmit={async event=>{
+ return <form className="question-feedback space-y-2" onSubmit={async event=>{
   event.preventDefault();
   const form=event.currentTarget;
   const issue=String(new FormData(form).get('issue')||'');

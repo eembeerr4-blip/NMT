@@ -1,11 +1,14 @@
+import type { CSSProperties } from "react";
+import { ArrowLeft, ArrowRight, CheckCircle2, CircleHelp, BookOpen } from "lucide-react";
+import { ManualReview } from "@/components/testing/manual-review";
+import { RestartTopicTest } from "@/components/testing/restart-topic-test";
 import { QuestionFeedback } from "@/components/question-feedback";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { MathText } from "@/components/math-text";
 import { TestRunner } from "@/components/test-runner";
-import { Badge, Card, PageHeader } from "@/components/ui";
-import { gradeManually, startTopicTest } from "@/server/actions";
+import { Badge, Button, Card, PageHeader } from "@/components/ui";
 import { requireUser } from "@/server/session";
 import { getSettings } from "@/server/sync";
 
@@ -21,14 +24,17 @@ export default async function AttemptPage({ params }: { params: Promise<{ id: st
     },
   });
   if (!attempt || attempt.userId !== user.id) notFound();
-  // Presentation scope only: the lesson's TOPIC practice keeps its existing runner/actions.
+  // Only presentation changes: the authenticated query, attempt identity and all actions stay intact.
   const lessonPractice = attempt.test.kind === "TOPIC" && Boolean(attempt.test.topicId);
+  const scope = lessonPractice ? "d04f-practice d05-testing" : "d05-testing";
+  const kindLabel = attempt.test.kind === "TOPIC" ? "Тематична практика" : attempt.test.kind === "EXAM" ? "Пробник" : attempt.test.kind === "DIAGNOSTIC" ? "Діагностика" : "Тест";
+  const navigation = <nav className="d05-context-nav" aria-label={lessonPractice ? "Повернення до уроку" : "Навігація тестування"}><Link href={lessonPractice ? `/learn/${attempt.test.topicId}` : "/tests"}><ArrowLeft size={16} aria-hidden="true" />{lessonPractice ? "До уроку" : "Мої тести"}</Link><span>{attempt.test.subject?.name ?? "Кілька предметів"} · {lessonPractice ? attempt.status === "COMPLETED" ? "Розбір практики" : "Практика теми" : kindLabel}</span></nav>;
   if (attempt.status !== "COMPLETED") {
     const draft = JSON.parse(attempt.draftJson || "{}") as Record<string, unknown>;
     return (
-      <div className={lessonPractice ? "d04f-practice space-y-4" : "space-y-4"}>
-        {lessonPractice ? <nav className="d04f-practice-navigation" aria-label="Повернення до уроку"><Link href={`/learn/${attempt.test.topicId}`}>← До уроку</Link><span>Практика теми</span></nav> : null}
-        <PageHeader title={attempt.test.title} description="Правильні відповіді приховані до завершення. Чернетка зберігається в базі й у браузері." />
+      <div className={scope}>
+        {navigation}
+        <div className="d05-page-heading"><PageHeader title={attempt.test.title} description="Правильні відповіді приховані до завершення. Чернетка зберігається в базі й у браузері." /></div>
         <TestRunner
           key={`${user.id}:${attempt.id}`}
           userId={user.id}
@@ -53,48 +59,38 @@ export default async function AttemptPage({ params }: { params: Promise<{ id: st
     ? await prisma.userTopicProgress.findUnique({ where: { userId_topicId: { userId: user.id, topicId: attempt.test.topicId } } })
     : null;
   const config = JSON.parse(attempt.test.configJson || "{}") as { shortfall?: number; convertsToRating?: boolean };
+  const percent = attempt.percent === null ? null : Math.round(attempt.percent);
+  const pendingReview = Boolean(attempt.pendingCount);
   return (
-    <div className={lessonPractice ? "d04f-practice space-y-4" : "space-y-4"}>
-      {lessonPractice ? <nav className="d04f-practice-navigation" aria-label="Повернення до уроку"><Link href={`/learn/${attempt.test.topicId}`}>← До уроку</Link><span>Розбір практики</span></nav> : null}
-      <PageHeader title="Результат" description={attempt.test.title} />
-      <div className="grid gap-3 sm:grid-cols-3">
-        <Card className="p-4"><div className="text-sm text-muted-foreground">Правильні</div><div className="text-2xl font-semibold">{attempt.correctCount}/{attempt.totalCount}</div></Card>
-        <Card className="p-4"><div className="text-sm text-muted-foreground">Відсоток</div><div className="text-2xl font-semibold">{Math.round(attempt.percent ?? 0)}%</div></Card>
-        <Card className="p-4"><div className="text-sm text-muted-foreground">Час</div><div className="text-2xl font-semibold">{Math.max(1, Math.round((attempt.durationSec ?? 0) / 60))} хв</div></Card>
+    <div className={scope}>
+      {navigation}
+      <div className="d05-page-heading"><PageHeader title="Результат" description={attempt.test.title} /></div>
+      <div className="d05-result-grid">
+        <Card className="d05-score-panel">
+          <div className="d05-section-heading"><h2>Ваш результат</h2><Badge>{pendingReview ? "Очікує перевірки" : "Перевірено"}</Badge></div>
+          <div className="d05-score-overview">
+            <div className="d05-score-ring" role="img" aria-label={percent === null ? "Відсоток не визначено" : `${percent}% правильних відповідей${pendingReview ? ", попередній результат" : ""}`} style={{"--d05-score": `${Math.min(100,Math.max(0,percent ?? 0))}%`} as CSSProperties}><div><strong>{percent === null ? "—" : `${percent}%`}</strong><span>{pendingReview ? "попередній результат" : "правильних відповідей"}</span></div></div>
+            <dl className="d05-score-metrics"><div><dt>Правильні відповіді</dt><dd>{attempt.correctCount ?? "—"}/{attempt.totalCount ?? "—"}</dd></div><div><dt>Час проходження</dt><dd>{attempt.durationSec === null ? "Не записано" : `${Math.floor(attempt.durationSec/60)}:${String(attempt.durationSec%60).padStart(2,"0")}`}</dd></div>{pendingReview ? <div><dt>Очікують перевірки</dt><dd>{attempt.pendingCount}</dd></div> : null}</dl>
+          </div>
+          {pendingReview ? <div className="d05-notice"><CircleHelp size={18} aria-hidden="true" /><p>Відкриті відповіді очікують ручної перевірки: {attempt.pendingCount}. Їх не зараховано автоматично як помилку. Відсоток ще не остаточний.</p></div> : null}
+          {attempt.test.kind !== "TOPIC" ? <p className="d05-rating-note">Це не рейтинговий бал НМТ. {config.convertsToRating ? "" : "Таблицю переведення не застосовано."}</p> : <p className="d05-rating-note">Відсоток правильних відповідей у цій спробі, а не рейтинговий бал 100–200.</p>}
+        </Card>
+        <Card className="d05-result-actions"><h2>Наступний крок</h2><p>Перегляньте відповіді й пояснення нижче та поверніться до навчання.</p>{attempt.test.topicId ? <><Button variant="outline" asChild><Link href={`/learn/${attempt.test.topicId}`}><BookOpen aria-hidden="true" />До уроку</Link></Button><RestartTopicTest topicId={attempt.test.topicId} /></> : <Button asChild variant="outline"><Link href={attempt.test.kind === "EXAM" ? "/exams" : "/"}>{attempt.test.kind === "EXAM" ? "До пробників" : "До навчального плану"}<ArrowRight aria-hidden="true" /></Link></Button>}<Link href="/mistakes">Журнал помилок →</Link><Link href="/tests">Усі спроби →</Link><Link href="/results">Записані результати →</Link></Card>
       </div>
-      {attempt.pendingCount ? <Card className="p-4 text-sm">Відкриті відповіді очікують ручної перевірки: {attempt.pendingCount}. Їх не зараховано автоматично як помилку.</Card> : null}
-      {config.shortfall ? <Card className="p-4 text-sm">У банку не вистачило завдань до повного комплекту. Пропуски не заповнювались вигаданими питаннями.</Card> : null}
-      {attempt.test.kind === "DIAGNOSTIC" ? <Card className="space-y-2 p-4 text-sm"><p>Це коротка вибірка, а не оцінка всієї програми. Пропущені відповіді не означають, що тему не засвоєно.</p><p>Рекомендації оновлено за наданими неправильними відповідями. Правильна відповідь у діагностиці не позначає всю тему засвоєною.</p><Link href="/" className="underline">До оновленого плану</Link></Card> : null}
-      {attempt.test.kind !== "TOPIC" ? <Card className="p-4 text-sm">Це не рейтинговий бал НМТ. {config.convertsToRating ? "" : "Таблицю переведення не застосовано."}</Card> : null}
-      {attempt.test.topic ? <p className="text-sm">Статус теми «{attempt.test.topic.title}»: <Badge>{progress?.status === "MASTERED" ? "засвоєно" : progress?.status === "NEEDS_REVIEW" ? "потрібне закріплення" : "повторити теорію або завершити перевірку"}</Badge></p> : null}
-      <div className="space-y-3">
+      {config.shortfall ? <div className="d05-notice"><p>У банку не вистачило завдань до повного комплекту. Пропуски не заповнювались вигаданими питаннями.</p></div> : null}
+      {attempt.test.kind === "DIAGNOSTIC" ? <Card className="d05-info-panel"><h2>Що означає діагностика</h2><p>Це коротка вибірка, а не оцінка всієї програми. Пропущені відповіді не означають, що тему не засвоєно.</p><p>Рекомендації оновлено за наданими неправильними відповідями. Правильна відповідь у діагностиці не позначає всю тему засвоєною.</p><Link href="/">До оновленого плану →</Link></Card> : null}
+      {attempt.test.topic ? <p className="d05-topic-status">Статус теми «{attempt.test.topic.title}»: <Badge>{progress?.status === "MASTERED" ? "засвоєно" : progress?.status === "NEEDS_REVIEW" ? "потрібне закріплення" : "повторити теорію або завершити перевірку"}</Badge></p> : null}
+      <section className="d05-review-list" aria-labelledby="d05-review-title"><div className="d05-section-heading"><h2 id="d05-review-title">Розбір відповідей</h2><span>{attempt.test.questions.length} завдань</span></div>
         {attempt.test.questions.map(({ question }, index) => {
           const answer = attempt.answers.find((item) => item.questionId === question.id);
-          return (
-            <Card key={question.id} className="space-y-2 p-4">
-              <div className="text-sm text-muted-foreground">Завдання {index + 1}</div>
-              <MathText text={question.prompt} />
-              <div className="text-sm"><span>Ваша відповідь: </span><MathText text={displayAnswer(answer?.userAnswer, question.options)} /></div>
-              <p className="text-sm">{answer?.needsManualReview ? "Потрібна ручна перевірка" : answer?.isCorrect ? "Правильно" : "Потрібно розібрати"}</p>
-              <MathText text={question.explanation} className="text-sm" />
-              <p className="text-xs text-muted-foreground">{question.source}</p>
-              {answer?.needsManualReview ? (
-                <div className="flex gap-2">
-                  <form action={async () => { "use server"; await gradeManually(answer.id, true); }}><button className="text-sm underline" type="submit">Зарахувати</button></form>
-                  <form action={async () => { "use server"; await gradeManually(answer.id, false); }}><button className="text-sm underline" type="submit">Не зарахувати</button></form>
-                </div>
-              ) : null}
-              <QuestionFeedback id={question.id} />
-            </Card>
-          );
+          const status = answer?.needsManualReview ? "pending" : answer?.isCorrect ? "correct" : "review";
+          const statusLabel = status === "pending" ? "Потрібна ручна перевірка" : status === "correct" ? "Правильно" : "Потрібно розібрати";
+          return <Card key={question.id} className="d05-review-card" data-review={status}><details open><summary><span className="d05-review-number">{index + 1}</span><span>Завдання {index + 1}</span><span className="d05-review-status">{status === "correct" ? <CheckCircle2 size={16} aria-hidden="true" /> : <CircleHelp size={16} aria-hidden="true" />}{statusLabel}</span></summary><div className="d05-review-body"><MathText text={question.prompt} /><div className="d05-your-answer"><h3>Ваша відповідь</h3><MathText text={displayAnswer(answer?.userAnswer, question.options)} /></div><div className="d05-explanation"><h3>Пояснення</h3>{question.explanation?.trim() ? <MathText text={question.explanation} /> : <p>Пояснення до цього завдання ще не додано.</p>}</div>{question.source ? <p className="d05-question-source">{question.source}</p> : null}
+            {answer?.needsManualReview ? <ManualReview answerId={answer.id} /> : null}
+            <QuestionFeedback id={question.id} />
+          </div></details></Card>;
         })}
-      </div>
-      {attempt.test.topicId ? (
-        <form action={async () => { "use server"; await startTopicTest(attempt.test.topicId!); }}>
-          <button className="rounded-lg bg-primary px-3 py-2 text-sm text-primary-foreground" type="submit">Пройти новий варіант</button>
-        </form>
-      ) : null}
-      <Link href="/mistakes" className="block text-sm underline">Журнал помилок</Link>
+      </section>
     </div>
   );
 }
@@ -110,7 +106,7 @@ function displayAnswer(raw: string | undefined, options: { id: string; text: str
   const text = new Map(options.map((option) => [option.id, option.text]));
   if (typeof value === "string") return text.get(value) ?? value;
   if (Array.isArray(value)) return value.map((id) => text.get(String(id)) ?? String(id)).join(" → ");
-  if (value && typeof value === "object" && "final" in value) return String((value as { final?: string }).final || "немає");
+  if (value && typeof value === "object" && "final" in value) { const step=value as {work?:string;final?:string}; return `${step.work ? `Хід розв’язання: ${step.work}. ` : ""}Кінцева відповідь: ${step.final || "немає"}`; }
   if (value && typeof value === "object") {
     return Object.entries(value as Record<string, string>).map(([left, right]) => `${text.get(left) ?? left} → ${text.get(right) ?? right}`).join("; ");
   }

@@ -15,7 +15,7 @@ export default async function ExamsPage() {
     prisma.examResult.findMany({ where: { userId: user.id }, include: { subject: true }, orderBy: { date: "desc" } }),
   ]);
   return (
-    <div className="space-y-6">
+    <div className="d05-testing d05-exams space-y-6">
       <PageHeader title="Пробники" description="Повний пробник збирається лише з вашого перевіреного банку. Рейтинговий бал з'являється тільки якщо ви його ввели або якщо додано офіційну таблицю." action={<a className="text-sm underline" href="https://zno.osvita.ua/" target="_blank" rel="noreferrer">Відкрити zno.osvita.ua</a>} />
       <Card className="p-4 text-sm text-muted-foreground">{settings.format.note}</Card>
       <Card className="p-4"><ExamStartForm /></Card>

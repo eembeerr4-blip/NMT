@@ -71,3 +71,6 @@ next-env.d.ts
 
 # D04 FINAL isolated QA runtime and evidence
 /audit/d04-final/
+
+# D05 isolated synthetic QA, sessions, logs and screenshots
+/audit/d05/

@@ -1,8 +1,8 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
-import { useState, type ReactNode } from "react";
+import { useRouter, unstable_rethrow } from "next/navigation";
+import { useRef, useState, type ReactNode } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { SUBJECTS } from "@/lib/constants";
@@ -257,9 +257,14 @@ export function TopicActions({ topicId, hasQuestions }: { topicId: string; hasQu
 
 export function ExamStartForm() {
   const [message, setMessage] = useState("");
+  const [pending,setPending]=useState(false);
+  const submitting=useRef(false);
   return (
     <form className="grid gap-3 sm:grid-cols-2" onSubmit={async (event) => {
       event.preventDefault();
+      if(submitting.current)return;
+      submitting.current=true;setPending(true);setMessage("");
+      try {
       const submittedForm = event.currentTarget;
       const form = new FormData(submittedForm);
       const result = await startExam({
@@ -269,14 +274,16 @@ export function ExamStartForm() {
         minutes: form.get("minutes") ? Number(form.get("minutes")) : null,
       });
       if (result && !result.ok) setMessage(result.error);
+      } catch(error) { unstable_rethrow(error);setMessage("Не вдалося розпочати пробник. Перевірте з’єднання та повторіть."); }
+      finally {submitting.current=false;setPending(false);}
     }}>
       <Field label="Предмет"><SubjectSelect /></Field>
       <Field label="Назва"><Input name="title" placeholder="Мій пробник" /></Field>
       <Field label="Скільки завдань взяти з банку"><Input name="count" type="number" min={1} max={60} defaultValue={12} /></Field>
       <Field label="Ліміт часу, хв"><Input name="minutes" type="number" min={1} placeholder="Необов'язково" /></Field>
       <p className="text-sm text-muted-foreground sm:col-span-2">Формат НМТ-2027 у конфігурації не підтверджено. Пробник бере лише перевірені завдання з банку і не переводить їх у рейтинговий бал.</p>
-      <Button type="submit">Почати пробник</Button>
-      {message ? <p className="text-sm text-destructive sm:col-span-2">{message}</p> : null}
+      <Button type="submit" disabled={pending}>{pending ? "Підготовка…" : "Почати пробник"}</Button>
+      {message ? <p role="alert" className="text-sm text-destructive sm:col-span-2">{message}</p> : null}
     </form>
   );
 }

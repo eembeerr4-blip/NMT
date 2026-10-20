@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import * as AlertDialog from "@radix-ui/react-alert-dialog";
+import { ArrowLeft, ArrowRight, Clock3, Check, Circle } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useAttemptDraft } from "./use-attempt-draft";
 import { answerCompletion } from "@/lib/answer-completion";
@@ -81,48 +83,54 @@ export function TestRunner({
 
   if (!question) return null;
   return (
-    <div className="grid gap-4 lg:grid-cols-[1fr_220px]">
-      <Card className="space-y-5 p-4 sm:p-6">
-        <div className="space-y-3">
-          <div className="flex flex-wrap items-center justify-between gap-2 text-sm text-muted-foreground">
-            <span className="font-medium text-foreground">Завдання {index + 1} з {questions.length}</span>
-            {timerEnabled ? <span aria-live="off" className={`rounded-full px-3 py-1 font-medium ${remaining !== null && remaining <= 60 ? "bg-destructive/10 text-destructive" : "bg-muted text-foreground"}`}>{remaining !== null ? `Залишилось ${formatClock(Math.max(0, remaining))}` : `Минуло ${formatClock(elapsed)}`}</span> : null}
+    <AlertDialog.Root open={confirmFinish} onOpenChange={setConfirmFinish}>
+      <div className="d05-runner">
+        <Card className="d05-question-panel">
+          <div className="d05-question-toolbar">
+            <span className="d05-eyebrow">Завдання {index + 1} з {questions.length}</span>
+            {timerEnabled ? <span aria-live="off" className={`d05-clock ${remaining !== null && remaining <= 60 ? "d05-clock-urgent" : ""}`}><Clock3 aria-hidden="true" size={16} />{remaining !== null ? `Залишилось ${formatClock(Math.max(0, remaining))}` : `Минуло ${formatClock(elapsed)}`}</span> : null}
           </div>
-          <Progress value={((index + 1) / questions.length) * 100} />
-        </div>
-        <MathText text={question.prompt} />
-        <div className="mt-4">
-          <fieldset disabled={pending || !ready}><AnswerInput sequenceSeed={attemptId+":"+question.id} question={question} value={answers[question.id]} onChange={setAnswer} /></fieldset>
-        </div>
-        <div className="mt-6 flex flex-wrap gap-2">
-          <Button type="button" variant="outline" onClick={() => setIndex((value) => Math.max(0, value - 1))} disabled={index === 0}>Назад</Button>
-          <Button type="button" variant="outline" onClick={() => setIndex((value) => Math.min(questions.length - 1, value + 1))} disabled={index === questions.length - 1}>Далі</Button>
-          <Button type="button" onClick={() => setConfirmFinish(true)} disabled={pending || !ready}>{pending ? "Завершення..." : "Завершити"}</Button>
-        </div>
-        {view.error ? <div role="alert" className="text-sm"><p>{view.error}</p><Button type="button" variant="outline" onClick={()=>void controller.current?.flush()}>Повторити збереження</Button></div> : null}
-        {error ? <Button type="button" onClick={()=>void finish()} disabled={pending}>Повторити завершення</Button> : null}
-        {confirmFinish ? <div role="alertdialog" aria-labelledby="finish-title" aria-describedby="finish-description" className="space-y-3 rounded-xl border border-border bg-muted p-4"><h2 id="finish-title" className="font-semibold">Завершити тест?</h2><p id="finish-description" className="text-sm text-muted-foreground">{skipped.length ? "Без повної відповіді залишилося " + skipped.length + " із " + questions.length + " завдань. Ви можете повернутися до них або завершити спробу." : "Усі завдання мають відповідь. Після завершення відкриється результат."}</p><div className="flex flex-wrap gap-2"><Button variant="outline" disabled={pending} onClick={()=>setConfirmFinish(false)}>Повернутися до тесту</Button><Button disabled={pending} onClick={()=>void finish()}>{pending?"Завершення…":"Так, завершити тест"}</Button></div></div>:null}
-        {error ? <p role="alert" className="mt-3 text-sm text-destructive">{error}</p> : null}
-      </Card>
-      <Card className="space-y-3 p-4 lg:sticky lg:top-20 lg:self-start">
-        <div><div className="text-sm font-semibold">Навігація</div><div role="status" className="mt-1 text-xs text-muted-foreground">{!ready ? "Відновлення чернетки…" : view.status === "saved" ? "Відповіді збережено" : view.status === "saving" ? "Збереження відповідей…" : view.status === "error" ? "Помилка збереження" : "Є незбережені зміни"}</div></div>
-        <div className="grid grid-cols-6 gap-1.5 lg:grid-cols-4">
-          {questions.map((item, itemIndex) => {
-            const completion = answerCompletion(item,answers[item.id]);
-            const answered = completion === "complete";
-            return (
-              <button key={item.id} type="button" aria-current={itemIndex === index ? "step" : undefined} aria-label={`Завдання ${itemIndex + 1}${answered ? ", відповідь є" : completion === "partial" ? ", неповна відповідь" : ", без відповіді"}`} onClick={() => setIndex(itemIndex)} className={`h-9 rounded-lg border text-xs font-medium ${itemIndex === index ? "border-primary bg-accent text-primary" : answered ? "border-border bg-muted text-foreground" : "border-dashed border-border text-muted-foreground hover:bg-muted"}`}>
-                {itemIndex + 1}
-              </button>
-            );
-          })}
-        </div>
-        <p className="text-xs text-muted-foreground">Без повної відповіді: {skipped.length} із {questions.length}.</p>
-        <div className="flex flex-wrap gap-1">
+          <Progress value={((index + 1) / questions.length) * 100} label="Поточне завдання" />
+          <div className="d05-question-prompt"><MathText text={question.prompt} /></div>
+          <fieldset className="d05-answer-fieldset" disabled={pending || !ready}>
+            <legend className="sr-only">Відповідь на завдання {index + 1}</legend>
+            <AnswerInput sequenceSeed={attemptId+":"+question.id} question={question} value={answers[question.id]} onChange={setAnswer} />
+          </fieldset>
+          <div className="d05-runner-actions">
+            <Button type="button" variant="outline" onClick={() => setIndex((value) => Math.max(0, value - 1))} disabled={index === 0}><ArrowLeft aria-hidden="true" />Назад</Button>
+            <Button type="button" onClick={() => setIndex((value) => Math.min(questions.length - 1, value + 1))} disabled={index === questions.length - 1}>Далі<ArrowRight aria-hidden="true" /></Button>
+            <AlertDialog.Trigger asChild><Button type="button" variant="outline" disabled={pending || !ready}>{pending ? "Завершення..." : "Завершити"}</Button></AlertDialog.Trigger>
+          </div>
+          {view.error ? <div role="alert" className="d05-notice d05-error"><p>{view.error}</p><Button type="button" variant="outline" onClick={()=>void controller.current?.flush()}>Повторити збереження</Button></div> : null}
+          {error ? <div role="alert" className="d05-notice d05-error"><p>{error}</p><Button type="button" onClick={()=>void finish()} disabled={pending}>Повторити завершення</Button></div> : null}
+        </Card>
+        <Card className="d05-map-panel">
+          <details className="d05-question-map" open>
+            <summary>Карта завдань <span>{questions.length-skipped.length}/{questions.length}</span></summary>
+            <div role="status" className="d05-save-status">{!ready ? "Відновлення чернетки…" : view.status === "saved" ? "Відповіді збережено" : view.status === "saving" ? "Збереження відповідей…" : view.status === "error" ? "Помилка збереження" : "Є незбережені зміни"}</div>
+            <div className="d05-question-grid">
+              {questions.map((item, itemIndex) => {
+                const completion = answerCompletion(item,answers[item.id]);
+                const answered = completion === "complete";
+                return <button key={item.id} type="button" data-completion={completion} aria-current={itemIndex === index ? "step" : undefined} aria-label={`Завдання ${itemIndex + 1}${answered ? ", відповідь є" : completion === "partial" ? ", неповна відповідь" : ", без відповіді"}`} onClick={() => setIndex(itemIndex)}>{itemIndex + 1}{answered ? <Check size={10} aria-hidden="true" /> : completion === "partial" ? <span aria-hidden="true">•</span> : null}</button>;
+              })}
+            </div>
+            <div className="d05-map-legend"><span><Check size={13} aria-hidden="true" />Відповідь є</span><span><Circle size={12} aria-hidden="true" />Без відповіді</span><span>• Неповна відповідь</span></div>
+          </details>
+          <p className="d05-map-count">Без повної відповіді: {skipped.length} із {questions.length}.</p>
           <Badge>{question.difficulty === "EASY" ? "Просте" : question.difficulty === "HARD" ? "Складне" : "Середнє"}</Badge>
-        </div>
-      </Card>
-    </div>
+        </Card>
+      </div>
+      <AlertDialog.Portal>
+        <AlertDialog.Overlay className="d05-overlay" />
+        <AlertDialog.Content className="d05-finish-dialog" onEscapeKeyDown={event=>{if(pending)event.preventDefault()}}>
+          <AlertDialog.Title className="d05-dialog-title">Завершити тест?</AlertDialog.Title>
+          <AlertDialog.Description className="d05-dialog-description">{skipped.length ? "Без повної відповіді залишилося " + skipped.length + " із " + questions.length + " завдань. Ви можете повернутися до них або завершити спробу." : "Усі завдання мають відповідь. Після завершення відкриється результат."}</AlertDialog.Description>
+          {error ? <p role="alert" className="d05-notice d05-error">{error}</p> : null}
+          <div className="d05-dialog-actions"><AlertDialog.Cancel asChild><Button type="button" variant="outline" disabled={pending}>Повернутися до тесту</Button></AlertDialog.Cancel><Button type="button" disabled={pending} onClick={()=>void finish()}>{pending?"Завершення…":"Так, завершити тест"}</Button></div>
+        </AlertDialog.Content>
+      </AlertDialog.Portal>
+    </AlertDialog.Root>
   );
 }
 
@@ -131,9 +139,9 @@ function AnswerInput({ sequenceSeed, question, value, onChange }: { sequenceSeed
     return (
       <div className="space-y-2">
         {question.options.map((option) => (
-          <label key={option.id} className="flex cursor-pointer items-start gap-2 rounded-xl border border-border p-3">
+          <label key={option.id} className="d05-choice flex cursor-pointer items-start gap-3 rounded-xl border border-border p-3">
             <input type="radio" name={question.id} className="mt-1" checked={value === option.id} onChange={() => onChange(option.id)} />
-            <span><span className="mr-2 font-medium">{option.label}.</span><MathText text={option.text} /></span>
+            <div><span className="mr-2 font-medium">{option.label}.</span><MathText text={option.text} /></div>
           </label>
         ))}
       </div>
@@ -146,7 +154,7 @@ function AnswerInput({ sequenceSeed, question, value, onChange }: { sequenceSeed
     return (
       <div className="space-y-3">
         {left.map((option) => (
-          <label key={option.id} className="grid gap-2 sm:grid-cols-[1fr_180px] sm:items-center">
+          <label key={option.id} className="d05-matching-row grid gap-2 sm:grid-cols-[minmax(0,1fr)_minmax(0,220px)] sm:items-center">
             <MathText text={option.text} />
             <select className="h-10 rounded-lg border border-border bg-card px-2 text-sm" value={current[option.id] ?? ""} onChange={(event) => onChange({ ...current, [option.id]: event.target.value })}>
               <option value="">Обрати</option>
@@ -173,11 +181,11 @@ function AnswerInput({ sequenceSeed, question, value, onChange }: { sequenceSeed
           const option = question.options.find((item) => item.id === optionId);
           if (!option) return null;
           return (
-            <div key={optionId} className="flex items-center justify-between gap-2 rounded-xl border border-border p-3">
-              <span>{position + 1}. {option.text}</span>
+            <div key={optionId} className="d05-sequence-row flex items-center justify-between gap-2 rounded-xl border border-border p-3">
+              <div className="d05-sequence-text"><span className="d05-sequence-number">{position + 1}</span><MathText text={option.text} /></div>
               <span className="flex gap-1">
-                <Button type="button" size="sm" variant="outline" onClick={() => move(optionId, -1)}>Вгору</Button>
-                <Button type="button" size="sm" variant="outline" onClick={() => move(optionId, 1)}>Вниз</Button>
+                <Button type="button" size="sm" variant="outline" disabled={position === 0} aria-label={`Перемістити пункт ${position + 1} вгору`} onClick={() => move(optionId, -1)}>Вгору</Button>
+                <Button type="button" size="sm" variant="outline" disabled={position === order.length - 1} aria-label={`Перемістити пункт ${position + 1} вниз`} onClick={() => move(optionId, 1)}>Вниз</Button>
               </span>
             </div>
           );
@@ -195,7 +203,7 @@ function AnswerInput({ sequenceSeed, question, value, onChange }: { sequenceSeed
       </div>
     );
   }
-  return <input className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm" value={typeof value === "string" ? value : ""} onChange={(event) => onChange(event.target.value)} aria-label={question.type === "NUMERIC" ? "Числова відповідь" : "Коротка відповідь"} placeholder={question.type === "NUMERIC" ? "Число" : "Коротка відповідь"} />;
+  return <label className="d05-text-answer"><span>{question.type === "NUMERIC" ? "Числова відповідь" : "Коротка відповідь"}</span><input inputMode={question.type === "NUMERIC" ? "decimal" : "text"} className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm" value={typeof value === "string" ? value : ""} onChange={(event) => onChange(event.target.value)} aria-label={question.type === "NUMERIC" ? "Числова відповідь" : "Коротка відповідь"} placeholder={question.type === "NUMERIC" ? "Число" : "Коротка відповідь"} /><small>{question.type === "NUMERIC" ? "Введіть число. Для дробу можна використовувати крапку або кому." : "Запишіть відповідь своїми словами. Може знадобитися ручна перевірка."}</small></label>;
 }
 
 function formatClock(total: number) {
