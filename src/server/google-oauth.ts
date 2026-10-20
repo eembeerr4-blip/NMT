@@ -1,13 +1,14 @@
 import "server-only";
 
 import { createHash, createPublicKey, randomBytes, verify } from "node:crypto";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { equalSecret, normalizeEmail, secretHash, validEmail } from "@/lib/account-auth";
+import { takeAuthRequest } from "@/lib/auth-request-throttle";
+import { trustedClientIp } from "@/lib/login-throttle";
 import { sessionCookieSecure } from "@/lib/session-cookie";
 import { authBaseUrl } from "@/server/auth-mail";
-import { validInvitation, consumeInvitationForGoogle } from "@/server/auth-service";
 import { createSession, getSessionUser } from "@/server/session";
 
 const STATE_COOKIE = "nmt_google_state";
@@ -28,16 +29,14 @@ function base64UrlSha256(value: string) {
 }
 
 export async function startGoogleAuth(form: FormData) {
+  "use server";
   const mode = String(form.get("mode") ?? "login");
   if (!["login", "register", "link"].includes(mode)) redirect("/login?oauth=invalid");
-  const config = googleConfig();
-  let invitationId: string | null = null;
-  let linkUserId: string | null = null;
-  if (mode === "register") {
-    const invitation = await validInvitation(String(form.get("invitation") ?? ""), String(form.get("email") ?? ""));
-    if (!invitation) redirect("/register?oauth=invite_invalid");
-    invitationId = invitation.id;
+  if (!takeAuthRequest("google", trustedClientIp(await headers()))) {
+    redirect(mode === "register" ? "/register?oauth=rate_limited" : "/login?oauth=rate_limited");
   }
+  const config = googleConfig();
+  let linkUserId: string | null = null;
   if (mode === "link") {
     const user = await getSessionUser();
     if (!user) redirect("/login");
@@ -47,7 +46,7 @@ export async function startGoogleAuth(form: FormData) {
   const nonce = randomBytes(32).toString("base64url");
   const codeVerifier = randomBytes(48).toString("base64url");
   await prisma.oAuthFlow.create({ data: {
-    stateHash: secretHash(state), nonce, codeVerifier, invitationId, linkUserId,
+    stateHash: secretHash(state), nonce, codeVerifier, linkUserId,
     expiresAt: new Date(Date.now() + FLOW_TTL),
   } });
   (await cookies()).set(STATE_COOKIE, state, {
@@ -138,9 +137,6 @@ export async function finishGoogleAuth(code: string, state: string) {
     const user = await prisma.user.findUnique({ where: { id: linked.userId } });
     return user?.onboarded ? "/" : "/onboarding";
   }
-  if (!flow.invitationId) return "/register?oauth=invite_required";
-  const invitation = await prisma.invitation.findUnique({ where: { id: flow.invitationId } });
-  if (!invitation || invitation.email !== identity.email || invitation.consumedAt || invitation.expiresAt <= new Date()) return "/register?oauth=invite_invalid";
   if (await prisma.user.findUnique({ where: { email: identity.email } })) return "/login?oauth=link_required";
   let userId: string;
   try {
@@ -149,11 +145,10 @@ export async function finishGoogleAuth(code: string, state: string) {
         firstName: identity.givenName, nickname: `g${randomBytes(8).toString("hex")}`,
         email: identity.email, emailVerifiedAt: new Date(), role: "STUDENT", passwordHash: "", onboarded: false,
       } });
-      await consumeInvitationForGoogle(tx, invitation.id, user.id);
       await tx.oAuthAccount.create({ data: { userId: user.id, provider: "google", providerSubject: identity.sub } });
       return user.id;
     });
-  } catch { return "/register?oauth=invite_invalid"; }
+  } catch { return "/register?oauth=registration_failed"; }
   await createSession(userId, true);
   return "/onboarding";
 }

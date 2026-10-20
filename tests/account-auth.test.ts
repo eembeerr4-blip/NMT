@@ -21,7 +21,7 @@ import { prisma } from "@/lib/prisma";
 import { hashPasswordAsync, verifyPasswordAsync } from "@/lib/auth";
 import {
   issueInvitation, registerWithEmail, requestPasswordReset, resetPassword,
-  requestEmailLink, validInvitation, verifyEmailToken,
+  requestEmailLink, resendVerification, validInvitation, verifyEmailToken,
 } from "@/server/auth-service";
 
 beforeAll(async () => {
@@ -43,21 +43,37 @@ afterAll(async () => {
   rmdirSync(folder);
 });
 
-it("keeps invitations single-use and enforces case-insensitive email uniqueness", async () => {
+it("registers without an invitation, retains old invitations, and enforces email uniqueness", async () => {
   const invitation = await issueInvitation("owner", " Student@Example.com ");
   expect(invitation.ok).toBe(true);
   if (!invitation.ok) return;
   expect((await validInvitation(invitation.code, "STUDENT@example.com"))?.email).toBe("student@example.com");
   const created = await registerWithEmail({
-    invitationCode: invitation.code, email: "STUDENT@example.com", firstName: "Student",
-    nickname: "student_one", password: "correct-horse-123",
+    email: "STUDENT@example.com", nickname: "student_one", password: "correct-horse-123", confirmPassword: "correct-horse-123",
   });
   expect(created.ok).toBe(true);
-  expect((await registerWithEmail({ invitationCode: invitation.code, email: "student@example.com", firstName: "Other", nickname: "student_two", password: "correct-horse-123" })).ok).toBe(false);
-  expect(await validInvitation(invitation.code, "student@example.com")).toBeNull();
+  expect((await registerWithEmail({ email: "student@example.com", nickname: "student_two", password: "correct-horse-123", confirmPassword: "correct-horse-123" })).ok).toBe(false);
+  expect((await registerWithEmail({ email: "other@example.com", nickname: "STUDENT_ONE", password: "correct-horse-123", confirmPassword: "correct-horse-123" })).ok).toBe(false);
+  expect(await validInvitation(invitation.code, "student@example.com")).not.toBeNull();
   const user = await prisma.user.findUniqueOrThrow({ where: { email: "student@example.com" } });
   expect(user.role).toBe("STUDENT");
+  expect(user.emailVerifiedAt).toBeNull();
+  expect(await prisma.session.count({ where: { userId: user.id } })).toBe(0);
   await expect(prisma.user.create({ data: { firstName: "Duplicate", nickname: "student_three", email: "STUDENT@EXAMPLE.COM" } })).rejects.toMatchObject({ code: "P2002" });
+});
+
+it("rejects mismatched passwords on the server without creating a user", async () => {
+  const result = await registerWithEmail({ email: "mismatch@example.com", nickname: "mismatch", password: "correct-horse-123", confirmPassword: "different-password" });
+  expect(result).toEqual({ ok: false, error: "Паролі не збігаються." });
+  expect(await prisma.user.findUnique({ where: { email: "mismatch@example.com" } })).toBeNull();
+});
+
+it("resends verification without revealing whether an address exists", async () => {
+  const before = sent.length;
+  await resendVerification("STUDENT@EXAMPLE.COM");
+  await resendVerification("unknown@example.com");
+  expect(sent.slice(before)).toHaveLength(1);
+  expect(sent.at(-1)?.to).toBe("student@example.com");
 });
 
 it("confirms email once, resets password once, and revokes prior sessions", async () => {

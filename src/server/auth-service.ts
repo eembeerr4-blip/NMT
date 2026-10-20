@@ -39,24 +39,22 @@ async function consumeInvitation(tx: Tx, invitationId: string, userId: string) {
 }
 
 export async function registerWithEmail(input: {
-  invitationCode: string; email: string; firstName: string; nickname: string; password: string;
+  email: string; nickname: string; password: string; confirmPassword: string;
 }) {
   const email = normalizeEmail(input.email);
   const nickname = normalizeNickname(input.nickname);
   if (!mailConfigured()) return { ok: false as const, error: "Реєстрація тимчасово недоступна: пошту не налаштовано." };
-  if (!validEmail(email) || input.firstName.trim().length < 2 || !isValidNickname(nickname) || input.password.length < 8) {
-    return { ok: false as const, error: "Перевірте email, ім’я, нікнейм і пароль (від 8 символів)." };
+  if (!validEmail(email) || !isValidNickname(nickname) || input.password.length < 8 || input.password.length > 1024) {
+    return { ok: false as const, error: "Перевірте email, нікнейм і пароль (від 8 символів)." };
   }
-  const invitation = await validInvitation(input.invitationCode, email);
-  if (!invitation) return { ok: false as const, error: "Запрошення недійсне, прострочене або призначене іншій адресі." };
+  if (input.password !== input.confirmPassword) return { ok: false as const, error: "Паролі не збігаються." };
   const token = newSecret();
   const passwordHash = await hashPasswordAsync(input.password);
   try {
     await prisma.$transaction(async (tx) => {
       const user = await tx.user.create({ data: {
-        email, firstName: input.firstName.trim(), nickname, passwordHash, role: "STUDENT", onboarded: false,
+        email, firstName: nickname, nickname, passwordHash, role: "STUDENT", onboarded: false,
       } });
-      await consumeInvitation(tx, invitation.id, user.id);
       await tx.authToken.create({ data: {
         userId: user.id, purpose: "VERIFY_EMAIL", tokenHash: secretHash(token),
         expiresAt: new Date(Date.now() + VERIFY_TTL),
@@ -64,16 +62,15 @@ export async function registerWithEmail(input: {
     });
   } catch (error) {
     if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2002") {
-      return { ok: false as const, error: "Email або нікнейм уже використовується." };
+      return { ok: false as const, error: "Не вдалося завершити реєстрацію. Перевірте дані або спробуйте увійти." };
     }
-    if (error instanceof Error && error.message === "INVITATION_USED") return { ok: false as const, error: "Запрошення вже використано." };
     throw error;
   }
   try {
     await sendAuthEmail(email, "Підтвердження email NMT Academy", `/verify-email?token=${encodeURIComponent(token)}`);
-    return { ok: true as const, message: "Перевірте пошту та підтвердьте адресу." };
+    return { ok: true as const, email, message: "Перевірте пошту та підтвердьте адресу." };
   } catch {
-    return { ok: true as const, message: "Профіль створено, але лист не надіслано. Скористайтеся повторним надсиланням." };
+    return { ok: true as const, email, message: "Профіль створено, але лист не надіслано. Скористайтеся повторним надсиланням." };
   }
 }
 

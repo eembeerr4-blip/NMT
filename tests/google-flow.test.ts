@@ -14,7 +14,7 @@ vi.mock("next/headers", () => ({ cookies: async () => ({
   get: (name: string) => controls.jar.has(name) ? { value: controls.jar.get(name) } : undefined,
   set: (name: string, value: string) => { controls.jar.set(name, value); },
   delete: (name: string) => { controls.jar.delete(name); },
-}) }));
+}), headers: async () => new Headers() }));
 vi.mock("next/navigation", () => ({ redirect: (url: string) => { throw new Error(`REDIRECT:${url}`); } }));
 vi.mock("@/server/session", () => ({
   getSessionUser: async () => controls.actor,
@@ -90,33 +90,33 @@ afterAll(async () => {
   rmdirSync(folder);
 });
 
-it("blocks a new Google user without an invitation", async () => {
+it("creates a new STUDENT through Google without an invitation", async () => {
   controls.sub = "new-google-subject"; controls.email = "new@example.com";
-  const state = await begin("login");
-  expect(await finishGoogleAuth("qa-code", state)).toBe("/register?oauth=invite_required");
-  expect(await prisma.user.findUnique({ where: { email: "new@example.com" } })).toBeNull();
-  expect(await finishGoogleAuth("qa-code", state)).toMatch(/invalid|used/);
-});
-
-it("creates an invited STUDENT once without changing existing roles", async () => {
-  const invite = await issueInvitation("owner", "new@example.com");
-  if (!invite.ok) throw new Error("Invitation failed");
-  controls.sub = "new-google-subject"; controls.email = "new@example.com";
-  const state = await begin("register", invite.code, "NEW@example.com");
+  const state = await begin("register");
   expect(await finishGoogleAuth("qa-code", state)).toBe("/onboarding");
   const user = await prisma.user.findUniqueOrThrow({ where: { email: "new@example.com" } });
   expect(user.role).toBe("STUDENT");
+  expect(user.emailVerifiedAt).not.toBeNull();
+  expect(await finishGoogleAuth("qa-code", state)).toMatch(/invalid|used/);
+});
+
+it("retains old invitation records while Google login preserves existing roles", async () => {
+  const invite = await issueInvitation("owner", "another@example.com");
+  if (!invite.ok) throw new Error("Invitation failed");
+  controls.sub = "another-google-subject"; controls.email = "another@example.com";
+  const state = await begin("login");
+  expect(await finishGoogleAuth("qa-code", state)).toBe("/onboarding");
+  const user = await prisma.user.findUniqueOrThrow({ where: { email: "another@example.com" } });
+  expect(user.role).toBe("STUDENT");
   expect(user.passwordHash).toBe("");
-  expect((await prisma.oAuthAccount.findMany({ where: { userId: user.id } })).map((item) => item.providerSubject)).toEqual(["new-google-subject"]);
-  expect((await prisma.invitation.findFirstOrThrow({ where: { email: "new@example.com" } })).consumedAt).not.toBeNull();
+  expect((await prisma.oAuthAccount.findMany({ where: { userId: user.id } })).map((item) => item.providerSubject)).toEqual(["another-google-subject"]);
+  expect((await prisma.invitation.findFirstOrThrow({ where: { email: "another@example.com" } })).consumedAt).toBeNull();
   expect((await prisma.user.findUniqueOrThrow({ where: { id: "owner" } })).role).toBe("OWNER");
 });
 
 it("does not auto-link Google to an existing email; explicit session link preserves ADMIN", async () => {
-  const invite = await issueInvitation("owner", "admin@example.com");
-  if (!invite.ok) throw new Error("Invitation failed");
   controls.sub = "admin-google-subject"; controls.email = "admin@example.com";
-  const state = await begin("register", invite.code, "admin@example.com");
+  const state = await begin("register");
   expect(await finishGoogleAuth("qa-code", state)).toBe("/login?oauth=link_required");
   expect(await prisma.oAuthAccount.count({ where: { userId: "admin-existing" } })).toBe(0);
   controls.actor = { id: "admin-existing", email: "admin@example.com" };

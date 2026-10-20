@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Card, Button } from "@/components/ui";
 import { verifyEmailAction } from "@/server/account-actions";
+import { ResendVerificationForm } from "@/components/account-forms";
 
 export default async function VerifyEmailPage({ searchParams }: { searchParams: Promise<{ token?: string; invalid?: string }> }) {
   const { token, invalid } = await searchParams;
@@ -12,7 +13,8 @@ export default async function VerifyEmailPage({ searchParams }: { searchParams: 
           <input type="hidden" name="token" value={token} />
           <Button type="submit">Підтвердити email</Button>
         </form>}
-      <Link href="/register" className="block text-sm underline">Повторно надіслати лист</Link>
+      {invalid || !token ? <ResendVerificationForm /> : null}
+      <Link href="/register" className="block text-sm underline">Зареєструватися</Link>
     </Card>
   </main>;
 }

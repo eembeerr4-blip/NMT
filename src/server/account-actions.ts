@@ -2,7 +2,10 @@
 
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import { headers } from "next/headers";
 import { prisma } from "@/lib/prisma";
+import { takeAuthRequest } from "@/lib/auth-request-throttle";
+import { trustedClientIp } from "@/lib/login-throttle";
 import { effectiveRole } from "@/lib/permissions";
 import { getSessionUser, createSession } from "@/server/session";
 import {
@@ -10,7 +13,7 @@ import {
   resetPassword, verifyEmailToken,
 } from "@/server/auth-service";
 
-export type AccountState = { error?: string; message?: string };
+export type AccountState = { error?: string; message?: string; registeredEmail?: string };
 
 export async function createInvitationAction(_state: AccountState, form: FormData): Promise<AccountState> {
   const user = await getSessionUser();
@@ -20,17 +23,22 @@ export async function createInvitationAction(_state: AccountState, form: FormDat
 }
 
 export async function registerAction(_state: AccountState, form: FormData): Promise<AccountState> {
+  if (!takeAuthRequest("register", trustedClientIp(await headers()))) {
+    return { error: "Забагато спроб. Спробуйте зареєструватися пізніше." };
+  }
   const result = await registerWithEmail({
-    invitationCode: String(form.get("invitation") ?? ""),
     email: String(form.get("email") ?? ""),
-    firstName: String(form.get("firstName") ?? form.get("nickname") ?? ""),
     nickname: String(form.get("nickname") ?? ""),
     password: String(form.get("password") ?? ""),
+    confirmPassword: String(form.get("confirmPassword") ?? ""),
   });
-  return result.ok ? { message: result.message } : { error: result.error };
+  return result.ok ? { message: result.message, registeredEmail: result.email } : { error: result.error };
 }
 
 export async function resendVerificationAction(_state: AccountState, form: FormData): Promise<AccountState> {
+  if (!takeAuthRequest("resend", trustedClientIp(await headers()))) {
+    return { message: "Якщо адреса очікує підтвердження, ми надіслали лист." };
+  }
   try { await resendVerification(String(form.get("email") ?? "")); } catch { /* Identical response avoids account enumeration. */ }
   return { message: "Якщо адреса очікує підтвердження, ми надіслали лист." };
 }

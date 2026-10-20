@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { Button, Input } from "@/components/ui";
 import {
   type AccountState, createInvitationAction, linkEmailAction, registerAction, requestResetAction,
@@ -14,16 +14,53 @@ function Feedback({ state }: { state: AccountState }) {
   return null;
 }
 
-export function RegistrationForm() {
+export function RegistrationForm({ googleAction }: { googleAction?: (form: FormData) => Promise<void> }) {
   const [state, action, pending] = useActionState(registerAction, {});
-  return <form action={action} className="space-y-3">
-    <label className="grid gap-1 text-sm">Код запрошення<Input name="invitation" required autoComplete="off" /></label>
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [validationError, setValidationError] = useState("");
+  if (state.registeredEmail) return <div className="space-y-3">
+    <h2 className="text-lg font-semibold">Перевірте пошту</h2>
+    <p role="status" className="text-sm">{state.message}</p>
+    <p className="break-all text-sm text-muted-foreground">Адреса для підтвердження: {state.registeredEmail}. Якщо листа немає, скористайтеся повторним надсиланням.</p>
+    <ResendVerificationLink email={state.registeredEmail} />
+  </div>;
+  return <><form action={action} className="space-y-3" onSubmit={(event) => {
+    const values = new FormData(event.currentTarget);
+    if (values.get("password") !== values.get("confirmPassword")) {
+      event.preventDefault();
+      setValidationError("Паролі не збігаються.");
+    } else setValidationError("");
+  }}>
     <label className="grid gap-1 text-sm">Нікнейм<Input name="nickname" required minLength={3} maxLength={24} pattern={"[A-Za-z0-9_\\-]{3,24}"} autoComplete="username" /></label>
     <label className="grid gap-1 text-sm">Електронна пошта<Input name="email" type="email" required autoComplete="email" /></label>
-    <label className="grid gap-1 text-sm">Пароль для акаунта<Input name="password" type="password" required minLength={8} autoComplete="new-password" /></label>
-    <p className="text-xs text-muted-foreground">Це пароль від NMT Academy, а не від вашої електронної пошти. Ім’я для звертання можна змінити в налаштуваннях профілю.</p>
+    <div className="grid gap-1 text-sm"><label htmlFor="register-password">Пароль</label><div className="flex min-w-0 gap-2">
+      <Input id="register-password" name="password" type={showPassword ? "text" : "password"} required minLength={8} maxLength={1024} autoComplete="new-password" className="min-w-0 flex-1" />
+      <Button type="button" variant="outline" onClick={() => setShowPassword(!showPassword)} aria-label={showPassword ? "Приховати пароль" : "Показати пароль"}>{showPassword ? "Приховати" : "Показати"}</Button>
+    </div></div>
+    <div className="grid gap-1 text-sm"><label htmlFor="register-confirm">Підтвердження пароля</label><div className="flex min-w-0 gap-2">
+      <Input id="register-confirm" name="confirmPassword" type={showConfirmation ? "text" : "password"} required minLength={8} maxLength={1024} autoComplete="new-password" className="min-w-0 flex-1" />
+      <Button type="button" variant="outline" onClick={() => setShowConfirmation(!showConfirmation)} aria-label={showConfirmation ? "Приховати підтвердження пароля" : "Показати підтвердження пароля"}>{showConfirmation ? "Приховати" : "Показати"}</Button>
+    </div></div>
+    {validationError ? <p role="alert" className="text-sm text-destructive">{validationError}</p> : null}
     <Feedback state={state} />
     <Button type="submit" disabled={pending}>{pending ? "Реєстрація…" : "Зареєструватися"}</Button>
+  </form>
+    {googleAction ? <div className="border-t border-border pt-4">
+      <p className="mb-2 text-sm">Або зареєструйтеся через Google:</p>
+      <form action={googleAction}><input type="hidden" name="mode" value="register" />
+        <Button type="submit" variant="outline">Продовжити з Google</Button>
+      </form>
+    </div> : null}
+  </>;
+}
+
+export function ResendVerificationLink({ email }: { email: string }) {
+  const [state, action, pending] = useActionState(resendVerificationAction, {});
+  return <form action={action} className="space-y-2">
+    <input type="hidden" name="email" value={email} />
+    <Feedback state={state} />
+    <button type="submit" disabled={pending} className="text-sm font-medium text-primary underline disabled:opacity-50">Надіслати лист повторно</button>
   </form>;
 }
 
