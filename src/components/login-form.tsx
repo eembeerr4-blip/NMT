@@ -2,8 +2,9 @@
 
 import { useActionState } from "react";
 import { Button, Input } from "@/components/ui";
+import { ResendVerificationForm } from "@/components/account-forms";
 
-export type LoginState = { error: string } | null;
+export type LoginState = { error: string; verificationNeeded?: boolean } | null;
 
 export function LoginForm({ action }: {
   action: (previousState: LoginState, formData: FormData) => Promise<LoginState>;
@@ -11,7 +12,7 @@ export function LoginForm({ action }: {
   const [state, formAction, pending] = useActionState(action, null);
 
   return (
-    <form action={formAction} className="space-y-3" aria-busy={pending}>
+    <><form action={formAction} className="space-y-3" aria-busy={pending}>
       <label className="grid gap-1.5 text-sm font-medium">Нікнейм або email<Input name="nickname" placeholder="Нікнейм або email" aria-label="Нікнейм або email" required autoComplete="username" /></label>
       <label className="grid gap-1.5 text-sm font-medium">Пароль<Input name="password" type="password" placeholder="Пароль" aria-label="Пароль" required autoComplete="current-password" /></label>
       <p className="text-xs text-muted-foreground">Введіть пароль від NMT Academy, а не від електронної пошти.</p>
@@ -22,5 +23,6 @@ export function LoginForm({ action }: {
       {state?.error ? <p role="alert" className="text-sm text-destructive">{state.error}</p> : null}
       <Button type="submit" disabled={pending}>{pending ? "Вхід…" : "Увійти"}</Button>
     </form>
+    {state?.verificationNeeded ? <ResendVerificationForm /> : null}</>
   );
 }

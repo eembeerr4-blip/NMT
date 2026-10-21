@@ -2,6 +2,7 @@
 
 import { useActionState, useState } from "react";
 import { Button, Input } from "@/components/ui";
+import Link from "next/link";
 import {
   type AccountState, createInvitationAction, linkEmailAction, registerAction, requestResetAction,
   resendVerificationAction, resetPasswordAction,
@@ -22,8 +23,11 @@ export function RegistrationForm({ googleAction }: { googleAction?: (form: FormD
   if (state.registeredEmail) return <div className="space-y-3">
     <h2 className="text-lg font-semibold">Перевірте пошту</h2>
     <p role="status" className="text-sm">{state.message}</p>
-    <p className="break-all text-sm text-muted-foreground">Адреса для підтвердження: {state.registeredEmail}. Якщо листа немає, скористайтеся повторним надсиланням.</p>
+    <p className="text-sm text-muted-foreground">Якщо лист надійшов, відкрийте його та натисніть «Підтвердити email». Якщо ви вже маєте акаунт, увійдіть або відновіть пароль.</p>
+    <p className="break-all text-sm text-muted-foreground">Адреса для підтвердження: {state.registeredEmail}.</p>
     <ResendVerificationLink email={state.registeredEmail} />
+    <Link href="/login" className="block text-sm underline">Увійти</Link>
+    <Link href="/forgot-password" className="block text-sm underline">Забули пароль?</Link>
   </div>;
   return <><form action={action} className="space-y-3" onSubmit={(event) => {
     const values = new FormData(event.currentTarget);
@@ -116,10 +120,10 @@ export function EmailLinkForm({ currentEmail }: { currentEmail: string | null })
 
 export function ProfileEditForm({ firstName, lastName, examYear }: { firstName: string; lastName: string; examYear: number }) {
   const [state, action, pending] = useActionState(updateProfileAction, {});
-  return <form action={action} className="grid gap-3 sm:grid-cols-3">
+  return <form action={action} className="grid gap-3 sm:grid-cols-2">
     <label className="grid gap-1 text-sm">Ім’я<Input name="firstName" defaultValue={firstName} required minLength={2} maxLength={60} /></label>
     <label className="grid gap-1 text-sm">Прізвище<Input name="lastName" defaultValue={lastName} maxLength={60} /></label>
-    <label className="grid gap-1 text-sm">Рік НМТ<Input name="examYear" type="number" defaultValue={examYear} required min={2026} max={2100} /></label>
-    <div className="sm:col-span-3"><Feedback state={state} /><Button type="submit" disabled={pending}>Зберегти профіль</Button></div>
+    <input type="hidden" name="examYear" value={examYear} />
+    <div className="sm:col-span-2"><Feedback state={state} /><Button type="submit" disabled={pending}>Зберегти профіль</Button></div>
   </form>;
 }

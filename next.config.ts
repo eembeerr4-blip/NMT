@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  logging: {
+    incomingRequests: {
+      ignore: [/\/api\/auth\/google\/callback/, /\/verify-email/, /\/reset-password/],
+    },
+  },
   async headers() {
     return ["/verify-email", "/reset-password"].map((source) => ({
       source,

@@ -7,7 +7,7 @@ import { prisma } from "@/lib/prisma";
 import { takeAuthRequest } from "@/lib/auth-request-throttle";
 import { trustedClientIp } from "@/lib/login-throttle";
 import { effectiveRole } from "@/lib/permissions";
-import { getSessionUser, createSession } from "@/server/session";
+import { getSessionUser } from "@/server/session";
 import {
   issueInvitation, registerWithEmail, requestEmailLink, requestPasswordReset, resendVerification,
   resetPassword, verifyEmailToken,
@@ -50,8 +50,7 @@ export async function verifyEmailAction(form: FormData) {
   catch { redirect("/verify-email?invalid=1"); }
   if (!verified) redirect("/verify-email?invalid=1");
   if (verified.purpose === "LINK_EMAIL") { revalidatePath("/settings"); redirect("/settings?email=verified"); }
-  await createSession(verified.userId, true);
-  redirect("/onboarding");
+  redirect("/verify-email?verified=1");
 }
 
 export async function linkEmailAction(_state: AccountState, form: FormData): Promise<AccountState> {

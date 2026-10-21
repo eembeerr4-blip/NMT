@@ -9,7 +9,9 @@ import { newSecret, normalizeEmail, secretHash, validEmail } from "@/lib/account
 import { mailConfigured, sendAuthEmail } from "@/server/auth-mail";
 
 const VERIFY_TTL = 24 * 60 * 60 * 1000;
-const RESET_TTL = 30 * 60 * 1000;
+export const PASSWORD_RESET_TTL_MS = 15 * 60 * 1000;
+const RESET_TTL = PASSWORD_RESET_TTL_MS;
+const REGISTRATION_MESSAGE = "Якщо акаунт для цієї адреси створено, перевірте пошту. Якщо листа немає, увійдіть або відновіть пароль.";
 type Tx = Prisma.TransactionClient;
 
 export async function issueInvitation(ownerId: string, rawEmail: string) {
@@ -48,8 +50,12 @@ export async function registerWithEmail(input: {
     return { ok: false as const, error: "Перевірте email, нікнейм і пароль (від 8 символів)." };
   }
   if (input.password !== input.confirmPassword) return { ok: false as const, error: "Паролі не збігаються." };
-  const token = newSecret();
   const passwordHash = await hashPasswordAsync(input.password);
+  if (await prisma.user.findUnique({ where: { email } })) return { ok: true as const, email, message: REGISTRATION_MESSAGE };
+  if (await prisma.user.findUnique({ where: { nickname } })) {
+    return { ok: false as const, error: "Цей нікнейм уже зайнятий. Оберіть інший." };
+  }
+  const token = newSecret();
   try {
     await prisma.$transaction(async (tx) => {
       const user = await tx.user.create({ data: {
@@ -62,15 +68,25 @@ export async function registerWithEmail(input: {
     });
   } catch (error) {
     if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2002") {
+      const target = error.meta?.target;
+      const fields = Array.isArray(target) ? target.map(String) : [];
+      if (fields.includes("email") || fields.includes("User_email_key")) {
+        return { ok: true as const, email, message: REGISTRATION_MESSAGE };
+      }
+      if (fields.includes("nickname") || fields.includes("User_nickname_key")) {
+        return { ok: false as const, error: "Цей нікнейм уже зайнятий. Оберіть інший." };
+      }
       return { ok: false as const, error: "Не вдалося завершити реєстрацію. Перевірте дані або спробуйте увійти." };
     }
     throw error;
   }
   try {
-    await sendAuthEmail(email, "Підтвердження email NMT Academy", `/verify-email?token=${encodeURIComponent(token)}`);
-    return { ok: true as const, email, message: "Перевірте пошту та підтвердьте адресу." };
+    await sendAuthEmail(email, "Підтвердіть електронну пошту — NMT Academy", `/verify-email?token=${encodeURIComponent(token)}`, { validityMinutes: 1440, actionLabel: "Підтвердити email" });
+    return { ok: true as const, email, message: REGISTRATION_MESSAGE };
   } catch {
-    return { ok: true as const, email, message: "Профіль створено, але лист не надіслано. Скористайтеся повторним надсиланням." };
+    // The profile exists even when delivery fails. Keep the public response identical
+    // to the existing-email case; the user can request another message on this screen.
+    return { ok: true as const, email, message: REGISTRATION_MESSAGE };
   }
 }
 
@@ -88,7 +104,7 @@ export async function resendVerification(rawEmail: string) {
     userId: user.id, purpose: "VERIFY_EMAIL", tokenHash: secretHash(token),
     expiresAt: new Date(Date.now() + VERIFY_TTL),
   } });
-  await sendAuthEmail(email, "Підтвердження email NMT Academy", `/verify-email?token=${encodeURIComponent(token)}`);
+  await sendAuthEmail(email, "Підтвердіть електронну пошту — NMT Academy", `/verify-email?token=${encodeURIComponent(token)}`, { validityMinutes: 1440, actionLabel: "Підтвердити email" });
 }
 
 export async function requestEmailLink(userId: string, rawEmail: string) {
@@ -108,7 +124,7 @@ export async function requestEmailLink(userId: string, rawEmail: string) {
     expiresAt: new Date(Date.now() + VERIFY_TTL),
   } });
   try {
-    await sendAuthEmail(email, "Прив’язка email NMT Academy", `/verify-email?token=${encodeURIComponent(token)}`);
+    await sendAuthEmail(email, "Прив’язка email NMT Academy", `/verify-email?token=${encodeURIComponent(token)}`, { validityMinutes: 1440, actionLabel: "Підтвердити email" });
     return { ok: true as const, message: "Перевірте пошту та підтвердьте нову адресу." };
   } catch {
     return { ok: false as const, error: "Лист не надіслано. Спробуйте пізніше." };
@@ -148,7 +164,12 @@ export async function requestPasswordReset(rawEmail: string) {
     userId: user.id, purpose: "RESET_PASSWORD", tokenHash: secretHash(token),
     expiresAt: new Date(Date.now() + RESET_TTL),
   } });
-  await sendAuthEmail(email, "Відновлення пароля NMT Academy", `/reset-password?token=${encodeURIComponent(token)}`);
+  await sendAuthEmail(
+    email,
+    "Відновлення пароля NMT Academy",
+    `/reset-password?token=${encodeURIComponent(token)}`,
+    { validityMinutes: PASSWORD_RESET_TTL_MS / 60_000, actionLabel: "Змінити пароль" },
+  );
 }
 
 export async function resetPassword(token: string, password: string) {

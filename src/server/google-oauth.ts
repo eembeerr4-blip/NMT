@@ -118,19 +118,20 @@ export async function finishGoogleAuth(code: string, state: string) {
   } });
   if (flow.linkUserId) {
     const actor = await getSessionUser();
-    if (!actor || actor.id !== flow.linkUserId || (linked && linked.userId !== actor.id)) return "/settings?oauth=link_failed";
+    if (!actor || actor.id !== flow.linkUserId || (linked && linked.userId !== actor.id)) return "/login?oauth=confirm_link&error=link_failed";
     const currentBinding = await prisma.oAuthAccount.findUnique({ where: { userId_provider: { userId: actor.id, provider: "google" } } });
-    if (currentBinding && currentBinding.providerSubject !== identity.sub) return "/settings?oauth=link_failed";
-    if (actor.email && normalizeEmail(actor.email) !== identity.email) return "/settings?oauth=email_mismatch";
+    if (currentBinding && currentBinding.providerSubject !== identity.sub) return "/login?oauth=confirm_link&error=link_failed";
+    if (!actor.email || normalizeEmail(actor.email) !== identity.email) return "/login?oauth=confirm_link&error=email_mismatch";
     const emailOwner = await prisma.user.findUnique({ where: { email: identity.email } });
-    if (emailOwner && emailOwner.id !== actor.id) return "/settings?oauth=email_in_use";
+    if (emailOwner && emailOwner.id !== actor.id) return "/login?oauth=confirm_link&error=email_in_use";
     try {
       await prisma.$transaction(async (tx) => {
         if (!currentBinding) await tx.oAuthAccount.create({ data: { userId: actor.id, provider: "google", providerSubject: identity.sub } });
         await tx.user.update({ where: { id: actor.id }, data: { email: identity.email, emailVerifiedAt: new Date() } });
       });
-    } catch { return "/settings?oauth=link_failed"; }
-    return "/settings?oauth=linked";
+    } catch { return "/login?oauth=confirm_link&error=link_failed"; }
+    const user = await prisma.user.findUnique({ where: { id: actor.id } });
+    return user?.onboarded ? "/" : "/onboarding";
   }
   if (linked) {
     await createSession(linked.userId, true);

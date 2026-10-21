@@ -114,14 +114,41 @@ it("retains old invitation records while Google login preserves existing roles",
   expect((await prisma.user.findUniqueOrThrow({ where: { id: "owner" } })).role).toBe("OWNER");
 });
 
-it("does not auto-link Google to an existing email; explicit session link preserves ADMIN", async () => {
+it("does not auto-link on email collision; verified session link preserves the original profile", async () => {
   controls.sub = "admin-google-subject"; controls.email = "admin@example.com";
+  const original = await prisma.user.findUniqueOrThrow({ where: { id: "admin-existing" } });
+  await prisma.userSettings.create({ data: {
+    id: "admin-settings", userId: original.id, scheduleJson: "[]", formatJson: "{}", targetScore: 175,
+  } });
+  const task = await prisma.studyTask.create({ data: {
+    userId: original.id, dateKey: "2026-10-22", title: "Existing task", kind: "PRACTICE", status: "DONE",
+  } });
   const state = await begin("register");
   expect(await finishGoogleAuth("qa-code", state)).toBe("/login?oauth=link_required");
   expect(await prisma.oAuthAccount.count({ where: { userId: "admin-existing" } })).toBe(0);
+  expect(await prisma.user.count({ where: { email: "admin@example.com" } })).toBe(1);
+  controls.actor = { id: "admin-existing", email: "admin@example.com" };
+  const hijackedState = await begin("link");
+  controls.actor = { id: "owner", email: "owner@example.com" };
+  expect(await finishGoogleAuth("qa-code", hijackedState)).toBe("/login?oauth=confirm_link&error=link_failed");
+  expect(await prisma.oAuthAccount.count({ where: { userId: original.id } })).toBe(0);
+  controls.actor = { id: "admin-existing", email: "other@example.com" };
+  const mismatchedState = await begin("link");
+  expect(await finishGoogleAuth("qa-code", mismatchedState)).toBe("/login?oauth=confirm_link&error=email_mismatch");
+  expect(await prisma.oAuthAccount.count({ where: { userId: original.id } })).toBe(0);
   controls.actor = { id: "admin-existing", email: "admin@example.com" };
   const linkState = await begin("link");
-  expect(await finishGoogleAuth("qa-code", linkState)).toBe("/settings?oauth=linked");
-  expect((await prisma.user.findUniqueOrThrow({ where: { id: "admin-existing" } })).role).toBe("ADMIN");
+  expect(await finishGoogleAuth("qa-code", linkState)).toBe("/");
+  const afterLink = await prisma.user.findUniqueOrThrow({ where: { id: "admin-existing" } });
+  expect(afterLink.role).toBe("ADMIN");
+  expect(afterLink.passwordHash).toBe(original.passwordHash);
   expect((await prisma.oAuthAccount.findUniqueOrThrow({ where: { provider_providerSubject: { provider: "google", providerSubject: "admin-google-subject" } } })).userId).toBe("admin-existing");
+  controls.actor = null;
+  const repeatState = await begin("login");
+  expect(await finishGoogleAuth("qa-code", repeatState)).toBe("/");
+  expect(controls.createdSessions.at(-1)).toBe(original.id);
+  expect(await prisma.user.count({ where: { email: "admin@example.com" } })).toBe(1);
+  expect(await prisma.oAuthAccount.count({ where: { userId: original.id } })).toBe(1);
+  expect((await prisma.userSettings.findUniqueOrThrow({ where: { userId: original.id } })).targetScore).toBe(175);
+  expect((await prisma.studyTask.findUniqueOrThrow({ where: { id: task.id } })).userId).toBe(original.id);
 });

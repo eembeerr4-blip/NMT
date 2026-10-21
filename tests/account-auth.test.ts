@@ -20,7 +20,7 @@ vi.mock("@/lib/prisma", async () => {
 import { prisma } from "@/lib/prisma";
 import { hashPasswordAsync, verifyPasswordAsync } from "@/lib/auth";
 import {
-  issueInvitation, registerWithEmail, requestPasswordReset, resetPassword,
+  issueInvitation, PASSWORD_RESET_TTL_MS, registerWithEmail, requestPasswordReset, resetPassword,
   requestEmailLink, resendVerification, validInvitation, verifyEmailToken,
 } from "@/server/auth-service";
 
@@ -52,7 +52,9 @@ it("registers without an invitation, retains old invitations, and enforces email
     email: "STUDENT@example.com", nickname: "student_one", password: "correct-horse-123", confirmPassword: "correct-horse-123",
   });
   expect(created.ok).toBe(true);
-  expect((await registerWithEmail({ email: "student@example.com", nickname: "student_two", password: "correct-horse-123", confirmPassword: "correct-horse-123" })).ok).toBe(false);
+  const duplicate = await registerWithEmail({ email: "student@example.com", nickname: "student_two", password: "correct-horse-123", confirmPassword: "correct-horse-123" });
+  expect(duplicate.ok).toBe(true);
+  expect(await prisma.user.count({ where: { email: "student@example.com" } })).toBe(1);
   expect((await registerWithEmail({ email: "other@example.com", nickname: "STUDENT_ONE", password: "correct-horse-123", confirmPassword: "correct-horse-123" })).ok).toBe(false);
   expect(await validInvitation(invitation.code, "student@example.com")).not.toBeNull();
   const user = await prisma.user.findUniqueOrThrow({ where: { email: "student@example.com" } });
@@ -60,6 +62,21 @@ it("registers without an invitation, retains old invitations, and enforces email
   expect(user.emailVerifiedAt).toBeNull();
   expect(await prisma.session.count({ where: { userId: user.id } })).toBe(0);
   await expect(prisma.user.create({ data: { firstName: "Duplicate", nickname: "student_three", email: "STUDENT@EXAMPLE.COM" } })).rejects.toMatchObject({ code: "P2002" });
+});
+
+it("does not disclose an existing email but identifies an occupied nickname", async () => {
+  const duplicateEmail = await registerWithEmail({
+    email: "STUDENT@example.com", nickname: "another_unique_nick", password: "correct-horse-123", confirmPassword: "correct-horse-123",
+  });
+  expect(duplicateEmail.ok).toBe(true);
+  if (!duplicateEmail.ok) return;
+  expect(duplicateEmail.message).toBe("Якщо акаунт для цієї адреси створено, перевірте пошту. Якщо листа немає, увійдіть або відновіть пароль.");
+  const duplicateNickname = await registerWithEmail({
+    email: "fresh-register@example.com", nickname: "STUDENT_ONE", password: "correct-horse-123", confirmPassword: "correct-horse-123",
+  });
+  expect(duplicateNickname.ok).toBe(false);
+  if (duplicateNickname.ok) return;
+  expect(duplicateNickname.error).toMatch(/нікнейм/i);
 });
 
 it("rejects mismatched passwords on the server without creating a user", async () => {
@@ -88,6 +105,14 @@ it("confirms email once, resets password once, and revokes prior sessions", asyn
   expect(before.emailVerifiedAt).not.toBeNull();
   await prisma.session.create({ data: { userId: userId!, tokenHash: "old-session", expiresAt: new Date(Date.now() + 100000) } });
   await requestPasswordReset("STUDENT@EXAMPLE.COM");
+  const resetRecord = await prisma.authToken.findFirst({
+    where: { userId: userId!, purpose: "RESET_PASSWORD" },
+    orderBy: { createdAt: "desc" },
+  });
+  expect(resetRecord).not.toBeNull();
+  const resetTtlMs = resetRecord!.expiresAt.getTime() - resetRecord!.createdAt.getTime();
+  expect(resetTtlMs).toBeGreaterThanOrEqual(PASSWORD_RESET_TTL_MS - 1000);
+  expect(resetTtlMs).toBeLessThanOrEqual(PASSWORD_RESET_TTL_MS + 1000);
   const resetLink = sent.find((item) => item.path.startsWith("/reset-password?"));
   expect(resetLink).toBeDefined();
   const resetToken = new URL(resetLink!.path, "https://qa.invalid").searchParams.get("token")!;
@@ -104,6 +129,18 @@ it("returns the same result for unknown and known unverified reset requests", as
   const count = sent.length;
   await requestPasswordReset("missing@example.com");
   expect(sent).toHaveLength(count);
+});
+
+it("rejects an expired password-reset token without changing the password", async () => {
+  const { secretHash } = await import("@/lib/account-auth");
+  const user = await prisma.user.findUniqueOrThrow({ where: { email: "student@example.com" } });
+  const expired = "expired-qa-reset-token";
+  await prisma.authToken.create({ data: {
+    userId: user.id, purpose: "RESET_PASSWORD", tokenHash: secretHash(expired),
+    expiresAt: new Date(Date.now() - 1000),
+  } });
+  expect(await resetPassword(expired, "another-password-789")).toBe(false);
+  expect((await prisma.user.findUniqueOrThrow({ where: { id: user.id } })).passwordHash).toBe(user.passwordHash);
 });
 
 it("links email to an existing account only with its session and preserves role", async () => {

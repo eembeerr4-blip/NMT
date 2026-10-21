@@ -1184,7 +1184,7 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
   }
 }
 
-export async function login(nickname: string, password: string, rememberMe = false) {
+export async function login(nickname: string, password: string, rememberMe = false, continueGoogleLink = false) {
   const key = normalizeNickname(nickname);
   const clientIp = trustedClientIp(await headers());
   const denied = {ok:false as const,error:"Не вдалося увійти. Перевірте дані або спробуйте пізніше."};
@@ -1200,13 +1200,16 @@ export async function login(nickname: string, password: string, rememberMe = fal
   if(!user||!user.passwordHash||!valid||(user.email&&!user.emailVerifiedAt)){
     registerLoginFailure(accountKey, clientIp);
     await recordAudit({id:user?.id??"anonymous",role:user?.role??"STUDENT",firstName:key},{action:"AUTH_LOGIN_FAILED",entityType:"session"});
+    if (user?.email && !user.emailVerifiedAt && valid) {
+      return { ok: false as const, error: "Підтвердіть email перед входом. Якщо листа немає, надішліть його повторно.", verificationNeeded: true as const };
+    }
     return denied;
   }
   clearAccountFailures(accountKey);
   await prisma.session.deleteMany({where:{expiresAt:{lt:new Date()}}});
   await createSession(user.id, rememberMe);
   await recordAudit(user,{action:"AUTH_LOGIN",entityType:"session"});
-  redirect(user.onboarded ? "/" : "/onboarding");
+  redirect(continueGoogleLink ? "/login?oauth=confirm_link" : user.onboarded ? "/" : "/onboarding");
 }
 
 export async function logout() {

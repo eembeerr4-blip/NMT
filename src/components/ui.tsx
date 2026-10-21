@@ -64,7 +64,7 @@ export function Skeleton({ className }: { className?: string }) {
 
 export function PageHeader({ title, description, action }: { title: string; description?: string; action?: ReactNode }) {
   return (
-    <div className="flex flex-wrap items-end justify-between gap-3">
+    <div className="stage02-page-header flex flex-wrap items-end justify-between gap-3">
       <div className="min-w-0">
         <h1 className="text-2xl font-semibold leading-tight tracking-tight sm:text-[28px]">{title}</h1>
         {description ? <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">{description}</p> : null}
