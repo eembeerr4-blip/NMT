@@ -1,0 +1,86 @@
+{
+  "cards": [
+    {
+      "id": "qa-card-a",
+      "userId": "student_a",
+      "front": "A private card",
+      "dueKey": "2026-10-17",
+      "reps": 0
+    },
+    {
+      "id": "cmvdxk53q000hutg0cewg7y4v",
+      "userId": "student_a",
+      "front": "QA створена через Chrome",
+      "dueKey": "2026-10-18",
+      "reps": 0
+    }
+  ],
+  "tasks": [
+    {
+      "id": "cmvdxki4o000jutg0roh499tf",
+      "userId": "student_a",
+      "title": "QA Chrome власне заняття",
+      "dateKey": "2026-10-18",
+      "status": "MOVED",
+      "templateKey": "custom-5acf63a1-009a-47d5-bf8d-336bb28045fc"
+    },
+    {
+      "id": "cmvdxkxht000lutg0ueiey8co",
+      "userId": "student_a",
+      "title": "QA Chrome власне заняття",
+      "dateKey": "2026-10-20",
+      "status": "DROPPED",
+      "templateKey": "moved-cmvdxki4o000jutg0roh499tf"
+    }
+  ],
+  "attempts": [
+    {
+      "id": "qa-attempt-a",
+      "userId": "student_a",
+      "status": "COMPLETED",
+      "draftJson": "{\"qa-q1\":\"3\",\"qa-q2\":\"99\",\"qa-q3\":\"3\"}",
+      "correctCount": 2,
+      "totalCount": 3
+    },
+    {
+      "id": "qa-fault-timeout-a",
+      "userId": "student_a",
+      "status": "COMPLETED",
+      "draftJson": "{\"qa-q1\":\"3\",\"qa-q2\":\"3\",\"qa-q3\":\"3\"}",
+      "correctCount": 3,
+      "totalCount": 3
+    },
+    {
+      "id": "cmvdxzd2y00l8utg051ys1mnj",
+      "userId": "student_a",
+      "status": "IN_PROGRESS",
+      "draftJson": "{\"qa-unused-SEQUENCE\":[\"qa-unused-SEQUENCEb\",\"qa-unused-SEQUENCEa\"],\"qa-q1\":\"3\"}",
+      "correctCount": null,
+      "totalCount": null
+    }
+  ],
+  "answers": 6,
+  "xp": 2,
+  "electives": [
+    {
+      "userId": "owner",
+      "subjectId": "biology"
+    },
+    {
+      "userId": "qa_admin",
+      "subjectId": "biology"
+    },
+    {
+      "userId": "qa_editor",
+      "subjectId": "biology"
+    },
+    {
+      "userId": "student_b",
+      "subjectId": "biology"
+    },
+    {
+      "userId": "student_a",
+      "subjectId": "geography"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "ref": "a37d8cb27642ab8fe1982aaf5810f42e165856a5",
+  "commands": [
+    {
+      "command": "node node_modules/typescript/bin/tsc --noEmit --incremental false",
+      "exitCode": 0,
+      "sideEffects": "no emit, no incremental cache"
+    },
+    {
+      "command": "node node_modules/eslint/bin/eslint.js src tests scripts prisma --no-cache",
+      "exitCode": 0,
+      "sideEffects": "no fix, no cache; reviewed eslint.config.mjs"
+    },
+    {
+      "command": "node audit/pure-probes.cjs",
+      "exitCode": 0,
+      "scope": "reviewed pure functions from Git; synthetic data only; audit JSON output"
+    }
+  ],
+  "skipped": [
+    {
+      "command": "npm test",
+      "reason": "tests/db.test.ts:13–17 deletes/creates prisma/test.db and runs db push; tests/math-content-import.test.ts:9–18 creates temporary DB and migrate deploy. This read-only pass permits writes only to audit/."
+    },
+    {
+      "command": "npm run typecheck",
+      "reason": "tsconfig.json has incremental:true; replaced by direct compiler with incremental:false"
+    },
+    {
+      "command": "npm run build, dev/start, e2e",
+      "reason": "produce artifacts/start services/use browser; forbidden in this pass"
+    },
+    {
+      "command": "all Prisma CLI and seed/upgrade scripts",
+      "reason": "not needed for static audit; no live DB connections"
+    }
+  ]
+}

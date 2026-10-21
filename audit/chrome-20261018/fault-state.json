@@ -1,0 +1,13 @@
+{
+  "attempt": {
+    "status": "IN_PROGRESS",
+    "finishedAt": null,
+    "draftJson": "{\"qa-q1\":\"3\",\"qa-q2\":\"3\",\"qa-q3\":\"3\"}"
+  },
+  "answers": [
+    {
+      "questionId": "qa-q1",
+      "userAnswer": "\"3\""
+    }
+  ]
+}

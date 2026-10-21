@@ -1,0 +1,11 @@
+{
+  "head": "a37d8cb27642ab8fe1982aaf5810f42e165856a5",
+  "baselineHead": "a37d8cb27642ab8fe1982aaf5810f42e165856a5",
+  "headUnchanged": true,
+  "trackedDifferenceFromBaseline": "",
+  "stagedChanges": "",
+  "status": "?? audit/\n?? qa-audit/\n",
+  "branchRef": "506ceb6b1d3eabab4d9d0d69180ee8f0c6d2f36f",
+  "branchUnchanged": true,
+  "scope": "Only audit artifacts written by this task; application/database/browser not started; no database connection"
+}

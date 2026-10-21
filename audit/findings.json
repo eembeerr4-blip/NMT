@@ -1,0 +1,260 @@
+[
+  {
+    "id": "A01",
+    "priority": "P1",
+    "size": "M",
+    "confidence": "HIGH",
+    "kind": "CODE_BUG",
+    "evidence": [
+      "src/app/admin/questions/page.tsx:22",
+      "src/app/admin/questions/page.tsx:70",
+      "src/app/admin/questions/[id]/page.tsx:11",
+      "src/components/forms.tsx:128"
+    ],
+    "problem": "Редактор отримує посилання на відсутній /editor/questions/[id]. Наявний detail в /admin вимагає адміністратора; форма також повертає лише в /admin/questions.",
+    "trigger": "EDITOR → банк завдань → Редагувати.",
+    "fix": "Додати editor detail з перевіркою редактора та спільний role-aware шлях повернення, не знімати guard адмін-layout.",
+    "acceptance": "EDITOR відкриває detail і повертається до /editor/questions; STUDENT не отримує доступу."
+  },
+  {
+    "id": "A02",
+    "priority": "P1",
+    "size": "M",
+    "confidence": "HIGH",
+    "kind": "REPRODUCED_PURE",
+    "evidence": [
+      "src/app/admin/questions/[id]/page.tsx:32",
+      "src/app/admin/questions/[id]/page.tsx:35",
+      "src/components/forms.tsx:108",
+      "src/lib/question-input.ts:5"
+    ],
+    "problem": "Під час редагування correctAnswer містить збережені option id, але ids варіантів втрачаються. prepareQuestion більше не може зіставити ключ. Підтверджено на синтетичному SINGLE_CHOICE без БД.",
+    "trigger": "Невикористане в тестах питання з варіантами → змінити лише формулювання → зберегти.",
+    "fix": "Передавати ids варіантів або декодувати ключ у стабільні мітки; покрити round-trip SINGLE_CHOICE/MATCHING/SEQUENCE. Захист історії використаних питань зберегти.",
+    "acceptance": "Зміна тексту не вимагає ручного переписування правильного ключа; правильні відповіді після збереження не змінюються."
+  },
+  {
+    "id": "A03",
+    "priority": "P1",
+    "size": "L",
+    "confidence": "HIGH",
+    "kind": "CODE_RISK",
+    "evidence": [
+      "src/server/actions.ts:471",
+      "src/server/actions.ts:473",
+      "src/server/actions.ts:497",
+      "src/server/actions.ts:521",
+      "src/server/actions.ts:533"
+    ],
+    "problem": "finishAttempt записує відповіді, статус, помилки, прогрес і XP окремими операціями. Помилка посередині залишає частковий стан; немає атомарного захоплення IN_PROGRESS та ідемпотентного завершення.",
+    "trigger": "Збій запису після кількох відповідей або два запити з різних вкладок. Реальний збій не інжектувався.",
+    "fix": "Транзакційний перехід стану з умовою статусу, атомарне збереження результату та повторювані без дублювання побічні ефекти.",
+    "acceptance": "Fault-injection і два конкурентні завершення на disposable DB: жодних часткових відповідей чи подвійного XP."
+  },
+  {
+    "id": "A04",
+    "priority": "P1",
+    "size": "M",
+    "confidence": "HIGH",
+    "kind": "CODE_BUG",
+    "evidence": [
+      "src/components/test-runner.tsx:32",
+      "src/components/test-runner.tsx:55",
+      "src/components/test-runner.tsx:58",
+      "src/components/test-runner.tsx:123",
+      "src/server/actions.ts:452"
+    ],
+    "problem": "Локальна чернетка записується, але не читається при відновленні. Результат saveDraft ігнорується, водночас текст постійно каже, що відповіді збережені.",
+    "trigger": "Відповісти → втрата мережі або оновлення до завершення debounce 450 мс → відкрити тест знову.",
+    "fix": "Відновлювати й узгоджувати локальну/серверну версії; показувати saving/saved/error, retry та обробляти відмову сервера.",
+    "acceptance": "Offline/reload і швидкий reload зберігають відповіді; UI не повідомляє про успіх при відмові saveDraft."
+  },
+  {
+    "id": "A05",
+    "priority": "P1",
+    "size": "M",
+    "confidence": "HIGH",
+    "kind": "CODE_BUG",
+    "evidence": [
+      "src/components/test-runner.tsx:71",
+      "src/components/test-runner.tsx:74",
+      "src/components/test-runner.tsx:86"
+    ],
+    "problem": "Автозавершення за таймером не перевіряє result.ok: видаляє локальну чернетку навіть при бізнес-помилці й встановлює autoFinished без повторної спроби. Ручний шлях перевіряє результат.",
+    "trigger": "Таймер завершився, finishAttempt повернув {ok:false} або відхилив Promise.",
+    "fix": "Одна процедура ручного та автоматичного завершення з перевіркою результату, catch/retry і видаленням чернетки тільки після успіху.",
+    "acceptance": "При помилці таймера чернетка залишається, є повідомлення та повторна спроба."
+  },
+  {
+    "id": "A06",
+    "priority": "P1",
+    "size": "M",
+    "confidence": "HIGH",
+    "kind": "CODE_RISK",
+    "evidence": [
+      "src/server/actions.ts:1289",
+      "src/server/actions.ts:1296",
+      "src/server/actions.ts:1303",
+      "src/app/(main)/settings/page.tsx:30"
+    ],
+    "problem": "Зміна четвертого предмета окремо скасовує завдання, деактивує старий предмет, активує новий і змінює розклад. У разі проміжної помилки залишається частковий стан. Inline-форма відкидає повернуту помилку.",
+    "trigger": "Помилка між деактивацією старого предмета й завершенням оновлення; unchecked confirmation також дає непоказану помилку.",
+    "fix": "Атомарно змінити вибір та конфігурацію; керований перерахунок після commit; повертати стан форми через useActionState/клієнтський wrapper.",
+    "acceptance": "Є рівно один активний elective; при збоях старий стан зберігається; помилка видима; історія DONE не змінюється."
+  },
+  {
+    "id": "A07",
+    "priority": "P2",
+    "size": "M",
+    "confidence": "HIGH",
+    "kind": "CODE_BUG",
+    "evidence": [
+      "src/components/task-controls.tsx:18",
+      "src/components/task-controls.tsx:27",
+      "src/app/(main)/review/page.tsx:39",
+      "src/app/(main)/review/page.tsx:44",
+      "src/app/(main)/review/page.tsx:69"
+    ],
+    "problem": "Частина кнопок календаря й inline-форм повторення ігнорує ActionState. Календар може перейти до теми після невдалого setTaskStatus; відмова додавання картки/повторення не показується.",
+    "trigger": "Сервер повернув {ok:false}; кнопку натиснуто двічі; невалідні/застарілі дані.",
+    "fix": "Уніфікувати pending/error/success та блокувати дублікати; переходити лише після успіху.",
+    "acceptance": "Для кожної форми негативний сценарій дає видиме повідомлення й не створює хибного переходу."
+  },
+  {
+    "id": "A08",
+    "priority": "P2",
+    "size": "L",
+    "confidence": "HIGH",
+    "kind": "PLANNED_FEATURE_GAP",
+    "evidence": [
+      "src/app/(main)/settings/page.tsx:43",
+      "src/server/progress.ts:54",
+      "src/app/(main)/page.tsx:60",
+      "feat/personalized-onboarding:src/features/personal-plan/data.ts:26",
+      "feat/personalized-onboarding:src/app/(main)/goals/page.tsx:1"
+    ],
+    "problem": "Персональні цілі по предметах і окремий baseline не входять до основного commit. Там одна targetScore та старі чотири поля ваг; /baseline і /goals є тільки в окремій гілці.",
+    "trigger": "Очікування повного персоналізованого шляху й цілей для довільного четвертого предмета.",
+    "fix": "Окремий контрольований перенос контракту персоналізації; не замінювати основний код старою гілкою цілком; узгодити адитивну міграцію з поточною історією.",
+    "acceptance": "Шлях onboarding → baseline/skip → goals → plan завершено, активний elective має власну ціль і вагу; старий контент/ролі збережені."
+  },
+  {
+    "id": "A09",
+    "priority": "P2",
+    "size": "S",
+    "confidence": "HIGH",
+    "kind": "CODE_PRODUCT_GAP",
+    "evidence": [
+      "src/app/(main)/learn/[topicId]/page.tsx:71",
+      "src/components/lesson-tutor.tsx:114",
+      "src/server/actions.ts:599"
+    ],
+    "problem": "Урок без перевірених питань не можна завершити з UI, хоча backend підтримує завершення після прапорця «конспект опрацьовано». Компонент needsPractice=false на цій сторінці не рендериться.",
+    "trigger": "Є теорія, але 0 VERIFIED питань — типовий empty-state.",
+    "fix": "Узгодити продуктове правило: дозволити відмітку читання без mastery або явно прибрати цей серверний сценарій та надати корисний наступний крок.",
+    "acceptance": "Відсутність практики не створює прихованого тупика; прочитаний урок і засвоєна тема розрізняються."
+  },
+  {
+    "id": "A10",
+    "priority": "P2",
+    "size": "M",
+    "confidence": "HIGH",
+    "kind": "REPRODUCED_PURE",
+    "evidence": [
+      "src/app/(main)/calendar/page.tsx:20",
+      "src/lib/dates.ts:11",
+      "src/server/actions.ts:759",
+      "src/server/actions.ts:792"
+    ],
+    "problem": "Форма YYYY-MM-DD не гарантує календарну дату; parseDateKey нормалізує 2026-02-31 у 2026-03-03. createCustomTask не перевіряє дату та має лише Math.max для тривалості.",
+    "trigger": "Підмінений query/date або прямий виклик action з некоректним значенням; звичайний date input може це обмежити, але серверна межа лишається.",
+    "fix": "Єдина схема валідної дати з round-trip, цілого обмеженого duration та enum kind на сервері й у query.",
+    "acceptance": "Неможливі дати відхиляються з поясненням; вони не тихо переносяться на інший день."
+  },
+  {
+    "id": "A11",
+    "priority": "P2",
+    "size": "M",
+    "confidence": "MEDIUM",
+    "kind": "CODE_RISK",
+    "evidence": [
+      "src/server/actions.ts:1054",
+      "src/server/actions.ts:1055",
+      "src/server/actions.ts:1080"
+    ],
+    "problem": "JSON backup читає таблиці кількома запитами без спільної транзакції/знімка. Під час паралельних записів можливий неузгоджений набір таблиць. Реальну пошкоджену копію не створював.",
+    "trigger": "Учень або редактор змінює пов’язані записи між читанням таблиць.",
+    "fix": "Консистентний snapshot/read transaction та перевірка відновлення на окремій базі; власницький guard зберегти.",
+    "acceptance": "Конкурентне створення даних під час backup не порушує FK і кількості зв’язків після restore."
+  },
+  {
+    "id": "A12",
+    "priority": "P2",
+    "size": "M",
+    "confidence": "HIGH",
+    "kind": "PUBLIC_RELEASE_RISK",
+    "evidence": [
+      "src/lib/login-throttle.ts:2",
+      "src/server/actions.ts:1152",
+      "src/server/actions.ts:1198",
+      "src/server/actions.ts:1177"
+    ],
+    "problem": "Ліміт входу лише по ніку й у пам’яті процесу; створення профілю відкрите без invitation/rate-limit. Host-prefix у claimOwner не є перевіркою клієнтської мережі, але він додатково вимагає відсутній пароль owner.",
+    "trigger": "Публічна мережа/початкове незахищене налаштування. Це не доказ поточної компрометації локального сайту.",
+    "fix": "Перед публікацією: ліміт по IP+акаунту, контроль реєстрації та одноразовий явний bootstrap owner. Не застосовувати ці зміни під час аудиту.",
+    "acceptance": "Не можна масово створювати профілі/блокувати довільний нік без загального ліміту; bootstrap закритий після налаштування."
+  },
+  {
+    "id": "A13",
+    "priority": "P2",
+    "size": "M",
+    "confidence": "MEDIUM",
+    "kind": "PERFORMANCE_RISK",
+    "evidence": [
+      "src/app/(main)/layout.tsx:17",
+      "src/server/sync.ts:53",
+      "src/server/sync.ts:98",
+      "src/server/sync.ts:116",
+      "src/app/(main)/analytics/page.tsx:24"
+    ],
+    "problem": "Кожен render навчального layout викликає синхронізацію з потенційними записами; у перенесенні прострочених завдань є вкладені запити, а аналітика читає всю особисту історію й фільтрує її в JS.",
+    "trigger": "Багато прострочених завдань/велика історія/паралельні вкладки. Фактичний час відповіді в цьому проході не вимірювався.",
+    "fix": "Профілювати окремо; винести синхронізацію з read-path або обмежити її версією; агрегати та діапазони рахувати в SQL, прибрати N+1.",
+    "acceptance": "Звичайна навігація не потребує перерахунку всього плану; кількість запитів і p95 зафіксовані на контрольному наборі."
+  },
+  {
+    "id": "A14",
+    "priority": "P2",
+    "size": "S",
+    "confidence": "HIGH",
+    "kind": "CODE_CONTRACT_GAP",
+    "evidence": [
+      "src/proxy.ts:5",
+      "src/proxy.ts:6",
+      "src/app/api/ai/stream/route.ts:21",
+      "src/components/lesson-tutor.tsx:40"
+    ],
+    "problem": "Proxy перенаправляє запити без cookie до /login, включно з /api. Тому endpoint-контракт 401 JSON не виконується для відсутньої cookie; fetch може отримати HTML входу замість JSON.",
+    "trigger": "Клієнтський API-запит після видалення/закінчення cookie. Невалідна, але присутня cookie доходить до API-guard й дає іншу поведінку.",
+    "fix": "Для /api повертати узгоджений 401 JSON або залишати auth response endpoint; сторінковий redirect зберегти.",
+    "acceptance": "Відсутня, прострочена та підроблена cookie мають передбачувану API-відповідь без HTML-помилки парсингу."
+  },
+  {
+    "id": "A15",
+    "priority": "P1",
+    "size": "M",
+    "confidence": "HIGH",
+    "kind": "CONDITIONAL_AUTHZ_GAP",
+    "evidence": [
+      "src/server/actions.ts:192",
+      "src/server/actions.ts:194",
+      "src/server/actions.ts:197",
+      "src/server/actions.ts:199",
+      "prisma/schema.prisma:166"
+    ],
+    "problem": "saveVideoPosition дозволяє будь-якому authenticated actor встановити durationSec у спільній VideoLesson, якщо тривалість порожня. Значення приходить від клієнта; воно не належить UserVideoProgress і надалі обмежує позицію для всіх користувачів.",
+    "trigger": "STUDENT передає довільну додатну durationSec для відео без тривалості. Наявність таких записів у робочій БД не перевірялася; жодної зміни не виконано.",
+    "fix": "Особиста позиція має змінювати лише UserVideoProgress; спільну тривалість отримувати з довіреного джерела або зберігати через editor-only дію. Валідувати часову межу незалежно від неперевіреного клієнта.",
+    "acceptance": "На disposable fixture учень може зберегти свою позицію, але не може підмінити спільну тривалість; редактор може оновити метадані через окремий дозволений сценарій."
+  }
+]

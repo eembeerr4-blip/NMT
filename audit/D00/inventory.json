@@ -1,0 +1,4927 @@
+{
+  "date": "2026-10-19",
+  "scope": "D00: static analysis only; no application or database execution",
+  "reference": {
+    "original": "C:/Users/User/AppData/Local/Temp/codex-clipboard-1d8f19f6-1eee-4169-95e6-f823681f2484.png",
+    "copy": "reference/approved-16-screens.png",
+    "sha256": "d072592a0470953097255e7be4c3e7b069aaa0ad518953a37a71601e88f90147",
+    "width": 1536,
+    "height": 1024
+  },
+  "original": {
+    "head": "4b5ce391375728503c75405a739b154d849e94f7",
+    "branch": "cursor/nmt-academy-lessons-and-audit",
+    "status": "?? audit/AST-maps.json\n?? audit/Chrome-checklist.md\n?? audit/Chrome-route-role-matrix.csv\n?? audit/D00/\n?? audit/NMT-code-audit.md\n?? audit/NMT-remaining-work-plan-2026-10-19.md\n?? audit/PROGRESS.md\n?? audit/action-map.md\n?? audit/backlog.md\n?? audit/baseline.json\n?? audit/branch-diff-stat.txt\n?? audit/checks.json\n?? audit/chrome-20261018/\n?? audit/collect-maps.cjs\n?? audit/extra-findings.cjs\n?? audit/final-state.json\n?? audit/finalize-report.cjs\n?? audit/findings.json\n?? audit/nmt-codex-audit-prompt.md\n?? audit/ownership-query-review.json\n?? audit/ownership-query-review.md\n?? audit/pure-probes.cjs\n?? audit/pure-probes.json\n?? audit/render-maps.cjs\n?? audit/render-ui.cjs\n?? audit/reports/\n?? audit/route-map.md\n?? audit/ui-control-review.md\n?? ersUsernmt-academy'\n?? qa-audit/",
+    "schemaSHA256": "732632d5853f14ed1f3239aa7ae573c709715e16a24640c2d55d95c729281d52",
+    "permissionsSHA256": "555134699ce0d80ff08ad36011152ab8ade4fffaca438be2eb2ca0443be0428e",
+    "pages": [
+      {
+        "file": "src/app/(main)/ai-tutor/page.tsx",
+        "route": "/ai-tutor",
+        "imports": [
+          {
+            "source": "next/navigation",
+            "names": "{ redirect }",
+            "line": 1
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 2
+          }
+        ],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/(main)/analytics/page.tsx",
+        "route": "/analytics",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ SUBJECTS }",
+            "line": 2
+          },
+          {
+            "source": "@/components/subject-icon",
+            "names": "{ SubjectIcon }",
+            "line": 3
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ EmptyState, Progress }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ dateKey }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 6
+          },
+          {
+            "source": "@/lib/scoring",
+            "names": "{ averageForMonth, averageForSubject, averageOfLatestFull, changeFromInitial, changeFromPrevious, formatDelta, overallChange }",
+            "line": 7
+          },
+          {
+            "source": "@/components/charts",
+            "names": "{ Bars, RatingChart }",
+            "line": 8
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, PageHeader }",
+            "line": 9
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 10
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Link",
+          "Card",
+          "SubjectIcon",
+          "Progress",
+          "RatingChart",
+          "Stat",
+          "Bars",
+          "EmptyState"
+        ],
+        "headings": [
+          "Мій прогрес",
+          "Ваші результати, засвоєні теми та динаміка підготовки до НМТ.",
+          "Середній бал останніх повних результатів",
+          "Середній бал за поточний місяць",
+          "Зміна від попереднього пробника",
+          "Зміна від початкового результату",
+          "Виконані завдання в тестах",
+          "Частка правильних у тестах",
+          "Поки немає засвоєних тем"
+        ],
+        "queries": [
+          "prisma.examResult.findMany",
+          "prisma.testAttempt.findMany",
+          "prisma.studySession.findMany",
+          "prisma.topic.findMany",
+          "prisma.mistake.findMany",
+          "prisma.userTopicProgress.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/calendar/page.tsx",
+        "route": "/calendar",
+        "imports": [
+          {
+            "source": "lucide-react",
+            "names": "{ ChevronLeft, ChevronRight }",
+            "line": 1
+          },
+          {
+            "source": "@/server/sync",
+            "names": "{ syncPlan, getSettings }",
+            "line": 2
+          },
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 3
+          },
+          {
+            "source": "date-fns",
+            "names": "{ addMonths }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ WEEKDAY_LABELS }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ addDateKeys, dateKey, formatUk, monthBounds, parseDateKey, startOfWeekMonday }",
+            "line": 6
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 7
+          },
+          {
+            "source": "@/components/forms",
+            "names": "{ CustomTaskForm }",
+            "line": 8
+          },
+          {
+            "source": "@/components/task-controls",
+            "names": "{ RecalculatePlanButton, TaskControls }",
+            "line": 9
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Button, Card, PageHeader }",
+            "line": 10
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 12
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Button",
+          "Link",
+          "ChevronLeft",
+          "ChevronRight",
+          "Card",
+          "TaskControls",
+          "CustomTaskForm",
+          "RecalculatePlanButton"
+        ],
+        "headings": [
+          "Календар",
+          "Ваш план навчання, повторення та власні заняття."
+        ],
+        "queries": [
+          "prisma.studyTask.findMany",
+          "prisma.reviewSchedule.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/curriculum/page.tsx",
+        "route": "/curriculum",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "react",
+            "names": "type { ReactNode }",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, PageHeader, Progress }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ formatUk, dateKey }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/readiness",
+            "names": "{ lessonReadiness }",
+            "line": 6
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 7
+          },
+          {
+            "source": "@/server/sync",
+            "names": "{ getSettings, syncPlan }",
+            "line": 8
+          }
+        ],
+        "components": [
+          "PageFrame",
+          "Card",
+          "Link",
+          "Progress",
+          "PageHeader"
+        ],
+        "headings": [
+          "Вільне навчання",
+          "Обирай будь-який предмет і переходь до наявних у базі розділів та тем.",
+          "Готовність навчальних матеріалів",
+          "Стан конспектів, прикладів, перевіреної практики та відео в активних предметах. Це не сертифікація курсу або підтвердження програми НМТ-2027.",
+          "Мій навчальний план",
+          "Персональний маршрут зібраний з твого розкладу та збереженого прогресу."
+        ],
+        "queries": [
+          "prisma.subject.findMany",
+          "prisma.topic.findMany",
+          "prisma.studyTask.findMany",
+          "prisma.topic.findMany",
+          "prisma.userTopicProgress.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/exams/page.tsx",
+        "route": "/exams",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ EXAM_TYPE_LABEL }",
+            "line": 2
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ formatUk }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 4
+          },
+          {
+            "source": "@/components/forms",
+            "names": "{ ExamStartForm }",
+            "line": 5
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, PageHeader }",
+            "line": 6
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 7
+          },
+          {
+            "source": "@/server/sync",
+            "names": "{ getSettings }",
+            "line": 8
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "ExamStartForm",
+          "Link"
+        ],
+        "headings": [
+          "Пробники",
+          "Повний пробник збирається лише з вашого перевіреного банку. Рейтинговий бал з'являється тільки якщо ви його ввели або якщо додано офіційну таблицю."
+        ],
+        "queries": [
+          "prisma.testAttempt.findMany",
+          "prisma.examResult.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/learn/[topicId]/page.tsx",
+        "route": "/learn/[topicId]",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "next/navigation",
+            "names": "{ notFound }",
+            "line": 2
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ COVERAGE_LABEL, STATUS_LABEL }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ formatUk }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/lesson",
+            "names": "{ parseLesson }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 6
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 7
+          },
+          {
+            "source": "@/components/lesson-tutor",
+            "names": "{ CompleteLesson }",
+            "line": 8
+          },
+          {
+            "source": "@/components/math-text",
+            "names": "{ MathText }",
+            "line": 9
+          },
+          {
+            "source": "@/components/forms",
+            "names": "{ TopicActions }",
+            "line": 10
+          },
+          {
+            "source": "@/components/video-panel",
+            "names": "{ VideoPanel }",
+            "line": 11
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Badge, Card, PageHeader, Progress }",
+            "line": 12
+          },
+          {
+            "source": "@/components/lesson-tabs",
+            "names": "{ LessonTabs }",
+            "line": 13
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Badge",
+          "Link",
+          "Card",
+          "LessonTabs",
+          "VideoPanel",
+          "MathText",
+          "TopicActions",
+          "CompleteLesson",
+          "Progress"
+        ],
+        "headings": [],
+        "queries": [
+          "prisma.topic.findUnique",
+          "prisma.userTopicProgress.findUnique",
+          "prisma.question.count",
+          "prisma.testAttempt.findFirst",
+          "prisma.reviewSchedule.findFirst",
+          "prisma.topic.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/mistakes/page.tsx",
+        "route": "/mistakes",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/components/math-text",
+            "names": "{ MathText }",
+            "line": 2
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ MISTAKE_CATEGORY_LABEL, SUBJECTS }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ formatUk }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 5
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, EmptyState, PageHeader }",
+            "line": 6
+          },
+          {
+            "source": "@/server/actions",
+            "names": "{ setMistakeMeta }",
+            "line": 7
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 8
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "Link",
+          "EmptyState",
+          "MathText"
+        ],
+        "headings": [
+          "Мої помилки",
+          "Переглядайте складні завдання, оновлюйте їхній стан і повертайтеся до теми для повторення.",
+          "Помилок за цими фільтрами немає"
+        ],
+        "queries": [
+          "prisma.topic.findFirst",
+          "prisma.mistake.findMany",
+          "prisma.topic.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/notes/page.tsx",
+        "route": "/notes",
+        "imports": [
+          {
+            "source": "@/lib/dates",
+            "names": "{ formatUk }",
+            "line": 1
+          },
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 2
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 3
+          },
+          {
+            "source": "@/components/math-text",
+            "names": "{ MathText }",
+            "line": 4
+          },
+          {
+            "source": "@/components/forms",
+            "names": "{ NoteForm }",
+            "line": 5
+          },
+          {
+            "source": "@/components/note-delete-button",
+            "names": "{ NoteDeleteButton }",
+            "line": 6
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Button, Card, EmptyState, PageHeader }",
+            "line": 7
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ SUBJECTS }",
+            "line": 8
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 9
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "NoteForm",
+          "EmptyState",
+          "Button",
+          "Link",
+          "NoteDeleteButton",
+          "MathText"
+        ],
+        "headings": [
+          "Мої конспекти",
+          "Особисті нотатки доступні лише вам. Додавайте пояснення й тези до навчальних тем.",
+          "Конспектів ще немає"
+        ],
+        "queries": [
+          "prisma.note.findMany",
+          "prisma.topic.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/page.tsx",
+        "route": "/",
+        "imports": [
+          {
+            "source": "@/components/diagnostic-start",
+            "names": "{ DiagnosticStart }",
+            "line": 1
+          },
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 2
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ STATUS_LABEL }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ addDateKeys, dateKey, daysBetween, formatUk, startOfWeekMonday }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/recommend",
+            "names": "{ recommendTopics }",
+            "line": 6
+          },
+          {
+            "source": "@/lib/scoring",
+            "names": "{ averageOfLatestFull, computeStreak, weekCompletion }",
+            "line": 7
+          },
+          {
+            "source": "lucide-react",
+            "names": "{ ArrowRight, CalendarDays }",
+            "line": 8
+          },
+          {
+            "source": "@/components/subject-icon",
+            "names": "{ SubjectIcon }",
+            "line": 9
+          },
+          {
+            "source": "@/components/charts",
+            "names": "{ Bars }",
+            "line": 10
+          },
+          {
+            "source": "@/components/task-controls",
+            "names": "{ TaskControls }",
+            "line": 11
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Button, Card, PageHeader, Progress }",
+            "line": 12
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 13
+          },
+          {
+            "source": "@/server/sync",
+            "names": "{ getSettings, syncPlan }",
+            "line": 14
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Link",
+          "Card",
+          "SubjectIcon",
+          "Button",
+          "ArrowRight",
+          "TaskControls",
+          "DiagnosticStart",
+          "Progress",
+          "Bars",
+          "CalendarDays",
+          "Metric"
+        ],
+        "headings": [],
+        "queries": [
+          "prisma.studyTask.findMany",
+          "prisma.studyTask.findMany",
+          "prisma.studyTask.findMany",
+          "prisma.reviewSchedule.findMany",
+          "prisma.subject.findMany",
+          "prisma.topic.findMany",
+          "prisma.userTopicProgress.findMany",
+          "prisma.examResult.findMany",
+          "prisma.testAttempt.count",
+          "prisma.studySession.findMany",
+          "prisma.xpEvent.aggregate",
+          "prisma.achievement.findMany",
+          "prisma.mistake.findMany",
+          "prisma.studyTask.findFirst",
+          "prisma.testAttempt.findFirst"
+        ]
+      },
+      {
+        "file": "src/app/(main)/results/page.tsx",
+        "route": "/results",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ EXAM_TYPE_LABEL }",
+            "line": 2
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ formatUk }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 4
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Button, Card, EmptyState, PageHeader }",
+            "line": 5
+          },
+          {
+            "source": "@/components/result-editor-dialog",
+            "names": "{ ResultEditorDialog, ResultDeleteButton }",
+            "line": 6
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 7
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Button",
+          "Link",
+          "EmptyState",
+          "Card",
+          "ResultDeleteButton",
+          "Score",
+          "ResultEditorDialog"
+        ],
+        "headings": [
+          "Журнал результатів",
+          "Зберігайте результати діагностики, пробників і тестів окремо. Тестові та рейтингові бали показано окремо.",
+          "Результатів ще немає"
+        ],
+        "queries": [
+          "prisma.examResult.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/review/page.tsx",
+        "route": "/review",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ dateKey, formatUk }",
+            "line": 2
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 3
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, EmptyState, PageHeader }",
+            "line": 4
+          },
+          {
+            "source": "@/server/actions",
+            "names": "{ completeReview, reviewFlashcard, saveFlashcard }",
+            "line": 5
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 6
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Section",
+          "Card",
+          "Link",
+          "EmptyState"
+        ],
+        "headings": [
+          "Повторення",
+          "Інтервали повторення залежать від результату: 1, 7 і 30 днів для закріплення, раніше при труднощах і пізніше при впевненому результаті.",
+          "Сьогодні",
+          "Прострочені",
+          "Найближчі"
+        ],
+        "queries": [
+          "prisma.reviewSchedule.findMany",
+          "prisma.reviewSchedule.findMany",
+          "prisma.reviewSchedule.findMany",
+          "prisma.userTopicProgress.findMany({ where: { userId: user.id, status: \"NEEDS_REVIEW\" }, include: { topic: true }, take: 8 }).then",
+          "prisma.userTopicProgress.findMany",
+          "prisma.reviewSchedule.findMany",
+          "prisma.flashcard.findMany",
+          "prisma.topic.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/search/page.tsx",
+        "route": "/search",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{Button,Card,PageHeader}",
+            "line": 2
+          },
+          {
+            "source": "@/components/subject-icon",
+            "names": "{SubjectIcon}",
+            "line": 3
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{prisma}",
+            "line": 4
+          },
+          {
+            "source": "@/server/session",
+            "names": "{requireUser}",
+            "line": 5
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "Button",
+          "Link",
+          "SubjectIcon"
+        ],
+        "headings": [
+          "Пошук матеріалів",
+          "Знайдіть предмет або тему, щоб перейти до навчання."
+        ],
+        "queries": [
+          "prisma.subject.findMany",
+          "prisma.topic.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/settings/page.tsx",
+        "route": "/settings",
+        "imports": [
+          {
+            "source": "@/components/elective-form",
+            "names": "{ ElectiveForm }",
+            "line": 1
+          },
+          {
+            "source": "@/components/settings-workspace",
+            "names": "{ SettingsWorkspace }",
+            "line": 2
+          },
+          {
+            "source": "@/components/forms",
+            "names": "{ SettingsForm }",
+            "line": 3
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, PageHeader }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ SUBJECTS }",
+            "line": 5
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 6
+          },
+          {
+            "source": "@/server/sync",
+            "names": "{ getSettings }",
+            "line": 7
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "SettingsWorkspace",
+          "Card",
+          "ElectiveForm",
+          "SettingsForm"
+        ],
+        "headings": [
+          "Налаштування"
+        ],
+        "queries": []
+      },
+      {
+        "file": "src/app/(main)/subjects/page.tsx",
+        "route": "/subjects",
+        "imports": [
+          {
+            "source": "lucide-react",
+            "names": "{ ArrowRight }",
+            "line": 1
+          },
+          {
+            "source": "@/components/subject-icon",
+            "names": "{ SubjectIcon }",
+            "line": 2
+          },
+          {
+            "source": "@/lib/readiness",
+            "names": "{ lessonReadiness }",
+            "line": 3
+          },
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 4
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ COVERAGE_LABEL }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 6
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, PageHeader, Progress }",
+            "line": 7
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 8
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Link",
+          "Card",
+          "SubjectIcon",
+          "Progress",
+          "ArrowRight"
+        ],
+        "headings": [
+          "Предмети",
+          "Три обов'язкові предмети й один на вибір. Інші предмети видно як бібліотеку, їхній прогрес не змішується з вашим."
+        ],
+        "queries": [
+          "prisma.subject.findMany",
+          "prisma.userTopicProgress.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/subjects/[slug]/page.tsx",
+        "route": "/subjects/[slug]",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "next/navigation",
+            "names": "{ notFound }",
+            "line": 2
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ STATUS_LABEL }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/scoring",
+            "names": "{ averageForSubject, changeFromInitial, formatDelta }",
+            "line": 5
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Badge, Card, PageHeader }",
+            "line": 6
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 7
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "Link",
+          "Badge"
+        ],
+        "headings": [],
+        "queries": [
+          "prisma.subject.findUnique",
+          "prisma.userTopicProgress.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/tests/page.tsx",
+        "route": "/tests",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, EmptyState, PageHeader, Button, Badge }",
+            "line": 2
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 3
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 4
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Button",
+          "Link",
+          "Card",
+          "Badge",
+          "EmptyState"
+        ],
+        "headings": [
+          "Мої тести",
+          "Продовжуйте розпочаті тести та переглядайте свої результати.",
+          "Тестів ще немає"
+        ],
+        "queries": [
+          "prisma.testAttempt.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/tests/[id]/page.tsx",
+        "route": "/tests/[id]",
+        "imports": [
+          {
+            "source": "@/components/question-feedback",
+            "names": "{ QuestionFeedback }",
+            "line": 1
+          },
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 2
+          },
+          {
+            "source": "next/navigation",
+            "names": "{ notFound }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 4
+          },
+          {
+            "source": "@/components/math-text",
+            "names": "{ MathText }",
+            "line": 5
+          },
+          {
+            "source": "@/components/test-runner",
+            "names": "{ TestRunner }",
+            "line": 6
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Badge, Card, PageHeader }",
+            "line": 7
+          },
+          {
+            "source": "@/server/actions",
+            "names": "{ gradeManually, startTopicTest }",
+            "line": 8
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 9
+          },
+          {
+            "source": "@/server/sync",
+            "names": "{ getSettings }",
+            "line": 10
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "TestRunner",
+          "Card",
+          "Link",
+          "Badge",
+          "MathText",
+          "QuestionFeedback"
+        ],
+        "headings": [
+          "Правильні відповіді приховані до завершення. Чернетка зберігається в базі й у браузері.",
+          "Результат"
+        ],
+        "queries": [
+          "prisma.testAttempt.findUnique",
+          "prisma.userTopicProgress.findUnique"
+        ]
+      },
+      {
+        "file": "src/app/(main)/topics/[id]/page.tsx",
+        "route": "/topics/[id]",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "next/navigation",
+            "names": "{ notFound }",
+            "line": 2
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ COVERAGE_LABEL, STATUS_LABEL }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ formatUk }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 5
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 6
+          },
+          {
+            "source": "@/components/math-text",
+            "names": "{ MathText }",
+            "line": 8
+          },
+          {
+            "source": "@/components/forms",
+            "names": "{ StudyLogForm }",
+            "line": 9
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Badge, Button, Card, PageHeader }",
+            "line": 10
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Badge",
+          "Button",
+          "Link",
+          "Card",
+          "MathText",
+          "StudyLogForm"
+        ],
+        "headings": [],
+        "queries": [
+          "prisma.topic.findUnique",
+          "prisma.userTopicProgress.findUnique"
+        ]
+      },
+      {
+        "file": "src/app/admin/audit/page.tsx",
+        "route": "/admin/audit",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@prisma/client",
+            "names": "type { Prisma }",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, PageHeader }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 4
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireAdministrator }",
+            "line": 5
+          },
+          {
+            "source": "@/server/audit-log",
+            "names": "{ AUDIT_ACTIONS, safeAuditMetadata }",
+            "line": 6
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "Link"
+        ],
+        "headings": [
+          "Журнал дій",
+          "Реальні зміни спільних матеріалів, ролей, налаштувань, резервні операції та входи. Час — за Києвом."
+        ],
+        "queries": [
+          "prisma.auditLog.findMany",
+          "prisma.auditLog.count"
+        ]
+      },
+      {
+        "file": "src/app/admin/lessons/page.tsx",
+        "route": "/admin/lessons",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{ isAdministrator }",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Button, Card, EmptyState, PageHeader }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ COVERAGE_LABEL }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/lesson",
+            "names": "{ parseLesson }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 6
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireContentEditor }",
+            "line": 7
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Metric",
+          "Card",
+          "Button",
+          "Link",
+          "EmptyState"
+        ],
+        "headings": [
+          "Уроки",
+          "Переглядайте готовність уроків і відкривайте редактор або попередній перегляд для учня.",
+          "Уроків за цими фільтрами не знайдено"
+        ],
+        "queries": [
+          "prisma.topic.findMany",
+          "prisma.topic.count",
+          "prisma.subject.findMany",
+          "prisma.topic.count",
+          "prisma.topic.count",
+          "prisma.videoLesson.count"
+        ]
+      },
+      {
+        "file": "src/app/admin/lessons/[id]/page.tsx",
+        "route": "/admin/lessons/[id]",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "next/navigation",
+            "names": "{ notFound }",
+            "line": 2
+          },
+          {
+            "source": "@/components/lesson-editor",
+            "names": "{ LessonEditor }",
+            "line": 3
+          },
+          {
+            "source": "@/components/video-panel",
+            "names": "{ VideoPanel }",
+            "line": 4
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Button, Card, PageHeader }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/lesson",
+            "names": "{ parseLesson }",
+            "line": 6
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 7
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{ isAdministrator }",
+            "line": 8
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireContentEditor }",
+            "line": 9
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Button",
+          "Link",
+          "Card",
+          "LessonEditor",
+          "VideoPanel"
+        ],
+        "headings": [],
+        "queries": [
+          "prisma.topic.findUnique"
+        ]
+      },
+      {
+        "file": "src/app/admin/page.tsx",
+        "route": "/admin",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "lucide-react",
+            "names": "{BookOpen,ClipboardList,Library,Users}",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{Card,PageHeader,Progress}",
+            "line": 3
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{prisma}",
+            "line": 4
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{effectiveRole,ROLE_INFO,ROLE_ORDER}",
+            "line": 5
+          },
+          {
+            "source": "@/server/session",
+            "names": "{requireAdministrator}",
+            "line": 6
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Link",
+          "Card",
+          "Icon",
+          "Progress"
+        ],
+        "headings": [
+          "Огляд",
+          "Стан платформи, навчальні матеріали та рівні доступу."
+        ],
+        "queries": [
+          "prisma.user.findMany",
+          "prisma.subject.count",
+          "prisma.topic.count",
+          "prisma.question.count",
+          "prisma.topic.count",
+          "prisma.test.count",
+          "prisma.question.count",
+          "prisma.topic.count"
+        ]
+      },
+      {
+        "file": "src/app/admin/questions/page.tsx",
+        "route": "/admin/questions",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/components/forms",
+            "names": "{ ImportQuestionsForm, QuestionForm }",
+            "line": 2
+          },
+          {
+            "source": "@/components/question-moderation",
+            "names": "{ QuestionModeration }",
+            "line": 3
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Badge, Button, Card, EmptyState, PageHeader }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ DIFFICULTY_LABEL, QUESTION_TYPE_LABEL }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{ isAdministrator }",
+            "line": 6
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 7
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireContentEditor }",
+            "line": 8
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Button",
+          "Card",
+          "QuestionForm",
+          "ImportQuestionsForm",
+          "Link",
+          "EmptyState",
+          "Badge",
+          "QuestionModeration"
+        ],
+        "headings": [
+          "Банк завдань",
+          "Створюйте, перевіряйте та архівуйте запитання. Використані в тестах завдання захищені від змін, що пошкодять історію спроб.",
+          "Завдань не знайдено"
+        ],
+        "queries": [
+          "prisma.question.findMany",
+          "prisma.question.count",
+          "prisma.topic.findMany",
+          "prisma.subject.findMany"
+        ]
+      },
+      {
+        "file": "src/app/admin/questions/[id]/page.tsx",
+        "route": "/admin/questions/[id]",
+        "imports": [
+          {
+            "source": "@/components/question-editor",
+            "names": "{ QuestionEditor }",
+            "line": 1
+          }
+        ],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/admin/settings/page.tsx",
+        "route": "/admin/settings",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/components/forms",
+            "names": "{ BackupRestoreForm, PlatformConfigForm }",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, PageHeader }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ dateKey, formatUk }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{ isOwner }",
+            "line": 5
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireAdministrator }",
+            "line": 6
+          },
+          {
+            "source": "@/server/sync",
+            "names": "{ getSettings }",
+            "line": 7
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "BackupRestoreForm",
+          "Link",
+          "PlatformConfigForm"
+        ],
+        "headings": [
+          "Налаштування платформи",
+          "Інструменти адміністратора, що вже підтримуються проєктом."
+        ],
+        "queries": []
+      },
+      {
+        "file": "src/app/admin/subjects/page.tsx",
+        "route": "/admin/subjects",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{ isAdministrator }",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, PageHeader, Progress }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 4
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireContentEditor }",
+            "line": 5
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "Progress",
+          "Link"
+        ],
+        "headings": [
+          "Предмети",
+          "Предмети, описи та пов’язані навчальні матеріали."
+        ],
+        "queries": [
+          "prisma.subject.findMany"
+        ]
+      },
+      {
+        "file": "src/app/admin/subjects/[id]/page.tsx",
+        "route": "/admin/subjects/[id]",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "next/navigation",
+            "names": "{notFound}",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{Button,Card,PageHeader}",
+            "line": 3
+          },
+          {
+            "source": "@/components/subject-editor",
+            "names": "{SubjectEditor}",
+            "line": 4
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{prisma}",
+            "line": 5
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{isAdministrator}",
+            "line": 6
+          },
+          {
+            "source": "@/server/session",
+            "names": "{requireContentEditor}",
+            "line": 7
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Button",
+          "Link",
+          "Card",
+          "SubjectEditor"
+        ],
+        "headings": [
+          "Назва та опис спільного навчального предмета."
+        ],
+        "queries": [
+          "prisma.subject.findUnique"
+        ]
+      },
+      {
+        "file": "src/app/admin/tasks/page.tsx",
+        "route": "/admin/tasks",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Button, Card, EmptyState, PageHeader }",
+            "line": 2
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ formatUk }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 4
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireAdministrator }",
+            "line": 5
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "Button",
+          "Link",
+          "EmptyState"
+        ],
+        "headings": [
+          "Персональні навчальні плани",
+          "Перегляд агрегованих занять із планів учнів. Імена, нікнейми й особисті нотатки не відображаються; редагування чужого плану недоступне.",
+          "Занять за фільтрами не знайдено"
+        ],
+        "queries": [
+          "prisma.studyTask.count",
+          "prisma.studyTask.findMany",
+          "prisma.studyTask.count",
+          "prisma.subject.findMany"
+        ]
+      },
+      {
+        "file": "src/app/admin/tests/page.tsx",
+        "route": "/admin/tests",
+        "imports": [
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, EmptyState, PageHeader, Button }",
+            "line": 1
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 2
+          },
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 3
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireAdministrator }",
+            "line": 4
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Button",
+          "Link",
+          "Card",
+          "EmptyState"
+        ],
+        "headings": [
+          "Тести та запитання",
+          "Керуйте перевіркою банку й переглядайте наявні тести. Зміни правил оцінювання не виконуються.",
+          "Тестів не знайдено"
+        ],
+        "queries": [
+          "prisma.test.findMany",
+          "prisma.test.count",
+          "prisma.question.count",
+          "prisma.question.count",
+          "prisma.question.count",
+          "prisma.question.count",
+          "prisma.subject.findMany"
+        ]
+      },
+      {
+        "file": "src/app/admin/topics/page.tsx",
+        "route": "/admin/topics",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{ isAdministrator }",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Button, Card, EmptyState, PageHeader }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ COVERAGE_LABEL }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 5
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireContentEditor }",
+            "line": 6
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "Button",
+          "Link",
+          "EmptyState"
+        ],
+        "headings": [
+          "Розділи та теми",
+          "Структура контенту: предмет → розділ → тема. Збережіть наявні зв’язки, редагуючи тему.",
+          "Тем не знайдено"
+        ],
+        "queries": [
+          "prisma.topic.findMany",
+          "prisma.topic.count",
+          "prisma.subject.findMany"
+        ]
+      },
+      {
+        "file": "src/app/admin/topics/[id]/page.tsx",
+        "route": "/admin/topics/[id]",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "next/navigation",
+            "names": "{ notFound }",
+            "line": 2
+          },
+          {
+            "source": "@/components/forms",
+            "names": "{ TopicEditor }",
+            "line": 3
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, PageHeader, Button }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{ isAdministrator }",
+            "line": 6
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireContentEditor }",
+            "line": 7
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Button",
+          "Link",
+          "Card",
+          "TopicEditor"
+        ],
+        "headings": [],
+        "queries": [
+          "prisma.topic.findUnique",
+          "prisma.userTopicProgress.findUnique"
+        ]
+      },
+      {
+        "file": "src/app/admin/users/page.tsx",
+        "route": "/admin/users",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@prisma/client",
+            "names": "type { Prisma }",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Button, Card, PageHeader }",
+            "line": 3
+          },
+          {
+            "source": "@/components/role-manager",
+            "names": "{ RoleManager }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{ effectiveRole, isPlatformRole, ROLE_INFO, ROLE_ORDER }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 6
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireAdministrator }",
+            "line": 7
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "Button",
+          "Link",
+          "RoleManager"
+        ],
+        "headings": [
+          "Користувачі та ролі",
+          "Знайдіть профіль за нікнеймом, перевірте його стан і змініть роль у разі потреби."
+        ],
+        "queries": [
+          "prisma.user.findMany",
+          "prisma.user.count",
+          "prisma.user.groupBy",
+          "prisma.user.findUnique",
+          "prisma.user.count"
+        ]
+      },
+      {
+        "file": "src/app/editor/lessons/page.tsx",
+        "route": "/editor/lessons",
+        "imports": [],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/editor/lessons/[id]/page.tsx",
+        "route": "/editor/lessons/[id]",
+        "imports": [],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/editor/page.tsx",
+        "route": "/editor",
+        "imports": [
+          {
+            "source": "next/navigation",
+            "names": "{redirect}",
+            "line": 1
+          },
+          {
+            "source": "@/server/session",
+            "names": "{requireContentEditor}",
+            "line": 1
+          }
+        ],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/editor/questions/page.tsx",
+        "route": "/editor/questions",
+        "imports": [],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/editor/questions/[id]/page.tsx",
+        "route": "/editor/questions/[id]",
+        "imports": [
+          {
+            "source": "@/components/question-editor",
+            "names": "{ QuestionEditor }",
+            "line": 1
+          }
+        ],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/editor/subjects/page.tsx",
+        "route": "/editor/subjects",
+        "imports": [],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/editor/subjects/[id]/page.tsx",
+        "route": "/editor/subjects/[id]",
+        "imports": [],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/editor/topics/page.tsx",
+        "route": "/editor/topics",
+        "imports": [],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/editor/topics/[id]/page.tsx",
+        "route": "/editor/topics/[id]",
+        "imports": [],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/login/page.tsx",
+        "route": "/login",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/server/actions",
+            "names": "{ login }",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card }",
+            "line": 3
+          },
+          {
+            "source": "@/components/login-form",
+            "names": "{ LoginForm, type LoginState }",
+            "line": 4
+          }
+        ],
+        "components": [
+          "Card",
+          "LoginForm",
+          "Link"
+        ],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/onboarding/page.tsx",
+        "route": "/onboarding",
+        "imports": [
+          {
+            "source": "@/components/onboarding-wizard",
+            "names": "{ OnboardingWizard }",
+            "line": 1
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 2
+          }
+        ],
+        "components": [
+          "OnboardingWizard"
+        ],
+        "headings": [],
+        "queries": [
+          "prisma.user.findUnique({ where: { id: \"owner\" } }).catch",
+          "prisma.user.findUnique"
+        ]
+      }
+    ],
+    "components": [
+      {
+        "file": "src/components/admin-nav.tsx",
+        "exports": [
+          "AdminNav"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/app-shell.tsx",
+        "exports": [
+          "AppShell"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/backup-restore.tsx",
+        "exports": [
+          "BackupRestoreForm"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/charts.tsx",
+        "exports": [
+          "RatingChart",
+          "Bars"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/diagnostic-start.tsx",
+        "exports": [
+          "DiagnosticStart"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/elective-form.tsx",
+        "exports": [
+          "ElectiveForm"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/forms.tsx",
+        "exports": [
+          "ResultForm",
+          "QuestionForm",
+          "ImportQuestionsForm",
+          "TopicEditor",
+          "TopicActions",
+          "ExamStartForm",
+          "SettingsForm",
+          "PlatformConfigForm",
+          "NoteForm",
+          "StudyLogForm",
+          "CustomTaskForm",
+          "TutorForm"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/header-search.tsx",
+        "exports": [
+          "HeaderSearch"
+        ],
+        "client": false
+      },
+      {
+        "file": "src/components/lesson-editor.tsx",
+        "exports": [
+          "LessonEditor"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/lesson-tabs.tsx",
+        "exports": [
+          "LessonTabs"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/lesson-tutor.tsx",
+        "exports": [
+          "LessonTutor",
+          "CompleteLesson"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/login-form.tsx",
+        "exports": [
+          "LoginState",
+          "LoginForm"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/math-text.tsx",
+        "exports": [
+          "MathText"
+        ],
+        "client": false
+      },
+      {
+        "file": "src/components/note-delete-button.tsx",
+        "exports": [
+          "NoteDeleteButton"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/onboarding-wizard.tsx",
+        "exports": [
+          "OnboardingWizard"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/question-editor.tsx",
+        "exports": [
+          "QuestionEditor"
+        ],
+        "client": false
+      },
+      {
+        "file": "src/components/question-feedback.tsx",
+        "exports": [
+          "QuestionFeedback"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/question-moderation.tsx",
+        "exports": [
+          "QuestionModeration"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/readiness-panel.tsx",
+        "exports": [
+          "ReadinessPanel"
+        ],
+        "client": false
+      },
+      {
+        "file": "src/components/result-editor-dialog.tsx",
+        "exports": [
+          "ResultEditorDialog",
+          "ResultDeleteButton"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/role-manager.tsx",
+        "exports": [
+          "RoleManager"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/settings-workspace.tsx",
+        "exports": [
+          "SettingsWorkspace"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/subject-editor.tsx",
+        "exports": [
+          "SubjectEditor"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/subject-icon.tsx",
+        "exports": [
+          "SubjectIcon"
+        ],
+        "client": false
+      },
+      {
+        "file": "src/components/task-controls.tsx",
+        "exports": [
+          "TaskControls",
+          "RecalculatePlanButton"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/test-runner.tsx",
+        "exports": [
+          "TestRunner"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/theme-provider.tsx",
+        "exports": [
+          "ThemeProvider"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/theme-toggle.tsx",
+        "exports": [
+          "ThemeToggle"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/ui.tsx",
+        "exports": [
+          "Button",
+          "Card",
+          "Input",
+          "Textarea",
+          "Label",
+          "Badge",
+          "Progress",
+          "Skeleton",
+          "PageHeader",
+          "EmptyState"
+        ],
+        "client": false
+      },
+      {
+        "file": "src/components/use-attempt-draft.ts",
+        "exports": [
+          "useAttemptDraft"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/video-panel.tsx",
+        "exports": [
+          "VideoPanel"
+        ],
+        "client": true
+      }
+    ],
+    "normalizedProtectedSHA256": {
+      "prisma/schema.prisma": "732632d5853f14ed1f3239aa7ae573c709715e16a24640c2d55d95c729281d52",
+      "src/lib/permissions.ts": "555134699ce0d80ff08ad36011152ab8ade4fffaca438be2eb2ca0443be0428e",
+      "src/server/session.ts": "af7b15aa7d5babf2f13c9a220bf3a72b9a5d6a36b46cfcd877f9997bf37c2a9e"
+    }
+  },
+  "beta": {
+    "head": "9ef3c662f6e90cf2c9720977ad4dc0d67696d4d6",
+    "branch": "beta/06-visual-beta",
+    "status": "?? audit/04c-subject.tsx\n?? audit/04c-subjects.tsx\n?? audit/04c-tabs.tsx\n?? audit/PROGRESS.md\n?? audit/beta-baseline.cjs\n?? audit/beta-final-inventory.cjs\n?? audit/beta-final-permissions-map.cjs\n?? audit/beta-inventory.cjs\n?? audit/beta-permissions-map.cjs\n?? audit/beta-release-inventory.cjs\n?? audit/check-stage.ps1\n?? audit/fresh-runtime.ps1\n?? audit/qa-integrity.cjs\n?? audit/qa-server.ps1\n?? audit/qa-snapshot-restore.cjs\n?? audit/reports/\n?? audit/tests/beta-prepare.ts\n?? audit/tests/fresh-prepare.ts\n?? audit/update-progress.cjs\n?? design/screenshots/",
+    "schemaSHA256": "de9eaa3501a8f6ca2ca5353a8a6c569735cb91aca5f3410e837b1a7f7700ff78",
+    "permissionsSHA256": "88b1260a332e4c60039f8259b0ca0a4d762e762654fe25cd73f5c69fdb64be97",
+    "pages": [
+      {
+        "file": "src/app/(main)/ai-tutor/page.tsx",
+        "route": "/ai-tutor",
+        "imports": [
+          {
+            "source": "next/navigation",
+            "names": "{ redirect }",
+            "line": 1
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 2
+          }
+        ],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/(main)/analytics/page.tsx",
+        "route": "/analytics",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ SUBJECTS }",
+            "line": 2
+          },
+          {
+            "source": "@/components/subject-icon",
+            "names": "{ SubjectIcon }",
+            "line": 3
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ EmptyState, Progress }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ dateKey }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 6
+          },
+          {
+            "source": "@/lib/scoring",
+            "names": "{ averageForMonth, averageForSubject, averageOfLatestFull, changeFromInitial, changeFromPrevious, formatDelta, overallChange }",
+            "line": 7
+          },
+          {
+            "source": "@/components/charts",
+            "names": "{ Bars, RatingChart }",
+            "line": 8
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, PageHeader }",
+            "line": 9
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 10
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Link",
+          "Card",
+          "SubjectIcon",
+          "Progress",
+          "RatingChart",
+          "Stat",
+          "Bars",
+          "EmptyState"
+        ],
+        "headings": [
+          "Мій прогрес",
+          "Ваші результати, засвоєні теми та динаміка підготовки до НМТ.",
+          "Середній бал останніх повних результатів",
+          "Середній бал за поточний місяць",
+          "Зміна від попереднього пробника",
+          "Зміна від початкового результату",
+          "Виконані завдання в тестах",
+          "Частка правильних у тестах",
+          "Поки немає засвоєних тем"
+        ],
+        "queries": [
+          "prisma.examResult.findMany",
+          "prisma.testAttempt.findMany",
+          "prisma.studySession.findMany",
+          "prisma.topic.findMany",
+          "prisma.mistake.findMany",
+          "prisma.userTopicProgress.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/calendar/page.tsx",
+        "route": "/calendar",
+        "imports": [
+          {
+            "source": "lucide-react",
+            "names": "{ ChevronLeft, ChevronRight }",
+            "line": 1
+          },
+          {
+            "source": "@/server/sync",
+            "names": "{ syncPlan, getSettings }",
+            "line": 2
+          },
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 3
+          },
+          {
+            "source": "date-fns",
+            "names": "{ addMonths }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ WEEKDAY_LABELS }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ addDateKeys, dateKey, formatUk, isDateKey, monthBounds, parseDateKey, startOfWeekMonday }",
+            "line": 6
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 7
+          },
+          {
+            "source": "@/components/forms",
+            "names": "{ CustomTaskForm }",
+            "line": 8
+          },
+          {
+            "source": "@/components/task-controls",
+            "names": "{ RecalculatePlanButton, TaskControls }",
+            "line": 9
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Button, Card, PageHeader }",
+            "line": 10
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 12
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Button",
+          "Link",
+          "ChevronLeft",
+          "ChevronRight",
+          "Card",
+          "TaskControls",
+          "CustomTaskForm",
+          "RecalculatePlanButton"
+        ],
+        "headings": [
+          "Календар",
+          "Ваш план навчання, повторення та власні заняття."
+        ],
+        "queries": [
+          "prisma.studyTask.findMany",
+          "prisma.reviewSchedule.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/curriculum/page.tsx",
+        "route": "/curriculum",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "react",
+            "names": "type { ReactNode }",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, PageHeader, Progress }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ formatUk, dateKey }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/readiness",
+            "names": "{ lessonReadiness }",
+            "line": 6
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 7
+          },
+          {
+            "source": "@/server/sync",
+            "names": "{ getSettings, syncPlan }",
+            "line": 8
+          }
+        ],
+        "components": [
+          "PageFrame",
+          "Card",
+          "Link",
+          "Progress",
+          "PageHeader"
+        ],
+        "headings": [
+          "Вільне навчання",
+          "Обирай будь-який предмет і переходь до наявних у базі розділів та тем.",
+          "Готовність навчальних матеріалів",
+          "Стан конспектів, прикладів, перевіреної практики та відео в активних предметах. Це не сертифікація курсу або підтвердження програми НМТ-2027.",
+          "Мій навчальний план",
+          "Персональний маршрут зібраний з твого розкладу та збереженого прогресу."
+        ],
+        "queries": [
+          "prisma.subject.findMany",
+          "prisma.topic.findMany",
+          "prisma.studyTask.findMany",
+          "prisma.topic.findMany",
+          "prisma.userTopicProgress.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/exams/page.tsx",
+        "route": "/exams",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ EXAM_TYPE_LABEL }",
+            "line": 2
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ formatUk }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 4
+          },
+          {
+            "source": "@/components/forms",
+            "names": "{ ExamStartForm }",
+            "line": 5
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, PageHeader }",
+            "line": 6
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 7
+          },
+          {
+            "source": "@/server/sync",
+            "names": "{ getSettings }",
+            "line": 8
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "ExamStartForm",
+          "Link"
+        ],
+        "headings": [
+          "Пробники",
+          "Повний пробник збирається лише з вашого перевіреного банку. Рейтинговий бал з'являється тільки якщо ви його ввели або якщо додано офіційну таблицю."
+        ],
+        "queries": [
+          "prisma.testAttempt.findMany",
+          "prisma.examResult.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/learn/[topicId]/page.tsx",
+        "route": "/learn/[topicId]",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "next/navigation",
+            "names": "{ notFound }",
+            "line": 2
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ STATUS_LABEL }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/readiness",
+            "names": "{ lessonAccess }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ formatUk }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/lesson",
+            "names": "{ parseLesson }",
+            "line": 6
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 7
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 8
+          },
+          {
+            "source": "@/components/lesson-tutor",
+            "names": "{ CompleteLesson }",
+            "line": 9
+          },
+          {
+            "source": "@/components/math-text",
+            "names": "{ MathText }",
+            "line": 10
+          },
+          {
+            "source": "@/components/forms",
+            "names": "{ TopicActions }",
+            "line": 11
+          },
+          {
+            "source": "@/components/video-panel",
+            "names": "{ VideoPanel }",
+            "line": 12
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Badge, Button, Card, EmptyState, PageHeader, Progress }",
+            "line": 13
+          },
+          {
+            "source": "@/components/lesson-tabs",
+            "names": "{ LessonTabs }",
+            "line": 14
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "EmptyState",
+          "Button",
+          "Link",
+          "Badge",
+          "Card",
+          "LessonTabs",
+          "VideoPanel",
+          "MathText",
+          "TopicActions",
+          "CompleteLesson",
+          "Progress"
+        ],
+        "headings": [
+          "Матеріал готується"
+        ],
+        "queries": [
+          "prisma.topic.findUnique",
+          "prisma.userTopicProgress.findUnique",
+          "prisma.question.count",
+          "prisma.testAttempt.findFirst",
+          "prisma.reviewSchedule.findFirst",
+          "prisma.topic.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/mistakes/page.tsx",
+        "route": "/mistakes",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/components/math-text",
+            "names": "{ MathText }",
+            "line": 2
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ MISTAKE_CATEGORY_LABEL, SUBJECTS }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ formatUk }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 5
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, EmptyState, PageHeader }",
+            "line": 6
+          },
+          {
+            "source": "@/components/mistake-controls",
+            "names": "{ MistakeControls }",
+            "line": 7
+          },
+          {
+            "source": "@/components/list-pagination",
+            "names": "{ListPagination,parseListPage}",
+            "line": 8
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 9
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "Link",
+          "EmptyState",
+          "MathText",
+          "MistakeControls",
+          "ListPagination"
+        ],
+        "headings": [
+          "Мої помилки",
+          "Переглядайте складні завдання, оновлюйте їхній стан і повертайтеся до теми для повторення.",
+          "Помилок за цими фільтрами немає"
+        ],
+        "queries": [
+          "prisma.topic.findFirst",
+          "prisma.mistake.findMany",
+          "prisma.topic.findMany",
+          "prisma.mistake.count"
+        ]
+      },
+      {
+        "file": "src/app/(main)/notes/page.tsx",
+        "route": "/notes",
+        "imports": [
+          {
+            "source": "@/components/list-pagination",
+            "names": "{ListPagination,parseListPage}",
+            "line": 1
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ formatUk }",
+            "line": 2
+          },
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 3
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 4
+          },
+          {
+            "source": "@/components/math-text",
+            "names": "{ MathText }",
+            "line": 5
+          },
+          {
+            "source": "@/components/forms",
+            "names": "{ NoteForm }",
+            "line": 6
+          },
+          {
+            "source": "@/components/note-delete-button",
+            "names": "{ NoteDeleteButton }",
+            "line": 7
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Button, Card, EmptyState, PageHeader }",
+            "line": 8
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ SUBJECTS }",
+            "line": 9
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 10
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "NoteForm",
+          "Button",
+          "Link",
+          "EmptyState",
+          "NoteDeleteButton",
+          "MathText",
+          "ListPagination"
+        ],
+        "headings": [
+          "Мої конспекти",
+          "Особисті нотатки доступні лише вам. Додавайте пояснення й тези до навчальних тем."
+        ],
+        "queries": [
+          "prisma.note.findMany",
+          "prisma.topic.findMany",
+          "prisma.note.count"
+        ]
+      },
+      {
+        "file": "src/app/(main)/page.tsx",
+        "route": "/",
+        "imports": [
+          {
+            "source": "@/components/diagnostic-start",
+            "names": "{ DiagnosticStart }",
+            "line": 1
+          },
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 2
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ STATUS_LABEL }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ addDateKeys, dateKey, daysBetween, formatUk, startOfWeekMonday }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/recommend",
+            "names": "{ recommendTopics }",
+            "line": 6
+          },
+          {
+            "source": "@/lib/readiness",
+            "names": "{ lessonAccess }",
+            "line": 7
+          },
+          {
+            "source": "@/lib/scoring",
+            "names": "{ averageOfLatestFull, computeStreak, weekCompletion }",
+            "line": 8
+          },
+          {
+            "source": "lucide-react",
+            "names": "{ ArrowRight, CalendarDays }",
+            "line": 9
+          },
+          {
+            "source": "@/components/subject-icon",
+            "names": "{ SubjectIcon }",
+            "line": 10
+          },
+          {
+            "source": "@/components/charts",
+            "names": "{ Bars }",
+            "line": 11
+          },
+          {
+            "source": "@/components/task-controls",
+            "names": "{ TaskControls }",
+            "line": 12
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Button, Card, PageHeader, Progress }",
+            "line": 13
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 14
+          },
+          {
+            "source": "@/server/sync",
+            "names": "{ getSettings, syncPlan }",
+            "line": 15
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Link",
+          "Card",
+          "SubjectIcon",
+          "Button",
+          "ArrowRight",
+          "TaskControls",
+          "DiagnosticStart",
+          "Progress",
+          "Bars",
+          "CalendarDays",
+          "Metric"
+        ],
+        "headings": [],
+        "queries": [
+          "prisma.studyTask.findMany",
+          "prisma.studyTask.findMany",
+          "prisma.studyTask.findMany",
+          "prisma.reviewSchedule.findMany",
+          "prisma.subject.findMany",
+          "prisma.topic.findMany",
+          "prisma.userTopicProgress.findMany",
+          "prisma.examResult.findMany",
+          "prisma.testAttempt.count",
+          "prisma.studySession.findMany",
+          "prisma.xpEvent.aggregate",
+          "prisma.achievement.findMany",
+          "prisma.mistake.findMany",
+          "prisma.studyTask.findFirst",
+          "prisma.testAttempt.findFirst"
+        ]
+      },
+      {
+        "file": "src/app/(main)/results/page.tsx",
+        "route": "/results",
+        "imports": [
+          {
+            "source": "@/components/list-pagination",
+            "names": "{ListPagination,parseListPage}",
+            "line": 1
+          },
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 2
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ EXAM_TYPE_LABEL }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ formatUk }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 5
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Button, Card, EmptyState, PageHeader }",
+            "line": 6
+          },
+          {
+            "source": "@/components/result-editor-dialog",
+            "names": "{ ResultEditorDialog, ResultDeleteButton }",
+            "line": 7
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 8
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Button",
+          "Link",
+          "EmptyState",
+          "Card",
+          "ResultDeleteButton",
+          "Score",
+          "ListPagination",
+          "ResultEditorDialog"
+        ],
+        "headings": [
+          "Журнал результатів",
+          "Зберігайте результати діагностики, пробників і тестів окремо. Тестові та рейтингові бали показано окремо."
+        ],
+        "queries": [
+          "prisma.examResult.findMany",
+          "prisma.examResult.count",
+          "prisma.examResult.findFirst"
+        ]
+      },
+      {
+        "file": "src/app/(main)/review/page.tsx",
+        "route": "/review",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ dateKey, formatUk }",
+            "line": 2
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 3
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, EmptyState, PageHeader }",
+            "line": 4
+          },
+          {
+            "source": "@/components/review-controls",
+            "names": "{ FlashcardForm, ReviewControls }",
+            "line": 5
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 6
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Section",
+          "Card",
+          "Link",
+          "ReviewControls",
+          "FlashcardForm",
+          "EmptyState"
+        ],
+        "headings": [
+          "Повторення",
+          "Інтервали повторення залежать від результату: 1, 7 і 30 днів для закріплення, раніше при труднощах і пізніше при впевненому результаті.",
+          "Сьогодні",
+          "Прострочені",
+          "Найближчі"
+        ],
+        "queries": [
+          "prisma.reviewSchedule.findMany",
+          "prisma.reviewSchedule.findMany",
+          "prisma.reviewSchedule.findMany",
+          "prisma.userTopicProgress.findMany({ where: { userId: user.id, status: \"NEEDS_REVIEW\" }, include: { topic: true }, take: 8 }).then",
+          "prisma.userTopicProgress.findMany",
+          "prisma.reviewSchedule.findMany",
+          "prisma.flashcard.findMany",
+          "prisma.topic.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/search/page.tsx",
+        "route": "/search",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{Button,Card,PageHeader}",
+            "line": 2
+          },
+          {
+            "source": "@/components/subject-icon",
+            "names": "{SubjectIcon}",
+            "line": 3
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{prisma}",
+            "line": 4
+          },
+          {
+            "source": "@/server/session",
+            "names": "{requireUser}",
+            "line": 5
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "Button",
+          "Link",
+          "SubjectIcon"
+        ],
+        "headings": [
+          "Пошук матеріалів",
+          "Знайдіть предмет або тему, щоб перейти до навчання."
+        ],
+        "queries": [
+          "prisma.subject.findMany",
+          "prisma.topic.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/settings/page.tsx",
+        "route": "/settings",
+        "imports": [
+          {
+            "source": "@/components/elective-form",
+            "names": "{ ElectiveForm }",
+            "line": 1
+          },
+          {
+            "source": "@/components/learning-time-form",
+            "names": "{ LearningTimeForm }",
+            "line": 2
+          },
+          {
+            "source": "@/components/settings-workspace",
+            "names": "{ SettingsWorkspace }",
+            "line": 3
+          },
+          {
+            "source": "@/components/forms",
+            "names": "{ SettingsForm }",
+            "line": 4
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, PageHeader }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ SUBJECTS }",
+            "line": 6
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 7
+          },
+          {
+            "source": "@/server/sync",
+            "names": "{ getSettings }",
+            "line": 8
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "SettingsWorkspace",
+          "Card",
+          "LearningTimeForm",
+          "ElectiveForm",
+          "SettingsForm"
+        ],
+        "headings": [
+          "Налаштування"
+        ],
+        "queries": []
+      },
+      {
+        "file": "src/app/(main)/subjects/page.tsx",
+        "route": "/subjects",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "lucide-react",
+            "names": "{ArrowRight}",
+            "line": 2
+          },
+          {
+            "source": "@/components/subject-icon",
+            "names": "{SubjectIcon}",
+            "line": 3
+          },
+          {
+            "source": "@/lib/readiness",
+            "names": "{lessonAccess}",
+            "line": 4
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{prisma}",
+            "line": 5
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{Button,Card,PageHeader,Progress}",
+            "line": 6
+          },
+          {
+            "source": "@/server/session",
+            "names": "{requireUser}",
+            "line": 7
+          }
+        ],
+        "components": [
+          "Link",
+          "Card",
+          "SubjectIcon",
+          "Progress",
+          "ArrowRight",
+          "PageHeader",
+          "Button"
+        ],
+        "headings": [
+          "Предмети",
+          "Ваші чотири предмети та бібліотека інших напрямів."
+        ],
+        "queries": [
+          "prisma.subject.findMany",
+          "prisma.userTopicProgress.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/subjects/[slug]/page.tsx",
+        "route": "/subjects/[slug]",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "next/navigation",
+            "names": "{notFound}",
+            "line": 2
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{STATUS_LABEL}",
+            "line": 3
+          },
+          {
+            "source": "@/lib/readiness",
+            "names": "{lessonAccess}",
+            "line": 4
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{prisma}",
+            "line": 5
+          },
+          {
+            "source": "@/lib/scoring",
+            "names": "{averageForSubject,changeFromInitial,formatDelta}",
+            "line": 6
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{Badge,Button,Card,EmptyState,Input,PageHeader,Stat}",
+            "line": 7
+          },
+          {
+            "source": "@/server/session",
+            "names": "{requireUser}",
+            "line": 8
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Stat",
+          "Card",
+          "Input",
+          "Button",
+          "Link",
+          "Badge",
+          "EmptyState"
+        ],
+        "headings": [],
+        "queries": [
+          "prisma.subject.findUnique",
+          "prisma.userTopicProgress.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/tests/page.tsx",
+        "route": "/tests",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{Card,EmptyState,PageHeader,Button,Badge}",
+            "line": 2
+          },
+          {
+            "source": "@/components/test-set-controls",
+            "names": "{StartTestSet}",
+            "line": 3
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{prisma}",
+            "line": 4
+          },
+          {
+            "source": "@/lib/test-publication",
+            "names": "{testPublication}",
+            "line": 5
+          },
+          {
+            "source": "@/server/session",
+            "names": "{requireUser}",
+            "line": 6
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Button",
+          "Link",
+          "Card",
+          "Badge",
+          "StartTestSet",
+          "EmptyState"
+        ],
+        "headings": [
+          "Мої тести",
+          "Продовжуйте розпочаті тести та переглядайте свої результати.",
+          "Тестів ще немає"
+        ],
+        "queries": [
+          "prisma.testAttempt.findMany",
+          "prisma.test.findMany"
+        ]
+      },
+      {
+        "file": "src/app/(main)/tests/[id]/page.tsx",
+        "route": "/tests/[id]",
+        "imports": [
+          {
+            "source": "@/components/question-feedback",
+            "names": "{ QuestionFeedback }",
+            "line": 1
+          },
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 2
+          },
+          {
+            "source": "next/navigation",
+            "names": "{ notFound }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 4
+          },
+          {
+            "source": "@/components/math-text",
+            "names": "{ MathText }",
+            "line": 5
+          },
+          {
+            "source": "@/components/test-runner",
+            "names": "{ TestRunner }",
+            "line": 6
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Badge, Card, PageHeader }",
+            "line": 7
+          },
+          {
+            "source": "@/server/actions",
+            "names": "{ gradeManually, startTopicTest }",
+            "line": 8
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 9
+          },
+          {
+            "source": "@/server/sync",
+            "names": "{ getSettings }",
+            "line": 10
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "TestRunner",
+          "Card",
+          "Link",
+          "Badge",
+          "MathText",
+          "QuestionFeedback"
+        ],
+        "headings": [
+          "Правильні відповіді приховані до завершення. Чернетка зберігається в базі й у браузері.",
+          "Результат"
+        ],
+        "queries": [
+          "prisma.testAttempt.findUnique",
+          "prisma.userTopicProgress.findUnique"
+        ]
+      },
+      {
+        "file": "src/app/(main)/topics/[id]/page.tsx",
+        "route": "/topics/[id]",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "next/navigation",
+            "names": "{ notFound }",
+            "line": 2
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ STATUS_LABEL }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/readiness",
+            "names": "{ lessonAccess }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ formatUk }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 6
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireUser }",
+            "line": 7
+          },
+          {
+            "source": "@/components/math-text",
+            "names": "{ MathText }",
+            "line": 9
+          },
+          {
+            "source": "@/components/forms",
+            "names": "{ StudyLogForm }",
+            "line": 10
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Badge, Button, Card, EmptyState, PageHeader }",
+            "line": 11
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Badge",
+          "Button",
+          "Link",
+          "EmptyState",
+          "Card",
+          "MathText",
+          "StudyLogForm"
+        ],
+        "headings": [
+          "Матеріал готується"
+        ],
+        "queries": [
+          "prisma.topic.findUnique",
+          "prisma.userTopicProgress.findUnique"
+        ]
+      },
+      {
+        "file": "src/app/admin/audit/page.tsx",
+        "route": "/admin/audit",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@prisma/client",
+            "names": "type { Prisma }",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, PageHeader }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 4
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireAdministrator }",
+            "line": 5
+          },
+          {
+            "source": "@/server/audit-log",
+            "names": "{ AUDIT_ACTIONS, safeAuditMetadata }",
+            "line": 6
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "Link"
+        ],
+        "headings": [
+          "Журнал дій",
+          "Реальні зміни спільних матеріалів, ролей, налаштувань, резервні операції та входи. Час — за Києвом."
+        ],
+        "queries": [
+          "prisma.auditLog.findMany",
+          "prisma.auditLog.count"
+        ]
+      },
+      {
+        "file": "src/app/admin/lessons/page.tsx",
+        "route": "/admin/lessons",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{ isAdministrator }",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Button, Card, EmptyState, PageHeader }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ COVERAGE_LABEL }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/lesson",
+            "names": "{ parseLesson }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 6
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireContentEditor }",
+            "line": 7
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Metric",
+          "Card",
+          "Button",
+          "Link",
+          "EmptyState"
+        ],
+        "headings": [
+          "Уроки",
+          "Переглядайте готовність уроків і відкривайте редактор або попередній перегляд для учня.",
+          "Уроків за цими фільтрами не знайдено"
+        ],
+        "queries": [
+          "prisma.topic.findMany",
+          "prisma.topic.count",
+          "prisma.subject.findMany",
+          "prisma.topic.count",
+          "prisma.topic.count",
+          "prisma.videoLesson.count"
+        ]
+      },
+      {
+        "file": "src/app/admin/lessons/[id]/page.tsx",
+        "route": "/admin/lessons/[id]",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "next/navigation",
+            "names": "{ notFound }",
+            "line": 2
+          },
+          {
+            "source": "@/components/lesson-editor",
+            "names": "{ LessonEditor }",
+            "line": 3
+          },
+          {
+            "source": "@/components/video-panel",
+            "names": "{ VideoPanel }",
+            "line": 4
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Button, Card, PageHeader }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/lesson",
+            "names": "{ parseLesson }",
+            "line": 6
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 7
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{ isAdministrator }",
+            "line": 8
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireContentEditor }",
+            "line": 9
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Button",
+          "Link",
+          "Card",
+          "LessonEditor",
+          "VideoPanel"
+        ],
+        "headings": [],
+        "queries": [
+          "prisma.topic.findUnique"
+        ]
+      },
+      {
+        "file": "src/app/admin/page.tsx",
+        "route": "/admin",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "lucide-react",
+            "names": "{BookOpen,ClipboardList,Library,Users}",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{Card,PageHeader,Progress}",
+            "line": 3
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{prisma}",
+            "line": 4
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{effectiveRole,ROLE_INFO,ROLE_ORDER}",
+            "line": 5
+          },
+          {
+            "source": "@/server/session",
+            "names": "{requireAdministrator}",
+            "line": 6
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Link",
+          "Card",
+          "Icon",
+          "Progress"
+        ],
+        "headings": [
+          "Огляд",
+          "Стан платформи, навчальні матеріали та рівні доступу."
+        ],
+        "queries": [
+          "prisma.user.findMany",
+          "prisma.subject.count",
+          "prisma.topic.count",
+          "prisma.question.count",
+          "prisma.topic.count",
+          "prisma.test.count",
+          "prisma.question.count",
+          "prisma.topic.count"
+        ]
+      },
+      {
+        "file": "src/app/admin/questions/page.tsx",
+        "route": "/admin/questions",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/components/forms",
+            "names": "{ ImportQuestionsForm, QuestionForm }",
+            "line": 2
+          },
+          {
+            "source": "@/components/question-moderation",
+            "names": "{ QuestionModeration }",
+            "line": 3
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Badge, Button, Card, EmptyState, PageHeader }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ DIFFICULTY_LABEL, QUESTION_TYPE_LABEL }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{ isAdministrator }",
+            "line": 6
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 7
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireContentEditor }",
+            "line": 8
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Button",
+          "Card",
+          "QuestionForm",
+          "ImportQuestionsForm",
+          "Link",
+          "EmptyState",
+          "Badge",
+          "QuestionModeration"
+        ],
+        "headings": [
+          "Банк завдань",
+          "Створюйте, перевіряйте та архівуйте запитання. Використані в тестах завдання захищені від змін, що пошкодять історію спроб.",
+          "Завдань не знайдено"
+        ],
+        "queries": [
+          "prisma.question.findMany",
+          "prisma.question.count",
+          "prisma.topic.findMany",
+          "prisma.subject.findMany"
+        ]
+      },
+      {
+        "file": "src/app/admin/questions/[id]/page.tsx",
+        "route": "/admin/questions/[id]",
+        "imports": [
+          {
+            "source": "@/components/question-editor",
+            "names": "{ QuestionEditor }",
+            "line": 1
+          }
+        ],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/admin/settings/page.tsx",
+        "route": "/admin/settings",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/components/forms",
+            "names": "{ BackupRestoreForm, PlatformConfigForm }",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, PageHeader }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ dateKey, formatUk }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{ isOwner }",
+            "line": 5
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireAdministrator }",
+            "line": 6
+          },
+          {
+            "source": "@/server/sync",
+            "names": "{ getSettings }",
+            "line": 7
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "BackupRestoreForm",
+          "Link",
+          "PlatformConfigForm"
+        ],
+        "headings": [
+          "Налаштування платформи",
+          "Інструменти адміністратора, що вже підтримуються проєктом."
+        ],
+        "queries": []
+      },
+      {
+        "file": "src/app/admin/subjects/page.tsx",
+        "route": "/admin/subjects",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{ isAdministrator }",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, PageHeader, Progress }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 4
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireContentEditor }",
+            "line": 5
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "Progress",
+          "Link"
+        ],
+        "headings": [
+          "Предмети",
+          "Предмети, описи та пов’язані навчальні матеріали."
+        ],
+        "queries": [
+          "prisma.subject.findMany"
+        ]
+      },
+      {
+        "file": "src/app/admin/subjects/[id]/page.tsx",
+        "route": "/admin/subjects/[id]",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "next/navigation",
+            "names": "{notFound}",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{Button,Card,PageHeader}",
+            "line": 3
+          },
+          {
+            "source": "@/components/subject-editor",
+            "names": "{SubjectEditor}",
+            "line": 4
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{prisma}",
+            "line": 5
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{isAdministrator}",
+            "line": 6
+          },
+          {
+            "source": "@/server/session",
+            "names": "{requireContentEditor}",
+            "line": 7
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Button",
+          "Link",
+          "Card",
+          "SubjectEditor"
+        ],
+        "headings": [
+          "Назва та опис спільного навчального предмета."
+        ],
+        "queries": [
+          "prisma.subject.findUnique"
+        ]
+      },
+      {
+        "file": "src/app/admin/tasks/page.tsx",
+        "route": "/admin/tasks",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Button, Card, EmptyState, PageHeader }",
+            "line": 2
+          },
+          {
+            "source": "@/lib/dates",
+            "names": "{ formatUk }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 4
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireAdministrator }",
+            "line": 5
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "Button",
+          "Link",
+          "EmptyState"
+        ],
+        "headings": [
+          "Персональні навчальні плани",
+          "Перегляд агрегованих занять із планів учнів. Імена, нікнейми й особисті нотатки не відображаються; редагування чужого плану недоступне.",
+          "Занять за фільтрами не знайдено"
+        ],
+        "queries": [
+          "prisma.studyTask.count",
+          "prisma.studyTask.findMany",
+          "prisma.studyTask.count",
+          "prisma.subject.findMany"
+        ]
+      },
+      {
+        "file": "src/app/admin/tests/new/page.tsx",
+        "route": "/admin/tests/new",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{prisma}",
+            "line": 2
+          },
+          {
+            "source": "@/server/session",
+            "names": "{requireAdministrator}",
+            "line": 3
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{Card,PageHeader,Button}",
+            "line": 4
+          },
+          {
+            "source": "@/components/test-set-controls",
+            "names": "{TestSetForm}",
+            "line": 5
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "Button",
+          "Link",
+          "TestSetForm"
+        ],
+        "headings": [
+          "Новий набір тесту",
+          "Зберіть чернетку з перевірених запитань; публікація виконується окремо."
+        ],
+        "queries": [
+          "prisma.subject.findMany",
+          "prisma.question.findMany",
+          "prisma.question.count"
+        ]
+      },
+      {
+        "file": "src/app/admin/tests/page.tsx",
+        "route": "/admin/tests",
+        "imports": [
+          {
+            "source": "@/lib/test-publication",
+            "names": "{PUBLICATION_LABEL,testPublication}",
+            "line": 1
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, EmptyState, PageHeader, Button }",
+            "line": 2
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 3
+          },
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 4
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireAdministrator }",
+            "line": 5
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Button",
+          "Link",
+          "Card",
+          "EmptyState"
+        ],
+        "headings": [
+          "Тести та запитання",
+          "Збирайте перевірені запитання, публікуйте набори та зберігайте історію спроб.",
+          "Тестів не знайдено"
+        ],
+        "queries": [
+          "prisma.test.findMany",
+          "prisma.test.count",
+          "prisma.question.count",
+          "prisma.question.count",
+          "prisma.question.count",
+          "prisma.question.count",
+          "prisma.subject.findMany"
+        ]
+      },
+      {
+        "file": "src/app/admin/tests/[id]/page.tsx",
+        "route": "/admin/tests/[id]",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "next/navigation",
+            "names": "{notFound}",
+            "line": 2
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{prisma}",
+            "line": 3
+          },
+          {
+            "source": "@/lib/test-publication",
+            "names": "{testPublication}",
+            "line": 4
+          },
+          {
+            "source": "@/server/session",
+            "names": "{requireAdministrator}",
+            "line": 5
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{Card,PageHeader}",
+            "line": 6
+          },
+          {
+            "source": "@/components/math-text",
+            "names": "{MathText}",
+            "line": 7
+          },
+          {
+            "source": "@/components/test-set-controls",
+            "names": "{TestSetControls,TestSetForm}",
+            "line": 8
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Link",
+          "Card",
+          "TestSetControls",
+          "MathText",
+          "TestSetForm"
+        ],
+        "headings": [],
+        "queries": [
+          "prisma.test.findUnique",
+          "prisma.subject.findMany",
+          "prisma.question.findMany"
+        ]
+      },
+      {
+        "file": "src/app/admin/topics/page.tsx",
+        "route": "/admin/topics",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{ isAdministrator }",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Button, Card, EmptyState, PageHeader }",
+            "line": 3
+          },
+          {
+            "source": "@/lib/constants",
+            "names": "{ COVERAGE_LABEL }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 5
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireContentEditor }",
+            "line": 6
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "Button",
+          "Link",
+          "EmptyState"
+        ],
+        "headings": [
+          "Розділи та теми",
+          "Структура контенту: предмет → розділ → тема. Збережіть наявні зв’язки, редагуючи тему.",
+          "Тем не знайдено"
+        ],
+        "queries": [
+          "prisma.topic.findMany",
+          "prisma.topic.count",
+          "prisma.subject.findMany"
+        ]
+      },
+      {
+        "file": "src/app/admin/topics/[id]/page.tsx",
+        "route": "/admin/topics/[id]",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "next/navigation",
+            "names": "{ notFound }",
+            "line": 2
+          },
+          {
+            "source": "@/components/forms",
+            "names": "{ TopicEditor }",
+            "line": 3
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card, PageHeader, Button }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{ isAdministrator }",
+            "line": 6
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireContentEditor }",
+            "line": 7
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Button",
+          "Link",
+          "Card",
+          "TopicEditor"
+        ],
+        "headings": [],
+        "queries": [
+          "prisma.topic.findUnique",
+          "prisma.userTopicProgress.findUnique"
+        ]
+      },
+      {
+        "file": "src/app/admin/users/page.tsx",
+        "route": "/admin/users",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@prisma/client",
+            "names": "type { Prisma }",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Button, Card, PageHeader }",
+            "line": 3
+          },
+          {
+            "source": "@/components/role-manager",
+            "names": "{ RoleManager }",
+            "line": 4
+          },
+          {
+            "source": "@/lib/permissions",
+            "names": "{ effectiveRole, isPlatformRole, ROLE_INFO, ROLE_ORDER }",
+            "line": 5
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 6
+          },
+          {
+            "source": "@/server/session",
+            "names": "{ requireAdministrator }",
+            "line": 7
+          }
+        ],
+        "components": [
+          "PageHeader",
+          "Card",
+          "Button",
+          "Link",
+          "RoleManager"
+        ],
+        "headings": [
+          "Користувачі та ролі",
+          "Знайдіть профіль за нікнеймом, перевірте його стан і змініть роль у разі потреби."
+        ],
+        "queries": [
+          "prisma.user.findMany",
+          "prisma.user.count",
+          "prisma.user.groupBy",
+          "prisma.user.findUnique",
+          "prisma.user.count"
+        ]
+      },
+      {
+        "file": "src/app/editor/lessons/page.tsx",
+        "route": "/editor/lessons",
+        "imports": [],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/editor/lessons/[id]/page.tsx",
+        "route": "/editor/lessons/[id]",
+        "imports": [],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/editor/page.tsx",
+        "route": "/editor",
+        "imports": [
+          {
+            "source": "next/navigation",
+            "names": "{redirect}",
+            "line": 1
+          },
+          {
+            "source": "@/server/session",
+            "names": "{requireContentEditor}",
+            "line": 1
+          }
+        ],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/editor/questions/page.tsx",
+        "route": "/editor/questions",
+        "imports": [],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/editor/questions/[id]/page.tsx",
+        "route": "/editor/questions/[id]",
+        "imports": [
+          {
+            "source": "@/components/question-editor",
+            "names": "{ QuestionEditor }",
+            "line": 1
+          }
+        ],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/editor/subjects/page.tsx",
+        "route": "/editor/subjects",
+        "imports": [],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/editor/subjects/[id]/page.tsx",
+        "route": "/editor/subjects/[id]",
+        "imports": [],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/editor/topics/page.tsx",
+        "route": "/editor/topics",
+        "imports": [],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/editor/topics/[id]/page.tsx",
+        "route": "/editor/topics/[id]",
+        "imports": [],
+        "components": [],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/login/page.tsx",
+        "route": "/login",
+        "imports": [
+          {
+            "source": "next/link",
+            "names": "Link",
+            "line": 1
+          },
+          {
+            "source": "@/server/actions",
+            "names": "{ login }",
+            "line": 2
+          },
+          {
+            "source": "@/components/ui",
+            "names": "{ Card }",
+            "line": 3
+          },
+          {
+            "source": "@/components/login-form",
+            "names": "{ LoginForm, type LoginState }",
+            "line": 4
+          }
+        ],
+        "components": [
+          "Card",
+          "LoginForm",
+          "Link"
+        ],
+        "headings": [],
+        "queries": []
+      },
+      {
+        "file": "src/app/onboarding/page.tsx",
+        "route": "/onboarding",
+        "imports": [
+          {
+            "source": "@/components/onboarding-wizard",
+            "names": "{ OnboardingWizard }",
+            "line": 1
+          },
+          {
+            "source": "@/lib/prisma",
+            "names": "{ prisma }",
+            "line": 2
+          }
+        ],
+        "components": [
+          "OnboardingWizard"
+        ],
+        "headings": [],
+        "queries": [
+          "prisma.user.findUnique({ where: { id: \"owner\" } }).catch",
+          "prisma.user.findUnique"
+        ]
+      }
+    ],
+    "components": [
+      {
+        "file": "src/components/admin-nav.tsx",
+        "exports": [
+          "AdminNav"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/app-shell.tsx",
+        "exports": [
+          "AppShell"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/backup-restore.tsx",
+        "exports": [
+          "BackupRestoreForm"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/charts.tsx",
+        "exports": [
+          "RatingChart",
+          "Bars"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/content-tabs.tsx",
+        "exports": [
+          "ContentTabs"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/data-table.tsx",
+        "exports": [
+          "DataTable"
+        ],
+        "client": false
+      },
+      {
+        "file": "src/components/diagnostic-start.tsx",
+        "exports": [
+          "DiagnosticStart"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/elective-form.tsx",
+        "exports": [
+          "ElectiveForm"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/forms.tsx",
+        "exports": [
+          "ResultForm",
+          "QuestionForm",
+          "ImportQuestionsForm",
+          "TopicEditor",
+          "TopicActions",
+          "ExamStartForm",
+          "SettingsForm",
+          "PlatformConfigForm",
+          "NoteForm",
+          "StudyLogForm",
+          "CustomTaskForm",
+          "TutorForm"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/header-search.tsx",
+        "exports": [
+          "HeaderSearch"
+        ],
+        "client": false
+      },
+      {
+        "file": "src/components/learning-time-form.tsx",
+        "exports": [
+          "LearningTimeForm"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/lesson-editor.tsx",
+        "exports": [
+          "LessonEditor"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/lesson-tabs.tsx",
+        "exports": [
+          "LessonTabs"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/lesson-tutor.tsx",
+        "exports": [
+          "LessonTutor",
+          "CompleteLesson"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/list-pagination.tsx",
+        "exports": [
+          "parseListPage",
+          "ListPagination"
+        ],
+        "client": false
+      },
+      {
+        "file": "src/components/login-form.tsx",
+        "exports": [
+          "LoginState",
+          "LoginForm"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/math-text.tsx",
+        "exports": [
+          "MathText"
+        ],
+        "client": false
+      },
+      {
+        "file": "src/components/mistake-controls.tsx",
+        "exports": [
+          "MistakeControls"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/note-delete-button.tsx",
+        "exports": [
+          "NoteDeleteButton"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/onboarding-wizard.tsx",
+        "exports": [
+          "OnboardingWizard"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/panel-dialog.tsx",
+        "exports": [
+          "PanelDialog"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/question-editor.tsx",
+        "exports": [
+          "QuestionEditor"
+        ],
+        "client": false
+      },
+      {
+        "file": "src/components/question-feedback.tsx",
+        "exports": [
+          "QuestionFeedback"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/question-moderation.tsx",
+        "exports": [
+          "QuestionModeration"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/readiness-panel.tsx",
+        "exports": [
+          "ReadinessPanel"
+        ],
+        "client": false
+      },
+      {
+        "file": "src/components/result-editor-dialog.tsx",
+        "exports": [
+          "ResultEditorDialog",
+          "ResultDeleteButton"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/review-controls.tsx",
+        "exports": [
+          "ReviewControls",
+          "FlashcardForm"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/role-manager.tsx",
+        "exports": [
+          "RoleManager"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/settings-workspace.tsx",
+        "exports": [
+          "SettingsWorkspace"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/subject-editor.tsx",
+        "exports": [
+          "SubjectEditor"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/subject-icon.tsx",
+        "exports": [
+          "SubjectIcon"
+        ],
+        "client": false
+      },
+      {
+        "file": "src/components/task-controls.tsx",
+        "exports": [
+          "TaskControls",
+          "RecalculatePlanButton"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/test-runner.tsx",
+        "exports": [
+          "TestRunner"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/test-set-controls.tsx",
+        "exports": [
+          "TestSetControls",
+          "StartTestSet",
+          "TestSetForm"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/theme-provider.tsx",
+        "exports": [
+          "ThemeProvider"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/theme-toggle.tsx",
+        "exports": [
+          "ThemeToggle"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/ui.tsx",
+        "exports": [
+          "Button",
+          "Card",
+          "Input",
+          "Textarea",
+          "Label",
+          "Badge",
+          "Progress",
+          "Skeleton",
+          "PageHeader",
+          "EmptyState",
+          "ErrorState",
+          "LoadingState",
+          "Stat",
+          "FormField",
+          "ProgressBar"
+        ],
+        "client": false
+      },
+      {
+        "file": "src/components/use-action-feedback.ts",
+        "exports": [
+          "useActionFeedback"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/use-attempt-draft.ts",
+        "exports": [
+          "useAttemptDraft"
+        ],
+        "client": true
+      },
+      {
+        "file": "src/components/video-panel.tsx",
+        "exports": [
+          "VideoPanel"
+        ],
+        "client": true
+      }
+    ],
+    "normalizedProtectedSHA256": {
+      "prisma/schema.prisma": "732632d5853f14ed1f3239aa7ae573c709715e16a24640c2d55d95c729281d52",
+      "src/lib/permissions.ts": "555134699ce0d80ff08ad36011152ab8ade4fffaca438be2eb2ca0443be0428e",
+      "src/server/session.ts": "af7b15aa7d5babf2f13c9a220bf3a72b9a5d6a36b46cfcd877f9997bf37c2a9e"
+    }
+  },
+  "branchDiff": [
+    "A\tdesign/README.md",
+    "A\tdesign/reference/nine-screens.png",
+    "A\tdocs/BETA-CHECKLIST.md",
+    "A\tdocs/BETA.md",
+    "A\te2e/beta/accessibility.spec.ts",
+    "A\te2e/beta/admin-tests.spec.ts",
+    "A\te2e/beta/auth-ui.spec.ts",
+    "A\te2e/beta/catalog.spec.ts",
+    "A\te2e/beta/dashboard.spec.ts",
+    "A\te2e/beta/keyboard.spec.ts",
+    "A\te2e/beta/learning-time.spec.ts",
+    "A\te2e/beta/mistakes.spec.ts",
+    "A\te2e/beta/offline-note.spec.ts",
+    "A\te2e/beta/permissions.spec.ts",
+    "A\te2e/beta/personal-lists.spec.ts",
+    "A\te2e/beta/stability.spec.ts",
+    "A\te2e/beta/test-runner.spec.ts",
+    "A\te2e/beta/video-failure.spec.ts",
+    "A\te2e/beta/visual.spec.ts",
+    "A\te2e/fresh/student.spec.ts",
+    "A\tplaywright.beta.config.ts",
+    "A\tplaywright.fresh.config.ts",
+    "M\tsrc/app/(main)/calendar/page.tsx",
+    "A\tsrc/app/(main)/error.test.ts",
+    "M\tsrc/app/(main)/error.tsx",
+    "M\tsrc/app/(main)/learn/[topicId]/page.tsx",
+    "M\tsrc/app/(main)/loading.tsx",
+    "M\tsrc/app/(main)/mistakes/page.tsx",
+    "M\tsrc/app/(main)/notes/page.tsx",
+    "M\tsrc/app/(main)/page.tsx",
+    "M\tsrc/app/(main)/results/page.tsx",
+    "M\tsrc/app/(main)/review/page.tsx",
+    "M\tsrc/app/(main)/settings/page.tsx",
+    "M\tsrc/app/(main)/subjects/[slug]/page.tsx",
+    "M\tsrc/app/(main)/subjects/page.tsx",
+    "M\tsrc/app/(main)/tests/page.tsx",
+    "M\tsrc/app/(main)/topics/[id]/page.tsx",
+    "M\tsrc/app/admin/lessons/page.tsx",
+    "M\tsrc/app/admin/tasks/page.tsx",
+    "A\tsrc/app/admin/tests/[id]/page.tsx",
+    "A\tsrc/app/admin/tests/new/page.tsx",
+    "M\tsrc/app/admin/tests/page.tsx",
+    "M\tsrc/app/admin/topics/page.tsx",
+    "A\tsrc/app/api/export/results/route.test.ts",
+    "M\tsrc/app/api/export/results/route.ts",
+    "M\tsrc/app/globals.css",
+    "M\tsrc/app/layout.tsx",
+    "M\tsrc/components/admin-nav.tsx",
+    "A\tsrc/components/app-shell.test.ts",
+    "M\tsrc/components/app-shell.tsx",
+    "A\tsrc/components/content-tabs.tsx",
+    "A\tsrc/components/data-table.tsx",
+    "M\tsrc/components/elective-form.tsx",
+    "M\tsrc/components/forms.tsx",
+    "A\tsrc/components/learning-time-form.tsx",
+    "A\tsrc/components/lesson-completion.test.ts",
+    "M\tsrc/components/lesson-tabs.tsx",
+    "M\tsrc/components/lesson-tutor.tsx",
+    "A\tsrc/components/list-pagination.tsx",
+    "M\tsrc/components/login-form.tsx",
+    "A\tsrc/components/mistake-controls.tsx",
+    "M\tsrc/components/onboarding-wizard.tsx",
+    "A\tsrc/components/panel-dialog.tsx",
+    "A\tsrc/components/review-controls.tsx",
+    "M\tsrc/components/settings-workspace.tsx",
+    "A\tsrc/components/task-controls.test.ts",
+    "M\tsrc/components/task-controls.tsx",
+    "M\tsrc/components/test-runner.tsx",
+    "A\tsrc/components/test-set-controls.tsx",
+    "M\tsrc/components/ui.tsx",
+    "A\tsrc/components/use-action-feedback.ts",
+    "M\tsrc/components/video-panel.tsx",
+    "A\tsrc/lib/answer-completion.ts",
+    "M\tsrc/lib/constants.ts",
+    "A\tsrc/lib/dates.test.ts",
+    "M\tsrc/lib/dates.ts",
+    "A\tsrc/lib/lesson-access.test.ts",
+    "M\tsrc/lib/plan.ts",
+    "M\tsrc/lib/readiness.ts",
+    "M\tsrc/lib/task-origin.ts",
+    "A\tsrc/lib/test-publication.ts",
+    "M\tsrc/server/actions.ts",
+    "M\tsrc/server/audit-log.ts",
+    "A\tsrc/server/permissions-matrix.test.ts",
+    "M\tsrc/server/sync.ts",
+    "A\tsrc/server/test-sets.ts",
+    "A\ttests/answer-completion.test.ts",
+    "A\ttests/beta-auth.test.ts",
+    "M\ttests/reliability-database.test.ts"
+  ],
+  "protectedGitDiffExit": 0
+}

@@ -1,0 +1,368 @@
+diff --git a/PLAN.md b/PLAN.md
+index 98fb9dd..2398a1f 100644
+--- a/PLAN.md
++++ b/PLAN.md
+@@ -1,6 +1,6 @@
+ # NMT Academy 4.0 — утверждённая дорожная карта 00–09
+ 
+-Срез: 21 октября 2026 года. Основная ветка `cursor/nmt-academy-lessons-and-audit`, HEAD `4e02c68ea8accc810dcd9bd5853e4931640ab01b`. Статус этапа отделён от наличия кода: уже реализованный компонент сам по себе не означает приёмку всего этапа.
++Срез: 21 октября 2026 года. Основная ветка `cursor/nmt-academy-lessons-and-audit`, HEAD `2169596c5b4ccb363ebf02d1692c4754a886575b`. Статус этапа отделён от наличия кода: уже реализованный компонент сам по себе не означает приёмку всего этапа.
+ 
+ ## Статус решения
+ 
+@@ -13,7 +13,7 @@
+ | № | Утверждённый этап | Текущий статус | Граница выполнения |
+ | --- | --- | --- | --- |
+ | 00 | Объединение проекта | **DONE** | D01–D05 объединены в основной checkout; это не заменяет последующую проверку каждого пользовательского сценария. |
+-| 01 | Регистрация и авторизация | **IN PROGRESS** | Код открытой регистрации и авторизации присутствует. Для завершения нужны реальные проверки Google OAuth, Resend и входа существующего владельца. |
++| 01 | Регистрация и авторизация | **IN PROGRESS; локальный QA пройден, Git checkpoint и ревью ожидаются** | По отчётам проверены открытая email-регистрация, доставка Resend, вход OWNER и реальный локальный Google OAuth. Перед формальным закрытием нужно проверить и сохранить накопленные изменения этапа 01. |
+ | 02 | Полный редизайн всех согласованных экранов | Утверждён в дорожной карте; детальное ТЗ ожидается. | Проверять согласованность всех утверждённых экранов, вложенных состояний и мобильных версий по отдельному ТЗ. |
+ | 03 | Диагностика, персональный план, уроки и учебный цикл | Утверждён в дорожной карте; детальное ТЗ ожидается. | Сквозной учебный путь и сохранение персональных данных проверять по отдельному ТЗ. |
+ | 04 | Тематические тесты, внешние пробники, результаты и повторение | Утверждён в дорожной карте; детальное ТЗ ожидается. | Реальные тестовые сценарии, результаты и повторение проверять по отдельному ТЗ. |
+@@ -33,8 +33,14 @@ A01–A06 из `D:/НМТ Сайт/architecture/A00-2026-10-20/07-implementation
+ 2. Малые изменения проверять адресно. Полный набор проверок запускать после значимых изменений, миграций и перед выпуском. Тесты с записью выполнять только на изолированной QA-базе.
+ 3. Рабочую SQLite, резервные копии, реальные аккаунты и сервер менять только в пределах отдельного разрешения. Перед миграцией проверять схему и данные на копии.
+ 4. После задачи подготовить `TASK-REPORT.md` и `TASK-CHANGES.zip` только с её безопасными изменёнными документами или файлами. Коммит, merge и push — только по разрешению.
+-5. Завершить этап 01 реальной проверкой провайдеров и входа владельца. Этап 02 не начинать до отдельного задания владельца.
++5. Завершить этап 01 ревью накопленных изменений и разрешённым владельцем Git checkpoint. Этап 02 не начинать до отдельного задания владельца.
++
++## Отложенные задачи по утверждённым этапам
++
++- **Этап 02 — интерфейс:** удалить поле «Рік НМТ» из интерфейса; исправить числовые поля, в которых нельзя очистить `0`; проверить аналогичные формы. Это задачи редизайна, не часть текущего auth-checkpoint.
++- **Этап 03 — учебный цикл:** исправить повторное появление перенесённого задания `d2-s1` на старой дате после `syncPlan`; проверить повторную синхронизацию и загрузку учебных данных. Ошибка загрузки в Google QA была вызвана отсутствием `Subject` в пустой тестовой базе; для рабочей базы аналогичный дефект не доказан.
++- **Этап 07 — публикация:** настроить production Google OAuth и подтверждённый домен Resend; ввести общий rate limiting для нескольких процессов/инстансов и провести финальный security review.
+ 
+ ## Открытые решения
+ 
+-Нужны отдельные детальные ТЗ и критерии приёмки для этапов 02–09; настройка и реальная проверка Google OAuth и Resend; ручное подтверждение входа существующего владельца. Для будущей публикации отдельно определить инфраструктуру, домен и эксплуатационные условия. `docs/stage01-owner-setup.md` обновлён по текущей открытой регистрации; реальные настройки Google и Resend остаются предметом отдельной проверки владельца.
++Нужны отдельные детальные ТЗ и критерии приёмки для этапов 02–09; решение владельца по Git checkpoint этапа 01; для будущей публикации — инфраструктура, домен и эксплуатационные условия. Локальный Google OAuth проверен на изолированной QA SQLite; публичный домен и production-провайдеры отдельно не проверялись. `docs/stage01-owner-setup.md` описывает открытую регистрацию и локальные настройки владельца.
+diff --git a/src/app/(main)/settings/page.tsx b/src/app/(main)/settings/page.tsx
+index d0bebd3..c627487 100644
+--- a/src/app/(main)/settings/page.tsx
++++ b/src/app/(main)/settings/page.tsx
+@@ -8,10 +8,23 @@ import { requireUser } from "@/server/session";
+ import { getSettings } from "@/server/sync";
+ import { startGoogleAuth } from "@/server/google-oauth";
+ import { EmailLinkForm, ProfileEditForm } from "@/components/account-forms";
++import { prisma } from "@/lib/prisma";
+ 
+-export default async function SettingsPage() {
++const oauthMessages: Record<string, string> = {
++  linked: "Google успішно підключено. Тепер можна входити в цей профіль через Google.",
++  link_failed: "Не вдалося підключити Google. Перевірте, що ви увійшли у свій профіль, і спробуйте ще раз.",
++  email_mismatch: "Email вибраного Google-акаунта не збігається з email цього профілю.",
++  email_in_use: "Цей Google email уже належить іншому профілю NMT Academy.",
++};
++
++export default async function SettingsPage({ searchParams }: {
++  searchParams: Promise<{ oauth?: string | string[] }>;
++}) {
+   const user = await requireUser();
+   const settings = await getSettings(user.id);
++  const googleBinding = await prisma.oAuthAccount.findUnique({ where: { userId_provider: { userId: user.id, provider: "google" } } });
++  const oauth = (await searchParams).oauth;
++  const oauthMessage = typeof oauth === "string" ? oauthMessages[oauth] : undefined;
+   const elective = user.subjects.find((item) => item.role === "ELECTIVE" && item.active)?.subjectId;
+   return (
+     <div className="space-y-6">
+@@ -19,6 +32,7 @@ export default async function SettingsPage() {
+       <SettingsWorkspace profile={<>
+       <Card className="space-y-3 p-4">
+         <h2 className="font-semibold">Профіль</h2>
++        {oauthMessage ? <p role="status" className="text-sm text-muted-foreground">{oauthMessage}</p> : null}
+         <div className="grid gap-3 text-sm sm:grid-cols-3">
+           <div><div className="text-xs text-muted-foreground">Ім’я</div><div className="mt-1 font-medium">{user.firstName} {user.lastName}</div></div>
+           <div><div className="text-xs text-muted-foreground">Нікнейм</div><div className="mt-1 font-medium">@{user.nickname}</div></div>
+@@ -28,7 +42,7 @@ export default async function SettingsPage() {
+         <p className="text-xs text-muted-foreground">Для входу можна використати нікнейм або підтверджений email.</p>
+         <ProfileEditForm firstName={user.firstName} lastName={user.lastName} examYear={user.examYear} />
+         <EmailLinkForm currentEmail={user.email} />
+-        {process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET && process.env.AUTH_BASE_URL ? <form action={startGoogleAuth}>
++        {googleBinding ? <p className="text-sm text-muted-foreground">Google підключено до цього профілю.</p> : process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET && process.env.AUTH_BASE_URL ? <form action={startGoogleAuth}>
+           <input type="hidden" name="mode" value="link" />
+           <button type="submit" className="rounded-lg border border-border px-3 py-2 text-sm">Прив’язати Google до цього профілю</button>
+         </form> : null}
+diff --git a/src/app/forgot-password/page.tsx b/src/app/forgot-password/page.tsx
+index 20eb627..4b2e04a 100644
+--- a/src/app/forgot-password/page.tsx
++++ b/src/app/forgot-password/page.tsx
+@@ -6,7 +6,7 @@ export default function ForgotPasswordPage() {
+   return <main className="mx-auto flex min-h-screen max-w-md items-center px-4">
+     <Card className="w-full space-y-4 p-6">
+       <h1 className="text-xl font-semibold">Відновити пароль</h1>
+-      <p className="text-sm text-muted-foreground">Якщо підтверджений email належить вашому профілю, ми надішлемо одноразове посилання на 30 хвилин.</p>
++      <p className="text-sm text-muted-foreground">Якщо підтверджений email належить вашому профілю, ми надішлемо одноразове посилання на 15 хвилин.</p>
+       <ForgotPasswordForm />
+       <Link href="/login" className="block text-sm underline">Назад до входу</Link>
+     </Card>
+diff --git a/src/app/login/page.tsx b/src/app/login/page.tsx
+index 8fd84a8..e641cde 100644
+--- a/src/app/login/page.tsx
++++ b/src/app/login/page.tsx
+@@ -6,12 +6,27 @@ import { startGoogleAuth } from "@/server/google-oauth";
+ 
+ export const dynamic = "force-dynamic";
+ 
+-export default function LoginPage() {
++const oauthErrors: Record<string, string> = {
++  link_required: "Акаунт із цією поштою вже існує. Увійдіть паролем NMT Academy та прив’яжіть Google у налаштуваннях.",
++  rate_limited: "Забагато спроб входу через Google. Спробуйте пізніше.",
++  expired: "Час входу через Google минув. Спробуйте ще раз.",
++  used: "Це посилання для входу вже використано. Спробуйте ще раз.",
++  invalid: "Не вдалося перевірити вхід через Google. Спробуйте ще раз.",
++  exchange_failed: "Google не підтвердив вхід. Спробуйте ще раз.",
++  failed: "Не вдалося завершити вхід через Google. Спробуйте ще раз.",
++};
++
++export default async function LoginPage({ searchParams }: {
++  searchParams: Promise<{ oauth?: string | string[] }>;
++}) {
++  const oauth = (await searchParams).oauth;
++  const oauthError = typeof oauth === "string" ? oauthErrors[oauth] : undefined;
+   return (
+     <main className="mx-auto flex min-h-screen max-w-md items-center px-4">
+       <Card className="w-full space-y-3 p-6">
+         <h1 className="text-xl font-semibold">Вхід до NMT Academy</h1>
+         <p className="text-sm text-muted-foreground">Кожен профіль має власні результати, календар і аналітику.</p>
++        {oauthError ? <p role="alert" className="text-sm text-destructive">{oauthError}</p> : null}
+         <LoginForm action={async (_previousState: LoginState, formData: FormData) => {
+           "use server";
+           const rememberMe = formData.get("rememberMe") === "on";
+diff --git a/src/app/register/page.tsx b/src/app/register/page.tsx
+index dd93f30..93e5891 100644
+--- a/src/app/register/page.tsx
++++ b/src/app/register/page.tsx
+@@ -5,8 +5,8 @@ import { startGoogleAuth } from "@/server/google-oauth";
+ 
+ export default async function RegisterPage({ searchParams }: { searchParams: Promise<{ oauth?: string }> }) {
+   const params = await searchParams;
+-  return <main className="mx-auto max-w-md space-y-5 px-4 py-8">
+-    <Card className="space-y-4 p-6">
++  return <main className="mx-auto flex min-h-screen max-w-md items-center px-4 py-8">
++    <Card className="w-full space-y-4 p-6">
+       <h1 className="text-xl font-semibold">Реєстрація</h1>
+       {params.oauth ? <p role="alert" className="text-sm text-destructive">Реєстрацію через Google не завершено. Спробуйте ще раз або увійдіть до існуючого профілю.</p> : null}
+       <RegistrationForm googleAction={process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET && process.env.AUTH_BASE_URL ? startGoogleAuth : undefined} />
+diff --git a/src/server/auth-mail.ts b/src/server/auth-mail.ts
+index d2d99a9..e4d4202 100644
+--- a/src/server/auth-mail.ts
++++ b/src/server/auth-mail.ts
+@@ -2,6 +2,16 @@ import "server-only";
+ 
+ const RESEND_URL = "https://api.resend.com/emails";
+ 
++export class AuthEmailError extends Error {
++  readonly status: number;
++
++  constructor(status: number, message: string) {
++    super(message);
++    this.name = "AuthEmailError";
++    this.status = status;
++  }
++}
++
+ export function mailConfigured() {
+   return Boolean(process.env.RESEND_API_KEY && process.env.AUTH_EMAIL_FROM && process.env.AUTH_BASE_URL);
+ }
+@@ -16,9 +26,17 @@ export function authBaseUrl() {
+   return url.origin;
+ }
+ 
+-export async function sendAuthEmail(to: string, subject: string, path: string) {
++export async function sendAuthEmail(
++  to: string,
++  subject: string,
++  path: string,
++  options?: { validityMinutes?: number },
++) {
+   if (!mailConfigured()) throw new Error("Email provider is not configured");
+   const href = new URL(path, authBaseUrl()).toString();
++  const validityLine = options?.validityMinutes
++    ? `\n\nПосилання дійсне ${options.validityMinutes} хвилин.`
++    : "";
+   let endpoint = RESEND_URL;
+   if (process.env.AUTH_MAIL_QA_ENDPOINT) {
+     const target = new URL(process.env.AUTH_MAIL_QA_ENDPOINT);
+@@ -39,9 +57,9 @@ export async function sendAuthEmail(to: string, subject: string, path: string) {
+       from: process.env.AUTH_EMAIL_FROM,
+       to: [to],
+       subject,
+-      text: `${subject}\n\nВідкрийте посилання: ${href}\n\nЯкщо ви не робили цей запит, просто ігноруйте лист.`,
++      text: `${subject}\n\nВідкрийте посилання: ${href}${validityLine}\n\nЯкщо ви не робили цей запит, просто ігноруйте лист.`,
+     }),
+     cache: "no-store",
+   });
+-  if (!response.ok) throw new Error(`Email provider rejected request (${response.status})`);
++  if (!response.ok) throw new AuthEmailError(response.status, `Email provider rejected request (${response.status})`);
+ }
+diff --git a/src/server/auth-service.ts b/src/server/auth-service.ts
+index 2c6dd05..e09d297 100644
+--- a/src/server/auth-service.ts
++++ b/src/server/auth-service.ts
+@@ -6,10 +6,11 @@ import { prisma } from "@/lib/prisma";
+ import { hashPasswordAsync } from "@/lib/auth";
+ import { isValidNickname, normalizeNickname } from "@/lib/nickname";
+ import { newSecret, normalizeEmail, secretHash, validEmail } from "@/lib/account-auth";
+-import { mailConfigured, sendAuthEmail } from "@/server/auth-mail";
++import { AuthEmailError, mailConfigured, sendAuthEmail } from "@/server/auth-mail";
+ 
+ const VERIFY_TTL = 24 * 60 * 60 * 1000;
+-const RESET_TTL = 30 * 60 * 1000;
++export const PASSWORD_RESET_TTL_MS = 15 * 60 * 1000;
++const RESET_TTL = PASSWORD_RESET_TTL_MS;
+ type Tx = Prisma.TransactionClient;
+ 
+ export async function issueInvitation(ownerId: string, rawEmail: string) {
+@@ -48,6 +49,12 @@ export async function registerWithEmail(input: {
+     return { ok: false as const, error: "Перевірте email, нікнейм і пароль (від 8 символів)." };
+   }
+   if (input.password !== input.confirmPassword) return { ok: false as const, error: "Паролі не збігаються." };
++  if (await prisma.user.findUnique({ where: { email } })) {
++    return { ok: false as const, error: "Цю email-адресу вже використовує акаунт. Увійдіть або відновіть пароль." };
++  }
++  if (await prisma.user.findUnique({ where: { nickname } })) {
++    return { ok: false as const, error: "Цей нікнейм уже зайнятий. Оберіть інший." };
++  }
+   const token = newSecret();
+   const passwordHash = await hashPasswordAsync(input.password);
+   try {
+@@ -62,6 +69,14 @@ export async function registerWithEmail(input: {
+     });
+   } catch (error) {
+     if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2002") {
++      const target = error.meta?.target;
++      const fields = Array.isArray(target) ? target.map(String) : [];
++      if (fields.includes("email") || fields.includes("User_email_key")) {
++        return { ok: false as const, error: "Цю email-адресу вже використовує акаунт. Увійдіть або відновіть пароль." };
++      }
++      if (fields.includes("nickname") || fields.includes("User_nickname_key")) {
++        return { ok: false as const, error: "Цей нікнейм уже зайнятий. Оберіть інший." };
++      }
+       return { ok: false as const, error: "Не вдалося завершити реєстрацію. Перевірте дані або спробуйте увійти." };
+     }
+     throw error;
+@@ -69,8 +84,17 @@ export async function registerWithEmail(input: {
+   try {
+     await sendAuthEmail(email, "Підтвердження email NMT Academy", `/verify-email?token=${encodeURIComponent(token)}`);
+     return { ok: true as const, email, message: "Перевірте пошту та підтвердьте адресу." };
+-  } catch {
+-    return { ok: true as const, email, message: "Профіль створено, але лист не надіслано. Скористайтеся повторним надсиланням." };
++  } catch (error) {
++    const status = error instanceof AuthEmailError ? error.status : 0;
++    const sandboxLimited = status === 403 || status === 422;
++    const deliveryHint = sandboxLimited
++      ? "Тестовий відправник Resend (onboarding@resend.dev) дозволяє листи лише на адреси з вашого акаунта Resend. Додайте одержувача в Resend або підключіть власний домен."
++      : "Спробуйте надіслати лист повторно після підтвердження адреси в Resend.";
++    return {
++      ok: true as const,
++      email,
++      message: `Профіль створено, але лист підтвердження не надіслано. ${deliveryHint}`,
++    };
+   }
+ }
+ 
+@@ -148,7 +172,12 @@ export async function requestPasswordReset(rawEmail: string) {
+     userId: user.id, purpose: "RESET_PASSWORD", tokenHash: secretHash(token),
+     expiresAt: new Date(Date.now() + RESET_TTL),
+   } });
+-  await sendAuthEmail(email, "Відновлення пароля NMT Academy", `/reset-password?token=${encodeURIComponent(token)}`);
++  await sendAuthEmail(
++    email,
++    "Відновлення пароля NMT Academy",
++    `/reset-password?token=${encodeURIComponent(token)}`,
++    { validityMinutes: PASSWORD_RESET_TTL_MS / 60_000 },
++  );
+ }
+ 
+ export async function resetPassword(token: string, password: string) {
+diff --git a/tests/account-auth.test.ts b/tests/account-auth.test.ts
+index 3e49e81..58b6c73 100644
+--- a/tests/account-auth.test.ts
++++ b/tests/account-auth.test.ts
+@@ -20,7 +20,7 @@ vi.mock("@/lib/prisma", async () => {
+ import { prisma } from "@/lib/prisma";
+ import { hashPasswordAsync, verifyPasswordAsync } from "@/lib/auth";
+ import {
+-  issueInvitation, registerWithEmail, requestPasswordReset, resetPassword,
++  issueInvitation, PASSWORD_RESET_TTL_MS, registerWithEmail, requestPasswordReset, resetPassword,
+   requestEmailLink, resendVerification, validInvitation, verifyEmailToken,
+ } from "@/server/auth-service";
+ 
+@@ -62,6 +62,21 @@ it("registers without an invitation, retains old invitations, and enforces email
+   await expect(prisma.user.create({ data: { firstName: "Duplicate", nickname: "student_three", email: "STUDENT@EXAMPLE.COM" } })).rejects.toMatchObject({ code: "P2002" });
+ });
+ 
++it("returns clear errors for duplicate email and nickname on register", async () => {
++  const duplicateEmail = await registerWithEmail({
++    email: "STUDENT@example.com", nickname: "another_unique_nick", password: "correct-horse-123", confirmPassword: "correct-horse-123",
++  });
++  expect(duplicateEmail.ok).toBe(false);
++  if (duplicateEmail.ok) return;
++  expect(duplicateEmail.error).toMatch(/email/i);
++  const duplicateNickname = await registerWithEmail({
++    email: "fresh-register@example.com", nickname: "STUDENT_ONE", password: "correct-horse-123", confirmPassword: "correct-horse-123",
++  });
++  expect(duplicateNickname.ok).toBe(false);
++  if (duplicateNickname.ok) return;
++  expect(duplicateNickname.error).toMatch(/нікнейм/i);
++});
++
+ it("rejects mismatched passwords on the server without creating a user", async () => {
+   const result = await registerWithEmail({ email: "mismatch@example.com", nickname: "mismatch", password: "correct-horse-123", confirmPassword: "different-password" });
+   expect(result).toEqual({ ok: false, error: "Паролі не збігаються." });
+@@ -88,6 +103,14 @@ it("confirms email once, resets password once, and revokes prior sessions", asyn
+   expect(before.emailVerifiedAt).not.toBeNull();
+   await prisma.session.create({ data: { userId: userId!, tokenHash: "old-session", expiresAt: new Date(Date.now() + 100000) } });
+   await requestPasswordReset("STUDENT@EXAMPLE.COM");
++  const resetRecord = await prisma.authToken.findFirst({
++    where: { userId: userId!, purpose: "RESET_PASSWORD" },
++    orderBy: { createdAt: "desc" },
++  });
++  expect(resetRecord).not.toBeNull();
++  const resetTtlMs = resetRecord!.expiresAt.getTime() - resetRecord!.createdAt.getTime();
++  expect(resetTtlMs).toBeGreaterThanOrEqual(PASSWORD_RESET_TTL_MS - 1000);
++  expect(resetTtlMs).toBeLessThanOrEqual(PASSWORD_RESET_TTL_MS + 1000);
+   const resetLink = sent.find((item) => item.path.startsWith("/reset-password?"));
+   expect(resetLink).toBeDefined();
+   const resetToken = new URL(resetLink!.path, "https://qa.invalid").searchParams.get("token")!;
+diff --git a/tests/google-flow.test.ts b/tests/google-flow.test.ts
+index 80d19d5..7d19425 100644
+--- a/tests/google-flow.test.ts
++++ b/tests/google-flow.test.ts
+@@ -116,12 +116,35 @@ it("retains old invitation records while Google login preserves existing roles",
+ 
+ it("does not auto-link Google to an existing email; explicit session link preserves ADMIN", async () => {
+   controls.sub = "admin-google-subject"; controls.email = "admin@example.com";
++  const original = await prisma.user.findUniqueOrThrow({ where: { id: "admin-existing" } });
++  await prisma.userSettings.create({ data: {
++    id: "admin-settings", userId: original.id, scheduleJson: "[]", formatJson: "{}", targetScore: 175,
++  } });
++  const task = await prisma.studyTask.create({ data: {
++    userId: original.id, dateKey: "2026-10-22", title: "Existing task", kind: "PRACTICE", status: "DONE",
++  } });
+   const state = await begin("register");
+   expect(await finishGoogleAuth("qa-code", state)).toBe("/login?oauth=link_required");
+   expect(await prisma.oAuthAccount.count({ where: { userId: "admin-existing" } })).toBe(0);
++  expect(await prisma.user.count({ where: { email: "admin@example.com" } })).toBe(1);
++  controls.actor = { id: "admin-existing", email: "admin@example.com" };
++  const hijackedState = await begin("link");
++  controls.actor = { id: "owner", email: "owner@example.com" };
++  expect(await finishGoogleAuth("qa-code", hijackedState)).toBe("/settings?oauth=link_failed");
++  expect(await prisma.oAuthAccount.count({ where: { userId: original.id } })).toBe(0);
+   controls.actor = { id: "admin-existing", email: "admin@example.com" };
+   const linkState = await begin("link");
+   expect(await finishGoogleAuth("qa-code", linkState)).toBe("/settings?oauth=linked");
+-  expect((await prisma.user.findUniqueOrThrow({ where: { id: "admin-existing" } })).role).toBe("ADMIN");
++  const afterLink = await prisma.user.findUniqueOrThrow({ where: { id: "admin-existing" } });
++  expect(afterLink.role).toBe("ADMIN");
++  expect(afterLink.passwordHash).toBe(original.passwordHash);
+   expect((await prisma.oAuthAccount.findUniqueOrThrow({ where: { provider_providerSubject: { provider: "google", providerSubject: "admin-google-subject" } } })).userId).toBe("admin-existing");
++  controls.actor = null;
++  const repeatState = await begin("login");
++  expect(await finishGoogleAuth("qa-code", repeatState)).toBe("/");
++  expect(controls.createdSessions.at(-1)).toBe(original.id);
++  expect(await prisma.user.count({ where: { email: "admin@example.com" } })).toBe(1);
++  expect(await prisma.oAuthAccount.count({ where: { userId: original.id } })).toBe(1);
++  expect((await prisma.userSettings.findUniqueOrThrow({ where: { userId: original.id } })).targetScore).toBe(175);
++  expect((await prisma.studyTask.findUniqueOrThrow({ where: { id: task.id } })).userId).toBe(original.id);
+ });

@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-19",
+  "scope": "D00 only; no D01 implementation",
+  "typecheck": {
+    "original": {
+      "exitCode": 0,
+      "command": "node node_modules/typescript/bin/tsc --noEmit --incremental false"
+    },
+    "beta": {
+      "exitCode": 0,
+      "command": "node node_modules/typescript/bin/tsc --noEmit --incremental false"
+    }
+  },
+  "versions": {
+    "original": {
+      "head": "4b5ce391375728503c75405a739b154d849e94f7",
+      "branch": "cursor/nmt-academy-lessons-and-audit",
+      "headUnchanged": true,
+      "trackedDiff": "",
+      "protectedUnchanged": true,
+      "statusUnchanged": true
+    },
+    "beta": {
+      "head": "9ef3c662f6e90cf2c9720977ad4dc0d67696d4d6",
+      "branch": "beta/06-visual-beta",
+      "headUnchanged": true,
+      "trackedDiff": "",
+      "protectedUnchanged": true,
+      "statusUnchanged": true
+    }
+  },
+  "protectedBranchDiff": "",
+  "reference": {
+    "sha256": "d072592a0470953097255e7be4c3e7b069aaa0ad518953a37a71601e88f90147",
+    "matchesOriginal": true,
+    "width": 1536,
+    "height": 1024
+  },
+  "localDocumentLinks": [
+    {
+      "document": "page-map.md",
+      "target": "D01-dashboard-spec.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "reference/approved-16-screens.png",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "page-map.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "components-and-tokens.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "branch-diff.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "D01-dashboard-spec.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "risks-and-checks.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "inventory.json",
+      "exists": true
+    }
+  ],
+  "applicationDatabaseOpened": false,
+  "serverStartedOrStopped": false,
+  "browserOrE2ERun": false,
+  "buildOrMigrationsRun": false,
+  "gitMutationOrPublication": false,
+  "d01Started": false
+}

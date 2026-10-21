@@ -1,0 +1,876 @@
+[
+  {
+    "file": "src/app/(main)/mistakes/page.tsx",
+    "line": 31,
+    "owner": "MistakesPage",
+    "expression": "prisma.mistake.findMany",
+    "args": [
+      "{ where, include: { subject: true, topic: true }, orderBy: { date: \"desc\" }, take: 100 }"
+    ],
+    "imported": null,
+    "disposition": "Indirect filter object",
+    "evidence": "where contains userId at 16"
+  },
+  {
+    "file": "src/app/(main)/review/page.tsx",
+    "line": 13,
+    "owner": "ReviewPage",
+    "expression": "prisma.reviewSchedule.findMany",
+    "args": [
+      "{ where: { ...mine, status: \"PENDING\", dueKey: today }, include: { topic: true } }"
+    ],
+    "imported": null,
+    "disposition": "Indirect filter object",
+    "evidence": "mine = {userId:user.id} at 11"
+  },
+  {
+    "file": "src/app/(main)/review/page.tsx",
+    "line": 14,
+    "owner": "ReviewPage",
+    "expression": "prisma.reviewSchedule.findMany",
+    "args": [
+      "{ where: { ...mine, status: \"PENDING\", dueKey: { lt: today } }, include: { topic: true }, orderBy: { priority: \"desc\" } }"
+    ],
+    "imported": null,
+    "disposition": "Indirect filter object",
+    "evidence": "mine = {userId:user.id} at 11"
+  },
+  {
+    "file": "src/app/(main)/review/page.tsx",
+    "line": 15,
+    "owner": "ReviewPage",
+    "expression": "prisma.reviewSchedule.findMany",
+    "args": [
+      "{ where: { ...mine, status: \"PENDING\", dueKey: { gt: today } }, include: { topic: true }, orderBy: { dueKey: \"asc\" }, take: 12 }"
+    ],
+    "imported": null,
+    "disposition": "Indirect filter object",
+    "evidence": "mine = {userId:user.id} at 11"
+  },
+  {
+    "file": "src/app/(main)/review/page.tsx",
+    "line": 17,
+    "owner": "ReviewPage",
+    "expression": "prisma.reviewSchedule.findMany",
+    "args": [
+      "{ where: { ...mine, status: \"DONE\" }, include: { topic: true }, orderBy: { completedAt: \"desc\" }, take: 8 }"
+    ],
+    "imported": null,
+    "disposition": "Indirect filter object",
+    "evidence": "mine = {userId:user.id} at 11"
+  },
+  {
+    "file": "src/app/admin/tasks/page.tsx",
+    "line": 32,
+    "owner": "inline@32",
+    "expression": "prisma.studyTask.count",
+    "args": [
+      "{ where: { status: item.value } }"
+    ],
+    "imported": null,
+    "disposition": "ADMIN-wide, не STUDENT ownership",
+    "evidence": "requireAdministrator + admin layout"
+  },
+  {
+    "file": "src/app/admin/tasks/page.tsx",
+    "line": 33,
+    "owner": "AdminTasksPage",
+    "expression": "prisma.studyTask.findMany",
+    "args": [
+      "{\n      where,\n      select: { id: true, title: true, dateKey: true, kind: true, status: true, durationMin: true, subject: { select: { name: true } }, topic: { select: { title: true } } },\n      orderBy: [{ dateKey: \"desc\" }, { sortOrder: \"asc\" }, { id: \"desc\" }],\n      skip: (page - 1) * pageSize,\n      take: pageSize,\n    }"
+    ],
+    "imported": null,
+    "disposition": "ADMIN-wide, не STUDENT ownership",
+    "evidence": "requireAdministrator + admin layout"
+  },
+  {
+    "file": "src/app/admin/tasks/page.tsx",
+    "line": 40,
+    "owner": "AdminTasksPage",
+    "expression": "prisma.studyTask.count",
+    "args": [
+      "{ where }"
+    ],
+    "imported": null,
+    "disposition": "ADMIN-wide, не STUDENT ownership",
+    "evidence": "requireAdministrator + admin layout"
+  },
+  {
+    "file": "src/app/api/ai/stream/route.ts",
+    "line": 65,
+    "owner": "save",
+    "expression": "prisma.aIMessage.createMany",
+    "args": [
+      "{\n    data: [...messages, { role: \"assistant\" as const, content: text }].map((message) => ({ conversationId: conversation.id, role: message.role, content: message.content })),\n  }"
+    ],
+    "imported": null,
+    "disposition": "Conversation child of current actor",
+    "evidence": "save(user.id), conversation created with userId at 62–66"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 473,
+    "owner": "finishAttempt",
+    "expression": "prisma.answer.deleteMany",
+    "args": [
+      "{ where: { attemptId } }"
+    ],
+    "imported": null,
+    "disposition": "Indirect attempt ownership",
+    "evidence": "attempt.id + userId checked at 467–471"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 482,
+    "owner": "finishAttempt",
+    "expression": "prisma.answer.create",
+    "args": [
+      "{\n        data: {\n          attemptId,\n          questionId: question.id,\n          userAnswer: JSON.stringify(userValue),\n          isCorrect: graded.isCorrect,\n          needsManualReview: graded.needsManualReview,\n        },\n      }"
+    ],
+    "imported": null,
+    "disposition": "Indirect attempt ownership",
+    "evidence": "attempt.id + userId checked at 467–471"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 511,
+    "owner": "finishAttempt",
+    "expression": "prisma.answer.findMany",
+    "args": [
+      "{where:{attemptId,isCorrect:false},include:{question:true}}"
+    ],
+    "imported": null,
+    "disposition": "Indirect attempt ownership",
+    "evidence": "attempt.id + userId checked at 467–471"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 586,
+    "owner": "completeOpenTask",
+    "expression": "prisma.studyTask.update",
+    "args": [
+      "{ where: { id: task.id }, data: { status: \"DONE\", completedAt: new Date() } }"
+    ],
+    "imported": null,
+    "disposition": "Internal derived id",
+    "evidence": "task selected with userId at 581–583"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 662,
+    "owner": "gradeManually",
+    "expression": "prisma.answer.findMany",
+    "args": [
+      "{ where: { attemptId: answer.attemptId } }"
+    ],
+    "imported": null,
+    "disposition": "Indirect answer ownership",
+    "evidence": "answer update has attempt.userId at 656–660"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 929,
+    "owner": "inline@925",
+    "expression": "tx.userSettings.update",
+    "args": [
+      "{\n      where: { id: (await getSettings(user.id)).id },\n      data: {\n        theme: data.theme,\n        examDate: data.examDate ? noonUtc(data.examDate) : null,\n        targetScore: data.targetScore,\n        masteryHighMin: data.masteryHighMin,\n        masteryMidMin: data.masteryMidMin,\n        timerEnabled: data.timerEnabled,\n        aiProvider: \"none\",\n        aiModel: \"\",\n        mathPriority: data.mathPriority,\n        ukrainianPriority: data.ukrainianPriority,\n        historyPriority: data.historyPriority,\n        biologyPriority: data.biologyPriority,\n      },\n    }"
+    ],
+    "imported": null,
+    "disposition": "Settings id derived from session user",
+    "evidence": "getSettings(user.id), role guard where relevant"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 963,
+    "owner": "inline@958",
+    "expression": "tx.userSettings.update",
+    "args": [
+      "{ where: { id: (await getSettings(user.id)).id }, data: { scheduleJson: JSON.stringify(parsed) } }"
+    ],
+    "imported": null,
+    "disposition": "Settings id derived from session user",
+    "evidence": "getSettings(user.id), role guard where relevant"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 983,
+    "owner": "inline@976",
+    "expression": "tx.userSettings.update",
+    "args": [
+      "{ where: { id: (await getSettings(user.id)).id }, data: { formatJson: JSON.stringify({ ...DEFAULT_FORMAT, ...parsed }) } }"
+    ],
+    "imported": null,
+    "disposition": "Settings id derived from session user",
+    "evidence": "getSettings(user.id), role guard where relevant"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1054,
+    "owner": "buildBackup",
+    "expression": "prisma.userSubject.findMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER bulk export",
+    "evidence": "owner() at 1053"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1054,
+    "owner": "buildBackup",
+    "expression": "prisma.userTopicProgress.findMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER bulk export",
+    "evidence": "owner() at 1053"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1054,
+    "owner": "buildBackup",
+    "expression": "prisma.userVideoProgress.findMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER bulk export",
+    "evidence": "owner() at 1053"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1056,
+    "owner": "buildBackup",
+    "expression": "prisma.userSettings.findMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER bulk export",
+    "evidence": "owner() at 1053"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1061,
+    "owner": "buildBackup",
+    "expression": "prisma.note.findMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER bulk export",
+    "evidence": "owner() at 1053"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1066,
+    "owner": "buildBackup",
+    "expression": "prisma.testAttempt.findMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER bulk export",
+    "evidence": "owner() at 1053"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1067,
+    "owner": "buildBackup",
+    "expression": "prisma.answer.findMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER bulk export",
+    "evidence": "owner() at 1053"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1068,
+    "owner": "buildBackup",
+    "expression": "prisma.examResult.findMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER bulk export",
+    "evidence": "owner() at 1053"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1069,
+    "owner": "buildBackup",
+    "expression": "prisma.studySession.findMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER bulk export",
+    "evidence": "owner() at 1053"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1070,
+    "owner": "buildBackup",
+    "expression": "prisma.studyTask.findMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER bulk export",
+    "evidence": "owner() at 1053"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1071,
+    "owner": "buildBackup",
+    "expression": "prisma.reviewSchedule.findMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER bulk export",
+    "evidence": "owner() at 1053"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1072,
+    "owner": "buildBackup",
+    "expression": "prisma.mistake.findMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER bulk export",
+    "evidence": "owner() at 1053"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1073,
+    "owner": "buildBackup",
+    "expression": "prisma.flashcard.findMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER bulk export",
+    "evidence": "owner() at 1053"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1074,
+    "owner": "buildBackup",
+    "expression": "prisma.aIConversation.findMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER bulk export",
+    "evidence": "owner() at 1053"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1075,
+    "owner": "buildBackup",
+    "expression": "prisma.aIMessage.findMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER bulk export",
+    "evidence": "owner() at 1053"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1076,
+    "owner": "buildBackup",
+    "expression": "prisma.achievement.findMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER bulk export",
+    "evidence": "owner() at 1053"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1077,
+    "owner": "buildBackup",
+    "expression": "prisma.xpEvent.findMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER bulk export",
+    "evidence": "owner() at 1053"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1091,
+    "owner": "inline@1090",
+    "expression": "tx.answer.deleteMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1093,
+    "owner": "inline@1090",
+    "expression": "tx.testAttempt.deleteMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1095,
+    "owner": "inline@1090",
+    "expression": "tx.mistake.deleteMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1096,
+    "owner": "inline@1090",
+    "expression": "tx.reviewSchedule.deleteMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1097,
+    "owner": "inline@1090",
+    "expression": "tx.studyTask.deleteMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1098,
+    "owner": "inline@1090",
+    "expression": "tx.studySession.deleteMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1100,
+    "owner": "inline@1090",
+    "expression": "tx.note.deleteMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1103,
+    "owner": "inline@1090",
+    "expression": "tx.flashcard.deleteMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1104,
+    "owner": "inline@1090",
+    "expression": "tx.xpEvent.deleteMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1105,
+    "owner": "inline@1090",
+    "expression": "tx.aIConversation.deleteMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1106,
+    "owner": "inline@1090",
+    "expression": "tx.examResult.deleteMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1109,
+    "owner": "inline@1090",
+    "expression": "tx.achievement.deleteMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1111,
+    "owner": "inline@1090",
+    "expression": "tx.userSettings.deleteMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1112,
+    "owner": "inline@1090",
+    "expression": "tx.session.deleteMany",
+    "args": [],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1116,
+    "owner": "inline@1090",
+    "expression": "tx.userSettings.createMany",
+    "args": [
+      "{ data: data.settings }"
+    ],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1118,
+    "owner": "inline@1090",
+    "expression": "tx.userSubject.createMany",
+    "args": [
+      "{ data: data.userSubjects }"
+    ],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1119,
+    "owner": "inline@1090",
+    "expression": "tx.userTopicProgress.createMany",
+    "args": [
+      "{ data: data.progress }"
+    ],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1123,
+    "owner": "inline@1090",
+    "expression": "tx.note.createMany",
+    "args": [
+      "{ data: data.notes }"
+    ],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1125,
+    "owner": "inline@1090",
+    "expression": "tx.userVideoProgress.createMany",
+    "args": [
+      "{ data: data.videoProgress }"
+    ],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1126,
+    "owner": "inline@1090",
+    "expression": "tx.flashcard.createMany",
+    "args": [
+      "{ data: data.flashcards }"
+    ],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1129,
+    "owner": "inline@1090",
+    "expression": "tx.testAttempt.createMany",
+    "args": [
+      "{ data: data.attempts }"
+    ],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1130,
+    "owner": "inline@1090",
+    "expression": "tx.answer.createMany",
+    "args": [
+      "{ data: data.answers }"
+    ],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1131,
+    "owner": "inline@1090",
+    "expression": "tx.examResult.createMany",
+    "args": [
+      "{ data: data.examResults }"
+    ],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1132,
+    "owner": "inline@1090",
+    "expression": "tx.studySession.createMany",
+    "args": [
+      "{ data: data.sessions }"
+    ],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1133,
+    "owner": "inline@1090",
+    "expression": "tx.studyTask.createMany",
+    "args": [
+      "{ data: data.tasks }"
+    ],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1134,
+    "owner": "inline@1090",
+    "expression": "tx.reviewSchedule.createMany",
+    "args": [
+      "{ data: data.reviews }"
+    ],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1135,
+    "owner": "inline@1090",
+    "expression": "tx.mistake.createMany",
+    "args": [
+      "{ data: data.mistakes }"
+    ],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1136,
+    "owner": "inline@1090",
+    "expression": "tx.aIConversation.createMany",
+    "args": [
+      "{ data: data.conversations }"
+    ],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1137,
+    "owner": "inline@1090",
+    "expression": "tx.aIMessage.createMany",
+    "args": [
+      "{ data: data.messages }"
+    ],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1138,
+    "owner": "inline@1090",
+    "expression": "tx.achievement.createMany",
+    "args": [
+      "{ data: data.achievements }"
+    ],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1139,
+    "owner": "inline@1090",
+    "expression": "tx.xpEvent.createMany",
+    "args": [
+      "{ data: data.xp }"
+    ],
+    "imported": null,
+    "disposition": "OWNER restore inside transaction",
+    "evidence": "owner() 1086 + confirmation 1087"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1163,
+    "owner": "login",
+    "expression": "prisma.session.deleteMany",
+    "args": [
+      "{where:{expiresAt:{lt:new Date()}}}"
+    ],
+    "imported": null,
+    "disposition": "Expired-session cleanup",
+    "evidence": "expiresAt < now, not private-data disclosure"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1294,
+    "owner": "changeElective",
+    "expression": "prisma.userSubject.update",
+    "args": [
+      "{ where: { id: current.id }, data: { active: false } }"
+    ],
+    "imported": null,
+    "disposition": "Subject row derived from session",
+    "evidence": "user.subjects at 1286"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1373,
+    "owner": "inline@1370",
+    "expression": "tx.userSettings.update",
+    "args": [
+      "{ where: { id: (await getSettings(user.id)).id }, data: { scheduleJson: JSON.stringify(DEFAULT_SCHEDULE) } }"
+    ],
+    "imported": null,
+    "disposition": "Settings id derived from session user",
+    "evidence": "getSettings(user.id), role guard where relevant"
+  },
+  {
+    "file": "src/server/progress.ts",
+    "line": 39,
+    "owner": "refreshAchievements",
+    "expression": "prisma.achievement.findMany",
+    "args": [
+      "{ where: { id: { in: unlocks } } }"
+    ],
+    "imported": null,
+    "disposition": "Shared achievement template / namespaced personal id",
+    "evidence": "39–46, id = user.id:template.id; existing owner special case"
+  },
+  {
+    "file": "src/server/progress.ts",
+    "line": 43,
+    "owner": "inline@42",
+    "expression": "tx.achievement.findUnique",
+    "args": [
+      "{ where: { id } }"
+    ],
+    "imported": null,
+    "disposition": "Shared achievement template / namespaced personal id",
+    "evidence": "39–46, id = user.id:template.id; existing owner special case"
+  },
+  {
+    "file": "src/server/session.ts",
+    "line": 34,
+    "owner": "clearSession",
+    "expression": "prisma.session.deleteMany",
+    "args": [
+      "{ where: { tokenHash: hashToken(token) } }"
+    ],
+    "imported": null,
+    "disposition": "Authentication by token hash",
+    "evidence": "cookie token hash, expiry checked; passwordHash omitted"
+  },
+  {
+    "file": "src/server/session.ts",
+    "line": 42,
+    "owner": "inline@38",
+    "expression": "prisma.session.findUnique",
+    "args": [
+      "{\n    where: { tokenHash: hashToken(token) },\n    include: { user: { omit: { passwordHash: true }, include: { subjects: true } } },\n  }"
+    ],
+    "imported": null,
+    "disposition": "Authentication by token hash",
+    "evidence": "cookie token hash, expiry checked; passwordHash omitted"
+  },
+  {
+    "file": "src/server/sync.ts",
+    "line": 13,
+    "owner": "getSettings",
+    "expression": "prisma.userSettings.findUnique",
+    "args": [
+      "{ where: { id: \"default\" } }"
+    ],
+    "imported": null,
+    "disposition": "Anonymous default fallback: technical debt",
+    "evidence": "getSettings 9–13; not a Server Action"
+  },
+  {
+    "file": "src/server/sync.ts",
+    "line": 58,
+    "owner": "inline@23",
+    "expression": "prisma.studyTask.update",
+    "args": [
+      "{where:{id:task.id},data:{status:\"DROPPED\",notes:\"Автоплан: змінено навчальні дні або денний ліміт.\"}}"
+    ],
+    "imported": null,
+    "disposition": "Internal derived task id, not client input",
+    "evidence": "source query scoped by ownerId/userId at 35–36 or 106–107"
+  },
+  {
+    "file": "src/server/sync.ts",
+    "line": 79,
+    "owner": "inline@23",
+    "expression": "prisma.studyTask.update",
+    "args": [
+      "{where:{id:current.id},data:{status:\"PLANNED\",notes:\"\"}}"
+    ],
+    "imported": null,
+    "disposition": "Internal derived task id, not client input",
+    "evidence": "source query scoped by ownerId/userId at 35–36 or 106–107"
+  },
+  {
+    "file": "src/server/sync.ts",
+    "line": 83,
+    "owner": "inline@23",
+    "expression": "prisma.studyTask.update",
+    "args": [
+      "{\n          where: { id: current.id },\n          data: {\n            subjectId: slot.subjectId,\n            topicId: slot.topicId,\n            title: slot.title,\n            detail: slot.detail,\n            kind: slot.kind,\n            durationMin: slot.durationMin,\n            optional: slot.optional,\n          },\n        }"
+    ],
+    "imported": null,
+    "disposition": "Internal derived task id, not client input",
+    "evidence": "source query scoped by ownerId/userId at 35–36 or 106–107"
+  },
+  {
+    "file": "src/server/sync.ts",
+    "line": 112,
+    "owner": "shiftOverdue",
+    "expression": "prisma.studyTask.update",
+    "args": [
+      "{ where: { id: task.id }, data: { notes: \"Заняття довше за денний ліміт. Розділіть його або змініть навантаження.\" } }"
+    ],
+    "imported": null,
+    "disposition": "Internal derived task id, not client input",
+    "evidence": "source query scoped by ownerId/userId at 35–36 or 106–107"
+  },
+  {
+    "file": "src/server/sync.ts",
+    "line": 121,
+    "owner": "shiftOverdue",
+    "expression": "prisma.studyTask.update",
+    "args": [
+      "{\n          where: { id: task.id },\n          data: { dateKey: cursor, movedFromId: task.movedFromId ?? task.id, notes: task.notes || \"Автоматично перенесено на вільний день\" },\n        }"
+    ],
+    "imported": null,
+    "disposition": "Internal derived task id, not client input",
+    "evidence": "source query scoped by ownerId/userId at 35–36 or 106–107"
+  }
+]

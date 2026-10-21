@@ -1,0 +1,28 @@
+{
+  "ref": "a37d8cb27642ab8fe1982aaf5810f42e165856a5",
+  "scope": "pure functions; no application/DB initialization; synthetic inputs only",
+  "results": [
+    {
+      "probe": "existing-question-editor-roundtrip",
+      "reproduced": true,
+      "error": "Правильна відповідь посилається на невідомий варіант."
+    },
+    {
+      "probe": "new-question-label-key-control",
+      "pass": true
+    },
+    {
+      "probe": "invalid-calendar-date-normalization",
+      "input": "2026-02-31",
+      "output": "2026-03-03"
+    },
+    {
+      "probe": "role-boundaries",
+      "studentCanEdit": false,
+      "editorCanEdit": true,
+      "editorAdmin": false,
+      "adminCanGrantOwner": false,
+      "initialOwner": "OWNER"
+    }
+  ]
+}
