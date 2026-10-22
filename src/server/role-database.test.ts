@@ -30,7 +30,7 @@ describe("role changes on an isolated real database",()=>{
   await expect(prisma.user.create({data:{id:"duplicate",nickname:"FIXTURE_OWNER",firstName:"Duplicate"}})).rejects.toMatchObject({code:"P2002"});
  });
  it("assigns an additional owner, gives it working administrative rights and preserves the initial owner",async()=>{
-  expect((await updateUserRole("student","OWNER",{password:"owner-confirmation",nickname:"fixture_student"})).ok).toBe(true);
+  expect((await updateUserRole("student","OWNER",{password:"owner-confirmation"})).ok).toBe(true);
   expect((await prisma.user.findUniqueOrThrow({where:{id:"owner"}})).role).toBe("ADMIN");
   auth.id="student";expect((await updateUserRole("editor","ADMIN")).ok).toBe(true);
   expect((await prisma.user.findUniqueOrThrow({where:{id:"editor"}})).role).toBe("ADMIN");
@@ -61,13 +61,12 @@ describe("role changes on an isolated real database",()=>{
  });
  it("rolls a role change back if the audit record cannot be saved",async()=>{
   await prisma.$executeRawUnsafe(`CREATE TRIGGER reject_role_audit BEFORE INSERT ON AuditLog BEGIN SELECT RAISE(ABORT,'audit unavailable'); END`);
-  try{expect((await updateUserRole("student","OWNER",{password:"owner-confirmation",nickname:"fixture_student"})).ok).toBe(false);expect((await prisma.user.findUniqueOrThrow({where:{id:"student"}})).role).toBe("STUDENT");expect(await prisma.auditLog.count()).toBe(0);}finally{await prisma.$executeRawUnsafe('DROP TRIGGER reject_role_audit');}
+  try{expect((await updateUserRole("student","OWNER",{password:"owner-confirmation"})).ok).toBe(false);expect((await prisma.user.findUniqueOrThrow({where:{id:"student"}})).role).toBe("STUDENT");expect(await prisma.auditLog.count()).toBe(0);}finally{await prisma.$executeRawUnsafe('DROP TRIGGER reject_role_audit');}
  });
- it("requires password and exact nickname confirmation before removing owner access",async()=>{
-  expect((await updateUserRole("student","OWNER",{password:"owner-confirmation",nickname:"fixture_student"})).ok).toBe(true);
-  expect((await updateUserRole("student","STUDENT",{password:"wrong",nickname:"fixture_student"})).ok).toBe(false);
-  expect((await updateUserRole("student","STUDENT",{password:"owner-confirmation",nickname:"wrong"})).ok).toBe(false);
-  expect((await updateUserRole("student","STUDENT",{password:"owner-confirmation",nickname:"fixture_student"})).ok).toBe(true);
+ it("requires owner password confirmation before removing owner access",async()=>{
+  expect((await updateUserRole("student","OWNER",{password:"owner-confirmation"})).ok).toBe(true);
+  expect((await updateUserRole("student","STUDENT",{password:"wrong"})).ok).toBe(false);
+  expect((await updateUserRole("student","STUDENT",{password:"owner-confirmation"})).ok).toBe(true);
  });
  it("rejects an editor or student attempting a role mutation",async()=>{
   for(const id of ["editor","student"]){auth.id=id;expect((await updateUserRole("admin","STUDENT")).ok).toBe(false);}

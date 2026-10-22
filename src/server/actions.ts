@@ -1334,7 +1334,6 @@ export async function updateUserRole(id: string, rawRole: string, rawConfirmatio
       if(ownerSensitive) {
         if(effectiveRole(current)!=="OWNER") return {ok:false as const,error:"Призначати та змінювати роль власника може лише власник платформи."};
         if(!confirmation.password||!await verifyPasswordAsync(confirmation.password,current.passwordHash)) return {ok:false as const,error:"Повторно підтвердьте особу паролем власника."};
-        if(confirmation.nickname?.normalize("NFKC").toLocaleLowerCase("uk-UA")!==target.nickname.normalize("NFKC").toLocaleLowerCase("uk-UA")) return {ok:false as const,error:"Введіть нікнейм користувача для підтвердження."};
         if(previousRole==="OWNER"&&role!=="OWNER") {
           const owners=await tx.user.findMany({where:{OR:[{id:"owner"},{role:"OWNER"}]},select:{id:true,role:true}});
           if(owners.filter((ownerProfile)=>effectiveRole(ownerProfile)==="OWNER").length<=1) return {ok:false as const,error:"Не можна змінити роль останнього власника платформи."};

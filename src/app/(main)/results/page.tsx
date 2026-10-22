@@ -3,7 +3,7 @@ import Link from "next/link";
 import { EXAM_TYPE_LABEL } from "@/lib/constants";
 import { formatUk } from "@/lib/dates";
 import { prisma } from "@/lib/prisma";
-import { Button, Card, EmptyState, PageHeader } from "@/components/ui";
+import { Button, Card, EmptyState, Input, Label, PageHeader } from "@/components/ui";
 import { ResultEditorDialog, ResultDeleteButton } from "@/components/result-editor-dialog";
 import { requireUser } from "@/server/session";
 
@@ -25,7 +25,7 @@ export default async function ResultsPage({ searchParams }: { searchParams: Prom
         description="Зберігайте результати діагностики, пробників і тестів окремо. Тестові та рейтингові бали показано окремо."
         action={<Button asChild><Link href="/results?add=1">Додати результат</Link></Button>}
       />
-      <form className="flex flex-wrap items-end gap-2"><label className="grid flex-1 gap-1 text-sm">Пошук результатів<input name="q" defaultValue={query} maxLength={120}/></label><Button type="submit">Знайти</Button><Button asChild variant="ghost"><Link href="/results">Скинути</Link></Button></form>
+      <form className="flex flex-wrap items-end gap-2"><div className="grid min-w-[12rem] flex-1 gap-1.5"><Label htmlFor="results-search">Пошук результатів</Label><Input id="results-search" name="q" defaultValue={query} maxLength={120} placeholder="Назва або предмет" /></div><Button type="submit">Знайти</Button><Button asChild variant="ghost"><Link href="/results">Скинути</Link></Button></form>
       {results.length === 0 ? (
         <EmptyState title={query?"За цим запитом результатів немає":"Результатів ще немає"} text="Додайте результат пробника або дочекайтеся першої завершеної діагностики." />
       ) : (
@@ -36,7 +36,7 @@ export default async function ResultsPage({ searchParams }: { searchParams: Prom
               : result.testType === "MANUAL" ? "Внесено вручну"
               : "Результат тесту";
             return (
-              <Card key={result.id} className="space-y-3 p-4 sm:p-5">
+              <Card key={result.id} className="space-y-3 p-4 transition-colors hover:border-primary/30 sm:p-5">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-2">

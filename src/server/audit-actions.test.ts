@@ -136,11 +136,11 @@ describe("administrative role management",()=>{
   expect((await updateUserRole("other","EDITOR")).ok).toBe(true);expect(mock.prisma.user.update).toHaveBeenCalledWith({where:{id:"other"},data:{role:"EDITOR"}});
   expect(mock.prisma.auditLog.create).toHaveBeenCalledWith({data:expect.objectContaining({actorId:"owner",actorRole:"OWNER",action:"USER_ROLE_CHANGED",entityId:"other",metadataJson:JSON.stringify({role:"EDITOR",previousRole:"STUDENT"})})});
  });
- it("requires owner reauthentication and explicit target nickname before granting OWNER",async()=>{
+ it("requires owner reauthentication before granting OWNER",async()=>{
   profiles();expect((await updateUserRole("other","OWNER")).ok).toBe(false);
-  expect((await updateUserRole("other","OWNER",{password:"owner-confirmation",nickname:"different"})).ok).toBe(false);
+  expect((await updateUserRole("other","OWNER",{password:"wrong-password"})).ok).toBe(false);
   expect(mock.prisma.user.update).not.toHaveBeenCalled();
-  expect((await updateUserRole("other","OWNER",{password:"owner-confirmation",nickname:"other"})).ok).toBe(true);
+  expect((await updateUserRole("other","OWNER",{password:"owner-confirmation"})).ok).toBe(true);
   expect(mock.prisma.user.update).toHaveBeenCalledWith({where:{id:"other"},data:{role:"OWNER"}});
  });
  it("denies an administrator attempting to grant owner or administrator access",async()=>{

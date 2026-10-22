@@ -6,7 +6,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { ShieldCheck } from "lucide-react";
 import { updateUserRole } from "@/server/actions";
 import { canManageRole, effectiveRole, ROLE_INFO, ROLE_ORDER, type Member, type PlatformRole } from "@/lib/permissions";
-import { Badge, Button, Card } from "./ui";
+import { Badge, Button, Card, Input } from "./ui";
 
 type UserRow = { id: string; firstName: string; nickname: string; role: string; createdAt?: string; onboarded?: boolean };
 
@@ -21,13 +21,11 @@ export function RoleManager({ users, currentUser: providedUser, currentUserId, c
   const [selected, setSelected] = useState<Record<string, PlatformRole>>({});
   const [confirmation, setConfirmation] = useState<{ user: UserRow; role: PlatformRole } | null>(null);
   const [ownerPassword, setOwnerPassword] = useState("");
-  const [confirmedNickname, setConfirmedNickname] = useState("");
   const requiresOwnerConfirmation = confirmation?.role === "OWNER" || confirmation?.user.role === "OWNER";
 
   function requestChange(user: UserRow, role: PlatformRole) {
     setMessage("");
     setOwnerPassword("");
-    setConfirmedNickname("");
     setConfirmation({ user, role });
   }
 
@@ -36,21 +34,17 @@ export function RoleManager({ users, currentUser: providedUser, currentUserId, c
     setPendingUser(confirmation.user.id);
     setMessage("");
     try {
-      const details = requiresOwnerConfirmation ? { password: ownerPassword, nickname: confirmedNickname } : {};
+      const details = requiresOwnerConfirmation ? { password: ownerPassword } : {};
       const result = await updateUserRole(confirmation.user.id, confirmation.role, details);
       setMessage(result.ok
         ? `Роль профілю @${confirmation.user.nickname} збережено: ${ROLE_INFO[confirmation.role].label}.`
         : result.error);
       if (result.ok) {
         const savedUserId = confirmation.user.id;
+        const savedRole = confirmation.role;
         setConfirmation(null);
         setOwnerPassword("");
-        setConfirmedNickname("");
-        setSelected((current) => {
-          const next = { ...current };
-          delete next[savedUserId];
-          return next;
-        });
+        setSelected((current) => ({ ...current, [savedUserId]: savedRole }));
         startRefresh(() => {
           router.refresh();
         });
@@ -62,9 +56,6 @@ export function RoleManager({ users, currentUser: providedUser, currentUserId, c
       setPendingUser("");
     }
   }
-
-  const ownerConfirmNameMatches = confirmedNickname.normalize("NFKC").toLocaleLowerCase("uk-UA")
-    === confirmation?.user.nickname.normalize("NFKC").toLocaleLowerCase("uk-UA");
 
   return (
     <section className="space-y-4" aria-labelledby="profiles-title">
@@ -145,7 +136,6 @@ export function RoleManager({ users, currentUser: providedUser, currentUserId, c
         if (pendingUser || refreshing) return;
         setConfirmation(null);
         setOwnerPassword("");
-        setConfirmedNickname("");
       }}>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm" />
@@ -160,14 +150,16 @@ export function RoleManager({ users, currentUser: providedUser, currentUserId, c
             </Dialog.Description>
             {requiresOwnerConfirmation ? (
               <div className="space-y-3 rounded-xl border border-amber-500/40 bg-amber-500/5 p-3">
-                <p className="text-sm font-medium">Критична зміна доступу власника. Повторно підтвердьте особу та нікнейм.</p>
-                <label className="grid gap-1.5 text-sm"><span>Пароль власника</span><input type="password" autoComplete="current-password" value={ownerPassword} onChange={(event) => setOwnerPassword(event.target.value)} /></label>
-                <label className="grid gap-1.5 text-sm"><span>Введіть нікнейм @{confirmation?.user.nickname}</span><input value={confirmedNickname} onChange={(event) => setConfirmedNickname(event.target.value)} autoComplete="off" /></label>
+                <p className="text-sm font-medium">Критична зміна доступу власника. Повторно підтвердьте особу паролем.</p>
+                <label className="grid gap-1.5 text-sm font-medium">
+                  <span>Пароль власника</span>
+                  <Input type="password" autoComplete="current-password" value={ownerPassword} onChange={(event) => setOwnerPassword(event.target.value)} />
+                </label>
               </div>
             ) : null}
             <div className="flex flex-wrap justify-end gap-2">
               <Button variant="ghost" disabled={Boolean(pendingUser)} onClick={() => setConfirmation(null)}>Скасувати</Button>
-              <Button disabled={Boolean(pendingUser) || (requiresOwnerConfirmation && (!ownerPassword || !ownerConfirmNameMatches))} onClick={() => void save()}>{pendingUser ? "Збереження…" : "Підтвердити зміну"}</Button>
+              <Button disabled={Boolean(pendingUser) || (requiresOwnerConfirmation && !ownerPassword)} onClick={() => void save()}>{pendingUser ? "Збереження…" : "Підтвердити зміну"}</Button>
             </div>
             {message ? <p role="alert" className="text-sm text-danger-text">{message}</p> : null}
           </Dialog.Content>

@@ -1,6 +1,7 @@
 "use client";
 
 import * as Dialog from "@radix-ui/react-dialog";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import {
   BarChart3,
   BookOpen,
@@ -60,7 +61,7 @@ function NavigationLink({ href, label, icon: Icon, pathname, onClick }: {
       onClick={onClick}
       aria-current={isActive(pathname, href) ? "page" : undefined}
       className={cn(
-        "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium",
+        "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors",
         isActive(pathname, href)
           ? "bg-accent text-link"
           : "text-muted-foreground hover:bg-muted hover:text-foreground",
@@ -132,7 +133,39 @@ export function AppShell({ children, name, isAdmin = false, isOwner = false, isE
             </Dialog.Root>
             <span className="shell-mobile-brand text-sm font-semibold md:hidden">NMT Academy</span>
           </div>
-          <div className="flex shrink-0 items-center gap-2"><ThemeToggle/><details className="relative"><summary aria-label="Меню профілю" className="flex cursor-pointer list-none items-center gap-2 rounded-xl border border-border bg-card px-2.5 py-2 text-sm hover:bg-muted"><span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent text-xs font-bold text-link">{name?.slice(0,1).toLocaleUpperCase("uk-UA")??"У"}</span><span className="hidden max-w-36 truncate sm:inline">{name??"Профіль"}</span><ChevronDown className="h-3.5 w-3.5 text-muted-foreground"/></summary><nav aria-label="Меню профілю" onClick={event=>{if((event.target as Element).closest("a,button"))event.currentTarget.closest("details")?.removeAttribute("open");}} className="absolute right-0 top-full mt-2 w-56 rounded-2xl border border-border bg-card p-2 shadow-xl"><Link href="/settings" className="block rounded-xl px-3 py-2.5 text-sm hover:bg-muted">Мої налаштування</Link>{isAdmin?<Link href="/admin" className="block rounded-xl px-3 py-2.5 text-sm hover:bg-muted">{isOwner?"Центр керування власника":"Адмінпанель"}</Link>:null}{isEditor?<Link href="/editor" className="block rounded-xl px-3 py-2.5 text-sm hover:bg-muted">Режим редактора</Link>:null}<form action={logout} className="mt-1 border-t border-border pt-1"><button type="submit" className="w-full rounded-xl px-3 py-2.5 text-left text-sm text-muted-foreground hover:bg-muted">Вийти</button></form></nav></details></div>
+          <div className="flex shrink-0 items-center gap-2">
+            <ThemeToggle />
+            <DropdownMenu.Root>
+              <DropdownMenu.Trigger aria-label="Меню профілю" className="flex items-center gap-2 rounded-xl border border-border bg-card px-2.5 py-2 text-sm transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent text-xs font-bold text-link">{name?.slice(0, 1).toLocaleUpperCase("uk-UA") ?? "У"}</span>
+                <span className="hidden max-w-36 truncate sm:inline">{name ?? "Профіль"}</span>
+                <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
+              </DropdownMenu.Trigger>
+              <DropdownMenu.Portal>
+                <DropdownMenu.Content align="end" sideOffset={8} className="z-50 w-56 rounded-2xl border border-border bg-card p-2 shadow-xl">
+                  <DropdownMenu.Item asChild>
+                    <Link href="/settings" className="block cursor-pointer rounded-xl px-3 py-2.5 text-sm outline-none transition-colors hover:bg-muted focus:bg-muted">Мої налаштування</Link>
+                  </DropdownMenu.Item>
+                  {isAdmin ? (
+                    <DropdownMenu.Item asChild>
+                      <Link href="/admin" className="block cursor-pointer rounded-xl px-3 py-2.5 text-sm outline-none transition-colors hover:bg-muted focus:bg-muted">{isOwner ? "Центр керування власника" : "Адмінпанель"}</Link>
+                    </DropdownMenu.Item>
+                  ) : null}
+                  {isEditor ? (
+                    <DropdownMenu.Item asChild>
+                      <Link href="/editor" className="block cursor-pointer rounded-xl px-3 py-2.5 text-sm outline-none transition-colors hover:bg-muted focus:bg-muted">Режим редактора</Link>
+                    </DropdownMenu.Item>
+                  ) : null}
+                  <DropdownMenu.Separator className="my-1 h-px bg-border" />
+                  <DropdownMenu.Item asChild>
+                    <form action={logout}>
+                      <button type="submit" className="w-full rounded-xl px-3 py-2.5 text-left text-sm text-muted-foreground transition-colors hover:bg-muted focus:bg-muted">Вийти</button>
+                    </form>
+                  </DropdownMenu.Item>
+                </DropdownMenu.Content>
+              </DropdownMenu.Portal>
+            </DropdownMenu.Root>
+          </div>
         </header>
         <main id="main" className="mx-auto w-full min-w-0 max-w-[1440px] px-4 py-6 pb-24 sm:px-6 lg:px-8 md:pb-10">{children}</main>
       </div>
