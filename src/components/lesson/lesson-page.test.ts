@@ -10,15 +10,15 @@ vi.mock("next/navigation",()=>({notFound:()=>{throw Error("NOT_FOUND")}}));
 import LessonPage from "@/app/(main)/learn/[topicId]/page";
 
 const lessonJson=JSON.stringify({objectives:["Розпізнавати рівняння"],theory:"Незмінений матеріал: $ax+b=0$",examples:[{task:"$x+2=3$",solution:"Віднімаємо 2. $x=1$."}],summary:"Короткий конспект",rules:[],mistakes:[]});
-const topic=(id="current",sortOrder=2,available=true)=>({id,title:`Тема ${id}`,subjectId:"math",subject:{name:"Математика"},parentId:null,sortOrder,lessonJson:available?lessonJson:"",children:[],questions:[],videos:[],notes:[],summary:"Опис теми",formulas:"$a\\ne0$",estimatedMin:20});
+const topic=(id="current",sortOrder=2,available=true)=>({id,title:`Тема ${id}`,subjectId:"math",subject:{name:"Математика"},parentId:null,sortOrder,lessonJson:available?lessonJson:"",children:[],questions:[],videos:[],summary:"Опис теми",formulas:"$a\\ne0$",estimatedMin:20});
 const render=async()=>renderToStaticMarkup(await LessonPage({params:Promise.resolve({topicId:"current"})}));
 beforeEach(()=>{vi.clearAllMocks();mock.user.id="A";mock.topic.mockResolvedValue(topic());mock.siblings.mockResolvedValue([topic("previous",0),topic("missing",1,false),topic(),topic("unavailable-next",3,false),topic("next",4)]);mock.progress.mockResolvedValue(null);mock.questions.mockResolvedValue(0);mock.attempt.mockResolvedValue(null);mock.review.mockResolvedValue(null)});
 
 it("uses real available sibling IDs, skips unavailable lessons and never invents numbered URLs",async()=>{const html=await render();expect(html).toContain('href="/learn/previous"');expect(html).toContain('href="/learn/next"');expect(html).not.toContain('/learn/missing');expect(html).not.toContain('/learn/unavailable-next');expect(mock.siblings).toHaveBeenCalledWith(expect.objectContaining({where:{subjectId:"math",parentId:null},orderBy:{sortOrder:"asc"}}))});
-it("keeps personal notes, video, attempt, review and progress queries scoped to each authenticated user",async()=>{
+it("keeps video, attempt, review and progress queries scoped to each authenticated user",async()=>{
  for(const userId of ["A","B"]){
   mock.user.id=userId;await render();
-  expect(mock.topic).toHaveBeenLastCalledWith(expect.objectContaining({include:expect.objectContaining({notes:{where:{userId},orderBy:{updatedAt:"desc"}},videos:expect.objectContaining({include:{progress:{where:{userId}}}})})}));
+  expect(mock.topic).toHaveBeenLastCalledWith(expect.objectContaining({include:expect.objectContaining({videos:expect.objectContaining({include:{progress:{where:{userId}}}})})}));
   expect(mock.progress).toHaveBeenLastCalledWith({where:{userId_topicId:{userId,topicId:"current"}}});
   expect(mock.attempt).toHaveBeenLastCalledWith(expect.objectContaining({where:{userId,status:"COMPLETED",test:{topicId:"current"}}}));
   expect(mock.review).toHaveBeenLastCalledWith(expect.objectContaining({where:{userId,topicId:"current",status:"PENDING"}}));

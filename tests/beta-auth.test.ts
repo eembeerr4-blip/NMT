@@ -61,7 +61,7 @@ it("beta regression: real sessions enforce anonymous 401, student 403, owner 200
  await prisma.invitation.create({data:{codeHash:"qa-invite-secret-hash",email:"qa@example.com",createdById:"owner",expiresAt:new Date(Date.now()+60000)}});
  const response=await backup();expect(response.status).toBe(200);
  const snapshot=await response.json();expect(snapshot.users).toHaveLength(2);
- expect(snapshot.version).toBe(4);expect(snapshot.oauthAccounts).toHaveLength(1);
+ expect(snapshot.version).toBe(5);expect(snapshot.oauthAccounts).toHaveLength(1);
  expect(JSON.stringify(snapshot)).not.toContain("qa-secret-token-hash");
  expect(JSON.stringify(snapshot)).not.toContain("qa-invite-secret-hash");
  // Contains password hashes: deliberately never print the backup body.

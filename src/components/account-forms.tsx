@@ -15,7 +15,7 @@ function Feedback({ state }: { state: AccountState }) {
   return null;
 }
 
-export function RegistrationForm({ googleAction }: { googleAction?: (form: FormData) => Promise<void> }) {
+export function RegistrationForm() {
   const [state, action, pending] = useActionState(registerAction, {});
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -50,12 +50,6 @@ export function RegistrationForm({ googleAction }: { googleAction?: (form: FormD
     <Feedback state={state} />
     <Button type="submit" disabled={pending}>{pending ? "Реєстрація…" : "Зареєструватися"}</Button>
   </form>
-    {googleAction ? <div className="border-t border-border pt-4">
-      <p className="mb-2 text-sm">Або зареєструйтеся через Google:</p>
-      <form action={googleAction}><input type="hidden" name="mode" value="register" />
-        <Button type="submit" variant="outline">Продовжити з Google</Button>
-      </form>
-    </div> : null}
   </>;
 }
 

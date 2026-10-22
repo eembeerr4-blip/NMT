@@ -18,6 +18,7 @@ export const AUDIT_ACTIONS = {
   SUBJECT_UPDATED: "Оновлено предмет",
   TOPIC_CREATED: "Створено тему", TOPIC_UPDATED: "Оновлено тему",
   LESSON_SAVED: "Збережено матеріал уроку", USER_ROLE_CHANGED: "Змінено роль профілю",
+  USER_ACCOUNT_APPROVED: "Схвалено заявку на реєстрацію", USER_ACCOUNT_REJECTED: "Відхилено заявку на реєстрацію",
   SETTINGS_SAVED: "Збережено налаштування", SCHEDULE_SAVED: "Збережено розклад",
   SCHEDULE_RESET: "Відновлено стандартний розклад", FORMAT_SAVED: "Змінено формат і шкали",
   INTEGRATIONS_SAVED: "Збережено налаштування інтеграцій",
@@ -39,6 +40,8 @@ export function safeAuditMetadata(value: unknown): Record<string, string | numbe
   for (const key of ["role", "previousRole"] as const) {
     if (typeof raw[key] === "string" && ["STUDENT", "EDITOR", "ADMIN", "OWNER"].includes(raw[key])) result[key] = raw[key];
   }
+  if (typeof raw.accountStatus === "string" && ["PENDING", "APPROVED", "REJECTED"].includes(raw.accountStatus)) result.accountStatus = raw.accountStatus;
+  if (typeof raw.nickname === "string" && raw.nickname.length <= 24) result.nickname = raw.nickname;
   const allowedFields = new Set(["title", "summary", "formulas", "status", "role", "lesson", "options", "verificationStatus", "url", "video", "schedule", "format", "preferences", "integrations"]);
   if (Array.isArray(raw.fields)) result.fields = raw.fields.filter((field): field is string => typeof field === "string" && allowedFields.has(field));
   return result;

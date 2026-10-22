@@ -48,7 +48,7 @@ export default async function QuestionBank({ searchParams }: { searchParams: Pro
     <>
       <PageHeader title="Банк завдань" description="Створюйте, перевіряйте та архівуйте запитання. Використані в тестах завдання захищені від змін, що пошкодять історію спроб." action={<Button asChild variant="outline"><a href="/api/export/questions">Експорт</a></Button>} />
       <div className="grid gap-3 lg:grid-cols-2">
-        <Card className="p-4"><details><summary className="cursor-pointer font-semibold">Створити завдання</summary><div className="pt-4"><QuestionForm topics={topics}/></div></details></Card>
+        <Card className="p-4"><details><summary className="cursor-pointer font-semibold">Створити завдання</summary><div className="pt-4"><QuestionForm topics={topics} returnTo={`${base}/questions`}/></div></details></Card>
         <Card className="p-4"><details><summary className="cursor-pointer font-semibold">Імпортувати перевірений набір JSON</summary><p className="py-3 text-sm text-muted-foreground">Імпорт нових завдань доступний для уповноважених редакторів та адміністраторів.</p><ImportQuestionsForm/></details></Card>
       </div>
       <Card className="space-y-4 p-4 sm:p-5">

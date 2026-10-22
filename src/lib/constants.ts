@@ -92,7 +92,6 @@ export const NAV = [
   { href: "/calendar", label: "Календар" },
   { href: "/mistakes", label: "Помилки" },
   { href: "/review", label: "Повторення" },
-  { href: "/notes", label: "Конспекти" },
   { href: "/settings", label: "Налаштування" },
 ] as const;
 

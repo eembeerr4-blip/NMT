@@ -4,34 +4,23 @@ import {useActionFeedback} from "./use-action-feedback";
 import { Play } from "lucide-react";
 import { useEffect, useState } from "react";
 import { VIDEO_ROLES } from "@/lib/constants";
-import { addVideo, deleteVideo, makePrimary, saveVideoNotes, saveVideoPosition, searchYouTube, setVideoReview, setVideoRole, updateVideo } from "@/server/actions";
+import { addVideo, deleteVideo, makePrimary, saveVideoNotes, saveVideoPosition, setVideoReview, setVideoRole, updateVideo } from "@/server/actions";
 import { youtubeWatchUrl } from "@/lib/youtube";
 import { Button, Card, Input } from "@/components/ui";
 
 type Video = { id: string; youtubeId: string; url: string; title: string; isPrimary: boolean; durationSec: number | null; lastPositionSec: number; notes: string; role?: string; channel?: string; reviewStatus?: string };
 
-export function VideoPanel({ topicId, topicTitle, videos, canEdit = false, variant="default" }: { topicId: string; topicTitle: string; videos: Video[]; canEdit?: boolean; variant?:"default"|"lesson" }) {
+export function VideoPanel({ topicId, videos, canEdit = false, variant="default" }: { topicId: string; topicTitle?: string; videos: Video[]; canEdit?: boolean; variant?:"default"|"lesson" }) {
   const visible = videos.filter((video) => video.reviewStatus !== "REJECTED");
   const confirmed = visible.filter((video) => (video.reviewStatus ?? "CONFIRMED") !== "SUGGESTED");
   const [currentId, setCurrentId] = useState((confirmed.find((video) => video.isPrimary) ?? confirmed[0] ?? visible[0])?.id ?? "");
   const primary = visible.find((video) => video.id === currentId) ?? confirmed[0] ?? visible[0];
   const [playing, setPlaying] = useState(false);
   const [message, setMessage] = useState("");
-  const [results, setResults] = useState<{ id: string; title: string }[]>([]);
 
   async function onAdd(formData: FormData) {
     const result = await addVideo(topicId, String(formData.get("url") ?? ""), String(formData.get("title") ?? ""));
     setMessage(result.ok ? "Відео додано." : result.error);
-  }
-  async function onSearch(formData: FormData) {
-    const result = await searchYouTube(`${topicTitle} ${String(formData.get("query") ?? "")}`.trim(), topicId);
-    if (!result.ok) {
-      setMessage(`${result.error}${result.searchUrl ? ` Пошук: ${result.searchUrl}` : ""}`);
-      setResults([]);
-      return;
-    }
-    setResults(result.items);
-    setMessage(result.items.length ? "Оберіть відео зі списку." : "YouTube не повернув результатів.");
   }
 
   return (
@@ -80,21 +69,6 @@ export function VideoPanel({ topicId, topicTitle, videos, canEdit = false, varia
           <Input name="title" placeholder="Назва для себе" />
           <Button type="submit">Додати відео</Button>
         </form>
-        <form action={onSearch} className="grid gap-2 sm:grid-cols-[1fr_auto]">
-          <Input name="query" placeholder="Пошуковий запит для YouTube Data API" />
-          <Button type="submit" variant="outline">Шукати</Button>
-        </form>
-        {results.length ? (
-          <div className="space-y-2">
-            {results.map((item) => (
-              <form key={item.id} action={async () => { const result = await addVideo(topicId, item.id, item.title); setMessage(result.ok ? "Відео додано з пошуку." : result.error); }} className="flex items-center justify-between gap-2 rounded-lg border border-border p-2">
-                <span className="text-sm">{item.title}</span>
-                <Button type="submit" size="sm" variant="outline">Додати</Button>
-              </form>
-            ))}
-          </div>
-        ) : null}
-
       </Card></details> : null}
       {videos.length ? (
         <div className="space-y-3">

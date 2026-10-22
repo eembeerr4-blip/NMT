@@ -39,7 +39,7 @@ async function main() {
   if (!settings) {
     await prisma.userSettings.create({ data: { id: "default", userId: OWNER, scheduleJson: "{}", formatJson: JSON.stringify(DEFAULT_FORMAT) } });
   }
-  const personal = ["examResult", "studyTask", "testAttempt", "mistake", "reviewSchedule", "studySession", "note", "flashcard", "aIConversation", "xpEvent", "achievement"] as const;
+  const personal = ["examResult", "studyTask", "testAttempt", "mistake", "reviewSchedule", "studySession", "flashcard"] as const;
   for (const model of personal) {
     const delegate = prisma[model] as unknown as { updateMany: (args: { where: { userId: null }; data: { userId: string } }) => Promise<unknown> };
     await delegate.updateMany({ where: { userId: null }, data: { userId: OWNER } });

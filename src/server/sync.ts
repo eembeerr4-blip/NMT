@@ -2,11 +2,50 @@ import type { Prisma } from "@prisma/client";
 import { isAutoPlanned } from "@/lib/task-origin";
 import { cache } from "react";
 import { fitDailyLoad } from "@/lib/fit-daily-load";
-import { DEFAULT_SCHEDULE, type ScheduleConfig } from "@/lib/constants";
+import { DEFAULT_FORMAT, DEFAULT_SCHEDULE, type ScheduleConfig } from "@/lib/constants";
 import { addDateKeys, dateKey, parseDateKey } from "@/lib/dates";
 import { prisma } from "@/lib/prisma";
 import { buildSlotsForDate, eachDate, windowFor, type TopicPick } from "@/lib/plan";
 import { getSessionUser } from "@/server/session";
+
+export async function ensureUserSettings(userId: string, db: Prisma.TransactionClient = prisma) {
+  const existing = await db.userSettings.findUnique({ where: { userId } });
+  if (existing) return existing;
+  const template = await db.userSettings.findUnique({ where: { id: "default" } });
+  if (template) {
+    return db.userSettings.create({
+      data: {
+        id: userId,
+        userId,
+        theme: template.theme,
+        examDate: template.examDate,
+        targetScore: template.targetScore,
+        masteryHighMin: template.masteryHighMin,
+        masteryMidMin: template.masteryMidMin,
+        mathPriority: template.mathPriority,
+        ukrainianPriority: template.ukrainianPriority,
+        historyPriority: template.historyPriority,
+        biologyPriority: template.biologyPriority,
+        timerEnabled: template.timerEnabled,
+        scheduleJson: template.scheduleJson,
+        formatJson: template.formatJson,
+        planStart: template.planStart,
+        dailyMinutes: template.dailyMinutes,
+        intensity: template.intensity,
+        preferredTime: template.preferredTime,
+        studyDaysJson: template.studyDaysJson,
+      },
+    });
+  }
+  return db.userSettings.create({
+    data: {
+      id: userId,
+      userId,
+      scheduleJson: JSON.stringify(DEFAULT_SCHEDULE),
+      formatJson: JSON.stringify(DEFAULT_FORMAT),
+    },
+  });
+}
 
 export async function getSettings(userId?: string, db: Prisma.TransactionClient = prisma) {
   const id = userId ?? (await getSessionUser())?.id;

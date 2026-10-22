@@ -7,14 +7,14 @@ import { formatUk } from "@/lib/dates";
 import { parseLesson } from "@/lib/lesson";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/server/session";
-import { CompleteLesson } from "@/components/lesson-tutor";
+import { CompleteLesson } from "@/components/lesson-complete";
 import { MathText } from "@/components/math-text";
 import { TopicActions } from "@/components/forms";
 import { VideoPanel } from "@/components/video-panel";
 import { Badge, Button, Card, EmptyState, PageHeader } from "@/components/ui";
 import { SubjectIcon } from "@/components/subject-icon";
 import { LessonTabs } from "@/components/lesson-tabs";
-import { LessonExamples, LessonNotes, LessonSynopsis, LessonTheory } from "@/components/lesson/lesson-content";
+import { LessonExamples, LessonSynopsis, LessonTheory } from "@/components/lesson/lesson-content";
 
 export default async function LessonPage({ params }: { params: Promise<{ topicId: string }> }) {
   const user = await requireUser();
@@ -25,7 +25,6 @@ export default async function LessonPage({ params }: { params: Promise<{ topicId
       subject: true, children: true,
       questions: { where: { verificationStatus: "VERIFIED" }, select: { difficulty: true } },
       videos: { where: { reviewStatus: "CONFIRMED" }, orderBy: { createdAt: "asc" }, include: { progress: { where: { userId: user.id } } } },
-      notes: { where: { userId: user.id }, orderBy: { updatedAt: "desc" } },
     },
   });
   if (!topic) notFound();
@@ -64,7 +63,7 @@ export default async function LessonPage({ params }: { params: Promise<{ topicId
       practice={<div className="d04-practice"><Card className="d04-material"><div className="d04-section-title"><ClipboardCheck aria-hidden="true"/><h2>Перевірте розуміння теми</h2></div><p className="d04-muted">{practiceNote}</p><TopicActions topicId={topic.id} hasQuestions={verifiedCount>0}/>
         {attempt?<div className="d04-last-result"><p>Остання завершена практика{attempt.finishedAt?` · ${formatUk(attempt.finishedAt)}`:""}</p><p>{attempt.totalCount!==null?`${attempt.correctCount??0} із ${attempt.totalCount} правильних відповідей`:"Результат збережено"}{attempt.pendingCount?` · на перевірці ${attempt.pendingCount}`:""}</p><Link href={`/tests/${attempt.id}`}>Переглянути розбір<ArrowRight aria-hidden="true"/></Link></div>:<p className="d04-empty-copy">Результат з’явиться після завершення практики.</p>}
       </Card><Card className="d04-material d04-completion"><h2>{verifiedCount>0?"Підсумок уроку":"Опрацювання конспекту"}</h2><p className="d04-muted">{STATUS_LABEL[status] ?? "Стан уточнюється"}. Засвоєння теми визначається результатами практики.</p>{lesson?.theory.trim()&&!topic.children.length?<CompleteLesson topicId={topic.id} needsPractice={verifiedCount>0}/>:<p className="d04-empty-copy">Завершення стане доступним після додавання матеріалу уроку.</p>}<p className="d04-review">{review?`Наступне повторення: ${formatUk(review.dueKey)}.`:"Повторення з’явиться після завершення уроку або тесту."}</p></Card>{lesson?.sources?.length?<p className="d04-muted">Авторський навчальний матеріал NMT Academy. Не є офіційним завданням НМТ.</p>:null}</div>}
-      notes={<div className="d04-notes-grid"><LessonSynopsis lesson={lesson} summary={topic.summary} formulas={topic.formulas}/><LessonNotes topic={{id:topic.id,title:topic.title,subjectId:topic.subjectId}} notes={topic.notes}/></div>}
+      notes={<LessonSynopsis lesson={lesson} summary={topic.summary} formulas={topic.formulas}/>}
     />
 
     <nav aria-label="Перехід між темами" className="d04-topic-navigation">

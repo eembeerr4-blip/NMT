@@ -51,8 +51,6 @@ export const preferencesSchema = z.object({
   masteryHighMin: z.number().int().min(1).max(12),
   masteryMidMin: z.number().int().min(0).max(11),
   timerEnabled: z.boolean(),
-  aiProvider: z.enum(["none", "openai", "gemini", "ollama"]),
-  aiModel: z.string().trim().max(120),
   mathPriority: z.number().int().min(0).max(100),
   ukrainianPriority: z.number().int().min(0).max(100),
   historyPriority: z.number().int().min(0).max(100),

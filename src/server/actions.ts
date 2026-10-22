@@ -5,6 +5,7 @@ import { parseLesson } from "@/lib/lesson";
 
 import { UserError, userFacingError } from "@/lib/errors";
 import { auditedWrite, recordAudit } from "@/server/audit-log";
+import { accountStatus, canAccessLearning } from "@/lib/account-status";
 import { canEditContent, isAdministrator, isOwner, canManageRole, effectiveRole } from "@/lib/permissions";
 import { prepareQuestion } from "@/lib/question-input";
 import { randomUUID } from "crypto";
@@ -12,23 +13,21 @@ import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod";
-import { aiPackSchema } from "@/lib/ai";
-import { DEFAULT_FORMAT, DEFAULT_SCHEDULE, ELECTIVE_SUBJECT_IDS, REQUIRED_SUBJECT_IDS, TASK_KINDS, type ScheduleConfig } from "@/lib/constants";
+import { DEFAULT_FORMAT, DEFAULT_SCHEDULE, ELECTIVE_SUBJECT_IDS, REQUIRED_SUBJECT_IDS, type ScheduleConfig } from "@/lib/constants";
 import { addDateKeys, dateKey, isDateKey, noonUtc } from "@/lib/dates";
 import { gradeAnswer, pickBalanced } from "@/lib/grade";
 import { learningStatus, reviewIntervals } from "@/lib/mastery";
 import { prisma } from "@/lib/prisma";
-import { readSecrets, writeSecrets } from "@/lib/secrets";
 import { examResultSchema, preferencesSchema, questionSchema } from "@/lib/validators";
-import { parseYouTubeId, searchYouTube as searchYouTubeApi, youtubeSearchUrl, youtubeWatchUrl } from "@/lib/youtube";
+import { parseYouTubeId, youtubeWatchUrl } from "@/lib/youtube";
 import { personalSchedule } from "@/lib/plan";
 import { relocationMode } from "@/lib/shift";
 import { hashPasswordAsync, verifyPasswordAsync, DUMMY_HASH } from "@/lib/auth";
 import { isValidNickname, normalizeNickname } from "@/lib/nickname";
-import { addXp, refreshAchievements } from "@/server/progress";
 import { isLoginLimited, registerLoginFailure, clearAccountFailures, trustedClientIp } from "@/lib/login-throttle";
 import { clearSession, createSession, getSessionUser } from "@/server/session";
-import { getSettings, syncPlan, syncPlanWithClient, rebuildFuturePlan } from "@/server/sync";
+import { ensureUserSettings, getSettings, syncPlan, syncPlanWithClient, rebuildFuturePlan } from "@/server/sync";
+import { canFinishAttemptAfterDeadline, isAttemptExpired } from "@/lib/test-attempt-time";
 
 export type ActionState = { ok: true; message?: string; id?: string } | { ok: false; error: string };
 
@@ -46,6 +45,11 @@ function refresh() {
 async function actor() {
   const user = await getSessionUser();
   if (!user) throw new UserError("Потрібен вхід до профілю.");
+  if (!canAccessLearning(user) && !isAdministrator(user) && !canEditContent(user)) {
+    if (accountStatus(user) === "PENDING") throw new UserError("Доступ відкриється після схвалення власником платформи.");
+    if (accountStatus(user) === "REJECTED") throw new UserError("Заявку на реєстрацію відхилили. Зверніться до власника платформи.");
+    throw new UserError("Недостатньо прав для цієї дії.");
+  }
   return user;
 }
 
@@ -205,37 +209,6 @@ export async function saveVideoPosition(id: string, seconds: number, durationSec
   } catch(error) { return fail(error); }
 }
 
-export async function searchYouTube(query: string, topicId?: string) {
-  const user = await actor();
-  const searchUrl = youtubeSearchUrl(query);
-  const found = await searchYouTubeApi(query, readSecrets().youtubeApiKey);
-  if (!found.ok) return { ok: false as const, error: found.reason, searchUrl: found.searchUrl };
-  const unique = new Map<string, { id: string; title: string; channel: string }>();
-  for (const item of found.items) unique.set(item.youtubeId, { id: item.youtubeId, title: item.title, channel: item.channel });
-  if (topicId && canEditContent(user)) {
-    await prisma.$transaction(async tx=>{
-    let changed=0;
-    for (const item of unique.values()) {
-      const existing = await tx.videoLesson.findFirst({ where: { topicId, youtubeId: item.id } });
-      if (existing) {
-        if (existing.reviewStatus !== "REJECTED") {
-          changed++;
-          await tx.videoLesson.update({ where: { id: existing.id }, data: { title: item.title, channel: item.channel } });
-        }
-        continue;
-      }
-      changed++;
-      await tx.videoLesson.create({
-        data: { topicId, youtubeId: item.id, url: youtubeWatchUrl(item.id), title: item.title, channel: item.channel, role: "simple", reviewStatus: "SUGGESTED", isPrimary: false },
-      });
-    }
-    if(changed) await recordAudit(user,{action:"VIDEO_SEARCH",entityType:"topic",entityId:topicId,metadata:{count:changed}},tx);
-    });
-    refresh();
-  }
-  return { ok: true as const, items: [...unique.values()], searchUrl };
-}
-
 export async function setVideoReview(id: string, status: "CONFIRMED" | "REJECTED"): Promise<ActionState> {
   try {
     const user = await editor();
@@ -265,33 +238,6 @@ export async function setVideoRole(id: string, role: string): Promise<ActionStat
     return { ok: true };
   
     });
-  } catch (error) {
-    return fail(error);
-  }
-}
-
-export async function saveNote(input: { id?: string; title: string; content: string; topicId?: string; subjectId?: string }): Promise<ActionState> {
-  try {
-    const user = await actor();
-    if (!input.title.trim() || !input.content.trim()) return { ok: false, error: "Додайте заголовок і текст конспекту." };
-    if (input.id) {
-      await prisma.note.update({ where: { id: input.id, userId: user.id }, data: { title: input.title.trim(), content: input.content, topicId: input.topicId || null, subjectId: input.subjectId || null } });
-    } else {
-      await prisma.note.create({ data: { title: input.title.trim(), content: input.content, topicId: input.topicId || null, subjectId: input.subjectId || null, userId: user.id } });
-    }
-    refresh();
-    return { ok: true };
-  } catch (error) {
-    return fail(error);
-  }
-}
-
-export async function deleteNote(id: string): Promise<ActionState> {
-  try {
-    const user = await actor();
-    await prisma.note.delete({ where: { id, userId: user.id } });
-    refresh();
-    return { ok: true };
   } catch (error) {
     return fail(error);
   }
@@ -462,8 +408,19 @@ function scaleTargets(total: number) {
 export async function saveDraft(attemptId: string, draft: Record<string, unknown>, currentIndex: number): Promise<ActionState> {
   try {
     const user = await actor();
-    const updated = await prisma.testAttempt.updateMany({where:{id:attemptId,userId:user.id,status:"IN_PROGRESS"},data:{draftJson:JSON.stringify(draft),currentIndex}});
-    return updated.count ? {ok:true} : {ok:false,error:"Спробу вже завершено або вона недоступна."};
+    const attempt = await prisma.testAttempt.findUnique({
+      where: { id: attemptId, userId: user.id },
+      include: { test: { select: { timeLimitSec: true } } },
+    });
+    if (!attempt || attempt.status !== "IN_PROGRESS") return { ok: false, error: "Спробу вже завершено або вона недоступна." };
+    if (isAttemptExpired(attempt.startedAt, attempt.test.timeLimitSec)) {
+      return { ok: false, error: "Час тесту вичерпано. Нові відповіді більше не приймаються." };
+    }
+    const updated = await prisma.testAttempt.updateMany({
+      where: { id: attemptId, userId: user.id, status: "IN_PROGRESS" },
+      data: { draftJson: JSON.stringify(draft), currentIndex },
+    });
+    return updated.count ? { ok: true } : { ok: false, error: "Спробу вже завершено або вона недоступна." };
   } catch(error) { return fail(error); }
 }
 
@@ -484,6 +441,9 @@ export async function finishAttempt(attemptId: string, draft: Record<string, unk
       include: { test: { include: { questions: { include: { question: true }, orderBy: { sortOrder: "asc" } } } } },
     });
     if (!attempt || attempt.userId !== user.id) throw new UserError("Спроба недоступна.");
+    if (!canFinishAttemptAfterDeadline(attempt.startedAt, attempt.test.timeLimitSec)) {
+      throw new UserError("Час тесту вичерпано. Спроба більше не може бути завершена.");
+    }
     await tx.answer.deleteMany({ where: { attemptId } });
     let correct = 0;
     let pending = 0;
@@ -544,8 +504,6 @@ export async function finishAttempt(attemptId: string, draft: Record<string, unk
       },
     });
     if (attempt.test.topicId) await completeOpenTask(user.id, attempt.test.topicId, tx);
-    await addXp(30 + correct * 2, "Завершений тест", tx, user.id);
-    await refreshAchievements(tx, user.id);
     }, {maxWait: 15000, timeout: 30000});
     refresh();
     return { ok: true };
@@ -718,7 +676,6 @@ export async function saveExamResult(raw: unknown): Promise<ActionState> {
       if (!existing || existing.userId !== user.id) return { ok: false, error: "Цей результат належить іншому профілю." };
       await prisma.examResult.update({ where: { id: data.id, userId: user.id }, data: payload });
     } else await prisma.examResult.create({ data: { ...payload, userId: user.id } });
-    if (!data.id) await addXp(20, "Записаний результат");
     refreshPages("/results", "/analytics", "/", "/subjects/[slug]");
     return { ok: true };
   } catch (error) {
@@ -759,8 +716,6 @@ export async function setTaskStatus(id: string, status: "PLANNED" | "IN_PROGRESS
           kind: task.kind,
         },
       });
-      await addXp(15, "Завершене заняття");
-      await refreshAchievements();
     }
     refreshPages("/calendar", "/", "/analytics", "/curriculum", "/review");
     return { ok: true };
@@ -805,42 +760,6 @@ export async function moveTask(id: string, nextDate: string): Promise<ActionStat
   }
 }
 
-export async function createCustomTask(input: { dateKey: string; title: string; subjectId?: string; durationMin: number; kind?: string }): Promise<ActionState> {
-  try {
-    const user = await actor();
-    if (!isDateKey(input.dateKey)) return { ok: false, error: "Оберіть коректну дату." };
-    if (input.kind !== undefined && !TASK_KINDS.some(kind => kind === input.kind)) return { ok: false, error: "Оберіть тип заняття зі списку." };
-    if (!input.title.trim()) return { ok: false, error: "Вкажіть назву заняття." };
-    await prisma.studyTask.create({
-      data: {
-        userId: user.id,
-        dateKey: input.dateKey,
-        title: input.title.trim(),
-        subjectId: input.subjectId || null,
-        durationMin: Math.max(0, input.durationMin),
-        kind: input.kind || "custom",
-        templateKey: `custom-${randomUUID()}`,
-        detail: "Власне заняття",
-      },
-    });
-    refreshPages("/calendar", "/", "/analytics", "/curriculum");
-    return { ok: true };
-  } catch (error) {
-    return fail(error);
-  }
-}
-
-export async function recalculateFuturePlan(): Promise<ActionState> {
-  try {
-    const user = await actor();
-    await prisma.$transaction(tx => rebuildFuturePlan(user.id, tx), {maxWait:15000,timeout:30000});
-    refreshPages("/calendar", "/", "/analytics", "/curriculum");
-    return { ok: true, message: "Майбутні заплановані заняття перераховано. Виконані й перенесені залишились." };
-  } catch (error) {
-    return fail(error);
-  }
-}
-
 export async function logStudyMinutes(input: { subjectId?: string; topicId?: string; minutes: number; note?: string }): Promise<ActionState> {
   try {
     const user = await actor();
@@ -857,8 +776,6 @@ export async function logStudyMinutes(input: { subjectId?: string; topicId?: str
         note: input.note ?? "",
       },
     });
-    await addXp(10, "Записаний навчальний час");
-    await refreshAchievements();
     refresh();
     return { ok: true };
   } catch (error) {
@@ -870,7 +787,6 @@ export async function completeReview(id: string): Promise<ActionState> {
   try {
     const user = await actor();
     await prisma.reviewSchedule.update({ where: { id, userId: user.id, status: "PENDING" }, data: { status: "DONE", completedAt: new Date() } });
-    await addXp(10, "Повторення");
     refreshPages("/review", "/calendar", "/", "/analytics");
     return { ok: true };
   } catch (error) {
@@ -891,7 +807,6 @@ export async function reviewFlashcard(id: string, grade: "again" | "good"): Prom
     } else {
       const interval = Math.max(1, Math.round((card.intervalDays || 1) * card.ease));
       await prisma.flashcard.update({ where: { id, userId: user.id }, data: { intervalDays: interval, dueKey: addDateKeys(dateKey(), interval), reps: { increment: 1 } } });
-      await addXp(5, "Картка");
     }
     refreshPages("/review", "/analytics", "/", "/subjects", "/subjects/[slug]", "/topics/[id]", "/learn/[topicId]");
     return { ok: true };
@@ -965,8 +880,6 @@ export async function savePreferences(raw: unknown): Promise<ActionState> {
         masteryHighMin: data.masteryHighMin,
         masteryMidMin: data.masteryMidMin,
         timerEnabled: data.timerEnabled,
-        aiProvider: "none",
-        aiModel: "",
         mathPriority: data.mathPriority,
         ukrainianPriority: data.ukrainianPriority,
         historyPriority: data.historyPriority,
@@ -992,7 +905,7 @@ export async function saveSchedule(rawJson: string): Promise<ActionState> {
     if (!parsed.days || !parsed.rotation || !parsed.anchorMockDate) return { ok: false, error: "У розкладі бракує днів, ротації або дати першого пробника." };
     await tx.userSettings.update({ where: { id: (await getSettings(user.id)).id }, data: { scheduleJson: JSON.stringify(parsed) } });
     refresh();
-    return { ok: true, message: "Розклад збережено. Перерахуйте майбутній план на сторінці календаря." };
+    return { ok: true, message: "Розклад збережено." };
   
     });
   } catch (error) {
@@ -1020,75 +933,15 @@ export async function saveFormat(rawJson: string): Promise<ActionState> {
   }
 }
 
-export async function saveSecretSettings(input: { openaiApiKey?: string; geminiApiKey?: string; ollamaBaseUrl?: string; youtubeApiKey?: string; clearOpenai?: boolean; clearGemini?: boolean; clearYoutube?: boolean }): Promise<ActionState> {
-  try {
-    const user = await administrator();
-    const current = readSecrets();
-    const keepOrReplace = (next: string | undefined, clear: boolean | undefined, previous: string | undefined) => {
-      if (clear) return "";
-      const value = next?.trim();
-      return value ? value : previous;
-    };
-    writeSecrets({
-      openaiApiKey: keepOrReplace(input.openaiApiKey, input.clearOpenai, current.openaiApiKey),
-      geminiApiKey: keepOrReplace(input.geminiApiKey, input.clearGemini, current.geminiApiKey),
-      ollamaBaseUrl: input.ollamaBaseUrl?.trim() || current.ollamaBaseUrl,
-      youtubeApiKey: keepOrReplace(input.youtubeApiKey, input.clearYoutube, current.youtubeApiKey),
-    });
-    await recordAudit(user,{action:"INTEGRATIONS_SAVED",entityType:"settings",metadata:{fields:["integrations"]}});
-    return { ok: true, message: "Ключі збережено лише на сервері, у data/secrets.json. Файл не входить до Git." };
-  } catch (error) {
-    return fail(error);
-  }
-}
-
-export async function enableLocalTutor(): Promise<ActionState> {
-  try {
-    await actor();
-    return { ok: false, error: "AI-репетитор тимчасово вимкнено. Усі інші розділи працюють без нього." };
-  } catch (error) {
-    return fail(error);
-  }
-}
-
-export async function askTutor(input: { mode: string; subjectId?: string; topicId?: string; prompt: string }) {
-  try {
-    void input;
-    await actor();
-    return { ok: false as const, error: "AI-репетитор тимчасово вимкнено. Усі інші розділи працюють без нього." };
-  } catch (error) {
-    return { ok: false as const, error: error instanceof Error ? error.message : "Помилка AI." };
-  }
-}
-
-export async function saveGeneratedQuestions(raw: unknown, subjectId: string, topicId: string): Promise<ActionState> {
-  try {
-    const user = await editor();
-    const pack = aiPackSchema.parse(raw);
-    await prisma.$transaction(async tx=>{
-      for(const question of pack.questions){
-        const id=await persistQuestion(tx,{...question,subjectId,topicId,source:"Згенеровано AI. Потребує перевірки. Не офіційне завдання НМТ.",verificationStatus:"DRAFT"});
-        await tx.question.update({where:{id},data:{generatedByAi:true}});
-      }
-      await recordAudit(user,{action:"QUESTIONS_GENERATED",entityType:"topic",entityId:topicId,metadata:{count:pack.questions.length}},tx);
-    });
-    refresh();
-    return { ok: true, message: "Чернетки збережено. Вони не потрапляють у тести, доки ви не позначите їх перевіреними." };
-  } catch (error) {
-    return fail(error);
-  }
-}
-
 export async function buildBackup() {
   const user=await owner();
   const [users, userSubjects, progress, videoProgress, oauthAccounts] = await Promise.all([prisma.user.findMany(), prisma.userSubject.findMany(), prisma.userTopicProgress.findMany(), prisma.userVideoProgress.findMany(), prisma.oAuthAccount.findMany()]);
-  const [settings, subjects, topics, dependencies, videos, notes, questions, options, tests, testQuestions, attempts, answers, examResults, sessions, tasks, reviews, mistakes, flashcards, conversations, messages, achievements, xp] = await Promise.all([
+  const [settings, subjects, topics, dependencies, videos, questions, options, tests, testQuestions, attempts, answers, examResults, sessions, tasks, reviews, mistakes, flashcards] = await Promise.all([
     prisma.userSettings.findMany(),
     prisma.subject.findMany(),
     prisma.topic.findMany(),
     prisma.topicDependency.findMany(),
     prisma.videoLesson.findMany(),
-    prisma.note.findMany(),
     prisma.question.findMany(),
     prisma.questionOption.findMany(),
     prisma.test.findMany(),
@@ -1101,23 +954,32 @@ export async function buildBackup() {
     prisma.reviewSchedule.findMany(),
     prisma.mistake.findMany(),
     prisma.flashcard.findMany(),
-    prisma.aIConversation.findMany(),
-    prisma.aIMessage.findMany(),
-    prisma.achievement.findMany(),
-    prisma.xpEvent.findMany(),
   ]);
   await recordAudit(user,{action:"BACKUP_CREATED",entityType:"backup"});
   const auditLogs=await prisma.auditLog.findMany({orderBy:[{createdAt:"asc"},{id:"asc"}]});
   // Never export active verification/reset tokens, OAuth state, or unused invitations.
-  return { auditLogs, version: 4, users, userSubjects, progress, videoProgress, oauthAccounts, exportedAt: new Date().toISOString(), settings, subjects, topics, dependencies, videos, notes, questions, options, tests, testQuestions, attempts, answers, examResults, sessions, tasks, reviews, mistakes, flashcards, conversations, messages, achievements, xp };
+  return { auditLogs, version: 5, users, userSubjects, progress, videoProgress, oauthAccounts, exportedAt: new Date().toISOString(), settings, subjects, topics, dependencies, videos, questions, options, tests, testQuestions, attempts, answers, examResults, sessions, tasks, reviews, mistakes, flashcards };
 }
 
 export async function restoreBackup(rawJson: string, confirmation?: string): Promise<ActionState> {
   try {
     const user=await owner();
     if (confirmation !== "ВІДНОВИТИ") return { ok: false, error: "Відновлення скасовано. Введіть ВІДНОВИТИ." };
-    const data = JSON.parse(rawJson) as Awaited<ReturnType<typeof buildBackup>>;
-    if ((data.version >= 3 && !Array.isArray(data.videoProgress)) || (data.version === 4 && !Array.isArray(data.oauthAccounts)) || ![2, 3, 4].includes(data.version) || !Array.isArray(data.users) || !data.users.some((user) => user.id === "owner" && user.passwordHash) || !Array.isArray(data.userSubjects) || !Array.isArray(data.progress) || !Array.isArray(data.messages) || !Array.isArray(data.subjects) || !Array.isArray(data.settings)) return { ok: false, error: "Файл резервної копії не підходить." };
+    const data = JSON.parse(rawJson) as Awaited<ReturnType<typeof buildBackup>> & {
+      notes?: unknown[];
+      conversations?: unknown[];
+      messages?: unknown[];
+      achievements?: unknown[];
+      xp?: unknown[];
+    };
+    if ((data.version >= 3 && !Array.isArray(data.videoProgress)) || (data.version >= 4 && !Array.isArray(data.oauthAccounts)) || ![2, 3, 4, 5].includes(data.version) || !Array.isArray(data.users) || !data.users.some((user) => user.id === "owner" && user.passwordHash) || !Array.isArray(data.userSubjects) || !Array.isArray(data.progress) || (data.version <= 4 && !Array.isArray(data.messages)) || !Array.isArray(data.subjects) || !Array.isArray(data.settings)) return { ok: false, error: "Файл резервної копії не підходить." };
+    const settingsRows = data.settings.map((row) => {
+      const legacy = row as typeof row & { aiProvider?: string; aiModel?: string };
+      const { aiProvider: _dropProvider, aiModel: _dropModel, ...rest } = legacy;
+      void _dropProvider;
+      void _dropModel;
+      return rest;
+    });
     await prisma.$transaction(async (tx) => {
       await tx.answer.deleteMany();
       await tx.testQuestion.deleteMany();
@@ -1128,16 +990,12 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
       await tx.studyTask.deleteMany();
       await tx.studySession.deleteMany();
       await tx.videoLesson.deleteMany();
-      await tx.note.deleteMany();
       await tx.questionOption.deleteMany();
       await tx.question.deleteMany();
       await tx.flashcard.deleteMany();
-      await tx.xpEvent.deleteMany();
-      await tx.aIConversation.deleteMany();
       await tx.examResult.deleteMany();
       await tx.topicDependency.deleteMany();
       await tx.topic.deleteMany();
-      await tx.achievement.deleteMany();
       await tx.subject.deleteMany();
       await tx.userSettings.deleteMany();
       await tx.session.deleteMany();
@@ -1149,14 +1007,13 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
       if (data.users.length) await tx.user.createMany({ data: data.users });
       if (data.oauthAccounts?.length) await tx.oAuthAccount.createMany({ data: data.oauthAccounts });
       if (data.subjects.length) await tx.subject.createMany({ data: data.subjects });
-      if (data.settings.length) await tx.userSettings.createMany({ data: data.settings });
+      if (settingsRows.length) await tx.userSettings.createMany({ data: settingsRows });
       if (data.topics.length) await tx.topic.createMany({ data: data.topics });
       if (data.userSubjects.length) await tx.userSubject.createMany({ data: data.userSubjects });
       if (data.progress.length) await tx.userTopicProgress.createMany({ data: data.progress });
       if (data.dependencies.length) await tx.topicDependency.createMany({ data: data.dependencies });
       if (data.questions.length) await tx.question.createMany({ data: data.questions });
       if (data.options.length) await tx.questionOption.createMany({ data: data.options });
-      if (data.notes.length) await tx.note.createMany({ data: data.notes });
       if (data.videos.length) await tx.videoLesson.createMany({ data: data.videos });
       if (data.videoProgress?.length) await tx.userVideoProgress.createMany({ data: data.videoProgress });
       if (data.flashcards.length) await tx.flashcard.createMany({ data: data.flashcards });
@@ -1169,10 +1026,6 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
       if (data.tasks.length) await tx.studyTask.createMany({ data: data.tasks });
       if (data.reviews.length) await tx.reviewSchedule.createMany({ data: data.reviews });
       if (data.mistakes.length) await tx.mistake.createMany({ data: data.mistakes });
-      if (data.conversations.length) await tx.aIConversation.createMany({ data: data.conversations });
-      if (data.messages.length) await tx.aIMessage.createMany({ data: data.messages });
-      if (data.achievements.length) await tx.achievement.createMany({ data: data.achievements });
-      if (data.xp.length) await tx.xpEvent.createMany({ data: data.xp });
       // Preserve the live journal; archived events must never be replayed as new actions.
       await recordAudit(user,{action:"BACKUP_RESTORED",entityType:"backup",metadata:{version:data.version}},tx);
     });
@@ -1184,7 +1037,7 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
   }
 }
 
-export async function login(nickname: string, password: string, rememberMe = false, continueGoogleLink = false) {
+export async function login(nickname: string, password: string, rememberMe = false) {
   const key = normalizeNickname(nickname);
   const clientIp = trustedClientIp(await headers());
   const denied = {ok:false as const,error:"Не вдалося увійти. Перевірте дані або спробуйте пізніше."};
@@ -1206,10 +1059,16 @@ export async function login(nickname: string, password: string, rememberMe = fal
     return denied;
   }
   clearAccountFailures(accountKey);
+  const status = accountStatus(user);
+  if (status === "REJECTED") {
+    registerLoginFailure(accountKey, clientIp);
+    return { ok: false as const, error: "Заявку на реєстрацію відхилили. Зверніться до власника платформи." };
+  }
   await prisma.session.deleteMany({where:{expiresAt:{lt:new Date()}}});
   await createSession(user.id, rememberMe);
   await recordAudit(user,{action:"AUTH_LOGIN",entityType:"session"});
-  redirect(continueGoogleLink ? "/login?oauth=confirm_link" : user.onboarded ? "/" : "/onboarding");
+  if (status === "PENDING") redirect("/pending");
+  redirect(user.onboarded ? "/" : "/onboarding");
 }
 
 export async function logout() {
@@ -1255,6 +1114,7 @@ export async function completeOnboarding(input: {
   // Password material is intentionally excluded from session users.
   const existing = await prisma.user.findUnique({ where: { id: signedIn.id } });
   if (!existing) return { ok: false as const, error: "Профіль не знайдено." };
+  if (accountStatus(existing) !== "APPROVED") return { ok: false as const, error: "Налаштування доступне лише після схвалення власником." };
   if (existing.id === "owner" && !existing.passwordHash && !input.password) return { ok: false as const, error: "Встановіть пароль власника." };
   const [taken] = await prisma.$queryRaw<{id:string}[]>`SELECT "id" FROM "User" WHERE "nickname" = ${nickname} COLLATE NOCASE LIMIT 1`;
   if (taken && taken.id !== existing?.id) return { ok: false as const, error: "Цей нікнейм уже зайнятий." };
@@ -1428,6 +1288,34 @@ export async function saveLessonContent(topicId: string, raw: unknown): Promise<
   }catch(error){return fail(error)}
 }
 
+export async function moderateUserAccount(id: string, rawStatus: string): Promise<ActionState> {
+  try {
+    const user = await owner();
+    const status = z.enum(["APPROVED", "REJECTED"]).parse(rawStatus);
+    return await prisma.$transaction(async (tx) => {
+      const target = await tx.user.findUnique({ where: { id }, select: { id: true, accountStatus: true, nickname: true } });
+      if (!target) return { ok: false as const, error: "Профіль не знайдено." };
+      if (target.id === "owner") return { ok: false as const, error: "Профіль власника не модерується." };
+      if (accountStatus(target) !== "PENDING") return { ok: false as const, error: "Цю заявку уже опрацьовано." };
+      await tx.user.update({ where: { id }, data: { accountStatus: status } });
+      await recordAudit(
+        user,
+        {
+          action: status === "APPROVED" ? "USER_ACCOUNT_APPROVED" : "USER_ACCOUNT_REJECTED",
+          entityType: "user",
+          entityId: id,
+          metadata: { accountStatus: status, nickname: target.nickname },
+        },
+        tx,
+      );
+      refreshPages("/admin/moderation", "/admin/users", "/admin");
+      return { ok: true as const, message: status === "APPROVED" ? `Профіль @${target.nickname} схвалено.` : `Профіль @${target.nickname} відхилено.` };
+    }, { timeout: 20000 });
+  } catch (error) {
+    return fail(error);
+  }
+}
+
 export async function updateUserRole(id: string, rawRole: string, rawConfirmation?: { password?: string; nickname?: string }): Promise<ActionState> {
   try {
     const user = await administrator();
@@ -1453,7 +1341,12 @@ export async function updateUserRole(id: string, rawRole: string, rawConfirmatio
         }
       }
       await tx.user.update({where:{id},data:{role}});
-      await recordAudit(current,{action:"USER_ROLE_CHANGED",entityType:"user",entityId:id,metadata:{role,previousRole}},tx);
+      if (role === "ADMIN" || role === "EDITOR") await ensureUserSettings(id, tx);
+      await recordAudit(
+        { id: user.id, firstName: user.firstName, nickname: user.nickname, role: effectiveRole(current) },
+        { action: "USER_ROLE_CHANGED", entityType: "user", entityId: id, metadata: { role, previousRole } },
+        tx,
+      );
       refreshPages("/admin/users", "/admin", "/admin/audit");
       return {ok:true as const};
     },{timeout:20000});

@@ -22,6 +22,7 @@ model User {
   passwordHash String              @default("")
   examYear     Int                 @default(2027)
   onboarded    Boolean             @default(false)
+  accountStatus String             @default("PENDING")
   createdAt    DateTime            @default(now())
   updatedAt    DateTime            @updatedAt
   settings     UserSettings?
@@ -130,8 +131,6 @@ model UserSettings {
   targetScore         Int       @default(150)
   masteryHighMin      Int       @default(10)
   masteryMidMin       Int       @default(7)
-  aiProvider          String    @default("none")
-  aiModel             String    @default("")
   mathPriority        Int       @default(35)
   ukrainianPriority   Int       @default(25)
   historyPriority     Int       @default(20)
@@ -185,7 +184,6 @@ model Topic {
   parent        Topic?            @relation("TopicTree", fields: [parentId], references: [id], onDelete: SetNull)
   children      Topic[]           @relation("TopicTree")
   videos        VideoLesson[]
-  notes         Note[]
   questions     Question[]
   tests         Test[]
   reviews       ReviewSchedule[]
@@ -230,22 +228,6 @@ model VideoLesson {
   progress        UserVideoProgress[]
 
   @@index([topicId])
-}
-
-model Note {
-  id        String   @id @default(cuid())
-  topicId   String?
-  subjectId String?
-  title     String
-  content   String
-  userId    String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  topic     Topic?   @relation(fields: [topicId], references: [id], onDelete: Cascade)
-
-  @@index([topicId])
-  @@index([subjectId])
-  @@index([userId])
 }
 
 model Question {
@@ -478,49 +460,6 @@ model Flashcard {
 
   @@index([dueKey])
   @@index([userId, dueKey])
-}
-
-model AIConversation {
-  id           String      @id @default(cuid())
-  userId       String?
-  mode         String
-  provider     String
-  model        String
-  messagesJson String
-  createdAt    DateTime    @default(now())
-  updatedAt    DateTime    @updatedAt
-  messages     AIMessage[]
-
-  @@index([userId])
-}
-
-model AIMessage {
-  id             String         @id @default(cuid())
-  conversationId String
-  role           String
-  content        String
-  createdAt      DateTime       @default(now())
-  conversation   AIConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
-
-  @@index([conversationId])
-}
-
-model Achievement {
-  id          String    @id
-  title       String
-  description String
-  xp          Int       @default(0)
-  unlockedAt  DateTime?
-  userId      String?
-}
-
-model XpEvent {
-  id        String   @id @default(cuid())
-  amount    Int
-  reason    String
-  userId    String?
-  createdAt DateTime @default(now())
-  @@index([userId, createdAt])
 }
 
 model UserVideoProgress {

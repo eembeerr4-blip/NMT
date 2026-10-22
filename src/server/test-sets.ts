@@ -3,15 +3,15 @@ import type {Prisma} from "@prisma/client";
 import {revalidatePath} from "next/cache";
 import {prisma} from "@/lib/prisma";
 import {UserError,userFacingError} from "@/lib/errors";
-import {isAdministrator} from "@/lib/permissions";
+import {canEditContent} from "@/lib/permissions";
 import {publicationConfig,testPublication,type Publication} from "@/lib/test-publication";
 import {getSessionUser} from "./session";
 import {recordAudit} from "./audit-log";
 import type {ActionState} from "./actions";
 
-async function actor(admin=false) {const user=await getSessionUser();if(!user)throw new UserError("Потрібен вхід до профілю.");if(admin&&!isAdministrator(user))throw new UserError("Керування наборами доступне адміністратору.");return user;}
+async function actor(staff=false) {const user=await getSessionUser();if(!user)throw new UserError("Потрібен вхід до профілю.");if(staff&&!canEditContent(user))throw new UserError("Керування наборами доступне редактору, адміністратору або власнику.");return user;}
 async function lock(tx:Prisma.TransactionClient,id:string) {await tx.$executeRaw`UPDATE "Test" SET "configJson"="configJson" WHERE "id"=${id}`;return tx.test.findUniqueOrThrow({where:{id},include:{questions:{orderBy:{sortOrder:"asc"},include:{question:true}},_count:{select:{attempts:true}}}});}
-function refresh(){revalidatePath("/admin/tests");revalidatePath("/admin/tests/[id]","page");revalidatePath("/tests");}
+function refresh(){revalidatePath("/admin/tests");revalidatePath("/admin/tests/[id]","page");revalidatePath("/editor/tests");revalidatePath("/editor/tests/[id]","page");revalidatePath("/tests");}
 export async function saveTestSet(input:{id?:string;title:string;subjectId:string;timeLimitMin:number;questionIds:string[]}):Promise<ActionState> {
  try {
   const user=await actor(true);

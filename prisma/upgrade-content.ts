@@ -27,7 +27,7 @@ async function run(){
   fs.mkdirSync(path.dirname(backup),{recursive:true});
   await db.$executeRawUnsafe("VACUUM INTO '"+backup.replaceAll("'","''")+"'");
   const pack=JSON.parse(fs.readFileSync(path.resolve("prisma/content/foundation-lessons.json"),"utf8")) as {topicId:string;theory:string;prerequisites:string[];sources:{title:string;url:string}[];examples:{task:string;solution:string}[]}[];
-  const personalBefore=await Promise.all([db.user.count(),db.testAttempt.count(),db.examResult.count(),db.note.count(),db.answer.count()]);
+  const personalBefore=await Promise.all([db.user.count(),db.testAttempt.count(),db.examResult.count(),db.answer.count()]);
   await db.$transaction(async tx=>{
     for(const entry of pack){
       const topic=await tx.topic.findUniqueOrThrow({where:{id:entry.topicId}});
@@ -44,7 +44,7 @@ async function run(){
       if(!await tx.videoLesson.findFirst({where:{topicId:video.topicId,youtubeId:video.youtubeId}}))await tx.videoLesson.create({data:{...video,url:"https://www.youtube.com/watch?v="+video.youtubeId,channel:"Всеукраїнська школа онлайн",reviewStatus:video.topicId==="math-linear-eq"?"CONFIRMED":"SUGGESTED"}});
     }
   });
-  const personalAfter=await Promise.all([db.user.count(),db.testAttempt.count(),db.examResult.count(),db.note.count(),db.answer.count()]);
+  const personalAfter=await Promise.all([db.user.count(),db.testAttempt.count(),db.examResult.count(),db.answer.count()]);
   if(JSON.stringify(personalBefore)!==JSON.stringify(personalAfter))throw new Error("Personal records changed unexpectedly");
   console.log(JSON.stringify({backup,lessons:pack.length,newExercises:exercises.length,personalCounts:personalAfter,integrity:await db.$queryRawUnsafe("PRAGMA integrity_check")}));
 }

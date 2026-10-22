@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { isAdministrator, isOwner, effectiveRole } from "@/lib/permissions";
 import { AppShell } from "@/components/app-shell";
 import { Card } from "@/components/ui";
+import { accountStatus } from "@/lib/account-status";
 import { getSessionUser } from "@/server/session";
 import { syncPlan } from "@/server/sync";
 
@@ -12,6 +13,8 @@ export const dynamic = "force-dynamic";
 export default async function MainLayout({ children }: { children: ReactNode }) {
   const user = await getSessionUser();
   if (!user) redirect("/login");
+  if (accountStatus(user) === "REJECTED") redirect("/login?rejected=1");
+  if (accountStatus(user) === "PENDING") redirect("/pending");
   if (!user.onboarded) redirect("/onboarding");
   try {
     await syncPlan(user.id);

@@ -59,25 +59,6 @@ export const dependencies = [
   { topicId: "bio-genetics", prerequisiteId: "bio-cell" },
 ];
 
-export const notes = [
-  {
-    id: "note-math-linear",
-    topicId: "math-linear-eq",
-    subjectId: "math",
-    title: "Конспект: лінійні рівняння",
-    content:
-      "Лінійне рівняння зводиться до вигляду ax + b = 0.\nДо обох частин можна додавати те саме число і множити їх на число, відмінне від нуля.\nПісля знаходження кореня підставте його в початкове рівняння.\nЦе авторський конспект для повторення, не офіційний матеріал НМТ.",
-  },
-  {
-    id: "note-ukr-ortho",
-    topicId: "ukr-ortho",
-    subjectId: "ukrainian",
-    title: "Конспект: орфографія",
-    content:
-      "Не з дієсловами зазвичай пишеться окремо: не знаю, не хочу.\nПрефікс при- часто означає наближення, приєднання або неповну дію: приїхати, приклеїти.\nПрефікс пре- може означати вищий ступінь: прекрасний.\nАпостроф ставиться після б, п, в, м, ф перед я, ю, є, ї: м'ята, комп'ютер.",
-  },
-];
-
 export const flashcards = [
   { id: "card-quad", subjectId: "math", topicId: "math-quadratic", kind: "formula", front: "Дискримінант квадратного рівняння", back: "D = b² − 4ac" },
   { id: "card-progress", subjectId: "math", topicId: "math-progressions", kind: "formula", front: "n-й член арифметичної прогресії", back: "aₙ = a₁ + (n − 1)d" },
@@ -88,15 +69,6 @@ export const flashcards = [
   { id: "card-ribosome", subjectId: "biology", topicId: "bio-cell", kind: "term", front: "Рибосома", back: "Органела синтезу білка" },
   { id: "card-ne", subjectId: "ukrainian", topicId: "ukr-ortho", kind: "rule", front: "Не з дієсловом", back: "Зазвичай окремо: не знаю" },
   { id: "card-apostrophe", subjectId: "ukrainian", topicId: "ukr-ortho", kind: "rule", front: "Апостроф після м", back: "м'ята, м'ясо, ім'я" },
-];
-
-export const achievements = [
-  { id: "first-session", title: "Перший крок", description: "Завершено перше заняття.", xp: 20 },
-  { id: "first-test", title: "Перший тест", description: "Завершено перший тематичний тест.", xp: 30 },
-  { id: "streak-3", title: "Три дні поспіль", description: "Навчальна серія досягла 3 днів. Неділя не карається.", xp: 25 },
-  { id: "streak-7", title: "Тиждень у ритмі", description: "Навчальна серія досягла 7 днів.", xp: 40 },
-  { id: "topics-5", title: "П'ять тем", description: "П'ять тем позначено як засвоєні.", xp: 50 },
-  { id: "week-goal", title: "Тижневий план", description: "Тижневий план виконано щонайменше на 100%.", xp: 40 },
 ];
 
 export const historicalResults = [

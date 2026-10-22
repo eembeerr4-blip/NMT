@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { SUBJECTS } from "@/lib/constants";
 import { examResultSchema, preferencesSchema } from "@/lib/validators";
-import { createCustomTask, createTopic, importQuestions, logStudyMinutes, saveExamResult, saveFormat, saveNote, savePreferences, saveQuestion, saveSchedule, startExam, startTopicTest, updateTopic } from "@/server/actions";
+import { createTopic, importQuestions, logStudyMinutes, saveExamResult, saveFormat, savePreferences, saveQuestion, saveSchedule, startExam, startTopicTest, updateTopic } from "@/server/actions";
 import { Button, Input, Textarea } from "@/components/ui";
 import { useActionFeedback } from "./use-action-feedback";
 
@@ -244,13 +244,19 @@ export function TopicActions({ topicId, hasQuestions }: { topicId: string; hasQu
   return (
     <div className="flex flex-wrap gap-2">
       <form action={async () => {
-        const result = await startTopicTest(topicId);
-        if (result && !result.ok) setMessage(result.error);
+        setMessage("");
+        try {
+          const result = await startTopicTest(topicId);
+          if (result && !result.ok) setMessage(result.error);
+        } catch (cause) {
+          unstable_rethrow(cause);
+          setMessage("Не вдалося розпочати тест. Перевірте з’єднання та повторіть.");
+        }
       }}>
         <Button type="submit" disabled={!hasQuestions}>Пройти тест</Button>
       </form>
       {!hasQuestions ? <p className="text-sm text-muted-foreground">Перевірених завдань ще немає.</p> : null}
-      {message ? <p className="text-sm text-destructive">{message}</p> : null}
+      {message ? <p role="alert" className="text-sm text-danger-text">{message}</p> : null}
     </div>
   );
 }
@@ -355,28 +361,6 @@ function JsonSaver({ title, initial, action }: { title: string; initial: string;
   );
 }
 
-export function NoteForm({ topics, note, defaultTopicId }: { topics: { id: string; title: string; subjectId: string }[]; note?: { id: string; title: string; content: string; topicId: string | null }; defaultTopicId?: string }) {
-  const {pending,result,run}=useActionFeedback();
-  return (
-    <form className="grid gap-2" onSubmit={async (event) => {
-      event.preventDefault();
-      const submittedForm = event.currentTarget;
-      const form = new FormData(submittedForm);
-      const topic = topics.find((item) => item.id === String(form.get("topicId")));
-      await run(()=>saveNote({ id: note?.id, title: String(form.get("title") ?? ""), content: String(form.get("content") ?? ""), topicId: topic?.id, subjectId: topic?.subjectId }),()=>{if(!note)submittedForm.reset();});
-    }}>
-      <label className="grid gap-1.5 text-sm"><span className="font-medium">Назва конспекту</span><Input name="title" placeholder="Наприклад, правила пунктуації" defaultValue={note?.title} required /></label>
-        <label className="grid gap-1.5 text-sm"><span className="font-medium">Тема</span><select name="topicId" defaultValue={note ? note.topicId ?? "" : defaultTopicId ?? ""} className="h-10 rounded-lg border border-border bg-card px-3 text-sm">
-        <option value="">Без теми</option>
-        {topics.map((topic) => <option key={topic.id} value={topic.id}>{SUBJECTS.find((subject) => subject.id === topic.subjectId)?.name ?? "Предмет"} · {topic.title}</option>)}
-      </select></label>
-      <label className="grid gap-1.5 text-sm"><span className="font-medium">Текст</span><Textarea name="content" defaultValue={note?.content} placeholder="Збережіть важливі правила, формули або власні спостереження" required /></label>
-      <Button type="submit" disabled={pending}>{pending?"Збереження…":note ? "Зберегти зміни" : "Додати конспект"}</Button>
-      {result ? <p role={result.ok?"status":"alert"} className="text-sm">{result.ok?"Конспект збережено.":result.error}</p> : null}
-    </form>
-  );
-}
-
 export function StudyLogForm({ subjectId, topicId }: { subjectId?: string; topicId?: string }) {
   const {pending,result,run}=useActionFeedback();
   return (
@@ -389,34 +373,6 @@ export function StudyLogForm({ subjectId, topicId }: { subjectId?: string; topic
       <Button type="submit" variant="outline" disabled={pending}>{pending?"Збереження…":"Записати час"}</Button>
       {result ? <span role={result.ok?"status":"alert"} className="text-sm text-muted-foreground">{result.ok?"Час записано.":result.error}</span> : null}
     </form>
-  );
-}
-
-export function CustomTaskForm({ dateKey }: { dateKey: string }) {
-  const router=useRouter();
-  const {pending,result,run}=useActionFeedback();
-  return (
-    <form className="grid gap-2 sm:grid-cols-[1fr_140px_auto]" onSubmit={async (event) => {
-      event.preventDefault();
-      const submittedForm = event.currentTarget;
-      const form = new FormData(submittedForm);
-      await run(() => createCustomTask({ dateKey: String(form.get("date") || dateKey), title: String(form.get("title") ?? ""), durationMin: Number(form.get("minutes") ?? 30), subjectId: String(form.get("subjectId") || "") || undefined }),()=>router.refresh());
-    }}>
-      <label className="grid gap-1 text-sm">Назва заняття<Input name="title" placeholder="Власне заняття" required /></label>
-      <label className="grid gap-1 text-sm">Тривалість, хвилин<Input name="minutes" type="number" min={0} defaultValue={30} /></label>
-      <label className="grid gap-1 text-sm">Дата заняття<input type="date" name="date" defaultValue={dateKey} className="h-10 rounded-lg border border-border bg-card px-3 text-sm" /></label>
-      <label className="grid gap-1 text-sm">Предмет<SubjectSelect optional /></label>
-      <Button type="submit" disabled={pending}>{pending?"Збереження…":"Додати"}</Button>
-      {result ? <p role={result.ok?"status":"alert"} className="text-sm text-muted-foreground sm:col-span-3">{result.ok?"Заняття додано.":result.error}</p> : null}
-    </form>
-  );
-}
-
-export function TutorForm() {
-  return (
-    <div className="rounded-2xl border border-border bg-muted p-4 text-sm text-muted-foreground">
-      AI-репетитор тимчасово вимкнено. Використовуйте матеріали уроку, перевірену практику та збережений план.
-    </div>
   );
 }
 

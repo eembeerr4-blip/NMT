@@ -13,14 +13,16 @@ import {prisma} from "@/lib/prisma";
 import {hashPasswordAsync} from "@/lib/auth";
 import {buildBackup,restoreBackup,updateUserRole} from "./actions";
 beforeAll(async()=>{
- await prisma.$executeRawUnsafe(`CREATE TABLE User (id TEXT NOT NULL PRIMARY KEY,role TEXT NOT NULL DEFAULT 'STUDENT',diagnosticSkipped BOOLEAN NOT NULL DEFAULT false,firstName TEXT NOT NULL,lastName TEXT NOT NULL DEFAULT '',nickname TEXT NOT NULL UNIQUE,email TEXT UNIQUE,emailVerifiedAt DATETIME,passwordHash TEXT NOT NULL DEFAULT '',examYear INTEGER NOT NULL DEFAULT 2027,onboarded BOOLEAN NOT NULL DEFAULT false,createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,updatedAt DATETIME NOT NULL)`);
+ await prisma.$executeRawUnsafe(`CREATE TABLE User (id TEXT NOT NULL PRIMARY KEY,role TEXT NOT NULL DEFAULT 'STUDENT',diagnosticSkipped BOOLEAN NOT NULL DEFAULT false,firstName TEXT NOT NULL,lastName TEXT NOT NULL DEFAULT '',nickname TEXT NOT NULL UNIQUE,email TEXT UNIQUE,emailVerifiedAt DATETIME,passwordHash TEXT NOT NULL DEFAULT '',examYear INTEGER NOT NULL DEFAULT 2027,onboarded BOOLEAN NOT NULL DEFAULT false,accountStatus TEXT NOT NULL DEFAULT 'APPROVED',createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,updatedAt DATETIME NOT NULL)`);
  await prisma.$executeRawUnsafe(`CREATE TABLE AuditLog (id TEXT NOT NULL PRIMARY KEY,actorId TEXT,actorName TEXT NOT NULL,actorRole TEXT NOT NULL,action TEXT NOT NULL,entityType TEXT NOT NULL,entityId TEXT,summary TEXT NOT NULL,metadataJson TEXT NOT NULL DEFAULT '{}',createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP)`);
+ await prisma.$executeRawUnsafe(`CREATE TABLE UserSettings (id TEXT NOT NULL PRIMARY KEY,userId TEXT UNIQUE,theme TEXT NOT NULL DEFAULT 'system',examDate DATETIME,targetScore INTEGER NOT NULL DEFAULT 150,masteryHighMin INTEGER NOT NULL DEFAULT 10,masteryMidMin INTEGER NOT NULL DEFAULT 7,mathPriority INTEGER NOT NULL DEFAULT 35,ukrainianPriority INTEGER NOT NULL DEFAULT 25,historyPriority INTEGER NOT NULL DEFAULT 20,biologyPriority INTEGER NOT NULL DEFAULT 20,timerEnabled BOOLEAN NOT NULL DEFAULT true,scheduleJson TEXT NOT NULL,formatJson TEXT NOT NULL,planStart TEXT NOT NULL DEFAULT '2026-10-19',dailyMinutes INTEGER NOT NULL DEFAULT 150,intensity TEXT NOT NULL DEFAULT 'standard',preferredTime TEXT NOT NULL DEFAULT '18:00',studyDaysJson TEXT NOT NULL DEFAULT '[0,1,2,3,4,5,6]',createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,updatedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP)`);
  await prisma.$executeRawUnsafe(readFileSync("prisma/migrations/20261018130000_nickname_case_insensitive/migration.sql","utf8"));
 });
 beforeEach(async()=>{
- await prisma.auditLog.deleteMany();await prisma.user.deleteMany();auth.id="owner";
+ await prisma.auditLog.deleteMany();await prisma.userSettings.deleteMany();await prisma.user.deleteMany();auth.id="owner";
  const ownerPasswordHash=await hashPasswordAsync("owner-confirmation");
  for(const [id,role] of [["owner","ADMIN"],["admin","ADMIN"],["editor","EDITOR"],["student","STUDENT"]])await prisma.user.create({data:{id,role,nickname:`fixture_${id}`,firstName:"Тестовий профіль",onboarded:true,passwordHash:id==="owner"?ownerPasswordHash:"not-owner-password"}});
+ await prisma.userSettings.create({data:{id:"default",userId:"owner",scheduleJson:"{}",formatJson:"{}"}});
 });
 afterAll(async()=>{await prisma.$disconnect();const {folder}=await import("@/lib/prisma") as unknown as {folder:string};rmSync(folder,{recursive:true,force:true});});
 describe("role changes on an isolated real database",()=>{
@@ -38,6 +40,20 @@ describe("role changes on an isolated real database",()=>{
   auth.id="admin";for(const role of ["OWNER","ADMIN"])expect((await updateUserRole("student",role)).ok).toBe(false);
   expect((await updateUserRole("owner","STUDENT")).ok).toBe(false);expect(await prisma.auditLog.count()).toBe(0);
   expect((await prisma.user.findUniqueOrThrow({where:{id:"student"}})).role).toBe("STUDENT");
+ });
+ it("creates personal settings when elevating a learner to editor",async()=>{
+  expect(await prisma.userSettings.findUnique({where:{userId:"student"}})).toBeNull();
+  expect((await updateUserRole("student","EDITOR")).ok).toBe(true);
+  expect(await prisma.userSettings.findUnique({where:{userId:"student"}})).toMatchObject({userId:"student"});
+ });
+ it("ensureUserSettings does not duplicate or overwrite existing rows",async()=>{
+  const {ensureUserSettings}=await import("@/server/sync");
+  await prisma.userSettings.create({data:{id:"student",userId:"student",scheduleJson:'{"marker":true}',formatJson:"{}",targetScore:111}});
+  const first=await ensureUserSettings("student",prisma);
+  const second=await ensureUserSettings("student",prisma);
+  expect(first.id).toBe(second.id);
+  expect(second.targetScore).toBe(111);
+  expect(await prisma.userSettings.count({where:{userId:"student"}})).toBe(1);
  });
  it("allows lower role management while refusing full backup and restore to admins",async()=>{
   auth.id="admin";expect((await updateUserRole("student","EDITOR")).ok).toBe(true);

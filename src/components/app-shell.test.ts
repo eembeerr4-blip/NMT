@@ -9,3 +9,8 @@ it("student navigation stays educational for an owner; management is a profile c
  const aside=html.match(/<aside[^>]*>([\s\S]*?)<\/aside>/)?.[1];expect(aside).toBeDefined();
  expect(aside).not.toContain('href="/admin"');expect(html).toContain("Центр керування власника");
 });
+it("highlights the five primary student destinations in quick navigation",()=>{
+ const html=renderToStaticMarkup(jsx(AppShell,{name:"QA-student",children:"QA-content"}));
+ for(const label of ["Предмети","Календар","Тести","Прогрес","Профіль"])expect(html).toContain(label);
+ expect(html).toContain('aria-label="Швидка навігація"');
+});

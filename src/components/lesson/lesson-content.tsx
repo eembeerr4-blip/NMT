@@ -1,5 +1,4 @@
-import { BookOpen, FileText, NotebookPen } from "lucide-react";
-import { NoteForm } from "@/components/forms";
+import { BookOpen, FileText } from "lucide-react";
 import { MathText } from "@/components/math-text";
 import { Card } from "@/components/ui";
 import type { LessonContent } from "@/lib/lesson";
@@ -27,12 +26,5 @@ export function LessonSynopsis({lesson,summary,formulas}:{lesson:LessonContent|n
       {formulas.trim()?<section><h3>Формули</h3><MathText text={formulas}/></section>:null}
       {lesson?.mistakes.length?<section><h3>Типові помилки</h3><ul className="d04-rule-list">{lesson.mistakes.map((mistake,index)=><li key={index}><MathText text={mistake}/></li>)}</ul></section>:null}
     </>}
-  </Card>;
-}
-
-export function LessonNotes({topic,notes}:{topic:{id:string;title:string;subjectId:string};notes:{id:string;title:string;content:string;topicId:string|null}[]}) {
-  return <Card className="d04-material d04-personal-notes"><div className="d04-section-title"><NotebookPen aria-hidden="true"/><h2>Мої нотатки до теми</h2></div><p className="d04-muted">Особисті записи зберігаються лише у вашому профілі. Нотатки до відео залишаються поруч із відеолекцією.</p>
-    {notes.length?notes.map(note=><article key={note.id} className="d04-note"><h3>{note.title}</h3><MathText text={note.content}/><details><summary>Редагувати нотатку</summary><NoteForm topics={[topic]} note={note}/></details></article>):<p className="d04-empty-copy">Ви ще не додали нотаток до цієї теми.</p>}
-    <details className="d04-note-create"><summary>Додати власну нотатку</summary><NoteForm topics={[topic]} defaultTopicId={topic.id}/></details>
   </Card>;
 }

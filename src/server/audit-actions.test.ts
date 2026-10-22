@@ -3,9 +3,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 const mock = vi.hoisted(() => ({
   verifyOwnerPassword: vi.fn(),
   user: vi.fn(),
-  xp: vi.fn(),
   sync: vi.fn(),
-  rebuild: vi.fn(),
   prisma: {
     $transaction: vi.fn(),
     $queryRaw: vi.fn(),
@@ -14,7 +12,6 @@ const mock = vi.hoisted(() => ({
     studySession: { create: vi.fn() },
     studyTask: { findUnique: vi.fn(), update: vi.fn(), findMany: vi.fn(), deleteMany: vi.fn() },
     testAttempt: { findUnique: vi.fn(), update: vi.fn(), updateMany: vi.fn() },
-    note: { update: vi.fn(), delete: vi.fn() },
     reviewSchedule: { update: vi.fn() },
     mistake: { update: vi.fn() },
     userTopicProgress: { upsert: vi.fn() },
@@ -31,10 +28,9 @@ vi.mock("@/server/session", () => ({ getSessionUser: mock.user, createSession: v
 vi.mock("next/cache", () => ({ revalidatePath: vi.fn() }));
 vi.mock("next/headers", () => ({ headers: vi.fn() }));
 vi.mock("next/navigation", () => ({ redirect: vi.fn() }));
-vi.mock("@/server/progress", () => ({ addXp: mock.xp, refreshAchievements: vi.fn() }));
-vi.mock("@/server/sync", () => ({ getSettings: vi.fn(), syncPlan: mock.sync, rebuildFuturePlan: mock.rebuild }));
+vi.mock("@/server/sync", () => ({ getSettings: vi.fn(), syncPlan: mock.sync, ensureUserSettings: vi.fn(async () => ({})) }));
 
-import { updateUserRole, buildBackup, completeOnboarding, completeReview, deleteNote, logStudyMinutes, recalculateFuturePlan, restoreBackup, reviewFlashcard, saveDraft, saveFlashcard, saveFormat, saveSchedule, setTaskStatus } from "./actions";
+import { updateUserRole, buildBackup, completeOnboarding, completeReview, logStudyMinutes, restoreBackup, reviewFlashcard, saveDraft, saveFlashcard, saveFormat, saveSchedule, setTaskStatus } from "./actions";
 import { verifyPasswordAsync } from "@/lib/auth";
 
 beforeEach(() => {
@@ -56,15 +52,22 @@ describe("personal learning data isolation", () => {
   });
 
   it("rejects updating another learner's draft", async () => {
-    mock.prisma.testAttempt.updateMany.mockResolvedValue({count:0});
+    mock.prisma.testAttempt.findUnique.mockResolvedValue(null);
     expect((await saveDraft("other-attempt", { answer: "4" }, 2)).ok).toBe(false);
-    expect(mock.prisma.testAttempt.updateMany).toHaveBeenCalledWith(expect.objectContaining({where:{id:"other-attempt",userId:"learner-a",status:"IN_PROGRESS"}}));
+    expect(mock.prisma.testAttempt.updateMany).not.toHaveBeenCalled();
     expect(mock.prisma.testAttempt.update).not.toHaveBeenCalled();
   });
 
-  it("constrains note deletion to the signed-in learner", async () => {
-    await deleteNote("note-id");
-    expect(mock.prisma.note.delete).toHaveBeenCalledWith({ where: { id: "note-id", userId: "learner-a" } });
+  it("rejects draft saves after the attempt time limit", async () => {
+    mock.prisma.testAttempt.findUnique.mockResolvedValue({
+      id: "timed",
+      userId: "learner-a",
+      status: "IN_PROGRESS",
+      startedAt: new Date(Date.now() - 120_000),
+      test: { timeLimitSec: 60 },
+    });
+    expect((await saveDraft("timed", { answer: "4" }, 0)).ok).toBe(false);
+    expect(mock.prisma.testAttempt.updateMany).not.toHaveBeenCalled();
   });
 
   it("does not allow another learner's flashcard to be reviewed", async () => {
@@ -80,25 +83,17 @@ describe("personal learning data isolation", () => {
     expect(mock.prisma.userTopicProgress.upsert).toHaveBeenCalledWith(expect.objectContaining({ where: { userId_topicId: { userId: "learner-a", topicId: "math-linear-eq" } } }));
   });
 
-  it("recalculates the current learner's plan inside the same transaction", async () => {
-    expect((await recalculateFuturePlan()).ok).toBe(true);
-    expect(mock.rebuild).toHaveBeenCalledWith("learner-a",mock.prisma);
-    expect(mock.prisma.$transaction).toHaveBeenCalled();
-  });
-
   it("does not double count an already completed task", async () => {
     mock.prisma.studyTask.findUnique.mockResolvedValue({ id: "task", userId: "learner-a", status: "DONE" });
     expect((await setTaskStatus("task", "DONE")).ok).toBe(true);
     expect(mock.prisma.studyTask.update).not.toHaveBeenCalled();
     expect(mock.prisma.studySession.create).not.toHaveBeenCalled();
-    expect(mock.xp).not.toHaveBeenCalled();
   });
 
-  it("requires an owned pending review before awarding XP", async () => {
+  it("requires an owned pending review before completion", async () => {
     mock.prisma.reviewSchedule.update.mockRejectedValue(new Error("Record not found"));
     expect((await completeReview("already-done-or-other")).ok).toBe(false);
     expect(mock.prisma.reviewSchedule.update).toHaveBeenCalledWith(expect.objectContaining({ where: { id: "already-done-or-other", userId: "learner-a", status: "PENDING" } }));
-    expect(mock.xp).not.toHaveBeenCalled();
   });
 
   it("blocks installation backups and restore for a regular learner", async () => {

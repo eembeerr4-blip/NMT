@@ -4,7 +4,8 @@ import { cookies } from "next/headers";
 import { notFound, redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { sessionCookieSecure } from "@/lib/session-cookie";
-import { isAdministrator, canEditContent } from "@/lib/permissions";
+import { accountStatus, canAccessLearning } from "@/lib/account-status";
+import { isAdministrator, canEditContent, isOwner } from "@/lib/permissions";
 
 const COOKIE = "nmt_user";
 
@@ -47,15 +48,40 @@ export const getSessionUser = cache(async () => {
   return session.user;
 });
 
-export async function requireUser() {
+export async function requireAuthenticated() {
   const user = await getSessionUser();
   if (!user) redirect("/login");
-  if (!user.onboarded) redirect("/onboarding");
+  return user;
+}
+
+function redirectForAccountStatus(user: { id: string; accountStatus?: string | null }) {
+  const status = accountStatus(user);
+  if (status === "REJECTED") redirect("/login?rejected=1");
+  if (status === "PENDING") redirect("/pending");
+}
+
+export async function requireUser() {
+  const user = await requireAuthenticated();
+  redirectForAccountStatus(user);
+  if (!user.onboarded && !isAdministrator(user) && !canEditContent(user)) redirect("/onboarding");
+  return user;
+}
+
+export async function requireApprovedAccount() {
+  const user = await requireAuthenticated();
+  redirectForAccountStatus(user);
+  return user;
+}
+
+export async function requireOwner() {
+  const user = await requireAuthenticated();
+  if (!isOwner(user)) notFound();
   return user;
 }
 
 export async function requireAdministrator() {
-  const user = await requireUser();
+  const user = await getSessionUser();
+  if (!user) redirect("/login");
   if (!isAdministrator(user)) notFound();
   return user;
 }
@@ -65,7 +91,15 @@ export function sameUser(userId: string, ownerId: string | null | undefined) {
 }
 
 export async function requireContentEditor() {
- const user=await requireUser();
- if(!canEditContent(user))notFound();
- return user;
+  const user = await requireAuthenticated();
+  redirectForAccountStatus(user);
+  if (!canEditContent(user)) notFound();
+  if (!user.onboarded && !isAdministrator(user)) redirect("/onboarding");
+  return user;
+}
+
+export function assertLearningAccess(user: { id: string; accountStatus?: string | null; role?: string; onboarded?: boolean }) {
+  if (canAccessLearning(user) || isAdministrator(user) || canEditContent(user)) return;
+  if (accountStatus(user) === "PENDING") throw new Error("PENDING_ACCOUNT");
+  if (accountStatus(user) === "REJECTED") throw new Error("REJECTED_ACCOUNT");
 }

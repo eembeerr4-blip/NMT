@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { DEFAULT_FORMAT, DEFAULT_SCHEDULE, SUBJECTS } from "../src/lib/constants";
 import { dateKey, noonUtc } from "../src/lib/dates";
-import { achievements, dependencies, flashcards, historicalResults, notes, topics } from "./curriculum";
+import { dependencies, flashcards, historicalResults, topics } from "./curriculum";
 import { lessons } from "./lessons";
 import { outlines } from "./outlines";
 import { extraQuestions } from "./practice-extra";
@@ -151,14 +151,6 @@ async function main() {
     });
   }
 
-  for (const note of notes) {
-    await prisma.note.upsert({
-      where: { id: note.id },
-      update: { title: note.title, content: note.content },
-      create: note,
-    });
-  }
-
   const today = dateKey();
   for (const card of flashcards) {
     await prisma.flashcard.upsert({
@@ -168,13 +160,6 @@ async function main() {
     });
   }
 
-  for (const achievement of achievements) {
-    await prisma.achievement.upsert({
-      where: { id: achievement.id },
-      update: { title: achievement.title, description: achievement.description, xp: achievement.xp },
-      create: achievement,
-    });
-  }
 }
 
 main()

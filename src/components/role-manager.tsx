@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useTransition } from "react";
+import { unstable_rethrow, useRouter } from "next/navigation";
 import * as Dialog from "@radix-ui/react-dialog";
 import { ShieldCheck } from "lucide-react";
 import { updateUserRole } from "@/server/actions";
@@ -13,8 +13,9 @@ type UserRow = { id: string; firstName: string; nickname: string; role: string; 
 export function RoleManager({ users, currentUser: providedUser, currentUserId, currentUserRole }: {
   currentUser?: Member; currentUserId?: string; currentUserRole?: string; users: UserRow[];
 }) {
-  const currentUser = providedUser ?? { id: currentUserId ?? "", role: currentUserRole ?? "STUDENT" };
   const router = useRouter();
+  const [refreshing, startRefresh] = useTransition();
+  const currentUser = providedUser ?? { id: currentUserId ?? "", role: currentUserRole ?? "STUDENT" };
   const [message, setMessage] = useState("");
   const [pendingUser, setPendingUser] = useState("");
   const [selected, setSelected] = useState<Record<string, PlatformRole>>({});
@@ -41,12 +42,21 @@ export function RoleManager({ users, currentUser: providedUser, currentUserId, c
         ? `Роль профілю @${confirmation.user.nickname} збережено: ${ROLE_INFO[confirmation.role].label}.`
         : result.error);
       if (result.ok) {
+        const savedUserId = confirmation.user.id;
         setConfirmation(null);
         setOwnerPassword("");
         setConfirmedNickname("");
-        router.refresh();
+        setSelected((current) => {
+          const next = { ...current };
+          delete next[savedUserId];
+          return next;
+        });
+        startRefresh(() => {
+          router.refresh();
+        });
       }
-    } catch {
+    } catch (error) {
+      unstable_rethrow(error);
       setMessage("Не вдалося зберегти роль. Перевірте з’єднання та спробуйте ще раз.");
     } finally {
       setPendingUser("");
@@ -61,6 +71,7 @@ export function RoleManager({ users, currentUser: providedUser, currentUserId, c
       <div>
         <h2 id="profiles-title" className="text-lg font-semibold">Профілі та їхні ролі</h2>
         <p className="mt-1 text-sm text-muted-foreground">Змініть роль вибраного профілю та підтвердьте дію.</p>
+        {message && !confirmation ? <p role="status" className="mt-2 text-sm text-foreground">{message}</p> : null}
       </div>
 
       {users.length ? (
@@ -129,17 +140,20 @@ export function RoleManager({ users, currentUser: providedUser, currentUserId, c
         <Card className="space-y-2 p-6"><h3 className="font-semibold">Профілів не знайдено</h3><p className="text-sm text-muted-foreground">Змініть фільтри пошуку.</p></Card>
       )}
 
-      {message ? <p role="status" className="rounded-xl border border-border bg-muted p-3 text-sm">{message}</p> : null}
       <Dialog.Root open={Boolean(confirmation)} onOpenChange={(open) => {
-        if (!open && !pendingUser) {
-          setConfirmation(null);
-          setOwnerPassword("");
-          setConfirmedNickname("");
-        }
+        if (open) return;
+        if (pendingUser || refreshing) return;
+        setConfirmation(null);
+        setOwnerPassword("");
+        setConfirmedNickname("");
       }}>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm" />
-          <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-[90vh] w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 space-y-4 overflow-y-auto rounded-2xl border border-border bg-card p-6 shadow-xl">
+          <Dialog.Content
+            className="fixed left-1/2 top-1/2 z-50 max-h-[90vh] w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 space-y-4 overflow-y-auto rounded-2xl border border-border bg-card p-6 shadow-xl"
+            onPointerDownOutside={(event) => { if (pendingUser) event.preventDefault(); }}
+            onEscapeKeyDown={(event) => { if (pendingUser) event.preventDefault(); }}
+          >
             <Dialog.Title className="text-lg font-semibold">{confirmation?.role === "OWNER" ? "Призначити роль користувачу" : "Підтвердити зміну ролі"}</Dialog.Title>
             <Dialog.Description className="text-sm leading-6 text-muted-foreground">
               Профіль <strong>@{confirmation?.user.nickname}</strong>: {confirmation ? ROLE_INFO[effectiveRole(confirmation.user)].label : ""} → {confirmation ? ROLE_INFO[confirmation.role].label : ""}.

@@ -1,7 +1,5 @@
 import { PrismaClient } from "@prisma/client";
 import { DEFAULT_FORMAT, REQUIRED_SUBJECT_IDS } from "../src/lib/constants";
-import { writeSecrets } from "../src/lib/secrets";
-
 const prisma = new PrismaClient();
 const OWNER = "owner";
 
@@ -16,9 +14,6 @@ async function deleteUserSpecificRows() {
     "testAttempt",
     "reviewSchedule",
     "mistake",
-    "achievement",
-    "xpEvent",
-    "note",
     "flashcard",
     "examResult",
     "userSettings",
@@ -30,7 +25,7 @@ async function deleteUserSpecificRows() {
       continue;
     }
 
-    if (table === "note" || table === "flashcard" || table === "achievement" || table === "xpEvent" || table === "examResult" || table === "studySession" || table === "reviewSchedule" || table === "mistake" || table === "studyTask" || table === "testAttempt" || table === "userTopicProgress" || table === "userVideoProgress" || table === "userSubject") {
+    if (table === "flashcard" || table === "examResult" || table === "studySession" || table === "reviewSchedule" || table === "mistake" || table === "studyTask" || table === "testAttempt" || table === "userTopicProgress" || table === "userVideoProgress" || table === "userSubject") {
       await (prisma[table] as unknown as { deleteMany(args: { where: { userId: { not: string } } }): Promise<unknown> }).deleteMany({ where: { userId: { not: OWNER } } });
       continue;
     }
@@ -75,8 +70,6 @@ async function main() {
       targetScore: 150,
       masteryHighMin: 10,
       masteryMidMin: 7,
-      aiProvider: "none",
-      aiModel: "",
       mathPriority: 35,
       ukrainianPriority: 25,
       historyPriority: 20,
@@ -98,8 +91,6 @@ async function main() {
       targetScore: 150,
       masteryHighMin: 10,
       masteryMidMin: 7,
-      aiProvider: "none",
-      aiModel: "",
       mathPriority: 35,
       ukrainianPriority: 25,
       historyPriority: 20,
@@ -127,16 +118,6 @@ async function main() {
     where: { userId_subjectId: { userId: OWNER, subjectId: "biology" } },
     update: { role: "ELECTIVE", active: true },
     create: { userId: OWNER, subjectId: "biology", role: "ELECTIVE", active: true },
-  });
-
-  await prisma.aIMessage.deleteMany();
-  await prisma.aIConversation.deleteMany();
-
-  writeSecrets({
-    openaiApiKey: "",
-    geminiApiKey: "",
-    ollamaBaseUrl: "http://127.0.0.1:11434",
-    youtubeApiKey: "",
   });
 
   const users = await prisma.user.findMany({ select: { id: true, nickname: true, role: true } });
