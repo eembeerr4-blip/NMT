@@ -68,7 +68,7 @@ test("учень A: план, урок, тест, пробник, вихід і 
   await page.getByRole("button", { name: "Зберегти результат" }).click();
   await expect(page.getByText("E2E Student A mock")).toBeVisible();
 
-  await page.locator('summary[aria-label="Меню профілю"]').click();
+  await page.getByRole("button", { name: "Меню профілю" }).click();
   await page.getByRole("button", { name: "Вийти" }).click();
   await expect(page).toHaveURL(/\/login/);
 
@@ -86,7 +86,7 @@ test("учень B не бачить дані учня A; PENDING не потр�
   await page.goto("/results");
   await expect(page.getByText("E2E Student A mock")).toHaveCount(0);
 
-  await page.locator('summary[aria-label="Меню профілю"]').click();
+  await page.getByRole("button", { name: "Меню профілю" }).click();
   await page.getByRole("button", { name: "Вийти" }).click();
 
   await login(page, "e2e_pending_guard");

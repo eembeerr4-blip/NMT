@@ -11,6 +11,8 @@ it("student navigation stays educational for an owner; management is a profile c
 });
 it("highlights the five primary student destinations in quick navigation",()=>{
  const html=renderToStaticMarkup(jsx(AppShell,{name:"QA-student",children:"QA-content"}));
- for(const label of ["Предмети","Календар","Тести","Прогрес","Профіль"])expect(html).toContain(label);
+ for(const label of ["Головна","Предмети","Календар","Тести","Прогрес"])expect(html).toContain(label);
+ expect(html).toContain("Профіль і налаштування");
+ expect(html).toMatch(/<nav[^>]*aria-label="Основна навігація"[^>]*>[\s\S]*Головна/);
  expect(html).toContain('aria-label="Швидка навігація"');
 });

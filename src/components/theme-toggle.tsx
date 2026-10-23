@@ -2,21 +2,43 @@
 
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export function ThemeToggle() {
-  const { setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <button
+        type="button"
+        className="inline-flex h-10 items-center gap-2 rounded-xl border border-border bg-card px-3 text-sm"
+        aria-label="Змінити тему"
+        title="Змінити тему інтерфейсу"
+        disabled
+      >
+        <Moon className="h-4 w-4 opacity-50" />
+        <span className="hidden sm:inline opacity-50">Тема</span>
+      </button>
+    );
+  }
+
+  const isDark = resolvedTheme === "dark";
+
   return (
     <button
       type="button"
       className="inline-flex h-10 items-center gap-2 rounded-xl border border-border bg-card px-3 text-sm hover:bg-muted"
-      onClick={() => setTheme(document.documentElement.classList.contains("dark") ? "light" : "dark")}
+      onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label="Змінити тему"
       title="Змінити тему інтерфейсу"
     >
-      <Sun className="hidden h-4 w-4 dark:block" />
-      <Moon className="h-4 w-4 dark:hidden" />
-      <span className="hidden sm:inline dark:hidden">Темна</span>
-      <span className="hidden dark:sm:inline">Світла</span>
+      {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+      <span className="hidden sm:inline">{isDark ? "Світла" : "Темна"}</span>
     </button>
   );
 }

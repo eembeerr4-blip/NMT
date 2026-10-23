@@ -3,6 +3,16 @@ import { isAutoPlanned } from "@/lib/task-origin";
 import { cache } from "react";
 import { fitDailyLoad } from "@/lib/fit-daily-load";
 import { DEFAULT_FORMAT, DEFAULT_SCHEDULE, type ScheduleConfig } from "@/lib/constants";
+
+function parseSettingsJson<T>(raw: string, fallback: T): T {
+  const trimmed = raw.trim();
+  if (!trimmed) return fallback;
+  try {
+    return JSON.parse(trimmed) as T;
+  } catch {
+    return fallback;
+  }
+}
 import { addDateKeys, dateKey, parseDateKey } from "@/lib/dates";
 import { prisma } from "@/lib/prisma";
 import { buildSlotsForDate, eachDate, windowFor, type TopicPick } from "@/lib/plan";
@@ -55,9 +65,9 @@ export async function getSettings(userId?: string, db: Prisma.TransactionClient 
   if (!settings) throw new Error("Базу ще не заповнено. Запустіть npm run db:setup.");
   return {
     ...settings,
-    schedule: JSON.parse(settings.scheduleJson) as ScheduleConfig,
-    format: JSON.parse(settings.formatJson) as { year: number; officialFormatConfirmed: boolean; note: string; scales: Record<string, Record<string, { raw: number; rating: number }[]>> },
-    studyDays: JSON.parse(settings.studyDaysJson) as number[],
+    schedule: parseSettingsJson(settings.scheduleJson, DEFAULT_SCHEDULE),
+    format: parseSettingsJson(settings.formatJson, DEFAULT_FORMAT),
+    studyDays: parseSettingsJson(settings.studyDaysJson, [0, 1, 2, 3, 4, 5, 6]),
   };
 }
 

@@ -12,7 +12,6 @@ import {
   Library,
   Menu,
   RotateCcw,
-  Settings,
   Timer,
   X,
   ChevronDown,
@@ -25,15 +24,14 @@ import { logout } from "@/server/actions";
 import { cn } from "@/lib/utils";
 
 const primaryItems = [
+  { href: "/", label: "Головна", icon: Home },
   { href: "/subjects", label: "Предмети", icon: Library },
   { href: "/calendar", label: "Календар", icon: CalendarDays },
   { href: "/tests", label: "Тести", icon: BookOpen },
   { href: "/analytics", label: "Прогрес", icon: BarChart3 },
-  { href: "/settings", label: "Профіль", icon: Settings },
 ];
 
 const secondaryItems = [
-  { href: "/", label: "Головна", icon: Home },
   { href: "/curriculum", label: "Мій план", icon: ClipboardList },
   { href: "/mistakes", label: "Мої помилки", icon: BookOpen },
   { href: "/exams", label: "Пробники", icon: Timer },
@@ -76,6 +74,8 @@ function NavigationLink({ href, label, icon: Icon, pathname, onClick }: {
 export function AppShell({ children, name, isAdmin = false, isOwner = false, isEditor = false }: { children: ReactNode; name?: string; isAdmin?: boolean; isOwner?: boolean; isEditor?: boolean }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [profileMenuOpen, setProfileMenuOpen] = useState(false);
+  const overflowItems = secondaryItems.filter((item) => item.href !== "/mistakes");
 
   return (
     <div className="d01-shell min-h-screen">
@@ -97,7 +97,12 @@ export function AppShell({ children, name, isAdmin = false, isOwner = false, isE
           {primaryItems.map((item) => <NavigationLink key={item.href} {...item} pathname={pathname} />)}
           <p className="px-3 pb-2 pt-6 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">Особисте</p>
           {secondaryItems.filter((item) => item.href === "/mistakes").map((item) => <NavigationLink key={item.href} {...item} pathname={pathname} />)}
-          <details className="pt-1"><summary className="cursor-pointer rounded-xl px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-muted">Ще розділи</summary><div className="mt-1 space-y-1">{secondaryItems.filter((item) => item.href !== "/mistakes").map((item) => <NavigationLink key={item.href} {...item} pathname={pathname} />)}</div></details>
+          {overflowItems.length ? (
+            <details className="pt-1">
+              <summary className="cursor-pointer rounded-xl px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted">Ще розділи</summary>
+              <div className="mt-1 space-y-1">{overflowItems.map((item) => <NavigationLink key={item.href} {...item} pathname={pathname} />)}</div>
+            </details>
+          ) : null}
         </nav>
         <div className="border-t border-border p-4">
           <Link href="/settings" className="block rounded-xl px-2 py-1 hover:bg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
@@ -135,29 +140,29 @@ export function AppShell({ children, name, isAdmin = false, isOwner = false, isE
           </div>
           <div className="flex shrink-0 items-center gap-2">
             <ThemeToggle />
-            <DropdownMenu.Root>
+            <DropdownMenu.Root open={profileMenuOpen} onOpenChange={setProfileMenuOpen} modal>
               <DropdownMenu.Trigger aria-label="Меню профілю" className="flex items-center gap-2 rounded-xl border border-border bg-card px-2.5 py-2 text-sm transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent text-xs font-bold text-link">{name?.slice(0, 1).toLocaleUpperCase("uk-UA") ?? "У"}</span>
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent text-xs font-bold text-link" suppressHydrationWarning>{name?.slice(0, 1).toUpperCase() ?? "У"}</span>
                 <span className="hidden max-w-36 truncate sm:inline">{name ?? "Профіль"}</span>
                 <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
               </DropdownMenu.Trigger>
               <DropdownMenu.Portal>
                 <DropdownMenu.Content align="end" sideOffset={8} className="z-50 w-56 rounded-2xl border border-border bg-card p-2 shadow-xl">
-                  <DropdownMenu.Item asChild>
+                  <DropdownMenu.Item asChild onSelect={() => setProfileMenuOpen(false)}>
                     <Link href="/settings" className="block cursor-pointer rounded-xl px-3 py-2.5 text-sm outline-none transition-colors hover:bg-muted focus:bg-muted">Мої налаштування</Link>
                   </DropdownMenu.Item>
                   {isAdmin ? (
-                    <DropdownMenu.Item asChild>
+                    <DropdownMenu.Item asChild onSelect={() => setProfileMenuOpen(false)}>
                       <Link href="/admin" className="block cursor-pointer rounded-xl px-3 py-2.5 text-sm outline-none transition-colors hover:bg-muted focus:bg-muted">{isOwner ? "Центр керування власника" : "Адмінпанель"}</Link>
                     </DropdownMenu.Item>
                   ) : null}
                   {isEditor ? (
-                    <DropdownMenu.Item asChild>
+                    <DropdownMenu.Item asChild onSelect={() => setProfileMenuOpen(false)}>
                       <Link href="/editor" className="block cursor-pointer rounded-xl px-3 py-2.5 text-sm outline-none transition-colors hover:bg-muted focus:bg-muted">Режим редактора</Link>
                     </DropdownMenu.Item>
                   ) : null}
                   <DropdownMenu.Separator className="my-1 h-px bg-border" />
-                  <DropdownMenu.Item asChild>
+                  <DropdownMenu.Item asChild onSelect={(event) => event.preventDefault()}>
                     <form action={logout}>
                       <button type="submit" className="w-full rounded-xl px-3 py-2.5 text-left text-sm text-muted-foreground transition-colors hover:bg-muted focus:bg-muted">Вийти</button>
                     </form>

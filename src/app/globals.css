@@ -1,4 +1,6 @@
+@config "../../tailwind.config.ts";
 @import "tailwindcss";
+@source "../**/*.{js,ts,jsx,tsx,mdx}";
 @import "katex/dist/katex.min.css";
 
 @custom-variant dark (&:where(.dark, .dark *));

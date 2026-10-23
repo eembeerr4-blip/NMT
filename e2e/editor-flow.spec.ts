@@ -14,7 +14,7 @@ async function login(page: Page, nickname: string) {
 
 async function logoutMain(page: Page) {
   await page.goto("/");
-  await page.locator('summary[aria-label="Меню профілю"]').click();
+  await page.getByRole("button", { name: "Меню профілю" }).click();
   await page.getByRole("button", { name: "Вийти" }).click();
   await expect(page).toHaveURL(/\/login/, { timeout: 15_000 });
 }

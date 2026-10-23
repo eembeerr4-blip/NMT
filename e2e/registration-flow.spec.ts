@@ -71,7 +71,7 @@ test("реєстрація → підтвердження email (e2e) → PENDIN
   if (await diagnostic.count()) {
     await diagnostic.locator("summary").click();
     await page.getByRole("button", { name: "Пропустити", exact: true }).click();
-    await expect(page.getByText("Можна почати навчання без діагностики.")).toBeVisible();
+    await expect(page.getByRole("status").filter({ hasText: "Можна почати навчання без діагностики." })).toBeVisible({ timeout: 15_000 });
   }
 
   await page.goto("/subjects");
