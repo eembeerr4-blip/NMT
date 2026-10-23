@@ -1,11 +1,11 @@
 import { expect, test, type Page } from "@playwright/test";
 
 const primaryNav = [
+  { href: "/", label: "Головна" },
   { href: "/subjects", label: "Предмети" },
   { href: "/calendar", label: "Календар" },
   { href: "/tests", label: "Тести" },
   { href: "/analytics", label: "Прогрес" },
-  { href: "/settings", label: "Профіль" },
 ] as const;
 
 async function loginStudent(page: Page) {
