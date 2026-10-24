@@ -1,10 +1,11 @@
 import { parseLesson } from "./lesson";
 /** Learner availability is separate from the editorial completeness checklist. */
-export function lessonAccess(topic:{lessonJson:string;questions?:unknown[];videos?:{reviewStatus:string}[]}) {
- const theory=Boolean(parseLesson(topic.lessonJson)?.theory.trim());
- const video=Boolean(topic.videos?.some(item=>item.reviewStatus==="CONFIRMED"));
- const practice=Boolean(topic.questions?.length);
- return {theory,video,practice,available:theory||video||practice,label:theory?"Конспект доступний":video?"Відео доступне":practice?"Практика доступна":"Матеріал готується"};
+export function lessonAccess(topic:{lessonJson:string;coverage?:string;questions?:unknown[];videos?:{reviewStatus:string}[]}) {
+ const hidden=topic.coverage==="DRAFT";
+ const theory=!hidden&&Boolean(parseLesson(topic.lessonJson)?.theory.trim());
+ const video=!hidden&&Boolean(topic.videos?.some(item=>item.reviewStatus==="CONFIRMED"));
+ const practice=!hidden&&Boolean(topic.questions?.length);
+ return {theory,video,practice,available:theory||video||practice,label:hidden?"Чернетка не опублікована":theory?"Конспект доступний":video?"Відео доступне":practice?"Практика доступна":"Матеріал готується"};
 }
 type TopicInput={ lessonJson:string; children?:unknown[]; questions:{difficulty:string}[]; videos:{reviewStatus:string}[] };
 export function lessonReadiness(topic:TopicInput){

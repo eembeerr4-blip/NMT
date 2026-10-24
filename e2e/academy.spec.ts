@@ -63,7 +63,7 @@ test("відкриває предмет і тему без вигаданого 
   await page.locator("a[href='/topics/math-linear-eq']").click();
   await expect(page.getByRole("heading", { name: "Лінійні рівняння", exact: true })).toBeVisible();
   await page.getByRole("link", { name: "Відкрити урок" }).click();
-  await expect(page.getByRole("heading", { name: "Відео ще не додано", level: 2 })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Відео поки не додано", level: 2 })).toBeVisible();
 });
 
 test("додає YouTube-відео і зберігає його після перезавантаження", async ({ page }) => {

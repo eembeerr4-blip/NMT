@@ -1285,8 +1285,12 @@ export async function saveLessonContent(topicId: string, raw: unknown): Promise<
 
   
   const lines=z.array(z.string().trim().min(1).max(1000)).max(30);
-  const lesson=z.object({objectives:lines,prerequisites:lines,theory:z.string().trim().min(50,"Додайте пояснення щонайменше на 50 символів.").max(50000),rules:lines,examples:z.array(z.object({task:z.string().trim().min(1).max(3000),solution:z.string().trim().min(1).max(5000)})).max(20),mistakes:lines,summary:z.string().trim().max(3000),sources:z.array(z.object({title:z.string().trim().min(1).max(200),url:z.string().url().refine(url=>url.startsWith("https://"),"Джерело має використовувати https://")})).max(10)}).parse(raw);
-  await tx.topic.update({where:{id:topicId},data:{lessonJson:JSON.stringify(lesson),coverage:"PARTIAL"}});
+  const lesson=z.object({objectives:lines,prerequisites:lines.optional(),theory:z.string().trim().min(50,"Додайте пояснення щонайменше на 50 символів.").max(50000),rules:lines,examples:z.array(z.object({task:z.string().trim().min(1).max(3000),solution:z.string().trim().min(1).max(5000)})).max(20),mistakes:lines,summary:z.string().trim().max(3000),notes:z.string().trim().max(5000).optional(),sources:z.array(z.object({title:z.string().trim().min(1).max(200),url:z.string().url().refine(url=>url.startsWith("https://"),"Джерело має використовувати https://")})).max(10).optional()}).parse(raw);
+  const current=await tx.topic.findUnique({where:{id:topicId},select:{coverage:true,lessonJson:true}});
+  if(!current)return {ok:false,error:"Тему не знайдено."};
+  const previous=parseLesson(current.lessonJson);
+  const stored={...lesson,prerequisites:lesson.prerequisites??[],notes:lesson.notes??"",sources:lesson.sources??[],...(previous?.provenance?{provenance:previous.provenance}:{})};
+  await tx.topic.update({where:{id:topicId},data:{lessonJson:JSON.stringify(stored),coverage:current.coverage==="DRAFT"?"DRAFT":"PARTIAL"}});
   refresh();return {ok:true};
  
     });

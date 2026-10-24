@@ -25,6 +25,7 @@ export function LessonSynopsis({lesson,summary,formulas}:{lesson:LessonContent|n
       {lesson?.rules.length?<section><h3>Головні правила</h3><ul className="d04-rule-list">{lesson.rules.map((rule,index)=><li key={index}><MathText text={rule}/></li>)}</ul></section>:null}
       {formulas.trim()?<section><h3>Формули</h3><MathText text={formulas}/></section>:null}
       {lesson?.mistakes.length?<section><h3>Типові помилки</h3><ul className="d04-rule-list">{lesson.mistakes.map((mistake,index)=><li key={index}><MathText text={mistake}/></li>)}</ul></section>:null}
+      {lesson?.notes?.trim()?<section><h3>Додаткові примітки</h3><MathText text={lesson.notes}/></section>:null}
     </>}
   </Card>;
 }

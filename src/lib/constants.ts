@@ -20,6 +20,7 @@ export const ELECTIVE_SUBJECT_IDS = SUBJECTS.filter((subject) => subject.role ==
 export const SUBJECT_IDS: SubjectId[] = ["math", "ukrainian", "history", "biology"];
 
 export const COVERAGE_LABEL: Record<string, string> = {
+  DRAFT: "Чернетка",
   VERIFIED: "Перевірено",
   NEEDS_REVIEW: "Потребує перевірки",
   PARTIAL: "Потребує перевірки",

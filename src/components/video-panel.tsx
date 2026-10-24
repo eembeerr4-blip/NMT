@@ -57,7 +57,7 @@ export function VideoPanel({ topicId, videos, canEdit = false, variant="default"
         </Card>
       ) : (
         <Card className="p-5">
-          <h2 className="font-medium">Відео ще не додано</h2>
+          <h2 className="font-medium">Відео поки не додано</h2>
           <p className="mt-1 text-sm text-muted-foreground">{variant==="lesson"&&!canEdit?"Вивчайте доступну теорію та приклади. Відеопояснення з’явиться після перевірки редактором.":"Сайт не підставляє випадкові ролики. Додайте посилання, яке ви перевірили."}</p>
         </Card>
       )}

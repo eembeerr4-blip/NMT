@@ -17,7 +17,7 @@ export type RouteTask = {
   movedFromId: string | null;
   notes?: string;
   subject: { name: string } | null;
-  topic: { id: string; title: string; lessonJson: string; questions: unknown[]; videos: { reviewStatus: string }[] } | null;
+  topic: { id: string; title: string; lessonJson: string; coverage?: string; questions: unknown[]; videos: { reviewStatus: string }[] } | null;
 };
 
 export function LearningRoute({ tasks, offset }: { tasks: RouteTask[]; offset: number }) {

@@ -4,12 +4,13 @@ export function parseYouTubeId(input: string): string | null {
   if (/^[\w-]{11}$/.test(value)) return value;
   try {
     const url = new URL(value);
+    if (url.protocol !== "https:" || url.username || url.password || (url.port && url.port !== "443")) return null;
     const host = url.hostname.replace(/^www\./, "");
     if (host === "youtu.be") {
       const id = url.pathname.split("/").filter(Boolean)[0];
       return id && /^[\w-]{11}$/.test(id) ? id : null;
     }
-    if (host === "youtube.com" || host === "m.youtube.com" || host === "music.youtube.com") {
+    if (host === "youtube.com" || host === "m.youtube.com" || host === "music.youtube.com" || host === "youtube-nocookie.com") {
       const fromQuery = url.searchParams.get("v");
       if (fromQuery && /^[\w-]{11}$/.test(fromQuery)) return fromQuery;
       const parts = url.pathname.split("/").filter(Boolean);

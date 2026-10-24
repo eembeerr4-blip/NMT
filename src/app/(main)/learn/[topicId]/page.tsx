@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, Clock3, ClipboardCheck } from "lucide-react";
 import { STATUS_LABEL } from "@/lib/constants";
 import { lessonAccess } from "@/lib/readiness";
+import { canEditContent } from "@/lib/permissions";
 import { formatUk } from "@/lib/dates";
 import { parseLesson } from "@/lib/lesson";
 import { prisma } from "@/lib/prisma";
@@ -28,7 +29,8 @@ export default async function LessonPage({ params }: { params: Promise<{ topicId
     },
   });
   if (!topic) notFound();
-  const availability = lessonAccess(topic);
+  const staffPreview = topic.coverage === "DRAFT" && canEditContent(user);
+  const availability = lessonAccess(staffPreview ? { ...topic, coverage: "READY" } : topic);
   if (!availability.available && !topic.children.length) return <div className="d04-lesson"><PageHeader title={topic.title} description={topic.subject.name}/><EmptyState title="Матеріал готується" text="Цей урок ще готується. Оберіть іншу тему, щоб продовжити навчання." action={<Button asChild variant="outline"><Link href={`/subjects/${topic.subjectId}`}>До тем предмета</Link></Button>}/></div>;
 
   const [progress, verifiedCount, attempt, review, siblings] = await Promise.all([
@@ -54,6 +56,7 @@ export default async function LessonPage({ params }: { params: Promise<{ topicId
 
   return <div className="d04-lesson">
     <nav aria-label="Шлях до уроку" className="d04-breadcrumbs"><Link href="/subjects">Предмети</Link><span aria-hidden="true">/</span><Link href={`/subjects/${topic.subjectId}`}>{topic.subject.name}</Link><span aria-hidden="true">/</span><span aria-current="page">{topic.title}</span></nav>
+    {staffPreview ? <p role="status" className="rounded-xl border border-border bg-muted px-4 py-3 text-sm">Чернетка. Учні цього уроку ще не бачать. Опублікуйте його після перевірки.</p> : null}
     <header className="d04-heading"><SubjectIcon id={topic.subjectId} variant="catalog"/><div className="d04-heading-copy"><p className="d04-subject">{topic.subject.name}</p><h1>{topic.title}</h1>{topic.summary.trim()?<MathText text={topic.summary} className="d04-intro"/>:null}<div className="d04-meta">{topic.estimatedMin>0?<span><Clock3 aria-hidden="true"/>Орієнтовно {topic.estimatedMin} хв</span>:null}<Badge>{STATUS_LABEL[status] ?? "Стан уточнюється"}</Badge></div></div></header>
     {topic.children.length?<Card className="d04-material"><h2>Уроки розділу</h2><div className="d04-children">{topic.children.map(child=><Link key={child.id} href={`/learn/${child.id}`}>{child.title}<ArrowRight aria-hidden="true"/></Link>)}</div></Card>:null}
 

@@ -81,7 +81,7 @@ export default async function Curriculum({ searchParams }: { searchParams: Promi
   const tasks = await prisma.studyTask.findMany({
     where,
     include: {
-      topic: { select: { id: true, title: true, lessonJson: true, questions: { where: { verificationStatus: "VERIFIED" }, select: { id: true } }, videos: { select: { reviewStatus: true } } } },
+      topic: { select: { id: true, title: true, lessonJson: true, coverage: true, questions: { where: { verificationStatus: "VERIFIED" }, select: { id: true } }, videos: { select: { reviewStatus: true } } } },
       subject: { select: { name: true } },
     },
     orderBy: [{ dateKey: "asc" }, { sortOrder: "asc" }, { id: "asc" }],

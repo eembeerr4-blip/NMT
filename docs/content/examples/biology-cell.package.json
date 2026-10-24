@@ -1,0 +1,64 @@
+{
+  "format": "nmt-content-package",
+  "version": 1,
+  "subjectId": "biology",
+  "provenance": {
+    "origin": "original",
+    "title": "Приклад NMT Academy",
+    "license": "original",
+    "note": "Навчальний приклад формату. Не публікувати як урок без перевірки."
+  },
+  "sections": [
+    {
+      "code": "pkg-example-cell",
+      "title": "Приклад розділу: клітина",
+      "summary": "Службовий приклад структури пакета.",
+      "topics": [
+        {
+          "code": "pkg-example-cell-structure",
+          "title": "Приклад теми: будова клітини",
+          "summary": "Короткий опис для каталогу.",
+          "estimatedMin": 20,
+          "lesson": {
+            "objectives": ["Розрізнити основні частини еукаріотичної клітини."],
+            "theory": "Еукаріотична клітина має мембрану, цитоплазму та ядро. Цей абзац є власним прикладом конспекту для перевірки імпорту, а не фрагментом підручника.",
+            "rules": ["Мембрана відмежовує клітину."],
+            "examples": [
+              {
+                "task": "Назвіть структуру, де зазвичай зберігається ДНК еукаріотів.",
+                "solution": "У ядрі."
+              }
+            ],
+            "mistakes": ["Плутати ядро з ядерцем."],
+            "summary": "Мембрана, цитоплазма і ядро — базові частини еукаріотичної клітини.",
+            "notes": "Відео потребує окремої перевірки перед підтвердженням.",
+            "sources": [
+              {
+                "title": "NMT Academy",
+                "url": "https://example.com/nmt-academy-original"
+              }
+            ]
+          },
+          "video": {
+            "url": "https://www.youtube.com/watch?v=abcdefghijk",
+            "title": "Приклад посилання, ще не підтверджено"
+          },
+          "questions": [
+            {
+              "code": "pkg-example-cell-q1",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Де в еукаріотичній клітині зазвичай міститься основна спадкова інформація?",
+              "explanation": "Основна ДНК еукаріотів зберігається в ядрі.",
+              "correctAnswer": "А",
+              "options": [
+                { "label": "А", "text": "У ядрі" },
+                { "label": "Б", "text": "У клітинній стінці" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

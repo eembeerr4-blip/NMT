@@ -7,6 +7,7 @@ vi.mock("next/headers",()=>({headers:vi.fn()}));
 vi.mock("next/navigation",()=>({redirect:vi.fn(),notFound:vi.fn()}));
 import * as actions from "./actions";
 import {saveSubjectDetails} from "./content-actions";
+import {importContentPackage, previewContentPackage, publishLesson} from "./content-import";
 
 const contentActions:Record<string,()=>Promise<unknown>>={
  addVideo:()=>actions.addVideo("QA-topic","https://youtu.be/abcdefghijk","QA-video"),
@@ -18,6 +19,9 @@ const contentActions:Record<string,()=>Promise<unknown>>={
  updateTopic:()=>actions.updateTopic({id:"QA-topic",title:"QA-title",summary:"",formulas:"",status:"NOT_STARTED"}),
  createTopic:()=>actions.createTopic({subjectId:"math",title:"QA-title",summary:""}),
  saveLessonContent:()=>actions.saveLessonContent("QA-topic",{}),
+ previewContentPackage:()=>previewContentPackage("[]"),
+ importContentPackage:()=>importContentPackage("[]"),
+ publishLesson:()=>publishLesson("QA-topic"),
  saveSubjectDetails:()=>saveSubjectDetails({id:"math",name:"QA-title",shortName:"QA",description:""}),
 };
 const administrativeActions:Record<string,()=>Promise<unknown>>={

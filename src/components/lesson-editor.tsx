@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { saveLessonContent } from "@/server/actions";
+import { publishLesson } from "@/server/content-import";
 import type { LessonContent } from "@/lib/lesson";
 import { Button, Input, Textarea } from "./ui";
 
@@ -19,7 +21,7 @@ export function LessonEditor({topicId,lesson}:{topicId:string;lesson:LessonConte
       try {
         const examples=exampleSlots.map(i=>({task:String(form.get("task"+i)||"").trim(),solution:String(form.get("solution"+i)||"").trim()})).filter(v=>v.task||v.solution);
         const sources=sourceSlots.map(i=>({title:String(form.get("sourceTitle"+i)||"").trim(),url:String(form.get("sourceUrl"+i)||"").trim()})).filter(v=>v.title||v.url);
-        const result=await saveLessonContent(topicId,{objectives:lines(form.get("objectives")),prerequisites:lines(form.get("prerequisites")),theory:String(form.get("theory")||""),rules:lines(form.get("rules")),examples,mistakes:lines(form.get("mistakes")),summary:String(form.get("summary")||""),sources});
+        const result=await saveLessonContent(topicId,{objectives:lines(form.get("objectives")),prerequisites:lines(form.get("prerequisites")),theory:String(form.get("theory")||""),rules:lines(form.get("rules")),examples,mistakes:lines(form.get("mistakes")),summary:String(form.get("summary")||""),notes:String(form.get("notes")||""),sources});
         setMessage(result.ok?"Матеріал збережено. Готовність перераховано.":result.error);
       }finally{setBusy(false)}
     }}>
@@ -30,9 +32,28 @@ export function LessonEditor({topicId,lesson}:{topicId:string;lesson:LessonConte
       {exampleSlots.map(i=><fieldset className="space-y-2 rounded-xl border border-border p-3" key={i}><legend className="text-sm">Приклад {i+1}</legend><Input name={"task"+i} aria-label={"Умова прикладу "+(i+1)} defaultValue={lesson?.examples[i]?.task} placeholder="Умова"/><Textarea name={"solution"+i} aria-label={"Розв’язання прикладу "+(i+1)} defaultValue={lesson?.examples[i]?.solution} placeholder="Покрокове розв’язання"/></fieldset>)}
       <label className="block text-sm">Типові помилки, по одній на рядок<Textarea name="mistakes" defaultValue={lesson?.mistakes.join("\n")} /></label>
       <label className="block text-sm">Коротка пам’ятка<Textarea name="summary" defaultValue={lesson?.summary}/></label>
+      <label className="block text-sm">Додаткові примітки<Textarea name="notes" defaultValue={lesson?.notes}/></label>
       {sourceSlots.map(i=><fieldset className="space-y-2" key={i}><legend className="text-sm">Джерело {i+1}</legend><Input name={"sourceTitle"+i} aria-label={"Назва джерела "+(i+1)} defaultValue={lesson?.sources?.[i]?.title} placeholder="Назва"/><Input name={"sourceUrl"+i} aria-label={"Посилання джерела "+(i+1)} defaultValue={lesson?.sources?.[i]?.url} placeholder="https://..." type="url"/></fieldset>)}
       <Button disabled={busy} type="submit">{busy?"Збереження…":"Зберегти матеріал"}</Button>
       {message?<p role="status" className="text-sm">{message}</p>:null}
     </form>
   </details>;
+}
+
+export function PublishLessonButton({ topicId, coverage }: { topicId: string; coverage: string }) {
+  const router = useRouter();
+  const [message, setMessage] = useState("");
+  const [busy, setBusy] = useState(false);
+  if (coverage === "READY" || coverage === "VERIFIED") return <p className="text-sm text-muted-foreground">Урок опубліковано для учнів. Завдання з’являються в практиці лише після окремої перевірки.</p>;
+  return <div className="space-y-2">
+    <Button type="button" disabled={busy} onClick={async () => {
+      setBusy(true);
+      try {
+        const result = await publishLesson(topicId);
+        setMessage(result.ok ? result.message ?? "Урок опубліковано." : result.error);
+        if (result.ok) router.refresh();
+      } finally { setBusy(false); }
+    }}>{busy ? "Публікація…" : "Опублікувати для учнів"}</Button>
+    {message ? <p role="status" className="text-sm">{message}</p> : null}
+  </div>;
 }

@@ -18,7 +18,7 @@ export function summarizeTopicContent(topics: TopicMetricsRow[]) {
 
   for (const topic of leaves) {
     if (topic.coverage === "READY") coverageReady += 1;
-    const access = lessonAccess({ lessonJson: topic.lessonJson, questions: topic.questions, videos: topic.videos });
+    const access = lessonAccess(topic);
     if (access.available) studentAvailable += 1;
     const hasChildren = topics.some((child) => child.parentId === topic.id);
     const readiness = lessonReadiness({
