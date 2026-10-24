@@ -63,8 +63,8 @@ test("учень A: план, урок, тест, пробник, вихід і 
   await expect(page.getByRole("heading", { name: "Результат", level: 1 })).toBeVisible();
 
   await page.goto("/results?add=1");
-  await page.getByLabel("Назва або джерело пробника").fill("E2E Student A mock");
-  await page.getByLabel("Рейтинговий бал, якщо відомий").fill("142");
+  await page.getByLabel("Назва пробника").fill("E2E Student A mock");
+  await page.getByLabel("Рейтинговий бал (100–200)").fill("142");
   await page.getByRole("button", { name: "Зберегти результат" }).click();
   await expect(page.getByText("E2E Student A mock")).toBeVisible();
 

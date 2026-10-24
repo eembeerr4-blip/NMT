@@ -31,17 +31,22 @@ export function ResultEditorDialog({ open, initial }: { open: boolean; initial?:
   );
 }
 
-export function ResultDeleteButton({ id }: { id: string }) {
+export function ResultDeleteButton({ id, subjectName, dateLabel }: { id: string; subjectName?: string; dateLabel?: string }) {
   const router = useRouter();
   const [pending, setPending] = useState(false);
   const [message, setMessage] = useState("");
+  const isSeed = id.startsWith("seed-");
 
   async function removeResult() {
-    if (!window.confirm("Видалити цей результат? Цю дію не можна скасувати.")) return;
+    const detail = [subjectName, dateLabel].filter(Boolean).join(" · ");
+    const prompt = isSeed
+      ? `Видалити стартовий історичний запис${detail ? ` (${detail})` : ""}? Середні бали та графіки перерахуються. Дію не можна скасувати.`
+      : `Видалити цей результат${detail ? ` (${detail})` : ""}? Цю дію не можна скасувати.`;
+    if (!window.confirm(prompt)) return;
     setPending(true);
     setMessage("");
     try {
-      const result = await deleteExamResult(id);
+      const result = await deleteExamResult(id, isSeed);
       if (!result.ok) {
         setMessage(result.error);
         return;

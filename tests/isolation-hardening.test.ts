@@ -47,7 +47,16 @@ it("A sees own data; B's real pages contain none of A's records",async()=>{
  for(const rows of [await prisma.mistake.findMany({where:{userId:auth.id}}),await prisma.examResult.findMany({where:{userId:auth.id}}),await prisma.testAttempt.findMany({where:{userId:auth.id}}),await prisma.studyTask.findMany({where:{userId:auth.id}})])expect(rows).toEqual([]);
 });
 it("B cannot read A's attempt page, save its draft or finish it",async()=>{auth.id="learner-b";await expect(AttemptPage({params:Promise.resolve({id:"private-attempt"})})).rejects.toThrow("NOT_FOUND");expect((await saveDraft("private-attempt",{},0)).ok).toBe(false);expect((await finishAttempt("private-attempt",{})).ok).toBe(false);expect((await prisma.testAttempt.findUniqueOrThrow({where:{id:"private-attempt"}})).status).toBe("IN_PROGRESS");});
-it("B cannot edit or delete A's exam result",async()=>{auth.id="learner-b";expect((await saveExamResult({...exam,id:resultId,title:"changed"})).ok).toBe(false);expect((await deleteExamResult(resultId)).ok).toBe(false);expect((await prisma.examResult.findUniqueOrThrow({where:{id:resultId}})).title).toBe("PRIVATE_A_RESULT");});
+it("B cannot edit or delete A's exam result",async()=>{auth.id="learner-b";expect((await saveExamResult({...exam,id:resultId,title:"changed"})).ok).toBe(false);expect((await deleteExamResult(resultId)).ok).toBe(false);expect((await deleteExamResult(resultId,true)).ok).toBe(false);expect((await prisma.examResult.findUniqueOrThrow({where:{id:resultId}})).title).toBe("PRIVATE_A_RESULT");});
+it("owner can delete own seed result only after acknowledgement",async()=>{
+ auth.id="learner-a";
+ await prisma.examResult.create({data:{id:"seed-qa-hardening",userId:auth.id,subjectId:"math",date:new Date("2026-10-01"),testType:"MANUAL",title:"SEED_QA",source:"QA",ratingScore:140,belowThreshold:false,partial:false,countsTowardAverage:true,comment:""}});
+ expect((await deleteExamResult("seed-qa-hardening")).ok).toBe(false);
+ expect(await prisma.examResult.findUnique({where:{id:"seed-qa-hardening"}})).not.toBeNull();
+ expect((await deleteExamResult("seed-qa-hardening",true)).ok).toBe(true);
+ expect(await prisma.examResult.findUnique({where:{id:"seed-qa-hardening"}})).toBeNull();
+ expect((await deleteExamResult("seed-qa-hardening",true)).ok).toBe(false);
+});
 it("B cannot complete or move A's calendar task",async()=>{auth.id="learner-b";expect((await setTaskStatus(taskId,"DONE")).ok).toBe(false);expect((await moveTask(taskId,"2026-10-19")).ok).toBe(false);expect((await prisma.studyTask.findUniqueOrThrow({where:{id:taskId}})).status).toBe("PLANNED");});
 it("B cannot answer A's card or change A's mistake",async()=>{auth.id="learner-b";const log=vi.spyOn(console,"error").mockImplementation(()=>{});try{expect((await reviewFlashcard("private-card","good")).ok).toBe(false);expect((await setMistakeMeta("private-mistake","OTHER","FIXED")).ok).toBe(false);}finally{log.mockRestore();}expect((await prisma.flashcard.findUniqueOrThrow({where:{id:"private-card"}})).reps).toBe(0);expect((await prisma.mistake.findUniqueOrThrow({where:{id:"private-mistake"}})).status).toBe("OPEN");});
 it("B reads own priorities instead of the owner's default settings",async()=>{auth.id="learner-b";expect((await subjectPriorities()).math).toBe(17);expect((await getSettings()).userId).toBe(auth.id);});

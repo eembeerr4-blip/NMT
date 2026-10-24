@@ -683,10 +683,15 @@ export async function saveExamResult(raw: unknown): Promise<ActionState> {
   }
 }
 
-export async function deleteExamResult(id: string): Promise<ActionState> {
+export async function deleteExamResult(id: string, acknowledgeHistorical = false): Promise<ActionState> {
   try {
     const user = await actor();
-    if (id.startsWith("seed-")) return { ok: false, error: "Стартовий історичний запис краще редагувати, а не видаляти. Якщо це помилка, змініть поля." };
+    if (id.startsWith("seed-") && !acknowledgeHistorical) {
+      return {
+        ok: false,
+        error: "Це стартовий історичний запис. Підтвердьте видалення в діалозі, якщо дані введені помилково.",
+      };
+    }
     const existing = await prisma.examResult.findUnique({ where: { id, userId: user.id } });
     if (!existing || existing.userId !== user.id) return { ok: false, error: "Цей результат належить іншому профілю." };
     await prisma.examResult.delete({ where: { id, userId: user.id } });

@@ -10,6 +10,7 @@ import { prisma } from "@/lib/prisma";
 import { lessonReadiness } from "@/lib/readiness";
 import { requireUser } from "@/server/session";
 import { getSettings, syncPlan } from "@/server/sync";
+import { ukLessonCount } from "@/lib/uk-plural";
 
 type Mode = "personal" | "free" | "materials";
 
@@ -99,7 +100,7 @@ export default async function Curriculum({ searchParams }: { searchParams: Promi
 
   return <PageFrame title="Мій навчальний план" description="Персональний маршрут зібраний з твого розкладу та збереженого прогресу." tabs={tabs} mode={mode}>
     <section className="d02-route-section" aria-labelledby="d02-route-title">
-      <div className="d02-route-heading"><div><h2 id="d02-route-title">{period === "all" ? "Усі заняття та історія" : "Твій маршрут навчання"}</h2><p>{period === "all" ? "Збережені дати та всі статуси, зокрема перенесення й пропуски." : `Заняття від ${formatUk(planDate)}. Минулі записи доступні за весь період.`}</p></div><span>{total} занять</span></div>
+      <div className="d02-route-heading"><div><h2 id="d02-route-title">{period === "all" ? "Усі заняття та історія" : "Твій маршрут навчання"}</h2><p>{period === "all" ? "Збережені дати та всі статуси, зокрема перенесення й пропуски." : `Заняття від ${formatUk(planDate)}. Минулі записи доступні за весь період.`}</p></div><span>{ukLessonCount(total)}</span></div>
       <form className="d02-filters" action="/curriculum">
         <input type="hidden" name="mode" value="personal" />
         <label>Період<select aria-label="Період" name="period" defaultValue={period}><option value="upcoming">Від початку маршруту</option><option value="all">Увесь період та історія</option></select></label>

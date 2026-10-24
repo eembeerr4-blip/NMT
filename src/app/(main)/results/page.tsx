@@ -4,7 +4,8 @@ import { EXAM_TYPE_LABEL } from "@/lib/constants";
 import { formatUk } from "@/lib/dates";
 import { prisma } from "@/lib/prisma";
 import { Button, Card, EmptyState, Input, Label, PageHeader } from "@/components/ui";
-import { ResultEditorDialog, ResultDeleteButton } from "@/components/result-editor-dialog";
+import { ResultEditorDialog } from "@/components/result-editor-dialog";
+import { ResultRowMenu } from "@/components/result-row-menu";
 import { requireUser } from "@/server/session";
 
 export default async function ResultsPage({ searchParams }: { searchParams: Promise<{ edit?: string; add?: string; q?:string;page?:string }> }) {
@@ -35,34 +36,40 @@ export default async function ResultsPage({ searchParams }: { searchParams: Prom
               : result.testType === "DIAGNOSTIC" ? "Діагностика"
               : result.testType === "MANUAL" ? "Внесено вручну"
               : "Результат тесту";
+            const dateLabel = formatUk(result.date);
+            const editHref = `/results?edit=${encodeURIComponent(result.id)}`;
+            const rating = result.ratingScore === null ? "—" : String(result.ratingScore);
+            const raw = result.rawScore === null ? "—" : `${result.rawScore}${result.maxRawScore === null ? "" : ` / ${result.maxRawScore}`}`;
             return (
-              <Card key={result.id} className="space-y-3 p-4 transition-colors hover:border-primary/30 sm:p-5">
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <div className="min-w-0">
-                    <div className="flex flex-wrap items-center gap-2">
+              <Card key={result.id} className="p-4 transition-colors hover:border-primary/30 sm:p-4">
+                <div className="flex items-start gap-3">
+                  <div className="min-w-0 flex-1 space-y-1">
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                       <h2 className="font-semibold">{result.subject.name}</h2>
-                      <span className="rounded-full bg-muted px-2.5 py-1 text-xs font-medium">{kind}</span>
-                      <span className="rounded-full bg-muted px-2.5 py-1 text-xs">{EXAM_TYPE_LABEL[result.testType] ?? "Результат"}</span>
+                      <span className="text-sm text-muted-foreground">{dateLabel}</span>
+                      <span className="rounded-full bg-muted px-2 py-0.5 text-xs">{kind}</span>
                     </div>
-                    <p className="mt-1 text-sm text-muted-foreground">{formatUk(result.date)} · {result.title}</p>
+                    <p className="text-sm tabular-nums">
+                      Рейтинг: <strong>{rating}</strong>
+                      <span className="mx-2 text-muted-foreground">·</span>
+                      Тест: <strong>{raw}</strong>
+                    </p>
+                    <p className="truncate text-xs text-muted-foreground">{result.title}</p>
                   </div>
-                  <div className="flex flex-wrap items-center gap-2">
-                    <Button asChild variant="outline" size="sm"><Link href={`/results?edit=${encodeURIComponent(result.id)}`}>Виправити результат</Link></Button>
-                    <ResultDeleteButton id={result.id} />
+                  <ResultRowMenu id={result.id} editHref={editHref} subjectName={result.subject.name} dateLabel={dateLabel} />
+                </div>
+                <details className="mt-2 text-sm">
+                  <summary className="cursor-pointer font-medium text-muted-foreground">Деталі результату</summary>
+                  <div className="mt-2 space-y-1 text-muted-foreground">
+                    <p>Тип: {EXAM_TYPE_LABEL[result.testType] ?? result.testType}</p>
+                    <p>У середньому: {result.countsTowardAverage ? "враховується" : "не враховується"}</p>
+                    {result.id.startsWith("seed-") ? (
+                      <p className="text-xs text-warning-text">Стартовий запис можна виправити або видалити через меню «⋯», якщо дані введені помилково.</p>
+                    ) : null}
+                    {result.source ? <p>Джерело: {result.source}</p> : null}
+                    {result.comment ? <p className="whitespace-pre-wrap">{result.comment}</p> : null}
                   </div>
-                </div>
-                <div className="grid gap-2 sm:grid-cols-3">
-                  <Score label="Тестовий бал" value={result.rawScore === null ? "Не вказано" : `${result.rawScore}${result.maxRawScore === null ? "" : ` / ${result.maxRawScore}`}`} />
-                  <Score label="Рейтинговий бал" value={result.ratingScore === null ? "Не вказано" : String(result.ratingScore)} />
-                  <Score label="У середньому" value={result.countsTowardAverage ? "Враховується" : "Не враховується"} />
-                </div>
-                {result.source || result.comment ? (
-                  <details className="text-sm">
-                    <summary className="cursor-pointer font-medium text-muted-foreground">Деталі результату</summary>
-                    {result.source ? <p className="mt-2 text-muted-foreground">Джерело: {result.source}</p> : null}
-                    {result.comment ? <p className="mt-1 whitespace-pre-wrap text-muted-foreground">{result.comment}</p> : null}
-                  </details>
-                ) : null}
+                </details>
               </Card>
             );
           })}
@@ -95,6 +102,3 @@ export default async function ResultsPage({ searchParams }: { searchParams: Prom
   );
 }
 
-function Score({ label, value }: { label: string; value: string }) {
-  return <div className="rounded-xl bg-muted/70 px-3 py-2"><p className="text-xs text-muted-foreground">{label}</p><p className="mt-0.5 text-sm font-semibold">{value}</p></div>;
-}

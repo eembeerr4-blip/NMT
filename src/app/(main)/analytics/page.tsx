@@ -5,7 +5,8 @@ import { EmptyState, Progress } from "@/components/ui";
 import { dateKey } from "@/lib/dates";
 import { prisma } from "@/lib/prisma";
 import { averageForMonth, averageForSubject, averageOfLatestFull, changeFromInitial, changeFromPrevious, formatDelta, overallChange } from "@/lib/scoring";
-import { Bars, RatingChart } from "@/components/charts";
+import { Bars } from "@/components/charts";
+import { ResultsDynamicsSection, type DynamicsResult } from "@/components/analytics/results-dynamics";
 import { Card, PageHeader } from "@/components/ui";
 import { requireUser } from "@/server/session";
 
@@ -72,6 +73,18 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
     return { name: subject.shortName, value: subjectTopics.filter((topic) => progressStatus.get(topic.id) === "MASTERED").length };
   }).filter((row) => row.value > 0);
   const studyTimeRows = [...monthMap.entries()].filter(([, value]) => value.minutes > 0).slice(-6).map(([key, value]) => ({ name: formatMonth(key), value: value.minutes }));
+  const dynamicsBySubject = results.reduce<Record<string, DynamicsResult[]>>((map, result) => {
+    if (!activeIds.includes(result.subjectId) || result.ratingScore === null || !result.countsTowardAverage || result.partial) return map;
+    if (!inRange(result.date)) return map;
+    const row: DynamicsResult = {
+      date: result.date.toISOString().slice(0, 10),
+      ratingScore: result.ratingScore,
+      title: result.title,
+      testType: result.testType,
+    };
+    map[result.subjectId] = [...(map[result.subjectId] ?? []), row];
+    return map;
+  }, {});
 
   return (
     <div className="space-y-6">
@@ -80,7 +93,7 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
         {ranges.map((item) => <Link key={item.id} href={`/analytics?range=${item.id}`} aria-current={selected.id === item.id ? "page" : undefined} className={`rounded-xl border px-3 py-2 font-medium transition-colors ${selected.id === item.id ? "border-primary bg-accent text-primary" : "border-border bg-card text-muted-foreground hover:bg-muted"}`}>{item.label}</Link>)}
       </div>
       <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">{SUBJECTS.filter(subject=>activeIds.includes(subject.id)).map(subject=>{const subjectLeaves=leaves.filter(topic=>topic.subjectId===subject.id);const mastered=subjectLeaves.filter(topic=>progressStatus.get(topic.id)==="MASTERED").length;const percent=subjectLeaves.length?Math.round(mastered/subjectLeaves.length*100):null;const latest=[...filtered].reverse().find((point)=>point.subjectId===subject.id&&point.ratingScore!==null&&point.countsTowardAverage);return <Card key={subject.id} className="space-y-4 p-4 sm:p-5"><div className="flex items-center gap-3"><SubjectIcon id={subject.id} small/><h2 className="text-base font-semibold">{subject.name}</h2></div><div className="flex items-end justify-between gap-3"><div><p className="text-xs text-muted-foreground">Засвоєні теми</p><p className="mt-1 text-sm font-semibold">{subjectLeaves.length?`${mastered} із ${subjectLeaves.length}`:"Матеріали ще готуються"}</p></div><div className="text-right"><p className="text-xs text-muted-foreground">Останній рейтинговий бал</p><p className="mt-1 text-lg font-bold">{latest?.ratingScore ?? "—"}</p></div></div>{percent!==null?<Progress value={percent}/>:<p className="text-xs text-muted-foreground">Тут з’явиться прогрес, щойно будуть доступні теми.</p>}</Card>;})}</section>
-      <Card className="space-y-4 p-4 sm:p-5"><div><h2 className="font-semibold">Динаміка результатів</h2><p className="mt-1 text-sm text-muted-foreground">Показано рейтингові бали завершених повних тестів за вибраний період.</p></div><RatingChart rows={mergeRows(filtered.filter((point) => point.ratingScore !== null && point.countsTowardAverage))} subjectIds={subjectIds}/></Card>
+      <ResultsDynamicsSection subjects={subjectIds} resultsBySubject={dynamicsBySubject} />
       <section className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
         <Stat title="Середній бал останніх повних результатів" value={show(averageOfLatestFull(filtered, activeIds))} />
         <Stat title="Середній бал за поточний місяць" value={show(averageForMonth(filtered, month))} />
@@ -123,16 +136,6 @@ function Stat({ title, value }: { title: string; value: string }) {
 
 function show(result: { value: number | null; label: string }) {
   return result.value === null ? "—" : result.value.toLocaleString("uk-UA", { maximumFractionDigits: 1 });
-}
-
-function mergeRows(points: { subjectId: string; date: string; ratingScore: number | null }[]) {
-  const map = new Map<string, Record<string, string | number | null>>();
-  for (const point of points) {
-    const row = map.get(point.date) ?? { date: point.date, math: null, ukrainian: null, history: null, biology: null };
-    row[point.subjectId] = point.ratingScore;
-    map.set(point.date, row);
-  }
-  return [...map.values()];
 }
 
 function shift(key: string, days: number) {

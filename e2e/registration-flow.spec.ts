@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 import { issueVerifyEmailToken } from "./helpers/issue-verify-token";
-import { pendingUserByNickname } from "./helpers/e2e-db";
+import { pendingUserByNickname, waitForE2eAccountStatus, waitForE2eEmailVerified } from "./helpers/e2e-db";
 
 const password = "test-pass-2027";
 
@@ -12,6 +12,14 @@ async function login(page: Page, nickname: string) {
   if (nickname === "owner") {
     await expect(page.getByRole("heading", { name: /Привіт/ })).toBeVisible({ timeout: 15_000 });
   }
+}
+
+async function confirmEmailVerification(page: Page, nickname: string) {
+  const token = await issueVerifyEmailToken(nickname);
+  await page.goto(`/verify-email?token=${encodeURIComponent(token)}`);
+  await page.getByRole("button", { name: "Підтвердити email" }).click();
+  await expect(page).toHaveURL(/\/verify-email\?verified=1/, { timeout: 20_000 });
+  await expect(page.getByRole("heading", { name: "Електронну пошту підтверджено!" })).toBeVisible();
 }
 
 async function completeOnboarding(page: Page) {
@@ -43,10 +51,8 @@ test("реєстрація → підтвердження email (e2e) → PENDIN
   await page.getByRole("button", { name: "Зареєструватися" }).click();
   await expect(page.getByRole("heading", { name: "Перевірте пошту" })).toBeVisible({ timeout: 15_000 });
 
-  const token = await issueVerifyEmailToken(nickname);
-  await page.goto(`/verify-email?token=${encodeURIComponent(token)}`);
-  await page.getByRole("button", { name: "Підтвердити email" }).click();
-  await expect(page.getByRole("heading", { name: "Електронну пошту підтверджено!" })).toBeVisible();
+  await confirmEmailVerification(page, nickname);
+  expect(await waitForE2eEmailVerified(nickname)).not.toBeNull();
 
   await login(page, nickname);
   await expect(page).toHaveURL(/\/pending$/, { timeout: 15_000 });
@@ -62,17 +68,17 @@ test("реєстрація → підтвердження email (e2e) → PENDIN
   await expect(card).toBeVisible({ timeout: 15_000 });
   await card.getByRole("button", { name: "Схвалити" }).click();
   await expect(page.getByRole("status").filter({ hasText: /схвалено/i })).toBeVisible();
+  expect(await waitForE2eAccountStatus(nickname, "APPROVED")).not.toBeNull();
   await page.getByRole("button", { name: "Вийти" }).click();
 
   await login(page, nickname);
   await completeOnboarding(page);
 
   const diagnostic = page.locator("details.d01-diagnostic");
-  if (await diagnostic.count()) {
-    await diagnostic.locator("summary").click();
-    await page.getByRole("button", { name: "Пропустити", exact: true }).click();
-    await expect(page.getByRole("status").filter({ hasText: "Можна почати навчання без діагностики." })).toBeVisible({ timeout: 15_000 });
-  }
+  await expect(diagnostic).toBeVisible({ timeout: 15_000 });
+  await diagnostic.locator("summary").click();
+  await page.getByRole("button", { name: "Пропустити", exact: true }).click();
+  await expect(page.getByRole("status").filter({ hasText: "Можна почати навчання без діагностики." })).toBeVisible({ timeout: 20_000 });
 
   await page.goto("/subjects");
   await expect(page.getByRole("heading", { name: "Математика" })).toBeVisible();
@@ -92,9 +98,8 @@ test("після onboarding учень може розпочати діагно�
   await page.getByRole("button", { name: "Зареєструватися" }).click();
   await expect(page.getByRole("heading", { name: "Перевірте пошту" })).toBeVisible({ timeout: 15_000 });
 
-  const token = await issueVerifyEmailToken(nickname);
-  await page.goto(`/verify-email?token=${encodeURIComponent(token)}`);
-  await page.getByRole("button", { name: "Підтвердити email" }).click();
+  await confirmEmailVerification(page, nickname);
+  expect(await waitForE2eEmailVerified(nickname)).not.toBeNull();
 
   await login(page, nickname);
   await expect(page).toHaveURL(/\/pending$/);
@@ -107,6 +112,8 @@ test("після onboarding учень може розпочати діагно�
   const card = page.locator("div.flex.flex-col.gap-3").filter({ hasText: `@${nickname}` });
   await expect(card).toBeVisible({ timeout: 15_000 });
   await card.getByRole("button", { name: "Схвалити" }).click();
+  await expect(page.getByRole("status").filter({ hasText: /схвалено/i })).toBeVisible();
+  expect(await waitForE2eAccountStatus(nickname, "APPROVED")).not.toBeNull();
   await page.getByRole("button", { name: "Вийти" }).click();
 
   await login(page, nickname);

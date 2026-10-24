@@ -1,19 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { adminNavActive } from "./admin-nav";
+import { adminNavActive, adminNavHrefs } from "./admin-nav";
 
-const hrefs = [
-  "/admin",
-  "/admin/moderation",
-  "/admin/users",
-  "/admin/subjects",
-  "/admin/topics",
-  "/admin/lessons",
-  "/admin/questions",
-  "/admin/tasks",
-  "/admin/tests",
-  "/admin/settings",
-  "/admin/audit",
-];
+const hrefs = adminNavHrefs;
 
 describe("adminNavActive", () => {
   it("highlights only overview on /admin", () => {

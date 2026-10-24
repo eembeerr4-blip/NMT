@@ -36,19 +36,27 @@ export function ResultForm({ initial }: { initial?: Partial<ResultValues> & { id
     },
   });
   const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
   return (
     <form className="grid gap-3 sm:grid-cols-2" onSubmit={form.handleSubmit(async (values) => {
-      const result = await saveExamResult(values);
-      if (!result.ok) setError(result.error);
-      else { form.reset(); router.push("/results"); router.refresh(); }
+      if (submitting) return;
+      setSubmitting(true);
+      try {
+        const result = await saveExamResult(values);
+        if (!result.ok) setError(result.error);
+        else { form.reset(); router.push("/results"); router.refresh(); }
+      } finally {
+        setSubmitting(false);
+      }
     })}>
+      <p className="text-sm text-muted-foreground sm:col-span-2">Тестовий і рейтинговий бали зберігаються окремо. Обов’язкові поля залежать від типу запису.</p>
       <Field label="Дата"><Input type="date" {...form.register("date")} /></Field>
       <Field label="Предмет">
         <select className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm" {...form.register("subjectId")}>
           {SUBJECTS.map((subject) => <option key={subject.id} value={subject.id}>{subject.name}</option>)}
         </select>
       </Field>
-      <Field label="Тип тесту">
+      <Field label="Тип тестування">
         <select className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm" {...form.register("testType")}>
           <option value="DIAGNOSTIC">Діагностика</option>
           <option value="FULL_MOCK">Повний пробник</option>
@@ -56,19 +64,24 @@ export function ResultForm({ initial }: { initial?: Partial<ResultValues> & { id
           <option value="MANUAL">Інший запис</option>
         </select>
       </Field>
-      <Field label="Назва або джерело пробника"><Input {...form.register("title")} /></Field>
-      <Field label="Джерело"><Input {...form.register("source")} /></Field>
+      <Field label="Назва пробника"><Input {...form.register("title")} placeholder="Наприклад, пробник від школи" /></Field>
       <NumberField label="Тестовий бал" name="rawScore" form={form} />
-      <NumberField label="Максимум тестових балів" name="maxRawScore" form={form} />
-      <NumberField label="Рейтинговий бал, якщо відомий" name="ratingScore" form={form} />
-      <NumberField label="Час, хв" name="durationMin" form={form} />
-      <NumberField label="Кількість помилок" name="errorCount" form={form} />
-      <label className="flex items-center gap-2 text-sm"><input type="checkbox" {...form.register("belowThreshold")} /> Нижче порогового</label>
-      <label className="flex items-center gap-2 text-sm"><input type="checkbox" {...form.register("partial")} /> Частковий тест</label>
-      <label className="flex items-center gap-2 text-sm sm:col-span-2"><input type="checkbox" {...form.register("countsTowardAverage")} /> Враховувати в середньому рейтинговому балі. Лише для повного результату з відомим рейтингом.</label>
-      <Field label="Коментар" className="sm:col-span-2"><Textarea {...form.register("comment")} /></Field>
+      <NumberField label="Рейтинговий бал (100–200)" name="ratingScore" form={form} />
+      <details className="sm:col-span-2 rounded-xl border border-border bg-background/30 p-3">
+        <summary className="cursor-pointer text-sm font-medium">Додаткові параметри</summary>
+        <div className="mt-3 grid gap-3 sm:grid-cols-2">
+          <Field label="Джерело"><Input {...form.register("source")} /></Field>
+          <NumberField label="Максимум тестових балів" name="maxRawScore" form={form} />
+          <NumberField label="Час, хв" name="durationMin" form={form} />
+          <NumberField label="Кількість помилок" name="errorCount" form={form} />
+          <label className="flex items-center gap-2 text-sm"><input type="checkbox" {...form.register("belowThreshold")} /> Нижче порогового</label>
+          <label className="flex items-center gap-2 text-sm"><input type="checkbox" {...form.register("partial")} /> Частковий тест</label>
+          <label className="flex items-center gap-2 text-sm sm:col-span-2"><input type="checkbox" {...form.register("countsTowardAverage")} /> Враховувати в середньому рейтинговому балі</label>
+          <Field label="Коментар" className="sm:col-span-2"><Textarea {...form.register("comment")} /></Field>
+        </div>
+      </details>
       {error || Object.values(form.formState.errors).some((item) => item?.message) ? <p role="alert" className="text-sm text-destructive sm:col-span-2">{error || Object.values(form.formState.errors).find((item) => item?.message)?.message}</p> : null}
-      <div className="sm:col-span-2"><Button type="submit" disabled={form.formState.isSubmitting}>{form.formState.isSubmitting ? "Збереження…" : "Зберегти результат"}</Button></div>
+      <div className="sm:col-span-2"><Button type="submit" disabled={form.formState.isSubmitting || submitting}>{form.formState.isSubmitting || submitting ? "Збереження…" : "Зберегти результат"}</Button></div>
     </form>
   );
 }

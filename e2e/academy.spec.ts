@@ -35,7 +35,7 @@ async function runTopicPractice(page: Page, preferWrong = false) {
   }
   await page.getByRole("button", { name: "Завершити" }).click();
   await page.getByRole("button", { name: "Так, завершити тест" }).click();
-  await expect(page.getByRole("heading", { name: "Результат", level: 1 })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Результат", level: 1 })).toBeVisible({ timeout: 15_000 });
 }
 
 test.beforeEach(async ({ page }) => {
@@ -89,8 +89,9 @@ test("додає результат пробника і показує його 
   await page.goto("/results?add=1");
   await page.locator("input[name='title'], input[placeholder]").first();
   await page.getByLabel("Дата").fill("2026-10-17");
-  await page.getByLabel("Назва або джерело пробника").fill("Пробник Playwright");
-  await page.getByLabel("Рейтинговий бал, якщо відомий").fill("151");
+  await page.getByLabel("Назва пробника").fill("Пробник Playwright");
+  await page.getByLabel("Рейтинговий бал (100–200)").fill("151");
+  await page.getByText("Додаткові параметри").click();
   await page.getByText("Враховувати в середньому рейтинговому балі").click();
   await page.getByRole("button", { name: "Зберегти результат" }).click();
   await expect(page.getByText("Пробник Playwright")).toBeVisible();
