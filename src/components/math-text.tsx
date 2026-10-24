@@ -13,7 +13,14 @@ export function MathText({ text, className = "" }: { text: string; className?: s
           const html = katex.renderToString(part.slice(1, -1), { throwOnError: false, displayMode: false });
           return <span key={index} dangerouslySetInnerHTML={{ __html: html }} />;
         }
-        return <span key={index}>{part}</span>;
+        // Keep Unicode number-line labels attached to their markers, without
+        // disabling wrapping for the surrounding explanation or changing data.
+        const diagrams = part.split(/([−-]?\d+(?:[.,]\d+)?[ \t]+[●○][━─]+(?:[●○][ \t]+[−-]?\d+(?:[.,]\d+)?|[▶►→])|[◀◄←][━─]+[●○][ \t]+[−-]?\d+(?:[.,]\d+)?)/g);
+        return <span key={index}>{diagrams.map((fragment, diagramIndex) =>
+          diagramIndex % 2 === 1
+            ? <span key={diagramIndex} className="inline-block max-w-full overflow-x-auto whitespace-nowrap align-bottom">{fragment}</span>
+            : fragment
+        )}</span>;
       })}
     </div>
   );
