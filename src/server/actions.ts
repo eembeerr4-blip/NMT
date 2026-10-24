@@ -877,7 +877,7 @@ export async function savePreferences(raw: unknown): Promise<ActionState> {
     
     const data = preferencesSchema.parse(raw);
     await tx.userSettings.update({
-      where: { id: (await getSettings(user.id)).id },
+      where: { id: (await getSettings(user.id, tx)).id },
       data: {
         theme: data.theme,
         examDate: data.examDate ? noonUtc(data.examDate) : null,
@@ -908,7 +908,7 @@ export async function saveSchedule(rawJson: string): Promise<ActionState> {
     
     const parsed = JSON.parse(rawJson) as ScheduleConfig;
     if (!parsed.days || !parsed.rotation || !parsed.anchorMockDate) return { ok: false, error: "У розкладі бракує днів, ротації або дати першого пробника." };
-    await tx.userSettings.update({ where: { id: (await getSettings(user.id)).id }, data: { scheduleJson: JSON.stringify(parsed) } });
+    await tx.userSettings.update({ where: { id: (await getSettings(user.id, tx)).id }, data: { scheduleJson: JSON.stringify(parsed) } });
     refresh();
     return { ok: true, message: "Розклад збережено." };
   
@@ -928,7 +928,7 @@ export async function saveFormat(rawJson: string): Promise<ActionState> {
     if (typeof parsed.officialFormatConfirmed !== "boolean" || typeof parsed.year !== "number") {
       return { ok: false, error: "Формат має містити year і officialFormatConfirmed." };
     }
-    await tx.userSettings.update({ where: { id: (await getSettings(user.id)).id }, data: { formatJson: JSON.stringify({ ...DEFAULT_FORMAT, ...parsed }) } });
+    await tx.userSettings.update({ where: { id: (await getSettings(user.id, tx)).id }, data: { formatJson: JSON.stringify({ ...DEFAULT_FORMAT, ...parsed }) } });
     refresh();
     return { ok: true, message: "Конфігурацію формату збережено. Без підтвердженої таблиці рейтинговий бал не обчислюється." };
   
@@ -1268,7 +1268,7 @@ export async function resetScheduleToDefault(): Promise<ActionState> {
     return await auditedWrite<ActionState>(user, { action: "SCHEDULE_RESET", entityType: "settings", entityId: user.id }, async (tx) => {
 
     
-    await tx.userSettings.update({ where: { id: (await getSettings(user.id)).id }, data: { scheduleJson: JSON.stringify(DEFAULT_SCHEDULE) } });
+    await tx.userSettings.update({ where: { id: (await getSettings(user.id, tx)).id }, data: { scheduleJson: JSON.stringify(DEFAULT_SCHEDULE) } });
     refresh();
     return { ok: true };
   

@@ -1,12 +1,13 @@
 import path from "node:path";
 import { PrismaClient } from "@prisma/client";
 import { normalizeNickname } from "../../src/lib/nickname";
+import { sqliteConnectionUrl } from "../../src/lib/sqlite-init";
 
 let client: PrismaClient | undefined;
 
 export function e2eDb() {
   if (!client) {
-    const url = `file:${path.join(process.cwd(), "prisma", "e2e.db")}`;
+    const url = sqliteConnectionUrl(`file:${path.join(process.cwd(), "prisma", "e2e.db").replaceAll("\\", "/")}`);
     client = new PrismaClient({ datasources: { db: { url } } });
   }
   return client;

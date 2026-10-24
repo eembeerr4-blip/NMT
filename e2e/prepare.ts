@@ -1,5 +1,5 @@
 import { execSync } from "child_process";
-import { rmSync } from "fs";
+import { rmSync, writeFileSync } from "fs";
 import { assertE2eDbWritable } from "./helpers/ensure-e2e-ready";
 
 assertE2eDbWritable();
@@ -15,6 +15,8 @@ for (const file of ["prisma/e2e.db", "prisma/e2e.db-journal", "prisma/e2e.db-wal
     }
   }
 }
+// Prisma's SQLite schema engine on Windows requires the disposable file to exist.
+writeFileSync("prisma/e2e.db", "");
 const env = { ...process.env, DATABASE_URL: "file:./e2e.db" };
 execSync("npx prisma db push --skip-generate --accept-data-loss", { env, stdio: "inherit" });
 execSync("npx tsx prisma/seed.ts", { env, stdio: "inherit" });
