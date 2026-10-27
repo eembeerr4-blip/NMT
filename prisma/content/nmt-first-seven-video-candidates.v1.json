@@ -1,0 +1,747 @@
+{
+  "schemaVersion": 1,
+  "id": "nmt-first-seven-video-candidates-v1",
+  "createdOn": "2026-10-27",
+  "status": "RESEARCH_PARTIAL_NOT_APPLIED",
+  "language": "uk",
+  "workingDatabaseChanged": false,
+  "notAnImportPackage": true,
+  "decision": "Не додавати через поточний addVideo до виправлення автоматичного CONFIRMED. Усі кандидати потребують перегляду й перевірки мови/Embed редактором.",
+  "researchLimitations": [
+    "Реальний Chromium: пряме відкриття YouTube повернуло net::ERR_NETWORK_ACCESS_DENIED. Обмеження не обходилося.",
+    "Прямі web-open YouTube: fetch errors/cache miss; використано доступні результати пошуку з метаданими автора.",
+    "Жодне відео не переглянуто повністю; транскрипти цих YouTube-роликів не отримані. Звук, фактична точність, реальна доступність і Embed не підтверджені.",
+    "Тривалість залишена null там, де її не вдалося достовірно встановити. Таймкоди не вигадані.",
+    "Пункти unconfirmedOrMissingSubtopics — не доведена відсутність у відео, а прогалини перевірки; їх треба звірити з повним переглядом.",
+    "Поле language=uk означає цільову/очікувану мову, а не підтверджену озвучку; languageVerification уточнює доказ.",
+    "Основні ролики — попередній вибір серед знайдених, не остаточно рекомендовані до публікації. Особливо низька впевненість: ДНК/РНК та мітоз/мейоз."
+  ],
+  "sources": [
+    {
+      "url": "https://lms.e-school.net.ua/courses/course-v1%3AUIED%2BUM-NUSH-5-6th%2B2022/about",
+      "kind": "OFFICIAL_COURSE_OUTLINE",
+      "usedFor": "ВШО: розподіл лексичного значення, синонімів, антонімів, омонімів за уроками; не замінює перегляд роликів."
+    },
+    {
+      "url": "https://mon.gov.ua/osvita-2/tsifrova-transformatsiya-osviti-i-nauki/vseukrainska-shkola-onlayn-2",
+      "kind": "OFFICIAL_PLATFORM_DESCRIPTION",
+      "usedFor": "Походження освітньої платформи; не доказ фактичної правильності конкретного ролика."
+    },
+    {
+      "url": "https://uk.khanacademy.org/science/hs-bio/x230b3ff252126bb6%3Athe-cell-cycle-and-differentiation/x230b3ff252126bb6%3Athe-cell-cycle-and-mitosis/v/mitosis",
+      "kind": "OFFICIAL_LESSON_DESCRIPTION",
+      "usedFor": "Короткий опис стадій мітозу, не перевірка повного українського аудіо."
+    },
+    {
+      "url": "https://ua.pistacja.tv/video/ukr50021-leksychne-znachennia-slova?playlist=24",
+      "kind": "OTHER_PUBLISHER_REVIEWED",
+      "usedFor": "Детальний опис і перелік лексичних мікроуроків; YouTube ID цього ролика не встановлено, тому до кандидатів не додано."
+    },
+    {
+      "url": "https://ilearn.org.ua/",
+      "kind": "SEARCHED_NOT_SELECTED",
+      "usedFor": "Пошук iLearn за цільовими темами не дав достатньо перевірених прямих відеопосилань; не вигадувалися."
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "title": "Будова еукаріотичної клітини",
+      "currentCoverage": "DRAFT",
+      "objectives": [
+        "Розрізняти прокаріотичну та еукаріотичну клітини за основними ознаками.",
+        "Назвати головні частини еукаріотичної клітини та пояснити їхні функції.",
+        "Класифікувати органели за наявністю мембран: двомембранні, одномембранні та немембранні.",
+        "Пояснювати взаємозв'язок будови й функції на прикладах мітохондрій, хлоропластів, рибосом і комплексу Гольджі.",
+        "Порівнювати рослинну, тваринну та грибну клітини й наводити приклади структур, притаманних лише окремим царствам.",
+        "Розв'язувати типові завдання на визначення органели за описом або за функцією."
+      ],
+      "selectionStatus": "PROVISIONAL",
+      "primaryYoutubeId": "7DtFjdHJvKg",
+      "videoCount": 1
+    },
+    {
+      "topicId": "ukr-lex-01-meaning",
+      "title": "Лексичне значення слова",
+      "currentCoverage": "DRAFT",
+      "objectives": [
+        "Розрізняти лексичне та граматичне значення слова.",
+        "Визначати пряме й переносне значення слів у контексті.",
+        "Розрізняти однозначні та багатозначні слова.",
+        "Знаходити та виправляти лексичні помилки: тавтологію, плеоназм, вживання слів у невластивому значенні.",
+        "Розрізняти значення поширених паронімів і правильно вживати їх у мовленні.",
+        "Уникати калькування з російської мови та суржикових висловів у завданнях НМТ."
+      ],
+      "selectionStatus": "PROVISIONAL",
+      "primaryYoutubeId": "NDmd6xU9F2E",
+      "videoCount": 1
+    },
+    {
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "title": "Синоніми, антоніми, омоніми",
+      "currentCoverage": "DRAFT",
+      "objectives": [
+        "Розпізнавати синоніми, антоніми та омоніми в тексті.",
+        "Визначати домінанту синонімічного ряду та розрізняти відтінки значень синонімів.",
+        "Добірати антоніми до багатозначних слів залежно від контексту.",
+        "Розрізняти повні омоніми, омоформи, омофони та омографи.",
+        "Чітко розмежовувати явище багатозначності (полісемії) та омонімії.",
+        "Успішно розв'язувати типові екзаменаційні тести НМТ на синонімію та антонімію."
+      ],
+      "selectionStatus": "PROVISIONAL",
+      "primaryYoutubeId": "scigg_eN4qs",
+      "videoCount": 2
+    },
+    {
+      "topicId": "ukr-lex-03-phraseology",
+      "title": "Фразеологізми",
+      "currentCoverage": "DRAFT",
+      "objectives": [
+        "Пояснювати лексичне значення поширених українських фразеологізмів.",
+        "Визначати джерела походження фразеологізмів (античні, біблійні, народні, професійні).",
+        "Добірати фразеологізми-синоніми та фразеологізми-антоніми.",
+        "Знаходити та виправляти помилки у слововживанні фразеологізмів (кальки, змішування).",
+        "Визначати синтаксичну роль фразеологізму як нерозкладного члена речення.",
+        "Розв'язувати всі типи фразеологічних завдань у тестах НМТ."
+      ],
+      "selectionStatus": "PROVISIONAL",
+      "primaryYoutubeId": "oZfA9V0mhV4",
+      "videoCount": 1
+    },
+    {
+      "topicId": "zcode-biology-molecular-division",
+      "title": "Клітинний цикл. Мітоз і мейоз",
+      "currentCoverage": "DRAFT",
+      "objectives": [
+        "Назвати періоди клітинного циклу та пояснити, що відбувається в інтерфазі.",
+        "Описувати фази мітозу за подіями в кожній із них.",
+        "Пояснювати біологічне значення мітозу.",
+        "Порівнювати мейоз I і мейоз II за подіями в анафазах та результатами.",
+        "Відрізняти мітоз від мейозу за кількістю дочірніх клітин, наборами хромосом і генетичною тотожністю.",
+        "Розв'язувати завдання на підрахунок хромосом і хроматид на різних етапах циклу."
+      ],
+      "selectionStatus": "PROVISIONAL",
+      "primaryYoutubeId": "WMtpCLP1B2A",
+      "videoCount": 2
+    },
+    {
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "title": "ДНК і РНК",
+      "currentCoverage": "DRAFT",
+      "objectives": [
+        "Описувати будову нуклеотиду та назвати його складові частини.",
+        "Порівнювати ДНК і РНК за складом цукру, азотистих основ і кількістю ланцюгів.",
+        "Формулювати принцип комплементарності та правило Чаргаффа.",
+        "Будувати комплементарний ланцюг ДНК і ділянку іРНК за матричним ланцюгом ДНК.",
+        "Розрізняти види РНК (іРНК, тРНК, рРНК) за будовою та функціями.",
+        "Розв'язувати розрахункові завдання на відсотковий склад нуклеотидів за правилом Чаргаффа."
+      ],
+      "selectionStatus": "PROVISIONAL",
+      "primaryYoutubeId": "R4USDzLsfNk",
+      "videoCount": 1
+    },
+    {
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "title": "Реплікація ДНК і біосинтез білка",
+      "currentCoverage": "DRAFT",
+      "objectives": [
+        "Пояснювати суть матричних синтезів і називати їхні загальні риси.",
+        "Описувати реплікацію ДНК та її біологічне значення.",
+        "Характеризувати властивості генетичного коду (триплетність, специфічність, виродженість, універсальність).",
+        "Порівнювати транскрипцію і трансляцію за місцем, матрицею, продуктом та ферментами.",
+        "Розпізнавати кодони старту й стопу та пояснювати їхню роль.",
+        "Розв'язувати навчальні завдання: визначати кількість амінокислот за довжиною іРНК, послідовність амінокислот за таблицею кодонів, антикодони тРНК."
+      ],
+      "selectionStatus": "PROVISIONAL",
+      "primaryYoutubeId": "ia61JnRXC9o",
+      "videoCount": 2
+    }
+  ],
+  "videos": [
+    {
+      "topicId": "ukr-lex-01-meaning",
+      "youtubeId": "NDmd6xU9F2E",
+      "url": "https://www.youtube.com/watch?v=NDmd6xU9F2E",
+      "title": "Українська мова. Лексикологія. Лексичне значення слова. Однозначні й багатозначні слова",
+      "channel": "Всеукраїнська школа онлайн",
+      "role": "primary",
+      "durationSec": null,
+      "durationEvidence": "NOT_ESTABLISHED: не переносимо тривалість з іншої мовної версії або схожого ролика",
+      "language": "uk",
+      "languageVerification": "EXPECTED_FROM_UKRAINIAN_PUBLISHER_METADATA_NOT_LISTENED",
+      "reviewStatus": "SUGGESTED",
+      "selectionStatus": "PROVISIONAL_NOT_APPROVED",
+      "verificationLevel": "SEARCH_METADATA_AND_PUBLISHER_DESCRIPTION_ONLY",
+      "coveredSubtopics": [
+        "Лексичне значення",
+        "Однозначність і багатозначність"
+      ],
+      "coverageEvidence": "Заявлена тема/опис видавця; фактичне викладення не перевірене транскриптом чи переглядом",
+      "unconfirmedOrMissingSubtopics": [
+        "Пряме/переносне значення",
+        "Тавтологія і плеоназм",
+        "Пароніми",
+        "Нормативні словосполучення, зокрема вживати/вжити заходів"
+      ],
+      "limitations": [
+        "Повний перегляд, точність пояснення, звук та зображення не перевірені.",
+        "Доступність відтворення і Embed не підтверджені; Chromium отримав ERR_NETWORK_ACCESS_DENIED, прямий web-fetch YouTube завершився помилкою.",
+        "Це кандидат, а не схвалений основний навчальний матеріал."
+      ],
+      "verificationSources": [
+        {
+          "url": "https://www.youtube.com/watch?v=NDmd6xU9F2E",
+          "method": "PUBLIC_SEARCH_INDEX",
+          "checkedAt": "2026-10-27",
+          "evidence": "Індекс YouTube: офіційний канал ВШО, 2023-02-23; зміст курсу ВШО відносить матеріал до уроку 7."
+        }
+      ],
+      "recommendedTimecodes": []
+    },
+    {
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "youtubeId": "scigg_eN4qs",
+      "url": "https://www.youtube.com/watch?v=scigg_eN4qs",
+      "title": "10 клас. Українська мова. Лексичні та фразеологічні синоніми, антоніми. Синонімічне багатство мови",
+      "channel": "Всеукраїнська школа онлайн",
+      "role": "primary",
+      "durationSec": null,
+      "durationEvidence": "NOT_ESTABLISHED: не переносимо тривалість з іншої мовної версії або схожого ролика",
+      "language": "uk",
+      "languageVerification": "EXPECTED_FROM_UKRAINIAN_PUBLISHER_METADATA_NOT_LISTENED",
+      "reviewStatus": "SUGGESTED",
+      "selectionStatus": "PROVISIONAL_NOT_APPROVED",
+      "verificationLevel": "SEARCH_METADATA_AND_PUBLISHER_DESCRIPTION_ONLY",
+      "coveredSubtopics": [
+        "Лексичні синоніми",
+        "Антоніми",
+        "Фразеологічна синонімія"
+      ],
+      "coverageEvidence": "Заявлена тема/опис видавця; фактичне викладення не перевірене транскриптом чи переглядом",
+      "unconfirmedOrMissingSubtopics": [
+        "Омоніми та полісемія",
+        "Омоформи, омофони, омографи",
+        "Домінанта синонімічного ряду: глибина невідома"
+      ],
+      "limitations": [
+        "Повний перегляд, точність пояснення, звук та зображення не перевірені.",
+        "Доступність відтворення і Embed не підтверджені; Chromium отримав ERR_NETWORK_ACCESS_DENIED, прямий web-fetch YouTube завершився помилкою.",
+        "Це кандидат, а не схвалений основний навчальний матеріал."
+      ],
+      "verificationSources": [
+        {
+          "url": "https://www.youtube.com/watch?v=scigg_eN4qs",
+          "method": "PUBLIC_SEARCH_INDEX",
+          "checkedAt": "2026-10-27",
+          "evidence": "Індекс YouTube офіційного каналу ВШО, 2022-03-08."
+        }
+      ],
+      "recommendedTimecodes": []
+    },
+    {
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "youtubeId": "o9xcL5pCxog",
+      "url": "https://www.youtube.com/watch?v=o9xcL5pCxog",
+      "title": "Українська мова. Омоніми. Пароніми. Словник омонімів. Словник паронімів",
+      "channel": "Всеукраїнська школа онлайн",
+      "role": "alternative",
+      "durationSec": null,
+      "durationEvidence": "NOT_ESTABLISHED: не переносимо тривалість з іншої мовної версії або схожого ролика",
+      "language": "uk",
+      "languageVerification": "EXPECTED_FROM_UKRAINIAN_PUBLISHER_METADATA_NOT_LISTENED",
+      "reviewStatus": "SUGGESTED",
+      "selectionStatus": "PROVISIONAL_NOT_APPROVED",
+      "verificationLevel": "SEARCH_METADATA_AND_PUBLISHER_DESCRIPTION_ONLY",
+      "coveredSubtopics": [
+        "Омоніми",
+        "Пароніми",
+        "Словники омонімів/паронімів"
+      ],
+      "coverageEvidence": "Заявлена тема/опис видавця; фактичне викладення не перевірене транскриптом чи переглядом",
+      "unconfirmedOrMissingSubtopics": [
+        "Повнота класифікації омонімів і розмежування з полісемією не встановлена",
+        "Синоніми й антоніми потребують основного пояснення"
+      ],
+      "limitations": [
+        "Повний перегляд, точність пояснення, звук та зображення не перевірені.",
+        "Доступність відтворення і Embed не підтверджені; Chromium отримав ERR_NETWORK_ACCESS_DENIED, прямий web-fetch YouTube завершився помилкою.",
+        "Це кандидат, а не схвалений основний навчальний матеріал."
+      ],
+      "verificationSources": [
+        {
+          "url": "https://www.youtube.com/watch?v=o9xcL5pCxog",
+          "method": "PUBLIC_SEARCH_INDEX",
+          "checkedAt": "2026-10-27",
+          "evidence": "Індекс YouTube офіційного каналу ВШО, 2023-02-21; офіційний курс 5–6 класів, урок 11."
+        }
+      ],
+      "recommendedTimecodes": [],
+      "alternativeReason": "Доповнює основний ролик відсутнім блоком омонімії.",
+      "platformRole": "simple"
+    },
+    {
+      "topicId": "ukr-lex-03-phraseology",
+      "youtubeId": "oZfA9V0mhV4",
+      "url": "https://www.youtube.com/watch?v=oZfA9V0mhV4",
+      "title": "Українська мова. Джерела українських фразеологізмів. Фразеологізми у мовленні людини",
+      "channel": "Всеукраїнська школа онлайн",
+      "role": "primary",
+      "durationSec": null,
+      "durationEvidence": "NOT_ESTABLISHED: не переносимо тривалість з іншої мовної версії або схожого ролика",
+      "language": "uk",
+      "languageVerification": "EXPECTED_FROM_UKRAINIAN_PUBLISHER_METADATA_NOT_LISTENED",
+      "reviewStatus": "SUGGESTED",
+      "selectionStatus": "PROVISIONAL_NOT_APPROVED",
+      "verificationLevel": "SEARCH_METADATA_AND_PUBLISHER_DESCRIPTION_ONLY",
+      "coveredSubtopics": [
+        "Джерела фразеологізмів",
+        "Уживання фразеологізмів"
+      ],
+      "coverageEvidence": "Заявлена тема/опис видавця; фактичне викладення не перевірене транскриптом чи переглядом",
+      "unconfirmedOrMissingSubtopics": [
+        "Фразеологічні синоніми й антоніми",
+        "Кальки і змішування",
+        "Синтаксична роль",
+        "Конкретні екзаменаційні відповідності"
+      ],
+      "limitations": [
+        "Повний перегляд, точність пояснення, звук та зображення не перевірені.",
+        "Доступність відтворення і Embed не підтверджені; Chromium отримав ERR_NETWORK_ACCESS_DENIED, прямий web-fetch YouTube завершився помилкою.",
+        "Це кандидат, а не схвалений основний навчальний матеріал."
+      ],
+      "verificationSources": [
+        {
+          "url": "https://www.youtube.com/watch?v=oZfA9V0mhV4",
+          "method": "PUBLIC_SEARCH_INDEX",
+          "checkedAt": "2026-10-27",
+          "evidence": "Індекс YouTube офіційного каналу ВШО, 2023-02-21."
+        }
+      ],
+      "recommendedTimecodes": []
+    },
+    {
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "youtubeId": "7DtFjdHJvKg",
+      "url": "https://www.youtube.com/watch?v=7DtFjdHJvKg",
+      "title": "Будова еукаріотичної клітини",
+      "channel": "Уроки біології, Тютюнникова Наталія",
+      "role": "primary",
+      "durationSec": null,
+      "durationEvidence": "NOT_ESTABLISHED: не переносимо тривалість з іншої мовної версії або схожого ролика",
+      "language": "uk",
+      "languageVerification": "EXPECTED_FROM_UKRAINIAN_PUBLISHER_METADATA_NOT_LISTENED",
+      "reviewStatus": "SUGGESTED",
+      "selectionStatus": "PROVISIONAL_NOT_APPROVED",
+      "verificationLevel": "SEARCH_METADATA_AND_PUBLISHER_DESCRIPTION_ONLY",
+      "coveredSubtopics": [
+        "Прокаріоти та еукаріоти",
+        "Внутрішня будова клітини"
+      ],
+      "coverageEvidence": "Заявлена тема/опис видавця; фактичне викладення не перевірене транскриптом чи переглядом",
+      "unconfirmedOrMissingSubtopics": [
+        "Повна класифікація органел за мембранами",
+        "Порівняння грибної, рослинної, тваринної клітини",
+        "Розбір усіх органел і типових задач не встановлений"
+      ],
+      "limitations": [
+        "Повний перегляд, точність пояснення, звук та зображення не перевірені.",
+        "Доступність відтворення і Embed не підтверджені; Chromium отримав ERR_NETWORK_ACCESS_DENIED, прямий web-fetch YouTube завершився помилкою.",
+        "Це кандидат, а не схвалений основний навчальний матеріал."
+      ],
+      "verificationSources": [
+        {
+          "url": "https://www.youtube.com/watch?v=7DtFjdHJvKg",
+          "method": "PUBLIC_SEARCH_INDEX",
+          "checkedAt": "2026-10-27",
+          "evidence": "Опис автора: біологія 7 клас НУШ, типи організації клітин, прокаріоти, еукаріоти, внутрішня будова; 2024-09-01."
+        }
+      ],
+      "recommendedTimecodes": []
+    },
+    {
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "youtubeId": "R4USDzLsfNk",
+      "url": "https://www.youtube.com/watch?v=R4USDzLsfNk",
+      "title": "ДНК. РНК.(нуклеїнові кислоти)",
+      "channel": "БІОЛОГІЯ до НМТ",
+      "role": "primary",
+      "durationSec": null,
+      "durationEvidence": "NOT_ESTABLISHED: не переносимо тривалість з іншої мовної версії або схожого ролика",
+      "language": "uk",
+      "languageVerification": "EXPECTED_FROM_UKRAINIAN_PUBLISHER_METADATA_NOT_LISTENED",
+      "reviewStatus": "SUGGESTED",
+      "selectionStatus": "PROVISIONAL_NOT_APPROVED",
+      "verificationLevel": "SEARCH_METADATA_AND_PUBLISHER_DESCRIPTION_ONLY",
+      "coveredSubtopics": [
+        "ДНК",
+        "РНК",
+        "Нуклеїнові кислоти"
+      ],
+      "coverageEvidence": "Заявлена тема/опис видавця; фактичне викладення не перевірене транскриптом чи переглядом",
+      "unconfirmedOrMissingSubtopics": [
+        "Будова нуклеотиду",
+        "Антипаралельність 5′/3′",
+        "Правило Чаргаффа і розрахунки",
+        "Типи РНК",
+        "Повнота цих пунктів невідома через короткий опис"
+      ],
+      "limitations": [
+        "Повний перегляд, точність пояснення, звук та зображення не перевірені.",
+        "Доступність відтворення і Embed не підтверджені; Chromium отримав ERR_NETWORK_ACCESS_DENIED, прямий web-fetch YouTube завершився помилкою.",
+        "Це кандидат, а не схвалений основний навчальний матеріал."
+      ],
+      "verificationSources": [
+        {
+          "url": "https://www.youtube.com/watch?v=R4USDzLsfNk",
+          "method": "PUBLIC_SEARCH_INDEX",
+          "checkedAt": "2026-10-27",
+          "evidence": "Індекс YouTube і короткий опис автора «ДНК. РНК. НУКЛЕЇНОВІ КИСЛОТИ», 2019-02-02."
+        }
+      ],
+      "recommendedTimecodes": [],
+      "selectionConfidence": "LOW: короткий опис, обов’язковий предметний перегляд до вибору основним"
+    },
+    {
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "youtubeId": "ia61JnRXC9o",
+      "url": "https://www.youtube.com/watch?v=ia61JnRXC9o",
+      "title": "Реплікація ДНК та РНК транскрипція і трансляція | Академія Хана",
+      "channel": "KhanAcademyUkrainian",
+      "role": "primary",
+      "durationSec": null,
+      "durationEvidence": "NOT_ESTABLISHED: не переносимо тривалість з іншої мовної версії або схожого ролика",
+      "language": "uk",
+      "languageVerification": "EXPECTED_FROM_UKRAINIAN_PUBLISHER_METADATA_NOT_LISTENED",
+      "reviewStatus": "SUGGESTED",
+      "selectionStatus": "PROVISIONAL_NOT_APPROVED",
+      "verificationLevel": "SEARCH_METADATA_AND_PUBLISHER_DESCRIPTION_ONLY",
+      "coveredSubtopics": [
+        "Реплікація",
+        "Транскрипція",
+        "Трансляція"
+      ],
+      "coverageEvidence": "Заявлена тема/опис видавця; фактичне викладення не перевірене транскриптом чи переглядом",
+      "unconfirmedOrMissingSubtopics": [
+        "Кодуючий і матричний ланцюги 5′/3′",
+        "Екзони/інтрони та UTR",
+        "Винятки генетичного коду",
+        "Стоп-кодон у розрахунках довжини поліпептиду"
+      ],
+      "limitations": [
+        "Повний перегляд, точність пояснення, звук та зображення не перевірені.",
+        "Доступність відтворення і Embed не підтверджені; Chromium отримав ERR_NETWORK_ACCESS_DENIED, прямий web-fetch YouTube завершився помилкою.",
+        "Це кандидат, а не схвалений основний навчальний матеріал."
+      ],
+      "verificationSources": [
+        {
+          "url": "https://www.youtube.com/watch?v=ia61JnRXC9o",
+          "method": "PUBLIC_SEARCH_INDEX",
+          "checkedAt": "2026-10-27",
+          "evidence": "Індекс офіційного українського каналу Академії Хана; автор відносить відео до біології старшої школи, 2025-06-23."
+        }
+      ],
+      "recommendedTimecodes": []
+    },
+    {
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "youtubeId": "K541lnwQmTQ",
+      "url": "https://www.youtube.com/watch?v=K541lnwQmTQ",
+      "title": "9 клас. Біологія. Подвоєння ДНК; репарація. Типи РНК. Транскрипція.",
+      "channel": "Всеукраїнська школа онлайн",
+      "role": "alternative",
+      "durationSec": null,
+      "durationEvidence": "NOT_ESTABLISHED: не переносимо тривалість з іншої мовної версії або схожого ролика",
+      "language": "uk",
+      "languageVerification": "EXPECTED_FROM_UKRAINIAN_PUBLISHER_METADATA_NOT_LISTENED",
+      "reviewStatus": "SUGGESTED",
+      "selectionStatus": "PROVISIONAL_NOT_APPROVED",
+      "verificationLevel": "SEARCH_METADATA_AND_PUBLISHER_DESCRIPTION_ONLY",
+      "coveredSubtopics": [
+        "Подвоєння ДНК",
+        "Репарація",
+        "Типи РНК",
+        "Транскрипція"
+      ],
+      "coverageEvidence": "Заявлена тема/опис видавця; фактичне викладення не перевірене транскриптом чи переглядом",
+      "unconfirmedOrMissingSubtopics": [
+        "Трансляція",
+        "Задачі на кодони та антикодони",
+        "Обережні формулювання екзонів/генетичного коду не перевірені"
+      ],
+      "limitations": [
+        "Повний перегляд, точність пояснення, звук та зображення не перевірені.",
+        "Доступність відтворення і Embed не підтверджені; Chromium отримав ERR_NETWORK_ACCESS_DENIED, прямий web-fetch YouTube завершився помилкою.",
+        "Це кандидат, а не схвалений основний навчальний матеріал."
+      ],
+      "verificationSources": [
+        {
+          "url": "https://www.youtube.com/watch?v=K541lnwQmTQ",
+          "method": "PUBLIC_SEARCH_INDEX",
+          "checkedAt": "2026-10-27",
+          "evidence": "Індекс YouTube офіційного каналу ВШО, 2022-03-08."
+        }
+      ],
+      "recommendedTimecodes": [],
+      "alternativeReason": "Інше шкільне пояснення першої частини теми, включно з типами РНК.",
+      "platformRole": "simple"
+    },
+    {
+      "topicId": "zcode-biology-molecular-division",
+      "youtubeId": "WMtpCLP1B2A",
+      "url": "https://www.youtube.com/watch?v=WMtpCLP1B2A",
+      "title": "Мітоз і мейоз/ Фази мітозу і мейозу / будова хромосом.",
+      "channel": "MikoBiolog / Биология онлайн",
+      "role": "primary",
+      "durationSec": null,
+      "durationEvidence": "NOT_ESTABLISHED: не переносимо тривалість з іншої мовної версії або схожого ролика",
+      "language": "uk",
+      "languageVerification": "EXPECTED_FROM_UKRAINIAN_PUBLISHER_METADATA_NOT_LISTENED",
+      "reviewStatus": "SUGGESTED",
+      "selectionStatus": "PROVISIONAL_NOT_APPROVED",
+      "verificationLevel": "SEARCH_METADATA_AND_PUBLISHER_DESCRIPTION_ONLY",
+      "coveredSubtopics": [
+        "Види поділу клітин",
+        "Мітоз і мейоз",
+        "Фази та будова хромосом за назвою"
+      ],
+      "coverageEvidence": "Заявлена тема/опис видавця; фактичне викладення не перевірене транскриптом чи переглядом",
+      "unconfirmedOrMissingSubtopics": [
+        "G1/S/G2 і контрольні точки",
+        "Підрахунок n/c",
+        "Кросинговер і різниця анафаз I/II: повнота невідома",
+        "Мова аудіо обов’язково потребує перевірки"
+      ],
+      "limitations": [
+        "Повний перегляд, точність пояснення, звук та зображення не перевірені.",
+        "Доступність відтворення і Embed не підтверджені; Chromium отримав ERR_NETWORK_ACCESS_DENIED, прямий web-fetch YouTube завершився помилкою.",
+        "Це кандидат, а не схвалений основний навчальний матеріал."
+      ],
+      "verificationSources": [
+        {
+          "url": "https://www.youtube.com/watch?v=WMtpCLP1B2A",
+          "method": "PUBLIC_SEARCH_INDEX",
+          "checkedAt": "2026-10-27",
+          "evidence": "Опис автора українською: матеріал про види поділу, основна тема мітоз і мейоз; 2022-12-07."
+        }
+      ],
+      "recommendedTimecodes": [],
+      "selectionConfidence": "LOW: назва каналу двомовна; українська озвучка не підтверджена"
+    },
+    {
+      "topicId": "zcode-biology-molecular-division",
+      "youtubeId": "RV-aJuuOHrE",
+      "url": "https://www.youtube.com/watch?v=RV-aJuuOHrE",
+      "title": "Мітоз | Академія Хана",
+      "channel": "KhanAcademyUkrainian",
+      "role": "alternative",
+      "durationSec": null,
+      "durationEvidence": "NOT_ESTABLISHED: не переносимо тривалість з іншої мовної версії або схожого ролика",
+      "language": "uk",
+      "languageVerification": "EXPECTED_FROM_UKRAINIAN_PUBLISHER_METADATA_NOT_LISTENED",
+      "reviewStatus": "SUGGESTED",
+      "selectionStatus": "PROVISIONAL_NOT_APPROVED",
+      "verificationLevel": "SEARCH_METADATA_AND_PUBLISHER_DESCRIPTION_ONLY",
+      "coveredSubtopics": [
+        "Стадії мітозу",
+        "Розподіл спадкового матеріалу"
+      ],
+      "coverageEvidence": "Заявлена тема/опис видавця; фактичне викладення не перевірене транскриптом чи переглядом",
+      "unconfirmedOrMissingSubtopics": [
+        "Мейоз",
+        "Порівняльні задачі n/c",
+        "Повний клітинний цикл"
+      ],
+      "limitations": [
+        "Повний перегляд, точність пояснення, звук та зображення не перевірені.",
+        "Доступність відтворення і Embed не підтверджені; Chromium отримав ERR_NETWORK_ACCESS_DENIED, прямий web-fetch YouTube завершився помилкою.",
+        "Це кандидат, а не схвалений основний навчальний матеріал."
+      ],
+      "verificationSources": [
+        {
+          "url": "https://www.youtube.com/watch?v=RV-aJuuOHrE",
+          "method": "PUBLIC_SEARCH_INDEX",
+          "checkedAt": "2026-10-27",
+          "evidence": "Індекс офіційного українського каналу Академії Хана, 2025-06-23; офіційна сторінка уроку описує стадії мітозу."
+        }
+      ],
+      "recommendedTimecodes": [],
+      "alternativeReason": "Авторитетне українське пояснення мітозу для доповнення широкого кандидата.",
+      "platformRole": "simple"
+    }
+  ],
+  "integration": {
+    "existingComponents": [
+      "VideoLesson",
+      "VideoPanel",
+      "UserVideoProgress",
+      "addVideo",
+      "updateVideo",
+      "setVideoReview",
+      "parseYouTubeId",
+      "/learn/[topicId]"
+    ],
+    "supports": {
+      "multipleVideos": true,
+      "editorReviewButton": true,
+      "learnerRouteFiltersConfirmed": true,
+      "originalLink": true,
+      "positionStoredPerUser": true,
+      "alternativeSelection": true
+    },
+    "roleMapping": {
+      "primary": "primary",
+      "alternative": "simple"
+    },
+    "findings": [
+      {
+        "id": "VIDEO-01",
+        "severity": "MAJOR",
+        "files": [
+          "src/server/actions.ts:97",
+          "prisma/schema.prisma:211"
+        ],
+        "evidence": "addVideo: нова ссылка → CONFIRMED; повторне додавання раніше REJECTED → CONFIRMED, без дублікату. Відтворено у синтетичній SQLite через штатну форму.",
+        "proposal": "Нове відео SUGGESTED явно; повторне додавання не підвищує reviewStatus. CONFIRMED лише окремим setVideoReview після предметного перегляду. Окремо розглянути безпечний default SUGGESTED у моделі, бо зараз default CONFIRMED; міграції не виконувалися."
+      },
+      {
+        "id": "VIDEO-02",
+        "severity": "MAJOR",
+        "files": [
+          "src/server/actions.ts:135"
+        ],
+        "evidence": "updateVideo: заміна youtubeId залишає CONFIRMED і UserVideoProgress.lastPositionSec=42 від іншого ролика. Відтворено на QA, URL повернуто до початкового.",
+        "proposal": "За фактичної зміни youtubeId скидати статус до SUGGESTED; явно узгодити скидання/перенесення особистого прогресу. Зміна лише назви не потребує втрати прогресу."
+      },
+      {
+        "id": "VIDEO-03",
+        "severity": "MINOR",
+        "files": [
+          "src/server/actions.ts:114",
+          "src/components/video-panel.tsx"
+        ],
+        "evidence": "Два послідовні addVideo з default role=primary створили два isPrimary=true. Через setVideoRole(simple)/makePrimary можна виправити вручну; вибір першого не гарантує єдиного primary.",
+        "proposal": "У транзакції призначення primary скидати інші прапорці теми; alternative відображати в існуючу дозволену роль simple, не передавати literal alternative (його сервер замінює primary)."
+      }
+    ],
+    "otherExistingBehavior": "addVideo також змінює Topic.status на IN_PROGRESS, хоча coverage лишається DRAFT. Це треба врахувати в майбутньому дозволі на робоче додавання.",
+    "codeChangedInThisTask": false
+  },
+  "qa": {
+    "database": "SYNTHETIC_TEMP_SQLITE_ONLY",
+    "runtimeUrl": "http://127.0.0.1:3104/video-qa",
+    "harness": "Тимчасова QA-сторінка імпортує незмінений VideoPanel та штатні server actions. Два синтетичні користувачі OWNER/STUDENT, сім DRAFT Topic; робочі облікові записи та сесії не копіювалися.",
+    "realBrowser": "Chromium + Next.js 16.4.2",
+    "addedLinksViaExistingForm": 10,
+    "topicBindings": 7,
+    "sequentialDuplicateAdd": {
+      "before": 10,
+      "after": 10,
+      "status": "PASS"
+    },
+    "editorReviewButton": "PASS",
+    "alternativeSwitch": "PASS",
+    "embedUrlConstruction": "PASS",
+    "realYouTubePlayback": "BLOCKED_NETWORK_ACCESS_DENIED",
+    "realPerVideoEmbedAvailability": "NOT_CONFIRMED",
+    "unavailableState": "PASS_REAL_NETWORK_FAILURE: timeout message with original link",
+    "positionSaveRestore": "PASS_WITH_YT_API_MOCK_AND_REAL_SERVER_ACTION: 42 sec saved, reload starts at 42 sec; not proof of live YouTube playback",
+    "responsive": {
+      "widths": [
+        320,
+        360,
+        390,
+        768,
+        1280
+      ],
+      "combinations": 35,
+      "horizontalOverflow": 0,
+      "scope": "Існуючий VideoPanel на окремій QA-сторінці; це не повторний повний QA /learn."
+    },
+    "contentPreserved": {
+      "lessons": 7,
+      "lessonJsonUnchanged": true,
+      "coverageRemainedDRAFT": true,
+      "questionAttemptAnswerProgressCalendarTablesUnchanged": true,
+      "initialQuestionAndResultTables": "EMPTY_SYNTHETIC_FIXTURE"
+    },
+    "integrityCheck": "ok",
+    "foreignKeyViolations": 0,
+    "targetedUnitTests": {
+      "file": "src/lib/scoring.test.ts",
+      "command": "node node_modules/vitest/vitest.mjs run src/lib/scoring.test.ts -t YouTube",
+      "passed": 7,
+      "skipped": 9,
+      "failed": 0
+    },
+    "fullPlatformTests": "NOT_RUN: код застосунку не змінювався, достатньо адресного відео-QA"
+  },
+  "safeWorkingAdditionPlan": [
+    "Спочатку погодити й перевірити адресні зміни VIDEO-01/VIDEO-02; відеопакет поки лише пропозиція.",
+    "Редактор реально перевіряє українську озвучку, зміст, звук/зображення, тривалість, доступність і Embed кожного обраного ролика; непридатні кандидати замінює.",
+    "Окремий дозвіл власника з точними topicId/youtubeId/ролями та дозволеними таблицями. Не змінювати coverage, питання, календар чи результати.",
+    "Перед робочим записом — read-only перевірка DRAFT, поточних VideoLesson, відсутності дублювань і нова перевірена SQLite online backup з WAL та без перезапису.",
+    "Використати штатні авторизовані дії після усунення авто-CONFIRMED. Нові неперевірені посилання лише SUGGESTED, одне основне на тему; матеріали лишаються DRAFT.",
+    "Лише окрема редакторська дія після фактичного перегляду може встановити CONFIRMED; публікація уроків — ще окремий дозвіл."
+  ],
+  "githubCheckpoint": {
+    "branch": "feature/block-02-real-fixes",
+    "head": "311f3d960a32a2a6c640d32480d0d68d1522fdce",
+    "commitOrPushPerformed": false,
+    "proposedGroups": [
+      {
+        "name": "Security QA навчальних тестів",
+        "paths": [
+          "src/lib/test-access.ts",
+          "src/server/test-access.ts",
+          "src/server/actions.ts",
+          "src/server/test-sets.ts",
+          "src/app/(main)/tests/[id]/page.tsx",
+          "src/app/(main)/mistakes/page.tsx",
+          "src/server/topic-test-access.db.test.ts"
+        ],
+        "note": "Раніше перевірений окремий checkpoint; перед комітом staging diff, без суміжного sync/content."
+      },
+      {
+        "name": "Канонічна навчальна карта",
+        "paths": [
+          "prisma/content/nmt-curriculum-map.v1.json"
+        ]
+      },
+      {
+        "name": "Відображення уроків і мобільний MATCHING",
+        "paths": [
+          "src/components/lesson/lesson-content.tsx",
+          "src/components/lesson/lesson-text.tsx",
+          "src/components/lesson/lesson-text.test.ts",
+          "src/components/math-text.tsx",
+          "src/components/test-runner.tsx"
+        ],
+        "note": "Незбережені зміни попередніх задач; не вважати автоматично готовими одним комітом: потрібне окреме staged review й відокремлення UI/тестової інфраструктури."
+      },
+      {
+        "name": "Кандидати відео — ця задача",
+        "paths": [
+          "prisma/content/nmt-first-seven-video-candidates.v1.json"
+        ],
+        "note": "PARTIAL/SUGGESTED, не runtime-import і не схвалення контенту."
+      }
+    ],
+    "exclude": [
+      ".env",
+      ".env.local",
+      "*.db",
+      "*-wal",
+      "*-shm",
+      "backups",
+      "TASK-REPORT.md",
+      "TASK-CHANGES.zip",
+      "STAGE02-REPORT.md",
+      "STAGE02-CHANGES.zip",
+      "qa-bio",
+      "stage02",
+      "audit/reports/01-playwright.json",
+      "scratch-validate-v4.ts",
+      "непов’язані untracked/тимчасові файли"
+    ]
+  }
+}
