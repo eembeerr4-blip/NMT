@@ -72,7 +72,7 @@ it("imports a valid package as editable drafts and does not publish it", async (
   expect(saved.lessonJson).toContain("Еукаріотична клітина");
   expect(saved.lessonJson).toContain("\"origin\":\"original\"");
   expect(saved.questions[0]).toMatchObject({ verificationStatus: "DRAFT", generatedByAi: true });
-  expect(saved.videos[0]).toMatchObject({ reviewStatus: "SUGGESTED", youtubeId: "abcdefghijk" });
+  expect(saved.videos[0]).toMatchObject({ reviewStatus: "SUGGESTED", isPrimary: false, youtubeId: "abcdefghijk" });
   expect(lessonAccess(saved).available).toBe(false);
   expect(await prisma.auditLog.count({ where: { action: "CONTENT_IMPORTED" } })).toBe(1);
 });

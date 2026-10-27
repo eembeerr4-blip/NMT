@@ -41,7 +41,7 @@ async function run(){
     }
     // Public videos are candidates, not a claim that embedding and the whole lecture have been reviewed.
     for(const video of [{topicId:"math-linear-eq",youtubeId:"hoM0AHKTc7k",title:"ВШО: Лінійне рівняння з однією змінною"},{topicId:"ukr-ortho",youtubeId:"uDffUp7AuYQ",title:"ВШО: Орфографія (9 клас)"}]){
-      if(!await tx.videoLesson.findFirst({where:{topicId:video.topicId,youtubeId:video.youtubeId}}))await tx.videoLesson.create({data:{...video,url:"https://www.youtube.com/watch?v="+video.youtubeId,channel:"Всеукраїнська школа онлайн",reviewStatus:video.topicId==="math-linear-eq"?"CONFIRMED":"SUGGESTED"}});
+      if(!await tx.videoLesson.findFirst({where:{topicId:video.topicId,youtubeId:video.youtubeId}}))await tx.videoLesson.create({data:{...video,url:"https://www.youtube.com/watch?v="+video.youtubeId,channel:"Всеукраїнська школа онлайн",reviewStatus:"SUGGESTED",isPrimary:false}});
     }
   });
   const personalAfter=await Promise.all([db.user.count(),db.testAttempt.count(),db.examResult.count(),db.answer.count()]);

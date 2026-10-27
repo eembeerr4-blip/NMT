@@ -22,7 +22,8 @@ import { gradeAnswer, pickBalanced } from "@/lib/grade";
 import { learningStatus, reviewIntervals } from "@/lib/mastery";
 import { prisma } from "@/lib/prisma";
 import { examResultSchema, preferencesSchema, questionSchema } from "@/lib/validators";
-import { parseYouTubeId, youtubeWatchUrl } from "@/lib/youtube";
+import { parseYouTubeId } from "@/lib/youtube";
+import { addVideoCandidate, lockVideo, reconcileVideoPrimary } from "@/server/video-lessons";
 import { personalSchedule } from "@/lib/plan";
 import { relocationMode } from "@/lib/shift";
 import { hashPasswordAsync, verifyPasswordAsync, DUMMY_HASH } from "@/lib/auth";
@@ -97,97 +98,55 @@ async function readableAnswer(questionId: string, value: unknown, db: Prisma.Tra
 export async function addVideo(topicId: string, rawUrl: string, title: string, role = "primary"): Promise<ActionState> {
   try {
     const user = await editor();
-    return await auditedWrite<ActionState>(user, { action: "VIDEO_ADDED", entityType: "video", entityId: topicId }, async (tx) => {
-
-    
     const youtubeId = parseYouTubeId(rawUrl);
-    if (!youtubeId) return { ok: false, error: "Це не схоже на посилання YouTube. Назву каналу чи відео сайт не вигадує." };
-    const allowed = ["primary", "simple", "examples", "tasks"];
-    const safeRole = allowed.includes(role) ? role : "primary";
-    const existing = await tx.videoLesson.findFirst({ where: { topicId, youtubeId } });
-    if (existing) {
-      await tx.videoLesson.update({ where: { id: existing.id }, data: { title: title.trim() || existing.title, role: safeRole, reviewStatus: "CONFIRMED", url: youtubeWatchUrl(youtubeId) } });
-      refresh();
-      return { ok: true, id: existing.id, message: "Це відео вже було в темі. Його підтверджено, дублікат не створено." };
-    }
-    const count = await tx.videoLesson.count({ where: { topicId, reviewStatus: { not: "REJECTED" } } });
-    const video = await tx.videoLesson.create({
-      data: {
-        topicId,
-        youtubeId,
-        url: youtubeWatchUrl(youtubeId),
-        title: title.trim(),
-        role: safeRole,
-        reviewStatus: "CONFIRMED",
-        isPrimary: count === 0 || safeRole === "primary",
-      },
+    if (!youtubeId) return { ok: false, error: "Вкажіть коректне посилання YouTube." };
+    return await auditedWrite<ActionState>(user, { action: "VIDEO_ADDED", entityType: "video", entityId: topicId }, async (tx) => {
+      const result = await addVideoCandidate(tx, topicId, youtubeId, title, role);
+      if (result.ok) refresh();
+      return result;
     });
-    await tx.topic.update({ where: { id: topicId }, data: { status: "IN_PROGRESS" } }).catch(() => undefined);
-    refresh();
-    return { ok: true, id: video.id };
-  
-    });
-  } catch (error) {
-    return fail(error);
-  }
+  } catch (error) { return fail(error); }
 }
 
 export async function updateVideo(id: string, rawUrl: string, title: string): Promise<ActionState> {
   try {
     const user = await editor();
-    return await auditedWrite<ActionState>(user, { action: "VIDEO_UPDATED", entityType: "video", entityId: id }, async (tx) => {
-
-    
     const youtubeId = parseYouTubeId(rawUrl);
     if (!youtubeId) return { ok: false, error: "Вкажіть коректне посилання YouTube." };
-    await tx.videoLesson.update({
-      where: { id },
-      data: { youtubeId, url: youtubeWatchUrl(youtubeId), title: title.trim(), lastPositionSec: 0 },
+    return await auditedWrite<ActionState>(user, { action: "VIDEO_UPDATED", entityType: "video", entityId: id }, async (tx) => {
+      const video = await lockVideo(tx, id);
+      if (youtubeId !== video.youtubeId) return { ok: false, error: "Це інший ролик. Додайте його окремим відеокандидатом: старе відео та особистий прогрес збережено." };
+      await tx.videoLesson.update({ where: { id }, data: { title: title.trim() } });
+      refresh();
+      return { ok: true };
     });
-    refresh();
-    return { ok: true };
-  
-    });
-  } catch (error) {
-    return fail(error);
-  }
+  } catch (error) { return fail(error); }
 }
 
 export async function deleteVideo(id: string): Promise<ActionState> {
   try {
     const user = await editor();
     return await auditedWrite<ActionState>(user, { action: "VIDEO_DELETED", entityType: "video", entityId: id }, async (tx) => {
-
-    
-    const video = await tx.videoLesson.delete({ where: { id } });
-    const next = await tx.videoLesson.findFirst({ where: { topicId: video.topicId }, orderBy: { createdAt: "asc" } });
-    if (next && video.isPrimary) await tx.videoLesson.update({ where: { id: next.id }, data: { isPrimary: true } });
-    refresh();
-    return { ok: true };
-  
+      const video = await lockVideo(tx, id);
+      await tx.videoLesson.delete({ where: { id } });
+      await reconcileVideoPrimary(tx, video.topicId);
+      refresh();
+      return { ok: true };
     });
-  } catch (error) {
-    return fail(error);
-  }
+  } catch (error) { return fail(error); }
 }
 
 export async function makePrimary(id: string): Promise<ActionState> {
   try {
     const user = await editor();
     return await auditedWrite<ActionState>(user, { action: "VIDEO_PRIMARY", entityType: "video", entityId: id }, async (tx) => {
-
-    
-    const video = await tx.videoLesson.findUnique({ where: { id } });
-    if (!video) return { ok: false, error: "Відео не знайдено." };
-    await tx.videoLesson.updateMany({ where: { topicId: video.topicId }, data: { isPrimary: false } });
-    await tx.videoLesson.update({ where: { id }, data: { isPrimary: true } });
-    refresh();
-    return { ok: true };
-  
+      const video = await lockVideo(tx, id);
+      if (video.reviewStatus !== "CONFIRMED") return { ok: false, error: "Основним може бути лише підтверджене відео." };
+      await reconcileVideoPrimary(tx, video.topicId, id);
+      refresh();
+      return { ok: true };
     });
-  } catch (error) {
-    return fail(error);
-  }
+  } catch (error) { return fail(error); }
 }
 
 export async function saveVideoNotes(id: string, notes: string): Promise<ActionState> {
@@ -215,35 +174,30 @@ export async function saveVideoPosition(id: string, seconds: number, durationSec
 export async function setVideoReview(id: string, status: "CONFIRMED" | "REJECTED"): Promise<ActionState> {
   try {
     const user = await editor();
+    if (status !== "CONFIRMED" && status !== "REJECTED") return { ok: false, error: "Невідомий статус перевірки відео." };
     return await auditedWrite<ActionState>(user, { action: "VIDEO_REVIEWED", entityType: "video", entityId: id }, async (tx) => {
-
-    
-    await tx.videoLesson.update({ where: { id }, data: { reviewStatus: status, isPrimary: status === "CONFIRMED" ? undefined : false } });
-    refresh();
-    return { ok: true };
-  
+      const video = await lockVideo(tx, id);
+      await tx.videoLesson.update({ where: { id }, data: { reviewStatus: status } });
+      await reconcileVideoPrimary(tx, video.topicId);
+      refresh();
+      return { ok: true };
     });
-  } catch (error) {
-    return fail(error);
-  }
+  } catch (error) { return fail(error); }
 }
 
 export async function setVideoRole(id: string, role: string): Promise<ActionState> {
   try {
     const user = await editor();
+    if (!["primary", "simple", "examples", "tasks"].includes(role)) return { ok: false, error: "Невідомий тип лекції." };
     return await auditedWrite<ActionState>(user, { action: "VIDEO_ROLE", entityType: "video", entityId: id }, async (tx) => {
-
-    
-    const allowed = ["primary", "simple", "examples", "tasks"];
-    if (!allowed.includes(role)) return { ok: false, error: "Невідомий тип лекції." };
-    await tx.videoLesson.update({ where: { id }, data: { role, isPrimary: role === "primary" } });
-    refresh();
-    return { ok: true };
-  
+      const video = await lockVideo(tx, id);
+      await tx.videoLesson.update({ where: { id }, data: { role } });
+      // An explanation category is not editorial confirmation or a primary selection.
+      await reconcileVideoPrimary(tx, video.topicId);
+      refresh();
+      return { ok: true };
     });
-  } catch (error) {
-    return fail(error);
-  }
+  } catch (error) { return fail(error); }
 }
 
 async function persistQuestion(tx: import("@prisma/client").Prisma.TransactionClient, raw: unknown) {
@@ -1024,7 +978,10 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
       if (data.dependencies.length) await tx.topicDependency.createMany({ data: data.dependencies });
       if (data.questions.length) await tx.question.createMany({ data: data.questions });
       if (data.options.length) await tx.questionOption.createMany({ data: data.options });
-      if (data.videos.length) await tx.videoLesson.createMany({ data: data.videos });
+      if (data.videos.length) {
+        await tx.videoLesson.createMany({ data: data.videos.map(video => ({ ...video, reviewStatus: video.reviewStatus ?? "SUGGESTED", isPrimary: video.reviewStatus === "CONFIRMED" && video.isPrimary })) });
+        for (const topicId of new Set(data.videos.map(video => video.topicId))) await reconcileVideoPrimary(tx, topicId);
+      }
       if (data.videoProgress?.length) await tx.userVideoProgress.createMany({ data: data.videoProgress });
       if (data.flashcards.length) await tx.flashcard.createMany({ data: data.flashcards });
       if (data.tests.length) await tx.test.createMany({ data: data.tests });

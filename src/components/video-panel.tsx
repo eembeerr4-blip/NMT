@@ -11,16 +11,17 @@ import { Button, Card, Input } from "@/components/ui";
 type Video = { id: string; youtubeId: string; url: string; title: string; isPrimary: boolean; durationSec: number | null; lastPositionSec: number; notes: string; role?: string; channel?: string; reviewStatus?: string };
 
 export function VideoPanel({ topicId, videos, canEdit = false, variant="default" }: { topicId: string; topicTitle?: string; videos: Video[]; canEdit?: boolean; variant?:"default"|"lesson" }) {
-  const visible = videos.filter((video) => video.reviewStatus !== "REJECTED");
-  const confirmed = visible.filter((video) => (video.reviewStatus ?? "CONFIRMED") !== "SUGGESTED");
-  const [currentId, setCurrentId] = useState((confirmed.find((video) => video.isPrimary) ?? confirmed[0] ?? visible[0])?.id ?? "");
-  const primary = visible.find((video) => video.id === currentId) ?? confirmed[0] ?? visible[0];
+  const rows = canEdit ? videos : videos.filter(video => video.reviewStatus === "CONFIRMED");
+  const visible = rows.filter((video) => video.reviewStatus !== "REJECTED");
+  const confirmed = visible.filter((video) => video.reviewStatus === "CONFIRMED");
+  const [currentId, setCurrentId] = useState("");
+  const primary = visible.find((video) => video.id === currentId) ?? confirmed.find(video => video.isPrimary) ?? confirmed[0] ?? visible[0];
   const [playing, setPlaying] = useState(false);
   const [message, setMessage] = useState("");
 
   async function onAdd(formData: FormData) {
     const result = await addVideo(topicId, String(formData.get("url") ?? ""), String(formData.get("title") ?? ""));
-    setMessage(result.ok ? "Відео додано." : result.error);
+    setMessage(result.ok ? result.message ?? "Відеокандидат додано." : result.error);
   }
 
   return (
@@ -63,17 +64,17 @@ export function VideoPanel({ topicId, videos, canEdit = false, variant="default"
       )}
       {message ? <p role="status" className="text-sm">{message}</p> : null}
       {canEdit ? <details className="rounded-xl border border-border p-4"><summary className="cursor-pointer font-medium">Інструменти редактора відео</summary><Card className="space-y-3 p-4">
-        <h2 className="font-medium">Додати або замінити відео</h2>
+        <h2 className="font-medium">Додати відеокандидат</h2>
         <form action={onAdd} className="grid gap-2 sm:grid-cols-[1fr_180px_auto]">
           <Input name="url" placeholder="Посилання YouTube" required />
           <Input name="title" placeholder="Назва для себе" />
           <Button type="submit">Додати відео</Button>
         </form>
       </Card></details> : null}
-      {videos.length ? (
+      {rows.length ? (
         <div className="space-y-3">
-          {videos.map((video) => (
-            <VideoRow key={video.id} video={video} canEdit={canEdit} lessonStyle={variant==="lesson"} />
+          {rows.map((video) => (
+            <VideoRow key={video.id} video={video} canEdit={canEdit} lessonStyle={variant==="lesson"} onPrimary={() => { setCurrentId(video.id); setPlaying(false); }} />
           ))}
         </div>
       ) : null}
@@ -81,16 +82,16 @@ export function VideoPanel({ topicId, videos, canEdit = false, variant="default"
   );
 }
 
-function VideoRow({ video, canEdit, lessonStyle=false }: { video: Video; canEdit: boolean; lessonStyle?:boolean }) {
+function VideoRow({ video, canEdit, lessonStyle=false, onPrimary }: { video: Video; canEdit: boolean; lessonStyle?:boolean; onPrimary?: () => void }) {
   const [notes, setNotes] = useState(video.notes);
   const {pending,result,run}=useActionFeedback();
   return (
     <Card className={lessonStyle?"d04f-video-notes space-y-2 p-4":"space-y-2 p-4"}>
       {lessonStyle?<h3>Мої нотатки до відео</h3>:null}
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="text-sm font-medium">{video.title || video.youtubeId} {video.isPrimary ? "· основна" : ""}</div>
+        <div className="text-sm font-medium">{video.title || video.youtubeId} {video.isPrimary && video.reviewStatus === "CONFIRMED" ? "· основна" : ""}{canEdit ? ` · ${video.reviewStatus ?? "SUGGESTED"}` : ""}</div>
         {canEdit ? <div className="flex flex-wrap gap-2">
-          {!video.isPrimary ? <Button type="button" size="sm" variant="outline" disabled={pending} onClick={() => run(()=>makePrimary(video.id))}>Зробити основною</Button> : null}
+          {!video.isPrimary && video.reviewStatus === "CONFIRMED" ? <Button type="button" size="sm" variant="outline" disabled={pending} onClick={() => run(()=>makePrimary(video.id), onPrimary)}>Зробити основною</Button> : null}
           {video.reviewStatus === "SUGGESTED" ? <Button type="button" size="sm" variant="outline" disabled={pending} onClick={() => run(()=>setVideoReview(video.id, "CONFIRMED"))}>Підтвердити</Button> : null}
           {video.reviewStatus !== "REJECTED" ? <Button type="button" size="sm" variant="ghost" disabled={pending} onClick={() => run(()=>setVideoReview(video.id, "REJECTED"))}>Відхилити</Button> : null}
           <select className="h-8 rounded-lg border border-border bg-card px-2 text-xs" aria-label="Роль відео" disabled={pending} defaultValue={video.role ?? "primary"} onChange={(event) => {const role=event.target.value;void run(()=>setVideoRole(video.id,role));}}>
@@ -102,8 +103,9 @@ function VideoRow({ video, canEdit, lessonStyle=false }: { video: Video; canEdit
       {canEdit ? <form action={async (formData) => { await run(()=>updateVideo(video.id, String(formData.get("url")), String(formData.get("title")))); }} className="grid gap-2 sm:grid-cols-[1fr_180px_auto]">
         <Input name="url" defaultValue={video.url} />
         <Input name="title" defaultValue={video.title} />
-        <Button type="submit" size="sm" variant="outline">Замінити</Button>
+        <Button type="submit" size="sm" variant="outline">Зберегти назву</Button>
       </form> : null}
+      {canEdit ? <p className="text-xs text-muted-foreground">Інший ролик додайте окремим кандидатом. Збереження тут змінює лише назву.</p> : null}
       <textarea aria-label="Нотатки до лекції" className="min-h-20 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm" value={notes} onChange={(event) => setNotes(event.target.value)} placeholder="Нотатки до лекції" />
       <Button type="button" size="sm" variant="outline" disabled={pending} onClick={async () => { await run(()=>saveVideoNotes(video.id,notes)); }}>Зберегти нотатки</Button>
       {result ? <p role={result.ok?"status":"alert"} className="text-sm">{result.ok?result.message??"Зміни збережено.":result.error}</p> : null}

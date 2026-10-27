@@ -84,11 +84,10 @@ async function applyContentPlan(tx: Prisma.TransactionClient, plan: ImportPlan) 
         });
       }
       if (topic.video) {
-        const existingVideos = await tx.videoLesson.count({ where: { topicId: topic.code, reviewStatus: { not: "REJECTED" } } });
         await tx.videoLesson.create({
           data: {
             topicId: topic.code, youtubeId: topic.video.youtubeId, url: topic.video.url, title: topic.video.title,
-            reviewStatus: "SUGGESTED", isPrimary: existingVideos === 0, role: "primary",
+            reviewStatus: "SUGGESTED", isPrimary: false, role: "primary",
           },
         });
       }
