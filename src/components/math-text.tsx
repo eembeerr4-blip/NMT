@@ -1,13 +1,14 @@
 import katex from "katex";
 
-export function MathText({ text, className = "" }: { text: string; className?: string }) {
+export function MathText({ text, className = "", inline = false }: { text: string; className?: string; inline?: boolean }) {
+  const Tag = inline ? "span" : "div";
   const parts = text.split(/(\$\$[\s\S]+?\$\$|\$[^$\n]+?\$)/g);
   return (
-    <div className={`math-text whitespace-pre-wrap leading-relaxed ${className}`}>
+    <Tag className={`math-text whitespace-pre-wrap leading-relaxed ${className}`}>
       {parts.map((part, index) => {
         if (part.startsWith("$$") && part.endsWith("$$")) {
           const html = katex.renderToString(part.slice(2, -2), { throwOnError: false, displayMode: true });
-          return <div key={index} dangerouslySetInnerHTML={{ __html: html }} />;
+          return inline ? <span key={index} dangerouslySetInnerHTML={{ __html: html }} /> : <div key={index} dangerouslySetInnerHTML={{ __html: html }} />;
         }
         if (part.startsWith("$") && part.endsWith("$")) {
           const html = katex.renderToString(part.slice(1, -1), { throwOnError: false, displayMode: false });
@@ -22,6 +23,6 @@ export function MathText({ text, className = "" }: { text: string; className?: s
             : fragment
         )}</span>;
       })}
-    </div>
+    </Tag>
   );
 }
