@@ -153,15 +153,23 @@ function AnswerInput({ sequenceSeed, question, value, onChange }: { sequenceSeed
     const current = (value && typeof value === "object" ? value : {}) as Record<string, string>;
     return (
       <div className="space-y-3">
-        {left.map((option) => (
-          <label key={option.id} className="d05-matching-row grid gap-2 sm:grid-cols-[minmax(0,1fr)_minmax(0,220px)] sm:items-center">
-            <MathText text={option.text} />
-            <select className="h-10 rounded-lg border border-border bg-card px-2 text-sm" value={current[option.id] ?? ""} onChange={(event) => onChange({ ...current, [option.id]: event.target.value })}>
-              <option value="">Обрати</option>
-              {right.map((item) => <option key={item.id} value={item.id}>{item.label}. {item.text.replace(/\$/g, "")}</option>)}
-            </select>
-          </label>
-        ))}
+        {left.map((option) => {
+          const selected = right.find((item) => item.id === current[option.id]);
+          const inputId = `matching-${question.id}-${option.id}`;
+          const descriptionId = `${inputId}-selected`;
+          return (
+            <div key={option.id} className="d05-matching-row grid min-w-0 gap-2 sm:grid-cols-[minmax(0,1fr)_minmax(0,220px)] sm:items-center">
+              <label htmlFor={inputId} className="min-w-0"><MathText text={option.text} /></label>
+              <div className="min-w-0 space-y-2">
+                <select id={inputId} aria-describedby={selected ? descriptionId : undefined} className="h-10 w-full min-w-0 max-w-full rounded-lg border border-border bg-card px-2 text-sm" value={current[option.id] ?? ""} onChange={(event) => onChange({ ...current, [option.id]: event.target.value })}>
+                  <option value="">Обрати</option>
+                  {right.map((item) => <option key={item.id} value={item.id}>{item.label}. {item.text.replace(/\$/g, "")}</option>)}
+                </select>
+                {selected ? <div id={descriptionId} role="status" className="min-w-0 break-words text-sm text-muted-foreground"><MathText text={`${selected.label}. ${selected.text}`} /></div> : null}
+              </div>
+            </div>
+          );
+        })}
       </div>
     );
   }
