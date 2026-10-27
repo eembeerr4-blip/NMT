@@ -9,6 +9,7 @@ import { prisma } from "@/lib/prisma";
 import { MathText } from "@/components/math-text";
 import { TestRunner } from "@/components/test-runner";
 import { Badge, Button, Card, PageHeader } from "@/components/ui";
+import { learnerTestAvailable, unavailableTestMessage } from "@/lib/test-access";
 import { requireUser } from "@/server/session";
 import { getSettings } from "@/server/sync";
 
@@ -20,11 +21,12 @@ export default async function AttemptPage({ params }: { params: Promise<{ id: st
     where: { id, userId: user.id },
     include: {
       answers: true,
-      test: { include: { topic: true, subject: true, questions: { orderBy: { sortOrder: "asc" }, include: { question: { include: { options: { orderBy: { sortOrder: "asc" } } } } } } } },
+      test: { include: { topic: true, subject: true, questions: { orderBy: { sortOrder: "asc" }, include: { question: { include: { topic: true, options: { orderBy: { sortOrder: "asc" } } } } } } } },
     },
   });
   if (!attempt || attempt.userId !== user.id) notFound();
-  // Only presentation changes: the authenticated query, attempt identity and all actions stay intact.
+  if (!learnerTestAvailable(attempt.test)) return <Card className="p-5"><h1 className="font-semibold">Матеріали тесту недоступні</h1><p>{unavailableTestMessage}</p><Button asChild variant="outline"><Link href="/tests">Мої тести</Link></Button></Card>;
+  // Keep history stored, but never render withdrawn questions or their answer review.
   const lessonPractice = attempt.test.kind === "TOPIC" && Boolean(attempt.test.topicId);
   const scope = lessonPractice ? "d04f-practice d05-testing" : "d05-testing";
   const kindLabel = attempt.test.kind === "TOPIC" ? "Тематична практика" : attempt.test.kind === "EXAM" ? "Пробник" : attempt.test.kind === "DIAGNOSTIC" ? "Діагностика" : "Тест";

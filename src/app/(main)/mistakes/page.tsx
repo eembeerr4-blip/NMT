@@ -6,6 +6,7 @@ import { prisma } from "@/lib/prisma";
 import { Card, EmptyState, PageHeader } from "@/components/ui";
 import { MistakeControls } from "@/components/mistake-controls";
 import {ListPagination,parseListPage} from "@/components/list-pagination";
+import { learnerQuestionAvailable } from "@/lib/test-access";
 import { requireUser } from "@/server/session";
 
 export default async function MistakesPage({ searchParams }: { searchParams: Promise<{ subject?: string; topic?: string; category?: string; status?: string; from?: string; q?: string; page?:string }> }) {
@@ -19,8 +20,13 @@ export default async function MistakesPage({ searchParams }: { searchParams: Pro
   const from = parseDateKey(params.from);
   const selectedSubject = !activeSubjects.length || activeSubjects.includes(params.subject ?? "") ? params.subject : undefined;
   const requestedTopic = params.topic ? await prisma.topic.findFirst({ where: { id: params.topic, ...(activeSubjects.length ? { subjectId: { in: activeSubjects } } : {}) }, select: { id: true } }) : null;
+  // Old mistake snapshots must not expose questions withdrawn after a completed test.
+  const readableQuestionIds = await prisma.question.findMany({
+    where: { mistakes: { some: { userId: user.id } } }, include: { topic: true },
+  }).then(rows => rows.filter(learnerQuestionAvailable).map(question => question.id));
   const where = {
     userId: user.id,
+    questionId: { in: readableQuestionIds },
     ...(activeSubjects.length ? { subjectId: { in: activeSubjects } } : {}),
     ...(selectedSubject ? { subjectId: selectedSubject } : {}),
     ...(requestedTopic ? { topicId: requestedTopic.id } : params.topic ? { topicId: "__no_matching_topic__" } : {}),

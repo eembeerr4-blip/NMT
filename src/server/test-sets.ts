@@ -5,12 +5,13 @@ import {prisma} from "@/lib/prisma";
 import {UserError,userFacingError} from "@/lib/errors";
 import {canEditContent} from "@/lib/permissions";
 import {publicationConfig,testPublication,type Publication} from "@/lib/test-publication";
+import {learnerTestAvailable} from "@/lib/test-access";
 import {getSessionUser} from "./session";
 import {recordAudit} from "./audit-log";
 import type {ActionState} from "./actions";
 
 async function actor(staff=false) {const user=await getSessionUser();if(!user)throw new UserError("Потрібен вхід до профілю.");if(staff&&!canEditContent(user))throw new UserError("Керування наборами доступне редактору, адміністратору або власнику.");return user;}
-async function lock(tx:Prisma.TransactionClient,id:string) {await tx.$executeRaw`UPDATE "Test" SET "configJson"="configJson" WHERE "id"=${id}`;return tx.test.findUniqueOrThrow({where:{id},include:{questions:{orderBy:{sortOrder:"asc"},include:{question:true}},_count:{select:{attempts:true}}}});}
+async function lock(tx:Prisma.TransactionClient,id:string) {await tx.$executeRaw`UPDATE "Test" SET "configJson"="configJson" WHERE "id"=${id}`;return tx.test.findUniqueOrThrow({where:{id},include:{questions:{orderBy:{sortOrder:"asc"},include:{question:{include:{topic:true}}}},_count:{select:{attempts:true}}}});}
 function refresh(){revalidatePath("/admin/tests");revalidatePath("/admin/tests/[id]","page");revalidatePath("/editor/tests");revalidatePath("/editor/tests/[id]","page");revalidatePath("/tests");}
 export async function saveTestSet(input:{id?:string;title:string;subjectId:string;timeLimitMin:number;questionIds:string[]}):Promise<ActionState> {
  try {
@@ -41,6 +42,6 @@ export async function cloneTestSet(id:string):Promise<ActionState> {
  }catch(error){return {ok:false,error:userFacingError(error)};}
 }
 export async function startPublishedTestSet(id:string):Promise<ActionState> {
- try {const user=await actor();const attempt=await prisma.$transaction(async tx=>{const set=await lock(tx,id);if(testPublication(set.configJson)!=="PUBLISHED"||!set.questions.length||set.questions.some(q=>q.question.verificationStatus!=="VERIFIED")||!set.subjectId||!user.subjects.some(subject=>subject.active&&subject.subjectId===set.subjectId))throw new UserError("Цей набір зараз недоступний. Оберіть інший тест.");return tx.testAttempt.create({data:{testId:id,userId:user.id}});},{maxWait:15000,timeout:20000});return {ok:true,id:attempt.id};
+ try {const user=await actor();const attempt=await prisma.$transaction(async tx=>{const set=await lock(tx,id);if(testPublication(set.configJson)!=="PUBLISHED"||!learnerTestAvailable(set)||!set.subjectId||!user.subjects.some(subject=>subject.active&&subject.subjectId===set.subjectId))throw new UserError("Цей набір зараз недоступний. Оберіть інший тест.");return tx.testAttempt.create({data:{testId:id,userId:user.id}});},{maxWait:15000,timeout:20000});return {ok:true,id:attempt.id};
  }catch(error){return {ok:false,error:userFacingError(error)};}
 }

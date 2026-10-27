@@ -2,6 +2,9 @@
 
 import type { Prisma } from "@prisma/client";
 import { parseLesson } from "@/lib/lesson";
+import { lessonAccess } from "@/lib/readiness";
+import { learnerQuestionAvailable, learnerTestAvailable, unavailableTestMessage } from "@/lib/test-access";
+import { requireAccessibleAttempt } from "@/server/test-access";
 
 import { UserError, userFacingError } from "@/lib/errors";
 import { auditedWrite, recordAudit } from "@/server/audit-log";
@@ -331,6 +334,8 @@ export async function startTopicTest(topicId: string) {
   const topic = await prisma.topic.findUnique({ where: { id: topicId } });
   if (!topic) return { ok: false as const, error: "Тему не знайдено." };
   const bank = await prisma.question.findMany({ where: { topicId, verificationStatus: "VERIFIED" } });
+  // Editorial preview never grants permission to create learner attempts.
+  if (!lessonAccess({ ...topic, questions: bank }).available) return { ok: false as const, error: "Ця тема поки недоступна для практики." };
   if (bank.length === 0) return { ok: false as const, error: "Немає перевірених завдань для цієї теми. Додайте їх у банку. Сайт не підставляє вигадані офіційні питання." };
   const picked = pickBalanced(bank);
   const test = await prisma.test.create({
@@ -358,10 +363,10 @@ export async function skipDiagnostic(): Promise<ActionState> {
 
 export async function startDiagnostic(){
  const user=await actor();
- const unfinished=await prisma.testAttempt.findFirst({where:{userId:user.id,status:"IN_PROGRESS",test:{kind:"DIAGNOSTIC"}}});
- if(unfinished)redirect("/tests/"+unfinished.id);
+ const unfinished=await prisma.testAttempt.findFirst({where:{userId:user.id,status:"IN_PROGRESS",test:{kind:"DIAGNOSTIC"}},include:{test:{include:{questions:{include:{question:{include:{topic:true}}}}}}}});
+ if(unfinished){if(!learnerTestAvailable(unfinished.test))return {ok:false as const,error:unavailableTestMessage};redirect("/tests/"+unfinished.id);}
  const active=user.subjects.filter(s=>s.active).map(s=>s.subjectId);
- const bank=await prisma.question.findMany({where:{subjectId:{in:active},verificationStatus:"VERIFIED",type:{notIn:["SHORT_TEXT","STEP_BY_STEP"]}}});
+ const bank=await prisma.question.findMany({where:{subjectId:{in:active},verificationStatus:"VERIFIED",type:{notIn:["SHORT_TEXT","STEP_BY_STEP"]}},include:{topic:true}}).then(rows=>rows.filter(learnerQuestionAvailable));
  const selected=active.flatMap(id=>pickBalanced(bank.filter(q=>q.subjectId===id),{EASY:1,MEDIUM:1,HARD:1}).questions);
  if(!selected.length)return {ok:false as const,error:"Для діагностики ще немає перевірених завдань. Почніть із доступних уроків."};
  const test=await prisma.test.create({data:{title:"Вхідна діагностика",kind:"DIAGNOSTIC",configJson:JSON.stringify({convertsToRating:false,requested:active.length*3,actual:selected.length,shortfall:active.length*3-selected.length}),questions:{create:selected.map((q,index)=>({questionId:q.id,sortOrder:index}))}}});
@@ -370,12 +375,12 @@ export async function startDiagnostic(){
 
 export async function startExam(input: { subjectId: string; title: string; count: number; minutes: number | null }) {
   const user = await actor();
+  const bank = await prisma.question.findMany({ where: { subjectId: input.subjectId, verificationStatus: "VERIFIED" }, include: { topic: true } }).then(rows => rows.filter(learnerQuestionAvailable));
+  if (bank.length === 0) return { ok: false as const, error: "У предметі немає перевірених завдань для пробника." };
   const settings = await getSettings(user.id);
   if (!settings.format.officialFormatConfirmed) {
     // The exam can still run from the user's own verified bank. Rating conversion stays disabled.
   }
-  const bank = await prisma.question.findMany({ where: { subjectId: input.subjectId, verificationStatus: "VERIFIED" } });
-  if (bank.length === 0) return { ok: false as const, error: "У предметі немає перевірених завдань для пробника." };
   const wanted = Math.max(1, Math.min(60, input.count || bank.length));
   const picked = pickBalanced(bank, scaleTargets(wanted));
   const test = await prisma.test.create({
@@ -390,6 +395,7 @@ export async function startExam(input: { subjectId: string; title: string; count
         convertsToRating: false,
         requested: wanted,
         actual: picked.questions.length,
+        shortfall: wanted - picked.questions.length,
       }),
       questions: { create: picked.questions.map((question, index) => ({ questionId: question.id, sortOrder: index })) },
     },
@@ -408,10 +414,7 @@ function scaleTargets(total: number) {
 export async function saveDraft(attemptId: string, draft: Record<string, unknown>, currentIndex: number): Promise<ActionState> {
   try {
     const user = await actor();
-    const attempt = await prisma.testAttempt.findUnique({
-      where: { id: attemptId, userId: user.id },
-      include: { test: { select: { timeLimitSec: true } } },
-    });
+    const attempt = await requireAccessibleAttempt(attemptId, user.id);
     if (!attempt || attempt.status !== "IN_PROGRESS") return { ok: false, error: "Спробу вже завершено або вона недоступна." };
     if (isAttemptExpired(attempt.startedAt, attempt.test.timeLimitSec)) {
       return { ok: false, error: "Час тесту вичерпано. Нові відповіді більше не приймаються." };
@@ -427,6 +430,7 @@ export async function saveDraft(attemptId: string, draft: Record<string, unknown
 export async function finishAttempt(attemptId: string, draft: Record<string, unknown>): Promise<ActionState> {
   try {
     const user = await actor();
+    await requireAccessibleAttempt(attemptId, user.id);
     const settings = await getSettings(user.id);
     await prisma.$transaction(async (tx) => {
     // Acquire the SQLite write lock before reading. The state change is invisible outside this transaction.
@@ -436,10 +440,7 @@ export async function finishAttempt(attemptId: string, draft: Record<string, unk
       if(existing?.status === "COMPLETED") return;
       throw new UserError("Спроба недоступна або вже завершується. Спробуйте ще раз.");
     }
-    const attempt = await tx.testAttempt.findUnique({
-      where: { id: attemptId, userId: user.id },
-      include: { test: { include: { questions: { include: { question: true }, orderBy: { sortOrder: "asc" } } } } },
-    });
+    const attempt = await requireAccessibleAttempt(attemptId, user.id, tx);
     if (!attempt || attempt.userId !== user.id) throw new UserError("Спроба недоступна.");
     if (!canFinishAttemptAfterDeadline(attempt.startedAt, attempt.test.timeLimitSec)) {
       throw new UserError("Час тесту вичерпано. Спроба більше не може бути завершена.");
@@ -565,6 +566,7 @@ export async function completeLesson(topicId: string, studied: boolean): Promise
     const topic = await prisma.topic.findUnique({ where: { id: topicId } });
     if (!topic) return { ok: false, error: "Тему не знайдено." };
     const verified = await prisma.question.count({ where: { topicId, verificationStatus: "VERIFIED" } });
+    if (!lessonAccess({ ...topic, questions: verified ? [{}] : [] }).available) return { ok: false, error: unavailableTestMessage };
     const attempt = await prisma.testAttempt.findFirst({
       where: { userId: user.id, status: "COMPLETED", test: { topicId } },
       orderBy: { finishedAt: "desc" },
@@ -627,6 +629,9 @@ async function applyMastery(topicId: string, correct: number, total: number, hig
 export async function gradeManually(answerId: string, correct: boolean): Promise<ActionState> {
   try {
     const user = await actor();
+    const owned = await prisma.answer.findFirst({ where: { id: answerId, attempt: { userId: user.id } }, select: { attemptId: true } });
+    if (!owned) throw new UserError(unavailableTestMessage);
+    await requireAccessibleAttempt(owned.attemptId, user.id);
     const answer = await prisma.answer.update({
       where: { id: answerId, attempt: { userId: user.id } },
       data: { isCorrect: correct, needsManualReview: false },
