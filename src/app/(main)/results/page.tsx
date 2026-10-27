@@ -47,7 +47,7 @@ export default async function ResultsPage({ searchParams }: { searchParams: Prom
                     <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                       <h2 className="font-semibold">{result.subject.name}</h2>
                       <span className="text-sm text-muted-foreground">{dateLabel}</span>
-                      <span className="rounded-full bg-muted px-2 py-0.5 text-xs">{kind}</span>
+                      <span className="rounded-full bg-muted px-2 py-0.5 text-xs">{result.source.includes("SELF_REPORTED")?"ZNO Online · SELF_REPORTED":kind}</span>
                     </div>
                     <p className="text-sm tabular-nums">
                       Рейтинг: <strong>{rating}</strong>
@@ -56,7 +56,7 @@ export default async function ResultsPage({ searchParams }: { searchParams: Prom
                     </p>
                     <p className="truncate text-xs text-muted-foreground">{result.title}</p>
                   </div>
-                  <ResultRowMenu id={result.id} editHref={editHref} subjectName={result.subject.name} dateLabel={dateLabel} />
+                  {result.source.includes("SELF_REPORTED")?<Link className="text-sm underline" href="/exams">Виправити самооцінку</Link>:<ResultRowMenu id={result.id} editHref={editHref} subjectName={result.subject.name} dateLabel={dateLabel} />}
                 </div>
                 <details className="mt-2 text-sm">
                   <summary className="cursor-pointer font-medium text-muted-foreground">Деталі результату</summary>

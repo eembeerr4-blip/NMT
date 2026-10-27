@@ -102,6 +102,7 @@ export default async function AnalyticsPage({ searchParams }: { searchParams: Pr
         <Stat title="Виконані завдання в тестах" value={answered ? answered.toLocaleString("uk-UA") : "—"} />
         <Stat title="Частка правильних у тестах" value={answered ? `${Math.round((correct / answered) * 100)}%` : "Недостатньо даних"} />
       </section>
+      <Card className="p-4 text-sm">Джерела результатів: {results.filter(r=>r.source.includes("SELF_REPORTED")).length} самооцінок ZNO Online (не входять до автоматичного середнього); {attempts.length} автоматично оцінених внутрішніх спроб. Конкретні зовнішні помилки не відомі NMT Academy. <Link className="underline" href="/exams">Переглянути джерела та записи</Link></Card>
       <section className="grid gap-4 lg:grid-cols-2">
         <Card className="p-4">
           <h2 className="mb-3 font-medium">Середній бал предмета</h2>

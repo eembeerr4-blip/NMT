@@ -274,7 +274,7 @@ export function TopicActions({ topicId, hasQuestions }: { topicId: string; hasQu
   );
 }
 
-export function ExamStartForm() {
+export function ExamStartForm({ allowedSubjectIds }: { allowedSubjectIds?: string[] } = {}) {
   const [message, setMessage] = useState("");
   const [pending,setPending]=useState(false);
   const submitting=useRef(false);
@@ -296,12 +296,12 @@ export function ExamStartForm() {
       } catch(error) { unstable_rethrow(error);setMessage("Не вдалося розпочати пробник. Перевірте з’єднання та повторіть."); }
       finally {submitting.current=false;setPending(false);}
     }}>
-      <Field label="Предмет"><SubjectSelect /></Field>
-      <Field label="Назва"><Input name="title" placeholder="Мій пробник" /></Field>
+      <Field label="Предмет">{allowedSubjectIds?<select name="subjectId" className="h-10 w-full rounded-lg border border-border bg-card px-3 text-sm">{SUBJECTS.filter(s=>allowedSubjectIds.includes(s.id)).map(s=><option key={s.id} value={s.id}>{s.name}</option>)}</select>:<SubjectSelect />}</Field>
+      <Field label="Назва"><Input name="title" placeholder="Моя внутрішня практика" /></Field>
       <Field label="Скільки завдань взяти з банку"><Input name="count" type="number" min={1} max={60} defaultValue={12} /></Field>
       <Field label="Ліміт часу, хв"><Input name="minutes" type="number" min={1} placeholder="Необов'язково" /></Field>
-      <p className="text-sm text-muted-foreground sm:col-span-2">Формат НМТ-2027 у конфігурації не підтверджено. Пробник бере лише перевірені завдання з банку і не переводить їх у рейтинговий бал.</p>
-      <Button type="submit" disabled={pending}>{pending ? "Підготовка…" : "Почати пробник"}</Button>
+      <p className="text-sm text-muted-foreground sm:col-span-2">Внутрішня практика бере лише доступні опубліковані перевірені завдання. Якщо їх менше, ніж замовлено, тест буде коротшим. Це не повний НМТ; рейтинговий бал не обчислюється.</p>
+      <Button type="submit" disabled={pending}>{pending ? "Підготовка…" : "Почати внутрішню практику"}</Button>
       {message ? <p role="alert" className="text-sm text-destructive sm:col-span-2">{message}</p> : null}
     </form>
   );

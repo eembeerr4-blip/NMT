@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { Prisma } from "@prisma/client";
@@ -122,6 +123,7 @@ function PageFrame({ title, description, tabs, mode, children }: {
   children: ReactNode;
 }) {
   return <div className="d02-curriculum">
+    <Card className="p-4 text-sm"><Link className="underline" href="/exams#topics">Практика за темами · прямі добірки ZNO Online для 288 тем</Link></Card>
     <PageHeader title={title} description={description} />
     <nav className="d02-navigation" aria-label="Навігація навчального плану">
       <Link href="/curriculum?mode=personal" aria-current={mode === "personal" ? "page" : undefined}><ClipboardList aria-hidden="true" />Мій маршрут</Link>

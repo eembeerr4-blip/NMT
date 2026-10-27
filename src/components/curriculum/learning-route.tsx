@@ -16,6 +16,7 @@ export type RouteTask = {
   status: string; topicId: string | null; subjectId: string | null; kind: string;
   movedFromId: string | null;
   notes?: string;
+  templateKey?: string | null;
   subject: { name: string } | null;
   topic: { id: string; title: string; lessonJson: string; coverage?: string; questions: unknown[]; videos: { reviewStatus: string }[] } | null;
 };
@@ -49,7 +50,7 @@ export function LearningRoute({ tasks, offset }: { tasks: RouteTask[]; offset: n
               {task.notes ? <p>{task.notes}</p> : null}
               {task.topic && !available ? <p>Урок ще не доступний. Огляд теми та керування заняттям залишаються доступними.</p> : null}
               {task.topicId ? <Link className="d02-text-link" href={`/topics/${task.topicId}`}>Огляд теми: {task.topic?.title ?? task.title}</Link> : null}
-              {inactive ? <p>{task.status === "MOVED" ? "Це запис перенесення. Актуальне заняття знайдеш на новій даті в маршруті або календарі." : "Заняття скасовано. Запис збережено в історії плану."}</p> : <TaskControls task={{ id: task.id, status: task.status, topicId: task.topicId, kind: task.kind }} />}
+              {inactive ? <p>{task.status === "MOVED" ? "Це запис перенесення. Актуальне заняття знайдеш на новій даті в маршруті або календарі." : "Заняття скасовано. Запис збережено в історії плану."}</p> : <TaskControls task={{ id: task.id, status: task.status, topicId: task.topicId, kind: task.kind, templateKey: task.templateKey }} />}
               <Link className="d02-text-link" href={calendar}>Відкрити день у календарі</Link>
             </div>
           </details>

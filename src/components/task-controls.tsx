@@ -6,9 +6,10 @@ import { useActionFeedback } from "./use-action-feedback";
 import { moveTask, setTaskStatus } from "@/server/actions";
 import { Badge, Button, Input } from "@/components/ui";
 
-export function TaskControls({ task }: { task: { id: string; status: string; topicId: string | null; kind: string } }) {
+export function TaskControls({ task }: { task: { id: string; status: string; topicId: string | null; kind: string; templateKey?: string | null } }) {
   const router = useRouter();
   const {pending,result,run}=useActionFeedback();
+  if (task.templateKey?.startsWith("zno:")) return <Button asChild size="sm" variant="outline"><Link href="/exams">Відкрити призначення ZNO Online</Link></Button>;
   if (task.status === "MOVED") return <Badge>Перенесено</Badge>;
   return (
     <div className="flex flex-wrap items-center gap-2">
