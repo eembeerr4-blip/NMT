@@ -1,0 +1,5085 @@
+{
+  "curriculumId": "nmt-five-subjects-curriculum-v1",
+  "verifiedAt": "2026-10-27",
+  "policy": "Explicit subject/content mapping; broader coverage is labelled; empty rows never fall back to a subject root. No provider questions copied.",
+  "topics": [
+    {
+      "topicId": "ukr-phonetics",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Фонетика та орфоепія",
+      "links": [
+        {
+          "title": "Склад. Наголос",
+          "url": "https://zno.osvita.ua/ukrmova/tag-sklad_nagolos_1/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Співвідношення звуків і букв",
+          "url": "https://zno.osvita.ua/ukrmova/tag-spivvidnoshennya_zvukiv_i_bukv/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-stress",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Наголос і вимова",
+      "links": [
+        {
+          "title": "Склад. Наголос",
+          "url": "https://zno.osvita.ua/ukrmova/tag-sklad_nagolos_1/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-assimilation",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Уподібнення та чергування звуків",
+      "links": [
+        {
+          "title": "Зміни приголосних при творенні слів",
+          "url": "https://zno.osvita.ua/ukrmova/tag-zmini_prigolosnih_pri_tvorenni_sliv_1/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-simplification",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Спрощення та подовження приголосних",
+      "links": [
+        {
+          "title": "Спрощення в групах приголосних",
+          "url": "https://zno.osvita.ua/ukrmova/tag-sproshennya_v_grupah_prigolosnih/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Подвоєння літер",
+          "url": "https://zno.osvita.ua/ukrmova/tag-podvoyennya_liter_1/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-alphabet",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Алфавіт і милозвучність",
+      "links": [
+        {
+          "title": "Основні випадки чергування у–в, і–й",
+          "url": "https://zno.osvita.ua/ukrmova/tag-osnovni_vipadki_cherguvannya_uv_ij_1/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "ukr-lex-01-meaning",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Лексичне значення слова",
+      "links": [
+        {
+          "title": "Лексичне значення слова",
+          "url": "https://zno.osvita.ua/ukrmova/tag-leksichne_znachennya_slova/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Синоніми, антоніми, омоніми",
+      "links": [
+        {
+          "title": "Синоніми",
+          "url": "https://zno.osvita.ua/ukrmova/tag-sinonimi/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Антоніми",
+          "url": "https://zno.osvita.ua/ukrmova/tag-antonimi/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Лексичне значення слова",
+          "url": "https://zno.osvita.ua/ukrmova/tag-leksichne_znachennya_slova/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Каталог розділяє лексичне значення, синоніми та антоніми. Покриття всього обсягу об’єднаної теми цією добіркою не підтверджене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-lexicon",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Лексика за походженням і вживанням",
+      "links": [
+        {
+          "title": "Лексичне значення слова",
+          "url": "https://zno.osvita.ua/ukrmova/tag-leksichne_znachennya_slova/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "ukr-lex-03-phraseology",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Фразеологізми",
+      "links": [
+        {
+          "title": "Фразеологія",
+          "url": "https://zno.osvita.ua/ukrmova/tag-frazeologiya/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "ukr-word",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Будова слова",
+      "links": [
+        {
+          "title": "Будова слова. Словотвір",
+          "url": "https://zno.osvita.ua/ukrmova/tag-budova_slova_slovotvir_2/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-formation",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Словотвір і морфемний аналіз",
+      "links": [
+        {
+          "title": "Будова слова. Словотвір",
+          "url": "https://zno.osvita.ua/ukrmova/tag-budova_slova_slovotvir_2/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "ukr-morph",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Частини мови та граматичні ознаки",
+      "links": [
+        {
+          "title": "Класифікація частин мови",
+          "url": "https://zno.osvita.ua/ukrmova/tag-klasifikaciya_chastin_movi_1/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-noun",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Іменник: рід, число та відміни",
+      "links": [
+        {
+          "title": "Іменник: рід і число іменників",
+          "url": "https://zno.osvita.ua/ukrmova/tag-imennik_rid_i_chislo_imennikiv/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Іменник: відмінювання іменників",
+          "url": "https://zno.osvita.ua/ukrmova/tag-imennik_vidminyuvannya_imennikiv/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-noun-cases",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Відмінювання іменників",
+      "links": [
+        {
+          "title": "Іменник: відмінювання іменників",
+          "url": "https://zno.osvita.ua/ukrmova/tag-imennik_vidminyuvannya_imennikiv/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-adjective",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Прикметник",
+      "links": [
+        {
+          "title": "Прикметник",
+          "url": "https://zno.osvita.ua/ukrmova/tag-prikmetnik_1/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-numeral",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Числівник",
+      "links": [
+        {
+          "title": "Числівник",
+          "url": "https://zno.osvita.ua/ukrmova/tag-chislivnik_1/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-pronoun",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Займенник",
+      "links": [
+        {
+          "title": "Займенник",
+          "url": "https://zno.osvita.ua/ukrmova/tag-zajmennik_1/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-verb",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Дієслово",
+      "links": [
+        {
+          "title": "Дієслово",
+          "url": "https://zno.osvita.ua/ukrmova/tag-diyeslovo_1/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-participle",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Дієприкметник і форми на -но, -то",
+      "links": [
+        {
+          "title": "Дієприкметник",
+          "url": "https://zno.osvita.ua/ukrmova/tag-diyeprikmetnik_1/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-adverbial-participle",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Дієприслівник",
+      "links": [
+        {
+          "title": "Дієприслівник",
+          "url": "https://zno.osvita.ua/ukrmova/tag-diyeprislivnik_1/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-adverb",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Прислівник",
+      "links": [
+        {
+          "title": "Прислівник",
+          "url": "https://zno.osvita.ua/ukrmova/tag-prislivnik_1/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-service",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Прийменник, сполучник і частка",
+      "links": [
+        {
+          "title": "Прийменник",
+          "url": "https://zno.osvita.ua/ukrmova/tag-prijmennik_1/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Сполучник",
+          "url": "https://zno.osvita.ua/ukrmova/tag-spoluchnik_1/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Частка",
+          "url": "https://zno.osvita.ua/ukrmova/tag-chastka_1/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-interjection",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Вигук",
+      "links": [],
+      "status": "MISSING"
+    },
+    {
+      "topicId": "ukr-ortho",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Орфографія: голосні, апостроф і мʼякий знак",
+      "links": [
+        {
+          "title": "Правопис літер, що позначають ненаголошені голосні е, и, о",
+          "url": "https://zno.osvita.ua/ukrmova/tag-pravopis_liter_sho_poznachayut_nenagolosheni_golosni_e_i_o/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Апостроф",
+          "url": "https://zno.osvita.ua/ukrmova/tag-apostrof_1/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Мʼякий знак",
+          "url": "https://zno.osvita.ua/ukrmova/tag-myakij_znak/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-prefixes",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Правопис префіксів і суфіксів",
+      "links": [
+        {
+          "title": "Правопис префіксів",
+          "url": "https://zno.osvita.ua/ukrmova/tag-pravopis_prefiksiv/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-capital",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Велика літера та власні назви",
+      "links": [
+        {
+          "title": "Велика буква та лапки у власних назвах",
+          "url": "https://zno.osvita.ua/ukrmova/tag-velika_bukva_ta_lapki_u_vlasnih_nazvah/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-loanwords",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Слова іншомовного походження",
+      "links": [
+        {
+          "title": "Правопис слів іншомовного походження",
+          "url": "https://zno.osvita.ua/ukrmova/tag-pravopis_sliv_inshomovnogo_pohodzhennya/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-compounds",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Складні слова та перенесення",
+      "links": [
+        {
+          "title": "Складні слова",
+          "url": "https://zno.osvita.ua/ukrmova/tag-skladni_slova_1/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-negative",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Не, ні та н/нн",
+      "links": [
+        {
+          "title": "Правопис не з різними частинами мови",
+          "url": "https://zno.osvita.ua/ukrmova/tag-pravopis_ne_z_riznimi_chastinami_movi_1/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Подвоєння літер",
+          "url": "https://zno.osvita.ua/ukrmova/tag-podvoyennya_liter_1/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "ukr-syntax",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Словосполучення та речення",
+      "links": [
+        {
+          "title": "Словосполучення",
+          "url": "https://zno.osvita.ua/ukrmova/tag-slovospoluchennya_1/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Класифікація речень",
+          "url": "https://zno.osvita.ua/ukrmova/tag-klasifikaciya_rechen_1/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-members",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Члени двоскладного речення",
+      "links": [
+        {
+          "title": "Головні члени речення",
+          "url": "https://zno.osvita.ua/ukrmova/tag-golovni_chleni_rechennya_1/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Другорядні члени речення",
+          "url": "https://zno.osvita.ua/ukrmova/tag-drugoryadni_chleni_rechennya_1/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-one-member",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Односкладні, повні та неповні речення",
+      "links": [
+        {
+          "title": "Односкладні речення",
+          "url": "https://zno.osvita.ua/ukrmova/tag-odnoskladni_rechennya_1/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "ukr-punct",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Пунктуація простого речення",
+      "links": [
+        {
+          "title": "Ускладнене речення: однорідні члени речення",
+          "url": "https://zno.osvita.ua/ukrmova/tag-uskladnene_rechennya_odnoridni_chleni_rechennya/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Ускладнене речення: звертання, вставні слова, словосполучення, речення",
+          "url": "https://zno.osvita.ua/ukrmova/tag-uskladnene_rechennya_zvertannya_vstavni_slovahennya/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-isolation",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Відокремлені члени речення",
+      "links": [
+        {
+          "title": "Відокремлені члени речення: відокремлене означення",
+          "url": "https://zno.osvita.ua/ukrmova/tag-vidokremleni_chleni_rechennya_vidokremlene_oznachennya/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Відокремлені члени речення: відокремлена обставина",
+          "url": "https://zno.osvita.ua/ukrmova/tag-vidokremleni_chleni_rechennya_vidokremlena_obstavina/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Відокремлені члени речення: відокремлений додаток",
+          "url": "https://zno.osvita.ua/ukrmova/tag-vidokremleni_chleni_rechennya_vidokremlenij_dodatok/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-compound-sentence",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Складносурядне речення",
+      "links": [
+        {
+          "title": "Складне речення: складносурядне речення",
+          "url": "https://zno.osvita.ua/ukrmova/tag-skladne_rechennya_skladnosuryadne_rechennya/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-complex-sentence",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Складнопідрядне речення",
+      "links": [
+        {
+          "title": "Складне речення: складнопідрядне речення",
+          "url": "https://zno.osvita.ua/ukrmova/tag-skladne_rechennya_skladnopidryadne_rechennya/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-multiple-subordination",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Кілька підрядних частин",
+      "links": [
+        {
+          "title": "Складне речення: складнопідрядне речення",
+          "url": "https://zno.osvita.ua/ukrmova/tag-skladne_rechennya_skladnopidryadne_rechennya/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-asyndetic",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Безсполучникове складне речення",
+      "links": [
+        {
+          "title": "Складне речення: складне безсполучникове речення",
+          "url": "https://zno.osvita.ua/ukrmova/tag-skladne_rechennya_skladne_bezspoluchnikove_rechennya/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-mixed-sentence",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Складні речення з різними видами звʼязку",
+      "links": [
+        {
+          "title": "Складне речення: складне речення з різними видами зв’язку",
+          "url": "https://zno.osvita.ua/ukrmova/tag-skladne_rechennya_skladne_rechennya_z_riznimi_yazku/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-reported-speech",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Пряма й непряма мова",
+      "links": [
+        {
+          "title": "Чуже мовлення",
+          "url": "https://zno.osvita.ua/ukrmova/tag-chuzhe_movlennya_1/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "ukr-style",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Текст і стилістика",
+      "links": [],
+      "status": "MISSING"
+    },
+    {
+      "topicId": "cm-ukrainian-cohesion",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Будова й звʼязність тексту",
+      "links": [
+        {
+          "title": "Засоби міжфразової єдності",
+          "url": "https://zno.osvita.ua/ukrmova/tag-zasobi_mizhfrazovoyi_yednosti/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-ukrainian-reading",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Читання й інтерпретація",
+      "links": [],
+      "status": "MISSING"
+    },
+    {
+      "topicId": "cm-ukrainian-editing",
+      "aliases": [],
+      "subjectId": "ukrainian",
+      "title": "Редагування та побудова висловлення",
+      "links": [
+        {
+          "title": "Лексична помилка",
+          "url": "https://zno.osvita.ua/ukrmova/tag-leksichna_pomilka/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "math-numbers",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Числа, відсотки та пропорції",
+      "links": [
+        {
+          "title": "Дійсні числа",
+          "url": "https://zno.osvita.ua/mathematics/tag-dijsni_chysla/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        },
+        {
+          "title": "Відношення та пропорції. Відсотки. Текстові задачі",
+          "url": "https://zno.osvita.ua/mathematics/tag-vidnoshennya_ta_proporciyi/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-arithmetic",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Подільність і точність обчислень",
+      "links": [
+        {
+          "title": "Дійсні числа",
+          "url": "https://zno.osvita.ua/mathematics/tag-dijsni_chysla/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-modulus",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Модуль і числові проміжки",
+      "links": [
+        {
+          "title": "Дійсні числа",
+          "url": "https://zno.osvita.ua/mathematics/tag-dijsni_chysla/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-word-problems",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Текстові задачі",
+      "links": [
+        {
+          "title": "Відношення та пропорції. Відсотки. Текстові задачі",
+          "url": "https://zno.osvita.ua/mathematics/tag-vidnoshennya_ta_proporciyi/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        },
+        {
+          "title": "Розв’язування задач за допомогою рівнянь і систем рівнянь",
+          "url": "https://zno.osvita.ua/mathematics/tag-rozvjazuvannja_zadach_z_rivnjan_i_system_rivnjan/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "math-expressions",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Алгебраїчні вирази",
+      "links": [
+        {
+          "title": "Раціональні, ірраціональні, степеневі вирази та їх перетворення",
+          "url": "https://zno.osvita.ua/mathematics/tag-racionalni_irracionalni_stepenevi_virazi/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-rational-expressions",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Раціональні дроби",
+      "links": [
+        {
+          "title": "Раціональні, ірраціональні, степеневі вирази та їх перетворення",
+          "url": "https://zno.osvita.ua/mathematics/tag-racionalni_irracionalni_stepenevi_virazi/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-powers-roots",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Степені та корені",
+      "links": [
+        {
+          "title": "Раціональні, ірраціональні, степеневі вирази та їх перетворення",
+          "url": "https://zno.osvita.ua/mathematics/tag-racionalni_irracionalni_stepenevi_virazi/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-logarithms",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Логарифми",
+      "links": [
+        {
+          "title": "Показникові, логарифмічні, тригонометричні вирази та їхні перетворення",
+          "url": "https://zno.osvita.ua/mathematics/tag-pokaznykovi_logharyfmichni_vyrazy/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-trig-identities",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Тригонометричні вирази",
+      "links": [
+        {
+          "title": "Показникові, логарифмічні, тригонометричні вирази та їхні перетворення",
+          "url": "https://zno.osvita.ua/mathematics/tag-pokaznykovi_logharyfmichni_vyrazy/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-profile-expressions",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Профільні перетворення та доведення",
+      "links": [],
+      "status": "MISSING"
+    },
+    {
+      "topicId": "math-linear-eq",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Лінійні рівняння",
+      "links": [
+        {
+          "title": "Лінійні, квадратні, раціональні рівняння та системи рівнянь",
+          "url": "https://zno.osvita.ua/mathematics/tag-linijni_kvadratni_racionalni_rivnjannja_ta_systemy_rivnjan/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "math-linear-systems",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Системи лінійних рівнянь",
+      "links": [
+        {
+          "title": "Лінійні, квадратні, раціональні рівняння та системи рівнянь",
+          "url": "https://zno.osvita.ua/mathematics/tag-linijni_kvadratni_racionalni_rivnjannja_ta_systemy_rivnjan/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-linear-inequalities",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Лінійні нерівності та системи",
+      "links": [
+        {
+          "title": "Нерівності та системи нерівностей",
+          "url": "https://zno.osvita.ua/mathematics/tag-nerivnosti_ta_systemy_nerivnostej/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "math-quadratic",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Квадратні рівняння",
+      "links": [
+        {
+          "title": "Лінійні, квадратні, раціональні рівняння та системи рівнянь",
+          "url": "https://zno.osvita.ua/mathematics/tag-linijni_kvadratni_racionalni_rivnjannja_ta_systemy_rivnjan/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-quadratic-inequalities",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Квадратні та раціональні нерівності",
+      "links": [
+        {
+          "title": "Нерівності та системи нерівностей",
+          "url": "https://zno.osvita.ua/mathematics/tag-nerivnosti_ta_systemy_nerivnostej/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-rational-equations",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Дробові рівняння та нелінійні системи",
+      "links": [
+        {
+          "title": "Лінійні, квадратні, раціональні рівняння та системи рівнянь",
+          "url": "https://zno.osvita.ua/mathematics/tag-linijni_kvadratni_racionalni_rivnjannja_ta_systemy_rivnjan/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-irrational-equations",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Ірраціональні рівняння",
+      "links": [
+        {
+          "title": "Ірраціональні, тригонометричні рівняння та системи рівнянь",
+          "url": "https://zno.osvita.ua/mathematics/tag-irracionalni_tryghonometrychni_rivnjannja_ta_systemy_rivnjan/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-exponential-equations",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Показникові рівняння й нерівності",
+      "links": [
+        {
+          "title": "Показникові, логарифмічні рівняння та системи рівнянь",
+          "url": "https://zno.osvita.ua/mathematics/tag-pokaznykovi_logharyfmichni_rivnjannja_ta_systemy_rivnjan/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Нерівності та системи нерівностей",
+          "url": "https://zno.osvita.ua/mathematics/tag-nerivnosti_ta_systemy_nerivnostej/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-log-equations",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Логарифмічні рівняння й нерівності",
+      "links": [
+        {
+          "title": "Показникові, логарифмічні рівняння та системи рівнянь",
+          "url": "https://zno.osvita.ua/mathematics/tag-pokaznykovi_logharyfmichni_rivnjannja_ta_systemy_rivnjan/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Нерівності та системи нерівностей",
+          "url": "https://zno.osvita.ua/mathematics/tag-nerivnosti_ta_systemy_nerivnostej/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-trig-equations",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Найпростіші тригонометричні рівняння",
+      "links": [
+        {
+          "title": "Ірраціональні, тригонометричні рівняння та системи рівнянь",
+          "url": "https://zno.osvita.ua/mathematics/tag-irracionalni_tryghonometrychni_rivnjannja_ta_systemy_rivnjan/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-modulus-equations",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Рівняння й нерівності з модулем",
+      "links": [
+        {
+          "title": "Нерівності та системи нерівностей",
+          "url": "https://zno.osvita.ua/mathematics/tag-nerivnosti_ta_systemy_nerivnostej/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-profile-systems",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Профільні системи й параметри",
+      "links": [],
+      "status": "MISSING"
+    },
+    {
+      "topicId": "math-functions",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Функції та графіки",
+      "links": [
+        {
+          "title": "Функціональна залежність",
+          "url": "https://zno.osvita.ua/mathematics/tag-funkcionalna_zalezhnist_vlastivosti/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-basic-functions",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Лінійна, квадратична та степенева функції",
+      "links": [
+        {
+          "title": "Лінійні та квадратичні функції",
+          "url": "https://zno.osvita.ua/mathematics/tag-linijni_ta_kvadratychni_funkciyi/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Степеневі, показникові, логарифмічні та тригонометричні функції",
+          "url": "https://zno.osvita.ua/mathematics/tag-pokaznykovi_logharyfmichni_tryghonometrychni_funkciyi/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-exp-log-functions",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Показникова й логарифмічна функції",
+      "links": [
+        {
+          "title": "Степеневі, показникові, логарифмічні та тригонометричні функції",
+          "url": "https://zno.osvita.ua/mathematics/tag-pokaznykovi_logharyfmichni_tryghonometrychni_funkciyi/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-trig-functions",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Тригонометричні функції",
+      "links": [
+        {
+          "title": "Степеневі, показникові, логарифмічні та тригонометричні функції",
+          "url": "https://zno.osvita.ua/mathematics/tag-pokaznykovi_logharyfmichni_tryghonometrychni_funkciyi/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "math-progressions",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Прогресії",
+      "links": [
+        {
+          "title": "Числові послідовності",
+          "url": "https://zno.osvita.ua/mathematics/tag-chislovi_poslidovnosti/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-profile-functions",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Обернена функція та періодичність",
+      "links": [
+        {
+          "title": "Функціональна залежність",
+          "url": "https://zno.osvita.ua/mathematics/tag-funkcionalna_zalezhnist_vlastivosti/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "math-derivative",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Похідна",
+      "links": [
+        {
+          "title": "Похідна функції",
+          "url": "https://zno.osvita.ua/mathematics/tag-pokhidna_funkciyi/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-applications",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Дослідження функції похідною",
+      "links": [
+        {
+          "title": "Похідна функції",
+          "url": "https://zno.osvita.ua/mathematics/tag-pokhidna_funkciyi/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-integral",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Первісна та визначений інтеграл",
+      "links": [
+        {
+          "title": "Первісна та визначений інтеграл",
+          "url": "https://zno.osvita.ua/mathematics/tag-pervisna_ta_viznachenij_integral/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-profile-calculus",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Профільне диференціювання та інтегрування",
+      "links": [],
+      "status": "MISSING"
+    },
+    {
+      "topicId": "cm-math-counting",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Правила комбінаторики",
+      "links": [
+        {
+          "title": "Перестановки, комбінації, розміщення. Комбінаторні правила суми та добутку",
+          "url": "https://zno.osvita.ua/mathematics/tag-kombinatorni_pravila/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-probability",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Імовірність випадкової події",
+      "links": [
+        {
+          "title": "Ймовірність випадкової події. Вибіркові характеристики",
+          "url": "https://zno.osvita.ua/mathematics/tag-jmovirnist_vypadkovoyi_podiyi/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-statistics",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Вибірка та статистичні характеристики",
+      "links": [
+        {
+          "title": "Ймовірність випадкової події. Вибіркові характеристики",
+          "url": "https://zno.osvita.ua/mathematics/tag-jmovirnist_vypadkovoyi_podiyi/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-plane-basics",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Точки, прямі та кути",
+      "links": [
+        {
+          "title": "Елементарні геометричні фігури на площині. Геометричні величини",
+          "url": "https://zno.osvita.ua/mathematics/tag-elementarni_geometrichni_figuri/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-triangles",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Трикутник: основні властивості",
+      "links": [
+        {
+          "title": "Трикутники",
+          "url": "https://zno.osvita.ua/mathematics/tag-trikutniki/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-right-triangle",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Прямокутний трикутник",
+      "links": [
+        {
+          "title": "Прямокутні трикутники",
+          "url": "https://zno.osvita.ua/mathematics/tag-prjamokutni_trykutnyky/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-similarity",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Подібність та розвʼязування трикутників",
+      "links": [
+        {
+          "title": "Трикутники",
+          "url": "https://zno.osvita.ua/mathematics/tag-trikutniki/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-quadrilaterals",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Чотирикутники",
+      "links": [
+        {
+          "title": "Паралелограм. Ромб. Трапеція",
+          "url": "https://zno.osvita.ua/mathematics/tag-chotirikutniki/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        },
+        {
+          "title": "Прямокутник. Квадрат",
+          "url": "https://zno.osvita.ua/mathematics/tag-prjamokutnyk_kvadrat/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-circle",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Коло і круг",
+      "links": [
+        {
+          "title": "Коло та круг. Многокутники",
+          "url": "https://zno.osvita.ua/mathematics/tag-kolo_ta_krugh_mnoghokutnyky/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-areas",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Площі, довжини й многокутники",
+      "links": [
+        {
+          "title": "Коло та круг. Многокутники",
+          "url": "https://zno.osvita.ua/mathematics/tag-kolo_ta_krugh_mnoghokutnyky/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-plane-vectors",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Координати та вектори на площині",
+      "links": [
+        {
+          "title": "Координати та вектори на площині. Геометричні переміщення",
+          "url": "https://zno.osvita.ua/mathematics/tag-koordinati_ta_vektori/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-transformations",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Геометричні переміщення",
+      "links": [
+        {
+          "title": "Координати та вектори на площині. Геометричні переміщення",
+          "url": "https://zno.osvita.ua/mathematics/tag-koordinati_ta_vektori/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-profile-plane",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Профільні задачі планіметрії",
+      "links": [],
+      "status": "MISSING"
+    },
+    {
+      "topicId": "cm-math-space-lines",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Прямі та площини у просторі",
+      "links": [
+        {
+          "title": "Прямі та площини у просторі",
+          "url": "https://zno.osvita.ua/mathematics/tag-pryami_ta_ploshini_u_prostori/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-space-metric",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Кути й відстані у просторі",
+      "links": [
+        {
+          "title": "Прямі та площини у просторі",
+          "url": "https://zno.osvita.ua/mathematics/tag-pryami_ta_ploshini_u_prostori/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-prisms",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Призма й паралелепіпед",
+      "links": [
+        {
+          "title": "Призма",
+          "url": "https://zno.osvita.ua/mathematics/tag-mnogogranniki/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-pyramids",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Піраміда",
+      "links": [
+        {
+          "title": "Піраміда",
+          "url": "https://zno.osvita.ua/mathematics/tag-piramida/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-round-solids",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Циліндр, конус і куля",
+      "links": [
+        {
+          "title": "Тіла обертання",
+          "url": "https://zno.osvita.ua/mathematics/tag-tila_obertannja/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-space-vectors",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Координати та вектори у просторі",
+      "links": [
+        {
+          "title": "Координати та вектори у просторі",
+          "url": "https://zno.osvita.ua/mathematics/tag-koordinati_ta_vektori_u_prostori/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-math-profile-solid",
+      "aliases": [],
+      "subjectId": "math",
+      "title": "Профільні задачі стереометрії",
+      "links": [],
+      "status": "MISSING"
+    },
+    {
+      "topicId": "cm-history-sources",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Історія, джерела та хронологія",
+      "links": [
+        {
+          "title": "Вступ до історії України",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-vstup_do_istoriyi_ukrayini/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-prehistory",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Перші люди та неолітична революція",
+      "links": [
+        {
+          "title": "Стародавня історія України",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-starodavnya_istoriya_ukrayini/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-steppe",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Кочовики раннього залізного віку",
+      "links": [
+        {
+          "title": "Стародавня історія України",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-starodavnya_istoriya_ukrayini/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-antiquity",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Античні міста Північного Причорноморʼя",
+      "links": [
+        {
+          "title": "Стародавня історія України",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-starodavnya_istoriya_ukrayini/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-slavs",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Давні словʼяни та Велике переселення народів",
+      "links": [
+        {
+          "title": "Стародавня історія України",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-starodavnya_istoriya_ukrayini/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "hist-kyiv",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Русь-Україна: становлення та розквіт",
+      "links": [
+        {
+          "title": "Виникнення Київської держави",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-vynyknennja_kyyivskoyi_derzhavy/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Розквіт Київської держави",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-rozkvit_kyyivskoyi_derzhavy/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-rus-fragmentation",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Русь-Україна у XI–XIII ст.",
+      "links": [
+        {
+          "title": "Розквіт Київської держави",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-rozkvit_kyyivskoyi_derzhavy/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Королівство Руське. Монгольська навала",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-korolivstvo_ruske_mongolska_navala/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-rus-culture",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Культура Русі-України",
+      "links": [
+        {
+          "title": "Українська культура IX – першої половини XVI ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinska_kultura_ix_pershoyi_polovyny_xvi_st/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "hist-galicia",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Королівство Руське та монгольська навала",
+      "links": [
+        {
+          "title": "Королівство Руське. Монгольська навала",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-korolivstvo_ruske_mongolska_navala/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "hist-lithuania",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Українські землі в XIV–XVI ст.",
+      "links": [
+        {
+          "title": "Руські князівства другої половини XIV – першої половини XVI ст. Кримське ханство",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-knyazivstva_u_skladi_inozemnih_derzhav_krimske_hanstvo/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-crimea",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Кримське ханство та виникнення козацтва",
+      "links": [
+        {
+          "title": "Руські князівства другої половини XIV – першої половини XVI ст. Кримське ханство",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-knyazivstva_u_skladi_inozemnih_derzhav_krimske_hanstvo/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Українські землі в Речі Посполитій другої половини ХVІ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_v_rechi_pospolytij_drughoyi_polovyny_khvi_st/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-commonwealth",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Українські землі в другій половині XVI ст.",
+      "links": [
+        {
+          "title": "Українські землі в Речі Посполитій другої половини ХVІ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_v_rechi_pospolytij_drughoyi_polovyny_khvi_st/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-church-education",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Церква, освіта й культура XVI–XVII ст.",
+      "links": [
+        {
+          "title": "Українські землі в Речі Посполитій другої половини ХVІ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_v_rechi_pospolytij_drughoyi_polovyny_khvi_st/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Українські землі у складі Речі Посполитої в першій половині ХVІІ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-u_skladi_rechi_pospolitoyi_v_xvii_st/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-cossacks-early",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Козацтво першої половини XVII ст.",
+      "links": [
+        {
+          "title": "Українські землі у складі Речі Посполитої в першій половині ХVІІ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-u_skladi_rechi_pospolitoyi_v_xvii_st/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-khmelnytsky-war",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Національно-визвольна війна: 1648–1653 рр.",
+      "links": [
+        {
+          "title": "Національно-визвольна війна українського народу середини ХVІІ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-vizvolna_vijna_ukrayinskogo_narodu_xvii_st/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-hetman-state",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Гетьманщина та міжнародні відносини 1654–1657 рр.",
+      "links": [
+        {
+          "title": "Національно-визвольна війна українського народу середини ХVІІ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-vizvolna_vijna_ukrayinskogo_narodu_xvii_st/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-ruin",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Руїна: козацька Україна наприкінці 1650–1680-х",
+      "links": [
+        {
+          "title": "Козацька Україна кінця 50-х – 80-х рр. ХVІІ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-kozacka_ukrayina_kincja_50kh_80kh_rr_khvii_st/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-mazepa",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Українські землі наприкінці XVII – на початку XVIII ст.",
+      "links": [
+        {
+          "title": "Українські землі кінця ХVІІ – першої половини ХVІІІ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_kincja_khvii_pershoyi_polovyny_khviii_st/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-hetman-autonomy",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Обмеження автономії та культура першої половини XVIII ст.",
+      "links": [
+        {
+          "title": "Українські землі кінця ХVІІ – першої половини ХVІІІ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_kincja_khvii_pershoyi_polovyny_khviii_st/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-liquidation",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Ліквідація автономії та Січі",
+      "links": [
+        {
+          "title": "Українські землі другої половини ХVІІІ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_drughoyi_polovyny_khviii_st/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-rightbank-18",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Правобережжя, Крим і західні землі у XVIII ст.",
+      "links": [
+        {
+          "title": "Українські землі другої половини ХVІІІ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_drughoyi_polovyny_khviii_st/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-east-early19",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Наддніпрянщина в першій половині XIX ст.",
+      "links": [
+        {
+          "title": "Українські землі в Російській імперії кінця ХVІІІ – першої половини ХІХ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_v_rosijskij_imperiyi_kincja_khviii_pershoyi_polovyny_khikh_st/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-revival-east",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Національне відродження в Наддніпрянщині",
+      "links": [
+        {
+          "title": "Українські землі в Російській імперії кінця ХVІІІ – першої половини ХІХ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_v_rosijskij_imperiyi_kincja_khviii_pershoyi_polovyny_khikh_st/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-west-early19",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Західні землі до середини XIX ст.",
+      "links": [
+        {
+          "title": "Українські землі в Австрійській імперії кінця ХVІІІ – першої половини ХІХ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_v_avstrijskij_imperiyi_kincja_khviii_pershoyi_polovyny_khikh_st/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-culture-early19",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Культура кінця XVIII – першої половини XIX ст.",
+      "links": [
+        {
+          "title": "Культура України кінця ХVІІІ – першої половини ХІХ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-kultura_ukrayini_xviii_xix_st/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-east-reforms",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Наддніпрянщина: реформи й модернізація XIX ст.",
+      "links": [
+        {
+          "title": "Українські землі в Російській імперії другої половини ХІХ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_v_rosijskij_imperiyi_drughoyi_polovyny_khikh_st/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-east-movement",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Громади та мовні заборони",
+      "links": [
+        {
+          "title": "Українські землі в Російській імперії другої половини ХІХ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_v_rosijskij_imperiyi_drughoyi_polovyny_khikh_st/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-west-late19",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Західні землі в другій половині XIX ст.",
+      "links": [
+        {
+          "title": "Українські землі в Австро-Угорщині другої половини ХІХ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_v_avstroughorshhyni_drughoyi_polovyny_khikh_st/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-culture-late19",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Культура другої половини XIX – початку XX ст.",
+      "links": [
+        {
+          "title": "Культура України другої половини ХІХ – початку ХХ ст.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-kultura_ukrayiny_drughoyi_polovyny_khikh_pochatku_khkh_st/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-east-1900",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Наддніпрянщина у 1900–1914 рр.",
+      "links": [
+        {
+          "title": "Українські землі в Російській імперії 1900–1914 рр.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_v_rosijskij_imperiyi_19001914_rr/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-west-1900",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Західні землі у 1900–1914 рр.",
+      "links": [
+        {
+          "title": "Українські землі в Австро-Угорщині 1900–1914 рр.",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_v_avstroughorshhyni_19001914_rr/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-ww1",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Україна в Першій світовій війні",
+      "links": [
+        {
+          "title": "Україна в роки Першої світової війни",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayina_v_roki_pershoyi_svitovoyi_vijni/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-central-rada",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Центральна Рада: 1917 рік",
+      "links": [
+        {
+          "title": "Початок Української революції",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-pochatok_ukrayinskoyi_revolyuciyi/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-unr-independence",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "УНР на початку 1918 р.",
+      "links": [
+        {
+          "title": "Початок Української революції",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-pochatok_ukrayinskoyi_revolyuciyi/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-ukrainian-state",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Українська Держава 1918 р.",
+      "links": [
+        {
+          "title": "Період Гетьманату",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-period_ghetmanatu/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-zunr",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "ЗУНР і соборність",
+      "links": [
+        {
+          "title": "Українська революція. Директорія УНР",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-dyrektorija_unr/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-directory",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Директорія та боротьба 1919–1921 рр.",
+      "links": [
+        {
+          "title": "Українська революція. Директорія УНР",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-dyrektorija_unr/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-nep",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "УСРР і неп",
+      "links": [
+        {
+          "title": "Встановлення комуністичного режиму в Україні",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-vstanovlennja_komunistychnogho_rezhymu_v_ukrayini/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-ukrainization",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Українізація та культура 1920-х",
+      "links": [
+        {
+          "title": "Встановлення комуністичного режиму в Україні",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-vstanovlennja_komunistychnogho_rezhymu_v_ukrayini/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-industrialization",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Форсована індустріалізація та колективізація",
+      "links": [
+        {
+          "title": "Утвердження більшовицького режиму в Україні",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-utverdzhennja_bilshovyckogho_rezhymu_v_ukrayini/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-holodomor",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Голодомор 1932–1933 років",
+      "links": [
+        {
+          "title": "Утвердження більшовицького режиму в Україні",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-utverdzhennja_bilshovyckogho_rezhymu_v_ukrayini/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-terror",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Великий терор і знищення культури",
+      "links": [
+        {
+          "title": "Утвердження більшовицького режиму в Україні",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-utverdzhennja_bilshovyckogho_rezhymu_v_ukrayini/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-western-interwar",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Західні землі між двома війнами",
+      "links": [
+        {
+          "title": "Західноукраїнські землі в міжвоєнний період",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-zahidnoukrayinski_zemli_v_mizhvoyennij_period/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-ww2-1939",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Україна у 1939–1941 рр.",
+      "links": [
+        {
+          "title": "Початок Другої світової війни (1939–1941)",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-pochatok_drughoyi_svitovoyi_vijny_1939_1941/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-occupation",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Окупація, Голокост і рухи опору",
+      "links": [
+        {
+          "title": "Друга світова війна: Рух Опору (1941–1943)",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-rukh_oporu_1941_1943/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-ww2-end",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Вигнання нацистів і завершення війни",
+      "links": [
+        {
+          "title": "Друга світова війна: воєнні дії на теренах України (1943–1945)",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-voyenni_diyi_na_terenakh_ukrayiny_1943_1945/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-postwar",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Повоєнна Україна",
+      "links": [
+        {
+          "title": "Україна в перші повоєнні роки",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayina_v_pershi_povoyenni_roki/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-thaw",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Україна в умовах десталінізації",
+      "links": [
+        {
+          "title": "Україна в умовах десталінізації",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayina_v_umovah_destalinizaciyi/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-stagnation",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Криза радянської системи",
+      "links": [
+        {
+          "title": "Україна в період загострення кризи радянської системи",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayina_v_period_zagostrennya_krizi_radyanskoyi_sistemi/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-perestroika",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Перебудова та відновлення незалежності",
+      "links": [
+        {
+          "title": "Відновлення незалежності України",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-vidnovlennya_nezalezhnosti_ukrayini/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-state-building",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Незалежна Україна у 1991–2004 рр.",
+      "links": [
+        {
+          "title": "Становлення України як незалежної держави",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-stanovlennya_ukrayini_yak_nezalezhnoyi_derzhavi/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-orange",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Помаранчева революція та Україна 2005–2013 рр.",
+      "links": [
+        {
+          "title": "Творення нової України",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-tvorennya_novoyi_ukrayini/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-dignity",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Революція Гідності та агресія Росії з 2014 р.",
+      "links": [
+        {
+          "title": "Творення нової України",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-tvorennya_novoyi_ukrayini/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-history-integration",
+      "aliases": [],
+      "subjectId": "history",
+      "title": "Європейська інтеграція та культура новітньої України",
+      "links": [
+        {
+          "title": "Творення нової України",
+          "url": "https://zno.osvita.ua/ukraine-history/tag-tvorennya_novoyi_ukrayini/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-methods",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Географія як наука",
+      "links": [
+        {
+          "title": "Географія як наука, розвиток географічних досліджень",
+          "url": "https://zno.osvita.ua/geography/tag-gheoghrafija_jak_nauka/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-maps",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Глобус і географічна карта",
+      "links": [
+        {
+          "title": "Способи зображення Землі. План місцевості",
+          "url": "https://zno.osvita.ua/geography/tag-plan_miscevosti/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        },
+        {
+          "title": "Способи зображення Землі. Географічна карта",
+          "url": "https://zno.osvita.ua/geography/tag-gheoghrafichna_karta/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-coordinates",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Географічні координати та відстані",
+      "links": [
+        {
+          "title": "Географічні координати",
+          "url": "https://zno.osvita.ua/geography/tag-gheoghrafichni_koordynaty/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-topography",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Топографічна карта",
+      "links": [
+        {
+          "title": "Орієнтування на місцевості",
+          "url": "https://zno.osvita.ua/geography/tag-oriyentuvannja_na_miscevosti/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Способи зображення Землі. План місцевості",
+          "url": "https://zno.osvita.ua/geography/tag-plan_miscevosti/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-earth-motions",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Земля як планета",
+      "links": [
+        {
+          "title": "Розвиток уявлень про форму, розміри та рухи Землі",
+          "url": "https://zno.osvita.ua/geography/tag-rozmiry_ta_rukhy_zemli/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        },
+        {
+          "title": "Основні види часу",
+          "url": "https://zno.osvita.ua/geography/tag-osnovni_vydy_chasu/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-lithosphere",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Літосфера та рельєф",
+      "links": [
+        {
+          "title": "Літосфера та рельєф",
+          "url": "https://zno.osvita.ua/geography/tag-litosfera_ta_relyef/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Внутрішні процеси, що зумовлюють зміни в земній корі та на поверхні земної кулі",
+          "url": "https://zno.osvita.ua/geography/tag-zminy_v_zemnij_kori_ta_na_poverkhni/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Геологічне літочислення, геологічний вік",
+          "url": "https://zno.osvita.ua/geography/tag-gheologhichnyj_vik/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Зовнішні процеси, що зумовлюють зміну земної поверхні",
+          "url": "https://zno.osvita.ua/geography/tag-zminy_zemnoyi_poverkhni/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-weather",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Атмосфера та погода",
+      "links": [
+        {
+          "title": "Температура повітря",
+          "url": "https://zno.osvita.ua/geography/tag-temperatura_povitrja/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Атмосферний тиск. Вітер",
+          "url": "https://zno.osvita.ua/geography/tag-atmosfernyj_tysk_viter/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Вода в атмосфері. Опади",
+          "url": "https://zno.osvita.ua/geography/tag-voda_opady/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-climate",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Клімат і циркуляція атмосфери",
+      "links": [
+        {
+          "title": "Клімат",
+          "url": "https://zno.osvita.ua/geography/tag-klimat/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-hydrosphere",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Гідросфера та Світовий океан",
+      "links": [
+        {
+          "title": "Світовий океан та його частини",
+          "url": "https://zno.osvita.ua/geography/tag-svitovyj_okean/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        },
+        {
+          "title": "Водні маси",
+          "url": "https://zno.osvita.ua/geography/tag-vodni_masy/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-land-waters",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Води суходолу",
+      "links": [
+        {
+          "title": "Води суходолу. Річка",
+          "url": "https://zno.osvita.ua/geography/tag-vody_sukhodolu_richka/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Озера. Болота. Штучні водойми. Водотоки",
+          "url": "https://zno.osvita.ua/geography/tag-ozera/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Льодовики. Багаторічна мерзлота",
+          "url": "https://zno.osvita.ua/geography/tag-lodovyky/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Підземні води, умови їх утворення і залягання в земній корі",
+          "url": "https://zno.osvita.ua/geography/tag-pidzemni_vody/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-biosphere-soils",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Біосфера та ґрунти",
+      "links": [
+        {
+          "title": "Біосфера та грунти",
+          "url": "https://zno.osvita.ua/geography/tag-biosfera_ta_ghrunty/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-landscapes",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Географічна оболонка й природні комплекси",
+      "links": [
+        {
+          "title": "Географічна оболонка. Природні комплекси",
+          "url": "https://zno.osvita.ua/geography/tag-gheoghrafichna_obolonka/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Природні зони Землі, їх особливості",
+          "url": "https://zno.osvita.ua/geography/tag-pryrodni_zony_zemli/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-oceans",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Океани Землі",
+      "links": [
+        {
+          "title": "Океани: Тихий океан, Атлантичний океан, Індійський океан, Північний Льодовитий океан",
+          "url": "https://zno.osvita.ua/geography/tag-okeany/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-continents-method",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Як порівнювати природу материків",
+      "links": [],
+      "status": "MISSING"
+    },
+    {
+      "topicId": "cm-geography-africa-physical",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Африка: положення та природні компоненти",
+      "links": [
+        {
+          "title": "Материки: Африка",
+          "url": "https://zno.osvita.ua/geography/tag-materiki_afrika/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-africa-landscapes",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Африка: природні комплекси й охорона природи",
+      "links": [
+        {
+          "title": "Материки: Африка",
+          "url": "https://zno.osvita.ua/geography/tag-materiki_afrika/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-australia-physical",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Австралія: положення та природні компоненти",
+      "links": [
+        {
+          "title": "Материки: Австралія",
+          "url": "https://zno.osvita.ua/geography/tag-materiki_avstraliya/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-australia-landscapes",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Австралія: природні комплекси й охорона природи",
+      "links": [
+        {
+          "title": "Материки: Австралія",
+          "url": "https://zno.osvita.ua/geography/tag-materiki_avstraliya/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-south-america-physical",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Південна Америка: положення та природні компоненти",
+      "links": [
+        {
+          "title": "Материки: Південна Америка",
+          "url": "https://zno.osvita.ua/geography/tag-materiki_pivdenna_amerika/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-south-america-landscapes",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Південна Америка: природні комплекси й охорона природи",
+      "links": [
+        {
+          "title": "Материки: Південна Америка",
+          "url": "https://zno.osvita.ua/geography/tag-materiki_pivdenna_amerika/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-antarctica-physical",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Антарктида: положення та природні компоненти",
+      "links": [
+        {
+          "title": "Материки: Антарктида",
+          "url": "https://zno.osvita.ua/geography/tag-materiki_antarktida/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-antarctica-landscapes",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Антарктида: природні комплекси й охорона природи",
+      "links": [
+        {
+          "title": "Материки: Антарктида",
+          "url": "https://zno.osvita.ua/geography/tag-materiki_antarktida/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-north-america-physical",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Північна Америка: положення та природні компоненти",
+      "links": [
+        {
+          "title": "Материки: Північна Америка",
+          "url": "https://zno.osvita.ua/geography/tag-materiki_pivnichna_amerika/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-north-america-landscapes",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Північна Америка: природні комплекси й охорона природи",
+      "links": [
+        {
+          "title": "Материки: Північна Америка",
+          "url": "https://zno.osvita.ua/geography/tag-materiki_pivnichna_amerika/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-eurasia-physical",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Євразія: положення та природні компоненти",
+      "links": [
+        {
+          "title": "Материки: Євразія",
+          "url": "https://zno.osvita.ua/geography/tag-materiki_yevraziya/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-eurasia-landscapes",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Євразія: природні комплекси й охорона природи",
+      "links": [
+        {
+          "title": "Материки: Євразія",
+          "url": "https://zno.osvita.ua/geography/tag-materiki_yevraziya/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-ukraine-location",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Географічне положення та територія України",
+      "links": [
+        {
+          "title": "Географічне положення, формування території України",
+          "url": "https://zno.osvita.ua/geography/tag-geografichne_polozhennya_ukrayiny/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-ukraine-relief",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Рельєф, тектонічна й геологічна будова України",
+      "links": [
+        {
+          "title": "Рельєф. Тектонічна будова. Геологічна будова. Мінеральні ресурси.",
+          "url": "https://zno.osvita.ua/geography/tag-relyef/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-ukraine-resources",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Мінеральні ресурси України",
+      "links": [
+        {
+          "title": "Рельєф. Тектонічна будова. Геологічна будова. Мінеральні ресурси.",
+          "url": "https://zno.osvita.ua/geography/tag-relyef/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-ukraine-climate",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Клімат України",
+      "links": [
+        {
+          "title": "Клімат і кліматичні ресурси",
+          "url": "https://zno.osvita.ua/geography/tag-klimat_i_klimatychni_resursy/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-ukraine-waters",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Води України",
+      "links": [
+        {
+          "title": "Води суходолу і водні ресурси",
+          "url": "https://zno.osvita.ua/geography/tag-vody_suhodolu_i_vodni_resursy/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-ukraine-soils",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Ґрунти, рослинність і тваринний світ України",
+      "links": [
+        {
+          "title": "Грунти та грунтові ресурси",
+          "url": "https://zno.osvita.ua/geography/tag-grunty_ta_gruntovi_resursy/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Рослинний і тваринний світ України",
+          "url": "https://zno.osvita.ua/geography/tag-roslynnyj_i_tvarynnyj_svit_ukrayiny/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-ukraine-zones",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Рівнинні ландшафти України",
+      "links": [
+        {
+          "title": "Ландшафти України",
+          "url": "https://zno.osvita.ua/geography/tag-landshafty_ukrainy/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-ukraine-mountains",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Карпати та Кримські гори",
+      "links": [
+        {
+          "title": "Ландшафти України",
+          "url": "https://zno.osvita.ua/geography/tag-landshafty_ukrainy/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-ukraine-conservation",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Природокористування та охорона довкілля в Україні",
+      "links": [
+        {
+          "title": "Природокористування",
+          "url": "https://zno.osvita.ua/geography/tag-pryrodokorystuvannya/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-demography",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Демографічні процеси",
+      "links": [
+        {
+          "title": "Демографічні процеси та статево-віковий склад населення світу та України",
+          "url": "https://zno.osvita.ua/geography/tag-sklad_naselennya_svitu_ta_ukrayiny/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-migration",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Міграції та розселення",
+      "links": [
+        {
+          "title": "Міграції, їх показники",
+          "url": "https://zno.osvita.ua/geography/tag-migraciyi_yih_pokaznyky/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Розселення",
+          "url": "https://zno.osvita.ua/geography/tag-rozselennya/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Урбанізація",
+          "url": "https://zno.osvita.ua/geography/tag-urbanizaciya/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-ethnicity",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Етнічний і релігійний склад",
+      "links": [
+        {
+          "title": "Етнічний та релігійний склад населення",
+          "url": "https://zno.osvita.ua/geography/tag-etnichnyj_sklad_naselennya/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-labor",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Зайнятість і трудові ресурси",
+      "links": [
+        {
+          "title": "Зайнятість населення в світі й Україні",
+          "url": "https://zno.osvita.ua/geography/tag-zajnyatist_v_sviti_j_ukrayini/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-economy-basics",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Національна економіка та світове господарство",
+      "links": [
+        {
+          "title": "Поняття «економічний розвиток» та його показники. ВВП, індекс людського розвитку (IЛP)",
+          "url": "https://zno.osvita.ua/geography/tag-ekonomichnyj_rozvytok_ta_vvp_y_iilp/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Секторальна модель економіки країни",
+          "url": "https://zno.osvita.ua/geography/tag-sektoralna_model_ekonomiky/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Форми суспільної організації виробництва",
+          "url": "https://zno.osvita.ua/geography/tag-formy_suspilnoyi_organizaciyi_vyrobnyctva/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Чинники розміщення виробництва",
+          "url": "https://zno.osvita.ua/geography/tag-chynnyky_rozmishennya_vyrobnyctva/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Форми просторової організації національної економіки",
+          "url": "https://zno.osvita.ua/geography/tag-formy_prostorovoyi_organizaciyi_nacionalnoyi_ekonomiky/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Світове господарство",
+          "url": "https://zno.osvita.ua/geography/tag-svitove_gospodarstvo/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Міжнародні економічні організації",
+          "url": "https://zno.osvita.ua/geography/tag-mizhnarodni_ekonomichni_organizaciyi/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Типізація країн світу за рівнем економічного розвитку, місце України в ній",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_svitu_za_rivnem_ekonomrozvytku_misce_ukrayiny/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-agriculture",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Сільське й лісове господарство",
+      "links": [
+        {
+          "title": "Первинний сектор. Сільське господарство",
+          "url": "https://zno.osvita.ua/geography/tag-pervynnyj_sektor_silske_gospodarstvo/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Первинний сектор господарства. Лісове господарство",
+          "url": "https://zno.osvita.ua/geography/tag-pervynnyj_sektor_lisove_gospodarstvo/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-mining",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Добувна промисловість",
+      "links": [
+        {
+          "title": "Первинний сектор господарства. Добувна промисловість",
+          "url": "https://zno.osvita.ua/geography/tag-pervynnyj_sektor_dobuvna_promyslovist/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Показники ресурсозабезпеченості країн мінеральними ресурсами",
+          "url": "https://zno.osvita.ua/geography/tag-pokaznyky_resursozabezpechenosti_krayin/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-energy",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Електроенергетика",
+      "links": [
+        {
+          "title": "Вторинний сектор господарства. Виробництво та постачання електроенергії",
+          "url": "https://zno.osvita.ua/geography/tag-vyrobnyctvo_ta_postachannya_elektroenergiyi/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-metallurgy",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Металургія",
+      "links": [
+        {
+          "title": "Металургійне виробництво. Чорна металургія",
+          "url": "https://zno.osvita.ua/geography/tag-chorna_metalurgiya/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Металургійне виробництво. Кольорова металургія",
+          "url": "https://zno.osvita.ua/geography/tag-kolorova_metalurgiya/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-chemicals-materials",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Хімічна, лісова та будівельна промисловість",
+      "links": [
+        {
+          "title": "Хімічне виробництво",
+          "url": "https://zno.osvita.ua/geography/tag-himichne_vyrobnyctvo/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Виробництво деревини, паперу",
+          "url": "https://zno.osvita.ua/geography/tag-vyrobnyctvo_derevyny_paperu/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Виробництво будівельних матеріалів",
+          "url": "https://zno.osvita.ua/geography/tag-vyrobnyctvo_budivelnyh_materialiv/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-machinery",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Машинобудування",
+      "links": [
+        {
+          "title": "Вторинний сектор господарства. Виробництво машин та устаткування",
+          "url": "https://zno.osvita.ua/geography/tag-vyrobnyctvo_mashyn_ta_ustatkuvannya/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-consumer-industries",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Легка й харчова промисловість",
+      "links": [
+        {
+          "title": "Виробництво тканин, одягу, взуття",
+          "url": "https://zno.osvita.ua/geography/tag-vyrobnyctvo_tkanyn_odyagu_vzuttya/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Виробництво харчових продуктів",
+          "url": "https://zno.osvita.ua/geography/tag-vyrobnyctvo_harchovyh_produktiv/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-transport",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Транспорт і міжнародні коридори",
+      "links": [
+        {
+          "title": "Третинний сектор господарства. Транспорт",
+          "url": "https://zno.osvita.ua/geography/tag-tretynnyj_sektor_transport/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-tourism",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Туризм",
+      "links": [
+        {
+          "title": "Туризм",
+          "url": "https://zno.osvita.ua/geography/tag-turyzm/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-services",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Торгівля, фінанси та наукоємні послуги",
+      "links": [
+        {
+          "title": "Торгівля",
+          "url": "https://zno.osvita.ua/geography/tag-torgivlya/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Фінансові послуги",
+          "url": "https://zno.osvita.ua/geography/tag-finansovi_poslugy/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Комп’ютерне програмування",
+          "url": "https://zno.osvita.ua/geography/tag-kompyuterne_programuvannya/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Наукова діяльність. Освіта",
+          "url": "https://zno.osvita.ua/geography/tag-naukova_diyalnist_osvita/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-political-map",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Політична карта та типологія країн",
+      "links": [
+        {
+          "title": "Політична карта світу",
+          "url": "https://zno.osvita.ua/geography/tag-politychna_karta_svitu/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Типізація країн світу за рівнем економічного розвитку, місце України в ній",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_svitu_za_rivnem_ekonomrozvytku_misce_ukrayiny/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-europe-region",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Європа: регіональна характеристика",
+      "links": [
+        {
+          "title": "Європа. Загальна характеристика Європи. Країни Європи",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_yevropy/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-asia-region",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Азія: регіональна характеристика",
+      "links": [
+        {
+          "title": "Азія. Загальна характеристика Азії. Країни Азії",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_aziyi/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-america-region",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Америка: регіональна характеристика",
+      "links": [
+        {
+          "title": "Америка. Загальна характеристика Америки. Країни Америки",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_ameryky/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-oceania-region",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Океанія: регіональна характеристика",
+      "links": [
+        {
+          "title": "Австралія та Океанія",
+          "url": "https://zno.osvita.ua/geography/tag-avstraliya/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-africa-region",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Африка: регіональна характеристика",
+      "links": [
+        {
+          "title": "Африка. Загальна характеристика Африки. Країни Африки",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_afryky/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-germany-economy",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Німеччина: економіко-географічна характеристика",
+      "links": [
+        {
+          "title": "Європа. Загальна характеристика Європи. Країни Європи",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_yevropy/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-france-economy",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Франція: економіко-географічна характеристика",
+      "links": [
+        {
+          "title": "Європа. Загальна характеристика Європи. Країни Європи",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_yevropy/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-uk-economy",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Велика Британія: економіко-географічна характеристика",
+      "links": [
+        {
+          "title": "Європа. Загальна характеристика Європи. Країни Європи",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_yevropy/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-italy-economy",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Італія: економіко-географічна характеристика",
+      "links": [
+        {
+          "title": "Європа. Загальна характеристика Європи. Країни Європи",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_yevropy/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-poland-economy",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Польща: економіко-географічна характеристика",
+      "links": [
+        {
+          "title": "Європа. Загальна характеристика Європи. Країни Європи",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_yevropy/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-belarus-economy",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Білорусь: економіко-географічна характеристика",
+      "links": [
+        {
+          "title": "Європа. Загальна характеристика Європи. Країни Європи",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_yevropy/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-russia-economy",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Росія: економіко-географічна характеристика",
+      "links": [
+        {
+          "title": "Європа. Загальна характеристика Європи. Країни Європи",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_yevropy/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-japan-economy",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Японія: економіко-географічна характеристика",
+      "links": [
+        {
+          "title": "Азія. Загальна характеристика Азії. Країни Азії",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_aziyi/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-china-economy",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Китай: економіко-географічна характеристика",
+      "links": [
+        {
+          "title": "Азія. Загальна характеристика Азії. Країни Азії",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_aziyi/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-india-economy",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Індія: економіко-географічна характеристика",
+      "links": [
+        {
+          "title": "Азія. Загальна характеристика Азії. Країни Азії",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_aziyi/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-australia-country-economy",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Австралія: економіко-географічна характеристика",
+      "links": [
+        {
+          "title": "Австралія та Океанія",
+          "url": "https://zno.osvita.ua/geography/tag-avstraliya/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-usa-economy",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "США: економіко-географічна характеристика",
+      "links": [
+        {
+          "title": "Америка. Загальна характеристика Америки. Країни Америки",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_ameryky/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-canada-economy",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Канада: економіко-географічна характеристика",
+      "links": [
+        {
+          "title": "Америка. Загальна характеристика Америки. Країни Америки",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_ameryky/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-brazil-economy",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Бразилія: економіко-географічна характеристика",
+      "links": [
+        {
+          "title": "Америка. Загальна характеристика Америки. Країни Америки",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_ameryky/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-egypt-economy",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Єгипет: економіко-географічна характеристика",
+      "links": [
+        {
+          "title": "Африка. Загальна характеристика Африки. Країни Африки",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_afryky/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-south-africa-economy",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "ПАР: економіко-географічна характеристика",
+      "links": [
+        {
+          "title": "Африка. Загальна характеристика Африки. Країни Африки",
+          "url": "https://zno.osvita.ua/geography/tag-krayiny_afryky/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-global-problems",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Глобальні проблеми людства",
+      "links": [
+        {
+          "title": "Глобальні проблеми людства. Сталий розвиток",
+          "url": "https://zno.osvita.ua/geography/tag-globalni_problemy_lyudstva_stalyj_rozvytok/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-geography-sustainable-development",
+      "aliases": [],
+      "subjectId": "geography",
+      "title": "Сталий розвиток",
+      "links": [
+        {
+          "title": "Глобальні проблеми людства. Сталий розвиток",
+          "url": "https://zno.osvita.ua/geography/tag-globalni_problemy_lyudstva_stalyj_rozvytok/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-methods",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Біологія як наука",
+      "links": [
+        {
+          "title": "Біологія як наука про живе",
+          "url": "https://zno.osvita.ua/biology/tag-biologhija_jak_nauka_pro_zhyve/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-water-minerals",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Вода й мінеральні речовини",
+      "links": [
+        {
+          "title": "Елементний склад клітини. Неорганічні сполуки",
+          "url": "https://zno.osvita.ua/biology/tag-elementnyj_sklad_klityny_neorghanichni_spoluky/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-carbohydrates-lipids",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Вуглеводи та ліпіди",
+      "links": [
+        {
+          "title": "Органічні сполуки. Вуглеводи, ліпіди",
+          "url": "https://zno.osvita.ua/biology/tag-orghanichni_spoluky_vughlevody_lipidy/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-proteins-enzymes",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Білки та ферменти",
+      "links": [
+        {
+          "title": "Органічні сполуки. Білки",
+          "url": "https://zno.osvita.ua/biology/tag-orghanichni_spoluky_bilky/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Будова еукаріотичної клітини",
+      "links": [
+        {
+          "title": "Методи дослідження клітини. Еукаріотична клітина. Клітинні мембрани",
+          "url": "https://zno.osvita.ua/biology/tag-metody_doslidzhennja_klityny_eukariotychna_klityna_klitynni_membrany/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Компоненти цитоплазми еукаріотичної клітини",
+          "url": "https://zno.osvita.ua/biology/tag-komponenty_cytoplazmy_eukariotychnoyi_klityny/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Особливості організації клітин еукаріотів",
+          "url": "https://zno.osvita.ua/biology/tag-osoblyvosti_orghanizaciyi_klityn_eukariotiv/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        },
+        {
+          "title": "Ядро. Хромосоми. Поняття про каріотип",
+          "url": "https://zno.osvita.ua/biology/tag-jadro_khromosomy_ponjattja_pro_kariotyp/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-membrane",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Мембрана та транспорт речовин",
+      "links": [
+        {
+          "title": "Методи дослідження клітини. Еукаріотична клітина. Клітинні мембрани",
+          "url": "https://zno.osvita.ua/biology/tag-metody_doslidzhennja_klityny_eukariotychna_klityna_klitynni_membrany/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-cell-methods",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Дослідження клітин і каріотип",
+      "links": [
+        {
+          "title": "Методи дослідження клітини. Еукаріотична клітина. Клітинні мембрани",
+          "url": "https://zno.osvita.ua/biology/tag-metody_doslidzhennja_klityny_eukariotychna_klityna_klitynni_membrany/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Ядро. Хромосоми. Поняття про каріотип",
+          "url": "https://zno.osvita.ua/biology/tag-jadro_khromosomy_ponjattja_pro_kariotyp/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "bio-metabolism",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Обмін речовин",
+      "links": [
+        {
+          "title": "Обмін речовин і перетворення енергії",
+          "url": "https://zno.osvita.ua/biology/tag-obmin_rechovin/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-atp-respiration",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "АТФ і клітинне дихання",
+      "links": [
+        {
+          "title": "Органічні сполуки. Нуклеїнові кислоти. АТФ",
+          "url": "https://zno.osvita.ua/biology/tag-orghanichni_spoluky_nukleyinovi_kysloty_atf/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Обмін речовин і перетворення енергії",
+          "url": "https://zno.osvita.ua/biology/tag-obmin_rechovin/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-photosynthesis",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Фотосинтез і хемосинтез",
+      "links": [
+        {
+          "title": "Обмін речовин і перетворення енергії",
+          "url": "https://zno.osvita.ua/biology/tag-obmin_rechovin/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "ДНК і РНК",
+      "links": [
+        {
+          "title": "Органічні сполуки. Нуклеїнові кислоти. АТФ",
+          "url": "https://zno.osvita.ua/biology/tag-orghanichni_spoluky_nukleyinovi_kysloty_atf/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Реплікація ДНК і біосинтез білка",
+      "links": [
+        {
+          "title": "Збереження спадкової інформації",
+          "url": "https://zno.osvita.ua/biology/tag-zberezhennja_spadkovoyi_informaciyi/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        },
+        {
+          "title": "Реалізація спадкової інформації",
+          "url": "https://zno.osvita.ua/biology/tag-realizacija_spadkovoyi_informaciyi/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "zcode-biology-molecular-division",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Клітинний цикл. Мітоз і мейоз",
+      "links": [
+        {
+          "title": "Збереження спадкової інформації",
+          "url": "https://zno.osvita.ua/biology/tag-zberezhennja_spadkovoyi_informaciyi/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Розмноження та індивідуальний розвиток організмів",
+          "url": "https://zno.osvita.ua/biology/tag-rozmnozhennja_ta_indyvidualnyj_rozvytok_orghanizmiv/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-reproduction",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Розмноження організмів",
+      "links": [
+        {
+          "title": "Розмноження та індивідуальний розвиток організмів",
+          "url": "https://zno.osvita.ua/biology/tag-rozmnozhennja_ta_indyvidualnyj_rozvytok_orghanizmiv/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-ontogenesis",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Індивідуальний розвиток",
+      "links": [
+        {
+          "title": "Розмноження та індивідуальний розвиток організмів",
+          "url": "https://zno.osvita.ua/biology/tag-rozmnozhennja_ta_indyvidualnyj_rozvytok_orghanizmiv/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "bio-genetics",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Генетика",
+      "links": [
+        {
+          "title": "Генетика як наука. Закономірності спадковості організмів",
+          "url": "https://zno.osvita.ua/biology/tag-ghenetyka_jak_nauka_zakonomirnosti_spadkovosti_orghanizmiv/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-mendel",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Закономірності Менделя",
+      "links": [
+        {
+          "title": "Генетика як наука. Закономірності спадковості організмів",
+          "url": "https://zno.osvita.ua/biology/tag-ghenetyka_jak_nauka_zakonomirnosti_spadkovosti_orghanizmiv/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-inheritance",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Взаємодія генів і зчеплене успадкування",
+      "links": [
+        {
+          "title": "Генетика як наука. Закономірності спадковості організмів",
+          "url": "https://zno.osvita.ua/biology/tag-ghenetyka_jak_nauka_zakonomirnosti_spadkovosti_orghanizmiv/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-variation",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Мінливість і мутації",
+      "links": [
+        {
+          "title": "Закономірності мінливості організмів",
+          "url": "https://zno.osvita.ua/biology/tag-zakonomirnosti_minlivosti/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-selection",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Селекція та біотехнології",
+      "links": [
+        {
+          "title": "Селекція організмів. Біотехнологія",
+          "url": "https://zno.osvita.ua/biology/tag-selekciya_organizmiv/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-taxonomy",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Систематика й філогенія",
+      "links": [],
+      "status": "MISSING"
+    },
+    {
+      "topicId": "cm-biology-viruses",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Віруси, віроїди та пріони",
+      "links": [
+        {
+          "title": "Віруси. Віроїди. Пріони",
+          "url": "https://zno.osvita.ua/biology/tag-virusi_viroyidi_prioni/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-prokaryotes",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Бактерії та археї",
+      "links": [
+        {
+          "title": "Прокаріотичні організми",
+          "url": "https://zno.osvita.ua/biology/tag-prokariotichni_organizmi/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-algae",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Водорості",
+      "links": [
+        {
+          "title": "Водорості",
+          "url": "https://zno.osvita.ua/biology/tag-vodorosti/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "bio-botany",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Ботаніка",
+      "links": [
+        {
+          "title": "Рослини. Вегетативні органи та життєві функції рослин",
+          "url": "https://zno.osvita.ua/biology/tag-roslini_vegetativni_organi/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Генеративні органи покритонасінних рослин",
+          "url": "https://zno.osvita.ua/biology/tag-generativni_organi_roslin/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Різноманітність і розмноження мохів, папоротей, хвощів, плаунів",
+          "url": "https://zno.osvita.ua/biology/tag-riznomanitnist_i_rozmnozhennja_mokhiv_paporotej_khvoshhiv_plauniv/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Різмноманітність, розмноження голонасінних і покритонасінних рослин",
+          "url": "https://zno.osvita.ua/biology/tag-rizmnomanitnist_rozmnozhennja_gholonasinnykh_i_pokrytonasinnykh_roslyn/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-plant-physiology",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Життєдіяльність рослин",
+      "links": [
+        {
+          "title": "Рослини. Вегетативні органи та життєві функції рослин",
+          "url": "https://zno.osvita.ua/biology/tag-roslini_vegetativni_organi/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-flower-seed",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Квітка, плід і насінина",
+      "links": [
+        {
+          "title": "Генеративні органи покритонасінних рослин",
+          "url": "https://zno.osvita.ua/biology/tag-generativni_organi_roslin/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-spore-plants",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Мохи, плауни, хвощі та папороті",
+      "links": [
+        {
+          "title": "Різноманітність і розмноження мохів, папоротей, хвощів, плаунів",
+          "url": "https://zno.osvita.ua/biology/tag-riznomanitnist_i_rozmnozhennja_mokhiv_paporotej_khvoshhiv_plauniv/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-seed-plants",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Голонасінні й покритонасінні",
+      "links": [
+        {
+          "title": "Різмноманітність, розмноження голонасінних і покритонасінних рослин",
+          "url": "https://zno.osvita.ua/biology/tag-rizmnomanitnist_rozmnozhennja_gholonasinnykh_i_pokrytonasinnykh_roslyn/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-fungi",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Гриби й лишайники",
+      "links": [
+        {
+          "title": "Гриби. Лишайники",
+          "url": "https://zno.osvita.ua/biology/tag-ghryby_lyshajnyky/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-unicellular",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Одноклітинні гетеротрофні еукаріоти",
+      "links": [
+        {
+          "title": "Одноклітинні гетеротрофні еукаріотичні організми",
+          "url": "https://zno.osvita.ua/biology/tag-odnoklitinni_organizmi/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "bio-zoology",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Зоологія",
+      "links": [
+        {
+          "title": "Губки. Справжні багатоклітинні тварини. Будова і життєдіяльність",
+          "url": "https://zno.osvita.ua/biology/tag-ghubky_spravzhni_baghatoklitynni_tvaryny_budova_i_zhyttyedijalnist/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Кишковопорожнинні. Плоскі черви. Круглі черви",
+          "url": "https://zno.osvita.ua/biology/tag-kyshkovoporozhnynni_ploski_chervy_krughli_chervy/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Кільчаті черви. Молюски",
+          "url": "https://zno.osvita.ua/biology/tag-kilchati_chervy_moljusky/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Членистоногі, їхня різноманітність",
+          "url": "https://zno.osvita.ua/biology/tag-chlenystonoghi_yikhnja_riznomanitnist/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Хордові. Риби. Амфібії. Рептилії",
+          "url": "https://zno.osvita.ua/biology/tag-khordovi_ryby_amfibiyi_reptyliyi/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Птахи, їхня різноманітність",
+          "url": "https://zno.osvita.ua/biology/tag-ptakhy_yikhnja_riznomanitnist/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Ссавці, їхня різноманітність",
+          "url": "https://zno.osvita.ua/biology/tag-ssavci_yikhnja_riznomanitnist/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-sponges-cnidarians",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Губки та жалкі",
+      "links": [
+        {
+          "title": "Губки. Справжні багатоклітинні тварини. Будова і життєдіяльність",
+          "url": "https://zno.osvita.ua/biology/tag-ghubky_spravzhni_baghatoklitynni_tvaryny_budova_i_zhyttyedijalnist/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Кишковопорожнинні. Плоскі черви. Круглі черви",
+          "url": "https://zno.osvita.ua/biology/tag-kyshkovoporozhnynni_ploski_chervy_krughli_chervy/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-worms",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Черви",
+      "links": [
+        {
+          "title": "Кишковопорожнинні. Плоскі черви. Круглі черви",
+          "url": "https://zno.osvita.ua/biology/tag-kyshkovoporozhnynni_ploski_chervy_krughli_chervy/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Кільчаті черви. Молюски",
+          "url": "https://zno.osvita.ua/biology/tag-kilchati_chervy_moljusky/",
+          "coverage": "OVERLAPPING",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-arthropods",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Членистоногі",
+      "links": [
+        {
+          "title": "Членистоногі, їхня різноманітність",
+          "url": "https://zno.osvita.ua/biology/tag-chlenystonoghi_yikhnja_riznomanitnist/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-molluscs",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Молюски",
+      "links": [
+        {
+          "title": "Кільчаті черви. Молюски",
+          "url": "https://zno.osvita.ua/biology/tag-kilchati_chervy_moljusky/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-fish",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Хордові та риби",
+      "links": [
+        {
+          "title": "Хордові. Риби. Амфібії. Рептилії",
+          "url": "https://zno.osvita.ua/biology/tag-khordovi_ryby_amfibiyi_reptyliyi/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-amphibians-reptiles",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Амфібії та рептилії",
+      "links": [
+        {
+          "title": "Хордові. Риби. Амфібії. Рептилії",
+          "url": "https://zno.osvita.ua/biology/tag-khordovi_ryby_amfibiyi_reptyliyi/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-birds",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Птахи",
+      "links": [
+        {
+          "title": "Птахи, їхня різноманітність",
+          "url": "https://zno.osvita.ua/biology/tag-ptakhy_yikhnja_riznomanitnist/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-mammals",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Ссавці",
+      "links": [
+        {
+          "title": "Ссавці, їхня різноманітність",
+          "url": "https://zno.osvita.ua/biology/tag-ssavci_yikhnja_riznomanitnist/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-behavior",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Поведінка тварин",
+      "links": [
+        {
+          "title": "Поведінка тварин",
+          "url": "https://zno.osvita.ua/biology/tag-povedinka_tvarin/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "bio-human",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Людина та її здоровʼя",
+      "links": [
+        {
+          "title": "Будова тіла людини",
+          "url": "https://zno.osvita.ua/biology/tag-budova_tila_lyudini/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-nervous",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Нервова система",
+      "links": [
+        {
+          "title": "Нервова регуляція. Нервова система. Вища нервова діяльність людини",
+          "url": "https://zno.osvita.ua/biology/tag-nervova_reghuljacija_nervova_systema_vyshha_nervova_dijalnist_ljudyny/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-endocrine",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Гуморальна регуляція",
+      "links": [
+        {
+          "title": "Гуморальна регуляція. Ендокринна система людини",
+          "url": "https://zno.osvita.ua/biology/tag-gumoralna_regulyaciya_endokrinna_sistema/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-blood",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Внутрішнє середовище та кров",
+      "links": [
+        {
+          "title": "Внутрішнє середовище організму людини. Кров. Лімфа",
+          "url": "https://zno.osvita.ua/biology/tag-krov_limfa/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-circulation",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Кровообіг і лімфатична система",
+      "links": [
+        {
+          "title": "Кровоносна та лімфатична системи людини",
+          "url": "https://zno.osvita.ua/biology/tag-krovonosna_ta_limfatichna_sistemi/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-immunity",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Імунітет",
+      "links": [
+        {
+          "title": "Імунітет. Імунна система людини",
+          "url": "https://zno.osvita.ua/biology/tag-imunitet_imunna_sistema/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-respiration",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Дихальна система",
+      "links": [
+        {
+          "title": "Дихання. Дихальна система людини",
+          "url": "https://zno.osvita.ua/biology/tag-dihalna_sistema_lyudini/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-nutrition",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Травна система",
+      "links": [
+        {
+          "title": "Травлення. Травна система людини",
+          "url": "https://zno.osvita.ua/biology/tag-travna_sistema_lyudini/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-human-energy",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Обмін речовин у людини",
+      "links": [
+        {
+          "title": "Обмін речовин і перетворення енергії в організмі людини",
+          "url": "https://zno.osvita.ua/biology/tag-obmin_rechovin_v_organizmi_lyudini/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-excretion",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Сечовидільна система",
+      "links": [
+        {
+          "title": "Виділення. Сечовидільна система людини",
+          "url": "https://zno.osvita.ua/biology/tag-sechovidilna_sistema_lyudini/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-skin",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Шкіра й терморегуляція",
+      "links": [
+        {
+          "title": "Шкіра. Терморегуляція",
+          "url": "https://zno.osvita.ua/biology/tag-shkira_termoregulyaciya/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-locomotion",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Опорно-рухова система",
+      "links": [
+        {
+          "title": "Опорно-рухова система людини",
+          "url": "https://zno.osvita.ua/biology/tag-oporno_ruhova_sistema_lyudini/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-senses",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Сенсорні системи",
+      "links": [
+        {
+          "title": "Сенсорні системи людини",
+          "url": "https://zno.osvita.ua/biology/tag-sensorni_sistemi_lyudini/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-higher-activity",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Вища нервова діяльність",
+      "links": [
+        {
+          "title": "Нервова регуляція. Нервова система. Вища нервова діяльність людини",
+          "url": "https://zno.osvita.ua/biology/tag-nervova_reghuljacija_nervova_systema_vyshha_nervova_dijalnist_ljudyny/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-human-reproduction",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Репродукція та розвиток людини",
+      "links": [
+        {
+          "title": "Репродукція та розвиток людини",
+          "url": "https://zno.osvita.ua/biology/tag-reprodukciya_lyudini/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-factors-populations",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Екологічні чинники та популяції",
+      "links": [
+        {
+          "title": "Екологічні чинники. Популяція",
+          "url": "https://zno.osvita.ua/biology/tag-ekologichni_chinniki_populyaciya/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "bio-ecology",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Екологія",
+      "links": [
+        {
+          "title": "Екологічні чинники. Популяція",
+          "url": "https://zno.osvita.ua/biology/tag-ekologichni_chinniki_populyaciya/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Екосистеми",
+          "url": "https://zno.osvita.ua/biology/tag-ekosistemi/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        },
+        {
+          "title": "Біосфера як глобальна екосистема",
+          "url": "https://zno.osvita.ua/biology/tag-biosfera_yak_ekosistema/",
+          "coverage": "NARROWER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-communities",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Екосистеми та їх зміни",
+      "links": [
+        {
+          "title": "Екосистеми",
+          "url": "https://zno.osvita.ua/biology/tag-ekosistemi/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-biosphere",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Біосфера та охорона природи",
+      "links": [
+        {
+          "title": "Біосфера як глобальна екосистема",
+          "url": "https://zno.osvita.ua/biology/tag-biosfera_yak_ekosistema/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-adaptations",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Адаптації біологічних систем",
+      "links": [
+        {
+          "title": "Адаптація як загальна властивість біологічних систем",
+          "url": "https://zno.osvita.ua/biology/tag-adaptaciya_biosistem/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "bio-evolution",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Еволюція",
+      "links": [
+        {
+          "title": "Основи еволюційного вчення",
+          "url": "https://zno.osvita.ua/biology/tag-osnovy_evoljucijnogho_vchennja/",
+          "coverage": "EXACT",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-speciation",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Механізми еволюції та видоутворення",
+      "links": [
+        {
+          "title": "Основи еволюційного вчення",
+          "url": "https://zno.osvita.ua/biology/tag-osnovy_evoljucijnogho_vchennja/",
+          "coverage": "BROADER",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Редакторське зіставлення обсягу внутрішньої теми з назвою та рубрикою каталогу; не гарантія кожного завдання."
+        }
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "topicId": "cm-biology-origin-life",
+      "aliases": [],
+      "subjectId": "biology",
+      "title": "Походження та ключові етапи розвитку життя",
+      "links": [
+        {
+          "title": "Основи еволюційного вчення",
+          "url": "https://zno.osvita.ua/biology/tag-osnovy_evoljucijnogho_vchennja/",
+          "coverage": "UNCERTAIN",
+          "verifiedAt": "2026-10-27",
+          "coverageReason": "Назва каталогу підтверджена; включення обсягу внутрішньої теми не доведене."
+        }
+      ],
+      "status": "MAPPED"
+    }
+  ],
+  "coverageReview": {
+    "date": "2026-10-27",
+    "basis": "All 356 title pairs reviewed against five provider theme catalogs. Scope judgments, not an audit of every external question; ambiguous inclusion remains UNCERTAIN."
+  }
+}
