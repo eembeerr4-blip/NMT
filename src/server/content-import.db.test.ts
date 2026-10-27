@@ -164,3 +164,17 @@ it("imports a large package inside the topic limit", async () => {
   expect(await prisma.question.count({ where: { topicId: { startsWith: "pkg-bulk-" } } })).toBe(CONTENT_PACKAGE_LIMITS.maxTopics);
   expect(await prisma.topic.count({ where: { id: "pkg-bulk-section", coverage: "NEEDS_CONTENT" } })).toBe(1);
 }, 60000);
+
+it("retains explicit example checks when unrelated lesson text is edited, and drops stale checks",async()=>{
+ auth.id="owner";
+ const example={task:"5x − 7 = 2x + 8",solution:"x = 5",answerCheck:{type:"numeric",value:5,variable:"x"}};
+ expect((await importContentPackage(raw([topic("pkg-answer-check",{lesson:{...lesson,examples:[example]}})]))).ok).toBe(true);
+ auth.id="editor";
+ const input={...lesson,examples:[{task:example.task,solution:example.solution}],summary:"Edited summary"};
+ expect((await saveLessonContent("pkg-answer-check",input)).ok).toBe(true);
+ const kept=JSON.parse((await prisma.topic.findUniqueOrThrow({where:{id:"pkg-answer-check"}})).lessonJson);
+ expect(kept.examples[0].answerCheck).toEqual(example.answerCheck);
+ expect((await saveLessonContent("pkg-answer-check",{...input,examples:[{task:"A different question",solution:example.solution}]})).ok).toBe(true);
+ const changed=JSON.parse((await prisma.topic.findUniqueOrThrow({where:{id:"pkg-answer-check"}})).lessonJson);
+ expect(changed.examples[0].answerCheck).toBeUndefined();
+});

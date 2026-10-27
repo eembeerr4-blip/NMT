@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { exampleAnswerCheckSchema } from "./example-answer";
 import { SUBJECTS } from "./constants";
 import { UserError } from "./errors";
 import { CONTENT_PACKAGE_LIMITS } from "./content-package-limits";
@@ -17,6 +18,7 @@ const lessonSchema = z.object({
   examples: z.array(z.object({
     task: z.string().trim().min(1).max(3000),
     solution: z.string().trim().min(1).max(5000),
+    answerCheck: exampleAnswerCheckSchema.optional(),
   })).max(20).default([]),
   mistakes: lines,
   summary: z.string().trim().max(3000).default(""),

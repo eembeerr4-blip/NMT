@@ -8,11 +8,11 @@ export function MathText({ text, className = "", inline = false }: { text: strin
       {parts.map((part, index) => {
         if (part.startsWith("$$") && part.endsWith("$$")) {
           const html = katex.renderToString(part.slice(2, -2), { throwOnError: false, displayMode: true });
-          return inline ? <span key={index} dangerouslySetInnerHTML={{ __html: html }} /> : <div key={index} dangerouslySetInnerHTML={{ __html: html }} />;
+          return inline ? <span key={index} className="math-formula math-formula-display" dangerouslySetInnerHTML={{ __html: html }} /> : <div key={index} className="math-formula math-formula-display" dangerouslySetInnerHTML={{ __html: html }} />;
         }
         if (part.startsWith("$") && part.endsWith("$")) {
           const html = katex.renderToString(part.slice(1, -1), { throwOnError: false, displayMode: false });
-          return <span key={index} dangerouslySetInnerHTML={{ __html: html }} />;
+          return <span key={index} className="math-formula math-formula-inline" dangerouslySetInnerHTML={{ __html: html }} />;
         }
         // Keep Unicode number-line labels attached to their markers, without
         // disabling wrapping for the surrounding explanation or changing data.

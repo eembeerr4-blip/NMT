@@ -105,7 +105,7 @@ body { background: var(--background); color: var(--foreground); font-family: var
   .responsive-table td { padding: 0.375rem 0; overflow-wrap: anywhere; }
   .responsive-table td[data-label]::before { content: attr(data-label); display: block; margin-bottom: 0.25rem; font-size: 0.75rem; color: var(--muted-foreground); }
 }
-.math-text .katex { font-size: 1.02em; }
+.math-text .katex { font-size: 1.12em; }
 
 a, button, input, select, textarea { transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease; }
 a:hover { text-decoration-color: currentColor; }
@@ -174,7 +174,16 @@ button:not(:disabled):active { transform: translateY(1px); }
 .text-primary { color: var(--link); }
 
 .math-text { min-width: 0; overflow-wrap: anywhere; }
-.math-text .katex-display { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-block: .25rem; }
+/* One overflow boundary for every KaTeX expression, including inline fractions.
+   Vertical padding accommodates KaTeX struts without a second scroll axis. */
+.math-formula { max-width:100%; min-width:0; overflow-x:auto; overflow-y:hidden; overflow-wrap:normal; scrollbar-width:none; }
+.math-formula::-webkit-scrollbar { display:none; }
+.math-formula-inline { display:inline-block; vertical-align:middle; padding-block:.35em; }
+.math-formula-display { display:block; font-size:clamp(20px,1.25vw,24px); padding-block:.35em; }
+.math-text .math-formula-display .katex { font-size:1em; }
+.math-text .katex-display { margin:.4em 0; }
+.math-text .katex { white-space:nowrap; }
+.math-text .katex .base { white-space:nowrap; }
 
 /* Accepted D01 shell, opt-in only on / and /curriculum (D02). */
 .d01-shell {
@@ -594,8 +603,6 @@ button:not(:disabled):active { transform: translateY(1px); }
 .d031-overview,.d031-notes,.d031-results,.d031-study-time { padding:24px; border-color:var(--d01-stroke); border-radius:14px; background:var(--d01-panel); }
 .d031-overview > .d031-section-heading { margin-bottom:18px; }
 .d031-flow .math-text { max-width:100%; min-width:0; font-size:14px; line-height:1.9; }
-.d031-flow .katex-display { max-width:100%; overflow-x:auto; overflow-y:hidden; }
-.d031-flow .math-text > span:has(> .katex) { display:inline-block; max-width:100%; overflow-x:auto; vertical-align:middle; }
 .d031-overview > section { margin-top:22px; }
 .d031-overview h3 { margin-bottom:8px; font-size:14px; font-weight:650; }
 .d031-muted { font-size:13px; line-height:1.8; color:var(--muted-foreground); }
@@ -662,7 +669,7 @@ button:not(:disabled):active { transform: translateY(1px); }
  .d031-study-time form label { flex:1; }
  .d031-study-time input { width:100%; }
 }
-.d04-lesson { display:grid; gap:22px; min-width:0; }
+.d04-lesson { display:grid; gap:22px; min-width:0; width:100%; max-width:1100px; margin-inline:auto; }
 .d04-lesson :where(h1,h2,h3,p,a,button,summary,label,.math-text) { overflow-wrap:anywhere; }
 .d04-breadcrumbs { display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; font-size:12px; color:var(--muted-foreground); }
 .d04-breadcrumbs a { display:inline-flex; align-items:center; min-height:32px; }
@@ -684,27 +691,23 @@ button:not(:disabled):active { transform: translateY(1px); }
 .d04-tabs [role=tab][data-state=active] { color:white; background:linear-gradient(115deg,#0069ff,#2455cf); box-shadow:0 3px 12px #006aff30,inset 0 1px #ffffff26; }
 .d04-tabs [role=tabpanel] { min-width:0; margin-top:18px; border-radius:14px; }
 .d04-tabs :where(button,a,summary,input,textarea,select):focus-visible,.d04-lesson > nav a:focus-visible,.d04-back-to-subject:focus-visible { outline:2px solid var(--ring); outline-offset:4px; }
-.d04-study-grid { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,1fr); align-items:start; gap:18px; }
+.d04-study-grid { display:grid; grid-template-columns:minmax(0,1fr); align-items:start; gap:24px; }
 .d04-material { min-width:0; padding:24px; border-radius:14px; border-color:var(--d01-stroke); background:var(--d01-panel); box-shadow:0 6px 22px #00000008; }
-.d04-material h2 { font-size:17px; font-weight:650; line-height:1.5; }
-.d04-material h3 { margin-bottom:8px; font-size:14px; line-height:1.6; font-weight:650; }
+.d04-material h2 { font-size:22px; font-weight:650; line-height:1.5; }
+.d04-material h3 { margin-bottom:8px; font-size:18px; line-height:1.6; font-weight:650; }
 .d04-section-title { display:flex; align-items:center; gap:10px; margin-bottom:20px; }
 .d04-section-title > svg { width:20px; height:20px; flex-shrink:0; color:var(--link); }
-.d04-reading { font-size:14px; line-height:1.9; }
-.d04-reading > .math-text { line-height:1.9; }
+.d04-reading { width:100%; max-width:800px; margin-inline:auto; font-size:17px; line-height:1.65; }
+.d04-reading > .math-text { line-height:1.65; }
 .d04-reading > section { margin-top:24px; }
 .d04-objectives { margin-bottom:24px; padding:16px 18px; border:1px solid var(--border); border-radius:10px; background:var(--d01-inset); }
 .d04-objectives ul,.d04-rule-list { display:grid; gap:8px; padding-left:20px; list-style:disc; }
 .d04-objectives li::marker,.d04-rule-list li::marker { color:var(--link); }
 .d04-lesson .math-text { min-width:0; max-width:100%; }
-.d04-lesson .katex-display { max-width:100%; overflow-x:auto; overflow-y:hidden; padding:6px 2px; }
-.d04-lesson .katex { white-space:normal; }
-.d04-lesson .katex .base { white-space:nowrap; }
-.d04-lesson .math-text > span:has(> .katex) { display:inline-block; max-width:100%; overflow-x:auto; vertical-align:middle; }
 .d04-sources { margin-top:24px; border-top:1px solid var(--border); padding-top:10px; color:var(--muted-foreground); font-size:12px; }
 .d04-sources summary,.d04-personal-notes summary { cursor:pointer; min-height:44px; padding-block:10px; font-weight:600; }
 .d04-sources a { display:block; width:fit-content; min-height:36px; color:var(--link); text-decoration:underline; text-underline-offset:3px; }
-.d04-video-column { min-width:0; }
+.d04-video-column { min-width:0; width:100%; }
 .d04-video > div { border-color:var(--d01-stroke); border-radius:14px; background:var(--d01-panel); }
 .d04-video button,.d04-video a { min-height:44px; }
 .d04-video a { display:inline-flex; align-items:center; }
@@ -764,8 +767,8 @@ button:not(:disabled):active { transform: translateY(1px); }
 .d04-children { display:grid; gap:8px; margin-top:12px; }
 .d04-children a { display:flex; justify-content:space-between; align-items:center; gap:10px; min-height:44px; color:var(--link); font-size:14px; }
 .d04-children svg { flex-shrink:0; width:16px; height:16px; }
-@media(min-width:1600px) { .d04-study-grid { grid-template-columns:minmax(0,1.4fr) minmax(380px,1fr); } .d04-study-without-video { grid-template-columns:minmax(0,1fr); } }
-@media(max-width:1100px) { .d04-study-grid,.d04-notes-grid,.d04-practice { grid-template-columns:minmax(0,1fr); } .d04-video-column { max-width:720px; width:100%; } }
+
+@media(max-width:1100px) { .d04-study-grid,.d04-notes-grid,.d04-practice { grid-template-columns:minmax(0,1fr); } .d04-video-column { max-width:100%; width:100%; } }
 @media(max-width:767px) {
  .d04-lesson { gap:18px; }
  .d04-breadcrumbs { font-size:11px; gap:2px 6px; }
@@ -781,7 +784,7 @@ button:not(:disabled):active { transform: translateY(1px); }
  .d04-section-title { margin-bottom:16px; }
  .d04-material h2 { font-size:16px; }
  .d04-objectives { padding:12px; }
- .d04-reading { line-height:1.85; }
+ .d04-reading { font-size:16px; line-height:1.65; }
  .d04-topic-navigation { gap:10px; padding-top:16px; }
  .d04-neighbor { gap:6px; padding:12px 10px; font-size:12px; min-height:70px; }
  .d04-neighbor small { font-size:11px; }
@@ -828,8 +831,6 @@ button:not(:disabled):active { transform: translateY(1px); }
 .d04f-practice-navigation a { display:inline-flex; align-items:center; min-height:44px; color:var(--link); font-size:13px; }
 .d04f-practice div.bg-card { border-color:var(--d01-stroke); background:var(--d01-panel); border-radius:14px; }
 .d04f-practice .math-text { min-width:0; max-width:100%; font-size:15px; line-height:1.85; }
-.d04f-practice .katex-display { max-width:100%; overflow-x:auto; overflow-y:hidden; }
-.d04f-practice .math-text > span:has(> .katex) { display:inline-block; max-width:100%; overflow-x:auto; vertical-align:middle; }
 .d04f-practice :is(input,select,textarea) { background:var(--card); min-height:44px; }
 .d04f-practice :is(input[type=checkbox],input[type=radio]) { min-height:0; width:18px; height:18px; accent-color:var(--link); }
 .d04f-practice :is(input,select,textarea,button,a):focus-visible { outline:2px solid var(--ring); outline-offset:4px; }
@@ -882,8 +883,6 @@ button:not(:disabled):active { transform: translateY(1px); }
 .d05-testing :is(input,textarea,select) { min-width:0; max-width:100%; min-height:44px; background:var(--card); }
 .d05-testing :is(input[type=radio],input[type=checkbox]) { width:18px; height:18px; min-height:0; accent-color:var(--link); flex-shrink:0; }
 .d05-testing .math-text { min-width:0; max-width:100%; line-height:1.8; }
-.d05-testing .katex-display { max-width:100%; overflow-x:auto; overflow-y:hidden; }
-.d05-testing .math-text > span:has(> .katex) { display:inline-block; max-width:100%; overflow-x:auto; vertical-align:middle; }
 .d05-testing .math-text table { display:block; max-width:100%; overflow-x:auto; }
 .d05-runner { display:grid; grid-template-columns:minmax(0,1fr) 260px; gap:18px; align-items:start; }
 .d05-testing .d05-question-panel,.d05-testing .d05-map-panel,.d05-testing .d05-score-panel,.d05-testing .d05-result-actions,.d05-testing .d05-review-card,.d05-testing .d05-available-card,.d05-exams > .bg-card { background:var(--d05-panel); border:1px solid var(--d05-stroke); border-radius:16px; }
@@ -1021,3 +1020,22 @@ button:not(:disabled):active { transform: translateY(1px); }
  .d05-dialog-actions { flex-direction:column; }
  .d05-dialog-actions button { width:100%; }
 }
+
+/* Shared interaction states: feedback without transforms or size changes. */
+html { scrollbar-gutter:stable; }
+:where(button,[role="button"],a[href],summary,select,input[type="checkbox"],input[type="radio"]):not(:disabled):not([aria-disabled="true"]) { cursor:pointer; transition:background-color .15s,border-color .15s,color .15s,box-shadow .15s,filter .15s; }
+:is(button,[role="button"],a[href],summary):not(:disabled):not([aria-disabled="true"]):hover { filter:brightness(.92); }
+.dark :is(button,[role="button"],a[href],summary):not(:disabled):not([aria-disabled="true"]):hover { filter:brightness(1.15); }
+button:not(.ui-button):not(:disabled):hover,summary:hover { background-color:color-mix(in srgb,var(--primary) 12%,transparent); }
+:is(button,[role="button"],a[href],summary):not(:disabled):not([aria-disabled="true"]):active { filter:brightness(.78); box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--foreground) 25%,transparent); }
+.dark :is(button,[role="button"],a[href],summary):not(:disabled):not([aria-disabled="true"]):active { filter:brightness(1.3); }
+:is(button,[role="button"],a[href],summary,input,select,textarea):focus-visible { outline:2px solid var(--ring); outline-offset:3px; }
+:is(button,[role="button"],select):disabled,[aria-disabled="true"] { cursor:not-allowed; opacity:.45; filter:none; box-shadow:none; }
+.d04-tabs > [role="tablist"] { margin-inline:auto; }
+.d04-example-input-row { display:flex; align-items:start; gap:12px; flex-wrap:wrap; }
+.d04-example-input-row input { width:min(100%,280px); flex:1 1 180px; }
+.d04-example-answer label { display:block; margin-bottom:8px; font-weight:600; }
+.d04-lesson .d04-example-feedback { min-height:3.3em; margin-block:8px 12px; padding:0; border:0; background:transparent; font-size:15px; line-height:1.65; }
+@media(max-width:480px) { .d04-lesson .d04-example-feedback { min-height:4.95em; } }
+.d04-example-solution { margin-top:20px; }
+@media(prefers-reduced-motion:reduce) { :where(button,[role="button"],a[href],summary,select) { transition:none !important; } }

@@ -24,13 +24,13 @@ export function ThemeToggle() {
     return (
       <button
         type="button"
-        className="inline-flex h-10 items-center gap-2 rounded-xl border border-border bg-card px-3 text-sm"
+        className="inline-flex h-10 w-10 items-center justify-center gap-2 rounded-xl border border-border bg-card px-0 text-sm sm:w-28 sm:px-3"
         aria-label="Змінити тему"
         title="Змінити тему інтерфейсу"
         disabled
       >
         <Moon className="h-4 w-4 opacity-50" />
-        <span className="hidden sm:inline opacity-50">Тема</span>
+        <span className="hidden w-12 text-center sm:inline-block opacity-50">Тема</span>
       </button>
     );
   }
@@ -40,13 +40,13 @@ export function ThemeToggle() {
   return (
     <button
       type="button"
-      className="inline-flex h-10 items-center gap-2 rounded-xl border border-border bg-card px-3 text-sm hover:bg-muted"
+      className="inline-flex h-10 w-10 items-center justify-center gap-2 rounded-xl border border-border bg-card px-0 text-sm sm:w-28 sm:px-3 hover:bg-muted"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label="Змінити тему"
       title="Змінити тему інтерфейсу"
     >
       {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-      <span className="hidden sm:inline">{isDark ? "Світла" : "Темна"}</span>
+      <span className="hidden w-12 text-center sm:inline-block">Тема</span>
     </button>
   );
 }

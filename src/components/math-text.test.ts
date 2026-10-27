@@ -22,3 +22,21 @@ describe("Unicode number lines", () => {
     expect(html).toContain('class="katex-display"');
   });
 });
+
+
+describe("shared KaTeX formula boundaries", () => {
+  it("separates inline math from display sizing without wrapping prose", () => {
+    const html = render("Відсоток: $p\\%\\ \\text{від}\\ A = A \\cdot \\dfrac{p}{100}$. $$x=3$$");
+    expect(html).toContain('class="math-formula math-formula-inline"');
+    expect(html).toContain('class="math-formula math-formula-display"');
+    expect(html).toContain("Відсоток: ");
+    expect(html.match(/class="math-formula /g)).toHaveLength(2);
+  });
+
+  it("keeps the inline host valid when a paragraph contains display math", () => {
+    const html = renderToStaticMarkup(createElement(MathText, { text: "$$x=3$$", inline: true }));
+    expect(html).toContain('<span class="math-formula math-formula-display"');
+    expect(html).not.toContain("<div");
+    expect(html).toContain('class="katex-display"');
+  });
+});

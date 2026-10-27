@@ -28,14 +28,14 @@ export function VideoPanel({ topicId, videos, canEdit = false, variant="default"
     <div className={variant==="lesson"?"d04-video space-y-4":"space-y-4"}>
       {primary ? (
         <Card className="overflow-hidden">
-          {playing ? (
+          <div className="relative aspect-video bg-black">{playing ? (
             <YouTubeFrame key={primary.id} video={primary} />
           ) : (
-            <div className="relative flex aspect-video flex-col items-center justify-center gap-3 overflow-hidden bg-muted px-4 text-center" style={{backgroundImage:`linear-gradient(rgba(8,15,30,.25),rgba(8,15,30,.8)),url(https://i.ytimg.com/vi/${encodeURIComponent(primary.youtubeId)}/hqdefault.jpg)`,backgroundSize:"cover",backgroundPosition:"center"}}>
+            <div className="relative flex h-full flex-col items-center justify-center gap-3 overflow-hidden bg-muted px-4 text-center" style={{backgroundImage:`linear-gradient(rgba(8,15,30,.25),rgba(8,15,30,.8)),url(https://i.ytimg.com/vi/${encodeURIComponent(primary.youtubeId)}/hqdefault.jpg)`,backgroundSize:"cover",backgroundPosition:"center"}}>
               <p className="relative max-w-lg text-sm font-medium text-white">{primary.title||"Відеолекція"}</p>
               <Button type="button" onClick={() => setPlaying(true)}><Play className="h-4 w-4"/>Запустити лекцію</Button>
             </div>
-          )}
+          )}</div>
           <div className="flex flex-wrap items-center justify-between gap-2 p-4">
             <div>
               <div className="font-medium">{primary.title || "Лекція YouTube"}</div>
@@ -165,9 +165,9 @@ function YouTubeFrame({ video }: { video: Video }) {
       player?.destroy?.();
     };
   }, [video.id, video.youtubeId, video.lastPositionSec]);
-  return <div>
-    <div className="aspect-video bg-black"><iframe id={`yt-${video.id}`} title={video.title || "Відеолекція"} src={`https://www.youtube.com/embed/${encodeURIComponent(video.youtubeId)}?enablejsapi=1&rel=0&start=${video.lastPositionSec}`} className="h-full w-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" /></div>
-    {error ? <p role="alert" className="p-3 text-sm">{error} <a className="underline" href={video.url || youtubeWatchUrl(video.youtubeId)} target="_blank" rel="noreferrer">Відкрити на YouTube</a></p> : null}
+  return <div className="absolute inset-0">
+    <div className="h-full w-full bg-black"><iframe id={`yt-${video.id}`} title={video.title || "Відеолекція"} src={`https://www.youtube.com/embed/${encodeURIComponent(video.youtubeId)}?enablejsapi=1&rel=0&start=${video.lastPositionSec}`} className="h-full w-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" /></div>
+    {error ? <p role="alert" className="absolute inset-x-0 bottom-0 max-h-full overflow-auto bg-background/95 p-3 text-sm">{error} <a className="underline" href={video.url || youtubeWatchUrl(video.youtubeId)} target="_blank" rel="noreferrer">Відкрити на YouTube</a></p> : null}
   </div>;
 }
 

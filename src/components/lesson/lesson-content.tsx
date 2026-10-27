@@ -1,5 +1,6 @@
 import { BookOpen, FileText } from "lucide-react";
 import { LessonText } from "./lesson-text";
+import { LessonExample } from "./lesson-example";
 import { Card } from "@/components/ui";
 import type { LessonContent } from "@/lib/lesson";
 
@@ -14,7 +15,7 @@ export function LessonTheory({lesson,description}:{lesson:LessonContent|null;des
 
 export function LessonExamples({lesson}:{lesson:LessonContent|null}) {
   if(!lesson?.examples.length)return <Card className="d04-material d04-empty"><h2>Приклади ще готуються</h2><p>Для цієї теми приклади ще не додані. Перейдіть до доступної теорії або практики.</p></Card>;
-  return <div className="d04-examples">{lesson.examples.map((example,index)=><Card key={index} className="d04-material d04-reading"><div className="d04-section-title"><span className="d04-example-number">{index+1}</span><h2>Приклад {index+1}</h2></div><div className="d04-example-task"><h3>Умова</h3><LessonText text={example.task}/></div><div className="d04-example-solution"><h3>Розв’язання</h3><LessonText text={example.solution}/></div></Card>)}</div>;
+  return <div className="d04-examples">{lesson.examples.map((example,index)=><LessonExample key={index} example={example} index={index}/>)}</div>;
 }
 
 export function LessonSynopsis({lesson,summary,formulas}:{lesson:LessonContent|null;summary:string;formulas:string}) {

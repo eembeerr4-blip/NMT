@@ -1269,7 +1269,11 @@ export async function saveLessonContent(topicId: string, raw: unknown): Promise<
   const current=await tx.topic.findUnique({where:{id:topicId},select:{coverage:true,lessonJson:true}});
   if(!current)return {ok:false,error:"Тему не знайдено."};
   const previous=parseLesson(current.lessonJson);
-  const stored={...lesson,prerequisites:lesson.prerequisites??[],notes:lesson.notes??"",sources:lesson.sources??[],...(previous?.provenance?{provenance:previous.provenance}:{})};
+  const examples=lesson.examples.map((example,index)=>{
+    const prior=previous?.examples[index];
+    return prior?.task===example.task && prior.solution===example.solution && prior.answerCheck ? {...example,answerCheck:prior.answerCheck} : example;
+  });
+  const stored={...lesson,examples,prerequisites:lesson.prerequisites??[],notes:lesson.notes??"",sources:lesson.sources??[],...(previous?.provenance?{provenance:previous.provenance}:{})};
   await tx.topic.update({where:{id:topicId},data:{lessonJson:JSON.stringify(stored),coverage:current.coverage==="DRAFT"?"DRAFT":"PARTIAL"}});
   refresh();return {ok:true};
  

@@ -29,13 +29,13 @@ beforeAll(async()=>{
  for(const id of ["owner","learner-a","learner-b"]){await prisma.user.create({data:{id,nickname:id,firstName:id,onboarded:true,accountStatus:"APPROVED",role:id==="owner"?"ADMIN":"STUDENT",passwordHash:"QA-only-unused-hash"}});await prisma.userSettings.create({data:{id:id==="owner"?"default":id,userId:id,mathPriority:id==="owner"?99:id==="learner-b"?17:35,scheduleJson:JSON.stringify(DEFAULT_SCHEDULE),formatJson:JSON.stringify(DEFAULT_FORMAT)}});}
  await prisma.subject.create({data:{id:"math",name:"Математика",shortName:"Математика",description:"QA",color:"#000",sortOrder:0}});
  for(const userId of ["owner","learner-a","learner-b"])await prisma.userSubject.create({data:{userId,subjectId:"math",role:"mandatory",active:true}});
- await prisma.topic.create({data:{id:"qa-topic",subjectId:"math",title:"QA topic",sortOrder:0}});
+ await prisma.topic.create({data:{id:"qa-topic",subjectId:"math",title:"QA topic",coverage:"READY",sortOrder:0}});
  await prisma.question.create({data:{id:"qa-question",subjectId:"math",topicId:"qa-topic",type:"NUMERIC",difficulty:"EASY",prompt:"2+2",correctAnswer:"4",explanation:"4",verificationStatus:"VERIFIED"}});
  await prisma.test.create({data:{id:"qa-test",subjectId:"math",topicId:"qa-topic",title:"PRIVATE_A_ATTEMPT",kind:"TOPIC",questions:{create:{questionId:"qa-question",sortOrder:0}}}});
  auth.id="learner-a";expect((await saveExamResult(exam)).ok).toBe(true);
  await prisma.studyTask.create({data:{userId:auth.id,dateKey:"2026-10-18",title:"PRIVATE_A_TASK",durationMin:20,kind:"study",templateKey:"qa-task-a"}});
  await prisma.testAttempt.create({data:{id:"private-attempt",testId:"qa-test",userId:auth.id}});
- await prisma.mistake.create({data:{id:"private-mistake",subjectId:"math",topicId:"qa-topic",prompt:"PRIVATE_A_MISTAKE",userAnswer:"1",correctAnswer:"4",explanation:"QA",userId:auth.id}});
+ await prisma.mistake.create({data:{id:"private-mistake",questionId:"qa-question",subjectId:"math",topicId:"qa-topic",prompt:"PRIVATE_A_MISTAKE",userAnswer:"1",correctAnswer:"4",explanation:"QA",userId:auth.id}});
  await prisma.flashcard.create({data:{id:"private-card",userId:auth.id,front:"A card",back:"4",kind:"formula",dueKey:"2026-10-18"}});
  resultId=(await prisma.examResult.findFirstOrThrow({where:{userId:auth.id}})).id;taskId=(await prisma.studyTask.findFirstOrThrow({where:{userId:auth.id}})).id;
 },60000);

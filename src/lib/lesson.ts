@@ -1,3 +1,5 @@
+import { readExampleAnswerCheck, type ExampleAnswerCheck } from "./example-answer";
+
 export type LessonProvenance = {
   origin: "original" | "permitted";
   title: string;
@@ -11,7 +13,7 @@ export type LessonContent = {
   objectives: string[];
   theory: string;
   rules: string[];
-  examples: { task: string; solution: string }[];
+  examples: { task: string; solution: string; answerCheck?: ExampleAnswerCheck }[];
   mistakes: string[];
   summary: string;
   notes?: string;
@@ -41,7 +43,7 @@ export function parseLesson(raw: string): LessonContent | null {
       objectives: data.objectives.filter((v) => typeof v === "string"),
       theory: data.theory,
       rules: Array.isArray(data.rules) ? data.rules.filter(v=>typeof v === "string") : [],
-      examples: Array.isArray(data.examples) ? data.examples.filter(v=>typeof v?.task === "string" && typeof v?.solution === "string") : [],
+      examples: Array.isArray(data.examples) ? data.examples.filter(v=>typeof v?.task === "string" && typeof v?.solution === "string").map(v => ({ ...v, answerCheck: readExampleAnswerCheck(v.answerCheck) })) : [],
       mistakes: Array.isArray(data.mistakes) ? data.mistakes.filter(v=>typeof v === "string") : [],
       summary: typeof data.summary === "string" ? data.summary : "",
       notes: typeof data.notes === "string" ? data.notes : "",
