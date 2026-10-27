@@ -6,6 +6,8 @@ import { lessonAccess } from "@/lib/readiness";
 import { learnerQuestionAvailable, learnerTestAvailable, unavailableTestMessage } from "@/lib/test-access";
 import { requireAccessibleAttempt } from "@/server/test-access";
 
+import { validateExternalBackup } from "@/lib/external-practice-integrity";
+import { externalPracticeReady } from "@/server/external-practice";
 import { UserError, userFacingError } from "@/lib/errors";
 import { auditedWrite, recordAudit } from "@/server/audit-log";
 import { accountStatus, canAccessLearning } from "@/lib/account-status";
@@ -614,6 +616,7 @@ export async function saveExamResult(raw: unknown): Promise<ActionState> {
   try {
     const user = await actor();
     const data = examResultSchema.parse(raw);
+    if (data.id && await externalPracticeReady() && await prisma.externalPractice.findFirst({where:{resultId:data.id}})) return {ok:false,error:"Редагуйте цей результат у розділі Пробники: попередні редакції зберігаються."};
     const payload = {
       subjectId: data.subjectId,
       date: noonUtc(data.date),
@@ -653,6 +656,7 @@ export async function deleteExamResult(id: string, acknowledgeHistorical = false
     }
     const existing = await prisma.examResult.findUnique({ where: { id, userId: user.id } });
     if (!existing || existing.userId !== user.id) return { ok: false, error: "Цей результат належить іншому профілю." };
+    if (await externalPracticeReady() && await prisma.externalPractice.findFirst({where:{resultId:id}})) return {ok:false,error:"Історію зовнішнього призначення не видаляємо. Виправте результат у розділі Пробники."};
     await prisma.examResult.delete({ where: { id, userId: user.id } });
     refreshPages("/results", "/analytics", "/", "/subjects/[slug]");
     return { ok: true };
@@ -666,6 +670,7 @@ export async function setTaskStatus(id: string, status: "PLANNED" | "IN_PROGRESS
     const user = await actor();
     const current = await prisma.studyTask.findUnique({ where: { id, userId: user.id } });
     if (!current || current.userId !== user.id) return { ok: false, error: "Це заняття належить іншому профілю." };
+    if (current.templateKey?.startsWith("zno:")) return {ok:false,error:"Для ZNO Online використайте внесення результату або явний пропуск у Пробниках."};
     if (current.status === status) return { ok: true };
     const task = await prisma.studyTask.update({ where: { id, userId: user.id }, data: { status, completedAt: status === "DONE" ? new Date() : null } });
     if (status === "DONE" && task.kind !== "rest" && task.durationMin > 0) {
@@ -694,6 +699,7 @@ export async function moveTask(id: string, nextDate: string): Promise<ActionStat
     if (!isDateKey(nextDate)) return { ok: false, error: "Оберіть коректну дату." };
     const task = await prisma.studyTask.findUnique({ where: { id, userId: user.id } });
     if (!task || task.userId !== user.id || task.status === "DONE") return { ok: false, error: "Завершене заняття не переноситься." };
+    if (task.templateKey?.startsWith("zno:")) return {ok:false,error:"Перенесіть зовнішній варіант через його картку в Пробниках."};
     if (relocationMode(task) === "update") {
       await prisma.studyTask.update({ where: { id, userId: user.id }, data: { dateKey: nextDate, status: "PLANNED" } });
     } else {
@@ -899,30 +905,35 @@ export async function saveFormat(rawJson: string): Promise<ActionState> {
 
 export async function buildBackup() {
   const user=await owner();
-  const [users, userSubjects, progress, videoProgress, oauthAccounts] = await Promise.all([prisma.user.findMany(), prisma.userSubject.findMany(), prisma.userTopicProgress.findMany(), prisma.userVideoProgress.findMany(), prisma.oAuthAccount.findMany()]);
+  return prisma.$transaction(async tx=>{
+  await recordAudit(user,{action:"BACKUP_CREATED",entityType:"backup"},tx);
+  const [users, userSubjects, progress, videoProgress, oauthAccounts] = await Promise.all([tx.user.findMany(), tx.userSubject.findMany(), tx.userTopicProgress.findMany(), tx.userVideoProgress.findMany(), tx.oAuthAccount.findMany()]);
   const [settings, subjects, topics, dependencies, videos, questions, options, tests, testQuestions, attempts, answers, examResults, sessions, tasks, reviews, mistakes, flashcards] = await Promise.all([
-    prisma.userSettings.findMany(),
-    prisma.subject.findMany(),
-    prisma.topic.findMany(),
-    prisma.topicDependency.findMany(),
-    prisma.videoLesson.findMany(),
-    prisma.question.findMany(),
-    prisma.questionOption.findMany(),
-    prisma.test.findMany(),
-    prisma.testQuestion.findMany(),
-    prisma.testAttempt.findMany(),
-    prisma.answer.findMany(),
-    prisma.examResult.findMany(),
-    prisma.studySession.findMany(),
-    prisma.studyTask.findMany(),
-    prisma.reviewSchedule.findMany(),
-    prisma.mistake.findMany(),
-    prisma.flashcard.findMany(),
+    tx.userSettings.findMany(),
+    tx.subject.findMany(),
+    tx.topic.findMany(),
+    tx.topicDependency.findMany(),
+    tx.videoLesson.findMany(),
+    tx.question.findMany(),
+    tx.questionOption.findMany(),
+    tx.test.findMany(),
+    tx.testQuestion.findMany(),
+    tx.testAttempt.findMany(),
+    tx.answer.findMany(),
+    tx.examResult.findMany(),
+    tx.studySession.findMany(),
+    tx.studyTask.findMany(),
+    tx.reviewSchedule.findMany(),
+    tx.mistake.findMany(),
+    tx.flashcard.findMany(),
   ]);
-  await recordAudit(user,{action:"BACKUP_CREATED",entityType:"backup"});
-  const auditLogs=await prisma.auditLog.findMany({orderBy:[{createdAt:"asc"},{id:"asc"}]});
+  const auditLogs=await tx.auditLog.findMany({orderBy:[{createdAt:"asc"},{id:"asc"}]});
   // Never export active verification/reset tokens, OAuth state, or unused invitations.
-  return { auditLogs, version: 5, users, userSubjects, progress, videoProgress, oauthAccounts, exportedAt: new Date().toISOString(), settings, subjects, topics, dependencies, videos, questions, options, tests, testQuestions, attempts, answers, examResults, sessions, tasks, reviews, mistakes, flashcards };
+  const hasExternal=await externalPracticeReady(tx);
+  const externalPractice=hasExternal?await tx.externalPractice.findMany():[];
+  const externalResultRevisions=hasExternal?await tx.externalResultRevision.findMany():[];
+  return { externalPractice, externalResultRevisions, auditLogs, version: hasExternal?6:5, users, userSubjects, progress, videoProgress, oauthAccounts, exportedAt: new Date().toISOString(), settings, subjects, topics, dependencies, videos, questions, options, tests, testQuestions, attempts, answers, examResults, sessions, tasks, reviews, mistakes, flashcards };
+  });
 }
 
 export async function restoreBackup(rawJson: string, confirmation?: string): Promise<ActionState> {
@@ -936,7 +947,11 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
       achievements?: unknown[];
       xp?: unknown[];
     };
-    if ((data.version >= 3 && !Array.isArray(data.videoProgress)) || (data.version >= 4 && !Array.isArray(data.oauthAccounts)) || ![2, 3, 4, 5].includes(data.version) || !Array.isArray(data.users) || !data.users.some((user) => user.id === "owner" && user.passwordHash) || !Array.isArray(data.userSubjects) || !Array.isArray(data.progress) || (data.version <= 4 && !Array.isArray(data.messages)) || !Array.isArray(data.subjects) || !Array.isArray(data.settings)) return { ok: false, error: "Файл резервної копії не підходить." };
+    if ((data.version >= 3 && !Array.isArray(data.videoProgress)) || (data.version >= 4 && !Array.isArray(data.oauthAccounts)) || ![2, 3, 4, 5, 6].includes(data.version) || !Array.isArray(data.users) || !data.users.some((user) => user.id === "owner" && user.passwordHash) || !Array.isArray(data.userSubjects) || !Array.isArray(data.progress) || (data.version <= 4 && !Array.isArray(data.messages)) || !Array.isArray(data.subjects) || !Array.isArray(data.settings)) return { ok: false, error: "Файл резервної копії не підходить." };
+    if(data.version<6 && ([data.externalPractice,data.externalResultRevisions].some(rows=>rows!==undefined && (!Array.isArray(rows)||rows.length>0)))) return {ok:false,error:"Зовнішня практика потребує коректної копії версії 6."};
+    if(data.version>=6 && (!Array.isArray(data.externalPractice)||!Array.isArray(data.externalResultRevisions))) return {ok:false,error:"У копії бракує зовнішніх призначень або історії результатів."};
+    if(data.version>=6 && !await externalPracticeReady()) return {ok:false,error:"Перед відновленням цієї копії потрібна погоджена міграція зовнішньої практики."};
+    if(data.version>=6) validateExternalBackup(data);
     const settingsRows = data.settings.map((row) => {
       const legacy = row as typeof row & { aiProvider?: string; aiModel?: string };
       const { aiProvider: _dropProvider, aiModel: _dropModel, ...rest } = legacy;
@@ -945,6 +960,7 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
       return rest;
     });
     await prisma.$transaction(async (tx) => {
+      if(await externalPracticeReady(tx)){await tx.externalResultRevision.deleteMany();await tx.externalPractice.deleteMany();}
       await tx.answer.deleteMany();
       await tx.testQuestion.deleteMany();
       await tx.testAttempt.deleteMany();
@@ -991,6 +1007,8 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
       if (data.examResults.length) await tx.examResult.createMany({ data: data.examResults });
       if (data.sessions.length) await tx.studySession.createMany({ data: data.sessions });
       if (data.tasks.length) await tx.studyTask.createMany({ data: data.tasks });
+      if(data.externalPractice?.length) await tx.externalPractice.createMany({data:data.externalPractice});
+      if(data.externalResultRevisions?.length) await tx.externalResultRevision.createMany({data:data.externalResultRevisions});
       if (data.reviews.length) await tx.reviewSchedule.createMany({ data: data.reviews });
       if (data.mistakes.length) await tx.mistake.createMany({ data: data.mistakes });
       // Preserve the live journal; archived events must never be replayed as new actions.

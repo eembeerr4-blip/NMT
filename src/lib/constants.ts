@@ -115,6 +115,7 @@ export type DaySlot = {
 };
 
 export type ScheduleConfig = {
+  externalPractice?: { enabled: boolean; days: number[]; durationMin: number };
   anchorMockDate: string;
   rotation: SubjectId[];
   days: Record<string, DaySlot[]>;

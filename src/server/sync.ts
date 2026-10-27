@@ -1,3 +1,5 @@
+import { practiceSchedule } from "@/lib/external-practice";
+import { syncExternalPractice } from "@/server/external-practice";
 import type { Prisma } from "@prisma/client";
 import { isAutoPlanned } from "@/lib/task-origin";
 import { cache } from "react";
@@ -78,6 +80,8 @@ export async function syncPlanWithClient(userId?: string, db: Prisma.Transaction
   const ownerId = settings.userId;
   if (!ownerId) return;
   const schedule = settings.schedule.days ? settings.schedule : DEFAULT_SCHEDULE;
+  const externalEnabled = practiceSchedule(schedule).enabled;
+  if (externalEnabled) await syncExternalPractice(ownerId, db);
   const [topics, progress] = await Promise.all([
     db.topic.findMany({ select: { id: true, subjectId: true, title: true, status: true, sortOrder: true, parentId: true } }),
     db.userTopicProgress.findMany({ where: { userId: ownerId } }),
@@ -106,7 +110,7 @@ export async function syncPlanWithClient(userId?: string, db: Prisma.Transaction
   for (const day of eachDate(from, to)) {
     const dayTasks=existing.filter(t=>t.dateKey===day);
     const fixed=dayTasks.filter(t=>(!isAutoPlanned(t) || t.status==="DONE" || t.status==="IN_PROGRESS") && !["MOVED","SKIPPED","DROPPED"].includes(t.status)).reduce((sum,t)=>sum+t.durationMin,0);
-    const slots=settings.studyDays.includes(parseDateKey(day).getDay()) ? fitDailyLoad(buildSlotsForDate(day, schedule, picks, settings.planStart).filter(slot=>!dayTasks.some(t=>t.templateKey===slot.templateKey && ["DONE","IN_PROGRESS","MOVED","SKIPPED"].includes(t.status))), Math.max(0,settings.dailyMinutes-fixed)).filter(slot=>slot.durationMin>0 || slot.kind==="rest") : [];
+    const slots=settings.studyDays.includes(parseDateKey(day).getDay()) ? fitDailyLoad(buildSlotsForDate(day, schedule, picks, settings.planStart).filter(slot=>!externalEnabled || slot.kind!=="mock").filter(slot=>!dayTasks.some(t=>t.templateKey===slot.templateKey && ["DONE","IN_PROGRESS","MOVED","SKIPPED"].includes(t.status))), Math.max(0,settings.dailyMinutes-fixed)).filter(slot=>slot.durationMin>0 || slot.kind==="rest") : [];
     for(const task of dayTasks.filter(t=>isAutoPlanned(t) && t.status==="PLANNED" && !slots.some(slot=>slot.templateKey===t.templateKey))){
       await db.studyTask.update({where:{id:task.id},data:{status:"DROPPED",notes:"Автоплан: змінено навчальні дні або денний ліміт."}});
     }

@@ -29,6 +29,7 @@ model User {
   subjects     UserSubject[]
   sessions     Session[]
   progress     UserTopicProgress[]
+  externalPractice ExternalPractice[]
 }
 
 model OAuthAccount {
@@ -335,6 +336,7 @@ model Answer {
 }
 
 model ExamResult {
+  externalPractice ExternalPractice?
   id                  String   @id @default(cuid())
   subjectId           String
   date                DateTime
@@ -377,6 +379,7 @@ model StudySession {
 }
 
 model StudyTask {
+  externalPractice ExternalPractice?
   id           String    @id @default(cuid())
   dateKey      String
   subjectId    String?
@@ -489,4 +492,40 @@ model AuditLog {
  @@index([createdAt, id])
  @@index([action, createdAt])
  @@index([actorId, createdAt])
+}
+
+
+// External assignments are reservations, not TestAttempt/Answer records.
+model ExternalPractice {
+  id String @id @default(cuid())
+  userId String
+  subjectId String
+  provider String @default("ZNO_ONLINE")
+  variantNumber Int
+  title String
+  url String
+  questionCount Int
+  initialDate String
+  taskId String @unique
+  status String @default("PLANNED")
+  resultId String? @unique
+  version Int @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user User @relation(fields: [userId], references: [id], onDelete: Restrict)
+  task StudyTask @relation(fields: [taskId], references: [id], onDelete: Restrict)
+  result ExamResult? @relation(fields: [resultId], references: [id], onDelete: Restrict)
+  revisions ExternalResultRevision[]
+  @@unique([userId, subjectId, variantNumber])
+  @@index([userId, status])
+}
+
+model ExternalResultRevision {
+  id String @id @default(cuid())
+  assignmentId String
+  version Int
+  snapshotJson String
+  createdAt DateTime @default(now())
+  assignment ExternalPractice @relation(fields: [assignmentId], references: [id], onDelete: Restrict)
+  @@unique([assignmentId, version])
 }
