@@ -130,7 +130,7 @@ export async function syncPlanWithClient(userId?: string, db: Prisma.Transaction
         continue;
       }
       if (current.status === "DROPPED" && current.notes.startsWith("Автоплан:")) { await db.studyTask.update({where:{id:current.id},data:{status:"PLANNED",notes:""}}); current.status="PLANNED"; }
-      if (current.status !== "PLANNED") continue;
+      if (current.status !== "PLANNED" || !isAutoPlanned(current)) continue;
       const same = current.subjectId === (slot.subjectId ?? null) && current.topicId === (slot.topicId ?? null) && current.title === slot.title && current.detail === slot.detail && current.durationMin === slot.durationMin;
       if (!same) {
         await db.studyTask.update({
@@ -169,13 +169,28 @@ async function shiftOverdue(userId: string, cap: number, studyDays: number[], db
     let cursor = today;
     for (let step = 0; step < 21; step += 1) {
       if (!studyDays.includes(parseDateKey(cursor).getDay())) { cursor = addDateKeys(cursor, 1); continue; }
-      const dayTasks = await db.studyTask.findMany({ where: { userId, dateKey: cursor, status: { in: ["PLANNED", "IN_PROGRESS"] } } });
+      const dayTasks = await db.studyTask.findMany({ where: { userId, dateKey: cursor, status: { in: ["PLANNED", "IN_PROGRESS", "DONE"] } } });
       const used = dayTasks.reduce((sum, item) => sum + item.durationMin, 0);
       if (used + task.durationMin <= cap) {
-        await db.studyTask.update({
-          where: { id: task.id },
-          data: { dateKey: cursor, movedFromId: task.movedFromId ?? task.id, notes: task.notes || "Автоматично перенесено на вільний день" },
-        }).catch(() => undefined);
+        // Keep the original date/key occupied, just as a manual move does.
+        // Claim and successor must commit together, including inside an existing transaction.
+        const move = async (tx: Prisma.TransactionClient) => {
+          const claimed = await tx.studyTask.updateMany({
+            where: { id: task.id, userId, dateKey: task.dateKey, status: "PLANNED", movedFromId: null },
+            data: { status: "MOVED" },
+          });
+          if (!claimed.count) return;
+          await tx.studyTask.create({
+            data: {
+              userId, dateKey: cursor, templateKey: `moved-${task.id}`, movedFromId: task.id,
+              subjectId: task.subjectId, topicId: task.topicId, title: task.title, detail: task.detail,
+              kind: task.kind, durationMin: task.durationMin, optional: task.optional, sortOrder: task.sortOrder,
+              status: "PLANNED", notes: task.notes || "Автоматично перенесено на вільний день",
+            },
+          });
+        };
+        if ("$transaction" in db) await (db as typeof prisma).$transaction(move);
+        else await move(db);
         break;
       }
       cursor = addDateKeys(cursor, 1);
