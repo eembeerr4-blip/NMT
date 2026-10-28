@@ -1,5 +1,6 @@
 "use server";
 
+import { completeScheduledReview, mistakeRetryReady } from "@/server/mistake-retry";
 import { exampleAnswerCheckSchema } from "@/lib/example-answer";
 
 import type { Prisma } from "@prisma/client";
@@ -20,7 +21,7 @@ import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod";
-import { DEFAULT_FORMAT, DEFAULT_SCHEDULE, ELECTIVE_SUBJECT_IDS, REQUIRED_SUBJECT_IDS, type ScheduleConfig } from "@/lib/constants";
+import { MISTAKE_CATEGORY_LABEL, DEFAULT_FORMAT, DEFAULT_SCHEDULE, ELECTIVE_SUBJECT_IDS, REQUIRED_SUBJECT_IDS, type ScheduleConfig } from "@/lib/constants";
 import { addDateKeys, dateKey, isDateKey, noonUtc } from "@/lib/dates";
 import { gradeAnswer, pickBalanced } from "@/lib/grade";
 import { learningStatus, reviewIntervals } from "@/lib/mastery";
@@ -758,7 +759,7 @@ export async function logStudyMinutes(input: { subjectId?: string; topicId?: str
 export async function completeReview(id: string): Promise<ActionState> {
   try {
     const user = await actor();
-    await prisma.reviewSchedule.update({ where: { id, userId: user.id, status: "PENDING" }, data: { status: "DONE", completedAt: new Date() } });
+    await completeScheduledReview(prisma,user.id,id);
     refreshPages("/review", "/calendar", "/", "/analytics");
     return { ok: true };
   } catch (error) {
@@ -768,23 +769,18 @@ export async function completeReview(id: string): Promise<ActionState> {
 
 export async function reviewFlashcard(id: string, grade: "again" | "good"): Promise<ActionState> {
   try {
-    const user = await actor();
-    const card = await prisma.flashcard.findUnique({ where: { id, userId: user.id } });
-    if (!card) return { ok: false, error: "Картку не знайдено." };
-    if (grade === "again") {
-      await prisma.flashcard.update({ where: { id, userId: user.id }, data: { intervalDays: 1, dueKey: addDateKeys(dateKey(), 1), lapses: { increment: 1 } } });
-      if (card.topicId) {
-        await prisma.userTopicProgress.upsert({ where: { userId_topicId: { userId: user.id, topicId: card.topicId } }, update: { status: "NEEDS_REVIEW" }, create: { userId: user.id, topicId: card.topicId, status: "NEEDS_REVIEW" } });
-      }
-    } else {
-      const interval = Math.max(1, Math.round((card.intervalDays || 1) * card.ease));
-      await prisma.flashcard.update({ where: { id, userId: user.id }, data: { intervalDays: interval, dueKey: addDateKeys(dateKey(), interval), reps: { increment: 1 } } });
-    }
-    refreshPages("/review", "/analytics", "/", "/subjects", "/subjects/[slug]", "/topics/[id]", "/learn/[topicId]");
-    return { ok: true };
-  } catch (error) {
-    return fail(error);
-  }
+    const user=await actor();
+    if(!['again','good'].includes(grade))return {ok:false,error:'Оцінка картки недійсна.'};
+    await prisma.$transaction(async db=>{
+      const card=await db.flashcard.findFirst({where:{id,userId:user.id},include:{topic:{include:{questions:{where:{verificationStatus:'VERIFIED'},take:1},videos:{where:{reviewStatus:'CONFIRMED'},take:1}}}}});
+      if(!card || (card.topic&&!lessonAccess(card.topic).available))throw new UserError('Картка недоступна.');
+      if(card.dueKey>dateKey())throw new UserError('Картку вже повторено або її час ще не настав.');
+      const interval=grade==='again'?1:Math.max(1,Math.round((card.intervalDays||1)*card.ease));
+      const changed=await db.flashcard.updateMany({where:{id,userId:user.id,dueKey:card.dueKey,intervalDays:card.intervalDays},data:{intervalDays:interval,dueKey:addDateKeys(dateKey(),interval),...(grade==='again'?{lapses:{increment:1}}:{reps:{increment:1}})}});
+      if(changed.count&&grade==='again'&&card.topicId)await db.userTopicProgress.upsert({where:{userId_topicId:{userId:user.id,topicId:card.topicId}},update:{status:'NEEDS_REVIEW'},create:{userId:user.id,topicId:card.topicId,status:'NEEDS_REVIEW'}});
+    });
+    refreshPages('/review','/analytics','/','/subjects','/subjects/[slug]','/topics/[id]','/learn/[topicId]');return {ok:true};
+  }catch(error){return fail(error);}
 }
 
 export async function saveFlashcard(input: { subjectId?: string; topicId?: string; kind: string; front: string; back: string }): Promise<ActionState> {
@@ -812,6 +808,9 @@ export async function saveFlashcard(input: { subjectId?: string; topicId?: strin
 export async function setMistakeMeta(id: string, category: string, status: string): Promise<ActionState> {
   try {
     const user = await actor();
+    if(!Object.hasOwn(MISTAKE_CATEGORY_LABEL,category)||!['OPEN','REVIEWING','FIXED'].includes(status))throw new UserError('Стан або причина помилки недійсні.');
+    const mistake=await prisma.mistake.findFirst({where:{id,userId:user.id},include:{question:{include:{topic:true}}}});
+    if(!mistake || (mistake.question&&!learnerQuestionAvailable(mistake.question)))throw new UserError('Помилка недоступна.');
     await prisma.mistake.update({ where: { id, userId: user.id }, data: { category, status } });
     refreshPages("/mistakes", "/review", "/analytics", "/");
     return { ok: true };
@@ -929,12 +928,13 @@ export async function buildBackup() {
     tx.mistake.findMany(),
     tx.flashcard.findMany(),
   ]);
+  const mistakeRetries=await mistakeRetryReady(tx)?await tx.mistakeRetry.findMany():[];
   const auditLogs=await tx.auditLog.findMany({orderBy:[{createdAt:"asc"},{id:"asc"}]});
   // Never export active verification/reset tokens, OAuth state, or unused invitations.
   const hasExternal=await externalPracticeReady(tx);
   const externalPractice=hasExternal?await tx.externalPractice.findMany():[];
   const externalResultRevisions=hasExternal?await tx.externalResultRevision.findMany():[];
-  return { externalPractice, externalResultRevisions, auditLogs, version: hasExternal?6:5, users, userSubjects, progress, videoProgress, oauthAccounts, exportedAt: new Date().toISOString(), settings, subjects, topics, dependencies, videos, questions, options, tests, testQuestions, attempts, answers, examResults, sessions, tasks, reviews, mistakes, flashcards };
+  return { mistakeRetries, externalPractice, externalResultRevisions, auditLogs, version: hasExternal?6:5, users, userSubjects, progress, videoProgress, oauthAccounts, exportedAt: new Date().toISOString(), settings, subjects, topics, dependencies, videos, questions, options, tests, testQuestions, attempts, answers, examResults, sessions, tasks, reviews, mistakes, flashcards };
   });
 }
 
@@ -954,6 +954,10 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
     if(data.version>=6 && (!Array.isArray(data.externalPractice)||!Array.isArray(data.externalResultRevisions))) return {ok:false,error:"У копії бракує зовнішніх призначень або історії результатів."};
     if(data.version>=6 && !await externalPracticeReady()) return {ok:false,error:"Перед відновленням цієї копії потрібна погоджена міграція зовнішньої практики."};
     if(data.version>=6) validateExternalBackup(data);
+    const hasRetryHistory=await mistakeRetryReady(prisma);
+    if(data.mistakeRetries!==undefined&&!Array.isArray(data.mistakeRetries))return {ok:false,error:'Історія виправлень має бути масивом.'};
+    if(data.mistakeRetries?.length&&!hasRetryHistory)return {ok:false,error:'Для історії виправлень потрібна погоджена міграція.'};
+    if(data.mistakeRetries===undefined&&hasRetryHistory&&await prisma.mistakeRetry.count())return {ok:false,error:'Стара копія не містить історії виправлень. Відновлення з втратою історії заблоковано.'};
     const settingsRows = data.settings.map((row) => {
       const legacy = row as typeof row & { aiProvider?: string; aiModel?: string };
       const { aiProvider: _dropProvider, aiModel: _dropModel, ...rest } = legacy;
@@ -1013,6 +1017,7 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
       if(data.externalResultRevisions?.length) await tx.externalResultRevision.createMany({data:data.externalResultRevisions});
       if (data.reviews.length) await tx.reviewSchedule.createMany({ data: data.reviews });
       if (data.mistakes.length) await tx.mistake.createMany({ data: data.mistakes });
+      if (data.mistakeRetries?.length) await tx.mistakeRetry.createMany({data:data.mistakeRetries});
       // Preserve the live journal; archived events must never be replayed as new actions.
       await recordAudit(user,{action:"BACKUP_RESTORED",entityType:"backup",metadata:{version:data.version}},tx);
     });

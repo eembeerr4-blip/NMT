@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatUk, parseDateKey } from "@/lib/dates";
+import { formatUk, parseDateKey, dateKey } from "@/lib/dates";
 import type { ReviewScheduleRow } from "@/lib/mistake-review-ui";
 import { reviewPriorityLabel, topicHasLearnerTheory } from "@/lib/mistake-review-ui";
 import { ReviewControls } from "@/components/review-controls";
@@ -42,7 +42,7 @@ export function ReviewQueueSection({
                     {item.intervalDays ? ` · інтервал ${item.intervalDays} дн.` : ""}
                   </p>
                 </div>
-                <ReviewControls id={item.id} />
+                <ReviewControls id={item.id} disabled={item.dueKey>dateKey()} />
               </div>
               <div className="mt-3 flex flex-wrap gap-2">
                 <Link href={`/topics/${item.topicId}`} className="inline-flex min-h-9 items-center rounded-xl border border-border px-3 text-sm font-medium hover:bg-muted">

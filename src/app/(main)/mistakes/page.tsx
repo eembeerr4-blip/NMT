@@ -93,6 +93,7 @@ export default async function MistakesPage({ searchParams }: { searchParams: Pro
                 {mistake.topic ? <Link href={`/topics/${mistake.topic.id}`} className="inline-flex min-h-9 items-center rounded-xl border border-border px-3 text-sm font-medium hover:bg-muted">Картка теми</Link> : null}
                 {hasTheory && topicId ? <Link href={`/learn/${topicId}`} className="inline-flex min-h-9 items-center rounded-xl border border-border px-3 text-sm font-medium hover:bg-muted">Конспект</Link> : null}
                 {hasPendingReview ? <Link href="/review" className="inline-flex min-h-9 items-center rounded-xl border border-border px-3 text-sm font-medium hover:bg-muted">Заплановане повторення</Link> : mistake.topic ? <span className="text-sm text-muted-foreground">Повторення не заплановано</span> : null}
+                <Link href={`/mistakes/${mistake.id}/retry`} className="inline-flex min-h-9 items-center rounded-xl bg-primary px-3 text-sm font-medium text-primary-foreground">Розв’язати повторно</Link>
                 <MistakeControls id={mistake.id} category={mistake.category} status={mistake.status}/>
               </div>
             </div>

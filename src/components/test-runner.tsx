@@ -12,7 +12,7 @@ import { MathText } from "@/components/math-text";
 import { Badge, Button, Card, Progress } from "@/components/ui";
 
 type Option = { id: string; label: string; text: string; matchKey: string | null; sortOrder: number };
-type PublicQuestion = { id: string; type: string; difficulty: string; prompt: string; options: Option[] };
+export type PublicQuestion = { id: string; type: string; difficulty: string; prompt: string; options: Option[] };
 
 export function TestRunner({
   userId,
@@ -134,7 +134,7 @@ export function TestRunner({
   );
 }
 
-function AnswerInput({ sequenceSeed, question, value, onChange }: { sequenceSeed:string; question: PublicQuestion; value: unknown; onChange: (value: unknown) => void }) {
+export function AnswerInput({ sequenceSeed, question, value, onChange }: { sequenceSeed:string; question: PublicQuestion; value: unknown; onChange: (value: unknown) => void }) {
   if (question.type === "SINGLE_CHOICE") {
     return (
       <div className="space-y-2">

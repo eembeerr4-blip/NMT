@@ -423,6 +423,7 @@ model ReviewSchedule {
 }
 
 model Mistake {
+  retries MistakeRetry[]
   id            String    @id @default(cuid())
   subjectId     String
   topicId       String?
@@ -528,4 +529,14 @@ model ExternalResultRevision {
   createdAt DateTime @default(now())
   assignment ExternalPractice @relation(fields: [assignmentId], references: [id], onDelete: Restrict)
   @@unique([assignmentId, version])
+}
+
+model MistakeRetry {
+  id String @id
+  mistakeId String
+  answerJson String
+  isCorrect Boolean?
+  createdAt DateTime @default(now())
+  mistake Mistake @relation(fields:[mistakeId],references:[id],onDelete:Cascade)
+  @@index([mistakeId,createdAt])
 }

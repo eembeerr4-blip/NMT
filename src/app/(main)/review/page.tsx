@@ -40,7 +40,7 @@ export default async function ReviewPage() {
     prisma.reviewSchedule.findMany({ where: { ...pending, dueKey: { gt: today } }, include: reviewInclude, orderBy: { dueKey: "asc" }, take: 12 }),
     prisma.userTopicProgress.findMany({ where: { userId: user.id, status: "NEEDS_REVIEW", topic: learnerReviewTopicFilter }, include: { topic: true }, take: 8 }).then((rows) => rows.map((row) => row.topic)),
     prisma.reviewSchedule.findMany({ where: { userId: user.id, status: "DONE" }, include: { topic: true }, orderBy: { completedAt: "desc" }, take: 8 }),
-    prisma.flashcard.findMany({ where: { userId: user.id, dueKey: { lte: today } }, take: 12 }),
+    prisma.flashcard.findMany({ where: { userId: user.id, dueKey: { lte: today }, OR: [{topicId:null},{topic:learnerReviewTopicFilter}] }, take: 12 }),
     prisma.topic.findMany({ where: { coverage: { not: "DRAFT" } }, select: { id: true, subjectId: true, title: true }, orderBy: { title: "asc" } }),
     loadReviewOverview(prisma, user.id, today),
   ]);
