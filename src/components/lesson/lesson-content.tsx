@@ -13,9 +13,9 @@ export function LessonTheory({lesson,description}:{lesson:LessonContent|null;des
   </Card>;
 }
 
-export function LessonExamples({lesson}:{lesson:LessonContent|null}) {
+export function LessonExamples({lesson,topicId}:{lesson:LessonContent|null;topicId:string}) {
   if(!lesson?.examples.length)return <Card className="d04-material d04-empty"><h2>Приклади ще готуються</h2><p>Для цієї теми приклади ще не додані. Перейдіть до доступної теорії або практики.</p></Card>;
-  return <div className="d04-examples">{lesson.examples.map((example,index)=><LessonExample key={index} example={example} index={index}/>)}</div>;
+  return <div className="d04-examples">{lesson.examples.map((example,index)=><LessonExample key={index} topicId={topicId} task={example.task} canCheck={Boolean(example.answerCheck)} index={index}/>)}</div>;
 }
 
 export function LessonSynopsis({lesson,summary,formulas}:{lesson:LessonContent|null;summary:string;formulas:string}) {

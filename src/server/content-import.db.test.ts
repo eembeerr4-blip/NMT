@@ -178,3 +178,19 @@ it("retains explicit example checks when unrelated lesson text is edited, and dr
  const changed=JSON.parse((await prisma.topic.findUniqueOrThrow({where:{id:"pkg-answer-check"}})).lessonJson);
  expect(changed.examples[0].answerCheck).toBeUndefined();
 });
+
+it("edits, clears and reorders explicit checks without assigning an old key to a different task",async()=>{
+ auth.id="owner";
+ const a={task:"A: x+1=6",solution:"x=5",answerCheck:{type:"numeric",value:5,variable:"x"}};
+ const b={task:"B: x+1=5",solution:"x=4",answerCheck:{type:"numeric",value:4,variable:"x"}};
+ expect((await importContentPackage(raw([topic("pkg-check-editor",{lesson:{...lesson,examples:[a,b]}})]))).ok).toBe(true);
+ auth.id="editor";
+ const read=async()=>JSON.parse((await prisma.topic.findUniqueOrThrow({where:{id:"pkg-check-editor"}})).lessonJson).examples;
+ expect((await saveLessonContent("pkg-check-editor",{...lesson,examples:[{task:b.task,solution:b.solution},{task:a.task,solution:a.solution}]})).ok).toBe(true);
+ expect((await read()).map((e:{answerCheck:{value:number}})=>e.answerCheck.value)).toEqual([4,5]);
+ expect((await saveLessonContent("pkg-check-editor",{...lesson,examples:[{...b,answerCheck:null},{...a,answerCheck:{type:"numeric",value:6}}]})).ok).toBe(true);
+ expect((await read())[0].answerCheck).toBeUndefined();expect((await read())[1].answerCheck.value).toBe(6);
+ const previous=await read();
+ expect((await saveLessonContent("pkg-check-editor",{...lesson,examples:[{...a,answerCheck:{type:"unsupported",value:5}}]})).ok).toBe(false);expect(await read()).toEqual(previous);
+ expect((await saveLessonContent("pkg-check-editor",{...lesson,examples:[{...a,answerCheck:{type:"no-solution"}}]})).ok).toBe(true);expect((await read())[0].answerCheck).toEqual({type:"no-solution"});
+});
