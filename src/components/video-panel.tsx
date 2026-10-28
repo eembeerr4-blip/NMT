@@ -87,7 +87,7 @@ function VideoRow({ video, canEdit, lessonStyle=false, onPrimary }: { video: Vid
   const {pending,result,run}=useActionFeedback();
   return (
     <Card className={lessonStyle?"d04f-video-notes space-y-2 p-4":"space-y-2 p-4"}>
-      {lessonStyle?<h3>Мої нотатки до відео</h3>:null}
+
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="text-sm font-medium">{video.title || video.youtubeId} {video.isPrimary && video.reviewStatus === "CONFIRMED" ? "· основна" : ""}{canEdit ? ` · ${video.reviewStatus ?? "SUGGESTED"}` : ""}</div>
         {canEdit ? <div className="flex flex-wrap gap-2">
@@ -105,9 +105,12 @@ function VideoRow({ video, canEdit, lessonStyle=false, onPrimary }: { video: Vid
         <Input name="title" defaultValue={video.title} />
         <Button type="submit" size="sm" variant="outline">Зберегти назву</Button>
       </form> : null}
+      {canEdit ? <p className="text-xs text-muted-foreground">Перед підтвердженням перегляньте ролик повністю: перевірте українську озвучку, точність, відповідність темі та відтворення всередині сайту. Сам iframe не підтверджує якість.</p> : null}
       {canEdit ? <p className="text-xs text-muted-foreground">Інший ролик додайте окремим кандидатом. Збереження тут змінює лише назву.</p> : null}
+      <details><summary className="cursor-pointer font-medium">Мої нотатки до відео</summary><div className="mt-3 space-y-2">
       <textarea aria-label="Нотатки до лекції" className="min-h-20 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm" value={notes} onChange={(event) => setNotes(event.target.value)} placeholder="Нотатки до лекції" />
       <Button type="button" size="sm" variant="outline" disabled={pending} onClick={async () => { await run(()=>saveVideoNotes(video.id,notes)); }}>Зберегти нотатки</Button>
+      </div></details>
       {result ? <p role={result.ok?"status":"alert"} className="text-sm">{result.ok?result.message??"Зміни збережено.":result.error}</p> : null}
     </Card>
   );
