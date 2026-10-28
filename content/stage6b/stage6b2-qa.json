@@ -1,0 +1,103 @@
+{
+  "isolatedDatabase": "C:\\Users\\User\\AppData\\Local\\Temp\\nmt-stage6b2-HPxlv6\\qa.db",
+  "questions": 84,
+  "uniqueIds": 84,
+  "draftCount": 84,
+  "verifiedCount": 0,
+  "perTopic": [
+    {
+      "topicId": "ukr-lex-01-meaning",
+      "total": 12,
+      "counts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "practice": true,
+      "coverage": "DRAFT"
+    },
+    {
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "total": 12,
+      "counts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "practice": true,
+      "coverage": "DRAFT"
+    },
+    {
+      "topicId": "ukr-lex-03-phraseology",
+      "total": 12,
+      "counts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "practice": true,
+      "coverage": "DRAFT"
+    },
+    {
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "total": 12,
+      "counts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "practice": true,
+      "coverage": "DRAFT"
+    },
+    {
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "total": 12,
+      "counts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "practice": true,
+      "coverage": "DRAFT"
+    },
+    {
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "total": 12,
+      "counts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "practice": true,
+      "coverage": "DRAFT"
+    },
+    {
+      "topicId": "zcode-biology-molecular-division",
+      "total": 12,
+      "counts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "practice": true,
+      "coverage": "DRAFT"
+    }
+  ],
+  "activityBefore": {
+    "answer": 1,
+    "testAttempt": 1,
+    "mistake": 1,
+    "reviewSchedule": 1
+  },
+  "activityAfter": {
+    "answer": 1,
+    "testAttempt": 1,
+    "mistake": 1,
+    "reviewSchedule": 1
+  },
+  "activityUnchanged": true,
+  "htmlMatchesManifest": true,
+  "errors": [],
+  "workingSqliteUnchanged": true,
+  "subjectCorrectnessNotClaimed": true
+}
