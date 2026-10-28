@@ -11,9 +11,19 @@ describe("authored mathematics drafts",()=>{
   expect(pack.questions.filter(q=>q.difficulty==="MEDIUM")).toHaveLength(5);
   expect(pack.questions.filter(q=>q.difficulty==="HARD")).toHaveLength(3);
   for(const q of pack.questions){expect(q.explanation.trim().length).toBeGreaterThan(30);expect(q.verificationStatus).toBe("DRAFT");expect(prepareQuestion(q).correctAnswer).toBeTruthy();}
-  const base={lessonJson:JSON.stringify(pack.lesson),videos:[],children:[]};
-  expect(lessonReadiness({...base,questions:pack.questions})).toMatchObject({theory:true,examples:true,practice:true,ready:false});
-  expect(lessonReadiness({...base,questions:pack.questions.filter(q=>q.verificationStatus==="VERIFIED" as string)}).practice).toBe(false);
+  const base = { lessonJson: JSON.stringify(pack.lesson), videos: [], children: [] };
+  expect(lessonReadiness({ ...base, questions: pack.questions })).toMatchObject({
+    theory: true,
+    examples: true,
+    practice: false,
+    ready: false,
+  });
+  expect(
+    lessonReadiness({
+      ...base,
+      questions: pack.questions.map((q) => ({ ...q, verificationStatus: "VERIFIED" as string })),
+    }),
+  ).toMatchObject({ practice: true, ready: true });
  });
  it("rejects a wrong answer independently of the authored key",()=>{const q=structuredClone(content.packs[0].questions.find(q=>q.type==="NUMERIC")!);q.correctAnswer="999999";expect(()=>verifyMathQuestion(q)).toThrow(/calculated/);});
  it("rejects ambiguous distractors",()=>{const q=structuredClone(content.packs[0].questions[0]);q.options[1].numericValue=q.options[0].numericValue;expect(()=>verifyMathQuestion(q)).toThrow();});

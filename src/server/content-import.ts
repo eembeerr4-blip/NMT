@@ -2,7 +2,7 @@
 
 import type { Prisma } from "@prisma/client";
 import { revalidatePath } from "next/cache";
-import { parseLesson } from "@/lib/lesson";
+import { lessonReadiness, publishReadinessError } from "@/lib/readiness";
 import { canEditContent } from "@/lib/permissions";
 import { prisma } from "@/lib/prisma";
 import { userFacingError } from "@/lib/errors";
@@ -169,10 +169,15 @@ export async function publishLesson(topicId: string): Promise<{ ok: true; messag
   if (!gate.ok) return gate;
   try {
     const result = await prisma.$transaction(async (tx) => {
-      const topic = await tx.topic.findUnique({ where: { id: topicId }, select: { id: true, coverage: true, lessonJson: true } });
+      const topic = await tx.topic.findUnique({
+        where: { id: topicId },
+        include: { questions: true, videos: true, children: { select: { id: true } } },
+      });
       if (!topic) return { ok: false as const, error: "Тему не знайдено." };
-      if (!parseLesson(topic.lessonJson)?.theory.trim()) return { ok: false as const, error: "Спочатку додайте конспект уроку." };
       if (topic.coverage === "READY" || topic.coverage === "VERIFIED") return { ok: true as const, message: "Урок уже опубліковано для учнів." };
+      const readiness = lessonReadiness(topic);
+      const blocked = publishReadinessError(readiness);
+      if (blocked) return { ok: false as const, error: blocked };
       await tx.topic.update({ where: { id: topicId }, data: { coverage: "READY" } });
       await recordAudit(gate.user, { action: "LESSON_PUBLISHED", entityType: "topic", entityId: topicId }, tx);
       return { ok: true as const, message: "Урок опубліковано для учнів. Завдання лишаються чернетками, доки їх окремо не перевірять. Відео з’явиться після підтвердження посилання." };

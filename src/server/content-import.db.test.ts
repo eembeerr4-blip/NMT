@@ -144,15 +144,45 @@ it("keeps an imported lesson editable, publishes it only on request, and shows i
   expect(draft.lessonJson).toContain("Примітка після імпорту");
   expect(draft.lessonJson).toContain("\"origin\":\"original\"");
   expect(lessonAccess({ ...draft, questions: draft.questions, videos: draft.videos }).available).toBe(false);
+  expect((await publishLesson("pkg-draft")).ok).toBe(false);
+  const fullLesson = {
+    objectives: ["Ціль"],
+    theory: `${"Оновлений конспект імпортованого уроку. ".repeat(40)}Достатньо символів для перевірки готовності.`,
+    rules: ["Правило"],
+    examples: [
+      { task: "Приклад 1", solution: "Розв'язок 1" },
+      { task: "Приклад 2", solution: "Розв'язок 2" },
+    ],
+    mistakes: ["Типова помилка"],
+    summary: "Підсумок",
+  };
+  const verifiedQuestions = [
+    ...Array.from({ length: 4 }, (_, index) => question(`pkg-draft-e${index}`, { difficulty: "EASY" })),
+    ...Array.from({ length: 5 }, (_, index) => question(`pkg-draft-m${index}`, { difficulty: "MEDIUM" })),
+    ...Array.from({ length: 3 }, (_, index) => question(`pkg-draft-h${index}`, { difficulty: "HARD" })),
+  ];
+  expect(
+    (
+      await importContentPackage(
+        raw([
+          topic("pkg-draft", {
+            lesson: fullLesson,
+            questions: verifiedQuestions,
+            video: { url: "https://youtu.be/abcdefghijk", title: "Кандидат" },
+          }),
+        ]),
+      )
+    ).ok,
+  ).toBe(true);
+  await prisma.question.updateMany({ where: { topicId: "pkg-draft" }, data: { verificationStatus: "VERIFIED" } });
   const published = await publishLesson("pkg-draft");
   expect(published.ok, JSON.stringify(published)).toBe(true);
   const live = await prisma.topic.findUniqueOrThrow({ where: { id: "pkg-draft" }, include: { questions: true, videos: true } });
   expect(live.coverage).toBe("READY");
-  expect(live.questions[0].verificationStatus).toBe("DRAFT");
+  expect(live.questions.every((q) => q.verificationStatus === "VERIFIED")).toBe(true);
   expect(live.videos[0].reviewStatus).toBe("SUGGESTED");
-  expect(lessonAccess({ lessonJson: live.lessonJson, coverage: "DRAFT" }).available).toBe(false);
-  expect(lessonAccess({ lessonJson: live.lessonJson, coverage: live.coverage, questions: [], videos: live.videos }).available).toBe(true);
-  expect(lessonAccess({ lessonJson: live.lessonJson, coverage: live.coverage, questions: [], videos: live.videos }).video).toBe(false);
+  expect(lessonAccess({ lessonJson: live.lessonJson, coverage: live.coverage, questions: live.questions, videos: live.videos }).available).toBe(true);
+  expect(lessonAccess({ lessonJson: live.lessonJson, coverage: live.coverage, questions: live.questions, videos: live.videos }).video).toBe(false);
 });
 
 it("imports a large package inside the topic limit", async () => {
