@@ -1,0 +1,38 @@
+{
+  "format": "nmt-stage6d-release-plan",
+  "version": 1,
+  "createdAt": "2026-10-28T20:59:46.275Z",
+  "appliesToWorkingDatabase": false,
+  "sources": {
+    "questionsManifest": "content/stage6b/stage6b-question-bank-manifest.v2.json",
+    "questionsManifestVersion": 2,
+    "questionsManifestCommit": "0e00742a695a6e6dd0f5fbc51d3985dc4d4a5808",
+    "videoManifest": "content/stage6c/stage6c-video-candidates.v1.json",
+    "videoManifestVersion": 1,
+    "videoManifestCommit": "4c155b4d5446d158fb3a1d9046f9ef262f2d93ee"
+  },
+  "orderedSteps": [
+    "Отримати рішення власника у stage6d-release-review.html (питання через stage6b2-owner-decisions.json + contentHash; відео — APPROVE_CANDIDATE / REPLACE / NEEDS_REVIEW).",
+    "Перевірити свіжий backup робочої SQLite (окремий дозволений сценарій, не автоматично).",
+    "Застосувати manifest v2 до робочої бази скриптом stage6d-apply-manifest-v2.ts з strictCorrectionMatch.",
+    "Додати обрані VideoLesson через addVideoCandidate (лише SUGGESTED, isPrimary=false).",
+    "Редакторськи перевести схвалені питання у VERIFIED (не автоматично).",
+    "Після прослуховування/перегляду підтвердити відео (CONFIRMED) і призначити primary вручну.",
+    "Перевірити lessonReadiness для кожної з 7 тем (practice уже 12/4-5-3; ready потребує theory/examples/CONFIRMED video).",
+    "Окремо погодити зміну coverage з DRAFT на NEEDS_CONTENT або CONFIRMED — не входить у цей пакет.",
+    "Публікувати лише уроки, де власник явно дозволив coverage + VERIFIED questions + CONFIRMED video.",
+    "Перевірити учнівський сценарій (learn page, practice, без витоку SUGGESTED/DRAFT)."
+  ],
+  "blockers": [
+    "84 питання лишаються DRAFT до ручного VERIFIED.",
+    "Рекомендовані відео не CONFIRMED; частина METADATA_ONLY / NOT_VERIFIED.",
+    "coverage усіх 7 тем = DRAFT.",
+    "Робочий імпорт не виконувався в Stage 6D."
+  ],
+  "rehearsalSummary": {
+    "qaDatabaseMethod": "SQLite VACUUM INTO from read-only source connection (consistent snapshot)",
+    "additionCount": 14,
+    "idempotencyOk": true,
+    "userTablesUnchanged": true
+  }
+}

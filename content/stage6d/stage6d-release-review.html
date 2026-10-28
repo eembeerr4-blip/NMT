@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stage 6D — Release Review</title>
+  <style>
+    body { font-family: system-ui, Segoe UI, sans-serif; max-width: 960px; margin: 0 auto; padding: 1rem; line-height: 1.45; }
+    .banner { background: #eef2ff; border: 1px solid #c7d2fe; padding: .75rem 1rem; border-radius: 8px; margin-bottom: 1rem; }
+    article { border: 1px solid #ddd; border-radius: 10px; padding: 1rem; margin: 1rem 0; }
+    .chip { display: inline-block; font-size: .75rem; background: #f3f4f6; padding: .1rem .45rem; border-radius: 999px; margin-left: .35rem; }
+    .video-row { border-top: 1px dashed #ccc; padding-top: .75rem; margin-top: .75rem; }
+    textarea { width: 100%; box-sizing: border-box; }
+    .toolbar { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
+    button { cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <strong>Stage 6D Release Review</strong> — локальні рішення, не в prisma/dev.db.
+    Питання: import <code>stage6b2-owner-decisions.json</code> з перевіркою <code>contentHash</code>.
+    Відео: export нижче. Manifest v2 + Stage 6C v1.
+  </div>
+  <div class="toolbar">
+    <button type="button" id="export-decisions">Експорт рішень JSON</button>
+    <label>Імпорт stage6b2-owner-decisions.json <input type="file" id="import-b6b2" accept="application/json" /></label>
+    <label>Імпорт stage6d-release-decisions.json <input type="file" id="import-6d" accept="application/json" /></label>
+  </div>
+  <p id="status"></p>
+  <article id="ukr-lex-01-meaning">
+      <h2>Лексичне значення слова</h2>
+      <p><code>ukr-lex-01-meaning</code> · coverage: <strong>DRAFT</strong> · питань: <strong>12</strong> (manifest v2)</p>
+      <p>Конспект: DRAFT / потребує окремої перевірки перед публікацією.</p>
+      <p>Виправлені питання Stage 6B.2: ukr-lex-01-q11, ukr-lex-01-q12</p>
+      <p><a href="../stage6b/stage6b2-owner-review.html" target="_blank" rel="noreferrer">Повний пакет 84 питань (Stage 6B.2 HTML)</a></p>
+      <h3>Відео</h3>
+      <p>Поточне (Stage 6C): <a href="https://www.youtube.com/watch?v=NDmd6xU9F2E" target="_blank" rel="noreferrer">Українська мова. Лексикологія. Лексичне значення слова. Однозначні й багатозначні слова</a></p>
+      <div class="video-row" data-video-key="ukr-lex-01-meaning:NDmd6xU9F2E" data-youtube-id="NDmd6xU9F2E">
+          <p><strong>Рекомендоване основне</strong>
+          <span class="chip">METADATA_ONLY</span>
+          <span class="chip">збігається з дослідженням Stage 6C current</span></p>
+          <p><a href="https://www.youtube.com/watch?v=NDmd6xU9F2E" target="_blank" rel="noreferrer">Українська мова. Лексикологія. Лексичне значення слова. Однозначні й багатозначні слова</a> · Всеукраїнська школа онлайн</p>
+          <p>Доступність, тривалість (11:03) і embed підтверджено через YouTube watch page + playabilityStatus OK (2026-10-28). Зміст уроку за назвою/програмою ВШО, але повного перегляду або VTT-транскрипту не отримано.</p>
+          <div class="decision">
+            <label><input type="radio" name="video-ukr-lex-01-meaning:NDmd6xU9F2E" value="APPROVE_CANDIDATE" /> APPROVE_CANDIDATE</label>
+            <label><input type="radio" name="video-ukr-lex-01-meaning:NDmd6xU9F2E" value="REPLACE" /> REPLACE</label>
+            <label><input type="radio" name="video-ukr-lex-01-meaning:NDmd6xU9F2E" value="NEEDS_REVIEW" checked /> NEEDS_REVIEW</label>
+          </div>
+          <textarea data-comment-for="ukr-lex-01-meaning:NDmd6xU9F2E" rows="2" placeholder="Коментар до відео"></textarea>
+        </div>
+      <h3>Перевірено / залишилось власнику</h3>
+      <ul><li>Чи достатньо в NDmd6xU9F2E прямого/переносного значення для банку питань ukr-lex-01.</li><li>Якість озвучки та темп для старшокласників.</li></ul>
+      <p><strong>Блокери:</strong> немає CONFIRMED video; coverage DRAFT; питання DRAFT; рішення власника не застосовані до БД.</p>
+    </article>
+<article id="ukr-lex-02-syn-ant-hom">
+      <h2>Синоніми, антоніми, омоніми</h2>
+      <p><code>ukr-lex-02-syn-ant-hom</code> · coverage: <strong>DRAFT</strong> · питань: <strong>12</strong> (manifest v2)</p>
+      <p>Конспект: DRAFT / потребує окремої перевірки перед публікацією.</p>
+      <p>Виправлені питання Stage 6B.2: ukr-lex-02-q10, ukr-lex-02-q11</p>
+      <p><a href="../stage6b/stage6b2-owner-review.html" target="_blank" rel="noreferrer">Повний пакет 84 питань (Stage 6B.2 HTML)</a></p>
+      <h3>Відео</h3>
+      <p>Поточне (Stage 6C): <a href="https://www.youtube.com/watch?v=scigg_eN4qs" target="_blank" rel="noreferrer">10 клас. Українська мова. Лексичні та фразеологічні синоніми, антоніми. Синонімічне багатство мови</a></p>
+      <div class="video-row" data-video-key="ukr-lex-02-syn-ant-hom:scigg_eN4qs" data-youtube-id="scigg_eN4qs">
+          <p><strong>Рекомендоване основне</strong>
+          <span class="chip">METADATA_ONLY</span>
+          <span class="chip">збігається з дослідженням Stage 6C current</span></p>
+          <p><a href="https://www.youtube.com/watch?v=scigg_eN4qs" target="_blank" rel="noreferrer">10 клас. Українська мова. Лексичні та фразеологічні синоніми, антоніми. Синонімічне багатство мови</a> · Всеукраїнська школа онлайн</p>
+          <p>Див. currentPrimary.</p>
+          <div class="decision">
+            <label><input type="radio" name="video-ukr-lex-02-syn-ant-hom:scigg_eN4qs" value="APPROVE_CANDIDATE" /> APPROVE_CANDIDATE</label>
+            <label><input type="radio" name="video-ukr-lex-02-syn-ant-hom:scigg_eN4qs" value="REPLACE" /> REPLACE</label>
+            <label><input type="radio" name="video-ukr-lex-02-syn-ant-hom:scigg_eN4qs" value="NEEDS_REVIEW" checked /> NEEDS_REVIEW</label>
+          </div>
+          <textarea data-comment-for="ukr-lex-02-syn-ant-hom:scigg_eN4qs" rows="2" placeholder="Коментар до відео"></textarea>
+        </div>
+<div class="video-row" data-video-key="ukr-lex-02-syn-ant-hom:o9xcL5pCxog" data-youtube-id="o9xcL5pCxog">
+          <p><strong>Додаткове</strong>
+          <span class="chip">VERIFIED_CONTENT</span>
+          </p>
+          <p><a href="https://www.youtube.com/watch?v=o9xcL5pCxog" target="_blank" rel="noreferrer">Українська мова. Омоніми. Пароніми. Словник омонімів. Словник паронімів</a> · Всеукраїнська школа онлайн</p>
+          <p>У публічному тексті/описі уроку (перевірка 2026-10-28) є визначення омонімів, розмежування з багатозначністю, омофони, омографи, омоформи та міжмовні омоніми — відповідає цілям ukr-lex-02.</p>
+          <div class="decision">
+            <label><input type="radio" name="video-ukr-lex-02-syn-ant-hom:o9xcL5pCxog" value="APPROVE_CANDIDATE" /> APPROVE_CANDIDATE</label>
+            <label><input type="radio" name="video-ukr-lex-02-syn-ant-hom:o9xcL5pCxog" value="REPLACE" /> REPLACE</label>
+            <label><input type="radio" name="video-ukr-lex-02-syn-ant-hom:o9xcL5pCxog" value="NEEDS_REVIEW" checked /> NEEDS_REVIEW</label>
+          </div>
+          <textarea data-comment-for="ukr-lex-02-syn-ant-hom:o9xcL5pCxog" rows="2" placeholder="Коментар до відео"></textarea>
+        </div>
+      <h3>Перевірено / залишилось власнику</h3>
+      <ul><li>Чи прийнятна двовідео схема (син/ант + омоніми) замість одного ролика.</li><li>Повний перегляд o9xcL5pCxog на предмет глибини для HARD-питань банку.</li></ul>
+      <p><strong>Блокери:</strong> немає CONFIRMED video; coverage DRAFT; питання DRAFT; рішення власника не застосовані до БД.</p>
+    </article>
+<article id="ukr-lex-03-phraseology">
+      <h2>Фразеологізми</h2>
+      <p><code>ukr-lex-03-phraseology</code> · coverage: <strong>DRAFT</strong> · питань: <strong>12</strong> (manifest v2)</p>
+      <p>Конспект: DRAFT / потребує окремої перевірки перед публікацією.</p>
+      <p>Виправлені питання Stage 6B.2: ukr-lex-03-q11, ukr-lex-03-q12</p>
+      <p><a href="../stage6b/stage6b2-owner-review.html" target="_blank" rel="noreferrer">Повний пакет 84 питань (Stage 6B.2 HTML)</a></p>
+      <h3>Відео</h3>
+      <p>Поточне (Stage 6C): <a href="https://www.youtube.com/watch?v=oZfA9V0mhV4" target="_blank" rel="noreferrer">Українська мова. Джерела українських фразеологізмів. Фразеологізми у мовленні людини</a></p>
+      <div class="video-row" data-video-key="ukr-lex-03-phraseology:wm0X68H_WtQ" data-youtube-id="wm0X68H_WtQ">
+          <p><strong>Рекомендоване основне</strong>
+          <span class="chip">VERIFIED_CONTENT</span>
+          </p>
+          <p><a href="https://www.youtube.com/watch?v=wm0X68H_WtQ" target="_blank" rel="noreferrer">Українська мова. Фразеологія. Поняття про фразеологізм, його лексичне значення</a> · Всеукраїнська школа онлайн</p>
+          <p>У публічному тексті уроку пояснюються поняття фразеологізму, цілісне значення, фразеологічний словник — ключове для НМТ.</p>
+          <div class="decision">
+            <label><input type="radio" name="video-ukr-lex-03-phraseology:wm0X68H_WtQ" value="APPROVE_CANDIDATE" /> APPROVE_CANDIDATE</label>
+            <label><input type="radio" name="video-ukr-lex-03-phraseology:wm0X68H_WtQ" value="REPLACE" /> REPLACE</label>
+            <label><input type="radio" name="video-ukr-lex-03-phraseology:wm0X68H_WtQ" value="NEEDS_REVIEW" checked /> NEEDS_REVIEW</label>
+          </div>
+          <textarea data-comment-for="ukr-lex-03-phraseology:wm0X68H_WtQ" rows="2" placeholder="Коментар до відео"></textarea>
+        </div>
+<div class="video-row" data-video-key="ukr-lex-03-phraseology:oZfA9V0mhV4" data-youtube-id="oZfA9V0mhV4">
+          <p><strong>Додаткове</strong>
+          <span class="chip">METADATA_ONLY</span>
+          </p>
+          <p><a href="https://www.youtube.com/watch?v=oZfA9V0mhV4" target="_blank" rel="noreferrer">Українська мова. Джерела українських фразеологізмів. Фразеологізми у мовленні людини</a> · Всеукраїнська школа онлайн</p>
+          <p></p>
+          <div class="decision">
+            <label><input type="radio" name="video-ukr-lex-03-phraseology:oZfA9V0mhV4" value="APPROVE_CANDIDATE" /> APPROVE_CANDIDATE</label>
+            <label><input type="radio" name="video-ukr-lex-03-phraseology:oZfA9V0mhV4" value="REPLACE" /> REPLACE</label>
+            <label><input type="radio" name="video-ukr-lex-03-phraseology:oZfA9V0mhV4" value="NEEDS_REVIEW" checked /> NEEDS_REVIEW</label>
+          </div>
+          <textarea data-comment-for="ukr-lex-03-phraseology:oZfA9V0mhV4" rows="2" placeholder="Коментар до відео"></textarea>
+        </div>
+      <h3>Перевірено / залишилось власнику</h3>
+      <ul><li>Чи достатньо пари wm0X68H_WtQ + oZfA9V0mhV4 для ukr-lex-03-q11/q12.</li><li>Перегляд на відсутність застарілих/неточних трактувань.</li></ul>
+      <p><strong>Блокери:</strong> немає CONFIRMED video; coverage DRAFT; питання DRAFT; рішення власника не застосовані до БД.</p>
+    </article>
+<article id="bio-cell-01-eukaryotic-cell">
+      <h2>Будова еукаріотичної клітини</h2>
+      <p><code>bio-cell-01-eukaryotic-cell</code> · coverage: <strong>DRAFT</strong> · питань: <strong>12</strong> (manifest v2)</p>
+      <p>Конспект: DRAFT / потребує окремої перевірки перед публікацією.</p>
+      <p>Виправлені питання Stage 6B.2: —</p>
+      <p><a href="../stage6b/stage6b2-owner-review.html" target="_blank" rel="noreferrer">Повний пакет 84 питань (Stage 6B.2 HTML)</a></p>
+      <h3>Відео</h3>
+      <p>Поточне (Stage 6C): <a href="https://www.youtube.com/watch?v=7DtFjdHJvKg" target="_blank" rel="noreferrer">Будова еукаріотичної клітини</a></p>
+      <div class="video-row" data-video-key="bio-cell-01-eukaryotic-cell:bBymW0PtVT0" data-youtube-id="bBymW0PtVT0">
+          <p><strong>Рекомендоване основне</strong>
+          <span class="chip">VERIFIED_CONTENT</span>
+          </p>
+          <p><a href="https://www.youtube.com/watch?v=bBymW0PtVT0" target="_blank" rel="noreferrer">Будова клітини [Nucleus Medical Media]</a> · Nucleus Medical Media (укр. озвучення)</p>
+          <p>Транскрипт підтверджує прокаріоти/еукаріоти, ядро, ЕПР, апарат Гольджі, мітохондрії, лізосоми, хлоропласти, клітинна стінка.</p>
+          <div class="decision">
+            <label><input type="radio" name="video-bio-cell-01-eukaryotic-cell:bBymW0PtVT0" value="APPROVE_CANDIDATE" /> APPROVE_CANDIDATE</label>
+            <label><input type="radio" name="video-bio-cell-01-eukaryotic-cell:bBymW0PtVT0" value="REPLACE" /> REPLACE</label>
+            <label><input type="radio" name="video-bio-cell-01-eukaryotic-cell:bBymW0PtVT0" value="NEEDS_REVIEW" checked /> NEEDS_REVIEW</label>
+          </div>
+          <textarea data-comment-for="bio-cell-01-eukaryotic-cell:bBymW0PtVT0" rows="2" placeholder="Коментар до відео"></textarea>
+        </div>
+<div class="video-row" data-video-key="bio-cell-01-eukaryotic-cell:jCVunU5VGbI" data-youtube-id="jCVunU5VGbI">
+          <p><strong>Додаткове</strong>
+          <span class="chip">METADATA_ONLY</span>
+          </p>
+          <p><a href="https://www.youtube.com/watch?v=jCVunU5VGbI" target="_blank" rel="noreferrer">Різноманітність еукаріотичних клітин</a> · BioLogos</p>
+          <p>1:45; опис відповідає порівнянню царств — перегляд власником.</p>
+          <div class="decision">
+            <label><input type="radio" name="video-bio-cell-01-eukaryotic-cell:jCVunU5VGbI" value="APPROVE_CANDIDATE" /> APPROVE_CANDIDATE</label>
+            <label><input type="radio" name="video-bio-cell-01-eukaryotic-cell:jCVunU5VGbI" value="REPLACE" /> REPLACE</label>
+            <label><input type="radio" name="video-bio-cell-01-eukaryotic-cell:jCVunU5VGbI" value="NEEDS_REVIEW" checked /> NEEDS_REVIEW</label>
+          </div>
+          <textarea data-comment-for="bio-cell-01-eukaryotic-cell:jCVunU5VGbI" rows="2" placeholder="Коментар до відео"></textarea>
+        </div>
+      <h3>Перевірено / залишилось власнику</h3>
+      <ul><li>Прийнятність медичної анімації (не ВШО) як основного відео.</li><li>Наукова точність формулювань у bBymW0PtVT0.</li></ul>
+      <p><strong>Блокери:</strong> немає CONFIRMED video; coverage DRAFT; питання DRAFT; рішення власника не застосовані до БД.</p>
+    </article>
+<article id="zcode-biology-molecular-dna-rna">
+      <h2>ДНК і РНК</h2>
+      <p><code>zcode-biology-molecular-dna-rna</code> · coverage: <strong>DRAFT</strong> · питань: <strong>12</strong> (manifest v2)</p>
+      <p>Конспект: DRAFT / потребує окремої перевірки перед публікацією.</p>
+      <p>Виправлені питання Stage 6B.2: —</p>
+      <p><a href="../stage6b/stage6b2-owner-review.html" target="_blank" rel="noreferrer">Повний пакет 84 питань (Stage 6B.2 HTML)</a></p>
+      <h3>Відео</h3>
+      <p>Поточне (Stage 6C): <a href="https://www.youtube.com/watch?v=R4USDzLsfNk" target="_blank" rel="noreferrer">ДНК. РНК.(нуклеїнові кислоти)</a></p>
+      <div class="video-row" data-video-key="zcode-biology-molecular-dna-rna:G63P4uoP6Fs" data-youtube-id="G63P4uoP6Fs">
+          <p><strong>Рекомендоване основне</strong>
+          <span class="chip">METADATA_ONLY</span>
+          </p>
+          <p><a href="https://www.youtube.com/watch?v=G63P4uoP6Fs" target="_blank" rel="noreferrer">9 клас. Біологія. Нуклеїнові кислоти. Роль нуклеїнових кислот як носія спадкової інформації. АТФ. Ч1</a> · Всеукраїнська школа онлайн</p>
+          <p>Відповідає темі 5 ВШО 9 класу; предметний перегляд власником обов’язковий.</p>
+          <div class="decision">
+            <label><input type="radio" name="video-zcode-biology-molecular-dna-rna:G63P4uoP6Fs" value="APPROVE_CANDIDATE" /> APPROVE_CANDIDATE</label>
+            <label><input type="radio" name="video-zcode-biology-molecular-dna-rna:G63P4uoP6Fs" value="REPLACE" /> REPLACE</label>
+            <label><input type="radio" name="video-zcode-biology-molecular-dna-rna:G63P4uoP6Fs" value="NEEDS_REVIEW" checked /> NEEDS_REVIEW</label>
+          </div>
+          <textarea data-comment-for="zcode-biology-molecular-dna-rna:G63P4uoP6Fs" rows="2" placeholder="Коментар до відео"></textarea>
+        </div>
+<div class="video-row" data-video-key="zcode-biology-molecular-dna-rna:K541lnwQmTQ" data-youtube-id="K541lnwQmTQ">
+          <p><strong>Додаткове</strong>
+          <span class="chip">METADATA_ONLY</span>
+          </p>
+          <p><a href="https://www.youtube.com/watch?v=K541lnwQmTQ" target="_blank" rel="noreferrer">9 клас. Біологія. Подвоєння ДНК; репарація. Типи РНК. Транскрипція.</a> · Всеукраїнська школа онлайн</p>
+          <p></p>
+          <div class="decision">
+            <label><input type="radio" name="video-zcode-biology-molecular-dna-rna:K541lnwQmTQ" value="APPROVE_CANDIDATE" /> APPROVE_CANDIDATE</label>
+            <label><input type="radio" name="video-zcode-biology-molecular-dna-rna:K541lnwQmTQ" value="REPLACE" /> REPLACE</label>
+            <label><input type="radio" name="video-zcode-biology-molecular-dna-rna:K541lnwQmTQ" value="NEEDS_REVIEW" checked /> NEEDS_REVIEW</label>
+          </div>
+          <textarea data-comment-for="zcode-biology-molecular-dna-rna:K541lnwQmTQ" rows="2" placeholder="Коментар до відео"></textarea>
+        </div>
+      <h3>Перевірено / залишилось власнику</h3>
+      <ul><li>Чи є в G63P4uoP6Fs правило Чаргаффа та задачі на відсотковий склад.</li><li>Чи потрібна частина 2 серії ВШО (якщо існує) для РНК.</li></ul>
+      <p><strong>Блокери:</strong> немає CONFIRMED video; coverage DRAFT; питання DRAFT; рішення власника не застосовані до БД.</p>
+    </article>
+<article id="zcode-biology-molecular-protein-synth">
+      <h2>Реплікація ДНК і біосинтез білка</h2>
+      <p><code>zcode-biology-molecular-protein-synth</code> · coverage: <strong>DRAFT</strong> · питань: <strong>12</strong> (manifest v2)</p>
+      <p>Конспект: DRAFT / потребує окремої перевірки перед публікацією.</p>
+      <p>Виправлені питання Stage 6B.2: —</p>
+      <p><a href="../stage6b/stage6b2-owner-review.html" target="_blank" rel="noreferrer">Повний пакет 84 питань (Stage 6B.2 HTML)</a></p>
+      <h3>Відео</h3>
+      <p>Поточне (Stage 6C): <a href="https://www.youtube.com/watch?v=ia61JnRXC9o" target="_blank" rel="noreferrer">Реплікація ДНК та РНК транскрипція і трансляція | Академія Хана</a></p>
+      <div class="video-row" data-video-key="zcode-biology-molecular-protein-synth:vs6GLwIxI-U" data-youtube-id="vs6GLwIxI-U">
+          <p><strong>Рекомендоване основне</strong>
+          <span class="chip">VERIFIED_CONTENT</span>
+          </p>
+          <p><a href="https://www.youtube.com/watch?v=vs6GLwIxI-U" target="_blank" rel="noreferrer">9 клас. Біологія. Генетичний код. Біосинтез білка</a> · Всеукраїнська школа онлайн</p>
+          <p>Публічний текст уроку містить триплетність, таблицю кодонів, трансляцію — ключ для банку protein-synth.</p>
+          <div class="decision">
+            <label><input type="radio" name="video-zcode-biology-molecular-protein-synth:vs6GLwIxI-U" value="APPROVE_CANDIDATE" /> APPROVE_CANDIDATE</label>
+            <label><input type="radio" name="video-zcode-biology-molecular-protein-synth:vs6GLwIxI-U" value="REPLACE" /> REPLACE</label>
+            <label><input type="radio" name="video-zcode-biology-molecular-protein-synth:vs6GLwIxI-U" value="NEEDS_REVIEW" checked /> NEEDS_REVIEW</label>
+          </div>
+          <textarea data-comment-for="zcode-biology-molecular-protein-synth:vs6GLwIxI-U" rows="2" placeholder="Коментар до відео"></textarea>
+        </div>
+<div class="video-row" data-video-key="zcode-biology-molecular-protein-synth:UGE4mfJliqo" data-youtube-id="UGE4mfJliqo">
+          <p><strong>Додаткове</strong>
+          <span class="chip">METADATA_ONLY</span>
+          </p>
+          <p><a href="https://www.youtube.com/watch?v=UGE4mfJliqo" target="_blank" rel="noreferrer">Біологія 9 клас  Подвоєння ДНК  Репарація пошкоджень ДНК</a> · Всеукраїнська школа онлайн</p>
+          <p></p>
+          <div class="decision">
+            <label><input type="radio" name="video-zcode-biology-molecular-protein-synth:UGE4mfJliqo" value="APPROVE_CANDIDATE" /> APPROVE_CANDIDATE</label>
+            <label><input type="radio" name="video-zcode-biology-molecular-protein-synth:UGE4mfJliqo" value="REPLACE" /> REPLACE</label>
+            <label><input type="radio" name="video-zcode-biology-molecular-protein-synth:UGE4mfJliqo" value="NEEDS_REVIEW" checked /> NEEDS_REVIEW</label>
+          </div>
+          <textarea data-comment-for="zcode-biology-molecular-protein-synth:UGE4mfJliqo" rows="2" placeholder="Коментар до відео"></textarea>
+        </div>
+      <h3>Перевірено / залишилось власнику</h3>
+      <ul><li>Чи покриває vs6GLwIxI-U реплікацію без UGE4mfJliqo.</li><li>Порівняти точність Khan vs ВШО для q08 банку.</li></ul>
+      <p><strong>Блокери:</strong> немає CONFIRMED video; coverage DRAFT; питання DRAFT; рішення власника не застосовані до БД.</p>
+    </article>
+<article id="zcode-biology-molecular-division">
+      <h2>Клітинний цикл. Мітоз і мейоз</h2>
+      <p><code>zcode-biology-molecular-division</code> · coverage: <strong>DRAFT</strong> · питань: <strong>12</strong> (manifest v2)</p>
+      <p>Конспект: DRAFT / потребує окремої перевірки перед публікацією.</p>
+      <p>Виправлені питання Stage 6B.2: —</p>
+      <p><a href="../stage6b/stage6b2-owner-review.html" target="_blank" rel="noreferrer">Повний пакет 84 питань (Stage 6B.2 HTML)</a></p>
+      <h3>Відео</h3>
+      <p>Поточне (Stage 6C): <a href="https://www.youtube.com/watch?v=WMtpCLP1B2A" target="_blank" rel="noreferrer">Мітоз і мейоз/ Фази мітозу і мейозу / будова хромосом.</a></p>
+      <div class="video-row" data-video-key="zcode-biology-molecular-division:19a17ENs64g" data-youtube-id="19a17ENs64g">
+          <p><strong>Рекомендоване основне</strong>
+          <span class="chip">METADATA_ONLY</span>
+          </p>
+          <p><a href="https://www.youtube.com/watch?v=19a17ENs64g" target="_blank" rel="noreferrer">9 клас. Біологія. Поділ клітин: клітинний цикл, мітоз. Мейоз</a> · Всеукраїнська школа онлайн</p>
+          <p></p>
+          <div class="decision">
+            <label><input type="radio" name="video-zcode-biology-molecular-division:19a17ENs64g" value="APPROVE_CANDIDATE" /> APPROVE_CANDIDATE</label>
+            <label><input type="radio" name="video-zcode-biology-molecular-division:19a17ENs64g" value="REPLACE" /> REPLACE</label>
+            <label><input type="radio" name="video-zcode-biology-molecular-division:19a17ENs64g" value="NEEDS_REVIEW" checked /> NEEDS_REVIEW</label>
+          </div>
+          <textarea data-comment-for="zcode-biology-molecular-division:19a17ENs64g" rows="2" placeholder="Коментар до відео"></textarea>
+        </div>
+<div class="video-row" data-video-key="zcode-biology-molecular-division:RV-aJuuOHrE" data-youtube-id="RV-aJuuOHrE">
+          <p><strong>Додаткове</strong>
+          <span class="chip">METADATA_ONLY</span>
+          </p>
+          <p><a href="https://www.youtube.com/watch?v=RV-aJuuOHrE" target="_blank" rel="noreferrer">Мітоз | Академія Хана</a> · KhanAcademyUkrainian</p>
+          <p>Лише мітоз; як додаткове повторення, не заміна мейозу.</p>
+          <div class="decision">
+            <label><input type="radio" name="video-zcode-biology-molecular-division:RV-aJuuOHrE" value="APPROVE_CANDIDATE" /> APPROVE_CANDIDATE</label>
+            <label><input type="radio" name="video-zcode-biology-molecular-division:RV-aJuuOHrE" value="REPLACE" /> REPLACE</label>
+            <label><input type="radio" name="video-zcode-biology-molecular-division:RV-aJuuOHrE" value="NEEDS_REVIEW" checked /> NEEDS_REVIEW</label>
+          </div>
+          <textarea data-comment-for="zcode-biology-molecular-division:RV-aJuuOHrE" rows="2" placeholder="Коментар до відео"></textarea>
+        </div>
+      <h3>Перевірено / залишилось власнику</h3>
+      <ul><li>Повний перегляд 19a17ENs64g на задачі з хромосомами/хроматидами.</li><li>Чи потрібен окремий акцент на мейоз II.</li></ul>
+      <p><strong>Блокери:</strong> немає CONFIRMED video; coverage DRAFT; питання DRAFT; рішення власника не застосовані до БД.</p>
+    </article>
+  <script id="packet" type="application/json">{"packageId":"stage6d-release-review","questionManifestVersion":2,"videoManifestVersion":1,"appliedToDatabase":false,"verificationStatusChanged":false,"videoDecisionsApplied":false,"lessons":[{"topicId":"ukr-lex-01-meaning","title":"Лексичне значення слова","coverage":"DRAFT","questionCount":12,"changedQuestionIds":["ukr-lex-01-q11","ukr-lex-01-q12"],"videos":[{"youtubeId":"NDmd6xU9F2E","title":"Українська мова. Лексикологія. Лексичне значення слова. Однозначні й багатозначні слова","channel":"Всеукраїнська школа онлайн","role":"primary","verificationLevel":"METADATA_ONLY","url":"https://www.youtube.com/watch?v=NDmd6xU9F2E"}]},{"topicId":"ukr-lex-02-syn-ant-hom","title":"Синоніми, антоніми, омоніми","coverage":"DRAFT","questionCount":12,"changedQuestionIds":["ukr-lex-02-q10","ukr-lex-02-q11"],"videos":[{"youtubeId":"scigg_eN4qs","title":"10 клас. Українська мова. Лексичні та фразеологічні синоніми, антоніми. Синонімічне багатство мови","channel":"Всеукраїнська школа онлайн","role":"primary","verificationLevel":"METADATA_ONLY","url":"https://www.youtube.com/watch?v=scigg_eN4qs"},{"youtubeId":"o9xcL5pCxog","title":"Українська мова. Омоніми. Пароніми. Словник омонімів. Словник паронімів","channel":"Всеукраїнська школа онлайн","role":"supplement","verificationLevel":"VERIFIED_CONTENT","url":"https://www.youtube.com/watch?v=o9xcL5pCxog"}]},{"topicId":"ukr-lex-03-phraseology","title":"Фразеологізми","coverage":"DRAFT","questionCount":12,"changedQuestionIds":["ukr-lex-03-q11","ukr-lex-03-q12"],"videos":[{"youtubeId":"wm0X68H_WtQ","title":"Українська мова. Фразеологія. Поняття про фразеологізм, його лексичне значення","channel":"Всеукраїнська школа онлайн","role":"primary","verificationLevel":"VERIFIED_CONTENT","url":"https://www.youtube.com/watch?v=wm0X68H_WtQ"},{"youtubeId":"oZfA9V0mhV4","title":"Українська мова. Джерела українських фразеологізмів. Фразеологізми у мовленні людини","channel":"Всеукраїнська школа онлайн","role":"supplement","verificationLevel":"METADATA_ONLY","url":"https://www.youtube.com/watch?v=oZfA9V0mhV4"}]},{"topicId":"bio-cell-01-eukaryotic-cell","title":"Будова еукаріотичної клітини","coverage":"DRAFT","questionCount":12,"changedQuestionIds":[],"videos":[{"youtubeId":"bBymW0PtVT0","title":"Будова клітини [Nucleus Medical Media]","channel":"Nucleus Medical Media (укр. озвучення)","role":"primary","verificationLevel":"VERIFIED_CONTENT","url":"https://www.youtube.com/watch?v=bBymW0PtVT0"},{"youtubeId":"jCVunU5VGbI","title":"Різноманітність еукаріотичних клітин","channel":"BioLogos","role":"supplement","verificationLevel":"METADATA_ONLY","url":"https://www.youtube.com/watch?v=jCVunU5VGbI"}]},{"topicId":"zcode-biology-molecular-dna-rna","title":"ДНК і РНК","coverage":"DRAFT","questionCount":12,"changedQuestionIds":[],"videos":[{"youtubeId":"G63P4uoP6Fs","title":"9 клас. Біологія. Нуклеїнові кислоти. Роль нуклеїнових кислот як носія спадкової інформації. АТФ. Ч1","channel":"Всеукраїнська школа онлайн","role":"primary","verificationLevel":"METADATA_ONLY","url":"https://www.youtube.com/watch?v=G63P4uoP6Fs"},{"youtubeId":"K541lnwQmTQ","title":"9 клас. Біологія. Подвоєння ДНК; репарація. Типи РНК. Транскрипція.","channel":"Всеукраїнська школа онлайн","role":"supplement","verificationLevel":"METADATA_ONLY","url":"https://www.youtube.com/watch?v=K541lnwQmTQ"}]},{"topicId":"zcode-biology-molecular-protein-synth","title":"Реплікація ДНК і біосинтез білка","coverage":"DRAFT","questionCount":12,"changedQuestionIds":[],"videos":[{"youtubeId":"vs6GLwIxI-U","title":"9 клас. Біологія. Генетичний код. Біосинтез білка","channel":"Всеукраїнська школа онлайн","role":"primary","verificationLevel":"VERIFIED_CONTENT","url":"https://www.youtube.com/watch?v=vs6GLwIxI-U"},{"youtubeId":"UGE4mfJliqo","title":"Біологія 9 клас  Подвоєння ДНК  Репарація пошкоджень ДНК","channel":"Всеукраїнська школа онлайн","role":"supplement","verificationLevel":"METADATA_ONLY","url":"https://www.youtube.com/watch?v=UGE4mfJliqo"}]},{"topicId":"zcode-biology-molecular-division","title":"Клітинний цикл. Мітоз і мейоз","coverage":"DRAFT","questionCount":12,"changedQuestionIds":[],"videos":[{"youtubeId":"19a17ENs64g","title":"9 клас. Біологія. Поділ клітин: клітинний цикл, мітоз. Мейоз","channel":"Всеукраїнська школа онлайн","role":"primary","verificationLevel":"METADATA_ONLY","url":"https://www.youtube.com/watch?v=19a17ENs64g"},{"youtubeId":"RV-aJuuOHrE","title":"Мітоз | Академія Хана","channel":"KhanAcademyUkrainian","role":"supplement","verificationLevel":"METADATA_ONLY","url":"https://www.youtube.com/watch?v=RV-aJuuOHrE"}]}]}</script>
+  <script id="question-manifest" type="application/json">{"version":2,"changedQuestions":[{"id":"ukr-lex-01-q11","contentHash":"8b57c55cbc6a6aef77100e39ba9e2b49f511eda0232334beb9d7716914f12aae"},{"id":"ukr-lex-01-q12","contentHash":"48d7a495c0b053092799be4979c8bb1840d8e5b8cb968d87c7cac2d5915cb6c5"},{"id":"ukr-lex-02-q10","contentHash":"25ac5fee1505046d0f6b46063ce501b0f287171ccbd7128401b7fd986fbed5de"},{"id":"ukr-lex-02-q11","contentHash":"58e870cd5f65494a395644c223538d2c1d98438e544a4bfeb1225bc8cf3a9efe"},{"id":"ukr-lex-03-q11","contentHash":"df06d961e006da587bf98700f76e65ad14f22efeff8bd695c5e616ee077c3e33"},{"id":"ukr-lex-03-q12","contentHash":"178836588de0deeb039d8d0f76b0e4560c9cc6ab95e3fb9cabec8b667a84cc53"}]}</script>
+  <script>
+    const packet = JSON.parse(document.getElementById("packet").textContent);
+    const questionManifest = JSON.parse(document.getElementById("question-manifest").textContent);
+    const storageKey = "nmt-stage6d-release-decisions-v1";
+    const status = document.getElementById("status");
+    let importedQuestionDecisions = {};
+
+    function collectVideoDecisions() {
+      const decisions = {};
+      for (const lesson of packet.lessons) {
+        for (const video of lesson.videos) {
+          const key = lesson.topicId + ":" + video.youtubeId;
+          const picked = document.querySelector('input[name="video-' + key + '"]:checked');
+          const comment = document.querySelector('[data-comment-for="' + key + '"]');
+          decisions[key] = {
+            topicId: lesson.topicId,
+            youtubeId: video.youtubeId,
+            role: video.role,
+            verdict: picked ? picked.value : "NEEDS_REVIEW",
+            comment: comment ? comment.value.trim() : "",
+          };
+        }
+      }
+      return decisions;
+    }
+
+    function exportDecisions() {
+      const payload = {
+        packageId: packet.packageId,
+        questionManifestVersion: packet.questionManifestVersion,
+        videoManifestVersion: packet.videoManifestVersion,
+        exportedAt: new Date().toISOString(),
+        appliedToDatabase: false,
+        verificationStatusChanged: false,
+        videoDecisionsApplied: false,
+        importedQuestionDecisions,
+        videoDecisions: collectVideoDecisions(),
+      };
+      localStorage.setItem(storageKey, JSON.stringify(payload));
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "stage6d-release-decisions.json";
+      a.click();
+      status.textContent = "Експортовано stage6d-release-decisions.json";
+    }
+
+    function considerImportB62(data) {
+      if (data.packageId !== "stage6b2-owner-review" || data.manifestVersion !== 2) {
+        status.textContent = "Відхилено: не stage6b2-owner-review v2";
+        return;
+      }
+      const allowed = new Set(Object.keys(data.decisions || {}));
+      importedQuestionDecisions = {};
+      for (const row of questionManifest.changedQuestions) {
+        const decision = data.decisions[row.id];
+        if (!decision) continue;
+        if (decision.contentHash !== row.contentHash) continue;
+        importedQuestionDecisions[row.id] = decision;
+      }
+      status.textContent = "Імпортовано " + Object.keys(importedQuestionDecisions).length + " рішень по змінених питаннях (hash OK)";
+    }
+
+    function considerImport6d(data) {
+      if (data.packageId !== packet.packageId) {
+        status.textContent = "Відхилено: інший packageId";
+        return;
+      }
+      for (const [key, decision] of Object.entries(data.videoDecisions || {})) {
+        const input = document.querySelector('input[name="video-' + key + '"][value="' + decision.verdict + '"]');
+        if (input) input.checked = true;
+        const comment = document.querySelector('[data-comment-for="' + key + '"]');
+        if (comment && decision.comment) comment.value = decision.comment;
+      }
+      status.textContent = "Відновлено відео-рішення з JSON";
+    }
+
+    document.getElementById("export-decisions").addEventListener("click", exportDecisions);
+    document.getElementById("import-b6b2").addEventListener("change", async (event) => {
+      const file = event.target.files[0];
+      if (!file) return;
+      considerImportB62(JSON.parse(await file.text()));
+    });
+    document.getElementById("import-6d").addEventListener("change", async (event) => {
+      const file = event.target.files[0];
+      if (!file) return;
+      considerImport6d(JSON.parse(await file.text()));
+    });
+  </script>
+</body>
+</html>

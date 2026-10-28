@@ -1,0 +1,683 @@
+{
+  "format": "nmt-stage6c-video-candidates",
+  "version": 1,
+  "id": "stage6c-video-candidates-v1",
+  "createdAt": "2026-10-28T20:47:00.000Z",
+  "language": "uk",
+  "workingDatabaseChanged": false,
+  "automaticConfirmed": false,
+  "notAppliedToDatabase": true,
+  "applyNote": "Дослідницький пакет Stage 6C. Не імпортувати в prisma/dev.db і не виставляти CONFIRMED без окремого рішення власника.",
+  "researchLimitations": [
+    "Повний перегляд у браузері не виконувався; частина висновків — METADATA_ONLY (oEmbed + YouTube player JSON).",
+    "Завантаження VTT через timedtext API повернуло порожні відповіді; VERIFIED_CONTENT базується лише там, де є незалежний публічний текст уроку з пошуку/опису.",
+    "Озвучка uk не слухалась у цій сесії; субтитри не замінюють перевірку мови власником.",
+    "Автоматичні тести не доводять педагогічну придатність для НМТ."
+  ],
+  "topicCount": 7,
+  "lessons": [
+    {
+      "topicId": "ukr-lex-01-meaning",
+      "title": "Лексичне значення слова",
+      "currentPrimary": {
+        "youtubeId": "NDmd6xU9F2E",
+        "url": "https://www.youtube.com/watch?v=NDmd6xU9F2E",
+        "title": "Українська мова. Лексикологія. Лексичне значення слова. Однозначні й багатозначні слова",
+        "channel": "Всеукраїнська школа онлайн",
+        "durationSec": 663,
+        "languageExpected": "uk",
+        "languageEvidence": "Офіційний канал ВШО; у player API є доріжки «Українська» та автоматичні uk-субтитри. Озвучку власнику слід підтвердити на прослуховування.",
+        "availability": "AVAILABLE",
+        "embeddable": true,
+        "verificationLevel": "METADATA_ONLY",
+        "verificationNotes": "Доступність, тривалість (11:03) і embed підтверджено через YouTube watch page + playabilityStatus OK (2026-10-28). Зміст уроку за назвою/програмою ВШО, але повного перегляду або VTT-транскрипту не отримано.",
+        "contentChecks": [],
+        "gapsForNmt": [
+          "Пряме й переносне значення",
+          "Тавтологія, плеоназм, лексичні помилки",
+          "Пароніми та калькування"
+        ],
+        "sources": [
+          {
+            "title": "YouTube oEmbed/watch API",
+            "url": "https://www.youtube.com/watch?v=NDmd6xU9F2E"
+          },
+          {
+            "title": "ВШО LMS — курс 5–6 класів, урок 7",
+            "url": "https://lms.e-school.net.ua/courses/course-v1%3AUIED%2BUM-NUSH-5-6th%2B2022/about"
+          }
+        ],
+        "checkedAt": "2026-10-28T20:47:00.000Z"
+      },
+      "recommendation": {
+        "action": "KEEP_WITH_OWNER_PREVIEW",
+        "summary": "Залишити поточне відео ВШО як основне: найкраще збігається з темою та офіційною програмою. Перед CONFIRMED власник має прослухати урок і перевірити блоки про пряме/переносне значення та типові НМТ-помилки.",
+        "primary": null,
+        "supplement": null
+      },
+      "alternatives": [
+        {
+          "youtubeId": "JpswIiSw4kM",
+          "url": "https://www.youtube.com/watch?v=JpswIiSw4kM",
+          "title": "Досліджуємо пряме й переносне значення слів. Урок 14. Українська мова. 2 клас",
+          "channel": "LearningUa",
+          "durationSec": 336,
+          "languageExpected": "uk",
+          "languageEvidence": "Назва українською; канал навчальний. Озвучку не слухали.",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "NOT_VERIFIED",
+          "verificationNotes": "Може закрити прогалину про пряме/переносне, але рівень 2 класу — нижчий за НМТ; лише як додатковий матеріал.",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        }
+      ],
+      "ownerStillToCheck": [
+        "Чи достатньо в NDmd6xU9F2E прямого/переносного значення для банку питань ukr-lex-01.",
+        "Якість озвучки та темп для старшокласників."
+      ]
+    },
+    {
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "title": "Синоніми, антоніми, омоніми",
+      "currentPrimary": {
+        "youtubeId": "scigg_eN4qs",
+        "url": "https://www.youtube.com/watch?v=scigg_eN4qs",
+        "title": "10 клас. Українська мова. Лексичні та фразеологічні синоніми, антоніми. Синонімічне багатство мови",
+        "channel": "Всеукраїнська школа онлайн",
+        "durationSec": 549,
+        "languageExpected": "uk",
+        "languageEvidence": "Канал ВШО; субтитри uk у player API.",
+        "availability": "AVAILABLE",
+        "embeddable": true,
+        "verificationLevel": "METADATA_ONLY",
+        "verificationNotes": "Embed OK, 9:09. Синоніми/антоніми за назвою відповідають уроку, але омонімія в цьому ролику не заявлена — потребує другого відео.",
+        "contentChecks": [],
+        "gapsForNmt": [
+          "Омоніми vs полісемія",
+          "Омоформи, омофони, омографи",
+          "Домінанта синонімічного ряду"
+        ],
+        "sources": [],
+        "checkedAt": "2026-10-28T20:47:00.000Z"
+      },
+      "recommendation": {
+        "action": "KEEP_PLUS_SUPPLEMENT",
+        "summary": "Основне відео scigg_eN4qs залишити для синонімів і антонімів. Обов’язково додати друге відео про омоніми — рекомендовано o9xcL5pCxog (ВШО), зміст якого частково підтверджено за публічним текстом уроку.",
+        "primary": {
+          "youtubeId": "scigg_eN4qs",
+          "url": "https://www.youtube.com/watch?v=scigg_eN4qs",
+          "title": "10 клас. Українська мова. Лексичні та фразеологічні синоніми, антоніми. Синонімічне багатство мови",
+          "channel": "Всеукраїнська школа онлайн",
+          "durationSec": 549,
+          "languageExpected": "uk",
+          "languageEvidence": "ВШО, uk-субтитри.",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "METADATA_ONLY",
+          "verificationNotes": "Див. currentPrimary.",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        },
+        "supplement": {
+          "youtubeId": "o9xcL5pCxog",
+          "url": "https://www.youtube.com/watch?v=o9xcL5pCxog",
+          "title": "Українська мова. Омоніми. Пароніми. Словник омонімів. Словник паронімів",
+          "channel": "Всеукраїнська школа онлайн",
+          "durationSec": 681,
+          "languageExpected": "uk",
+          "languageEvidence": "ВШО, uk-субтитри.",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "VERIFIED_CONTENT",
+          "verificationNotes": "У публічному тексті/описі уроку (перевірка 2026-10-28) є визначення омонімів, розмежування з багатозначністю, омофони, омографи, омоформи та міжмовні омоніми — відповідає цілям ukr-lex-02.",
+          "contentChecks": [
+            "Омоніми vs багатозначність",
+            "Омофони, омографи, омоформи",
+            "Пароніми та словники"
+          ],
+          "gapsForNmt": [],
+          "sources": [
+            {
+              "title": "YouTube — текст уроку o9xcL5pCxog",
+              "url": "https://www.youtube.com/watch?v=o9xcL5pCxog"
+            }
+          ],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        }
+      },
+      "alternatives": [
+        {
+          "youtubeId": "bwNYjWXn2Qc",
+          "url": "https://www.youtube.com/watch?v=bwNYjWXn2Qc",
+          "title": "Типи омонімів. НУШ, 5 клас, українська мова",
+          "channel": "Всеукраїнська школа онлайн",
+          "durationSec": 215,
+          "languageExpected": "uk",
+          "languageEvidence": "ВШО; uk auto-captions.",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "METADATA_ONLY",
+          "verificationNotes": "Короткий урок; зміст не верифіковано повним переглядом.",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        },
+        {
+          "youtubeId": "Vp2ze1l-UOs",
+          "url": "https://www.youtube.com/watch?v=Vp2ze1l-UOs",
+          "title": "Усе про ОМОНІМИ [Підготовка до ЗНО]",
+          "channel": "дисКурс",
+          "durationSec": 520,
+          "languageExpected": "uk",
+          "languageEvidence": "Українська назва та опис; субтитрів у API немає.",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "NOT_VERIFIED",
+          "verificationNotes": "Опис глав відповідає НМТ, але відео не переглянуто; канал не ВШО.",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        }
+      ],
+      "ownerStillToCheck": [
+        "Чи прийнятна двовідео схема (син/ант + омоніми) замість одного ролика.",
+        "Повний перегляд o9xcL5pCxog на предмет глибини для HARD-питань банку."
+      ]
+    },
+    {
+      "topicId": "ukr-lex-03-phraseology",
+      "title": "Фразеологізми",
+      "currentPrimary": {
+        "youtubeId": "oZfA9V0mhV4",
+        "url": "https://www.youtube.com/watch?v=oZfA9V0mhV4",
+        "title": "Українська мова. Джерела українських фразеологізмів. Фразеологізми у мовленні людини",
+        "channel": "Всеукраїнська школа онлайн",
+        "durationSec": 686,
+        "languageExpected": "uk",
+        "languageEvidence": "ВШО; uk-субтитри.",
+        "availability": "AVAILABLE",
+        "embeddable": true,
+        "verificationLevel": "METADATA_ONLY",
+        "verificationNotes": "Embed OK, 11:26. Акцент на джерелах; тестові типи НМТ (кальки, синтаксична роль) не підтверджені.",
+        "contentChecks": [],
+        "gapsForNmt": [
+          "Лексичне значення фразеологізмів у тестах",
+          "Фразеологічні синоніми/антоніми",
+          "Типові помилки й кальки"
+        ],
+        "sources": [],
+        "checkedAt": "2026-10-28T20:47:00.000Z"
+      },
+      "recommendation": {
+        "action": "TWO_PART_SET",
+        "summary": "Рекомендовано пара: wm0X68H_WtQ (лексичне значення фразеологізмів, частково підтверджено текстом уроку) + oZfA9V0mhV4 (джерела). Одного oZfA9V0mhV4 замало для повного покриття банку.",
+        "primary": {
+          "youtubeId": "wm0X68H_WtQ",
+          "url": "https://www.youtube.com/watch?v=wm0X68H_WtQ",
+          "title": "Українська мова. Фразеологія. Поняття про фразеологізм, його лексичне значення",
+          "channel": "Всеукраїнська школа онлайн",
+          "durationSec": 625,
+          "languageExpected": "uk",
+          "languageEvidence": "ВШО; uk-субтитри.",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "VERIFIED_CONTENT",
+          "verificationNotes": "У публічному тексті уроку пояснюються поняття фразеологізму, цілісне значення, фразеологічний словник — ключове для НМТ.",
+          "contentChecks": [
+            "Визначення фразеологізму",
+            "Лексичне значення",
+            "Фразеологічний словник"
+          ],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        },
+        "supplement": {
+          "youtubeId": "oZfA9V0mhV4",
+          "url": "https://www.youtube.com/watch?v=oZfA9V0mhV4",
+          "title": "Українська мова. Джерела українських фразеологізмів. Фразеологізми у мовленні людини",
+          "channel": "Всеукраїнська школа онлайн",
+          "durationSec": 686,
+          "languageExpected": "uk",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "METADATA_ONLY",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        }
+      },
+      "alternatives": [
+        {
+          "youtubeId": "RKf9IWykd-8",
+          "url": "https://www.youtube.com/watch?v=RKf9IWykd-8",
+          "title": "Українська мова. Різновиди фразеологізмів. Прислів’я, приказки, крилаті вирази, афоризми",
+          "channel": "Всеукраїнська школа онлайн",
+          "durationSec": 670,
+          "languageExpected": "uk",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "METADATA_ONLY",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        }
+      ],
+      "ownerStillToCheck": [
+        "Чи достатньо пари wm0X68H_WtQ + oZfA9V0mhV4 для ukr-lex-03-q11/q12.",
+        "Перегляд на відсутність застарілих/неточних трактувань."
+      ]
+    },
+    {
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "title": "Будова еукаріотичної клітини",
+      "currentPrimary": {
+        "youtubeId": "7DtFjdHJvKg",
+        "url": "https://www.youtube.com/watch?v=7DtFjdHJvKg",
+        "title": "Будова еукаріотичної клітини",
+        "channel": "Уроки біології, Тютюнникова Наталія",
+        "durationSec": 326,
+        "languageExpected": "uk",
+        "languageEvidence": "Опис українською; лише автоматичні uk-субтитри.",
+        "availability": "AVAILABLE",
+        "embeddable": true,
+        "verificationLevel": "METADATA_ONLY",
+        "verificationNotes": "5:26, embed OK. Зміст не верифіковано; короткий огляд 7 класу.",
+        "contentChecks": [],
+        "gapsForNmt": [
+          "Класифікація органел за мембранами",
+          "Порівняння рослинної, тваринної, грибної клітини",
+          "Типові задачі «органела → функція»"
+        ],
+        "sources": [],
+        "checkedAt": "2026-10-28T20:47:00.000Z"
+      },
+      "recommendation": {
+        "action": "REPLACE_PRIMARY",
+        "summary": "Замінити основне відео на bBymW0PtVT0 (українська анімація Nucleus Medical Media): зміст підтверджено розгорнутим публічним транскриптом (прок/еук, органели, росл/твар). Додати коротке jCVunU5VGbI про різноманітність клітин царств.",
+        "primary": {
+          "youtubeId": "bBymW0PtVT0",
+          "url": "https://www.youtube.com/watch?v=bBymW0PtVT0",
+          "title": "Будова клітини [Nucleus Medical Media]",
+          "channel": "Nucleus Medical Media (укр. озвучення)",
+          "durationSec": 450,
+          "languageExpected": "uk",
+          "languageEvidence": "Український транскрипт/озвучення в ролику; auto uk captions.",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "VERIFIED_CONTENT",
+          "verificationNotes": "Транскрипт підтверджує прокаріоти/еукаріоти, ядро, ЕПР, апарат Гольджі, мітохондрії, лізосоми, хлоропласти, клітинна стінка.",
+          "contentChecks": [
+            "Про- vs еукаріоти",
+            "Основні органели",
+            "Рослинна vs тваринна клітина"
+          ],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        },
+        "supplement": {
+          "youtubeId": "jCVunU5VGbI",
+          "url": "https://www.youtube.com/watch?v=jCVunU5VGbI",
+          "title": "Різноманітність еукаріотичних клітин",
+          "channel": "BioLogos",
+          "durationSec": 105,
+          "languageExpected": "uk",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "METADATA_ONLY",
+          "verificationNotes": "1:45; опис відповідає порівнянню царств — перегляд власником.",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        }
+      },
+      "alternatives": [
+        {
+          "youtubeId": "t3GNTWclSf4",
+          "url": "https://www.youtube.com/watch?v=t3GNTWclSf4",
+          "title": "Структура клітини. Ядро.",
+          "channel": "Tetiana Chychkovska",
+          "durationSec": 701,
+          "languageExpected": "uk",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "METADATA_ONLY",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        },
+        {
+          "youtubeId": "7DtFjdHJvKg",
+          "url": "https://www.youtube.com/watch?v=7DtFjdHJvKg",
+          "title": "Будова еукаріотичної клітини",
+          "channel": "Уроки біології, Тютюнникова Наталія",
+          "durationSec": 326,
+          "languageExpected": "uk",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "METADATA_ONLY",
+          "verificationNotes": "Поточний кандидат; залишити як запасний.",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        }
+      ],
+      "ownerStillToCheck": [
+        "Прийнятність медичної анімації (не ВШО) як основного відео.",
+        "Наукова точність формулювань у bBymW0PtVT0."
+      ]
+    },
+    {
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "title": "ДНК і РНК",
+      "currentPrimary": {
+        "youtubeId": "R4USDzLsfNk",
+        "url": "https://www.youtube.com/watch?v=R4USDzLsfNk",
+        "title": "ДНК. РНК.(нуклеїнові кислоти)",
+        "channel": "БІОЛОГІЯ до НМТ",
+        "durationSec": 161,
+        "languageExpected": "uk",
+        "languageEvidence": "Назва українською; субтитрів немає.",
+        "availability": "AVAILABLE",
+        "embeddable": true,
+        "verificationLevel": "METADATA_ONLY",
+        "verificationNotes": "Лише 2:41; дуже стисло; зміст не верифіковано.",
+        "contentChecks": [],
+        "gapsForNmt": [
+          "Будова нуклеотиду",
+          "Правило Чаргаффа",
+          "Комplementarity 5′/3′",
+          "Типи РНК"
+        ],
+        "sources": [],
+        "checkedAt": "2026-10-28T20:47:00.000Z"
+      },
+      "recommendation": {
+        "action": "REPLACE_PRIMARY",
+        "summary": "Замінити на урок ВШО G63P4uoP6Fs (≈15 хв, uk-субтитри) про нуклеїнові кислоти; за потреби додати K541lnwQmTQ для транскрипції/типів РНК.",
+        "primary": {
+          "youtubeId": "G63P4uoP6Fs",
+          "url": "https://www.youtube.com/watch?v=G63P4uoP6Fs",
+          "title": "9 клас. Біологія. Нуклеїнові кислоти. Роль нуклеїнових кислот як носія спадкової інформації. АТФ. Ч1",
+          "channel": "Всеукраїнська школа онлайн",
+          "durationSec": 909,
+          "languageExpected": "uk",
+          "languageEvidence": "ВШО; uk-субтитри.",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "METADATA_ONLY",
+          "verificationNotes": "Відповідає темі 5 ВШО 9 класу; предметний перегляд власником обов’язковий.",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        },
+        "supplement": {
+          "youtubeId": "K541lnwQmTQ",
+          "url": "https://www.youtube.com/watch?v=K541lnwQmTQ",
+          "title": "9 клас. Біологія. Подвоєння ДНК; репарація. Типи РНК. Транскрипція.",
+          "channel": "Всеукраїнська школа онлайн",
+          "durationSec": 960,
+          "languageExpected": "uk",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "METADATA_ONLY",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        }
+      },
+      "alternatives": [
+        {
+          "youtubeId": "R4USDzLsfNk",
+          "url": "https://www.youtube.com/watch?v=R4USDzLsfNk",
+          "title": "ДНК. РНК.(нуклеїнові кислоти)",
+          "channel": "БІОЛОГІЯ до НМТ",
+          "durationSec": 161,
+          "languageExpected": "uk",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "METADATA_ONLY",
+          "verificationNotes": "Поточний — замінити через малу тривалість.",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        },
+        {
+          "youtubeId": "nDY-dpkunOQ",
+          "url": "https://www.youtube.com/watch?v=nDY-dpkunOQ",
+          "title": "Біологія 9 клас Нуклеїнові кислоти",
+          "channel": "Уроки біології, Тютюнникова Наталія",
+          "durationSec": null,
+          "languageExpected": "uk",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "METADATA_ONLY",
+          "verificationNotes": "oEmbed підтверджено; тривалість не знята в цій сесії.",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        }
+      ],
+      "ownerStillToCheck": [
+        "Чи є в G63P4uoP6Fs правило Чаргаффа та задачі на відсотковий склад.",
+        "Чи потрібна частина 2 серії ВШО (якщо існує) для РНК."
+      ]
+    },
+    {
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "title": "Реплікація ДНК і біосинтез білка",
+      "currentPrimary": {
+        "youtubeId": "ia61JnRXC9o",
+        "url": "https://www.youtube.com/watch?v=ia61JnRXC9o",
+        "title": "Реплікація ДНК та РНК транскрипція і трансляція | Академія Хана",
+        "channel": "KhanAcademyUkrainian",
+        "durationSec": 793,
+        "languageExpected": "uk",
+        "languageEvidence": "Офіційний канал Khan UA; auto uk captions.",
+        "availability": "AVAILABLE",
+        "embeddable": true,
+        "verificationLevel": "METADATA_ONLY",
+        "verificationNotes": "13:13, embed OK. Тема широка; точність формулювань і задач банку — на перегляд власника.",
+        "contentChecks": [],
+        "gapsForNmt": [
+          "Стоп-кодон у розрахунках",
+          "Антикодони тРНК",
+          "5′/3′ орієнтація"
+        ],
+        "sources": [],
+        "checkedAt": "2026-10-28T20:47:00.000Z"
+      },
+      "recommendation": {
+        "action": "REPLACE_OR_DUAL",
+        "summary": "Для вирівнювання з програмою ВШО 9 класу рекомендовано vs6GLwIxI-U (генетичний код і біосинтез — частково підтверджено текстом уроку) + UGE4mfJliqo (реплікація). Поточне ia61JnRXC9o залишити сильною альтернативою одним роликом.",
+        "primary": {
+          "youtubeId": "vs6GLwIxI-U",
+          "url": "https://www.youtube.com/watch?v=vs6GLwIxI-U",
+          "title": "9 клас. Біологія. Генетичний код. Біосинтез білка",
+          "channel": "Всеукраїнська школа онлайн",
+          "durationSec": 979,
+          "languageExpected": "uk",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "VERIFIED_CONTENT",
+          "verificationNotes": "Публічний текст уроку містить триплетність, таблицю кодонів, трансляцію — ключ для банку protein-synth.",
+          "contentChecks": [
+            "Генетичний код",
+            "Триплети",
+            "Біосинтез білка / трансляція"
+          ],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        },
+        "supplement": {
+          "youtubeId": "UGE4mfJliqo",
+          "url": "https://www.youtube.com/watch?v=UGE4mfJliqo",
+          "title": "Біологія 9 клас  Подвоєння ДНК  Репарація пошкоджень ДНК",
+          "channel": "Всеукраїнська школа онлайн",
+          "durationSec": 350,
+          "languageExpected": "uk",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "METADATA_ONLY",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        }
+      },
+      "alternatives": [
+        {
+          "youtubeId": "ia61JnRXC9o",
+          "url": "https://www.youtube.com/watch?v=ia61JnRXC9o",
+          "title": "Реплікація ДНК та РНК транскрипція і трансляція | Академія Хана",
+          "channel": "KhanAcademyUkrainian",
+          "durationSec": 793,
+          "languageExpected": "uk",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "METADATA_ONLY",
+          "verificationNotes": "Поточний кандидат — можна лишити як один комплексний ролик.",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        },
+        {
+          "youtubeId": "K541lnwQmTQ",
+          "url": "https://www.youtube.com/watch?v=K541lnwQmTQ",
+          "title": "9 клас. Біологія. Подвоєння ДНК; репарація. Типи РНК. Транскрипція.",
+          "channel": "Всеукраїнська школа онлайн",
+          "durationSec": 960,
+          "languageExpected": "uk",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "METADATA_ONLY",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        }
+      ],
+      "ownerStillToCheck": [
+        "Чи покриває vs6GLwIxI-U реплікацію без UGE4mfJliqo.",
+        "Порівняти точність Khan vs ВШО для q08 банку."
+      ]
+    },
+    {
+      "topicId": "zcode-biology-molecular-division",
+      "title": "Клітинний цикл. Мітоз і мейоз",
+      "currentPrimary": {
+        "youtubeId": "WMtpCLP1B2A",
+        "url": "https://www.youtube.com/watch?v=WMtpCLP1B2A",
+        "title": "Мітоз і мейоз/ Фази мітозу і мейозу / будова хромосом.",
+        "channel": "MikoBiolog / Биология онлайн",
+        "durationSec": 602,
+        "languageExpected": "uk",
+        "languageEvidence": "Назва змішана uk/ru; auto uk captions — не доказ живої української подачі.",
+        "availability": "AVAILABLE",
+        "embeddable": true,
+        "verificationLevel": "NOT_VERIFIED",
+        "verificationNotes": "10:02, embed OK, але канал містить «Биология онлайн»; предметна й мовна якість не підтверджені переглядом.",
+        "contentChecks": [],
+        "gapsForNmt": [
+          "Інтерфаза",
+          "Підрахунок хромосом/хроматид",
+          "Мейоз I vs II"
+        ],
+        "sources": [],
+        "checkedAt": "2026-10-28T20:47:00.000Z"
+      },
+      "recommendation": {
+        "action": "REPLACE_PRIMARY",
+        "summary": "Замінити на 19a17ENs64g (ВШО 9 клас: клітинний цикл, мітоз, мейоз) — офіційна програма, 13:35, embed OK. Зміст METADATA_ONLY до перегляду власника.",
+        "primary": {
+          "youtubeId": "19a17ENs64g",
+          "url": "https://www.youtube.com/watch?v=19a17ENs64g",
+          "title": "9 клас. Біологія. Поділ клітин: клітинний цикл, мітоз. Мейоз",
+          "channel": "Всеукраїнська школа онлайн",
+          "durationSec": 815,
+          "languageExpected": "uk",
+          "languageEvidence": "ВШО; uk-субтитри.",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "METADATA_ONLY",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        },
+        "supplement": {
+          "youtubeId": "RV-aJuuOHrE",
+          "url": "https://www.youtube.com/watch?v=RV-aJuuOHrE",
+          "title": "Мітоз | Академія Хана",
+          "channel": "KhanAcademyUkrainian",
+          "durationSec": 240,
+          "languageExpected": "uk",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "METADATA_ONLY",
+          "verificationNotes": "Лише мітоз; як додаткове повторення, не заміна мейозу.",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        }
+      },
+      "alternatives": [
+        {
+          "youtubeId": "Gq1W3lVGkYk",
+          "url": "https://www.youtube.com/watch?v=Gq1W3lVGkYk",
+          "title": "Клітинний цикл і мітоз – Підготовка до ЗНО – Біологія",
+          "channel": "EdEra",
+          "durationSec": 422,
+          "languageExpected": "uk",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "METADATA_ONLY",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        },
+        {
+          "youtubeId": "WMtpCLP1B2A",
+          "url": "https://www.youtube.com/watch?v=WMtpCLP1B2A",
+          "title": "Мітоз і мейоз/ Фази мітозу і мейозу / будова хромосом.",
+          "channel": "MikoBiolog / Биология онлайн",
+          "durationSec": 602,
+          "languageExpected": "uk",
+          "availability": "AVAILABLE",
+          "embeddable": true,
+          "verificationLevel": "NOT_VERIFIED",
+          "verificationNotes": "Поточний — не рекомендовано без перегляду.",
+          "contentChecks": [],
+          "gapsForNmt": [],
+          "sources": [],
+          "checkedAt": "2026-10-28T20:47:00.000Z"
+        }
+      ],
+      "ownerStillToCheck": [
+        "Повний перегляд 19a17ENs64g на задачі з хромосомами/хроматидами.",
+        "Чи потрібен окремий акцент на мейоз II."
+      ]
+    }
+  ]
+}

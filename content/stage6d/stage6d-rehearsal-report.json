@@ -1,0 +1,440 @@
+{
+  "checkedAt": "2026-10-28T20:55:23.049Z",
+  "workingDatabase": {
+    "path": "D:/НМТ Сайт/NMT-academy/prisma/dev.db",
+    "sizeBefore": 1306624,
+    "mtimeBefore": "2026-10-28T13:34:01.924Z",
+    "unchangedAfterBackup": true
+  },
+  "qaDatabase": {
+    "path": "C:/Users/User/AppData/Local/Temp/nmt-stage6d-1793220922079/qa-rehearsal.db",
+    "sha256": "18963867daa4e3da7c9aebc1ec9ac04cef23bd099a25cbf1f0a690ab58b2b518",
+    "backupMethod": "SQLite VACUUM INTO from read-only source connection (consistent snapshot)"
+  },
+  "manifest": {
+    "version": 2,
+    "questionCount": 84,
+    "baselineCount": 70,
+    "additionIds": [
+      "ukr-lex-01-q11",
+      "ukr-lex-01-q12",
+      "ukr-lex-02-q11",
+      "ukr-lex-02-q12",
+      "ukr-lex-03-q11",
+      "ukr-lex-03-q12",
+      "bio-cell-01-q11",
+      "bio-cell-01-q12",
+      "zcode-biology-molecular-dna-rna-q11",
+      "zcode-biology-molecular-dna-rna-q12",
+      "zcode-biology-molecular-protein-synth-q11",
+      "zcode-biology-molecular-protein-synth-q12",
+      "zcode-biology-molecular-division-q11",
+      "zcode-biology-molecular-division-q12"
+    ],
+    "additionCount": 14,
+    "correctionIds": [
+      "ukr-lex-02-q10",
+      "ukr-lex-02-q11",
+      "ukr-lex-01-q11",
+      "ukr-lex-01-q12",
+      "ukr-lex-03-q11",
+      "ukr-lex-03-q12"
+    ]
+  },
+  "apply": {
+    "beforeApply": {
+      "question": 404,
+      "answer": 12,
+      "testAttempt": 3,
+      "mistake": 10,
+      "mistakeRetry": 0,
+      "reviewSchedule": 3,
+      "studyTask": 110,
+      "videoLesson": 9,
+      "confirmedVideos": 1,
+      "verifiedQuestions": 214,
+      "draftTopics": 7
+    },
+    "afterFirstApply": {
+      "question": 418,
+      "answer": 12,
+      "testAttempt": 3,
+      "mistake": 10,
+      "mistakeRetry": 0,
+      "reviewSchedule": 3,
+      "studyTask": 110,
+      "videoLesson": 9,
+      "confirmedVideos": 1,
+      "verifiedQuestions": 214,
+      "draftTopics": 7
+    },
+    "afterSecondApply": {
+      "question": 418,
+      "answer": 12,
+      "testAttempt": 3,
+      "mistake": 10,
+      "mistakeRetry": 0,
+      "reviewSchedule": 3,
+      "studyTask": 110,
+      "videoLesson": 9,
+      "confirmedVideos": 1,
+      "verifiedQuestions": 214,
+      "draftTopics": 7
+    },
+    "questionsInSevenTopicsBefore": 70,
+    "questionsInSevenTopicsAfter": 84,
+    "firstApply": {
+      "updatedFromCorrections": 6,
+      "upserted": 84,
+      "skippedVerified": 0
+    },
+    "secondApply": {
+      "updatedFromCorrections": 6,
+      "upserted": 84,
+      "skippedVerified": 0
+    },
+    "idempotencyOk": true,
+    "userTablesUnchanged": true,
+    "confirmedVideosUnchanged": true,
+    "coverageDraftAllSeven": true,
+    "noAutoVerified": true,
+    "q08PromptStartsWith": "Кодуюча ділянка іРНК містить 120 нуклеот",
+    "q08UsesUkrainianWording": true,
+    "correctedTexts": [
+      {
+        "id": "ukr-lex-02-q10",
+        "promptMatchesManifest": true
+      },
+      {
+        "id": "ukr-lex-02-q11",
+        "promptMatchesManifest": true
+      },
+      {
+        "id": "ukr-lex-01-q11",
+        "promptMatchesManifest": true
+      },
+      {
+        "id": "ukr-lex-01-q12",
+        "promptMatchesManifest": true
+      },
+      {
+        "id": "ukr-lex-03-q11",
+        "promptMatchesManifest": true
+      },
+      {
+        "id": "ukr-lex-03-q12",
+        "promptMatchesManifest": true
+      }
+    ]
+  },
+  "videoCandidates": {
+    "picked": [
+      {
+        "topicId": "ukr-lex-01-meaning",
+        "youtubeId": "NDmd6xU9F2E",
+        "title": "Українська мова. Лексикологія. Лексичне значення слова. Однозначні й багатозначні слова",
+        "channel": "Всеукраїнська школа онлайн",
+        "role": "primary",
+        "verificationLevel": "METADATA_ONLY",
+        "ownerPreviewRequired": true
+      },
+      {
+        "topicId": "ukr-lex-02-syn-ant-hom",
+        "youtubeId": "scigg_eN4qs",
+        "title": "10 клас. Українська мова. Лексичні та фразеологічні синоніми, антоніми. Синонімічне багатство мови",
+        "channel": "Всеукраїнська школа онлайн",
+        "role": "primary",
+        "verificationLevel": "METADATA_ONLY",
+        "ownerPreviewRequired": true
+      },
+      {
+        "topicId": "ukr-lex-02-syn-ant-hom",
+        "youtubeId": "o9xcL5pCxog",
+        "title": "Українська мова. Омоніми. Пароніми. Словник омонімів. Словник паронімів",
+        "channel": "Всеукраїнська школа онлайн",
+        "role": "simple",
+        "verificationLevel": "VERIFIED_CONTENT",
+        "ownerPreviewRequired": false
+      },
+      {
+        "topicId": "ukr-lex-03-phraseology",
+        "youtubeId": "wm0X68H_WtQ",
+        "title": "Українська мова. Фразеологія. Поняття про фразеологізм, його лексичне значення",
+        "channel": "Всеукраїнська школа онлайн",
+        "role": "primary",
+        "verificationLevel": "VERIFIED_CONTENT",
+        "ownerPreviewRequired": true
+      },
+      {
+        "topicId": "ukr-lex-03-phraseology",
+        "youtubeId": "oZfA9V0mhV4",
+        "title": "Українська мова. Джерела українських фразеологізмів. Фразеологізми у мовленні людини",
+        "channel": "Всеукраїнська школа онлайн",
+        "role": "simple",
+        "verificationLevel": "METADATA_ONLY",
+        "ownerPreviewRequired": true
+      },
+      {
+        "topicId": "bio-cell-01-eukaryotic-cell",
+        "youtubeId": "bBymW0PtVT0",
+        "title": "Будова клітини [Nucleus Medical Media]",
+        "channel": "Nucleus Medical Media (укр. озвучення)",
+        "role": "primary",
+        "verificationLevel": "VERIFIED_CONTENT",
+        "ownerPreviewRequired": true
+      },
+      {
+        "topicId": "bio-cell-01-eukaryotic-cell",
+        "youtubeId": "jCVunU5VGbI",
+        "title": "Різноманітність еукаріотичних клітин",
+        "channel": "BioLogos",
+        "role": "simple",
+        "verificationLevel": "METADATA_ONLY",
+        "ownerPreviewRequired": true
+      },
+      {
+        "topicId": "zcode-biology-molecular-dna-rna",
+        "youtubeId": "G63P4uoP6Fs",
+        "title": "9 клас. Біологія. Нуклеїнові кислоти. Роль нуклеїнових кислот як носія спадкової інформації. АТФ. Ч1",
+        "channel": "Всеукраїнська школа онлайн",
+        "role": "primary",
+        "verificationLevel": "METADATA_ONLY",
+        "ownerPreviewRequired": true
+      },
+      {
+        "topicId": "zcode-biology-molecular-dna-rna",
+        "youtubeId": "K541lnwQmTQ",
+        "title": "9 клас. Біологія. Подвоєння ДНК; репарація. Типи РНК. Транскрипція.",
+        "channel": "Всеукраїнська школа онлайн",
+        "role": "simple",
+        "verificationLevel": "METADATA_ONLY",
+        "ownerPreviewRequired": true
+      },
+      {
+        "topicId": "zcode-biology-molecular-protein-synth",
+        "youtubeId": "vs6GLwIxI-U",
+        "title": "9 клас. Біологія. Генетичний код. Біосинтез білка",
+        "channel": "Всеукраїнська школа онлайн",
+        "role": "primary",
+        "verificationLevel": "VERIFIED_CONTENT",
+        "ownerPreviewRequired": true
+      },
+      {
+        "topicId": "zcode-biology-molecular-protein-synth",
+        "youtubeId": "UGE4mfJliqo",
+        "title": "Біологія 9 клас  Подвоєння ДНК  Репарація пошкоджень ДНК",
+        "channel": "Всеукраїнська школа онлайн",
+        "role": "simple",
+        "verificationLevel": "METADATA_ONLY",
+        "ownerPreviewRequired": true
+      },
+      {
+        "topicId": "zcode-biology-molecular-division",
+        "youtubeId": "19a17ENs64g",
+        "title": "9 клас. Біологія. Поділ клітин: клітинний цикл, мітоз. Мейоз",
+        "channel": "Всеукраїнська школа онлайн",
+        "role": "primary",
+        "verificationLevel": "METADATA_ONLY",
+        "ownerPreviewRequired": true
+      },
+      {
+        "topicId": "zcode-biology-molecular-division",
+        "youtubeId": "RV-aJuuOHrE",
+        "title": "Мітоз | Академія Хана",
+        "channel": "KhanAcademyUkrainian",
+        "role": "simple",
+        "verificationLevel": "METADATA_ONLY",
+        "ownerPreviewRequired": true
+      }
+    ],
+    "results": [
+      {
+        "topicId": "ukr-lex-01-meaning",
+        "youtubeId": "NDmd6xU9F2E",
+        "id": "cmvqmvaz90001ut9s70jnfxgc",
+        "duplicate": true,
+        "reviewStatus": "SUGGESTED"
+      },
+      {
+        "topicId": "ukr-lex-02-syn-ant-hom",
+        "youtubeId": "scigg_eN4qs",
+        "id": "cmvqmvazb0004ut9s6vgj6u3e",
+        "duplicate": true,
+        "reviewStatus": "SUGGESTED"
+      },
+      {
+        "topicId": "ukr-lex-02-syn-ant-hom",
+        "youtubeId": "o9xcL5pCxog",
+        "id": "cmvslfrm70001utag368wui3a",
+        "duplicate": false,
+        "reviewStatus": "SUGGESTED"
+      },
+      {
+        "topicId": "ukr-lex-03-phraseology",
+        "youtubeId": "wm0X68H_WtQ",
+        "id": "cmvslfrm90003utag229gbgrv",
+        "duplicate": false,
+        "reviewStatus": "SUGGESTED"
+      },
+      {
+        "topicId": "ukr-lex-03-phraseology",
+        "youtubeId": "oZfA9V0mhV4",
+        "id": "cmvqmvazd0007ut9s5df76dyb",
+        "duplicate": true,
+        "reviewStatus": "SUGGESTED"
+      },
+      {
+        "topicId": "bio-cell-01-eukaryotic-cell",
+        "youtubeId": "bBymW0PtVT0",
+        "id": "cmvslfrmc0005utagxl6gvfbz",
+        "duplicate": false,
+        "reviewStatus": "SUGGESTED"
+      },
+      {
+        "topicId": "bio-cell-01-eukaryotic-cell",
+        "youtubeId": "jCVunU5VGbI",
+        "id": "cmvslfrme0007utagltktetyu",
+        "duplicate": false,
+        "reviewStatus": "SUGGESTED"
+      },
+      {
+        "topicId": "zcode-biology-molecular-dna-rna",
+        "youtubeId": "G63P4uoP6Fs",
+        "id": "cmvslfrmf0009utaguwwuce58",
+        "duplicate": false,
+        "reviewStatus": "SUGGESTED"
+      },
+      {
+        "topicId": "zcode-biology-molecular-dna-rna",
+        "youtubeId": "K541lnwQmTQ",
+        "id": "cmvslfrmh000butag38b07cot",
+        "duplicate": false,
+        "reviewStatus": "SUGGESTED"
+      },
+      {
+        "topicId": "zcode-biology-molecular-protein-synth",
+        "youtubeId": "vs6GLwIxI-U",
+        "id": "cmvslfrmj000dutagm52kqqeh",
+        "duplicate": false,
+        "reviewStatus": "SUGGESTED"
+      },
+      {
+        "topicId": "zcode-biology-molecular-protein-synth",
+        "youtubeId": "UGE4mfJliqo",
+        "id": "cmvslfrmk000futagrnddeo07",
+        "duplicate": false,
+        "reviewStatus": "SUGGESTED"
+      },
+      {
+        "topicId": "zcode-biology-molecular-division",
+        "youtubeId": "19a17ENs64g",
+        "id": "cmvslfrmm000hutagr20o1ows",
+        "duplicate": false,
+        "reviewStatus": "SUGGESTED"
+      },
+      {
+        "topicId": "zcode-biology-molecular-division",
+        "youtubeId": "RV-aJuuOHrE",
+        "id": "cmvslfrmn000jutag5w0b1o87",
+        "duplicate": false,
+        "reviewStatus": "SUGGESTED"
+      }
+    ],
+    "allSuggested": true,
+    "duplicateAddsIdempotent": true
+  },
+  "perTopic": [
+    {
+      "topicId": "ukr-lex-01-meaning",
+      "coverage": "DRAFT",
+      "questionTotal": 12,
+      "counts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "practice": true,
+      "draftQuestions": 12,
+      "verifiedQuestions": 0
+    },
+    {
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "coverage": "DRAFT",
+      "questionTotal": 12,
+      "counts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "practice": true,
+      "draftQuestions": 12,
+      "verifiedQuestions": 0
+    },
+    {
+      "topicId": "ukr-lex-03-phraseology",
+      "coverage": "DRAFT",
+      "questionTotal": 12,
+      "counts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "practice": true,
+      "draftQuestions": 12,
+      "verifiedQuestions": 0
+    },
+    {
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "coverage": "DRAFT",
+      "questionTotal": 12,
+      "counts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "practice": true,
+      "draftQuestions": 12,
+      "verifiedQuestions": 0
+    },
+    {
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "coverage": "DRAFT",
+      "questionTotal": 12,
+      "counts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "practice": true,
+      "draftQuestions": 12,
+      "verifiedQuestions": 0
+    },
+    {
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "coverage": "DRAFT",
+      "questionTotal": 12,
+      "counts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "practice": true,
+      "draftQuestions": 12,
+      "verifiedQuestions": 0
+    },
+    {
+      "topicId": "zcode-biology-molecular-division",
+      "coverage": "DRAFT",
+      "questionTotal": 12,
+      "counts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "practice": true,
+      "draftQuestions": 12,
+      "verifiedQuestions": 0
+    }
+  ],
+  "errors": []
+}
