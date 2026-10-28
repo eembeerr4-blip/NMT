@@ -74,3 +74,6 @@ next-env.d.ts
 
 # D05 isolated synthetic QA, sessions, logs and screenshots
 /audit/d05/
+
+# Stage 5A isolated visual QA evidence (not for git)
+/stage5-qa/
