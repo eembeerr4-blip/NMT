@@ -1,0 +1,103 @@
+{
+  "before": {
+    "answer": 12,
+    "testAttempt": 3,
+    "mistake": 10,
+    "reviewSchedule": 3,
+    "question": 404,
+    "draftTopics": 7
+  },
+  "after": {
+    "answer": 12,
+    "testAttempt": 3,
+    "mistake": 10,
+    "reviewSchedule": 3,
+    "question": 418,
+    "draftTopics": 7
+  },
+  "qa": {
+    "perTopic": [
+      {
+        "topicId": "ukr-lex-01-meaning",
+        "total": 12,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 5,
+          "HARD": 3
+        },
+        "practiceThreshold": true,
+        "readyIfVerified": false
+      },
+      {
+        "topicId": "ukr-lex-02-syn-ant-hom",
+        "total": 12,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 5,
+          "HARD": 3
+        },
+        "practiceThreshold": true,
+        "readyIfVerified": false
+      },
+      {
+        "topicId": "ukr-lex-03-phraseology",
+        "total": 12,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 5,
+          "HARD": 3
+        },
+        "practiceThreshold": true,
+        "readyIfVerified": false
+      },
+      {
+        "topicId": "bio-cell-01-eukaryotic-cell",
+        "total": 12,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 5,
+          "HARD": 3
+        },
+        "practiceThreshold": true,
+        "readyIfVerified": false
+      },
+      {
+        "topicId": "zcode-biology-molecular-dna-rna",
+        "total": 12,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 5,
+          "HARD": 3
+        },
+        "practiceThreshold": true,
+        "readyIfVerified": false
+      },
+      {
+        "topicId": "zcode-biology-molecular-protein-synth",
+        "total": 12,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 5,
+          "HARD": 3
+        },
+        "practiceThreshold": true,
+        "readyIfVerified": false
+      },
+      {
+        "topicId": "zcode-biology-molecular-division",
+        "total": 12,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 5,
+          "HARD": 3
+        },
+        "practiceThreshold": true,
+        "readyIfVerified": false
+      }
+    ],
+    "allTopicsMin12": true,
+    "allPracticeThresholds": true,
+    "prepareErrors": [],
+    "coverageStillDraft": true
+  }
+}

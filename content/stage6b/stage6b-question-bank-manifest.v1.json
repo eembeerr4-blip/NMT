@@ -1,0 +1,1387 @@
+{
+  "format": "nmt-stage6b-question-manifest",
+  "version": 1,
+  "createdAt": "2026-10-28T14:06:49.209Z",
+  "workingDatabaseChanged": false,
+  "baseSnapshot": {
+    "sourceCopy": "D:/НМТ Сайт/backups/stage6a-readonly-2026-10-28/dev.db",
+    "topicIds": [
+      "ukr-lex-01-meaning",
+      "ukr-lex-02-syn-ant-hom",
+      "ukr-lex-03-phraseology",
+      "bio-cell-01-eukaryotic-cell",
+      "zcode-biology-molecular-dna-rna",
+      "zcode-biology-molecular-protein-synth",
+      "zcode-biology-molecular-division"
+    ],
+    "baselineQuestionCount": 70
+  },
+  "compatibility": {
+    "questionSchema": "src/lib/validators.ts questionSchema",
+    "applyVia": "saveQuestion / persistQuestion; bulk new rows via importQuestions",
+    "importQuestionsNote": "Оновлення за id — saveQuestion або stage6b-apply-manifest.ts"
+  },
+  "reviews": [
+    {
+      "questionId": "bio-cell-01-q01",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "bio-cell-01-q02",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "bio-cell-01-q03",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "bio-cell-01-q08",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "bio-cell-01-q09",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "bio-cell-01-q10",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "bio-cell-01-q04",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "bio-cell-01-q05",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "bio-cell-01-q06",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "bio-cell-01-q07",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-01-q01",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-01-q02",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-01-q03",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-01-q04",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-01-q09",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-01-q10",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-01-q05",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-01-q06",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-01-q07",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-01-q08",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-02-q01",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-02-q02",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-02-q03",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-02-q04",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-02-q09",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-02-q10",
+      "status": "NEEDS_HUMAN_REVIEW",
+      "reason": "Сміливе твердження про повні омоніми «такт»; бажано підтвердити лінгвістом."
+    },
+    {
+      "questionId": "ukr-lex-02-q05",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-02-q06",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-02-q07",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-02-q08",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-03-q01",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-03-q02",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-03-q03",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-03-q04",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-03-q09",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-03-q10",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-03-q05",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-03-q06",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-03-q07",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "ukr-lex-03-q08",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q01",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q02",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q03",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q04",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q09",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q10",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q05",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q06",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q07",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q08",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q01",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q02",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q03",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q04",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q09",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q10",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q05",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q06",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q07",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q08",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q01",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q02",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q03",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q04",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q09",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q10",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q05",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q06",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q07",
+      "status": "APPROVE_CANDIDATE",
+      "reason": "Умова, варіанти, correctAnswer і пояснення узгоджені; prepareQuestion PASS."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q08",
+      "status": "FIX_REQUIRED",
+      "reason": "Калька «Кодируюча» та «нетрансльовані»; потрібна українська формулювання та перевірка умови."
+    }
+  ],
+  "updates": [
+    {
+      "id": "zcode-biology-molecular-protein-synth-q08",
+      "match": {
+        "promptContains": "Кодируюча",
+        "promptSha256Prefix": "dc767bb6aeb2fd75"
+      },
+      "reason": "Українська термінологія та зрозуміліша умова.",
+      "question": {
+        "id": "zcode-biology-molecular-protein-synth-q08",
+        "subjectId": "biology",
+        "topicId": "zcode-biology-molecular-protein-synth",
+        "subtopic": "",
+        "type": "NUMERIC",
+        "difficulty": "MEDIUM",
+        "prompt": "Кодуюча ділянка іРНК містить 120 нуклеотидів, що кодують амінокислоти; стоп-кодон (3 нуклеотиди) і неперекладні ділянки до цього числа не входять. Скільки амінокислотних залишків міститиме синтезований поліпептид? Відповідайте числом.",
+        "explanation": "120 нуклеотидів припадають лише на кодони амінокислот: 120 ÷ 3 = 40 амінокислотних залишків. Стоп-кодон амінокислоти не кодує; неперекладні ділянки іРНК у розрахунок не входять.",
+        "correctAnswer": "40",
+        "source": "NMT Academy: біосинтез білка · original (Stage 6B edit)",
+        "verificationStatus": "DRAFT",
+        "options": []
+      }
+    }
+  ],
+  "additions": [
+    {
+      "id": "bio-cell-01-q11",
+      "subjectId": "biology",
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "subtopic": "",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "EASY",
+      "prompt": "Яка органела характерна для рослинної клітини, але відсутня в типовій тваринній клітині?",
+      "explanation": "Хлоропласти є в рослинних клітинах і забезпечують фотосинтез. У тварин немає хлоропластів; мітохондрії, рибосоми та ядро є в обох типах клітин.",
+      "correctAnswer": "bio-cell-01-q11-opt-Г",
+      "source": "NMT Academy: Stage 6B bank supplement · original",
+      "verificationStatus": "DRAFT",
+      "options": [
+        {
+          "id": "bio-cell-01-q11-opt-А",
+          "label": "А",
+          "text": "Мітохондрія"
+        },
+        {
+          "id": "bio-cell-01-q11-opt-Б",
+          "label": "Б",
+          "text": "Ядро"
+        },
+        {
+          "id": "bio-cell-01-q11-opt-В",
+          "label": "В",
+          "text": "Рибосома"
+        },
+        {
+          "id": "bio-cell-01-q11-opt-Г",
+          "label": "Г",
+          "text": "Хлоропласт"
+        }
+      ]
+    },
+    {
+      "id": "bio-cell-01-q12",
+      "subjectId": "biology",
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "subtopic": "",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "MEDIUM",
+      "prompt": "Клітина активно синтезує білки для секреції. Яке поєднання органел буде найбільш розвиненим?",
+      "explanation": "Секреторні білки синтезуються на рибосомах шорсткої ЕПС, проходять через порожнину ЕПС і комплекс Гольджі.",
+      "correctAnswer": "bio-cell-01-q12-opt-Г",
+      "source": "NMT Academy: Stage 6B bank supplement · original",
+      "verificationStatus": "DRAFT",
+      "options": [
+        {
+          "id": "bio-cell-01-q12-opt-А",
+          "label": "А",
+          "text": "Лізосоми + центріолі"
+        },
+        {
+          "id": "bio-cell-01-q12-opt-Б",
+          "label": "Б",
+          "text": "Хлоропласти + вакуоля"
+        },
+        {
+          "id": "bio-cell-01-q12-opt-В",
+          "label": "В",
+          "text": "Рибосоми в цитоплазмі + пероксисоми"
+        },
+        {
+          "id": "bio-cell-01-q12-opt-Г",
+          "label": "Г",
+          "text": "Шорста ЕПС + комплекс Гольджі"
+        }
+      ]
+    },
+    {
+      "id": "ukr-lex-01-q11",
+      "subjectId": "ukrainian",
+      "topicId": "ukr-lex-01-meaning",
+      "subtopic": "",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "MEDIUM",
+      "prompt": "У якому реченні слово «золотий» вжите в прямому значенні?",
+      "explanation": "«Золотий медальон» — метал. «Золоті руки», «золоте серце», «золотий характер» — переносні значення.",
+      "correctAnswer": "ukr-lex-01-q11-opt-Г",
+      "source": "NMT Academy: Stage 6B bank supplement · original",
+      "verificationStatus": "DRAFT",
+      "options": [
+        {
+          "id": "ukr-lex-01-q11-opt-А",
+          "label": "А",
+          "text": "Майстриня має золоті руки."
+        },
+        {
+          "id": "ukr-lex-01-q11-opt-Б",
+          "label": "Б",
+          "text": "У нього золоте серце."
+        },
+        {
+          "id": "ukr-lex-01-q11-opt-В",
+          "label": "В",
+          "text": "Це золотий характер людини."
+        },
+        {
+          "id": "ukr-lex-01-q11-opt-Г",
+          "label": "Г",
+          "text": "Вона отримала золотий медальон на ювілей."
+        }
+      ]
+    },
+    {
+      "id": "ukr-lex-01-q12",
+      "subjectId": "ukrainian",
+      "topicId": "ukr-lex-01-meaning",
+      "subtopic": "",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "HARD",
+      "prompt": "У якому варіанті немає лексичної помилки?",
+      "explanation": "Нормативно «сплатити рахунок». «Оплатити рахунок» — типова калька; «приймати участь» — калька; «відкрити підручник» — некоректне слововживання.",
+      "correctAnswer": "ukr-lex-01-q12-opt-Г",
+      "source": "NMT Academy: Stage 6B bank supplement · original",
+      "verificationStatus": "DRAFT",
+      "options": [
+        {
+          "id": "ukr-lex-01-q12-opt-А",
+          "label": "А",
+          "text": "Оплатити рахунок за проїзд у транспорті."
+        },
+        {
+          "id": "ukr-lex-01-q12-opt-Б",
+          "label": "Б",
+          "text": "Прийняти участь у конференції."
+        },
+        {
+          "id": "ukr-lex-01-q12-opt-В",
+          "label": "В",
+          "text": "Відкрити підручник на сторінці."
+        },
+        {
+          "id": "ukr-lex-01-q12-opt-Г",
+          "label": "Г",
+          "text": "Сплатити рахунок за проїзд у транспорті."
+        }
+      ]
+    },
+    {
+      "id": "ukr-lex-02-q11",
+      "subjectId": "ukrainian",
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "subtopic": "",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "MEDIUM",
+      "prompt": "Яке твердження правильне?",
+      "explanation": "Омоніми — різні слова з однаковим написанням без спільного значення; «криниця» (джерело) і «криниця» (плач) — класичний приклад.",
+      "correctAnswer": "ukr-lex-02-q11-opt-Г",
+      "source": "NMT Academy: Stage 6B bank supplement · original",
+      "verificationStatus": "DRAFT",
+      "options": [
+        {
+          "id": "ukr-lex-02-q11-opt-А",
+          "label": "А",
+          "text": "«Лист» (дерева) і «лист» (листування) — повні омоніми."
+        },
+        {
+          "id": "ukr-lex-02-q11-opt-Б",
+          "label": "Б",
+          "text": "Синоніми завжди мають однакову частину мови."
+        },
+        {
+          "id": "ukr-lex-02-q11-opt-В",
+          "label": "В",
+          "text": "Антоніми завжди різних частин мови."
+        },
+        {
+          "id": "ukr-lex-02-q11-opt-Г",
+          "label": "Г",
+          "text": "Слова «криниця» (джерело води) і «криниця» (плач) — омоніми."
+        }
+      ]
+    },
+    {
+      "id": "ukr-lex-02-q12",
+      "subjectId": "ukrainian",
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "subtopic": "",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "HARD",
+      "prompt": "Доберіть антонім до прикметника «високий» у значенні «велика інтенсивність» (висока температура):",
+      "explanation": "У значенні інтенсивності антонім — «низький» (низька температура).",
+      "correctAnswer": "ukr-lex-02-q12-opt-Г",
+      "source": "NMT Academy: Stage 6B bank supplement · original",
+      "verificationStatus": "DRAFT",
+      "options": [
+        {
+          "id": "ukr-lex-02-q12-opt-А",
+          "label": "А",
+          "text": "малий"
+        },
+        {
+          "id": "ukr-lex-02-q12-opt-Б",
+          "label": "Б",
+          "text": "короткий"
+        },
+        {
+          "id": "ukr-lex-02-q12-opt-В",
+          "label": "В",
+          "text": "вузький"
+        },
+        {
+          "id": "ukr-lex-02-q12-opt-Г",
+          "label": "Г",
+          "text": "низький"
+        }
+      ]
+    },
+    {
+      "id": "ukr-lex-03-q11",
+      "subjectId": "ukrainian",
+      "topicId": "ukr-lex-03-phraseology",
+      "subtopic": "",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "MEDIUM",
+      "prompt": "Фразеологізм «битися об заклад» означає:",
+      "explanation": "Означає твердо запевняти, заприсягатися.",
+      "correctAnswer": "ukr-lex-03-q11-opt-Г",
+      "source": "NMT Academy: Stage 6B bank supplement · original",
+      "verificationStatus": "DRAFT",
+      "options": [
+        {
+          "id": "ukr-lex-03-q11-opt-А",
+          "label": "А",
+          "text": "сваритися через гроші"
+        },
+        {
+          "id": "ukr-lex-03-q11-opt-Б",
+          "label": "Б",
+          "text": "швидко бігти"
+        },
+        {
+          "id": "ukr-lex-03-q11-opt-В",
+          "label": "В",
+          "text": "працювати без відпочинку"
+        },
+        {
+          "id": "ukr-lex-03-q11-opt-Г",
+          "label": "Г",
+          "text": "твердо запевняти, заприсягатися"
+        }
+      ]
+    },
+    {
+      "id": "ukr-lex-03-q12",
+      "subjectId": "ukrainian",
+      "topicId": "ukr-lex-03-phraseology",
+      "subtopic": "",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "HARD",
+      "prompt": "У якому реченні фразеологізм вжито правильно?",
+      "explanation": "«Тримати слово» — виконувати обіцянку.",
+      "correctAnswer": "ukr-lex-03-q12-opt-Г",
+      "source": "NMT Academy: Stage 6B bank supplement · original",
+      "verificationStatus": "DRAFT",
+      "options": [
+        {
+          "id": "ukr-lex-03-q12-opt-А",
+          "label": "А",
+          "text": "Він тримав слово за зубами під час допиту."
+        },
+        {
+          "id": "ukr-lex-03-q12-opt-Б",
+          "label": "Б",
+          "text": "Директор дав слово оплатити рахунки готівкою."
+        },
+        {
+          "id": "ukr-lex-03-q12-opt-В",
+          "label": "В",
+          "text": "Учень взяв слово зі словника."
+        },
+        {
+          "id": "ukr-lex-03-q12-opt-Г",
+          "label": "Г",
+          "text": "Команда й надалі триматиме слово перед уболівальниками."
+        }
+      ]
+    },
+    {
+      "id": "zcode-biology-molecular-dna-rna-q11",
+      "subjectId": "biology",
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "subtopic": "",
+      "type": "NUMERIC",
+      "difficulty": "MEDIUM",
+      "prompt": "Фрагмент одноланцюгової іРНК містить 80 нуклеотидів: аденін — 20, гуанін — 25, цитозин — 15. Скільки нуклеотидів з урацилом? Відповідайте числом.",
+      "explanation": "U = 80 − (20 + 25 + 15) = 20.",
+      "correctAnswer": "20",
+      "source": "NMT Academy: Stage 6B bank supplement · original",
+      "verificationStatus": "DRAFT",
+      "options": []
+    },
+    {
+      "id": "zcode-biology-molecular-dna-rna-q12",
+      "subjectId": "biology",
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "subtopic": "",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "HARD",
+      "prompt": "Яка послідовність може бути фрагментом ланцюга ДНК (запис 5′→3′)?",
+      "explanation": "У ДНК немає урацилу.",
+      "correctAnswer": "zcode-biology-molecular-dna-rna-q12-opt-Г",
+      "source": "NMT Academy: Stage 6B bank supplement · original",
+      "verificationStatus": "DRAFT",
+      "options": [
+        {
+          "id": "zcode-biology-molecular-dna-rna-q12-opt-А",
+          "label": "А",
+          "text": "5′-АУГЦУА-3′"
+        },
+        {
+          "id": "zcode-biology-molecular-dna-rna-q12-opt-Б",
+          "label": "Б",
+          "text": "5′-ТТГЦУА-3′"
+        },
+        {
+          "id": "zcode-biology-molecular-dna-rna-q12-opt-В",
+          "label": "В",
+          "text": "5′-ГЦУАТ-3′"
+        },
+        {
+          "id": "zcode-biology-molecular-dna-rna-q12-opt-Г",
+          "label": "Г",
+          "text": "5′-АТГЦТА-3′"
+        }
+      ]
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth-q11",
+      "subjectId": "biology",
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "subtopic": "",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "MEDIUM",
+      "prompt": "Який процес забезпечує точне копіювання ДНК перед поділом клітини?",
+      "explanation": "Реплікація копіює ДНК перед мітозом/мейозом.",
+      "correctAnswer": "zcode-biology-molecular-protein-synth-q11-opt-Г",
+      "source": "NMT Academy: Stage 6B bank supplement · original",
+      "verificationStatus": "DRAFT",
+      "options": [
+        {
+          "id": "zcode-biology-molecular-protein-synth-q11-opt-А",
+          "label": "А",
+          "text": "Транскрипція"
+        },
+        {
+          "id": "zcode-biology-molecular-protein-synth-q11-opt-Б",
+          "label": "Б",
+          "text": "Трансляція"
+        },
+        {
+          "id": "zcode-biology-molecular-protein-synth-q11-opt-В",
+          "label": "В",
+          "text": "Кросинговер"
+        },
+        {
+          "id": "zcode-biology-molecular-protein-synth-q11-opt-Г",
+          "label": "Г",
+          "text": "Реплікація"
+        }
+      ]
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth-q12",
+      "subjectId": "biology",
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "subtopic": "",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "HARD",
+      "prompt": "Скільки кодонів (триплетів) потрібно, щоб закодувати поліпептид із 25 амінокислотних залишків (стоп-кодон окремо)?",
+      "explanation": "25 амінокислот = 25 кодонів; стоп-кодон у задачі окремо, тож 25.",
+      "correctAnswer": "zcode-biology-molecular-protein-synth-q12-opt-Г",
+      "source": "NMT Academy: Stage 6B bank supplement · original",
+      "verificationStatus": "DRAFT",
+      "options": [
+        {
+          "id": "zcode-biology-molecular-protein-synth-q12-opt-А",
+          "label": "А",
+          "text": "75"
+        },
+        {
+          "id": "zcode-biology-molecular-protein-synth-q12-opt-Б",
+          "label": "Б",
+          "text": "24"
+        },
+        {
+          "id": "zcode-biology-molecular-protein-synth-q12-opt-В",
+          "label": "В",
+          "text": "26"
+        },
+        {
+          "id": "zcode-biology-molecular-protein-synth-q12-opt-Г",
+          "label": "Г",
+          "text": "25"
+        }
+      ]
+    },
+    {
+      "id": "zcode-biology-molecular-division-q11",
+      "subjectId": "biology",
+      "topicId": "zcode-biology-molecular-division",
+      "subtopic": "",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "MEDIUM",
+      "prompt": "У якій фазі мейозу I відбувається кросинговер?",
+      "explanation": "Кросинговер — у профазі I під час кон'югації гомологів.",
+      "correctAnswer": "zcode-biology-molecular-division-q11-opt-Г",
+      "source": "NMT Academy: Stage 6B bank supplement · original",
+      "verificationStatus": "DRAFT",
+      "options": [
+        {
+          "id": "zcode-biology-molecular-division-q11-opt-А",
+          "label": "А",
+          "text": "Метафаза I"
+        },
+        {
+          "id": "zcode-biology-molecular-division-q11-opt-Б",
+          "label": "Б",
+          "text": "Анафаза II"
+        },
+        {
+          "id": "zcode-biology-molecular-division-q11-opt-В",
+          "label": "В",
+          "text": "Телофаза"
+        },
+        {
+          "id": "zcode-biology-molecular-division-q11-opt-Г",
+          "label": "Г",
+          "text": "Профаза I"
+        }
+      ]
+    },
+    {
+      "id": "zcode-biology-molecular-division-q12",
+      "subjectId": "biology",
+      "topicId": "zcode-biology-molecular-division",
+      "subtopic": "",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "HARD",
+      "prompt": "Клітина з 2n=8 завершила мейоз. Скільки хромосом у кожній з чотирьох дочірніх клітин?",
+      "explanation": "Гаплоїдний набір n = 4.",
+      "correctAnswer": "zcode-biology-molecular-division-q12-opt-Г",
+      "source": "NMT Academy: Stage 6B bank supplement · original",
+      "verificationStatus": "DRAFT",
+      "options": [
+        {
+          "id": "zcode-biology-molecular-division-q12-opt-А",
+          "label": "А",
+          "text": "8"
+        },
+        {
+          "id": "zcode-biology-molecular-division-q12-opt-Б",
+          "label": "Б",
+          "text": "16"
+        },
+        {
+          "id": "zcode-biology-molecular-division-q12-opt-В",
+          "label": "В",
+          "text": "2"
+        },
+        {
+          "id": "zcode-biology-molecular-division-q12-opt-Г",
+          "label": "Г",
+          "text": "4"
+        }
+      ]
+    }
+  ],
+  "rejections": [],
+  "verifyRecommendations": [
+    {
+      "questionId": "bio-cell-01-q01",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "bio-cell-01-q02",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "bio-cell-01-q03",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "bio-cell-01-q08",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "bio-cell-01-q09",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "bio-cell-01-q10",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "bio-cell-01-q04",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "bio-cell-01-q05",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "bio-cell-01-q06",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "bio-cell-01-q07",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-01-q01",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-01-q02",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-01-q03",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-01-q04",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-01-q09",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-01-q10",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-01-q05",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-01-q06",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-01-q07",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-01-q08",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-02-q01",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-02-q02",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-02-q03",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-02-q04",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-02-q09",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-02-q10",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-02-q05",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-02-q06",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-02-q07",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-02-q08",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-03-q01",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-03-q02",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-03-q03",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-03-q04",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-03-q09",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-03-q10",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-03-q05",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-03-q06",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-03-q07",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-03-q08",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q01",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q02",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q03",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q04",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q09",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q10",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q05",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q06",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q07",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q08",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q01",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q02",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q03",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q04",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q09",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q10",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q05",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q06",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q07",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q08",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q01",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q02",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q03",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q04",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q09",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q10",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q05",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q06",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q07",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q08",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "bio-cell-01-q11",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "bio-cell-01-q12",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-01-q11",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-01-q12",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-02-q11",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-02-q12",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-03-q11",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "ukr-lex-03-q12",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q11",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-dna-rna-q12",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q11",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-protein-synth-q12",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q11",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    },
+    {
+      "questionId": "zcode-biology-molecular-division-q12",
+      "recommendedEditorAction": "verifyQuestion after owner review",
+      "targetStatus": "VERIFIED",
+      "note": "Stage 6B не виконує verify на робочій БД."
+    }
+  ],
+  "summary": {
+    "approveCandidate": 68,
+    "fixRequired": 1,
+    "replaceRequired": 0,
+    "needsHumanReview": 1,
+    "updates": 1,
+    "additions": 14,
+    "rejections": 0
+  }
+}
