@@ -1,0 +1,98 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { writeFileSync } from "node:fs";
+
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const { sectionReport, prodDb } = await import("./stage7c-analyze-sections.mjs");
+const analysis = { prodDb, sections: sectionReport };
+
+/** Stage 7C classification of importer-created section nodes. */
+const classifications = [
+  {
+    id: "s7a-sec-math-v2",
+    classification: "REQUIRED_PARENT",
+    rationale:
+      "Пакет math v2 містить нові leaf math-linear-eq-sub-02 і math-quadratic-sub-01; importer створює section і прив’язує parentId (Stage 2 mapping topic-definitions-v2-new.mjs).",
+    stage2Note: "Нові leaf-теми математики; аналога з таким ID у curriculum map не було.",
+    learnerVisibility:
+      "coverage=NEEDS_CONTENT, порожній lessonJson — не DRAFT; lessonAccess.available=false (немає theory/video/practice).",
+  },
+  {
+    id: "s7a-sec-history-v2",
+    classification: "REQUIRED_PARENT",
+    rationale: "Батьківський вузол для cm-history-slavs-sub-01 та hist-galicia-sub-01.",
+    stage2Note: "Leaf ID з v2-new; section — службовий контейнер пакета.",
+    learnerVisibility: "Порожній розділ, не опублікований урок.",
+  },
+  {
+    id: "s7a-sec-ukrainian-v2",
+    classification: "REQUIRED_PARENT",
+    rationale: "Батьківський вузол для ukr-ortho-sub-01.",
+    stage2Note: "sectionCode у topic-definitions-v2-new.mjs.",
+    learnerVisibility: "Порожній розділ.",
+  },
+  {
+    id: "s7a-sec-geography",
+    classification: "UNNECESSARY",
+    rationale:
+      "geography-1 імпортовано як fill-existing з parentId=null; section створено з пакета, але дочірніх тем немає — «висячий» контейнер.",
+    stage2Note:
+      "У nmt-curriculum-map geography-1 — існуючий section/leaf каркас; контент наповнено без зміни parent.",
+    duplicateOf: null,
+    learnerVisibility: "NEEDS_CONTENT без дітей — не повноцінний урок, але з’являється в дереві предмета.",
+  },
+  {
+    id: "s7a-sec-geography-ua",
+    classification: "UNNECESSARY",
+    rationale: "Аналогічно для geography-2 (parentId=null).",
+    stage2Note: "geography-2 існував у карті; section з пакета не використовується як батько.",
+    learnerVisibility: "Порожній розділ у навігації geography.",
+  },
+  {
+    id: "s7a-sec-bio-cell",
+    classification: "UNNECESSARY",
+    rationale: "bio-cell-sec-01 fill-existing без parentId; порожній s7a-sec-bio-cell.",
+    stage2Note: "bio-cell-sec-01 — section node у curriculum map з дочірніми leaf (READY урок окремо).",
+    learnerVisibility: "Порожній розділ.",
+  },
+  {
+    id: "s7a-sec-bio-molecular",
+    classification: "UNNECESSARY",
+    rationale: "zcode-biology-molecular-02 без parentId; порожній section.",
+    stage2Note: "Паралельна гілка molecular у Stage 2; імпорт не прив’язав parent.",
+    learnerVisibility: "Порожній розділ.",
+  },
+  {
+    id: "s7a-sec-ukr-lex",
+    classification: "UNNECESSARY",
+    rationale: "ukr-lexicology-section-01 fill-existing; section без дітей.",
+    stage2Note: "Існуючий section ID ukr-lexicology-section-01 уже в програмній карті.",
+    learnerVisibility: "Порожній розділ.",
+  },
+];
+
+const whyImporterCreates =
+  "content-package schema вимагає sections[]; planContentPackage/createSection=true для нового коду; fill-existing topics не оновлюють parentId (content-import-core.ts update гілка).";
+
+writeFileSync(
+  path.join(repoRoot, "content/stage7c/stage7c-section-nodes.v1.json"),
+  JSON.stringify(
+    {
+      format: "nmt-stage7c-section-analysis",
+      version: 1,
+      analyzedAt: new Date().toISOString(),
+      productionDb: analysis.prodDb,
+      whyImporterCreates,
+      noCycles: true,
+      duplicateSections: false,
+      nodes: classifications.map((c) => {
+        const live = analysis.sections.find((s) => s.id === c.id);
+        return { ...c, title: live?.title, children: live?.children ?? [], coverage: live?.coverage };
+      }),
+    },
+    null,
+    2,
+  ),
+);
+
+console.log("written stage7c-section-nodes.v1.json");

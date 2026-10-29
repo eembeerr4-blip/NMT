@@ -1,0 +1,1672 @@
+{
+  "format": "nmt-stage7c-review-decisions",
+  "version": 1,
+  "stage": "7C",
+  "generatedAt": "2026-10-29T11:52:40.581Z",
+  "gitBranch": "feature/stage7c-content-verification",
+  "sourceManifest": "content/stage7a/stage7a-content-manifest.v2.json",
+  "questionCount": 120,
+  "summary": {
+    "VERIFIED_CANDIDATE": 72,
+    "FIX_REQUIRED": 12,
+    "REPLACE_REQUIRED": 36
+  },
+  "decisions": [
+    {
+      "questionId": "s7a-geography-1-e01",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "EASY",
+      "contentHash": "70dd1566ec332fcde7383be716d5153a69a9f0a83d66955f706e12d59f2e7cc4",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Фізична/загальна географія: координати, масштаб, часові пояси — ключ узгоджений з теорією конспекту.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.580Z"
+    },
+    {
+      "questionId": "s7a-geography-1-e02",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "EASY",
+      "contentHash": "403dc674f049268c5ab01df199f7cafa2c5cdd3ffd59e6d4ebf9a9936f33f2af",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Фізична/загальна географія: координати, масштаб, часові пояси — ключ узгоджений з теорією конспекту.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-1-e03",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "EASY",
+      "contentHash": "8b8a82b709399ed0d91937ae6524732f3d8ddc06571525236992202d6023d537",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Фізична/загальна географія: координати, масштаб, часові пояси — ключ узгоджений з теорією конспекту.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-1-e04",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "EASY",
+      "contentHash": "f9525a07c8c1ae3f4e58245758a8f67efd4da32bbd98c7977baac53b9acc96cd",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Фізична/загальна географія: координати, масштаб, часові пояси — ключ узгоджений з теорією конспекту.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-1-m01",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "contentHash": "fa021078e64c261a2939a3adb57603c9d5a2933a833e394dcb023a8f4c1ab2ec",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Фізична/загальна географія: координати, масштаб, часові пояси — ключ узгоджений з теорією конспекту.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-1-m02",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "contentHash": "3f23b6813d386b46abcd119ffa69acf586a38bc16f840b4dbe0baa641f9866e3",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Фізична/загальна географія: координати, масштаб, часові пояси — ключ узгоджений з теорією конспекту.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-1-m03",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "contentHash": "978fa7fa9aa1c98e36ffab46f69f335a7c526e067e6dab295e0f8f9dc2e3d685",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Фізична/загальна географія: координати, масштаб, часові пояси — ключ узгоджений з теорією конспекту.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-1-m04",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "contentHash": "2cb3b09f27a7d246abd0e738fc81bd77310651182125f746e25496e3f9d54574",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Фізична/загальна географія: координати, масштаб, часові пояси — ключ узгоджений з теорією конспекту.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-1-m05",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "contentHash": "2e90c874d1e3e0d727fd68301903ce16875ff6d5face7b7a17b776ca7a894d47",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Фізична/загальна географія: координати, масштаб, часові пояси — ключ узгоджений з теорією конспекту.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-1-h01",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "HARD",
+      "contentHash": "cd5357adb8a058d7d3f447ac0de26cf7f1ff1c57e554c536e0dc5dbe8bd06389",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Фізична/загальна географія: координати, масштаб, часові пояси — ключ узгоджений з теорією конспекту.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-1-h02",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "HARD",
+      "contentHash": "4e51da269b7824867632c1802155b8e9218c3cd4df07a4b724db9fa4cc97f7b3",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Фізична/загальна географія: координати, масштаб, часові пояси — ключ узгоджений з теорією конспекту.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-1-h03",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "HARD",
+      "contentHash": "f14c0542733b16e991f327f6e089dfff598bd31e48e84b53fb821f06350c945c",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Фізична/загальна географія: координати, масштаб, часові пояси — ключ узгоджений з теорією конспекту.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-2-e01",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "EASY",
+      "contentHash": "82da25572293ab5adca7461b70263452d9658bbb7cd9499d742ab6b1b271a646",
+      "reviewStatus": "FIX_REQUIRED",
+      "rationale": "Фактичний ключ прийнятний, але пояснення занадто коротке для публікації; потрібна українська розширена explanation.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-2-e02",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "EASY",
+      "contentHash": "6f2219829c02f128f41599bd5dc9c6e3d2742a6a0b7d108b03d7a030864f34a8",
+      "reviewStatus": "FIX_REQUIRED",
+      "rationale": "Фактичний ключ прийнятний, але пояснення занадто коротке для публікації; потрібна українська розширена explanation.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-2-e03",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "EASY",
+      "contentHash": "dbd2740eec63e6128f47b9a95360b8815500e92388afccdf63b3364de631c5e0",
+      "reviewStatus": "FIX_REQUIRED",
+      "rationale": "Фактичний ключ прийнятний, але пояснення занадто коротке для публікації; потрібна українська розширена explanation.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-2-e04",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "EASY",
+      "contentHash": "937dcb8f6d86b93861d56676f8669c912711496f2ed86f9921b6ff5135115779",
+      "reviewStatus": "FIX_REQUIRED",
+      "rationale": "Фактичний ключ прийнятний, але пояснення занадто коротке для публікації; потрібна українська розширена explanation.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-2-m01",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "contentHash": "a7020854fbfb6415412d300f117e83cebb7534e14801b3088d0f4540e7e4c0e3",
+      "reviewStatus": "FIX_REQUIRED",
+      "rationale": "Фактичний ключ прийнятний, але пояснення занадто коротке для публікації; потрібна українська розширена explanation.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-2-m02",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "contentHash": "7a54cbcd0b4d4424f63c6f6aa2ee3e1f65f574c3d9f32fe16f0ee36ed8480b37",
+      "reviewStatus": "FIX_REQUIRED",
+      "rationale": "Фактичний ключ прийнятний, але пояснення занадто коротке для публікації; потрібна українська розширена explanation.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-2-m03",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "contentHash": "e6cacca7060c21a5c9b6c1d3f7256b1a10aa594750743ec6892e36d9a2d75365",
+      "reviewStatus": "FIX_REQUIRED",
+      "rationale": "Фактичний ключ прийнятний, але пояснення занадто коротке для публікації; потрібна українська розширена explanation.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-2-m04",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "contentHash": "88bb917dd02ef5ccb0c0ea5e5b15828da0dfe57f6d3fe23927419b28b28c9b58",
+      "reviewStatus": "FIX_REQUIRED",
+      "rationale": "Фактичний ключ прийнятний, але пояснення занадто коротке для публікації; потрібна українська розширена explanation.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-2-m05",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "contentHash": "3f6ed807d9116d8259d98107d4820beeb53dc57f340bc020e4a6b15923318e57",
+      "reviewStatus": "FIX_REQUIRED",
+      "rationale": "Фактичний ключ прийнятний, але пояснення занадто коротке для публікації; потрібна українська розширена explanation.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-2-h01",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "HARD",
+      "contentHash": "2d9b7a27d9a9ccd967bb81fcc9829b4220e7143efe353e03a124cfbabe6bcd1e",
+      "reviewStatus": "FIX_REQUIRED",
+      "rationale": "Фактичний ключ прийнятний, але пояснення занадто коротке для публікації; потрібна українська розширена explanation.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-2-h02",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "HARD",
+      "contentHash": "3ebff0f8df1b6b7de6c56e2cc5891455b77f2851ad2ba2bbb47d167ff8310e6f",
+      "reviewStatus": "FIX_REQUIRED",
+      "rationale": "Фактичний ключ прийнятний, але пояснення занадто коротке для публікації; потрібна українська розширена explanation.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-geography-2-h03",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "HARD",
+      "contentHash": "92a599c14f5e2e380cfd15785e9efda29c9251937b784339dbee4731878b4dfc",
+      "reviewStatus": "FIX_REQUIRED",
+      "rationale": "Фактичний ключ прийнятний, але пояснення занадто коротке для публікації; потрібна українська розширена explanation.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-e01",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "EASY",
+      "contentHash": "cd97dcdcb542f7532e2c3cf40e1acaa19a026e107dff732898973220a53fbf8a",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-e02",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "EASY",
+      "contentHash": "1973b6be9057322d133c0d40c27c5db2b0f05757372961aaf72b571dd236aaef",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-e03",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "EASY",
+      "contentHash": "50ba281f01cfa0ca9c13049d74a1881451003d2e4a5536f14f0ccd93f8a6eca5",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-e04",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "EASY",
+      "contentHash": "523a177fe479400a2ee39200422a6efca9ceb835898834f12737e7baf4b0c521",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m01",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "contentHash": "afc167680ee3a3622fb7e55a1d0b7c6369f26313009d6208bb07c35d2f18ca5f",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m02",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "contentHash": "183daa32dd13c9144abe1a9e9fe89e8a695c390991ac1184f129f829384a760f",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m03",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "contentHash": "5441d75ce6cd4fae0a013483e09fae3f547e8c56f3239fa352f563b98e787d27",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m04",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "contentHash": "9471d218c3f96ebe5402bc8b41fa061cdde296ff24adcab717b181304a585478",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m05",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "contentHash": "4728b69087c7a04b5980360fa59e85f814179df8dc0a08d2d93502728c3d2898",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-h01",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "HARD",
+      "contentHash": "e53bfcc09205364e3f2a6401208c0f97bdee5943f4d4272bd674822f696b86b1",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-h02",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "HARD",
+      "contentHash": "f4e667c7070de3b091451b9da6160574dcc38d61e0dca721cbd6cec643a58f46",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-h03",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "HARD",
+      "contentHash": "e4adf0b3c168c21838e3f6c70d7e94a7437eae120d8663cebd11dbce95ca48c6",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e01",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "EASY",
+      "contentHash": "921a3215afad96202b0338073109a1268acbe7a978d49801d97d0dc2309d162b",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Орфографічна норма української мови; правило підтверджено перевірочними словами/префіксами.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e02",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "EASY",
+      "contentHash": "f630a9721c7ca1382ad0b373b330ba3a4fa4e07136f58f4b179fb6454a288426",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Орфографічна норма української мови; правило підтверджено перевірочними словами/префіксами.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e03",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "EASY",
+      "contentHash": "5884963ee07bfa68bd3a8fb57ace91e85ad22b2670cbdd8f74e3653b04b8549f",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Орфографічна норма української мови; правило підтверджено перевірочними словами/префіксами.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e04",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "EASY",
+      "contentHash": "d606bd12f30f41f029cf6990b12730bc657a74e1248dbbbdd93a8402725b745e",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Орфографічна норма української мови; правило підтверджено перевірочними словами/префіксами.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e05",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "contentHash": "8b4d0cb82c36a3fd1b3f299bf13184321c727c1ec6f965762615617fd448fd62",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Орфографічна норма української мови; правило підтверджено перевірочними словами/префіксами.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e06",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "contentHash": "364fcb50a49febd0db30943fdc763b50ed75dec3c2591d8d5a953bd3c071f5d9",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Орфографічна норма української мови; правило підтверджено перевірочними словами/префіксами.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e07",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "contentHash": "8e057bbcd29bdf2276aee4cac782ec1b041b1724c759df0bbe2f2c9dd465bb26",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Орфографічна норма української мови; правило підтверджено перевірочними словами/префіксами.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e08",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "contentHash": "a2e8fd8dbc8cc50302885f49811f414421ce7cf191ca4e25511753bbc7aad049",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Орфографічна норма української мови; правило підтверджено перевірочними словами/префіксами.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e09",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "contentHash": "381f35f7006533fbacd9943723b0320fab20d4229ccb7dc0d03545f942290e56",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Орфографічна норма української мови; правило підтверджено перевірочними словами/префіксами.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e10",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "HARD",
+      "contentHash": "430402a5321143b6b7ff1c85741a5619c6ed8e7449a805684aa2b687a50387f8",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Орфографічна норма української мови; правило підтверджено перевірочними словами/префіксами.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e11",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "HARD",
+      "contentHash": "8206a9c8ac89428914786fa2ac75a821c47c0ad46e7361c5b2306646b19402a7",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Орфографічна норма української мови; правило підтверджено перевірочними словами/префіксами.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e12",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "HARD",
+      "contentHash": "f6238b550f03e54b05f6e343cd027c37bed5344d2e2de329e3d8d7bc822255e6",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Орфографічна норма української мови; правило підтверджено перевірочними словами/префіксами.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-e01",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "EASY",
+      "contentHash": "6a7317489d0830ac8a34ba27dc1bfef545edea0b274a102169dfe0e0fc4a9a68",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-e02",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "EASY",
+      "contentHash": "80bba3b50fb14160a3a2de361f0b4d44c1f3f7011017033f933fbea40c21fafb",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-e03",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "EASY",
+      "contentHash": "2b10b9de919432598895a67e7c8c1bfd51b14579b461d820641dd28f6d28b30b",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-e04",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "EASY",
+      "contentHash": "e5003055dd021054f829f37f743e8add66711ad59665bf2233f9c2b80a04ae48",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m01",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "contentHash": "08820b6b5b621ddcef45174d2aa83489859ece0f7755762c64979fa81ddbfc37",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m02",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "contentHash": "197a0f3f7b48dfe71f7b9842ed467f0cab946faaf5191ee1a8830d3480680d8d",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m03",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "contentHash": "b390663a0520953a2ad60a490878f157e1ecf17b0e91a64aaf72679f3ceedaa5",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m04",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "contentHash": "8c734c7a229123eaa1a8632b8eaf3fa59463be5ce2a9c54fd097893e38a66125",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m05",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "contentHash": "bc720b6872d4fd440414d0e35034dbcfc10226e09e24f3ae254d9a35f7daa7dd",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-h01",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "HARD",
+      "contentHash": "e7cc708728c255689c081bc6b16c94019e10b8b14a8af2a8f970d08875c4b0ad",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-h02",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "HARD",
+      "contentHash": "689fedaee4ef661fe8b3370903d59de09d6e53e99a71c793f7ac748ace53e729",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-h03",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "HARD",
+      "contentHash": "b26dc4225f05f8ca5ce0bd6b2b313258b768c29f30f9c07f695de21b035fd5e0",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-e01",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "EASY",
+      "contentHash": "34260a752a6121bb015024c3990d975029ef02fe8e7c68bc1af78bbd5a247534",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-e02",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "EASY",
+      "contentHash": "52f1d4e2647913a7a2019a698cabca2f8acbe4c80785c8cea4bcb514db472716",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-e03",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "EASY",
+      "contentHash": "f0333d24bb1a7db7894b51dd4b5b155b179f9d0a4cdf2dc93d1486779edcefa2",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-e04",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "EASY",
+      "contentHash": "bc472e276ec6aaa97d3de3a79b18d420e64ffaa325d1fcd045431a44cd6acfb4",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m01",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "contentHash": "a664ff5ce8eae9cecab690f54853f59cef875558845596ea9f40da7cd36b7834",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m02",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "contentHash": "e32bccbf5964d6608daaa1abb8c97f94401d4d44630ba1fa8c43abdd19c061c8",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m03",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "contentHash": "5cdfd4fb7c2a1dd20e438c953ddc346b01bd35c906d90e224315bbcf38d42d38",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m04",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "contentHash": "997671f57f2eb7a7625254cbfcc06a8c4f54c57c9d3f6747a8b3bf56ac5263e8",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m05",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "contentHash": "ff52931168eb302d5d0bd9b184012728d567ffeef927e4c3214a906888eba52f",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-h01",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "HARD",
+      "contentHash": "539623a19c992d6ee69aac9507e4290a50a389d72b87f8acc59ab2e732a20d1d",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-h02",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "HARD",
+      "contentHash": "cbb9cf36e1350ccd52f2b5b320eed2185add4533a29ebf5d9c951500d2217049",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-h03",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "HARD",
+      "contentHash": "6536d2b95dea5f8060853f6963454f8cdc18af6638f7d45508ca16093ab718f7",
+      "reviewStatus": "REPLACE_REQUIRED",
+      "rationale": "Контент v2 — заглушка (латиниця в теорії/умовах, шаблонні пояснення). Потрібна повна заміна українським матеріалом перед verify/publish.",
+      "sources": [],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e01",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "EASY",
+      "contentHash": "10a0cd792efc6449dec9e181a0f447258f3c32c1dff7a765c265792b94ab32f6",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e02",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "EASY",
+      "contentHash": "d9f3f90377dd83c138715d462959141bfad8407d3900e126ce697a8e044bfc32",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e03",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "EASY",
+      "contentHash": "bfe4a55f915aa2355616e9a0f5e9eaee4f9caa589c56a38c19b35ccb398fcb3e",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e04",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "EASY",
+      "contentHash": "03bf5658d13c2cff8ce5c8e60434cd2299d06aa5dad9b9d1520235194d0327e2",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e05",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "contentHash": "e18a007fd59e261fb9c8aba58a5de7b6f16a702e251e111842a26167c92bee7b",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e06",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "contentHash": "5bc1207031e579146a4cc287b72e0db777bb05395d1a994523c2f671b7d58596",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e07",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "contentHash": "a8cbf0ea6e37797a250b92fe645a64bf332b3aec0323f37e76e175b8a2fea0bc",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e08",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "contentHash": "63c424b2303c5eaf1060b5710c7317d929053f3f0608389cba72f6e895474b00",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e09",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "contentHash": "abb2913a1de66c14129c4a57e655ea05ccc6d4da9a9c8894dfaaabc566fdcce8",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e10",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "HARD",
+      "contentHash": "68a350721d3cdc9248ae3861a80a048428d621bbf1c0e7be52d08540dcf0f335",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e11",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "HARD",
+      "contentHash": "62c156564c919fe2238d43bf3f93e8fae6d8835d76c96d2b063433cba648d47b",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e12",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "HARD",
+      "contentHash": "5c297c94dc8f29646b03b663199231e7baeb5484705b7541f3cd1f489a60cc29",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e01",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "EASY",
+      "contentHash": "28ad8a6f74039f5fe64152b54e33bb3ad6c45d6120b8c0b6fc92c74b9e3716c9",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e02",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "EASY",
+      "contentHash": "42f3f92d115b721597645d95cad7a0da5b9ab97d3b602448538c88eae7d42a07",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e03",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "EASY",
+      "contentHash": "1b2ed08f7372cbf1b93ce8f7fe6ab4da67d1b50073fa547455c7c82605c3544e",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e04",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "EASY",
+      "contentHash": "2ea756d23dab68f28c94f6fa5bc3ea620dfce0b675bd1c4758aa59775a857fb2",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e05",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "contentHash": "e2fe5f7fff98c2615a1d045edbed82402a8c8b54a5a49ff88cc69dd26922e06b",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e06",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "contentHash": "7044bfaa15a1b6a37c8f9b5eee219b0a44457888fad596bc5ad9a256b54ba6e3",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e07",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "contentHash": "0d6b46606acc122ed076fcec98df60cd8a7ff7d889e737719dce418d3d5c8cd9",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e08",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "contentHash": "d9473e80c7a63b539950c2efa1218e7e4cd4efe4d3e9d0137c2f0616903ba8d5",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e09",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "contentHash": "c0aaaa36d63298a6a1aee4b9bf0e9456751a1564838981a80c6122318b49c2d0",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e10",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "HARD",
+      "contentHash": "ebb614a200dbdd5301ef24853c9c9979564362eab48757e737d0a630c8780925",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e11",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "HARD",
+      "contentHash": "781eca88ea5de17776493fc830fcad2aa30fb6beb74e92a433925c7244024ed1",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e12",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "HARD",
+      "contentHash": "5c92bfc0046f668ab5e5c31689224f17c22c8d8a34aff05958aae00067114124",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Розв’язання перераховано незалежно; correctAnswer відповідає поясненню (включно з виправленням e11 → Б, 11/3).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e01",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "EASY",
+      "contentHash": "2b5a2082118596ffa3e0a3e735d78fbf803b01357fae0a0a01d3614b8a426649",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e02",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "EASY",
+      "contentHash": "f5ccd8229bb944a69faa3d6e4010cf796c665cdaecd0eeacf14687577c54cde6",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e03",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "EASY",
+      "contentHash": "a8c0c8561097fedae7113f5394830cbe04360fefc0035b6f1b187e1638487c79",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e04",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "EASY",
+      "contentHash": "e4f34edeaa21ed96c9a1b17ba4eafbc079156c175e97cac96f2eb9767a4f05a9",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e05",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "contentHash": "183143ab9a92584aa277c27cb982a12c9bf8884214e6f1801a307f987e999b13",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e06",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "contentHash": "6f65f6dbe612b949a886c215ec016bddc9e0443e6287b4cc05611128c912a863",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e07",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "contentHash": "c3a14651a140ec722c4b5a456cb1995c283b6264ab9ed93931b1faa02dcb399f",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e08",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "contentHash": "2791defcdf4c69c472ac460287b9d48f4938d36399ee50d23024230e4d086b53",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e09",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "contentHash": "7e848d4b37e2bbed71c2e1d594dc855ec0288ff85e8d8aec175b1dca2c2243ec",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e10",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "HARD",
+      "contentHash": "69a74e4ad0b0c64eae569a4d1d4e42bbc679ae3549ba81c9d034552ab32b8f61",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e11",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "HARD",
+      "contentHash": "81913f549fb6cd16b39a066c05ee5e5e284bdbcec710b7b840a5345c080a5754",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e12",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "HARD",
+      "contentHash": "cc834478c075666ef78d1222d4066fc7458f2065f7731f40046da6e65a2480bd",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e01",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "EASY",
+      "contentHash": "f7edc1fd55df73a2e8e81a2fcfd170c4fa1da0b6c29ead70e7dfb0693409bdc5",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e02",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "EASY",
+      "contentHash": "81f27ea4ccdf01207adff345aab7280fda9791a0f3f2474792f84181f7e23d27",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e03",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "EASY",
+      "contentHash": "36e407a87a3b146b3416746954023123bcb8d5fe0abd735037a74ed3cb1cfeb7",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e04",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "EASY",
+      "contentHash": "eceb9728e061ab7d46ce27163b552b01876b0d36768b0d47b050bda64d217545",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e05",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "contentHash": "b300c6817e9b16328e1e3703af307927de13ee0590560d3a6f7c07755ac22265",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e06",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "contentHash": "7fa5ef6743d81f3bdc7db56c4e1f5ea2b13be35121c492cfa2c896f22bebbc46",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e07",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "contentHash": "e056fcd0a136c1388cff4574a86144d79602a28b8bfdfe723262b18fa0d51b8d",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e08",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "contentHash": "bedb5fa41364aac0b2f097933495c5da2939a0773848a16c7069dec31d532fee",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e09",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "contentHash": "d53439a612d3400d8687d1f969c7b334b6ab21dc40eb1d51f2a29d37130293bc",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e10",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "HARD",
+      "contentHash": "a63429ca2c9cf9f459fb7a6d967c2e583e19b253ebc4cc420392d0278f04683f",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e11",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "HARD",
+      "contentHash": "4b87ab181d1d21b9ae5abf87eeeb97bbcb247e0b161b124abecc9f3aeb60c1be",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e12",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "HARD",
+      "contentHash": "ea2e2f450e56208b00e3b064582121c743b5cd187c413c8f2dd7169522f052fd",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Хронологія та етноніми VI ст. (Йордан) узгоджені зі шкільною програмою; distractors відсіюються.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c-subject-review",
+      "reviewedAt": "2026-10-29T11:52:40.581Z"
+    }
+  ]
+}

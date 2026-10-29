@@ -1,0 +1,59 @@
+{
+  "format": "nmt-stage7c-corrections-manifest",
+  "version": 1,
+  "stage": "7C",
+  "generatedAt": "2026-10-29T13:55:00.000Z",
+  "appliesTo": "content/stage7a/packages-v2/",
+  "note": "Патчі в гілці feature/stage7c-content-verification; manifest v2 sha256 застаріє до наступного Stage 7D import.",
+  "corrections": [
+    {
+      "targetType": "question",
+      "questionId": "s7a-math-linear-eq-sub-02-e11",
+      "topicId": "math-linear-eq-sub-02",
+      "field": "correctAnswer",
+      "contentHashBefore": "from-package-v2-pre-patch",
+      "oldValue": "В",
+      "newValue": "Б",
+      "reason": "Розв’язання дає x=11/3; варіант Б, не В (3).",
+      "evidence": "6x−8+5=3x+8 → 3x=11.",
+      "reviewStatus": "FIX_REQUIRED"
+    },
+    {
+      "targetType": "topic",
+      "topicId": "geography-1",
+      "field": "lesson.theory",
+      "oldValue": "сedimentація (латиниця)",
+      "newValue": "осадонакопичення",
+      "reason": "Нормалізація терміну українською в конспекті.",
+      "reviewStatus": "FIX_REQUIRED"
+    },
+    {
+      "targetType": "topic",
+      "topicId": "geography-2",
+      "field": "lesson.examples",
+      "reason": "Шаблонні приклади; потрібні 4 предметні розв’язані задачі (Stage 7C backlog).",
+      "reviewStatus": "REPLACE_REQUIRED"
+    },
+    {
+      "targetType": "topic",
+      "topicId": "ukr-lexicology-section-01",
+      "field": "lesson+questions",
+      "reason": "Повна заміна заглушки українським контентом.",
+      "reviewStatus": "REPLACE_REQUIRED"
+    },
+    {
+      "targetType": "topic",
+      "topicId": "bio-cell-sec-01",
+      "field": "lesson+questions",
+      "reason": "Повна заміна заглушки українським контентом.",
+      "reviewStatus": "REPLACE_REQUIRED"
+    },
+    {
+      "targetType": "topic",
+      "topicId": "zcode-biology-molecular-02",
+      "field": "lesson+questions",
+      "reason": "Повна заміна заглушки українським контентом.",
+      "reviewStatus": "REPLACE_REQUIRED"
+    }
+  ]
+}

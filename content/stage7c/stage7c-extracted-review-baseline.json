@@ -1,0 +1,4290 @@
+{
+  "extractedAt": "2026-10-29T11:52:06.242Z",
+  "questionCount": 120,
+  "lessonCount": 10,
+  "autoIssueCount": 0,
+  "questions": [
+    {
+      "questionId": "s7a-geography-1-e01",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Яку форму має Земля, найближчу до реальної?",
+      "correctAnswer": "Б",
+      "correctOptionText": "Геоїд (сплюснута на полюсах)",
+      "explanation": "Земля наближено описується геоїдом: полярний радіус трохи менший за екваторіальний.",
+      "options": [
+        {
+          "label": "А",
+          "text": "Ідеальна сфера"
+        },
+        {
+          "label": "Б",
+          "text": "Геоїд (сплюснута на полюсах)"
+        },
+        {
+          "label": "В",
+          "text": "Куб"
+        },
+        {
+          "label": "Г",
+          "text": "Циліндр"
+        }
+      ],
+      "contentHash": "70dd1566ec332fcde7383be716d5153a69a9f0a83d66955f706e12d59f2e7cc4",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 83
+      }
+    },
+    {
+      "questionId": "s7a-geography-1-e02",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Географічна широта вимірюється від:",
+      "correctAnswer": "А",
+      "correctOptionText": "екватора до полюса",
+      "explanation": "Широта φ — кут від площини екватора до точки на поверхні (0°–90° пн. або пд. ш.).",
+      "options": [
+        {
+          "label": "А",
+          "text": "екватора до полюса"
+        },
+        {
+          "label": "Б",
+          "text": "Грінвіцького меридіана"
+        },
+        {
+          "label": "В",
+          "text": "полюса до екватора у градусах сх. д."
+        },
+        {
+          "label": "Г",
+          "text": "рівня моря"
+        }
+      ],
+      "contentHash": "403dc674f049268c5ab01df199f7cafa2c5cdd3ffd59e6d4ebf9a9936f33f2af",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 81
+      }
+    },
+    {
+      "questionId": "s7a-geography-1-e03",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Лінії, паралельні екватору, називають:",
+      "correctAnswer": "В",
+      "correctOptionText": "паралелями",
+      "explanation": "Паралелі — кола, паралельні екватору; меридіани проходять через полюси.",
+      "options": [
+        {
+          "label": "А",
+          "text": "меридіанами"
+        },
+        {
+          "label": "Б",
+          "text": "тропіками лише"
+        },
+        {
+          "label": "В",
+          "text": "паралелями"
+        },
+        {
+          "label": "Г",
+          "text": "горизонталями"
+        }
+      ],
+      "contentHash": "8b8a82b709399ed0d91937ae6524732f3d8ddc06571525236992202d6023d537",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 71
+      }
+    },
+    {
+      "questionId": "s7a-geography-1-e04",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Масштаб 1:100 000 означає, що 1 см на карті відповідає на місцевості:",
+      "correctAnswer": "Г",
+      "correctOptionText": "1 км",
+      "explanation": "1 см × 100 000 = 100 000 см = 1 000 м = 1 км.",
+      "options": [
+        {
+          "label": "А",
+          "text": "100 м"
+        },
+        {
+          "label": "Б",
+          "text": "10 км"
+        },
+        {
+          "label": "В",
+          "text": "100 см"
+        },
+        {
+          "label": "Г",
+          "text": "1 км"
+        }
+      ],
+      "contentHash": "f9525a07c8c1ae3f4e58245758a8f67efd4da32bbd98c7977baac53b9acc96cd",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 45
+      }
+    },
+    {
+      "questionId": "s7a-geography-1-m01",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Точка має координати 48° пн. ш. і 37° сх. д. У яких півкулях вона розташована?",
+      "correctAnswer": "А",
+      "correctOptionText": "Північна і Східна",
+      "explanation": "Пн. ш. — Північна півкуля; сх. д. — Східна півкуля (наприклад, територія України).",
+      "options": [
+        {
+          "label": "А",
+          "text": "Північна і Східна"
+        },
+        {
+          "label": "Б",
+          "text": "Північна і Західна"
+        },
+        {
+          "label": "В",
+          "text": "Південна і Східна"
+        },
+        {
+          "label": "Г",
+          "text": "Південна і Західна"
+        }
+      ],
+      "contentHash": "fa021078e64c261a2939a3adb57603c9d5a2933a833e394dcb023a8f4c1ab2ec",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 82
+      }
+    },
+    {
+      "questionId": "s7a-geography-1-m02",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "На карті 1:200 000 відстань 3,5 см. Визначте відстань на місцевості.",
+      "correctAnswer": "Б",
+      "correctOptionText": "7,5 км",
+      "explanation": "3,5 × 200 000 см = 700 000 см = 7 км.",
+      "options": [
+        {
+          "label": "А",
+          "text": "7 км"
+        },
+        {
+          "label": "Б",
+          "text": "7,5 км"
+        },
+        {
+          "label": "В",
+          "text": "70 км"
+        },
+        {
+          "label": "Г",
+          "text": "0,7 км"
+        }
+      ],
+      "contentHash": "3f23b6813d386b46abcd119ffa69acf586a38bc16f840b4dbe0baa641f9866e3",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 37
+      }
+    },
+    {
+      "questionId": "s7a-geography-1-m03",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Різниця довготи між двома меридіанами 45°. На скільки годин відрізняється середній сонячний час?",
+      "correctAnswer": "В",
+      "correctOptionText": "3 год",
+      "explanation": "15° = 1 год; 45° / 15 = 3 години.",
+      "options": [
+        {
+          "label": "А",
+          "text": "1 год"
+        },
+        {
+          "label": "Б",
+          "text": "2 год"
+        },
+        {
+          "label": "В",
+          "text": "3 год"
+        },
+        {
+          "label": "Г",
+          "text": "4 год"
+        }
+      ],
+      "contentHash": "978fa7fa9aa1c98e36ffab46f69f335a7c526e067e6dab295e0f8f9dc2e3d685",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 33
+      }
+    },
+    {
+      "questionId": "s7a-geography-1-m04",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Який шар геосфери безпосередньо включає океани, ріки й льодовики?",
+      "correctAnswer": "Г",
+      "correctOptionText": "гідросфера",
+      "explanation": "Гідросфера — сукупність води на Землі у різних агрегатних станах.",
+      "options": [
+        {
+          "label": "А",
+          "text": "літосфера"
+        },
+        {
+          "label": "Б",
+          "text": "атмосфера"
+        },
+        {
+          "label": "В",
+          "text": "біосфера"
+        },
+        {
+          "label": "Г",
+          "text": "гідросфера"
+        }
+      ],
+      "contentHash": "2cb3b09f27a7d246abd0e738fc81bd77310651182125f746e25496e3f9d54574",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 65
+      }
+    },
+    {
+      "questionId": "s7a-geography-1-m05",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Щільні горизонталі на топокарті з інтервалом 10 м свідчать про:",
+      "correctAnswer": "А",
+      "correctOptionText": "крутий схил",
+      "explanation": "Чим частіші горизонталі при тому ж інтервалі, тим більша крутизна.",
+      "options": [
+        {
+          "label": "А",
+          "text": "крутий схил"
+        },
+        {
+          "label": "Б",
+          "text": "пологий схил"
+        },
+        {
+          "label": "В",
+          "text": "рівнину без уклону"
+        },
+        {
+          "label": "Г",
+          "text": "водойму"
+        }
+      ],
+      "contentHash": "2e90c874d1e3e0d727fd68301903ce16875ff6d5face7b7a17b776ca7a894d47",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 66
+      }
+    },
+    {
+      "questionId": "s7a-geography-1-h01",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Місцевий сонячний час на 52,5° сх. д. порівняно з Грінвічем:",
+      "correctAnswer": "Б",
+      "correctOptionText": "випереджає на 3 год 30 хв",
+      "explanation": "52,5° / 15° = 3,5 год = 3 год 30 хв; на схід — «плюс».",
+      "options": [
+        {
+          "label": "А",
+          "text": "відстає на 3 год 30 хв"
+        },
+        {
+          "label": "Б",
+          "text": "випереджає на 3 год 30 хв"
+        },
+        {
+          "label": "В",
+          "text": "збігається"
+        },
+        {
+          "label": "Г",
+          "text": "відстає на 2 год"
+        }
+      ],
+      "contentHash": "cd5357adb8a058d7d3f447ac0de26cf7f1ff1c57e554c536e0dc5dbe8bd06389",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 54
+      }
+    },
+    {
+      "questionId": "s7a-geography-1-h02",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Яке твердження про географічні проєкції правильне?",
+      "correctAnswer": "В",
+      "correctOptionText": "Кожна проєкція має компроміс між кутами, відстанями та площами",
+      "explanation": "Проєкція завжди вимагає компромісу; глобус — модель без плоскої проєкції.",
+      "options": [
+        {
+          "label": "А",
+          "text": "Будь-яка проєкція зберігає площі без спотворень"
+        },
+        {
+          "label": "Б",
+          "text": "Меркаторова проєкція ідеальна для підрахунку площ у високих широтах"
+        },
+        {
+          "label": "В",
+          "text": "Кожна проєкція має компроміс між кутами, відстанями та площами"
+        },
+        {
+          "label": "Г",
+          "text": "Проєкція не потрібна для глобуса"
+        }
+      ],
+      "contentHash": "4e51da269b7824867632c1802155b8e9218c3cd4df07a4b724db9fa4cc97f7b3",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 73
+      }
+    },
+    {
+      "questionId": "s7a-geography-1-h03",
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "У який період у Північній півкулі день довший за ніч (астрономічно)?",
+      "correctAnswer": "А",
+      "correctOptionText": "від весняного до осіннього рівнодення",
+      "explanation": "Після весняного рівнодення до осіннього день довший за ніч у Пн. півкулі.",
+      "options": [
+        {
+          "label": "А",
+          "text": "від весняного до осіннього рівнодення"
+        },
+        {
+          "label": "Б",
+          "text": "від літнього до зимового сонцестояння"
+        },
+        {
+          "label": "В",
+          "text": "лише в день зимового сонцестояння"
+        },
+        {
+          "label": "Г",
+          "text": "цілий рік"
+        }
+      ],
+      "contentHash": "f14c0542733b16e991f327f6e089dfff598bd31e48e84b53fb821f06350c945c",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 73
+      }
+    },
+    {
+      "questionId": "s7a-geography-2-e01",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Найвища вершина України:",
+      "correctAnswer": "Б",
+      "correctOptionText": "Говерла",
+      "explanation": "Говерла 2061 м.",
+      "options": [
+        {
+          "label": "А",
+          "text": "Поп Іван"
+        },
+        {
+          "label": "Б",
+          "text": "Говерла"
+        },
+        {
+          "label": "В",
+          "text": "Hoverla fake"
+        },
+        {
+          "label": "Г",
+          "text": "Роман-Kosh"
+        }
+      ],
+      "contentHash": "82da25572293ab5adca7461b70263452d9658bbb7cd9499d742ab6b1b271a646",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 15
+      }
+    },
+    {
+      "questionId": "s7a-geography-2-e02",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Найдовша річка в Україні:",
+      "correctAnswer": "А",
+      "correctOptionText": "Дніпро",
+      "explanation": "Дніпро.",
+      "options": [
+        {
+          "label": "А",
+          "text": "Дніпро"
+        },
+        {
+          "label": "Б",
+          "text": "Дністер"
+        },
+        {
+          "label": "В",
+          "text": "Десна"
+        },
+        {
+          "label": "Г",
+          "text": "Тиса"
+        }
+      ],
+      "contentHash": "6f2219829c02f128f41599bd5dc9c6e3d2742a6a0b7d108b03d7a030864f34a8",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 7
+      }
+    },
+    {
+      "questionId": "s7a-geography-2-e03",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Клімат:",
+      "correctAnswer": "А",
+      "correctOptionText": "помірно континентальний",
+      "explanation": "Помірні широти.",
+      "options": [
+        {
+          "label": "А",
+          "text": "помірно континентальний"
+        },
+        {
+          "label": "Б",
+          "text": "тропічний"
+        },
+        {
+          "label": "В",
+          "text": "арктичний"
+        },
+        {
+          "label": "Г",
+          "text": "мусонний"
+        }
+      ],
+      "contentHash": "dbd2740eec63e6128f47b9a95360b8815500e92388afccdf63b3364de631c5e0",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 15
+      }
+    },
+    {
+      "questionId": "s7a-geography-2-e04",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Полісся:",
+      "correctAnswer": "В",
+      "correctOptionText": "пустеля",
+      "explanation": "Північна зона.",
+      "options": [
+        {
+          "label": "А",
+          "text": "степ"
+        },
+        {
+          "label": "Б",
+          "text": "широколисті ліси"
+        },
+        {
+          "label": "В",
+          "text": "пустеля"
+        },
+        {
+          "label": "Г",
+          "text": "тундра"
+        }
+      ],
+      "contentHash": "937dcb8f6d86b93861d56676f8669c912711496f2ed86f9921b6ff5135115779",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 14
+      }
+    },
+    {
+      "questionId": "s7a-geography-2-m01",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Опади з півночі на південь:",
+      "correctAnswer": "Б",
+      "correctOptionText": "зменшуються",
+      "explanation": "Південь сухіший.",
+      "options": [
+        {
+          "label": "А",
+          "text": "зростають"
+        },
+        {
+          "label": "Б",
+          "text": "зменшуються"
+        },
+        {
+          "label": "В",
+          "text": "сталі"
+        },
+        {
+          "label": "Г",
+          "text": "зникають"
+        }
+      ],
+      "contentHash": "a7020854fbfb6415412d300f117e83cebb7534e14801b3088d0f4540e7e4c0e3",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 16
+      }
+    },
+    {
+      "questionId": "s7a-geography-2-m02",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Карпати:",
+      "correctAnswer": "В",
+      "correctOptionText": "в степу",
+      "explanation": "Захід.",
+      "options": [
+        {
+          "label": "А",
+          "text": "на сході"
+        },
+        {
+          "label": "Б",
+          "text": "на заході"
+        },
+        {
+          "label": "В",
+          "text": "в степу"
+        },
+        {
+          "label": "Г",
+          "text": "в океані"
+        }
+      ],
+      "contentHash": "7a54cbcd0b4d4424f63c6f6aa2ee3e1f65f574c3d9f32fe16f0ee36ed8480b37",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 6
+      }
+    },
+    {
+      "questionId": "s7a-geography-2-m03",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Чорноземи:",
+      "correctAnswer": "Г",
+      "correctOptionText": "в лісостepі та степу",
+      "explanation": "Родючі ґрунти.",
+      "options": [
+        {
+          "label": "А",
+          "text": "в океані"
+        },
+        {
+          "label": "Б",
+          "text": "в Карпатах"
+        },
+        {
+          "label": "В",
+          "text": "в тундрі"
+        },
+        {
+          "label": "Г",
+          "text": "в лісостepі та степу"
+        }
+      ],
+      "contentHash": "e6cacca7060c21a5c9b6c1d3f7256b1a10aa594750743ec6892e36d9a2d75365",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 14
+      }
+    },
+    {
+      "questionId": "s7a-geography-2-m04",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Моря:",
+      "correctAnswer": "А",
+      "correctOptionText": "Чорне та Азовське",
+      "explanation": "Південні моря.",
+      "options": [
+        {
+          "label": "А",
+          "text": "Чорне та Азовське"
+        },
+        {
+          "label": "Б",
+          "text": "лише Чорне"
+        },
+        {
+          "label": "В",
+          "text": "лише Балтійське"
+        },
+        {
+          "label": "Г",
+          "text": "Жовте"
+        }
+      ],
+      "contentHash": "88bb917dd02ef5ccb0c0ea5e5b15828da0dfe57f6d3fe23927419b28b28c9b58",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 14
+      }
+    },
+    {
+      "questionId": "s7a-geography-2-m05",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Столиця:",
+      "correctAnswer": "А",
+      "correctOptionText": "Київ",
+      "explanation": "Київ.",
+      "options": [
+        {
+          "label": "А",
+          "text": "Київ"
+        },
+        {
+          "label": "Б",
+          "text": "Львів"
+        },
+        {
+          "label": "В",
+          "text": "Харків"
+        },
+        {
+          "label": "Г",
+          "text": "Одеса"
+        }
+      ],
+      "contentHash": "3f6ed807d9116d8259d98107d4820beeb53dc57f340bc020e4a6b15923318e57",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 5
+      }
+    },
+    {
+      "questionId": "s7a-geography-2-h01",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Дністер впадає в:",
+      "correctAnswer": "Б",
+      "correctOptionText": "Чорне море",
+      "explanation": "Basin Black Sea.",
+      "options": [
+        {
+          "label": "А",
+          "text": "Дніпро"
+        },
+        {
+          "label": "Б",
+          "text": "Чорне море"
+        },
+        {
+          "label": "В",
+          "text": "Балтику"
+        },
+        {
+          "label": "Г",
+          "text": "Тихий океан"
+        }
+      ],
+      "contentHash": "2d9b7a27d9a9ccd967bb81fcc9829b4220e7143efe353e03a124cfbabe6bcd1e",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 16
+      }
+    },
+    {
+      "questionId": "s7a-geography-2-h02",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Світязь:",
+      "correctAnswer": "В",
+      "correctOptionText": "річка",
+      "explanation": "Шatske lake.",
+      "options": [
+        {
+          "label": "А",
+          "text": "море"
+        },
+        {
+          "label": "Б",
+          "text": "озеро"
+        },
+        {
+          "label": "В",
+          "text": "річка"
+        },
+        {
+          "label": "Г",
+          "text": "гора"
+        }
+      ],
+      "contentHash": "3ebff0f8df1b6b7de6c56e2cc5891455b77f2851ad2ba2bbb47d167ff8310e6f",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 12
+      }
+    },
+    {
+      "questionId": "s7a-geography-2-h03",
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Азовське море:",
+      "correctAnswer": "Г",
+      "correctOptionText": "в Карпатах",
+      "explanation": "Мілке море.",
+      "options": [
+        {
+          "label": "А",
+          "text": "найглибше"
+        },
+        {
+          "label": "Б",
+          "text": "мілке, з’єднане з Чорним"
+        },
+        {
+          "label": "В",
+          "text": "без солі"
+        },
+        {
+          "label": "Г",
+          "text": "в Карпатах"
+        }
+      ],
+      "contentHash": "92a599c14f5e2e380cfd15785e9efda29c9251937b784339dbee4731878b4dfc",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 11
+      }
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-e01",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Синonimi —",
+      "correctAnswer": "А",
+      "correctOptionText": "близькі за значенням",
+      "explanation": "Synonymy.",
+      "options": [
+        {
+          "label": "А",
+          "text": "близькі за значенням"
+        },
+        {
+          "label": "Б",
+          "text": "протилежні"
+        },
+        {
+          "label": "В",
+          "text": "однакові за написанням"
+        },
+        {
+          "label": "Г",
+          "text": "завжди повні"
+        }
+      ],
+      "contentHash": "cd97dcdcb542f7532e2c3cf40e1acaa19a026e107dff732898973220a53fbf8a",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 9
+      }
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-e02",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Анtonimi —",
+      "correctAnswer": "Б",
+      "correctOptionText": "протилежні",
+      "explanation": "Antonymy.",
+      "options": [
+        {
+          "label": "А",
+          "text": "однокореневі"
+        },
+        {
+          "label": "Б",
+          "text": "протилежні"
+        },
+        {
+          "label": "В",
+          "text": "омonimi"
+        },
+        {
+          "label": "Г",
+          "text": "діалекти"
+        }
+      ],
+      "contentHash": "1973b6be9057322d133c0d40c27c5db2b0f05757372961aaf72b571dd236aaef",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 9
+      }
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-e03",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Оmonimi —",
+      "correctAnswer": "В",
+      "correctOptionText": "synonyms",
+      "explanation": "Homonymy.",
+      "options": [
+        {
+          "label": "А",
+          "text": "різна форма"
+        },
+        {
+          "label": "Б",
+          "text": "одна форма, різне значення"
+        },
+        {
+          "label": "В",
+          "text": "synonyms"
+        },
+        {
+          "label": "Г",
+          "text": "foreign"
+        }
+      ],
+      "contentHash": "50ba281f01cfa0ca9c13049d74a1881451003d2e4a5536f14f0ccd93f8a6eca5",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 9
+      }
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-e04",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Фразеologism —",
+      "correctAnswer": "Г",
+      "correctOptionText": "чужомовне",
+      "explanation": "Phraseology.",
+      "options": [
+        {
+          "label": "А",
+          "text": "будь-яке речення"
+        },
+        {
+          "label": "Б",
+          "text": "стійкий цілісний зміст"
+        },
+        {
+          "label": "В",
+          "text": "лише прислів’я"
+        },
+        {
+          "label": "Г",
+          "text": "чужомовне"
+        }
+      ],
+      "contentHash": "523a177fe479400a2ee39200422a6efca9ceb835898834f12737e7baf4b0c521",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 12
+      }
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m01",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "«Бити байdrakes» —",
+      "correctAnswer": "А",
+      "correctOptionText": "марно витрачати час",
+      "explanation": "Idiom.",
+      "options": [
+        {
+          "label": "А",
+          "text": "марно витрачати час"
+        },
+        {
+          "label": "Б",
+          "text": "грати на барабані буквально"
+        },
+        {
+          "label": "В",
+          "text": "перемагати"
+        },
+        {
+          "label": "Г",
+          "text": "спати"
+        }
+      ],
+      "contentHash": "afc167680ee3a3622fb7e55a1d0b7c6369f26313009d6208bb07c35d2f18ca5f",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 6
+      }
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m02",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Парonimi —",
+      "correctAnswer": "Б",
+      "correctOptionText": "схожі за звучанням, різні за змістом",
+      "explanation": "Paronyms.",
+      "options": [
+        {
+          "label": "А",
+          "text": "ідентичні"
+        },
+        {
+          "label": "Б",
+          "text": "схожі за звучанням, різні за змістом"
+        },
+        {
+          "label": "В",
+          "text": "antonyms"
+        },
+        {
+          "label": "Г",
+          "text": "архаїзми"
+        }
+      ],
+      "contentHash": "183daa32dd13c9144abe1a9e9fe89e8a695c390991ac1184f129f829384a760f",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 9
+      }
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m03",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Переносне значення —",
+      "correctAnswer": "В",
+      "correctOptionText": "граматичне",
+      "explanation": "Figurative.",
+      "options": [
+        {
+          "label": "А",
+          "text": "застаріле"
+        },
+        {
+          "label": "Б",
+          "text": "образне"
+        },
+        {
+          "label": "В",
+          "text": "граматичне"
+        },
+        {
+          "label": "Г",
+          "text": "іншомовне"
+        }
+      ],
+      "contentHash": "5441d75ce6cd4fae0a013483e09fae3f547e8c56f3239fa352f563b98e787d27",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 11
+      }
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m04",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Архаїзм —",
+      "correctAnswer": "Г",
+      "correctOptionText": "скорочення",
+      "explanation": "Archaism.",
+      "options": [
+        {
+          "label": "А",
+          "text": "нове слово"
+        },
+        {
+          "label": "Б",
+          "text": "зastаріле"
+        },
+        {
+          "label": "В",
+          "text": "омonim"
+        },
+        {
+          "label": "Г",
+          "text": "скорочення"
+        }
+      ],
+      "contentHash": "9471d218c3f96ebe5402bc8b41fa061cdde296ff24adcab717b181304a585478",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 9
+      }
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m05",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Кontекст допомагає:",
+      "correctAnswer": "А",
+      "correctOptionText": "визначити значення",
+      "explanation": "Context.",
+      "options": [
+        {
+          "label": "А",
+          "text": "визначити значення"
+        },
+        {
+          "label": "Б",
+          "text": "змінити алфавіт"
+        },
+        {
+          "label": "В",
+          "text": "прибрати пунктуацію"
+        },
+        {
+          "label": "Г",
+          "text": "знайти rhyme"
+        }
+      ],
+      "contentHash": "4728b69087c7a04b5980360fa59e85f814179df8dc0a08d2d93502728c3d2898",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 8
+      }
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-h01",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Великий — малий:",
+      "correctAnswer": "Б",
+      "correctOptionText": "antonyms",
+      "explanation": "Pair.",
+      "options": [
+        {
+          "label": "А",
+          "text": "synonyms"
+        },
+        {
+          "label": "Б",
+          "text": "antonyms"
+        },
+        {
+          "label": "В",
+          "text": "homonyms"
+        },
+        {
+          "label": "Г",
+          "text": "форми"
+        }
+      ],
+      "contentHash": "e53bfcc09205364e3f2a6401208c0f97bdee5943f4d4272bd674822f696b86b1",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 5
+      }
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-h02",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Неologism —",
+      "correctAnswer": "В",
+      "correctOptionText": "omonym",
+      "explanation": "Neologism.",
+      "options": [
+        {
+          "label": "А",
+          "text": "старе слово"
+        },
+        {
+          "label": "Б",
+          "text": "нове/новотворене"
+        },
+        {
+          "label": "В",
+          "text": "omonym"
+        },
+        {
+          "label": "Г",
+          "text": "лише foreign"
+        }
+      ],
+      "contentHash": "f4e667c7070de3b091451b9da6160574dcc38d61e0dca721cbd6cec643a58f46",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 10
+      }
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-h03",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "«Язик» орган vs «мова»:",
+      "correctAnswer": "Г",
+      "correctOptionText": "antonyms",
+      "explanation": "Spelling norms.",
+      "options": [
+        {
+          "label": "А",
+          "text": "synonyms"
+        },
+        {
+          "label": "Б",
+          "text": "різні поняття, не плутати"
+        },
+        {
+          "label": "В",
+          "text": "omonyms always"
+        },
+        {
+          "label": "Г",
+          "text": "antonyms"
+        }
+      ],
+      "contentHash": "e4adf0b3c168c21838e3f6c70d7e94a7437eae120d8663cebd11dbce95ca48c6",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 15
+      }
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e01",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Як найнадійніше перевірити написання ненаголошеної голосної?",
+      "correctAnswer": "Б",
+      "correctOptionText": "Підібрати перевірочне слово з наголосом",
+      "explanation": "Орфографічна норма спирається на наголошений перевірочний варіант.",
+      "options": [
+        {
+          "label": "А",
+          "text": "За вимовою в розмові"
+        },
+        {
+          "label": "Б",
+          "text": "Підібрати перевірочне слово з наголосом"
+        },
+        {
+          "label": "В",
+          "text": "Скоротити слово"
+        },
+        {
+          "label": "Г",
+          "text": "Замінити приголосну"
+        }
+      ],
+      "contentHash": "921a3215afad96202b0338073109a1268acbe7a978d49801d97d0dc2309d162b",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 66
+      }
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e02",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "У «водопровід» корінь «вод-» перевіряється словом:",
+      "correctAnswer": "А",
+      "correctOptionText": "вода",
+      "explanation": "У «вода» наголос на «о».",
+      "options": [
+        {
+          "label": "А",
+          "text": "вода"
+        },
+        {
+          "label": "Б",
+          "text": "водій"
+        },
+        {
+          "label": "В",
+          "text": "провід"
+        },
+        {
+          "label": "Г",
+          "text": "від"
+        }
+      ],
+      "contentHash": "f630a9721c7ca1382ad0b373b330ba3a4fa4e07136f58f4b179fb6454a288426",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 24
+      }
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e03",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "У префіксі «без-» у «безпека» пишеться:",
+      "correctAnswer": "В",
+      "correctOptionText": "е",
+      "explanation": "Префікс «без-» через «е».",
+      "options": [
+        {
+          "label": "А",
+          "text": "і"
+        },
+        {
+          "label": "Б",
+          "text": "я"
+        },
+        {
+          "label": "В",
+          "text": "е"
+        },
+        {
+          "label": "Г",
+          "text": "о"
+        }
+      ],
+      "contentHash": "5884963ee07bfa68bd3a8fb57ace91e85ad22b2670cbdd8f74e3653b04b8549f",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 25
+      }
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e04",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "У «ночі» від «ніч» у корені пишеться:",
+      "correctAnswer": "Г",
+      "correctOptionText": "о",
+      "explanation": "Чергування «і — о».",
+      "options": [
+        {
+          "label": "А",
+          "text": "і"
+        },
+        {
+          "label": "Б",
+          "text": "и"
+        },
+        {
+          "label": "В",
+          "text": "е"
+        },
+        {
+          "label": "Г",
+          "text": "о"
+        }
+      ],
+      "contentHash": "d606bd12f30f41f029cf6990b12730bc657a74e1248dbbbdd93a8402725b745e",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 19
+      }
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e05",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "У «земляний» «е» в «зем-» перевіряємо формою:",
+      "correctAnswer": "Б",
+      "correctOptionText": "земля",
+      "explanation": "У «земля» наголос на «е».",
+      "options": [
+        {
+          "label": "А",
+          "text": "землі"
+        },
+        {
+          "label": "Б",
+          "text": "земля"
+        },
+        {
+          "label": "В",
+          "text": "землю"
+        },
+        {
+          "label": "Г",
+          "text": "земельний"
+        }
+      ],
+      "contentHash": "8b4d0cb82c36a3fd1b3f299bf13184321c727c1ec6f965762615617fd448fd62",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 25
+      }
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e06",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "У «морозиво» в корені «мороз-» пишеться:",
+      "correctAnswer": "А",
+      "correctOptionText": "о",
+      "explanation": "«Мороз» — перевірочне слово.",
+      "options": [
+        {
+          "label": "А",
+          "text": "о"
+        },
+        {
+          "label": "Б",
+          "text": "а"
+        },
+        {
+          "label": "В",
+          "text": "е"
+        },
+        {
+          "label": "Г",
+          "text": "и"
+        }
+      ],
+      "contentHash": "364fcb50a49febd0db30943fdc763b50ed75dec3c2591d8d5a953bd3c071f5d9",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 28
+      }
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e07",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "У «переписати» в префіксі «пере-» пишеться:",
+      "correctAnswer": "В",
+      "correctOptionText": "е",
+      "explanation": "Префікс «пере-» через «е».",
+      "options": [
+        {
+          "label": "А",
+          "text": "и"
+        },
+        {
+          "label": "Б",
+          "text": "і"
+        },
+        {
+          "label": "В",
+          "text": "е"
+        },
+        {
+          "label": "Г",
+          "text": "я"
+        }
+      ],
+      "contentHash": "8e057bbcd29bdf2276aee4cac782ec1b041b1724c759df0bbe2f2c9dd465bb26",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 26
+      }
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e08",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "У «колосся» у корені після «л» пишеться:",
+      "correctAnswer": "Г",
+      "correctOptionText": "і",
+      "explanation": "Чергування «о — і».",
+      "options": [
+        {
+          "label": "А",
+          "text": "о"
+        },
+        {
+          "label": "Б",
+          "text": "а"
+        },
+        {
+          "label": "В",
+          "text": "и"
+        },
+        {
+          "label": "Г",
+          "text": "і"
+        }
+      ],
+      "contentHash": "a2e8fd8dbc8cc50302885f49811f414421ce7cf191ca4e25511753bbc7aad049",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 19
+      }
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e09",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Пара для перевірки «и» в корені:",
+      "correctAnswer": "Б",
+      "correctOptionText": "лист — листи",
+      "explanation": "«Листи» допомагає перевірити «и».",
+      "options": [
+        {
+          "label": "А",
+          "text": "стіл — стола"
+        },
+        {
+          "label": "Б",
+          "text": "лист — листи"
+        },
+        {
+          "label": "В",
+          "text": "дім — дому"
+        },
+        {
+          "label": "Г",
+          "text": "кінь — коня"
+        }
+      ],
+      "contentHash": "381f35f7006533fbacd9943723b0320fab20d4229ccb7dc0d03545f942290e56",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 33
+      }
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e10",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "У «розчистити» корінь «чист-» перевіряється словом:",
+      "correctAnswer": "А",
+      "correctOptionText": "чистий",
+      "explanation": "Коренева перевірка.",
+      "options": [
+        {
+          "label": "А",
+          "text": "чистий"
+        },
+        {
+          "label": "Б",
+          "text": "чисто"
+        },
+        {
+          "label": "В",
+          "text": "розчистка"
+        },
+        {
+          "label": "Г",
+          "text": "чистка"
+        }
+      ],
+      "contentHash": "430402a5321143b6b7ff1c85741a5619c6ed8e7449a805684aa2b687a50387f8",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 19
+      }
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e11",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "У «пишу» від «писати» в корені пишеться:",
+      "correctAnswer": "В",
+      "correctOptionText": "е",
+      "explanation": "Дієслівне чергування.",
+      "options": [
+        {
+          "label": "А",
+          "text": "и"
+        },
+        {
+          "label": "Б",
+          "text": "і"
+        },
+        {
+          "label": "В",
+          "text": "е"
+        },
+        {
+          "label": "Г",
+          "text": "я"
+        }
+      ],
+      "contentHash": "8206a9c8ac89428914786fa2ac75a821c47c0ad46e7361c5b2306646b19402a7",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 21
+      }
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e12",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "У «безперервний» корінь «перерв-» перевіряється словом:",
+      "correctAnswer": "Г",
+      "correctOptionText": "пер",
+      "explanation": "«Перерва» для «перерв-».",
+      "options": [
+        {
+          "label": "А",
+          "text": "перерва"
+        },
+        {
+          "label": "Б",
+          "text": "перед"
+        },
+        {
+          "label": "В",
+          "text": "без"
+        },
+        {
+          "label": "Г",
+          "text": "пер"
+        }
+      ],
+      "contentHash": "f6238b550f03e54b05f6e343cd027c37bed5344d2e2de329e3d8d7bc822255e6",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 24
+      }
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-e01",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Eukaryote має:",
+      "correctAnswer": "А",
+      "correctOptionText": "оформлене ядро",
+      "explanation": "Nucleus.",
+      "options": [
+        {
+          "label": "А",
+          "text": "оформлене ядро"
+        },
+        {
+          "label": "Б",
+          "text": "лише nucleoid"
+        },
+        {
+          "label": "В",
+          "text": "немає DNA"
+        },
+        {
+          "label": "Г",
+          "text": "немає мембрани"
+        }
+      ],
+      "contentHash": "6a7317489d0830ac8a34ba27dc1bfef545edea0b274a102169dfe0e0fc4a9a68",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 8
+      }
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-e02",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Mitochondria —",
+      "correctAnswer": "Б",
+      "correctOptionText": "ATP, клітинне дихання",
+      "explanation": "Powerhouse.",
+      "options": [
+        {
+          "label": "А",
+          "text": "photosynthesis"
+        },
+        {
+          "label": "Б",
+          "text": "ATP, клітинне дихання"
+        },
+        {
+          "label": "В",
+          "text": "білковий синтез"
+        },
+        {
+          "label": "Г",
+          "text": "фотосинтез лише"
+        }
+      ],
+      "contentHash": "80bba3b50fb14160a3a2de361f0b4d44c1f3f7011017033f933fbea40c21fafb",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 11
+      }
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-e03",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Chloroplast —",
+      "correctAnswer": "В",
+      "correctOptionText": "у бacteria лише",
+      "explanation": "Plastid.",
+      "options": [
+        {
+          "label": "А",
+          "text": "у тварин"
+        },
+        {
+          "label": "Б",
+          "text": "у рослин для фотосинтезу"
+        },
+        {
+          "label": "В",
+          "text": "у бacteria лише"
+        },
+        {
+          "label": "Г",
+          "text": "немає"
+        }
+      ],
+      "contentHash": "2b10b9de919432598895a67e7c8c1bfd51b14579b461d820641dd28f6d28b30b",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 8
+      }
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-e04",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Ribosome —",
+      "correctAnswer": "Г",
+      "correctOptionText": "поділ ядра",
+      "explanation": "Translation.",
+      "options": [
+        {
+          "label": "А",
+          "text": "синтез білка"
+        },
+        {
+          "label": "Б",
+          "text": "дихання"
+        },
+        {
+          "label": "В",
+          "text": "фотosynthesis"
+        },
+        {
+          "label": "Г",
+          "text": "поділ ядра"
+        }
+      ],
+      "contentHash": "e5003055dd021054f829f37f743e8add66711ad59665bf2233f9c2b80a04ae48",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 12
+      }
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m01",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Клітинна stінка рослин:",
+      "correctAnswer": "А",
+      "correctOptionText": "целюлоза",
+      "explanation": "Cell wall.",
+      "options": [
+        {
+          "label": "А",
+          "text": "целюлоза"
+        },
+        {
+          "label": "Б",
+          "text": "хітин"
+        },
+        {
+          "label": "В",
+          "text": "без stінки"
+        },
+        {
+          "label": "Г",
+          "text": "лише білок"
+        }
+      ],
+      "contentHash": "08820b6b5b621ddcef45174d2aa83489859ece0f7755762c64979fa81ddbfc37",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 10
+      }
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m02",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Prokaryote:",
+      "correctAnswer": "Б",
+      "correctOptionText": "людина",
+      "explanation": "Bacteria.",
+      "options": [
+        {
+          "label": "А",
+          "text": "бacteria, nucleoid"
+        },
+        {
+          "label": "Б",
+          "text": "людина"
+        },
+        {
+          "label": "В",
+          "text": "гриб"
+        },
+        {
+          "label": "Г",
+          "text": "рослина"
+        }
+      ],
+      "contentHash": "197a0f3f7b48dfe71f7b9842ed467f0cab946faaf5191ee1a8830d3480680d8d",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 9
+      }
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m03",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Golgi apparatus —",
+      "correctAnswer": "В",
+      "correctOptionText": "DNA replication only",
+      "explanation": "Golgi.",
+      "options": [
+        {
+          "label": "А",
+          "text": "упаковка/секреція"
+        },
+        {
+          "label": "Б",
+          "text": "фотosynthesis"
+        },
+        {
+          "label": "В",
+          "text": "DNA replication only"
+        },
+        {
+          "label": "Г",
+          "text": "лише в prokaryotes"
+        }
+      ],
+      "contentHash": "b390663a0520953a2ad60a490878f157e1ecf17b0e91a64aaf72679f3ceedaa5",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 6
+      }
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m04",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Лізосоми в тваринних клітинах переважно відповідають за:",
+      "correctAnswer": "Г",
+      "correctOptionText": "внутрішньоклітинний гідроліз (перетравлення)",
+      "explanation": "Лізосоми містять ферменти, що розщеплюють біополімери; це типова функція в тваринних клітинах (у рослин частину функцій бере на себе вакуоль).",
+      "options": [
+        {
+          "label": "А",
+          "text": "фотосинтез"
+        },
+        {
+          "label": "Б",
+          "text": "синтез білків на рибosomes"
+        },
+        {
+          "label": "В",
+          "text": "зберігання спадкової інформації"
+        },
+        {
+          "label": "Г",
+          "text": "внутрішньоклітинний гідроліз (перетравлення)"
+        }
+      ],
+      "contentHash": "8c734c7a229123eaa1a8632b8eaf3fa59463be5ce2a9c54fd097893e38a66125",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 142
+      }
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m05",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Мембрана —",
+      "correctAnswer": "А",
+      "correctOptionText": "селективна проникність",
+      "explanation": "Membrane.",
+      "options": [
+        {
+          "label": "А",
+          "text": "селективна проникність"
+        },
+        {
+          "label": "Б",
+          "text": "не пропускає нічого"
+        },
+        {
+          "label": "В",
+          "text": "лише в prokaryotes"
+        },
+        {
+          "label": "Г",
+          "text": "замінює ядро"
+        }
+      ],
+      "contentHash": "bc720b6872d4fd440414d0e35034dbcfc10226e09e24f3ae254d9a35f7daa7dd",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 9
+      }
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-h01",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Ядро містить:",
+      "correctAnswer": "Б",
+      "correctOptionText": "лише воду",
+      "explanation": "Genetic material.",
+      "options": [
+        {
+          "label": "А",
+          "text": "DNA"
+        },
+        {
+          "label": "Б",
+          "text": "лише воду"
+        },
+        {
+          "label": "В",
+          "text": "лише chlorophyll"
+        },
+        {
+          "label": "Г",
+          "text": "лише стінку"
+        }
+      ],
+      "contentHash": "e7cc708728c255689c081bc6b16c94019e10b8b14a8af2a8f970d08875c4b0ad",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 17
+      }
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-h02",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Центріолі типово присутні під час поділу в клітинах:",
+      "correctAnswer": "В",
+      "correctOptionText": "багатьох тварин (організація веретена)",
+      "explanation": "У тваринних клітинах центріолі беруть участь у формуванні веретена поділу; у більшості рослин центріолі відсутні.",
+      "options": [
+        {
+          "label": "А",
+          "text": "лише прокaryотів"
+        },
+        {
+          "label": "Б",
+          "text": "бактерій"
+        },
+        {
+          "label": "В",
+          "text": "багатьох тварин (організація веретена)"
+        },
+        {
+          "label": "Г",
+          "text": "усіх рослин без винятку"
+        }
+      ],
+      "contentHash": "689fedaee4ef661fe8b3370903d59de09d6e53e99a71c793f7ac748ace53e729",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 113
+      }
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-h03",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Vacuole у рослин:",
+      "correctAnswer": "Г",
+      "correctOptionText": "замінює ribosome",
+      "explanation": "Vacuole.",
+      "options": [
+        {
+          "label": "А",
+          "text": "turgor, запас речовин"
+        },
+        {
+          "label": "Б",
+          "text": "дихання"
+        },
+        {
+          "label": "В",
+          "text": "лише у тварин"
+        },
+        {
+          "label": "Г",
+          "text": "замінює ribosome"
+        }
+      ],
+      "contentHash": "b26dc4225f05f8ca5ce0bd6b2b313258b768c29f30f9c07f695de21b035fd5e0",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 8
+      }
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-e01",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "DNA bases:",
+      "correctAnswer": "А",
+      "correctOptionText": "A,T,G,C",
+      "explanation": "Four bases.",
+      "options": [
+        {
+          "label": "А",
+          "text": "A,T,G,C"
+        },
+        {
+          "label": "Б",
+          "text": "лише A,U"
+        },
+        {
+          "label": "В",
+          "text": "лише білки"
+        },
+        {
+          "label": "Г",
+          "text": "глюкоза"
+        }
+      ],
+      "contentHash": "34260a752a6121bb015024c3990d975029ef02fe8e7c68bc1af78bbd5a247534",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 11
+      }
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-e02",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "A pairs with:",
+      "correctAnswer": "Б",
+      "correctOptionText": "T (U in RNA)",
+      "explanation": "Complementarity.",
+      "options": [
+        {
+          "label": "А",
+          "text": "G"
+        },
+        {
+          "label": "Б",
+          "text": "T (U in RNA)"
+        },
+        {
+          "label": "В",
+          "text": "C only"
+        },
+        {
+          "label": "Г",
+          "text": "any"
+        }
+      ],
+      "contentHash": "52f1d4e2647913a7a2019a698cabca2f8acbe4c80785c8cea4bcb514db472716",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 16
+      }
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-e03",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "mRNA function:",
+      "correctAnswer": "В",
+      "correctOptionText": "photosynthesis",
+      "explanation": "Transcription product.",
+      "options": [
+        {
+          "label": "А",
+          "text": "carries code to ribosome"
+        },
+        {
+          "label": "Б",
+          "text": "only structure"
+        },
+        {
+          "label": "В",
+          "text": "photosynthesis"
+        },
+        {
+          "label": "Г",
+          "text": "ATP"
+        }
+      ],
+      "contentHash": "f0333d24bb1a7db7894b51dd4b5b155b179f9d0a4cdf2dc93d1486779edcefa2",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 22
+      }
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-e04",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Translation site:",
+      "correctAnswer": "Г",
+      "correctOptionText": "ribosome",
+      "explanation": "Protein synthesis.",
+      "options": [
+        {
+          "label": "А",
+          "text": "nucleus only"
+        },
+        {
+          "label": "Б",
+          "text": "chloroplast only"
+        },
+        {
+          "label": "В",
+          "text": "membrane"
+        },
+        {
+          "label": "Г",
+          "text": "ribosome"
+        }
+      ],
+      "contentHash": "bc472e276ec6aaa97d3de3a79b18d420e64ffaa325d1fcd045431a44cd6acfb4",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 18
+      }
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m01",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Mitosis result:",
+      "correctAnswer": "А",
+      "correctOptionText": "2 identical 2n cells",
+      "explanation": "Somatic.",
+      "options": [
+        {
+          "label": "А",
+          "text": "2 identical 2n cells"
+        },
+        {
+          "label": "Б",
+          "text": "4 n gametes"
+        },
+        {
+          "label": "В",
+          "text": "n only"
+        },
+        {
+          "label": "Г",
+          "text": "no division"
+        }
+      ],
+      "contentHash": "a664ff5ce8eae9cecab690f54853f59cef875558845596ea9f40da7cd36b7834",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 8
+      }
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m02",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Meiosis:",
+      "correctAnswer": "Б",
+      "correctOptionText": "2n somatic",
+      "explanation": "Reduction division.",
+      "options": [
+        {
+          "label": "А",
+          "text": "gametes n, diversity"
+        },
+        {
+          "label": "Б",
+          "text": "2n somatic"
+        },
+        {
+          "label": "В",
+          "text": "no crossing-over"
+        },
+        {
+          "label": "Г",
+          "text": "only bacteria"
+        }
+      ],
+      "contentHash": "e32bccbf5964d6608daaa1abb8c97f94401d4d44630ba1fa8c43abdd19c061c8",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 19
+      }
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m03",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Replication:",
+      "correctAnswer": "В",
+      "correctOptionText": "only RNA",
+      "explanation": "Watson-Crick model.",
+      "options": [
+        {
+          "label": "А",
+          "text": "semiconservative"
+        },
+        {
+          "label": "Б",
+          "text": "does not copy DNA"
+        },
+        {
+          "label": "В",
+          "text": "only RNA"
+        },
+        {
+          "label": "Г",
+          "text": "random"
+        }
+      ],
+      "contentHash": "5cdfd4fb7c2a1dd20e438c953ddc346b01bd35c906d90e224315bbcf38d42d38",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 19
+      }
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m04",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "tRNA:",
+      "correctAnswer": "Г",
+      "correctOptionText": "ATP synth",
+      "explanation": "tRNA role.",
+      "options": [
+        {
+          "label": "А",
+          "text": "delivers amino acids"
+        },
+        {
+          "label": "Б",
+          "text": "stores DNA"
+        },
+        {
+          "label": "В",
+          "text": "only membrane"
+        },
+        {
+          "label": "Г",
+          "text": "ATP synth"
+        }
+      ],
+      "contentHash": "997671f57f2eb7a7625254cbfcc06a8c4f54c57c9d3f6747a8b3bf56ac5263e8",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 10
+      }
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m05",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "S phase:",
+      "correctAnswer": "А",
+      "correctOptionText": "DNA replication",
+      "explanation": "Interphase.",
+      "options": [
+        {
+          "label": "А",
+          "text": "DNA replication"
+        },
+        {
+          "label": "Б",
+          "text": "mitosis"
+        },
+        {
+          "label": "В",
+          "text": "cytokinesis only"
+        },
+        {
+          "label": "Г",
+          "text": "meiosis II"
+        }
+      ],
+      "contentHash": "ff52931168eb302d5d0bd9b184012728d567ffeef927e4c3214a906888eba52f",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 11
+      }
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-h01",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Crossing-over:",
+      "correctAnswer": "Б",
+      "correctOptionText": "mitosis always",
+      "explanation": "Prophase I.",
+      "options": [
+        {
+          "label": "А",
+          "text": "meiosis"
+        },
+        {
+          "label": "Б",
+          "text": "mitosis always"
+        },
+        {
+          "label": "В",
+          "text": "photosynthesis"
+        },
+        {
+          "label": "Г",
+          "text": "digestion"
+        }
+      ],
+      "contentHash": "539623a19c992d6ee69aac9507e4290a50a389d72b87f8acc59ab2e732a20d1d",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 11
+      }
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-h02",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Codon —",
+      "correctAnswer": "В",
+      "correctOptionText": "organelle",
+      "explanation": "Genetic code.",
+      "options": [
+        {
+          "label": "А",
+          "text": "triplet on mRNA"
+        },
+        {
+          "label": "Б",
+          "text": "cell wall unit"
+        },
+        {
+          "label": "В",
+          "text": "organelle"
+        },
+        {
+          "label": "Г",
+          "text": "lipid"
+        }
+      ],
+      "contentHash": "cbb9cf36e1350ccd52f2b5b320eed2185add4533a29ebf5d9c951500d2217049",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 13
+      }
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-h03",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Mutation —",
+      "correctAnswer": "Г",
+      "correctOptionText": "mitosis stage",
+      "explanation": "Mutation.",
+      "options": [
+        {
+          "label": "А",
+          "text": "change in DNA sequence"
+        },
+        {
+          "label": "Б",
+          "text": "always beneficial"
+        },
+        {
+          "label": "В",
+          "text": "only environment"
+        },
+        {
+          "label": "Г",
+          "text": "mitosis stage"
+        }
+      ],
+      "contentHash": "6536d2b95dea5f8060853f6963454f8cdc18af6638f7d45508ca16093ab718f7",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 9
+      }
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e01",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Корінь рівняння 2x + 5 = 13:",
+      "correctAnswer": "В",
+      "correctOptionText": "4",
+      "explanation": "2x=8, x=4.",
+      "options": [
+        {
+          "label": "А",
+          "text": "9"
+        },
+        {
+          "label": "Б",
+          "text": "3"
+        },
+        {
+          "label": "В",
+          "text": "4"
+        },
+        {
+          "label": "Г",
+          "text": "6"
+        }
+      ],
+      "contentHash": "10a0cd792efc6449dec9e181a0f447258f3c32c1dff7a765c265792b94ab32f6",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 10
+      }
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e02",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Рівняння x − 7 = 2 має корінь:",
+      "correctAnswer": "А",
+      "correctOptionText": "9",
+      "explanation": "x=2+7=9.",
+      "options": [
+        {
+          "label": "А",
+          "text": "9"
+        },
+        {
+          "label": "Б",
+          "text": "−5"
+        },
+        {
+          "label": "В",
+          "text": "7"
+        },
+        {
+          "label": "Г",
+          "text": "2"
+        }
+      ],
+      "contentHash": "d9f3f90377dd83c138715d462959141bfad8407d3900e126ce697a8e044bfc32",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 8
+      }
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e03",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Коефіцієнт при x у 5x − 10 = 0:",
+      "correctAnswer": "Б",
+      "correctOptionText": "5",
+      "explanation": "a=5.",
+      "options": [
+        {
+          "label": "А",
+          "text": "−10"
+        },
+        {
+          "label": "Б",
+          "text": "5"
+        },
+        {
+          "label": "В",
+          "text": "10"
+        },
+        {
+          "label": "Г",
+          "text": "0"
+        }
+      ],
+      "contentHash": "bfe4a55f915aa2355616e9a0f5e9eaee4f9caa589c56a38c19b35ccb398fcb3e",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 4
+      }
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e04",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Рівняння 3x = 15 має корінь:",
+      "correctAnswer": "А",
+      "correctOptionText": "5",
+      "explanation": "x=5.",
+      "options": [
+        {
+          "label": "А",
+          "text": "5"
+        },
+        {
+          "label": "Б",
+          "text": "12"
+        },
+        {
+          "label": "В",
+          "text": "45"
+        },
+        {
+          "label": "Г",
+          "text": "3"
+        }
+      ],
+      "contentHash": "03bf5658d13c2cff8ce5c8e60434cd2299d06aa5dad9b9d1520235194d0327e2",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 4
+      }
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e05",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Корінь 4x − 3 = 2x + 9:",
+      "correctAnswer": "А",
+      "correctOptionText": "6",
+      "explanation": "2x=12, x=6.",
+      "options": [
+        {
+          "label": "А",
+          "text": "6"
+        },
+        {
+          "label": "Б",
+          "text": "4"
+        },
+        {
+          "label": "В",
+          "text": "3"
+        },
+        {
+          "label": "Г",
+          "text": "12"
+        }
+      ],
+      "contentHash": "e18a007fd59e261fb9c8aba58a5de7b6f16a702e251e111842a26167c92bee7b",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 11
+      }
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e06",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Скільки коренів має 0·x + 5 = 0?",
+      "correctAnswer": "А",
+      "correctOptionText": "жодного",
+      "explanation": "5=0 хибно.",
+      "options": [
+        {
+          "label": "А",
+          "text": "жодного"
+        },
+        {
+          "label": "Б",
+          "text": "один"
+        },
+        {
+          "label": "В",
+          "text": "два"
+        },
+        {
+          "label": "Г",
+          "text": "нескінченно багато"
+        }
+      ],
+      "contentHash": "5bc1207031e579146a4cc287b72e0db777bb05395d1a994523c2f671b7d58596",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 10
+      }
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e07",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Корінь (x + 2)/3 = 4:",
+      "correctAnswer": "А",
+      "correctOptionText": "10",
+      "explanation": "x+2=12, x=10.",
+      "options": [
+        {
+          "label": "А",
+          "text": "10"
+        },
+        {
+          "label": "Б",
+          "text": "14"
+        },
+        {
+          "label": "В",
+          "text": "6"
+        },
+        {
+          "label": "Г",
+          "text": "12"
+        }
+      ],
+      "contentHash": "a8cbf0ea6e37797a250b92fe645a64bf332b3aec0323f37e76e175b8a2fea0bc",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 13
+      }
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e08",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Рівняння 2(x − 1) = 2x − 2 означає:",
+      "correctAnswer": "Г",
+      "correctOptionText": "будь-яке x",
+      "explanation": "Тотожність.",
+      "options": [
+        {
+          "label": "А",
+          "text": "x=0"
+        },
+        {
+          "label": "Б",
+          "text": "x=1"
+        },
+        {
+          "label": "В",
+          "text": "немає коренів"
+        },
+        {
+          "label": "Г",
+          "text": "будь-яке x"
+        }
+      ],
+      "contentHash": "63c424b2303c5eaf1060b5710c7317d929053f3f0608389cba72f6e895474b00",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 11
+      }
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e09",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Більше з двох чисел (сума 20, різниця 8) дорівнює:",
+      "correctAnswer": "А",
+      "correctOptionText": "14",
+      "explanation": "x+(x−8)=20 → 2x=28 → x=14.",
+      "options": [
+        {
+          "label": "А",
+          "text": "14"
+        },
+        {
+          "label": "Б",
+          "text": "12"
+        },
+        {
+          "label": "В",
+          "text": "8"
+        },
+        {
+          "label": "Г",
+          "text": "10"
+        }
+      ],
+      "contentHash": "abb2913a1de66c14129c4a57e655ea05ccc6d4da9a9c8894dfaaabc566fdcce8",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 26
+      }
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e10",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Корінь 7x − 3 = 3x + 9:",
+      "correctAnswer": "Б",
+      "correctOptionText": "3",
+      "explanation": "4x=12, x=3.",
+      "options": [
+        {
+          "label": "А",
+          "text": "2"
+        },
+        {
+          "label": "Б",
+          "text": "3"
+        },
+        {
+          "label": "В",
+          "text": "4"
+        },
+        {
+          "label": "Г",
+          "text": "6"
+        }
+      ],
+      "contentHash": "68a350721d3cdc9248ae3861a80a048428d621bbf1c0e7be52d08540dcf0f335",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 11
+      }
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e11",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Корінь 2(3x − 4) + 5 = 3x + 8:",
+      "correctAnswer": "Б",
+      "correctOptionText": "11/3",
+      "explanation": "6x−8+5=3x+8 → 3x=11 → x=11/3.",
+      "options": [
+        {
+          "label": "А",
+          "text": "−1"
+        },
+        {
+          "label": "Б",
+          "text": "11/3"
+        },
+        {
+          "label": "В",
+          "text": "3"
+        },
+        {
+          "label": "Г",
+          "text": "7"
+        }
+      ],
+      "contentHash": "62c156564c919fe2238d43bf3f93e8fae6d8835d76c96d2b063433cba648d47b",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 29
+      }
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e12",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Корінь (2x + 1)/5 = (x − 3)/2:",
+      "correctAnswer": "Г",
+      "correctOptionText": "17",
+      "explanation": "4x+2=5x−15 → x=17.",
+      "options": [
+        {
+          "label": "А",
+          "text": "11"
+        },
+        {
+          "label": "Б",
+          "text": "15"
+        },
+        {
+          "label": "В",
+          "text": "−15"
+        },
+        {
+          "label": "Г",
+          "text": "17"
+        }
+      ],
+      "contentHash": "5c297c94dc8f29646b03b663199231e7baeb5484705b7541f3cd1f489a60cc29",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 18
+      }
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e01",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Формула дискримінанта D для ax²+bx+c=0:",
+      "correctAnswer": "А",
+      "correctOptionText": "b²−4ac",
+      "explanation": "Стандартна формула.",
+      "options": [
+        {
+          "label": "А",
+          "text": "b²−4ac"
+        },
+        {
+          "label": "Б",
+          "text": "b²+4ac"
+        },
+        {
+          "label": "В",
+          "text": "4ac−b²"
+        },
+        {
+          "label": "Г",
+          "text": "2b−4ac"
+        }
+      ],
+      "contentHash": "28ad8a6f74039f5fe64152b54e33bb3ad6c45d6120b8c0b6fc92c74b9e3716c9",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 19
+      }
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e02",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Якщо D > 0, дійсних коренів:",
+      "correctAnswer": "Б",
+      "correctOptionText": "два",
+      "explanation": "D>0 → два.",
+      "options": [
+        {
+          "label": "А",
+          "text": "жодного"
+        },
+        {
+          "label": "Б",
+          "text": "два"
+        },
+        {
+          "label": "В",
+          "text": "завжди один"
+        },
+        {
+          "label": "Г",
+          "text": "нескінченно"
+        }
+      ],
+      "contentHash": "42f3f92d115b721597645d95cad7a0da5b9ab97d3b602448538c88eae7d42a07",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 10
+      }
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e03",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "D для x²−5x+6=0 дорівнює:",
+      "correctAnswer": "В",
+      "correctOptionText": "1",
+      "explanation": "25−24=1.",
+      "options": [
+        {
+          "label": "А",
+          "text": "−1"
+        },
+        {
+          "label": "Б",
+          "text": "0"
+        },
+        {
+          "label": "В",
+          "text": "1"
+        },
+        {
+          "label": "Г",
+          "text": "25"
+        }
+      ],
+      "contentHash": "1b2ed08f7372cbf1b93ce8f7fe6ab4da67d1b50073fa547455c7c82605c3544e",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 8
+      }
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e04",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Корені x²−5x+6=0:",
+      "correctAnswer": "Г",
+      "correctOptionText": "2 і 3",
+      "explanation": "x=2,3.",
+      "options": [
+        {
+          "label": "А",
+          "text": "−2 і −3"
+        },
+        {
+          "label": "Б",
+          "text": "−2 і 3"
+        },
+        {
+          "label": "В",
+          "text": "2 і −3"
+        },
+        {
+          "label": "Г",
+          "text": "2 і 3"
+        }
+      ],
+      "contentHash": "2ea756d23dab68f28c94f6fa5bc3ea620dfce0b675bd1c4758aa59775a857fb2",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 6
+      }
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e05",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "D для x²+x+1=0:",
+      "correctAnswer": "А",
+      "correctOptionText": "−3",
+      "explanation": "1−4=−3.",
+      "options": [
+        {
+          "label": "А",
+          "text": "−3"
+        },
+        {
+          "label": "Б",
+          "text": "3"
+        },
+        {
+          "label": "В",
+          "text": "0"
+        },
+        {
+          "label": "Г",
+          "text": "1"
+        }
+      ],
+      "contentHash": "e2fe5f7fff98c2615a1d045edbed82402a8c8b54a5a49ff88cc69dd26922e06b",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 7
+      }
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e06",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "При D=0 кількість різних дійсних коренів:",
+      "correctAnswer": "Б",
+      "correctOptionText": "1",
+      "explanation": "Подвійний корінь.",
+      "options": [
+        {
+          "label": "А",
+          "text": "0"
+        },
+        {
+          "label": "Б",
+          "text": "1"
+        },
+        {
+          "label": "В",
+          "text": "2"
+        },
+        {
+          "label": "Г",
+          "text": "3"
+        }
+      ],
+      "contentHash": "7044bfaa15a1b6a37c8f9b5eee219b0a44457888fad596bc5ad9a256b54ba6e3",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 17
+      }
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e07",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Корінь x²+4x+4=0:",
+      "correctAnswer": "В",
+      "correctOptionText": "−2",
+      "explanation": "x=−b/(2a)=−2.",
+      "options": [
+        {
+          "label": "А",
+          "text": "2"
+        },
+        {
+          "label": "Б",
+          "text": "−4"
+        },
+        {
+          "label": "В",
+          "text": "−2"
+        },
+        {
+          "label": "Г",
+          "text": "4"
+        }
+      ],
+      "contentHash": "0d6b46606acc122ed076fcec98df60cd8a7ff7d889e737719dce418d3d5c8cd9",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 13
+      }
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e08",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Сума коренів x²−7x+10=0 (Віет):",
+      "correctAnswer": "Г",
+      "correctOptionText": "−10",
+      "explanation": "−b/a=7.",
+      "options": [
+        {
+          "label": "А",
+          "text": "−7"
+        },
+        {
+          "label": "Б",
+          "text": "10"
+        },
+        {
+          "label": "В",
+          "text": "7"
+        },
+        {
+          "label": "Г",
+          "text": "−10"
+        }
+      ],
+      "contentHash": "d9473e80c7a63b539950c2efa1218e7e4cd4efe4d3e9d0137c2f0616903ba8d5",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 7
+      }
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e09",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "D для 2x²−4x+2=0:",
+      "correctAnswer": "А",
+      "correctOptionText": "0",
+      "explanation": "16−16=0.",
+      "options": [
+        {
+          "label": "А",
+          "text": "0"
+        },
+        {
+          "label": "Б",
+          "text": "4"
+        },
+        {
+          "label": "В",
+          "text": "−4"
+        },
+        {
+          "label": "Г",
+          "text": "8"
+        }
+      ],
+      "contentHash": "c0aaaa36d63298a6a1aee4b9bf0e9456751a1564838981a80c6122318b49c2d0",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 8
+      }
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e10",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "x²−2x−8=0 має корені:",
+      "correctAnswer": "Б",
+      "correctOptionText": "4 і −2",
+      "explanation": "x=(2±6)/2 → 4, −2.",
+      "options": [
+        {
+          "label": "А",
+          "text": "−4 і 2"
+        },
+        {
+          "label": "Б",
+          "text": "4 і −2"
+        },
+        {
+          "label": "В",
+          "text": "−4 і −2"
+        },
+        {
+          "label": "Г",
+          "text": "4 і 2"
+        }
+      ],
+      "contentHash": "ebb614a200dbdd5301ef24853c9c9979564362eab48757e737d0a630c8780925",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 18
+      }
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e11",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Якщо D<0, графік y=ax²+bx+c (a>0) не перетинає Ox:",
+      "correctAnswer": "А",
+      "correctOptionText": "так",
+      "explanation": "Немає дійсних коренів.",
+      "options": [
+        {
+          "label": "А",
+          "text": "так"
+        },
+        {
+          "label": "Б",
+          "text": "ні"
+        },
+        {
+          "label": "В",
+          "text": "лише в одній точці"
+        },
+        {
+          "label": "Г",
+          "text": "завжди двічі"
+        }
+      ],
+      "contentHash": "781eca88ea5de17776493fc830fcad2aa30fb6beb74e92a433925c7244024ed1",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 22
+      }
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e12",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Добуток коренів x²−7x+10=0:",
+      "correctAnswer": "В",
+      "correctOptionText": "10",
+      "explanation": "c/a=10.",
+      "options": [
+        {
+          "label": "А",
+          "text": "7"
+        },
+        {
+          "label": "Б",
+          "text": "−7"
+        },
+        {
+          "label": "В",
+          "text": "10"
+        },
+        {
+          "label": "Г",
+          "text": "−10"
+        }
+      ],
+      "contentHash": "5c92bfc0046f668ab5e5c31689224f17c22c8d8a34aff05958aae00067114124",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 7
+      }
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e01",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Три групи ранніх слов’янських назв у Йордана:",
+      "correctAnswer": "А",
+      "correctOptionText": "венеди, анти, склавини",
+      "explanation": "Класична трійка назв у Йордана.",
+      "options": [
+        {
+          "label": "А",
+          "text": "венеди, анти, склавини"
+        },
+        {
+          "label": "Б",
+          "text": "руси, поляни, древляни"
+        },
+        {
+          "label": "В",
+          "text": "варяги, греки, латиняни"
+        },
+        {
+          "label": "Г",
+          "text": "болgars, avares, franks"
+        }
+      ],
+      "contentHash": "2b5a2082118596ffa3e0a3e735d78fbf803b01357fae0a0a01d3614b8a426649",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 31
+      }
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e02",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Трактат Йордана стосується століття:",
+      "correctAnswer": "Б",
+      "correctOptionText": "VI",
+      "explanation": "551 р.",
+      "options": [
+        {
+          "label": "А",
+          "text": "IV"
+        },
+        {
+          "label": "Б",
+          "text": "VI"
+        },
+        {
+          "label": "В",
+          "text": "X"
+        },
+        {
+          "label": "Г",
+          "text": "XIV"
+        }
+      ],
+      "contentHash": "f5ccd8229bb944a69faa3d6e4010cf796c665cdaecd0eeacf14687577c54cde6",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 6
+      }
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e03",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Склавини в джерелах — це:",
+      "correctAnswer": "В",
+      "correctOptionText": "слов’янські племена",
+      "explanation": "Слов’янські племена в візантійських текстах.",
+      "options": [
+        {
+          "label": "А",
+          "text": "римські легіонери"
+        },
+        {
+          "label": "Б",
+          "text": "германські племена"
+        },
+        {
+          "label": "В",
+          "text": "слов’янські племена"
+        },
+        {
+          "label": "Г",
+          "text": "монгольські орди"
+        }
+      ],
+      "contentHash": "a8c0c8561097fedae7113f5394830cbe04360fefc0035b6f1b187e1638487c79",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 44
+      }
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e04",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Анти згадуються як народ у регіоні:",
+      "correctAnswer": "Г",
+      "correctOptionText": "Апеннін",
+      "explanation": "Східна Європа.",
+      "options": [
+        {
+          "label": "А",
+          "text": "Піреней"
+        },
+        {
+          "label": "Б",
+          "text": "Дніпровський схід"
+        },
+        {
+          "label": "В",
+          "text": "Альп"
+        },
+        {
+          "label": "Г",
+          "text": "Апеннін"
+        }
+      ],
+      "contentHash": "e4f34edeaa21ed96c9a1b17ba4eafbc079156c175e97cac96f2eb9767a4f05a9",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 14
+      }
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e05",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Джерела про венедів переважно:",
+      "correctAnswer": "А",
+      "correctOptionText": "візантійські та германські",
+      "explanation": "Зовнішні описи.",
+      "options": [
+        {
+          "label": "А",
+          "text": "візантійські та германські"
+        },
+        {
+          "label": "Б",
+          "text": "лише китайські"
+        },
+        {
+          "label": "В",
+          "text": "лише арабські XIII ст."
+        },
+        {
+          "label": "Г",
+          "text": "лише археологічні без текстів"
+        }
+      ],
+      "contentHash": "183143ab9a92584aa277c27cb982a12c9bf8884214e6f1801a307f987e999b13",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 15
+      }
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e06",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Венеди в трактаті Йордана:",
+      "correctAnswer": "Б",
+      "correctOptionText": "велике населення, від якого відділилися інші",
+      "explanation": "Структура тексту.",
+      "options": [
+        {
+          "label": "А",
+          "text": "лише міф"
+        },
+        {
+          "label": "Б",
+          "text": "велике населення, від якого відділилися інші"
+        },
+        {
+          "label": "В",
+          "text": "назва Київської Русі"
+        },
+        {
+          "label": "Г",
+          "text": "синонім Візантії"
+        }
+      ],
+      "contentHash": "6f65f6dbe612b949a886c215ec016bddc9e0443e6287b4cc05611128c912a863",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 17
+      }
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e07",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Анти та Київська Русь:",
+      "correctAnswer": "В",
+      "correctOptionText": "античні греки",
+      "explanation": "Різні епохи.",
+      "options": [
+        {
+          "label": "А",
+          "text": "однакові держави"
+        },
+        {
+          "label": "Б",
+          "text": "античні племена vs X-ст. держава"
+        },
+        {
+          "label": "В",
+          "text": "античні греки"
+        },
+        {
+          "label": "Г",
+          "text": "середньовічна Західна Європа"
+        }
+      ],
+      "contentHash": "c3a14651a140ec722c4b5a456cb1995c283b6264ab9ed93931b1faa02dcb399f",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 12
+      }
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e08",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Етнонім «слов’яни» пов’язують із:",
+      "correctAnswer": "Г",
+      "correctOptionText": "кельтським druid",
+      "explanation": "Візантійська передача.",
+      "options": [
+        {
+          "label": "А",
+          "text": "латинським «sclavus» через «склавени»"
+        },
+        {
+          "label": "Б",
+          "text": "єгипетськими ієрогліфами"
+        },
+        {
+          "label": "В",
+          "text": "біблійним Адамом"
+        },
+        {
+          "label": "Г",
+          "text": "кельтським druid"
+        }
+      ],
+      "contentHash": "2791defcdf4c69c472ac460287b9d48f4938d36399ee50d23024230e4d086b53",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 22
+      }
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e09",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Рік трактату Йордана близький до:",
+      "correctAnswer": "А",
+      "correctOptionText": "551",
+      "explanation": "551.",
+      "options": [
+        {
+          "label": "А",
+          "text": "551"
+        },
+        {
+          "label": "Б",
+          "text": "988"
+        },
+        {
+          "label": "В",
+          "text": "1240"
+        },
+        {
+          "label": "Г",
+          "text": "1654"
+        }
+      ],
+      "contentHash": "7e848d4b37e2bbed71c2e1d594dc855ec0288ff85e8d8aec175b1dca2c2243ec",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 4
+      }
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e10",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Найбільш обережне твердження про венедів:",
+      "correctAnswer": "Б",
+      "correctOptionText": "це ранній етнонім у зовнішніх текстах",
+      "explanation": "Критичне читання.",
+      "options": [
+        {
+          "label": "А",
+          "text": "це точна назва української держави VI ст."
+        },
+        {
+          "label": "Б",
+          "text": "це ранній етнонім у зовнішніх текстах"
+        },
+        {
+          "label": "В",
+          "text": "це синонім Римської імперії"
+        },
+        {
+          "label": "Г",
+          "text": "це назва монгольського улусу"
+        }
+      ],
+      "contentHash": "69a74e4ad0b0c64eae569a4d1d4e42bbc679ae3549ba81c9d034552ab32b8f61",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 17
+      }
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e11",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Анти простягаються, за описами, від:",
+      "correctAnswer": "В",
+      "correctOptionText": "Тихого океану",
+      "explanation": "Східноєвропейський контекст.",
+      "options": [
+        {
+          "label": "А",
+          "text": "Атлантики"
+        },
+        {
+          "label": "Б",
+          "text": "земель біля Дніпра"
+        },
+        {
+          "label": "В",
+          "text": "Тихого океану"
+        },
+        {
+          "label": "Г",
+          "text": "Сахари"
+        }
+      ],
+      "contentHash": "81913f549fb6cd16b39a066c05ee5e5e284bdbcec710b7b840a5345c080a5754",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 28
+      }
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e12",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Склавини не тотожні:",
+      "correctAnswer": "Г",
+      "correctOptionText": "Галицько-Волинському князівству XIII ст.",
+      "explanation": "Різні епохи.",
+      "options": [
+        {
+          "label": "А",
+          "text": "візантійському sklabenoi"
+        },
+        {
+          "label": "Б",
+          "text": "групі слов’янських племен"
+        },
+        {
+          "label": "В",
+          "text": "назві з VI-ст. джерел"
+        },
+        {
+          "label": "Г",
+          "text": "Галицько-Волинському князівству XIII ст."
+        }
+      ],
+      "contentHash": "cc834478c075666ef78d1222d4066fc7458f2065f7731f40046da6e65a2480bd",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 12
+      }
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e01",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Об’єднання Галича й Волині традиційно датується:",
+      "correctAnswer": "А",
+      "correctOptionText": "1199 р.",
+      "explanation": "1199 — Роман.",
+      "options": [
+        {
+          "label": "А",
+          "text": "1199 р."
+        },
+        {
+          "label": "Б",
+          "text": "988 р."
+        },
+        {
+          "label": "В",
+          "text": "1240 р."
+        },
+        {
+          "label": "Г",
+          "text": "1654 р."
+        }
+      ],
+      "contentHash": "f7edc1fd55df73a2e8e81a2fcfd170c4fa1da0b6c29ead70e7dfb0693409bdc5",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 13
+      }
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e02",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Князь, пов’язаний з об’єднанням 1199:",
+      "correctAnswer": "Б",
+      "correctOptionText": "Роман Мстиславич",
+      "explanation": "Роман Мстиславич.",
+      "options": [
+        {
+          "label": "А",
+          "text": "Данило Романович"
+        },
+        {
+          "label": "Б",
+          "text": "Роман Мстиславич"
+        },
+        {
+          "label": "В",
+          "text": "Ярослав Мудрий"
+        },
+        {
+          "label": "Г",
+          "text": "Володимир Великий"
+        }
+      ],
+      "contentHash": "81f27ea4ccdf01207adff345aab7280fda9791a0f3f2474792f84181f7e23d27",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 17
+      }
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e03",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Після об’єднання утворилося:",
+      "correctAnswer": "В",
+      "correctOptionText": "Галицько-Волинське князівство",
+      "explanation": "Об’єднання двох земель.",
+      "options": [
+        {
+          "label": "А",
+          "text": "Київська имперія"
+        },
+        {
+          "label": "Б",
+          "text": "Золота Орда"
+        },
+        {
+          "label": "В",
+          "text": "Галицько-Волинське князівство"
+        },
+        {
+          "label": "Г",
+          "text": "Литовське королівство"
+        }
+      ],
+      "contentHash": "36e407a87a3b146b3416746954023123bcb8d5fe0abd735037a74ed3cb1cfeb7",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 23
+      }
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e04",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "EASY",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Данило Романович — це:",
+      "correctAnswer": "Г",
+      "correctOptionText": "угорський король",
+      "explanation": "Спадкоємець.",
+      "options": [
+        {
+          "label": "А",
+          "text": "батько Романа"
+        },
+        {
+          "label": "Б",
+          "text": "син Романа Мстиславича"
+        },
+        {
+          "label": "В",
+          "text": "візантійський імператор"
+        },
+        {
+          "label": "Г",
+          "text": "угорський король"
+        }
+      ],
+      "contentHash": "eceb9728e061ab7d46ce27163b552b01876b0d36768b0d47b050bda64d217545",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 12
+      }
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e05",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Роман Мстиславич загинув у:",
+      "correctAnswer": "А",
+      "correctOptionText": "1205 р.",
+      "explanation": "1205 — битва/загибель.",
+      "options": [
+        {
+          "label": "А",
+          "text": "1205 р."
+        },
+        {
+          "label": "Б",
+          "text": "1199 р."
+        },
+        {
+          "label": "В",
+          "text": "1253 р."
+        },
+        {
+          "label": "Г",
+          "text": "988 р."
+        }
+      ],
+      "contentHash": "b300c6817e9b16328e1e3703af307927de13ee0590560d3a6f7c07755ac22265",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 22
+      }
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e06",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Коронація Данила Галицького як короля —:",
+      "correctAnswer": "Б",
+      "correctOptionText": "1199 р.",
+      "explanation": "1253 — королівська корона.",
+      "options": [
+        {
+          "label": "А",
+          "text": "1253 р."
+        },
+        {
+          "label": "Б",
+          "text": "1199 р."
+        },
+        {
+          "label": "В",
+          "text": "1238 р."
+        },
+        {
+          "label": "Г",
+          "text": "1362 р."
+        }
+      ],
+      "contentHash": "7fa5ef6743d81f3bdc7db56c4e1f5ea2b13be35121c492cfa2c896f22bebbc46",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 26
+      }
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e07",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "До об’єднання Галич і Волинь були:",
+      "correctAnswer": "В",
+      "correctOptionText": "частиною Риму",
+      "explanation": "Суперництво князівств у XII столітті.",
+      "options": [
+        {
+          "label": "А",
+          "text": "завжди одним князівством"
+        },
+        {
+          "label": "Б",
+          "text": "окремими політичними центрами"
+        },
+        {
+          "label": "В",
+          "text": "частиною Риму"
+        },
+        {
+          "label": "Г",
+          "text": "монгольськими улусами"
+        }
+      ],
+      "contentHash": "e056fcd0a136c1388cff4574a86144d79602a28b8bfdfe723262b18fa0d51b8d",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 37
+      }
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e08",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "1199 р. НЕ пов’язаний із:",
+      "correctAnswer": "Г",
+      "correctOptionText": "хрещенням Київської Русі",
+      "explanation": "988 — хрещення.",
+      "options": [
+        {
+          "label": "А",
+          "text": "Романом Мстиславичем"
+        },
+        {
+          "label": "Б",
+          "text": "владою над Галичем"
+        },
+        {
+          "label": "В",
+          "text": "об’єднанням земель"
+        },
+        {
+          "label": "Г",
+          "text": "хрещенням Київської Русі"
+        }
+      ],
+      "contentHash": "bedb5fa41364aac0b2f097933495c5da2939a0773848a16c7069dec31d532fee",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 15
+      }
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e09",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Данило почав правити приблизно з:",
+      "correctAnswer": "А",
+      "correctOptionText": "1238 р.",
+      "explanation": "1238 — початок правління.",
+      "options": [
+        {
+          "label": "А",
+          "text": "1238 р."
+        },
+        {
+          "label": "Б",
+          "text": "1199 р."
+        },
+        {
+          "label": "В",
+          "text": "1205 р."
+        },
+        {
+          "label": "Г",
+          "text": "988 р."
+        }
+      ],
+      "contentHash": "d53439a612d3400d8687d1f969c7b334b6ab21dc40eb1d51f2a29d37130293bc",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 25
+      }
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e10",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Найточніше: об’єднання 1199",
+      "correctAnswer": "Б",
+      "correctOptionText": "з’єдналo галицькі й волинські землі під Романом",
+      "explanation": "Політичне об’єднання земель.",
+      "options": [
+        {
+          "label": "А",
+          "text": "було коронацією Данила"
+        },
+        {
+          "label": "Б",
+          "text": "з’єдналo галицькі й волинські землі під Романом"
+        },
+        {
+          "label": "В",
+          "text": "скасувало Русь"
+        },
+        {
+          "label": "Г",
+          "text": "встановило монгольську владу"
+        }
+      ],
+      "contentHash": "a63429ca2c9cf9f459fb7a6d967c2e583e19b253ebc4cc420392d0278f04683f",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 28
+      }
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e11",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "Після 1205 на Галицько-Волинь:",
+      "correctAnswer": "В",
+      "correctOptionText": "землі увійшли до Візантії",
+      "explanation": "Нестабільність після смерті Романа.",
+      "options": [
+        {
+          "label": "А",
+          "text": "одразу наступив мир без боротьби"
+        },
+        {
+          "label": "Б",
+          "text": "тривала боротьба за спадщину"
+        },
+        {
+          "label": "В",
+          "text": "землі увійшли до Візантії"
+        },
+        {
+          "label": "Г",
+          "text": "Волинь зникла з політичної карти"
+        }
+      ],
+      "contentHash": "4b87ab181d1d21b9ae5abf87eeeb97bbcb247e0b161b124abecc9f3aeb60c1be",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 35
+      }
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e12",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "difficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "prompt": "1253 р. для Данила означає:",
+      "correctAnswer": "Г",
+      "correctOptionText": "хрещення Русі",
+      "explanation": "Коронація короля.",
+      "options": [
+        {
+          "label": "А",
+          "text": "об’єднання з Волинню"
+        },
+        {
+          "label": "Б",
+          "text": "отримання королівського титулу"
+        },
+        {
+          "label": "В",
+          "text": "загибель Романа"
+        },
+        {
+          "label": "Г",
+          "text": "хрещення Русі"
+        }
+      ],
+      "contentHash": "ea2e2f450e56208b00e3b064582121c743b5cd187c413c8f2dd7169522f052fd",
+      "autoChecks": {
+        "correctInOptions": true,
+        "optionCount": 4,
+        "explanationLen": 17
+      }
+    }
+  ],
+  "lessons": [
+    {
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "sectionCode": "s7a-sec-geography",
+      "lessonSha256": "84d84cedf3fef4a7f3cef5bc96c659dedeb462ed5adc185592e97818908e83e6",
+      "exampleCount": 4,
+      "theoryLen": 2664
+    },
+    {
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "sectionCode": "s7a-sec-geography-ua",
+      "lessonSha256": "256bf492589a1dbbcefd5a4c73ec8a18258e1ecc2802eb7c94f44a4ff8424538",
+      "exampleCount": 4,
+      "theoryLen": 1209
+    },
+    {
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "sectionCode": "s7a-sec-ukr-lex",
+      "lessonSha256": "477af3e0737f294d6a647ad960e10c00e257608b66d9fa20f5203ec218c135a0",
+      "exampleCount": 4,
+      "theoryLen": 1243
+    },
+    {
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "sectionCode": "s7a-sec-ukrainian-v2",
+      "lessonSha256": "6f333a69c54060e38f57c4c74ab35524d6119cda969cdd8e061f9a590341cfd8",
+      "exampleCount": 4,
+      "theoryLen": 1209
+    },
+    {
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "sectionCode": "s7a-sec-bio-cell",
+      "lessonSha256": "f3f76f7a954e3951d2e1d69a11f265ab12f72177fbaa852666b0092f5499bf44",
+      "exampleCount": 4,
+      "theoryLen": 1270
+    },
+    {
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "sectionCode": "s7a-sec-bio-molecular",
+      "lessonSha256": "2df2dbec70399344ed12336a9486f80b540f840abb191faf0f0f43d71474b7a7",
+      "exampleCount": 4,
+      "theoryLen": 1304
+    },
+    {
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "sectionCode": "s7a-sec-math-v2",
+      "lessonSha256": "416023917325e3c76a79d8e32a9744110763d213c07e9c90ae74fb73065b9801",
+      "exampleCount": 4,
+      "theoryLen": 1267
+    },
+    {
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "sectionCode": "s7a-sec-math-v2",
+      "lessonSha256": "55d26f7aa520f0620a770bfc7382963c5c8beb56c234a40bda5d59266f876978",
+      "exampleCount": 4,
+      "theoryLen": 1258
+    },
+    {
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "sectionCode": "s7a-sec-history-v2",
+      "lessonSha256": "3d2cf88647fa5a2d859d44c64039b52e91072360575abf3ddf56762fac4fc89b",
+      "exampleCount": 4,
+      "theoryLen": 1334
+    },
+    {
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "sectionCode": "s7a-sec-history-v2",
+      "lessonSha256": "744314e00e850eb99d3697bd680957f55373e2d26c5ca191bb234129b56bf55b",
+      "exampleCount": 4,
+      "theoryLen": 1441
+    }
+  ]
+}

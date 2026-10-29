@@ -341,7 +341,7 @@
               "difficulty": "HARD",
               "prompt": "Корінь 2(3x − 4) + 5 = 3x + 8:",
               "explanation": "6x−8+5=3x+8 → 3x=11 → x=11/3.",
-              "correctAnswer": "В",
+              "correctAnswer": "Б",
               "options": [
                 {
                   "label": "А",
