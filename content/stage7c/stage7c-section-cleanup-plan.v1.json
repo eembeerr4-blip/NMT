@@ -1,0 +1,17 @@
+{
+  "format": "nmt-stage7c-section-cleanup-plan",
+  "version": 1,
+  "stage": "7C.1",
+  "unnecessaryNodes": [
+    "s7a-sec-geography",
+    "s7a-sec-geography-ua",
+    "s7a-sec-bio-cell",
+    "s7a-sec-bio-molecular",
+    "s7a-sec-ukr-lex"
+  ],
+  "requiredParentNodes": ["s7a-sec-math-v2", "s7a-sec-history-v2", "s7a-sec-ukrainian-v2"],
+  "userTableReferences": "none found (Topic.parentId only; no StudyTask/UserTopicProgress on s7a-sec-* empty nodes)",
+  "recommendedAction": "Defer deletion from production until Stage 7D: after stage7c-hierarchy-fix.v1.json reparent on QA, empty s7a-sec-* nodes hold legacy subtopics; then hide or delete NEEDS_CONTENT shells with zero children",
+  "productionChangeAllowed": false,
+  "notes": "Stage 7C.1 does not delete nodes in dev.db per owner constraints."
+}

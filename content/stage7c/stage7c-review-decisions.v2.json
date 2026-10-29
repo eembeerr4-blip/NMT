@@ -1,0 +1,1620 @@
+{
+  "format": "nmt-stage7c-review-decisions",
+  "version": 2,
+  "stage": "7C.1",
+  "generatedAt": "2026-10-29T12:11:35.796Z",
+  "questionCount": 120,
+  "summary": {
+    "VERIFIED_CANDIDATE": 120
+  },
+  "decisions": [
+    {
+      "questionId": "s7a-geography-1-e01",
+      "topicId": "geography-1",
+      "difficulty": "EASY",
+      "contentHash": "fdcbfed1e461ede4d1fb949f8ac79d24d38ff966776cee2fcb1087841a062505",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.752Z"
+    },
+    {
+      "questionId": "s7a-geography-1-e02",
+      "topicId": "geography-1",
+      "difficulty": "EASY",
+      "contentHash": "324bc3565afea03aae47721270835cdc4b2f18a61f77470526eaea9c74fd5c3d",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.753Z"
+    },
+    {
+      "questionId": "s7a-geography-1-e03",
+      "topicId": "geography-1",
+      "difficulty": "EASY",
+      "contentHash": "0ba39e4401de2ea1d3e02443278499c6b5942fd76e69b4251434571aadc37b11",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.753Z"
+    },
+    {
+      "questionId": "s7a-geography-1-e04",
+      "topicId": "geography-1",
+      "difficulty": "EASY",
+      "contentHash": "be22ab186b8a87ecc5ba832a9ee3954f94e4b1667f1d7acb6ad0859a63f70fa8",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.753Z"
+    },
+    {
+      "questionId": "s7a-geography-1-m01",
+      "topicId": "geography-1",
+      "difficulty": "MEDIUM",
+      "contentHash": "a91e5cddcf1e5bef435973424728dbe7c018624d589c31eeb81ece9eb0ff7f09",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.753Z"
+    },
+    {
+      "questionId": "s7a-geography-1-m02",
+      "topicId": "geography-1",
+      "difficulty": "MEDIUM",
+      "contentHash": "4b75579a38cc9529285cfc2bc5efd547cc70cf3b152ad954e9081ddbe5228ac5",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.753Z"
+    },
+    {
+      "questionId": "s7a-geography-1-m03",
+      "topicId": "geography-1",
+      "difficulty": "MEDIUM",
+      "contentHash": "ccf05e2c39db958eeae5546bc9ba0df8afcff1445c13357148c109c74a7c9d06",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.753Z"
+    },
+    {
+      "questionId": "s7a-geography-1-m04",
+      "topicId": "geography-1",
+      "difficulty": "MEDIUM",
+      "contentHash": "f464134beb64b34d687b963630dfe9e4fcc0f087e8087c4c861ce5b9210708fa",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.753Z"
+    },
+    {
+      "questionId": "s7a-geography-1-m05",
+      "topicId": "geography-1",
+      "difficulty": "MEDIUM",
+      "contentHash": "4f6bea818c77360ca14d18b6f37fec4c025679046f35c6a595becb4cb89f1b49",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.753Z"
+    },
+    {
+      "questionId": "s7a-geography-1-h01",
+      "topicId": "geography-1",
+      "difficulty": "HARD",
+      "contentHash": "4bbb9bca97dc74cdf872aba98d2b8f0802863ba308e7f612b1c7ce6a1e990722",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.753Z"
+    },
+    {
+      "questionId": "s7a-geography-1-h02",
+      "topicId": "geography-1",
+      "difficulty": "HARD",
+      "contentHash": "5d9bd9f91a946e1c00a1e2017ddedc381a1fdc1c51e722d8b1495b31d37ad135",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.753Z"
+    },
+    {
+      "questionId": "s7a-geography-1-h03",
+      "topicId": "geography-1",
+      "difficulty": "HARD",
+      "contentHash": "e59d5da74c3b0d961445f03b9c67c50239d15f38c9ba37c4b8211b8a966e6cf5",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.753Z"
+    },
+    {
+      "questionId": "s7a-geography-2-e01",
+      "topicId": "geography-2",
+      "difficulty": "EASY",
+      "contentHash": "dcb1b6974ffa10e7a85dc8e853f6c816ee8f46173883a29f223ee744629155d9",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.754Z"
+    },
+    {
+      "questionId": "s7a-geography-2-e02",
+      "topicId": "geography-2",
+      "difficulty": "EASY",
+      "contentHash": "84a74059ed4ecbc4be96ad8c94130906a4ab19e3a46efa09d370d9ac592a7a62",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.755Z"
+    },
+    {
+      "questionId": "s7a-geography-2-e03",
+      "topicId": "geography-2",
+      "difficulty": "EASY",
+      "contentHash": "6379fd624c92a3af2f604aec27fb3f1c47a2ad7cb33f7ae471ead856bdf98547",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.756Z"
+    },
+    {
+      "questionId": "s7a-geography-2-e04",
+      "topicId": "geography-2",
+      "difficulty": "EASY",
+      "contentHash": "dd3bca75d79fbbfb502e08ef23e5054657ded3ad1dd101e17d8a85a97a86c141",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.756Z"
+    },
+    {
+      "questionId": "s7a-geography-2-m01",
+      "topicId": "geography-2",
+      "difficulty": "MEDIUM",
+      "contentHash": "4717707cb8d0ee812ac25ba7d35653f2ca916917fc9f1b9b173252f166e16397",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.757Z"
+    },
+    {
+      "questionId": "s7a-geography-2-m02",
+      "topicId": "geography-2",
+      "difficulty": "MEDIUM",
+      "contentHash": "5dced7bdbb88417a3d5945158bbb30d58c425fbc0249b4d6ab6aed3e9e5bb685",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.758Z"
+    },
+    {
+      "questionId": "s7a-geography-2-m03",
+      "topicId": "geography-2",
+      "difficulty": "MEDIUM",
+      "contentHash": "0e7b4d0414d34802e30f5a915f3b8ca4a2d8df99227b9762f6af64a0a8210e90",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.759Z"
+    },
+    {
+      "questionId": "s7a-geography-2-m04",
+      "topicId": "geography-2",
+      "difficulty": "MEDIUM",
+      "contentHash": "d06cd9281e2f2c5201bbe89c662bea478976483e2ab8395e9545980d137c671a",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.760Z"
+    },
+    {
+      "questionId": "s7a-geography-2-m05",
+      "topicId": "geography-2",
+      "difficulty": "MEDIUM",
+      "contentHash": "3de9b43b70b00763f380872aad8de7ccdbe850a75923adcb74643da5bd2b79b2",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.760Z"
+    },
+    {
+      "questionId": "s7a-geography-2-h01",
+      "topicId": "geography-2",
+      "difficulty": "HARD",
+      "contentHash": "d593cc5121d1a93ae3452c9244ded15af75df096eabfba104ff3f20462b90e98",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.762Z"
+    },
+    {
+      "questionId": "s7a-geography-2-h02",
+      "topicId": "geography-2",
+      "difficulty": "HARD",
+      "contentHash": "9128be8cb6b099243367572ac8405493023d8c01d234daf47b3a7dd44acaacb7",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.763Z"
+    },
+    {
+      "questionId": "s7a-geography-2-h03",
+      "topicId": "geography-2",
+      "difficulty": "HARD",
+      "contentHash": "539f10e0375dbc6482541653fc4c727a2e381e14c87ffa5fc78184ac2b722816",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.764Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-e01",
+      "topicId": "ukr-lexicology-section-01",
+      "difficulty": "EASY",
+      "contentHash": "d5d9aaf10d6fbe123707b23abec3e62a8e6ce9536f6fdf52b349f437e5d0f699",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.765Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-e02",
+      "topicId": "ukr-lexicology-section-01",
+      "difficulty": "EASY",
+      "contentHash": "0e9792a3893dc91b4f2c2b593f92bdef56cb93b1ea4d7174696208cc91035ae5",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.765Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-e03",
+      "topicId": "ukr-lexicology-section-01",
+      "difficulty": "EASY",
+      "contentHash": "760fd62faac700e553447e5629a5c8b814956247726192caf1b4379d598cbd8c",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.766Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-e04",
+      "topicId": "ukr-lexicology-section-01",
+      "difficulty": "EASY",
+      "contentHash": "1371a181472c8b8e62843c7562b4663bee2cbf9f0086c10d9a37ba0eec255f1d",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.767Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m01",
+      "topicId": "ukr-lexicology-section-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "2659258e96923c89bb8f9729a02439d68062ba6b50c393899a6da9a472dd78f4",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.768Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m02",
+      "topicId": "ukr-lexicology-section-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "4170e67b86f4a40198c276884cce1c5126999fa3e01174522494dea3fda1b63b",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.769Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m03",
+      "topicId": "ukr-lexicology-section-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "61cffe4c11beacefc9743f329a97c584c3e50a41524474e0bce4755cafda04a4",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.770Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m04",
+      "topicId": "ukr-lexicology-section-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "0fb13795c722866186808fade72d8b53cf3557eb8d32f93d1609e2a551dccdab",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.771Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m05",
+      "topicId": "ukr-lexicology-section-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "428b1947abb391aab5b6536c6947dbf2ff06921d78d470871a79f6b5d306c1e8",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.771Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-h01",
+      "topicId": "ukr-lexicology-section-01",
+      "difficulty": "HARD",
+      "contentHash": "c1972dcccb575196b9da2c31b75ea6f8b6bd465c753310c61a344d6f6aa2531a",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.772Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-h02",
+      "topicId": "ukr-lexicology-section-01",
+      "difficulty": "HARD",
+      "contentHash": "84ccfd89f002047b13020cce05380f7862ac0f1fe2f1e704dbfb4bd891bd8186",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.773Z"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-h03",
+      "topicId": "ukr-lexicology-section-01",
+      "difficulty": "HARD",
+      "contentHash": "b7723cccfdb087c4f8693262a204e19657dd739fbce004128b217cc7fef91061",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.774Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e01",
+      "topicId": "ukr-ortho-sub-01",
+      "difficulty": "EASY",
+      "contentHash": "447b0fb89d06cd729efbc4c32b25c24fad5c9e78f77dc3431f61b74aa3884f0f",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.774Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e02",
+      "topicId": "ukr-ortho-sub-01",
+      "difficulty": "EASY",
+      "contentHash": "568e7a7c87abe10f401076521b9b16f12775cf0279287599f6708e311d87bdc6",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.774Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e03",
+      "topicId": "ukr-ortho-sub-01",
+      "difficulty": "EASY",
+      "contentHash": "9627a28d89c84dcc4676e84321d67c681fa7ff7f9c498f64e25e83353456e710",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.774Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e04",
+      "topicId": "ukr-ortho-sub-01",
+      "difficulty": "EASY",
+      "contentHash": "6316fe47e13a4e6a39036e8146fb2381d0413d2f91509ae8a108b390ba77c83f",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.774Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e05",
+      "topicId": "ukr-ortho-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "0b897be5d14626c02c9767cb4bd946b317ed2cc9b20bfafe9ad5a96dd89d4ccb",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.774Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e06",
+      "topicId": "ukr-ortho-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "50c42a70a74abed55b9bff4d95dba5d13ac8b7c0619ba77204d632ee55dbdf83",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.774Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e07",
+      "topicId": "ukr-ortho-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "9a26f7d5676f0881540de2583a60f827b05fe71dae4e715466ea2819273471a7",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.774Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e08",
+      "topicId": "ukr-ortho-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "2f219829ce785c36f1b97682ad2c3da5426fd11e48760b2749a7703fd43925b7",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.774Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e09",
+      "topicId": "ukr-ortho-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "03d6c028db483ea8e49e3bf3657e1950edd7fe19df2894bd35a5881fcfb1870d",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.774Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e10",
+      "topicId": "ukr-ortho-sub-01",
+      "difficulty": "HARD",
+      "contentHash": "3e476fd65bfa188ae44b50496e702b501a0bfc482aae5047f2a27800f2dad04b",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.774Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e11",
+      "topicId": "ukr-ortho-sub-01",
+      "difficulty": "HARD",
+      "contentHash": "618e4db8fd57604235e1f71c5aa17c61d1dfa05c86e9fa98d6a17455d2ab8f3a",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.774Z"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e12",
+      "topicId": "ukr-ortho-sub-01",
+      "difficulty": "HARD",
+      "contentHash": "a4fae7724532afe44ac96b981937e45bbb66c27aa85835026eae8088d85aecaa",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.774Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-e01",
+      "topicId": "bio-cell-sec-01",
+      "difficulty": "EASY",
+      "contentHash": "9d90f51cdd7cb4d411712dc3120343ceb7518ab42096fcc6315f641103a0fbe1",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.775Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-e02",
+      "topicId": "bio-cell-sec-01",
+      "difficulty": "EASY",
+      "contentHash": "dbf431deb574c7b1e75c3dc492e1c6b62bcf2fca9ecd406deb11051a45c6fc7f",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.776Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-e03",
+      "topicId": "bio-cell-sec-01",
+      "difficulty": "EASY",
+      "contentHash": "1395c2702a3394d67400a026fc2da514a6fc63a691ec9e5b53cef5f0858d53a8",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.776Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-e04",
+      "topicId": "bio-cell-sec-01",
+      "difficulty": "EASY",
+      "contentHash": "c0be70b833eb79a4f382a2e408695e7ca0c3c90809a6150240c3a15547134eae",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.778Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m01",
+      "topicId": "bio-cell-sec-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "ca95da20942c1c15dd402bb561f224a9db9d5ec5df5e216c99571a3fbb6c453d",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.778Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m02",
+      "topicId": "bio-cell-sec-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "7dc42ed082945c2571d1c93ac1f48ca3af8bf168e9523472f0d1ce50b2dc9ef6",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.779Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m03",
+      "topicId": "bio-cell-sec-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "9ff4963b0f7f346f533b890cb4329deab8ed66d86d8732b145ddc28ffff2b93c",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.780Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m04",
+      "topicId": "bio-cell-sec-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "a0eaa767b465ba34979abf2eb82fed0a043e050e0291d4ef231deda7f95a3eac",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.781Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m05",
+      "topicId": "bio-cell-sec-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "dc1b729b0e8cee4d69f689465908937e428b849cb6f6e8c4d6eb741fa6be1420",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.782Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-h01",
+      "topicId": "bio-cell-sec-01",
+      "difficulty": "HARD",
+      "contentHash": "7945d3349a13f944ef293f550a979eddf8d773feac23577886c4a3cb4b3e0bd3",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.782Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-h02",
+      "topicId": "bio-cell-sec-01",
+      "difficulty": "HARD",
+      "contentHash": "e457624699ad786705d0a43f09b95d8aaae9092a6ca34a5bcbe3dfb0911137fa",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.783Z"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-h03",
+      "topicId": "bio-cell-sec-01",
+      "difficulty": "HARD",
+      "contentHash": "d0cd39edaeb447145556113a8e2a9ae0528b48271dfbf6147541ec03eb4bc78b",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.784Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-e01",
+      "topicId": "zcode-biology-molecular-02",
+      "difficulty": "EASY",
+      "contentHash": "26c70dc2f94e4c2f1422e474b11506920c8bd526e971ecf6f38bfb04724dd75b",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.785Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-e02",
+      "topicId": "zcode-biology-molecular-02",
+      "difficulty": "EASY",
+      "contentHash": "1a4fc168ecbdd0517a59939b897907a1bc1d72ba6806e3cd320962b2171ab33f",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.786Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-e03",
+      "topicId": "zcode-biology-molecular-02",
+      "difficulty": "EASY",
+      "contentHash": "d213e06262723b5b5470eccccf88e2bd9e4142adcfa0470f0e9c10b035a22163",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.787Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-e04",
+      "topicId": "zcode-biology-molecular-02",
+      "difficulty": "EASY",
+      "contentHash": "91c23d4b4ecd7e35c35bae100a4b0383d5068bc27f07897f3f6716fa089e0340",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.787Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m01",
+      "topicId": "zcode-biology-molecular-02",
+      "difficulty": "MEDIUM",
+      "contentHash": "053e5ffcbac4d26ac34ad668e62f50f0c52e55d0fbd626cfc7478d7b7649c1de",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.788Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m02",
+      "topicId": "zcode-biology-molecular-02",
+      "difficulty": "MEDIUM",
+      "contentHash": "3941a5662f6442b9d7fd23faeb596033d209c2952b01412ad138fd0e78f9479b",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.789Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m03",
+      "topicId": "zcode-biology-molecular-02",
+      "difficulty": "MEDIUM",
+      "contentHash": "e1717ad31fd506eb6494429c11470f1715d34ece3a41a6105730ae6a55f53d50",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.790Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m04",
+      "topicId": "zcode-biology-molecular-02",
+      "difficulty": "MEDIUM",
+      "contentHash": "04deb38841a59c886a0895708b48093a074be218f6fcdf00b27d4dc9f7343105",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.791Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m05",
+      "topicId": "zcode-biology-molecular-02",
+      "difficulty": "MEDIUM",
+      "contentHash": "9022bd570e3fc73ee3d583b416972906a1120febef51d31e86832eba7b94d710",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.792Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-h01",
+      "topicId": "zcode-biology-molecular-02",
+      "difficulty": "HARD",
+      "contentHash": "ed4d7d7ab7cf21135f620986418e98f771c16381024a0cfd5c8a7446a6e99a08",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.793Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-h02",
+      "topicId": "zcode-biology-molecular-02",
+      "difficulty": "HARD",
+      "contentHash": "25f5552c61d04747a84ade0f705f6cae4edb23bb579eceeab63d28ad5c452a41",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.794Z"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-h03",
+      "topicId": "zcode-biology-molecular-02",
+      "difficulty": "HARD",
+      "contentHash": "9adc53c2bc002ccb153bb630ccab8a7d0f8f5e53d5e73cbd6576532799a30070",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.794Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e01",
+      "topicId": "math-linear-eq-sub-02",
+      "difficulty": "EASY",
+      "contentHash": "42797e1d3a2997867a8442c5d903b5ae17a14db405a5f40e40da15bf4880cbb3",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.794Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e02",
+      "topicId": "math-linear-eq-sub-02",
+      "difficulty": "EASY",
+      "contentHash": "b0f763f91240e0c4530a6b5b3061c02cd9333b6eefa7ab742cfe884dbfffbfaa",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.794Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e03",
+      "topicId": "math-linear-eq-sub-02",
+      "difficulty": "EASY",
+      "contentHash": "6b9865d31c38309e468515ca22b4f5f8c2da7b129950616796f4a29c8e3561e5",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.794Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e04",
+      "topicId": "math-linear-eq-sub-02",
+      "difficulty": "EASY",
+      "contentHash": "17d6e6e4f0a6c14e3b8edf94caf7e9da06fa309931e5c5642a09d472ca9dfc58",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.794Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e05",
+      "topicId": "math-linear-eq-sub-02",
+      "difficulty": "MEDIUM",
+      "contentHash": "48eeff82a26f2c857a6f9d6341230e3c3878ceca748cc05d0e6f75527e5a810a",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.794Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e06",
+      "topicId": "math-linear-eq-sub-02",
+      "difficulty": "MEDIUM",
+      "contentHash": "e58ced07d17a356e0d79cbef720681eca866ca5380049e190e6b6a9a8e445418",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.794Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e07",
+      "topicId": "math-linear-eq-sub-02",
+      "difficulty": "MEDIUM",
+      "contentHash": "d9be5a25b7bfffae43678f683da6f37fdf1fed9f8ef4f46935e177806c7bac52",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.794Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e08",
+      "topicId": "math-linear-eq-sub-02",
+      "difficulty": "MEDIUM",
+      "contentHash": "e979ccbb83a7bb2f2b05d940b4727bf0efa5ec07707f816d9a84656b96fa9c8f",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.794Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e09",
+      "topicId": "math-linear-eq-sub-02",
+      "difficulty": "MEDIUM",
+      "contentHash": "7ef59d18e1eb785ab4995fca48a107a277e880c1a9129eebccd512039c3af09a",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.794Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e10",
+      "topicId": "math-linear-eq-sub-02",
+      "difficulty": "HARD",
+      "contentHash": "83396701759cf102f39c00d067d563be7e3c3f01d9bdba4cac0f2957c2116e0a",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.794Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e11",
+      "topicId": "math-linear-eq-sub-02",
+      "difficulty": "HARD",
+      "contentHash": "ff40aff4baa08143d2577c55cf229c9f17d7f4f89a4aa8333571dad169df7b5c",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "Оновлений контент перевірено в Stage 7C.1 (умова, ключ, explanation, distractors).",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e12",
+      "topicId": "math-linear-eq-sub-02",
+      "difficulty": "HARD",
+      "contentHash": "39c20c2808b7272729e908d60f0b1699bf39eceff887c93a912dc9dbcace2799",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e01",
+      "topicId": "math-quadratic-sub-01",
+      "difficulty": "EASY",
+      "contentHash": "87ecc743ca4fb0e80a433f6b5b473777c8ffcceade5bf740d624aa01a132ba7d",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e02",
+      "topicId": "math-quadratic-sub-01",
+      "difficulty": "EASY",
+      "contentHash": "3998fad56f1dfbbb11798698bf6105b255abb91b41164ba15af64ae2317edc4a",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e03",
+      "topicId": "math-quadratic-sub-01",
+      "difficulty": "EASY",
+      "contentHash": "d776647a6ec193b4ee26b83a563f8bee86a88c3e37e915b33da6cb410958cece",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e04",
+      "topicId": "math-quadratic-sub-01",
+      "difficulty": "EASY",
+      "contentHash": "d7a1a54cbaff964a8643917b5418f7223c8175b6244b0cc6c7d086ff621e1b6e",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e05",
+      "topicId": "math-quadratic-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "09ea7a9264222caf952fd0c73ebcd8d4e1fe449774075ada78fe3e1c4898a131",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e06",
+      "topicId": "math-quadratic-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "c594e5a4229bbef8f81844ea266f7493dfeebe62152b69959cf1a57a58a1a223",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e07",
+      "topicId": "math-quadratic-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "3b0bba6cc3c96f86d0d6864be9edcf3fcb009218b2c0e41e40158b1494087eb8",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e08",
+      "topicId": "math-quadratic-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "6445685f62c9024facf68035d76ae5574dc6930e96dae030aebcd836cc475c23",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e09",
+      "topicId": "math-quadratic-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "894171c35270c2aa715a38aa05c8afac71db5136aafcb322ff6d29f298110001",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e10",
+      "topicId": "math-quadratic-sub-01",
+      "difficulty": "HARD",
+      "contentHash": "9dc117bcf342b39bd3546a397295c2dda6d64ddbee0e4eb987d404fb16f385cd",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e11",
+      "topicId": "math-quadratic-sub-01",
+      "difficulty": "HARD",
+      "contentHash": "33e17f7c0af15a9bf16731a2aa4c5516da4b18ce55f019cd49e54eb2c5e4b085",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e12",
+      "topicId": "math-quadratic-sub-01",
+      "difficulty": "HARD",
+      "contentHash": "3ee9bab3f52efd5c4b87ac6fc5916858350866cb141e35e337236574a1cbfcc2",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e01",
+      "topicId": "cm-history-slavs-sub-01",
+      "difficulty": "EASY",
+      "contentHash": "2e7d12ce6a0c5f13107d95bc54abfcadf137ca9d85545ed4c0b516c4e81761a4",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e02",
+      "topicId": "cm-history-slavs-sub-01",
+      "difficulty": "EASY",
+      "contentHash": "ef6ef1b5965ac46919bea5c65a65f08486f2a3bc465464939daaab176a7fb9bb",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e03",
+      "topicId": "cm-history-slavs-sub-01",
+      "difficulty": "EASY",
+      "contentHash": "c31a2933622e15edf29390744f9ada84bb60a514748b1f32fb1cfbc85abfa8aa",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e04",
+      "topicId": "cm-history-slavs-sub-01",
+      "difficulty": "EASY",
+      "contentHash": "8edd3fc1a85d92b5a6a97b50f70204cf789d3717847c27529e04463d3a59d5a0",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e05",
+      "topicId": "cm-history-slavs-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "5fa3c71ec4b2480e7081bbd89c9da8bd55f31e2d43b4a90fc3037b77e3b45ef0",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e06",
+      "topicId": "cm-history-slavs-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "34bd3d9b254a1d4ebb0596eae893fafce2bd034dc1e05a89e8006003ae4b75ff",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e07",
+      "topicId": "cm-history-slavs-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "fd549fc106a45191f7d7a95f14264d5f4c714d23f0f4078849b3968ecef53346",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e08",
+      "topicId": "cm-history-slavs-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "38b5666a26a2a6f50d896343cab283fe92ed9b3e411c3b307590cf3833c25db8",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e09",
+      "topicId": "cm-history-slavs-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "942796920c9c91587224afe0b11883c744117bd458c756759b1e1c0c04827025",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e10",
+      "topicId": "cm-history-slavs-sub-01",
+      "difficulty": "HARD",
+      "contentHash": "8024858b164c2dd3146ae87481610eeb88a641cbaf5421bd8ba211571d0f8623",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e11",
+      "topicId": "cm-history-slavs-sub-01",
+      "difficulty": "HARD",
+      "contentHash": "73a6b4ae12b44f6283109a8cc33b558ae808301f7492708d7f71d4011ea1489c",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e12",
+      "topicId": "cm-history-slavs-sub-01",
+      "difficulty": "HARD",
+      "contentHash": "b7c007f968f824f34881272a5d714414421f38f298c05e841ebf79aa985795a9",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e01",
+      "topicId": "hist-galicia-sub-01",
+      "difficulty": "EASY",
+      "contentHash": "07efad88c5442256d9f8e5ae018b1ef4f182f56853e7516054011b4f2f70b98a",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e02",
+      "topicId": "hist-galicia-sub-01",
+      "difficulty": "EASY",
+      "contentHash": "0e42ddd45d2f0d7cd5e5974affc21d6121b3198865ca3519532ec120c002a640",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e03",
+      "topicId": "hist-galicia-sub-01",
+      "difficulty": "EASY",
+      "contentHash": "6d6e6e2919b31367586b3afe3e063e9d01b81c4dbd10d58a0b92f09e68f5708d",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e04",
+      "topicId": "hist-galicia-sub-01",
+      "difficulty": "EASY",
+      "contentHash": "1bc7ea763c5ac17c83129163ee4ab0e93b0f92839483888f8aad0c5040a05f95",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e05",
+      "topicId": "hist-galicia-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "5544d23813b44c02a9574d54eaeedf0d2155c685572e9e2a4086d4f23a6eee54",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e06",
+      "topicId": "hist-galicia-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "131fe8bb65061c6466c67c84faad51e4e46725f670ded483289840575ae0a606",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e07",
+      "topicId": "hist-galicia-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "c690dbb37cff1ffba8967d9dae078b8905eb6a76ac99d9da20124ae518e11e50",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e08",
+      "topicId": "hist-galicia-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "a15e7b67fe1bf16b20e0ad16b7377ace96ad9e42d0c18e06858c589f4f6935b9",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e09",
+      "topicId": "hist-galicia-sub-01",
+      "difficulty": "MEDIUM",
+      "contentHash": "41aebeddb2adc906f1f16cc18413f00a34f8d4aba002261c49bfd2c3a7941123",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e10",
+      "topicId": "hist-galicia-sub-01",
+      "difficulty": "HARD",
+      "contentHash": "5173ac0e81d82ecc929dbc41f864472979abd1515a66829a2f1f781f8a625e79",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e11",
+      "topicId": "hist-galicia-sub-01",
+      "difficulty": "HARD",
+      "contentHash": "2fba98e429c0f790de569a03ca5b14a2b66de35fa8272ef093a121aa72a602cf",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e12",
+      "topicId": "hist-galicia-sub-01",
+      "difficulty": "HARD",
+      "contentHash": "7021ee0fde92d88afe2e01c9de869ffbc516e3ce81f874ec82f73ee41cb39faf",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "rationale": "ContentHash (core) не змінився з Stage 7C baseline; попередня предметна перевірка залишається чинною.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi",
+        "https://uk.wikipedia.org/wiki/%D0%99%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "reviewer": "stage7c1-subject-review",
+      "reviewedAt": "2026-10-29T12:11:35.795Z"
+    }
+  ]
+}

@@ -11,7 +11,7 @@ import { lessonReadiness } from "../src/lib/readiness";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const decisions = JSON.parse(
-  readFileSync(path.join(repoRoot, "content/stage7c/stage7c-review-decisions.v1.json"), "utf8"),
+  readFileSync(path.join(repoRoot, "content/stage7c/stage7c-review-decisions.v2.json"), "utf8"),
 );
 
 const allowlist = new Set([
@@ -34,7 +34,9 @@ async function main() {
 
   const prisma = new PrismaClient({ datasourceUrl: databaseUrl });
   try {
-    const verifiedIds = decisions.decisions
+type ReviewDecision = { questionId: string; reviewStatus: string };
+
+    const verifiedIds = (decisions.decisions as ReviewDecision[])
       .filter((d) => d.reviewStatus === "VERIFIED_CANDIDATE")
       .map((d) => d.questionId);
 
