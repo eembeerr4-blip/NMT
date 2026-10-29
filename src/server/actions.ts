@@ -14,7 +14,7 @@ import { externalPracticeReady } from "@/server/external-practice";
 import { UserError, userFacingError } from "@/lib/errors";
 import { auditedWrite, recordAudit } from "@/server/audit-log";
 import { accountStatus, canAccessLearning } from "@/lib/account-status";
-import { canEditContent, isAdministrator, isOwner, canManageRole, effectiveRole } from "@/lib/permissions";
+import { isAdministrator, canEditContent, isOwner, canManageRole, effectiveRole } from "@/lib/permissions";
 import { prepareQuestion } from "@/lib/question-input";
 import { randomUUID } from "crypto";
 import { revalidatePath } from "next/cache";
@@ -1060,6 +1060,7 @@ export async function login(nickname: string, password: string, rememberMe = fal
   await createSession(user.id, rememberMe);
   await recordAudit(user,{action:"AUTH_LOGIN",entityType:"session"});
   if (status === "PENDING") redirect("/pending");
+  if (isAdministrator(user)) redirect("/admin");
   redirect(user.onboarded ? "/" : "/onboarding");
 }
 
