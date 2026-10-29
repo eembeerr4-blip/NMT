@@ -1,0 +1,761 @@
+{
+  "format": "nmt-content-package",
+  "version": 1,
+  "subjectId": "chemistry",
+  "provenance": {
+    "origin": "original",
+    "title": "NMT Academy Stage 7A.1",
+    "license": "original",
+    "note": "Партія v2: 2×5 предметів NMT. Імпорт лише в QA до дозволу власника."
+  },
+  "sections": [
+    {
+      "code": "s7a-sec-chem-general",
+      "title": "Stage 7A.1 · chemistry",
+      "summary": "Службовий розділ імпорту Stage 7A.1.",
+      "topics": [
+        {
+          "code": "chemistry-1",
+          "title": "Загальна хімія",
+          "summary": "Речовина, атом, періодичний закон, хімічний зв’язок, реакції, розчини.",
+          "estimatedMin": 42,
+          "lesson": {
+            "objectives": [
+              "Усвоїти ключові поняття розділу.",
+              "Застосовувати знання у тестових завданнях НМТ.",
+              "Аналізувати приклади та типові ситуації.",
+              "Уникати поширених помилок."
+            ],
+            "prerequisites": [],
+            "theory": "Загальна хімія: речovina — matter with mass and volume; фізичні vs хімічні зміни. Аtom — nucleus (protons, neutrons) + electrons. Atomic number Z = protons; mass number A = protons + neutrons. Isotopes — same Z, different neutrons.\n\nPeriodic law — properties periodic in Z. Periods — rows, groups — similar valence. Metals, nonmetals, metalloids.\n\nBonding: ionic (metal + nonmetal, transfer e-), covalent (sharing), metallic. Valence, oxidation state. Chemical equation — conservation of mass; balance coefficients.\n\nSolutions: solvent, solute; concentration (mass %, molarity). Acids — H+ donors, bases — OH- (Arrhenius school level). pH scale 0-14. Reactions: combination, decomposition, replacement, exchange.\n\nFor NMT — balance simple equation, determine oxidation, bond type, calculate mass % or molarity basics. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН.",
+            "rules": [
+              "Уважно читайте умову.",
+              "Перевіряйте терміни.",
+              "Спирайтеся на програму.",
+              "Пояснюйте відповідь."
+            ],
+            "examples": [
+              {
+                "task": "Типове завдання з теми «Загальна хімія».",
+                "solution": "Крок 1. Виділіть ключові слова.\nКрок 2. Знайдіть правило в теорії.\nКрок 3. Сформулюйте відповідь.\nВідповідь: за правилом з конспекту."
+              },
+              {
+                "task": "Знайдіть помилку в твердженні.",
+                "solution": "Крок 1. Порівняйте з визначенням.\nКрок 2. Виправте.\nВідповідь: виправлене формулювання."
+              },
+              {
+                "task": "Підберіть правильний варіант за описом.",
+                "solution": "Крок 1. Виключіть явно хибні.\nКрок 2. Оберіть найточніший.\nВідповідь: обраний варіант."
+              },
+              {
+                "task": "Поясніть зв’язок двох понять.",
+                "solution": "Крок 1. Дайте визначення кожного.\nКрок 2. Вкажіть спільне/відмінне.\nВідповідь: логічний зв’язок."
+              }
+            ],
+            "mistakes": [
+              "Плутати близькі терміни.",
+              "Ігнорувати контекст.",
+              "Поспішати з вибором.",
+              "Змішувати предметні поняття."
+            ],
+            "summary": "Підсумок теми «Загальна хімія» для підготовки до НМТ.",
+            "sources": [
+              {
+                "title": "Навчальні програми МОН",
+                "url": "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "code": "s7a-chemistry-1-e01",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Atom nucleus:",
+              "explanation": "Nucleus composition.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "protons and neutrons"
+                },
+                {
+                  "label": "Б",
+                  "text": "only electrons"
+                },
+                {
+                  "label": "В",
+                  "text": "only ions"
+                },
+                {
+                  "label": "Г",
+                  "text": "water"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-1-e02",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Що позначає символ Z у таблиці елементів?",
+              "explanation": "Definition Z.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "atomic number, protons"
+                },
+                {
+                  "label": "Б",
+                  "text": "mass number"
+                },
+                {
+                  "label": "В",
+                  "text": "neutrons only"
+                },
+                {
+                  "label": "Г",
+                  "text": "volume"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-1-e03",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Ionic bond:",
+              "explanation": "Ionic.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "electron transfer metal-nonmetal"
+                },
+                {
+                  "label": "Б",
+                  "text": "only sharing"
+                },
+                {
+                  "label": "В",
+                  "text": "only in gases"
+                },
+                {
+                  "label": "Г",
+                  "text": "no electrons"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-1-e04",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Covalent:",
+              "explanation": "Covalent.",
+              "correctAnswer": "Г",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "sharing electron pair"
+                },
+                {
+                  "label": "Б",
+                  "text": "only metals"
+                },
+                {
+                  "label": "В",
+                  "text": "only ions in melt"
+                },
+                {
+                  "label": "Г",
+                  "text": "gravity"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-1-m01",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Law conservation mass:",
+              "explanation": "Balancing.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "atoms same both sides"
+                },
+                {
+                  "label": "Б",
+                  "text": "mass disappears"
+                },
+                {
+                  "label": "В",
+                  "text": "only volume"
+                },
+                {
+                  "label": "Г",
+                  "text": "only gases"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-1-m02",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "pH 7:",
+              "explanation": "Neutral.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "neutral"
+                },
+                {
+                  "label": "Б",
+                  "text": "strong acid"
+                },
+                {
+                  "label": "В",
+                  "text": "strong base"
+                },
+                {
+                  "label": "Г",
+                  "text": "metal"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-1-m03",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Isotopes:",
+              "explanation": "Isotopes.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "same Z different A"
+                },
+                {
+                  "label": "Б",
+                  "text": "same A different Z"
+                },
+                {
+                  "label": "В",
+                  "text": "only ions"
+                },
+                {
+                  "label": "Г",
+                  "text": "only molecules"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-1-m04",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Molarity:",
+              "explanation": "Concentration.",
+              "correctAnswer": "Г",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "mol/L"
+                },
+                {
+                  "label": "Б",
+                  "text": "kg/m only"
+                },
+                {
+                  "label": "В",
+                  "text": "percent only"
+                },
+                {
+                  "label": "Г",
+                  "text": "pH"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-1-m05",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Physical change:",
+              "explanation": "Physical vs chemical.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "state change without new substance"
+                },
+                {
+                  "label": "Б",
+                  "text": "always rust"
+                },
+                {
+                  "label": "В",
+                  "text": "burning"
+                },
+                {
+                  "label": "Г",
+                  "text": "new compound always"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-1-h01",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "Group in table:",
+              "explanation": "Periodic table.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "vertical, similar valence"
+                },
+                {
+                  "label": "Б",
+                  "text": "period horizontal only"
+                },
+                {
+                  "label": "В",
+                  "text": "random"
+                },
+                {
+                  "label": "Г",
+                  "text": "only metals"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-1-h02",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "Acid Arrhenius school:",
+              "explanation": "Acids.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "produces H+ in water"
+                },
+                {
+                  "label": "Б",
+                  "text": "always OH-"
+                },
+                {
+                  "label": "В",
+                  "text": "only metal"
+                },
+                {
+                  "label": "Г",
+                  "text": "only gas"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-1-h03",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "Balance H2+O2→H2O coefficient H2:",
+              "explanation": "2H2 + O2 → 2H2O — коефіцієнт перед H2 дорівнює 2.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "1"
+                },
+                {
+                  "label": "Б",
+                  "text": "2"
+                },
+                {
+                  "label": "В",
+                  "text": "3"
+                },
+                {
+                  "label": "Г",
+                  "text": "4"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "s7a-sec-chem-inorganic",
+      "title": "Stage 7A.1 · chemistry",
+      "summary": "Службовий розділ імпорту Stage 7A.1.",
+      "topics": [
+        {
+          "code": "chemistry-2",
+          "title": "Неорганічна хімія",
+          "summary": "Класи неорганічних речовин, метали, неметали, кислоти, основи, солі.",
+          "estimatedMin": 40,
+          "lesson": {
+            "objectives": [
+              "Усвоїти ключові поняття розділу.",
+              "Застосовувати знання у тестових завданнях НМТ.",
+              "Аналізувати приклади та типові ситуації.",
+              "Уникати поширених помилок."
+            ],
+            "prerequisites": [],
+            "theory": "Неорганічна хімія — сполуки без органічного каркасу C-C (traditionally). Oxides, acids, bases, salts. Metal oxides — often basic (Na2O); nonmetal oxides — acidic (SO2). Acids: HCl, H2SO4, HNO3 — properties, safety. Bases: NaOH, Ca(OH)2. Salts — from acid + base neutralization (NaCl).\n\nImportant elements: O, H, N, S, Cl, Na, K, Ca, Fe, Al. Oxygen family, halogens — trends. Hard water — Ca2+, Mg2+ salts.\n\nReactions: metal + acid → salt + H2 (active metals); metal oxide + acid → salt + water; neutralization. Qualitative tests school level: CO2 with limewater, H2 pop test.\n\nFor NMT — classify substance, products of neutralization, name salt from acid/base, oxide character, simple reaction completion. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН.",
+            "rules": [
+              "Уважно читайте умову.",
+              "Перевіряйте терміни.",
+              "Спирайтеся на програму.",
+              "Пояснюйте відповідь."
+            ],
+            "examples": [
+              {
+                "task": "Типове завдання з теми «Неорганічна хімія».",
+                "solution": "Крок 1. Виділіть ключові слова.\nКрок 2. Знайдіть правило в теорії.\nКрок 3. Сформулюйте відповідь.\nВідповідь: за правилом з конспекту."
+              },
+              {
+                "task": "Знайдіть помилку в твердженні.",
+                "solution": "Крок 1. Порівняйте з визначенням.\nКрок 2. Виправте.\nВідповідь: виправлене формулювання."
+              },
+              {
+                "task": "Підберіть правильний варіант за описом.",
+                "solution": "Крок 1. Виключіть явно хибні.\nКрок 2. Оберіть найточніший.\nВідповідь: обраний варіант."
+              },
+              {
+                "task": "Поясніть зв’язок двох понять.",
+                "solution": "Крок 1. Дайте визначення кожного.\nКрок 2. Вкажіть спільне/відмінне.\nВідповідь: логічний зв’язок."
+              }
+            ],
+            "mistakes": [
+              "Плутати близькі терміни.",
+              "Ігнорувати контекст.",
+              "Поспішати з вибором.",
+              "Змішувати предметні поняття."
+            ],
+            "summary": "Підсумок теми «Неорганічна хімія» для підготовки до НМТ.",
+            "sources": [
+              {
+                "title": "Навчальні програми МОН",
+                "url": "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "code": "s7a-chemistry-2-e01",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Salt from HCl + NaOH:",
+              "explanation": "Neutralization.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "NaCl"
+                },
+                {
+                  "label": "Б",
+                  "text": "Na2SO4"
+                },
+                {
+                  "label": "В",
+                  "text": "H2"
+                },
+                {
+                  "label": "Г",
+                  "text": "O2"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-2-e02",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Basic oxide example:",
+              "explanation": "Metal oxide.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "Na2O"
+                },
+                {
+                  "label": "Б",
+                  "text": "SO2"
+                },
+                {
+                  "label": "В",
+                  "text": "CO2"
+                },
+                {
+                  "label": "Г",
+                  "text": "N2O5"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-2-e03",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Acidic oxide:",
+              "explanation": "Nonmetal oxide.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "SO2"
+                },
+                {
+                  "label": "Б",
+                  "text": "Na2O"
+                },
+                {
+                  "label": "В",
+                  "text": "CaO"
+                },
+                {
+                  "label": "Г",
+                  "text": "K2O"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-2-e04",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Ca(OH)2 —",
+              "explanation": "Hydroxide.",
+              "correctAnswer": "Г",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "base"
+                },
+                {
+                  "label": "Б",
+                  "text": "acid"
+                },
+                {
+                  "label": "В",
+                  "text": "salt"
+                },
+                {
+                  "label": "Г",
+                  "text": "metal"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-2-m01",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Chlorine:",
+              "explanation": "Group 17.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "halogen"
+                },
+                {
+                  "label": "Б",
+                  "text": "alkali metal"
+                },
+                {
+                  "label": "В",
+                  "text": "noble gas"
+                },
+                {
+                  "label": "Г",
+                  "text": "alkaline earth"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-2-m02",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "До якого типу елементів належить залізо (Fe)?",
+              "explanation": "Transition metal.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "metal"
+                },
+                {
+                  "label": "Б",
+                  "text": "nonmetal"
+                },
+                {
+                  "label": "В",
+                  "text": "noble gas"
+                },
+                {
+                  "label": "Г",
+                  "text": "metalloid only"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-2-m03",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "CO2 test:",
+              "explanation": "Qualitative.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "limewater turbidity"
+                },
+                {
+                  "label": "Б",
+                  "text": "blue litmus only red"
+                },
+                {
+                  "label": "В",
+                  "text": "H2 pop"
+                },
+                {
+                  "label": "Г",
+                  "text": "silver mirror"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-2-m04",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "H2SO4 —",
+              "explanation": "Acid.",
+              "correctAnswer": "Г",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "strong acid"
+                },
+                {
+                  "label": "Б",
+                  "text": "base"
+                },
+                {
+                  "label": "В",
+                  "text": "salt"
+                },
+                {
+                  "label": "Г",
+                  "text": "oxide only"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-2-m05",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Salt composition:",
+              "explanation": "Ionic salt.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "cation + anion"
+                },
+                {
+                  "label": "Б",
+                  "text": "only molecules"
+                },
+                {
+                  "label": "В",
+                  "text": "only atoms"
+                },
+                {
+                  "label": "Г",
+                  "text": "only water"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-2-h01",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "Active metal + acid:",
+              "explanation": "Displacement H.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "salt + hydrogen"
+                },
+                {
+                  "label": "Б",
+                  "text": "only water"
+                },
+                {
+                  "label": "В",
+                  "text": "only base"
+                },
+                {
+                  "label": "Г",
+                  "text": "no reaction always"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-2-h02",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "Hard water contains:",
+              "explanation": "Hardness.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "Ca2+ Mg2+ salts"
+                },
+                {
+                  "label": "Б",
+                  "text": "only NaCl"
+                },
+                {
+                  "label": "В",
+                  "text": "only acids"
+                },
+                {
+                  "label": "Г",
+                  "text": "only gases"
+                }
+              ]
+            },
+            {
+              "code": "s7a-chemistry-2-h03",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "Neutralization products:",
+              "explanation": "Acid + base.",
+              "correctAnswer": "Г",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "salt + water"
+                },
+                {
+                  "label": "Б",
+                  "text": "only H2"
+                },
+                {
+                  "label": "В",
+                  "text": "only O2"
+                },
+                {
+                  "label": "Г",
+                  "text": "metal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

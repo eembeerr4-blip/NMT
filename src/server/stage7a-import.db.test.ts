@@ -37,7 +37,7 @@ async function fingerprintTables(db: PrismaClient) {
 }
 
 function loadManifest() {
-  const manifestPath = path.join(process.cwd(), "content/stage7a/stage7a-content-manifest.v1.json");
+  const manifestPath = path.join(process.cwd(), "content/stage7a/stage7a-content-manifest.v2.json");
   return JSON.parse(readFileSync(manifestPath, "utf8")) as {
     packages: { file: string; subjectId: string; topicIds: string[] }[];
     topicIds: string[];
@@ -116,6 +116,16 @@ it("validates manifest packages against DB lookup and imports idempotently", asy
     expect(topic.lessonJson.length).toBeGreaterThan(600);
     expect(topic.questions).toHaveLength(12);
     expect(topic.questions.every((q) => q.verificationStatus === "DRAFT")).toBe(true);
+  }
+
+  const createdIds = new Set(
+    manifest.packages.flatMap((p: { createTopicIds?: string[]; topicIds: string[] }) =>
+      p.createTopicIds?.length ? p.createTopicIds : [],
+    ),
+  );
+  for (const id of createdIds) {
+    const before = readySnapshots.has(id);
+    expect(before).toBe(false);
   }
 
   const countsAfterFirst = await prisma.question.count();

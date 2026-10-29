@@ -21,7 +21,15 @@ if (qaPath === productionPath) {
 }
 
 const manifest = JSON.parse(
-  readFileSync(path.join(cwd, "content/stage7a/stage7a-content-manifest.v1.json"), "utf8"),
+  readFileSync(
+    path.join(
+      cwd,
+      process.argv.includes("--v1")
+        ? "content/stage7a/stage7a-content-manifest.v1.json"
+        : "content/stage7a/stage7a-content-manifest.v2.json",
+    ),
+    "utf8",
+  ),
 ) as { packages: { file: string; subjectId: string }[] };
 
 const prisma = new PrismaClient({ datasourceUrl: process.env.DATABASE_URL });

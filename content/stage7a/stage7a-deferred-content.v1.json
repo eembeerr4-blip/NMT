@@ -1,0 +1,78 @@
+{
+  "format": "nmt-stage7a-deferred-content",
+  "version": 1,
+  "note": "Матеріали Stage 7A v1, виключені з першої партії v2 (хімія, література, зайва географія). Не імпортувати в batch v2.",
+  "sourceManifest": "content/stage7a/stage7a-content-manifest.v1.json",
+  "topicIds": [
+    "geography-3",
+    "geography-4",
+    "ukrainian-literature-1",
+    "chemistry-1",
+    "chemistry-2"
+  ],
+  "packages": [
+    {
+      "subjectId": "geography",
+      "file": "deferred-packages/stage7a-deferred-geography.package.json",
+      "sha256": "3fb4805ead664088db45c6bc5ed9474d7c1e8df702553a8bf158f1c820012bad",
+      "topicIds": [
+        "geography-3",
+        "geography-4"
+      ]
+    },
+    {
+      "subjectId": "ukrainian-literature",
+      "file": "deferred-packages/stage7a-deferred-ukrainian-literature.package.json",
+      "sha256": "afd4c6662d7d30c0c4508c1b5a8f3dd49123caa75af08fe85636da64d2a94652",
+      "topicIds": [
+        "ukrainian-literature-1"
+      ]
+    },
+    {
+      "subjectId": "chemistry",
+      "file": "deferred-packages/stage7a-deferred-chemistry.package.json",
+      "sha256": "b34d899b7227a022beca32c3b40065e3cb59731d1ba209771019f63ec83a2536",
+      "topicIds": [
+        "chemistry-1",
+        "chemistry-2"
+      ]
+    }
+  ],
+  "topics": [
+    {
+      "topicId": "geography-3",
+      "subjectId": "geography",
+      "title": "Населення і господарство",
+      "questionCount": 12,
+      "lessonSha256": "278695f067ed8670cd9210042a26a0e8fba59016fa6d051a194543285de01e0b"
+    },
+    {
+      "topicId": "geography-4",
+      "subjectId": "geography",
+      "title": "Регіони світу",
+      "questionCount": 12,
+      "lessonSha256": "7f26156290abce986acbd5cebaffc92794c125a9a6e0511967e888d1518b3bcf"
+    },
+    {
+      "topicId": "ukrainian-literature-1",
+      "subjectId": "ukrainian-literature",
+      "title": "Усна народна творчість",
+      "questionCount": 12,
+      "lessonSha256": "77077c314e8d560b9269fea1943820a07ca29b77cd1e2c1facafd4e2681d8e74"
+    },
+    {
+      "topicId": "chemistry-1",
+      "subjectId": "chemistry",
+      "title": "Загальна хімія",
+      "questionCount": 12,
+      "lessonSha256": "e8ea7f89ce016aaf2ef88a8a216df09b0cc50771a00b8d140dc6921748b720eb"
+    },
+    {
+      "topicId": "chemistry-2",
+      "subjectId": "chemistry",
+      "title": "Неорганічна хімія",
+      "questionCount": 12,
+      "lessonSha256": "2e42572b20b6830ae0bdf8b2550fc55b15cbf097355cdc6ea829d79fd16cd655"
+    }
+  ]
+}

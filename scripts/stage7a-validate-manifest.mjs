@@ -4,26 +4,39 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const manifestPath = path.join(root, "content/stage7a/stage7a-content-manifest.v1.json");
+const manifestPath = process.argv.includes("--v2")
+  ? path.join(root, "content/stage7a/stage7a-content-manifest.v2.json")
+  : path.join(root, "content/stage7a/stage7a-content-manifest.v1.json");
 const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
 
 const errors = [];
 const warnings = [];
 
-if (manifest.format !== "nmt-stage7a-content-manifest" || manifest.version !== 1) {
-  errors.push("Invalid manifest format/version");
+if (manifest.format !== "nmt-stage7a-content-manifest") {
+  errors.push("Invalid manifest format");
+}
+if (manifest.version !== 1 && manifest.version !== 2) {
+  errors.push(`Unexpected manifest version ${manifest.version}`);
 }
 
 const topicIds = new Set(manifest.topicIds ?? []);
 if (topicIds.size !== 10) errors.push(`Expected 10 topicIds, got ${topicIds.size}`);
 
 const questionIds = new Set();
+if (manifest.version === 2) {
+  const expected = manifest.expectedSubjectDistribution ?? {};
+  for (const [sub, n] of Object.entries(expected)) {
+    if ((manifest.subjectDistribution?.[sub] ?? 0) !== n) {
+      errors.push(`Subject ${sub}: expected ${n}, got ${manifest.subjectDistribution?.[sub]}`);
+    }
+  }
+}
 for (const topic of manifest.topics ?? []) {
   const d = topic.difficultyCounts ?? {};
   if (d.EASY !== 4 || d.MEDIUM !== 5 || d.HARD !== 3) {
     errors.push(`${topic.topicId}: bad difficulty distribution ${JSON.stringify(d)}`);
   }
-  if (topic.exampleCount < 2) errors.push(`${topic.topicId}: fewer than 2 examples`);
+  if (topic.exampleCount < 4) errors.push(`${topic.topicId}: fewer than 4 examples`);
 }
 
 for (const decision of manifest.reviewDecisions ?? []) {

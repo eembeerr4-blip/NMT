@@ -1,0 +1,387 @@
+{
+  "format": "nmt-content-package",
+  "version": 1,
+  "subjectId": "ukrainian-literature",
+  "provenance": {
+    "origin": "original",
+    "title": "NMT Academy Stage 7A.1",
+    "license": "original",
+    "note": "Партія v2: 2×5 предметів NMT. Імпорт лише в QA до дозволу власника."
+  },
+  "sections": [
+    {
+      "code": "s7a-sec-ukr-lit-folklore",
+      "title": "Stage 7A.1 · ukrainian-literature",
+      "summary": "Службовий розділ імпорту Stage 7A.1.",
+      "topics": [
+        {
+          "code": "ukrainian-literature-1",
+          "title": "Усна народна творчість",
+          "summary": "Казки, легенди, прислів’я, прикмети, епос, лірика та демонологічні жанри.",
+          "estimatedMin": 36,
+          "lesson": {
+            "objectives": [
+              "Усвоїти ключові поняття розділу.",
+              "Застосовувати знання у тестових завданнях НМТ.",
+              "Аналізувати приклади та типові ситуації.",
+              "Уникати поширених помилок."
+            ],
+            "prerequisites": [],
+            "theory": "Усна народна творчість — фольклор, що передавався у мовленні: казки, легенди, міфи, балads, пісні, прислів’я, прикмети, загadки. Епос — оповідні жанри (казка, легенда); лірика — пісні; ліро-epos — dumy (історико-героїчні).\n\nКазка — про вигаданих героїв, часто казкові елементи (чарівник, перетворення); легенда — про місця, історичних постатей, містичне пояснення. Прислів’я — стисла мудрість; прикмети — віра в знаки природи. Демонologічні казки — відьми, домовики, русалки.\n\nХудожні засоби фольклору: епітети, порівняння, повтори, triads. Функції: етична, esthetic, збереження досвіду. Для НMT — жанр за ознаками, функція прислів’я, відмінність кazka/legendа, образи народного eposу (Котляреvsky «Eneida» — літ., не фольклор, але національний канon). У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН.",
+            "rules": [
+              "Уважно читайте умову.",
+              "Перевіряйте терміни.",
+              "Спирайтеся на програму.",
+              "Пояснюйте відповідь."
+            ],
+            "examples": [
+              {
+                "task": "Типове завдання з теми «Усна народна творчість».",
+                "solution": "Крок 1. Виділіть ключові слова.\nКрок 2. Знайдіть правило в теорії.\nКрок 3. Сформулюйте відповідь.\nВідповідь: за правилом з конспекту."
+              },
+              {
+                "task": "Знайдіть помилку в твердженні.",
+                "solution": "Крок 1. Порівняйте з визначенням.\nКрок 2. Виправте.\nВідповідь: виправлене формулювання."
+              },
+              {
+                "task": "Підберіть правильний варіант за описом.",
+                "solution": "Крок 1. Виключіть явно хибні.\nКрок 2. Оберіть найточніший.\nВідповідь: обраний варіант."
+              },
+              {
+                "task": "Поясніть зв’язок двох понять.",
+                "solution": "Крок 1. Дайте визначення кожного.\nКрок 2. Вкажіть спільне/відмінне.\nВідповідь: логічний зв’язок."
+              }
+            ],
+            "mistakes": [
+              "Плутати близькі терміни.",
+              "Ігнорувати контекст.",
+              "Поспішати з вибором.",
+              "Змішувати предметні поняття."
+            ],
+            "summary": "Підсумок теми «Усна народна творчість» для підготовки до НМТ.",
+            "sources": [
+              {
+                "title": "Навчальні програми МОН",
+                "url": "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "code": "s7a-ukrainian-literature-1-e01",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Фольклор —",
+              "explanation": "Oral tradition.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "лише книжкові тексти"
+                },
+                {
+                  "label": "Б",
+                  "text": "усна народна творчість"
+                },
+                {
+                  "label": "В",
+                  "text": "наукові статті"
+                },
+                {
+                  "label": "Г",
+                  "text": "офіційні документи"
+                }
+              ]
+            },
+            {
+              "code": "s7a-ukrainian-literature-1-e02",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Казка —",
+              "explanation": "Fairy tale.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "лише історичний факт"
+                },
+                {
+                  "label": "Б",
+                  "text": "вигаданий сюжет, часто чarivni елементи"
+                },
+                {
+                  "label": "В",
+                  "text": "лише прислів’я"
+                },
+                {
+                  "label": "Г",
+                  "text": "науковий трактат"
+                }
+              ]
+            },
+            {
+              "code": "s7a-ukrainian-literature-1-e03",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Легенда —",
+              "explanation": "Legend.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "завжди казка про тварин"
+                },
+                {
+                  "label": "Б",
+                  "text": "оповідь про місце/подію з містичним"
+                },
+                {
+                  "label": "В",
+                  "text": "лише пісня"
+                },
+                {
+                  "label": "Г",
+                  "text": "граматика"
+                }
+              ]
+            },
+            {
+              "code": "s7a-ukrainian-literature-1-e04",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Прислів’я —",
+              "explanation": "Proverb.",
+              "correctAnswer": "Г",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "довгий роман"
+                },
+                {
+                  "label": "Б",
+                  "text": "стисла народна мудрість"
+                },
+                {
+                  "label": "В",
+                  "text": "лише загadка"
+                },
+                {
+                  "label": "Г",
+                  "text": "офіційний закон"
+                }
+              ]
+            },
+            {
+              "code": "s7a-ukrainian-literature-1-m01",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Дума —",
+              "explanation": "Duma genre.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "лирична пісня про кохання лише"
+                },
+                {
+                  "label": "Б",
+                  "text": "ліро-epic жанр про героїв"
+                },
+                {
+                  "label": "В",
+                  "text": "прислів’я"
+                },
+                {
+                  "label": "Г",
+                  "text": "новина"
+                }
+              ]
+            },
+            {
+              "code": "s7a-ukrainian-literature-1-m02",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Загadка —",
+              "explanation": "Riddle.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "оповідання"
+                },
+                {
+                  "label": "Б",
+                  "text": "жанр з зашифрованим питанням"
+                },
+                {
+                  "label": "В",
+                  "text": "лише легенда"
+                },
+                {
+                  "label": "Г",
+                  "text": "епос"
+                }
+              ]
+            },
+            {
+              "code": "s7a-ukrainian-literature-1-m03",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Прикмета —",
+              "explanation": "Omen/sign.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "закон фізики"
+                },
+                {
+                  "label": "Б",
+                  "text": "народний знак/віра"
+                },
+                {
+                  "label": "В",
+                  "text": "synonym"
+                },
+                {
+                  "label": "Г",
+                  "text": "рима"
+                }
+              ]
+            },
+            {
+              "code": "s7a-ukrainian-literature-1-m04",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Колискова —",
+              "explanation": "Lullaby.",
+              "correctAnswer": "Г",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "epic battle"
+                },
+                {
+                  "label": "Б",
+                  "text": "lyric lullaby"
+                },
+                {
+                  "label": "В",
+                  "text": "proverb"
+                },
+                {
+                  "label": "Г",
+                  "text": "map"
+                }
+              ]
+            },
+            {
+              "code": "s7a-ukrainian-literature-1-m05",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Повтор у фольклорі:",
+              "explanation": "Repetition.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "помилка"
+                },
+                {
+                  "label": "Б",
+                  "text": "хudожній прийом"
+                },
+                {
+                  "label": "В",
+                  "text": "лише в прозі XIX ст."
+                },
+                {
+                  "label": "Г",
+                  "text": "заборонено"
+                }
+              ]
+            },
+            {
+              "code": "s7a-ukrainian-literature-1-h01",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "«Ой летіла стріла» —",
+              "explanation": "Folk song example.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "казка"
+                },
+                {
+                  "label": "Б",
+                  "text": "народна пісня"
+                },
+                {
+                  "label": "В",
+                  "text": "прислів’я"
+                },
+                {
+                  "label": "Г",
+                  "text": "наукова стаття"
+                }
+              ]
+            },
+            {
+              "code": "s7a-ukrainian-literature-1-h02",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "Міф пояснює:",
+              "explanation": "Myth function.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "лише граматику"
+                },
+                {
+                  "label": "Б",
+                  "text": "походження явищ/світу"
+                },
+                {
+                  "label": "В",
+                  "text": "лише ціни"
+                },
+                {
+                  "label": "Г",
+                  "text": "карту доріг"
+                }
+              ]
+            },
+            {
+              "code": "s7a-ukrainian-literature-1-h03",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "Ballad близька до:",
+              "explanation": "Ballad.",
+              "correctAnswer": "Г",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "прислів’я"
+                },
+                {
+                  "label": "Б",
+                  "text": "epic/lyric narrative song"
+                },
+                {
+                  "label": "В",
+                  "text": "загadки"
+                },
+                {
+                  "label": "Г",
+                  "text": "офіційного листа"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

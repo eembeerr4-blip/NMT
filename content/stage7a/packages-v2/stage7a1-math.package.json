@@ -1,0 +1,770 @@
+{
+  "format": "nmt-content-package",
+  "version": 1,
+  "subjectId": "math",
+  "provenance": {
+    "origin": "original",
+    "title": "NMT Academy Stage 7A.1",
+    "license": "original",
+    "note": "Партія v2: 2×5 предметів NMT. Імпорт лише в QA до дозволу власника."
+  },
+  "sections": [
+    {
+      "code": "s7a-sec-math-v2",
+      "title": "Stage 7A.1 · math",
+      "summary": "Службовий розділ імпорту Stage 7A.1.",
+      "topics": [
+        {
+          "code": "math-linear-eq-sub-02",
+          "title": "Лінійне рівняння",
+          "summary": "Розв’язування лінійних рівняння однієї змінної, перенесення доданків і перевірка кореня.",
+          "estimatedMin": 35,
+          "lesson": {
+            "objectives": [
+              "Розв’язувати рівняння виду ax + b = c алгоритмом перенесення.",
+              "Працювати з дужками та дробовими коефіцієнтами.",
+              "Розпізнавати випадки без коренів і тотожностей.",
+              "Перевіряти корінь підстановкою у вихідне рівняння."
+            ],
+            "prerequisites": [
+              "Арифметика дійсних чисел і порядок дій."
+            ],
+            "theory": "Лінійне рівняння з однією змінною має вид ax + b = c, де a ≠ 0. Мета — знайти x, що задовольняє рівність. Алгоритм: спростити вирази, перенести доданки з x ліворуч і числа праворуч, поділити на коефіцієнт при x, перевірити результат.\n\nКласичний приклад НМТ: 2x + 5 = 13 → 2x = 8 → x = 4. Перевірка: 2·4 + 5 = 13. Перенесення змінює знак доданка. При розкритті дужок перед мінусом: −(3x − 2) = −3x + 2.\n\nЯкщо після перетворень a = 0 і b ≠ c — коренів немає; якщо a = 0 і b = c — нескінченно багато коренів. Текстові задачі зводять до лінійного рівняння, розв’язок перевіряють на змістовність.\n\nГрафічно ax + b = c — абсциса перетину прямої y = ax + b з y = c; для a ≠ 0 існує рівно один корінь. Тренуйтеся швидко робити перевірку — це зменшує ризик арифметичної помилки на іспиті.\n\nРівняння з дробами, наприклад (x + 2)/3 = 4, зводять до цілого виду множенням обох частин на знаменник. Якщо x зустрічається в обох частинах, як у 4x − 3 = 2x + 9, спочатку збирайте доданки з x, потім числові. У текстових задачах спочатку позначайте невідому буквою, складайте рівняння за умовою, розв’язуйте й перевіряйте, чи відповідь має сенс (довжина, вік, ціна не можуть бути від’ємними без підстав). На НМТ корисно писати коротку перевірку підстановкою одразу після знаходження x.",
+            "rules": [
+              "До обох частин можна додавати одне число або множити на ненульове — рівність збережеться.",
+              "При перенесенні через «=» знак доданка змінюється на протилежний.",
+              "Після зведення ax = d ділимо обидві частини на a (a ≠ 0).",
+              "Розкривайте дужки перед перенесенням.",
+              "Корінь завжди перевіряйте підстановкою.",
+              "У текстових задачах записуйте, що означає x."
+            ],
+            "examples": [
+              {
+                "task": "Розв’яжіть 2x + 5 = 13.",
+                "solution": "Крок 1. 2x = 13 − 5 = 8.\nКрок 2. x = 8/2 = 4.\nКрок 3. Перевірка: 2·4+5=13.\nВідповідь: x = 4."
+              },
+              {
+                "task": "Розв’яжіть 4x − 3 = 2x + 9.",
+                "solution": "Крок 1. 4x − 2x = 9 + 3.\nКрок 2. 2x = 12.\nКрок 3. x = 6.\nВідповідь: x = 6."
+              },
+              {
+                "task": "Розв’яжіть (x + 2)/3 = 4.",
+                "solution": "Крок 1. x + 2 = 12.\nКрок 2. x = 10.\nВідповідь: x = 10."
+              },
+              {
+                "task": "Сума двох чисел 20, більше на 8. Знайдіть більше.",
+                "solution": "Крок 1. Нехай більше x, менше x−8.\nКрок 2. x + (x−8) = 20 → 2x = 28.\nКрок 3. x = 14.\nВідповідь: 14."
+              }
+            ],
+            "mistakes": [
+              "Не змінювати знак при перенесенні.",
+              "Ділити лише один доданок замість обох частин.",
+              "Плутати 2x = 8 і x = 8.",
+              "Забувати перевірку."
+            ],
+            "summary": "Лінійне рівняння розв’язують перенесенням і діленням на коефіцієнт; ключовий приклад 2x+5=13 дає x=4.",
+            "sources": [
+              {
+                "title": "Лінійне рівняння",
+                "url": "https://uk.wikipedia.org/wiki/%D0%9B%D1%96%D0%BD%D0%B9%D0%BD%D0%B5_%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F"
+              },
+              {
+                "title": "Програми МОН з математики",
+                "url": "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "code": "s7a-math-linear-eq-sub-02-e01",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Корінь рівняння 2x + 5 = 13:",
+              "explanation": "2x=8, x=4.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "9"
+                },
+                {
+                  "label": "Б",
+                  "text": "3"
+                },
+                {
+                  "label": "В",
+                  "text": "4"
+                },
+                {
+                  "label": "Г",
+                  "text": "6"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-linear-eq-sub-02-e02",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Рівняння x − 7 = 2 має корінь:",
+              "explanation": "x=2+7=9.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "9"
+                },
+                {
+                  "label": "Б",
+                  "text": "−5"
+                },
+                {
+                  "label": "В",
+                  "text": "7"
+                },
+                {
+                  "label": "Г",
+                  "text": "2"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-linear-eq-sub-02-e03",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Коефіцієнт при x у 5x − 10 = 0:",
+              "explanation": "a=5.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "−10"
+                },
+                {
+                  "label": "Б",
+                  "text": "5"
+                },
+                {
+                  "label": "В",
+                  "text": "10"
+                },
+                {
+                  "label": "Г",
+                  "text": "0"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-linear-eq-sub-02-e04",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Рівняння 3x = 15 має корінь:",
+              "explanation": "x=5.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "5"
+                },
+                {
+                  "label": "Б",
+                  "text": "12"
+                },
+                {
+                  "label": "В",
+                  "text": "45"
+                },
+                {
+                  "label": "Г",
+                  "text": "3"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-linear-eq-sub-02-e05",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Корінь 4x − 3 = 2x + 9:",
+              "explanation": "2x=12, x=6.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "6"
+                },
+                {
+                  "label": "Б",
+                  "text": "4"
+                },
+                {
+                  "label": "В",
+                  "text": "3"
+                },
+                {
+                  "label": "Г",
+                  "text": "12"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-linear-eq-sub-02-e06",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Скільки коренів має 0·x + 5 = 0?",
+              "explanation": "5=0 хибно.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "жодного"
+                },
+                {
+                  "label": "Б",
+                  "text": "один"
+                },
+                {
+                  "label": "В",
+                  "text": "два"
+                },
+                {
+                  "label": "Г",
+                  "text": "нескінченно багато"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-linear-eq-sub-02-e07",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Корінь (x + 2)/3 = 4:",
+              "explanation": "x+2=12, x=10.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "10"
+                },
+                {
+                  "label": "Б",
+                  "text": "14"
+                },
+                {
+                  "label": "В",
+                  "text": "6"
+                },
+                {
+                  "label": "Г",
+                  "text": "12"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-linear-eq-sub-02-e08",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Рівняння 2(x − 1) = 2x − 2 означає:",
+              "explanation": "Тотожність.",
+              "correctAnswer": "Г",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "x=0"
+                },
+                {
+                  "label": "Б",
+                  "text": "x=1"
+                },
+                {
+                  "label": "В",
+                  "text": "немає коренів"
+                },
+                {
+                  "label": "Г",
+                  "text": "будь-яке x"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-linear-eq-sub-02-e09",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Більше з двох чисел (сума 20, різниця 8) дорівнює:",
+              "explanation": "x+(x−8)=20 → 2x=28 → x=14.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "14"
+                },
+                {
+                  "label": "Б",
+                  "text": "12"
+                },
+                {
+                  "label": "В",
+                  "text": "8"
+                },
+                {
+                  "label": "Г",
+                  "text": "10"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-linear-eq-sub-02-e10",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "Корінь 7x − 3 = 3x + 9:",
+              "explanation": "4x=12, x=3.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "2"
+                },
+                {
+                  "label": "Б",
+                  "text": "3"
+                },
+                {
+                  "label": "В",
+                  "text": "4"
+                },
+                {
+                  "label": "Г",
+                  "text": "6"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-linear-eq-sub-02-e11",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "Корінь 2(3x − 4) + 5 = 3x + 8:",
+              "explanation": "6x−8+5=3x+8 → 3x=11 → x=11/3.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "−1"
+                },
+                {
+                  "label": "Б",
+                  "text": "11/3"
+                },
+                {
+                  "label": "В",
+                  "text": "3"
+                },
+                {
+                  "label": "Г",
+                  "text": "7"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-linear-eq-sub-02-e12",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "Корінь (2x + 1)/5 = (x − 3)/2:",
+              "explanation": "4x+2=5x−15 → x=17.",
+              "correctAnswer": "Г",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "11"
+                },
+                {
+                  "label": "Б",
+                  "text": "15"
+                },
+                {
+                  "label": "В",
+                  "text": "−15"
+                },
+                {
+                  "label": "Г",
+                  "text": "17"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "math-quadratic-sub-01",
+          "title": "Дискримінант і корені",
+          "summary": "Квадратні рівняння, дискримінант D = b² − 4ac і кількість дійсних коренів.",
+          "estimatedMin": 40,
+          "lesson": {
+            "objectives": [
+              "Обчислювати дискримінант квадратного рівняння ax² + bx + c = 0.",
+              "Визначати кількість дійсних коренів за знаком D.",
+              "Знаходити корені через формули Віета або з формули коренів.",
+              "Перевіряти розв’язок підстановкою."
+            ],
+            "prerequisites": [
+              "Лінійні рівняння та арифметика квадратних коренів."
+            ],
+            "theory": "Квадратне рівняння ax² + bx + c = 0 (a ≠ 0) описує параболу y = ax² + bx + c. Дискримінант D = b² − 4ac визначає, скільки дійсних коренів має рівняння: D > 0 — два різні; D = 0 — один (подвійний); D < 0 — жодного дійсного.\n\nКорені: x = (−b ± √D) / (2a), якщо D ≥ 0. Приклад: x² − 5x + 6 = 0, a=1, b=−5, c=6 → D = 25 − 24 = 1 > 0 → x₁=3, x₂=2. Перевірка: 9−15+6=0 і 4−10+6=0.\n\nДля D = 0 отримуємо x = −b/(2a). Наприклад, x² + 4x + 4 = 0 → D=16−16=0 → x=−2. Якщо D < 0 (x² + x + 1 = 0 → D=1−4=−3), дійсних коренів немає.\n\nТеорема Віета для монічного x² + px + q = 0: сума коренів −p, добуток q. Це прискорює перевірку. На НМТ часто питають лише кількість коренів або знак D без повного розв’язку.\n\nЗавжди спочатку приведіть рівняння до стандартного виду, правильно визначте a, b, c (з урахуванням знаків), потім обчисліть D. Помилка в одному знаку змінює висновок про корені. Якщо рівняння не монічне, ділите обидві частини на коефіцієнт при x², щоб спростити подальші обчислення. Порахуйте D окремим рядком — так легше помітити помилку в арифметиці. Порахуйте D окремим рядком — так легше помітити помилку в арифметиці. Порахуйте D окремим рядком — так легше помітити помилку в арифметиці. Порахуйте D окремим рядком — так легше помітити помилку в арифметиці.",
+            "rules": [
+              "D = b² − 4ac для ax² + bx + c = 0, a ≠ 0.",
+              "D > 0 — два дійсні корені; D = 0 — один; D < 0 — немає дійсних.",
+              "x = (−b ± √D) / (2a) при D ≥ 0.",
+              "Монічне рівняння: сума коренів = −b/a, добуток = c/a.",
+              "Спочатку зведіть до стандартного виду.",
+              "Перевіряйте корені підстановкою."
+            ],
+            "examples": [
+              {
+                "task": "Обчисліть D для x² − 5x + 6 = 0.",
+                "solution": "Крок 1. a=1, b=−5, c=6.\nКрок 2. D=25−24=1.\nВідповідь: D=1."
+              },
+              {
+                "task": "Знайдіть корені x² − 5x + 6 = 0.",
+                "solution": "Крок 1. D=1.\nКрок 2. x=(5±1)/2 → 3 і 2.\nВідповідь: 2; 3."
+              },
+              {
+                "task": "Скільки дійсних коренів у x² + x + 1 = 0?",
+                "solution": "Крок 1. D=1−4=−3<0.\nВідповідь: жодного."
+              },
+              {
+                "task": "Корінь x² + 4x + 4 = 0.",
+                "solution": "Крок 1. D=16−16=0.\nКрок 2. x=−4/2=−2.\nВідповідь: −2 (подвійний)."
+              }
+            ],
+            "mistakes": [
+              "Плутати знак b при підстановці.",
+              "Забувати множник 2a у знаменнику.",
+              "Вважати, що D<0 дає «один корінь».",
+              "Не приводити до ax²+bx+c=0."
+            ],
+            "summary": "Дискримінант визначає число дійсних коренів; для D≥0 застосовують формулу коренів або Віета.",
+            "sources": [
+              {
+                "title": "Квадратне рівняння",
+                "url": "https://uk.wikipedia.org/wiki/%D0%9A%D0%B2%D0%B0%D0%B4%D1%80%D0%B0%D1%82%D0%BD%D0%B5_%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F"
+              },
+              {
+                "title": "Дискримінант",
+                "url": "https://uk.wikipedia.org/wiki/%D0%94%D0%B8%D1%81%D0%BA%D1%80%D0%B8%D0%BC%D1%96%D0%BD%D0%B0%D0%BD%D1%82"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "code": "s7a-math-quadratic-sub-01-e01",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Формула дискримінанта D для ax²+bx+c=0:",
+              "explanation": "Стандартна формула.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "b²−4ac"
+                },
+                {
+                  "label": "Б",
+                  "text": "b²+4ac"
+                },
+                {
+                  "label": "В",
+                  "text": "4ac−b²"
+                },
+                {
+                  "label": "Г",
+                  "text": "2b−4ac"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-quadratic-sub-01-e02",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Якщо D > 0, дійсних коренів:",
+              "explanation": "D>0 → два.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "жодного"
+                },
+                {
+                  "label": "Б",
+                  "text": "два"
+                },
+                {
+                  "label": "В",
+                  "text": "завжди один"
+                },
+                {
+                  "label": "Г",
+                  "text": "нескінченно"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-quadratic-sub-01-e03",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "D для x²−5x+6=0 дорівнює:",
+              "explanation": "25−24=1.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "−1"
+                },
+                {
+                  "label": "Б",
+                  "text": "0"
+                },
+                {
+                  "label": "В",
+                  "text": "1"
+                },
+                {
+                  "label": "Г",
+                  "text": "25"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-quadratic-sub-01-e04",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Корені x²−5x+6=0:",
+              "explanation": "x=2,3.",
+              "correctAnswer": "Г",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "−2 і −3"
+                },
+                {
+                  "label": "Б",
+                  "text": "−2 і 3"
+                },
+                {
+                  "label": "В",
+                  "text": "2 і −3"
+                },
+                {
+                  "label": "Г",
+                  "text": "2 і 3"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-quadratic-sub-01-e05",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "D для x²+x+1=0:",
+              "explanation": "1−4=−3.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "−3"
+                },
+                {
+                  "label": "Б",
+                  "text": "3"
+                },
+                {
+                  "label": "В",
+                  "text": "0"
+                },
+                {
+                  "label": "Г",
+                  "text": "1"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-quadratic-sub-01-e06",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "При D=0 кількість різних дійсних коренів:",
+              "explanation": "Подвійний корінь.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "0"
+                },
+                {
+                  "label": "Б",
+                  "text": "1"
+                },
+                {
+                  "label": "В",
+                  "text": "2"
+                },
+                {
+                  "label": "Г",
+                  "text": "3"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-quadratic-sub-01-e07",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Корінь x²+4x+4=0:",
+              "explanation": "x=−b/(2a)=−2.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "2"
+                },
+                {
+                  "label": "Б",
+                  "text": "−4"
+                },
+                {
+                  "label": "В",
+                  "text": "−2"
+                },
+                {
+                  "label": "Г",
+                  "text": "4"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-quadratic-sub-01-e08",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Сума коренів x²−7x+10=0 (Віет):",
+              "explanation": "−b/a=7.",
+              "correctAnswer": "Г",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "−7"
+                },
+                {
+                  "label": "Б",
+                  "text": "10"
+                },
+                {
+                  "label": "В",
+                  "text": "7"
+                },
+                {
+                  "label": "Г",
+                  "text": "−10"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-quadratic-sub-01-e09",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "D для 2x²−4x+2=0:",
+              "explanation": "16−16=0.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "0"
+                },
+                {
+                  "label": "Б",
+                  "text": "4"
+                },
+                {
+                  "label": "В",
+                  "text": "−4"
+                },
+                {
+                  "label": "Г",
+                  "text": "8"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-quadratic-sub-01-e10",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "x²−2x−8=0 має корені:",
+              "explanation": "x=(2±6)/2 → 4, −2.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "−4 і 2"
+                },
+                {
+                  "label": "Б",
+                  "text": "4 і −2"
+                },
+                {
+                  "label": "В",
+                  "text": "−4 і −2"
+                },
+                {
+                  "label": "Г",
+                  "text": "4 і 2"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-quadratic-sub-01-e11",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "Якщо D<0, графік y=ax²+bx+c (a>0) не перетинає Ox:",
+              "explanation": "Немає дійсних коренів.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "так"
+                },
+                {
+                  "label": "Б",
+                  "text": "ні"
+                },
+                {
+                  "label": "В",
+                  "text": "лише в одній точці"
+                },
+                {
+                  "label": "Г",
+                  "text": "завжди двічі"
+                }
+              ]
+            },
+            {
+              "code": "s7a-math-quadratic-sub-01-e12",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "Добуток коренів x²−7x+10=0:",
+              "explanation": "c/a=10.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "7"
+                },
+                {
+                  "label": "Б",
+                  "text": "−7"
+                },
+                {
+                  "label": "В",
+                  "text": "10"
+                },
+                {
+                  "label": "Г",
+                  "text": "−10"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

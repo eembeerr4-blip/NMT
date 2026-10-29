@@ -1,0 +1,1695 @@
+{
+  "format": "nmt-stage7a-content-manifest",
+  "version": 2,
+  "stage": "7A.1",
+  "generatedAt": "2026-10-29T11:19:55.466Z",
+  "gitBranch": "feature/stage7a-first-content-batch",
+  "supersedes": "content/stage7a/stage7a-content-manifest.v1.json",
+  "topicIds": [
+    "geography-1",
+    "geography-2",
+    "ukr-lexicology-section-01",
+    "bio-cell-sec-01",
+    "zcode-biology-molecular-02",
+    "ukr-ortho-sub-01",
+    "math-linear-eq-sub-02",
+    "math-quadratic-sub-01",
+    "cm-history-slavs-sub-01",
+    "hist-galicia-sub-01"
+  ],
+  "subjectDistribution": {
+    "geography": 2,
+    "ukrainian": 2,
+    "biology": 2,
+    "math": 2,
+    "history": 2
+  },
+  "expectedSubjectDistribution": {
+    "ukrainian": 2,
+    "math": 2,
+    "history": 2,
+    "biology": 2,
+    "geography": 2
+  },
+  "topics": [
+    {
+      "topicId": "geography-1",
+      "subjectId": "geography",
+      "title": "Загальна географія",
+      "importMode": "fill-existing",
+      "lessonSha256": "73dfb8c728da5be2d3807886c584e309567ab079fef5bc6ed12c0a504294f00f",
+      "exampleCount": 4,
+      "questionCount": 12,
+      "difficultyCounts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      }
+    },
+    {
+      "topicId": "geography-2",
+      "subjectId": "geography",
+      "title": "Географія України",
+      "importMode": "fill-existing",
+      "lessonSha256": "256bf492589a1dbbcefd5a4c73ec8a18258e1ecc2802eb7c94f44a4ff8424538",
+      "exampleCount": 4,
+      "questionCount": 12,
+      "difficultyCounts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      }
+    },
+    {
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "title": "Лексикологія та фразеологія",
+      "importMode": "fill-existing",
+      "lessonSha256": "477af3e0737f294d6a647ad960e10c00e257608b66d9fa20f5203ec218c135a0",
+      "exampleCount": 4,
+      "questionCount": 12,
+      "difficultyCounts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      }
+    },
+    {
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "title": "Цитologія: будова клітини",
+      "importMode": "fill-existing",
+      "lessonSha256": "f3f76f7a954e3951d2e1d69a11f265ab12f72177fbaa852666b0092f5499bf44",
+      "exampleCount": 4,
+      "questionCount": 12,
+      "difficultyCounts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      }
+    },
+    {
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "title": "Молекулярні основи життя та поділ клітини",
+      "importMode": "fill-existing",
+      "lessonSha256": "2df2dbec70399344ed12336a9486f80b540f840abb191faf0f0f43d71474b7a7",
+      "exampleCount": 4,
+      "questionCount": 12,
+      "difficultyCounts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      }
+    },
+    {
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "title": "Ненаголошені голосні",
+      "importMode": "create-new-stage2-id",
+      "lessonSha256": "6f333a69c54060e38f57c4c74ab35524d6119cda969cdd8e061f9a590341cfd8",
+      "exampleCount": 4,
+      "questionCount": 12,
+      "difficultyCounts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      }
+    },
+    {
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "title": "Лінійне рівняння",
+      "importMode": "create-new-stage2-id",
+      "lessonSha256": "416023917325e3c76a79d8e32a9744110763d213c07e9c90ae74fb73065b9801",
+      "exampleCount": 4,
+      "questionCount": 12,
+      "difficultyCounts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      }
+    },
+    {
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "title": "Дискримінант і корені",
+      "importMode": "create-new-stage2-id",
+      "lessonSha256": "55d26f7aa520f0620a770bfc7382963c5c8beb56c234a40bda5d59266f876978",
+      "exampleCount": 4,
+      "questionCount": 12,
+      "difficultyCounts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      }
+    },
+    {
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "title": "Венеди, анти, склавини",
+      "importMode": "create-new-stage2-id",
+      "lessonSha256": "3d2cf88647fa5a2d859d44c64039b52e91072360575abf3ddf56762fac4fc89b",
+      "exampleCount": 4,
+      "questionCount": 12,
+      "difficultyCounts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      }
+    },
+    {
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "title": "Обʼєднання князівств",
+      "importMode": "create-new-stage2-id",
+      "lessonSha256": "744314e00e850eb99d3697bd680957f55373e2d26c5ca191bb234129b56bf55b",
+      "exampleCount": 4,
+      "questionCount": 12,
+      "difficultyCounts": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      }
+    }
+  ],
+  "packages": [
+    {
+      "subjectId": "geography",
+      "file": "packages-v2/stage7a1-geography.package.json",
+      "sha256": "00f0005d177dd7e931bc9aed5261c7772a17e813bcfb068c0f0a0aa4c86a4537",
+      "topicIds": [
+        "geography-1",
+        "geography-2"
+      ],
+      "questionCount": 24,
+      "createTopicIds": []
+    },
+    {
+      "subjectId": "ukrainian",
+      "file": "packages-v2/stage7a1-ukrainian.package.json",
+      "sha256": "c963e9f247671529aadf898c39f880291a62bf40d25d6b626787875fce42b821",
+      "topicIds": [
+        "ukr-lexicology-section-01",
+        "ukr-ortho-sub-01"
+      ],
+      "questionCount": 24,
+      "createTopicIds": [
+        "ukr-ortho-sub-01"
+      ]
+    },
+    {
+      "subjectId": "biology",
+      "file": "packages-v2/stage7a1-biology.package.json",
+      "sha256": "69fe1d629000017ef177a7da2f82d0a08646d214aa707cfa7ea13099489bdcfc",
+      "topicIds": [
+        "bio-cell-sec-01",
+        "zcode-biology-molecular-02"
+      ],
+      "questionCount": 24,
+      "createTopicIds": []
+    },
+    {
+      "subjectId": "math",
+      "file": "packages-v2/stage7a1-math.package.json",
+      "sha256": "e4acb144fe5fb97e5b12cca9fbc53ce4fa95d5a2ba15d5deccbd806c57832f1d",
+      "topicIds": [
+        "math-linear-eq-sub-02",
+        "math-quadratic-sub-01"
+      ],
+      "questionCount": 24,
+      "createTopicIds": [
+        "math-linear-eq-sub-02",
+        "math-quadratic-sub-01"
+      ]
+    },
+    {
+      "subjectId": "history",
+      "file": "packages-v2/stage7a1-history.package.json",
+      "sha256": "23e6b766cbf770e8df4aa9b4260b3c8acfa151d42e2d0b015ae7f7b08e1f5c6a",
+      "topicIds": [
+        "cm-history-slavs-sub-01",
+        "hist-galicia-sub-01"
+      ],
+      "questionCount": 24,
+      "createTopicIds": [
+        "cm-history-slavs-sub-01",
+        "hist-galicia-sub-01"
+      ]
+    }
+  ],
+  "reviewDecisions": [
+    {
+      "questionId": "s7a-geography-1-e01",
+      "topicId": "geography-1",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Стандартне визначення форми Землі в шкільному курсі фізичної географії.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D1%97%D0%B4"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-1-e02",
+      "topicId": "geography-1",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Визначення географічної широти в підручниках і довідниках.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-1-e03",
+      "topicId": "geography-1",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Базова термінологія картографії.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9F%D0%B0%D1%80%D0%B0%D0%BB%D0%B5%D0%BB%D1%8C"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-1-e04",
+      "topicId": "geography-1",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Арифметика масштабу — стандартна вправа з картографії.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9A%D0%B0%D1%80%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D0%B8%D0%B9_%D0%BC%D0%B0%D1%81%D1%88%D1%82%D0%B0%D0%B1"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-1-m01",
+      "topicId": "geography-1",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Правила знаків широти й довготи.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D1%96_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B0%D1%82%D0%B8"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-1-m02",
+      "topicId": "geography-1",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Обчислення за масштабом.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9A%D0%B0%D1%80%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D0%B8%D0%B9_%D0%BC%D0%B0%D1%81%D1%88%D1%82%D0%B0%D0%B1"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-1-m03",
+      "topicId": "geography-1",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Зв’язок довготи і часових поясів.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A7%D0%B0%D1%81%D0%BE%D0%B2%D0%B8%D0%B9_%D0%BF%D0%BE%D1%8F%D1%81"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-1-m04",
+      "topicId": "geography-1",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Класифікація оболонок Землі.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%93%D1%96%D0%B4%D1%80%D0%BE%D1%81%D1%84%D0%B5%D1%80%D0%B0"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-1-m05",
+      "topicId": "geography-1",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Правило читання топографічних карт.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A2%D0%BE%D0%BF%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D0%B0_%D0%BA%D0%B0%D1%80%D1%82%D0%B0"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-1-h01",
+      "topicId": "geography-1",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "52,5° сх. д. = 3,5 год сонячного часу східніше Грінвіча (15° = 1 год).",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A7%D0%B0%D1%81%D0%BE%D0%B2%D0%B8%D0%B9_%D0%BF%D0%BE%D1%8F%D1%81"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-1-h02",
+      "topicId": "geography-1",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Загальний принцип картографічних проєкцій.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9A%D0%B0%D1%80%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%87%D0%BD%D0%B0_%D0%BF%D1%80%D0%BE%D1%94%D0%BA%D1%86%D1%96%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-1-h03",
+      "topicId": "geography-1",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Після весняного рівнодення до осіннього в Пн. півкулі день довший за ніч.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A0%D1%96%D0%B2%D0%BD%D0%BE%D0%B4%D0%B5%D0%BD%D0%BD%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-2-e01",
+      "topicId": "geography-2",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Факт атlas.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%BE%D0%B2%D0%B5%D1%80%D0%BB%D0%B0"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-2-e02",
+      "topicId": "geography-2",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Гідрографія.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%94%D0%BD%D1%96%D0%BF%D1%80%D0%BE"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-2-e03",
+      "topicId": "geography-2",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Клімат.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9A%D0%BB%D1%96%D0%BC%D0%B0%D1%82_%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B8"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-2-e04",
+      "topicId": "geography-2",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Зони.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9F%D0%BE%D0%BB%D1%96%D1%81%D1%81%D1%8F_(%D0%BF%D1%80%D0%B8%D1%80%D0%BE%D0%B4%D0%BD%D0%B0_%D0%B7%D0%BE%D0%BD%D0%B0)"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-2-m01",
+      "topicId": "geography-2",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Карти опадів.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9A%D0%BB%D1%96%D0%BC%D0%B0%D1%82_%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B8"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-2-m02",
+      "topicId": "geography-2",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Рельєf.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D1%96_%D0%9A%D0%B0%D1%80%D0%BF%D0%B0%D1%82%D0%B8"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-2-m03",
+      "topicId": "geography-2",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Ґрунти.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A7%D0%BE%D1%80%D0%BD%D0%BE%D0%B7%D0%B5%D0%BC"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-2-m04",
+      "topicId": "geography-2",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Географія.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B0"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-2-m05",
+      "topicId": "geography-2",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Столиця.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9A%D0%B8%D1%97%D0%B2"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-2-h01",
+      "topicId": "geography-2",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Річки.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%94%D0%BD%D1%96%D1%81%D1%82%D0%B5%D1%80"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-2-h02",
+      "topicId": "geography-2",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Озера.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A1%D0%B2%D1%96%D1%82%D1%8F%D0%B7%D1%8C"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-geography-2-h03",
+      "topicId": "geography-2",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Моря.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%90%D0%B7%D0%BE%D0%B2%D1%81%D1%8C%D0%BA%D0%B5_%D0%BC%D0%BE%D1%80%D0%B5"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-e01",
+      "topicId": "ukr-lexicology-section-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Визначення.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A1%D0%B8%D0%BD%D0%BE%D0%BD%D1%96%D0%BC"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-e02",
+      "topicId": "ukr-lexicology-section-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Визначення.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%90%D0%BD%D1%82%D0%BE%D0%BD%D1%96%D0%BC"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-e03",
+      "topicId": "ukr-lexicology-section-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Визначення.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9E%D0%BC%D0%BE%D0%BD%D1%96%D0%BC"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-e04",
+      "topicId": "ukr-lexicology-section-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Фразеologія.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A4%D1%80%D0%B0%D0%B7%D0%B5%D0%BE%D0%BB%D0%BE%D0%B3%D1%96%D0%B7%D0%BC"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m01",
+      "topicId": "ukr-lexicology-section-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Словник.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%91%D0%B8%D1%82%D0%B8_%D0%B1%D0%B0%D0%B9%D0%B4%D1%80%D0%B0%D0%BA%D0%B8"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m02",
+      "topicId": "ukr-lexicology-section-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Визначення.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9F%D0%B0%D1%80%D0%BE%D0%BD%D1%96%D0%BC"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m03",
+      "topicId": "ukr-lexicology-section-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Лексика.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D0%B5%D0%BD%D0%BE%D1%81%D0%BD%D0%B5_%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%BD%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m04",
+      "topicId": "ukr-lexicology-section-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Лексикologія.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%90%D1%80%D1%85%D0%B0%D1%97%D0%B7%D0%BC"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-m05",
+      "topicId": "ukr-lexicology-section-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Метodика.",
+      "sources": [
+        "https://osvita.ua/"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-h01",
+      "topicId": "ukr-lexicology-section-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Antonym.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%90%D0%BD%D1%82%D0%BE%D0%BD%D1%96%D0%BC"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-h02",
+      "topicId": "ukr-lexicology-section-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Неologізм — новотворене або запозичене слово, що входить у мову.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9D%D0%B5%D0%BE%D0%BB%D0%BE%D0%B3%D1%96%D0%B7%D0%BC"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-lexicology-section-01-h03",
+      "topicId": "ukr-lexicology-section-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Орфографія.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-e01",
+      "topicId": "bio-cell-sec-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Біologія.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%95%D1%83%D0%BA%D0%B0%D1%80%D0%B8%D0%BE%D1%82"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-e02",
+      "topicId": "bio-cell-sec-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Organella.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9C%D1%96%D1%82%D0%BE%D1%85%D0%BE%D0%BD%D0%B4%D1%80%D1%96%D0%B9"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-e03",
+      "topicId": "bio-cell-sec-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Рослини.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A5%D0%BB%D0%BE%D1%80%D0%BE%D0%BF%D0%BB%D0%B0%D1%81%D1%82"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-e04",
+      "topicId": "bio-cell-sec-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Organella.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A0%D0%B8%D0%B1%D0%BE%D1%81%D0%BE%D0%BC%D0%B0"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m01",
+      "topicId": "bio-cell-sec-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Порівняння.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9A%D0%BB%D1%96%D1%82%D0%B8%D0%BD%D0%BD%D0%B0_%D1%81%D1%82%D1%96%D0%BD%D0%BA%D0%B0"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m02",
+      "topicId": "bio-cell-sec-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Тип клітини.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D0%BA%D0%B0%D1%80%D1%96%D0%BE%D1%82"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m03",
+      "topicId": "bio-cell-sec-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Organella.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%91%D1%96%D0%BB%D1%8C%D1%88%D0%BE%D0%B3%D0%BE_%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m04",
+      "topicId": "bio-cell-sec-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Лізосоми містять гідролітичні ферменти; у тваринних клітинах — основний «травний» компартмент.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9B%D1%96%D0%B7%D0%BE%D1%81%D0%BE%D0%BC%D0%B0"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-m05",
+      "topicId": "bio-cell-sec-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Цитologія.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9A%D0%BB%D1%96%D1%82%D0%B8%D0%BD%D0%BD%D0%B0_%D0%BC%D0%B5%D0%BC%D0%B1%D1%80%D0%B0%D0%BD%D0%B0"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-h01",
+      "topicId": "bio-cell-sec-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Nucleus.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9A%D0%BB%D1%96%D1%82%D0%B8%D0%BD%D0%BD%D0%B5_%D1%8F%D0%B4%D1%80%D0%BE"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-h02",
+      "topicId": "bio-cell-sec-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Центріолі організують веретено поділу; у багатьох рослин їх немає, у тварин — типово є.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A6%D0%B5%D0%BD%D1%82%D1%80%D0%B8%D0%BE%D0%BB%D1%8C"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-bio-cell-sec-01-h03",
+      "topicId": "bio-cell-sec-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Рослинна клітина.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%92%D0%B0%D0%BA%D1%83%D0%BE%D0%BB%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-e01",
+      "topicId": "zcode-biology-molecular-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Молекулярна біologія.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%94%D0%9D%D0%9A"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-e02",
+      "topicId": "zcode-biology-molecular-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Пара правил.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%94%D0%9D%D0%9A"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-e03",
+      "topicId": "zcode-biology-molecular-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Central dogma.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%86%D0%A0%D0%9D"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-e04",
+      "topicId": "zcode-biology-molecular-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Синтез білка.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A2%D1%80%D0%B0%D0%BD%D1%81%D0%BB%D1%8F%D1%86%D1%96%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m01",
+      "topicId": "zcode-biology-molecular-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Поділ.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9C%D1%96%D1%82%D0%BE%D0%B7"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m02",
+      "topicId": "zcode-biology-molecular-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Мейоз.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9C%D0%B5%D0%B9%D0%BE%D0%B7"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m03",
+      "topicId": "zcode-biology-molecular-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Реплікація.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A0%D0%B5%D0%BF%D0%BB%D1%96%D0%BA%D0%B0%D1%86%D1%96%D1%8F_%D0%94%D0%9D%D0%9A"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m04",
+      "topicId": "zcode-biology-molecular-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Translation.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A2%D0%A0%D0%9D%D0%9A"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-m05",
+      "topicId": "zcode-biology-molecular-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Cell cycle.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%86%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B0%D0%B7%D0%B0"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-h01",
+      "topicId": "zcode-biology-molecular-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Meiosis.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9A%D1%80%D0%BE%D1%81%D0%B8%D0%BD%D0%B3%D0%BE%D0%B2%D0%B5%D1%80"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-h02",
+      "topicId": "zcode-biology-molecular-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Визначення.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9A%D0%BE%D0%B4%D0%BE%D0%BD"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-zcode-biology-molecular-02-h03",
+      "topicId": "zcode-biology-molecular-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Genetics.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9C%D1%83%D1%82%D0%B0%D1%86%D1%96%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e01",
+      "topicId": "ukr-ortho-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Метод перевірочних слів.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e02",
+      "topicId": "ukr-ortho-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Типова пара.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e03",
+      "topicId": "ukr-ortho-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Правило префікса.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9F%D1%80%D0%B5%D1%84%D1%96%D0%BA%D1%81"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e04",
+      "topicId": "ukr-ortho-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Кореневе чергування.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e05",
+      "topicId": "ukr-ortho-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Перевірка кореня.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e06",
+      "topicId": "ukr-ortho-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Коренева перевірка.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e07",
+      "topicId": "ukr-ortho-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Стандарт префікса.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9F%D1%80%D0%B5%D1%84%D1%96%D0%BA%D1%81"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e08",
+      "topicId": "ukr-ortho-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Від «колос».",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e09",
+      "topicId": "ukr-ortho-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Приклад.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e10",
+      "topicId": "ukr-ortho-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Префікс + корінь.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e11",
+      "topicId": "ukr-ortho-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Форма дієслова.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-ukr-ortho-sub-01-e12",
+      "topicId": "ukr-ortho-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Складне слово.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9E%D1%80%D1%84%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%96%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e01",
+      "topicId": "math-linear-eq-sub-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Базовий приклад.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9B%D1%96%D0%BD%D0%B9%D0%BD%D0%B5_%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e02",
+      "topicId": "math-linear-eq-sub-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Перенесення.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9B%D1%96%D0%BD%D0%B9%D0%BD%D0%B5_%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e03",
+      "topicId": "math-linear-eq-sub-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Стандартний вид.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e04",
+      "topicId": "math-linear-eq-sub-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Ділення.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9B%D1%96%D0%BD%D0%B9%D0%BD%D0%B5_%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e05",
+      "topicId": "math-linear-eq-sub-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Змінні з обох боків.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9B%D1%96%D0%BD%D0%B9%D0%BD%D0%B5_%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e06",
+      "topicId": "math-linear-eq-sub-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "a=0, b≠0.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9B%D1%96%D0%BD%D0%B9%D0%BD%D0%B5_%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e07",
+      "topicId": "math-linear-eq-sub-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Множення на 3.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9B%D1%96%D0%BD%D0%B9%D0%BD%D0%B5_%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e08",
+      "topicId": "math-linear-eq-sub-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Нескінченно багато коренів.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9B%D1%96%D0%BD%D0%B9%D0%BD%D0%B5_%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e09",
+      "topicId": "math-linear-eq-sub-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Текстова задача.",
+      "sources": [
+        "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e10",
+      "topicId": "math-linear-eq-sub-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Перенесення.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9B%D1%96%D0%BD%D0%B9%D0%BD%D0%B5_%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e11",
+      "topicId": "math-linear-eq-sub-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Дужки.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9B%D1%96%D0%BD%D0%B9%D0%BD%D0%B5_%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-linear-eq-sub-02-e12",
+      "topicId": "math-linear-eq-sub-02",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Спільний знаменник.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9B%D1%96%D0%BD%D0%B9%D0%BD%D0%B5_%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e01",
+      "topicId": "math-quadratic-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Визначення.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%94%D0%B8%D1%81%D0%BA%D1%80%D0%B8%D0%BC%D1%96%D0%BD%D0%B0%D0%BD%D1%82"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e02",
+      "topicId": "math-quadratic-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Класифікація.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%94%D0%B8%D1%81%D0%BA%D1%80%D0%B8%D0%BC%D1%96%D0%BD%D0%B0%D0%BD%D1%82"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e03",
+      "topicId": "math-quadratic-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Підстановка.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9A%D0%B2%D0%B0%D0%B4%D1%80%D0%B0%D1%82%D0%BD%D0%B5_%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e04",
+      "topicId": "math-quadratic-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Розклад або формула.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9A%D0%B2%D0%B0%D0%B4%D1%80%D0%B0%D1%82%D0%BD%D0%B5_%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e05",
+      "topicId": "math-quadratic-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Від’ємний D.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%94%D0%B8%D1%81%D0%BA%D1%80%D0%B8%D0%BC%D1%96%D0%BD%D0%B0%D0%BD%D1%82"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e06",
+      "topicId": "math-quadratic-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "D=0.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%94%D0%B8%D1%81%D0%BA%D1%80%D0%B8%D0%BC%D1%96%D0%BD%D0%B0%D0%BD%D1%82"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e07",
+      "topicId": "math-quadratic-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "D=0.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9A%D0%B2%D0%B0%D0%B4%D1%80%D0%B0%D1%82%D0%BD%D0%B5_%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e08",
+      "topicId": "math-quadratic-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Віет.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BE%D1%80%D0%B5%D0%BC%D0%B0_%D0%92%D1%96%D1%94%D1%82%D0%B0"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e09",
+      "topicId": "math-quadratic-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Після a=2.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%94%D0%B8%D1%81%D0%BA%D1%80%D0%B8%D0%BC%D1%96%D0%BD%D0%B0%D0%BD%D1%82"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e10",
+      "topicId": "math-quadratic-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Формула.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9A%D0%B2%D0%B0%D0%B4%D1%80%D0%B0%D1%82%D0%BD%D0%B5_%D1%80%D1%96%D0%B2%D0%BD%D1%8F%D0%BD%D0%BD%D1%8F"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e11",
+      "topicId": "math-quadratic-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Графічний зміст.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9F%D0%B0%D1%80%D0%B0%D0%B1%D0%BE%D0%BB%D0%B0"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-math-quadratic-sub-01-e12",
+      "topicId": "math-quadratic-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Віет.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BE%D1%80%D0%B5%D0%BC%D0%B0_%D0%92%D1%96%D1%94%D1%82%D0%B0"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e01",
+      "topicId": "cm-history-slavs-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Йордан VI ст.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%90%D0%BD%D1%82%D0%B8"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e02",
+      "topicId": "cm-history-slavs-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Хронологія.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%86%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e03",
+      "topicId": "cm-history-slavs-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Етнонім.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A1%D0%BB%D0%BE%D0%B2%27%D1%8F%D0%BD%D0%B8"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e04",
+      "topicId": "cm-history-slavs-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Географія.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%90%D0%BD%D1%82%D0%B8"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e05",
+      "topicId": "cm-history-slavs-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Критика джерел.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%86%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e06",
+      "topicId": "cm-history-slavs-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Йордан.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%90%D0%BD%D1%82%D0%B8"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e07",
+      "topicId": "cm-history-slavs-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Не плутати.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%9A%D0%B8%D1%97%D0%B2%D1%81%D1%8C%D0%BA%D0%B0_%D0%A0%D1%83%D1%81%D1%8C"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e08",
+      "topicId": "cm-history-slavs-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Походження назви.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A1%D0%BB%D0%BE%D0%B2%27%D1%8F%D0%BD%D0%B8"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e09",
+      "topicId": "cm-history-slavs-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Датування.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%86%D0%BE%D1%80%D0%B4%D0%B0%D0%BD"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e10",
+      "topicId": "cm-history-slavs-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Наукова обережність.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%92%D0%B5%D0%BD%D0%B5%D0%B4%D0%B8"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e11",
+      "topicId": "cm-history-slavs-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Географія.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%90%D0%BD%D1%82%D0%B8"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-cm-history-slavs-sub-01-e12",
+      "topicId": "cm-history-slavs-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Хронологія.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B0%D0%BB%D0%B8%D1%86%D1%8C%D0%BA%D0%BE-%D0%92%D0%BE%D0%BB%D0%B8%D0%BD%D1%81%D1%8C%D0%BA%D0%B5_%D0%BA%D0%BD%D1%8F%D0%B7%D1%96%D0%B2%D1%81%D1%82%D0%B2%D0%BE"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e01",
+      "topicId": "hist-galicia-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Якорна дата.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B0%D0%BB%D0%B8%D1%86%D1%8C%D0%BA%D0%BE-%D0%92%D0%BE%D0%BB%D0%B8%D0%BD%D1%81%D1%8C%D0%BA%D0%B5_%D0%BA%D0%BD%D1%8F%D0%B7%D1%96%D0%B2%D1%81%D1%82%D0%B2%D0%BE"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e02",
+      "topicId": "hist-galicia-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Постать.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%9C%D1%81%D1%82%D0%B8%D1%81%D0%BB%D0%B0%D0%B2%D0%B8%D1%87"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e03",
+      "topicId": "hist-galicia-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Назва держави.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B0%D0%BB%D0%B8%D1%86%D1%8C%D0%BA%D0%BE-%D0%92%D0%BE%D0%BB%D0%B8%D0%BD%D1%81%D1%8C%D0%BA%D0%B5_%D0%BA%D0%BD%D1%8F%D0%B7%D1%96%D0%B2%D1%81%D1%82%D0%B2%D0%BE"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e04",
+      "topicId": "hist-galicia-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Родинні зв’язки.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%94%D0%B0%D0%BD%D0%B8%D0%BB%D0%BE_%D0%93%D0%B0%D0%BB%D0%B8%D1%86%D1%8C%D0%BA%D0%B8%D0%B9"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e05",
+      "topicId": "hist-galicia-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Хронологія.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%9C%D1%81%D1%82%D0%B8%D1%81%D0%BB%D0%B0%D0%B2%D0%B8%D1%87"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e06",
+      "topicId": "hist-galicia-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Не плутати з 1199.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%94%D0%B0%D0%BD%D0%B8%D0%BB%D0%BE_%D0%93%D0%B0%D0%BB%D0%B8%D1%86%D1%8C%D0%BA%D0%B8%D0%B9"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e07",
+      "topicId": "hist-galicia-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Передумови.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B0%D0%BB%D0%B8%D1%86%D1%8C%D0%BA%D0%BE-%D0%92%D0%BE%D0%BB%D0%B8%D0%BD%D1%81%D1%8C%D0%BA%D0%B5_%D0%BA%D0%BD%D1%8F%D0%B7%D1%96%D0%B2%D1%81%D1%82%D0%B2%D0%BE"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e08",
+      "topicId": "hist-galicia-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Відсіювання.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%A5%D1%80%D0%B5%D1%89%D0%B5%D0%BD%D0%BD%D1%8F_%D0%A0%D1%83%D1%81%D1%96"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e09",
+      "topicId": "hist-galicia-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Хронологія.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%94%D0%B0%D0%BD%D0%B8%D0%BB%D0%BE_%D0%93%D0%B0%D0%BB%D0%B8%D1%86%D1%8C%D0%BA%D0%B8%D0%B9"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e10",
+      "topicId": "hist-galicia-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Суть події.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B0%D0%BB%D0%B8%D1%86%D1%8C%D0%BA%D0%BE-%D0%92%D0%BE%D0%BB%D0%B8%D0%BD%D1%81%D1%8C%D0%BA%D0%B5_%D0%BA%D0%BD%D1%8F%D0%B7%D1%96%D0%B2%D1%81%D1%82%D0%B2%D0%BE"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e11",
+      "topicId": "hist-galicia-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Наслідки.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%93%D0%B0%D0%BB%D0%B8%D1%86%D1%8C%D0%BA%D0%BE-%D0%92%D0%BE%D0%BB%D0%B8%D0%BD%D1%81%D1%8C%D0%BA%D0%B5_%D0%BA%D0%BD%D1%8F%D0%B7%D1%96%D0%B2%D1%81%D1%82%D0%B2%D0%BE"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    },
+    {
+      "questionId": "s7a-hist-galicia-sub-01-e12",
+      "topicId": "hist-galicia-sub-01",
+      "reviewStatus": "VERIFIED_CANDIDATE",
+      "evidence": "Відмінність від 1199.",
+      "sources": [
+        "https://uk.wikipedia.org/wiki/%D0%94%D0%B0%D0%BD%D0%B8%D0%BB%D0%BE_%D0%93%D0%B0%D0%BB%D0%B8%D1%86%D1%8C%D0%BA%D0%B8%D0%B9"
+      ],
+      "errors": [],
+      "fixes": [],
+      "finalDecision": "VERIFIED_CANDIDATE"
+    }
+  ],
+  "validation": {
+    "expectedTopics": 10,
+    "expectedQuestions": 120,
+    "expectedDifficultyPerTopic": {
+      "EASY": 4,
+      "MEDIUM": 5,
+      "HARD": 3
+    },
+    "expectedSubjects": 5
+  },
+  "verifiedCandidateCount": 120,
+  "draftCandidateCount": 0
+}
