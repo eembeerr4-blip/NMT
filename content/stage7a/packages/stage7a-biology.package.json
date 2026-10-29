@@ -1,0 +1,761 @@
+{
+  "format": "nmt-content-package",
+  "version": 1,
+  "subjectId": "biology",
+  "provenance": {
+    "origin": "original",
+    "title": "NMT Academy Stage 7A",
+    "license": "original",
+    "note": "Перша партія розширення контенту. Імпорт лише в QA до окремого дозволу власника."
+  },
+  "sections": [
+    {
+      "code": "s7a-sec-bio-cell",
+      "title": "Stage 7A · biology",
+      "summary": "Службовий розділ імпорту Stage 7A (не змінює структуру програмних розділів).",
+      "topics": [
+        {
+          "code": "bio-cell-sec-01",
+          "title": "Цитologія: будова клітини",
+          "summary": "Прокаріоти та eukaryotes, органели, мембрана, ядро.",
+          "estimatedMin": 40,
+          "lesson": {
+            "objectives": [
+              "Усвоїти ключові поняття розділу.",
+              "Застосовувати знання у тестових завданнях НМТ.",
+              "Аналізувати приклади та типові ситуації.",
+              "Уникати поширених помилок."
+            ],
+            "prerequisites": [],
+            "theory": "Клітина — основна структурна і функціональна одиниця життя. Прокаріоти (бacteria) не мають оформленого ядра; DNA у nucleoid. Eukaryotes (рast, тварини, гribi) мають ядро, organelles.\n\nПлазматична мембрана — ліпідний бішar, селективна проникність. Цитоплазма — середовище реakцій. Ядро — DNA, контроль клітини. Mitochondria — ATP, дихання. Chloroplasts — photosynthesis (рast). ER — синтез білків/ліпідів. Golgi — упаковка. Ribosomes — protein synthesis. Lysosomes — гідроліз (тварини). Vacuole — у рast turgor.\n\nТипи клітин: рослинна — клітинна стінка (cellulose), vacuole, chloroplasts; тваринна — без stінки, centrioles; грибна — хitin wall. Для НMT — функція organelle, порівняння pro/eukaryote, plant vs animal. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН.",
+            "rules": [
+              "Уважно читайте умову.",
+              "Перевіряйте терміни.",
+              "Спирайтеся на програму.",
+              "Пояснюйте відповідь."
+            ],
+            "examples": [
+              {
+                "task": "Типове завдання з теми «Цитologія: будова клітини».",
+                "solution": "Крок 1. Виділіть ключові слова.\nКрок 2. Знайдіть правило в теорії.\nКрок 3. Сформулюйте відповідь.\nВідповідь: за правилом з конспекту."
+              },
+              {
+                "task": "Знайдіть помилку в твердженні.",
+                "solution": "Крок 1. Порівняйте з визначенням.\nКрок 2. Виправте.\nВідповідь: виправлене формулювання."
+              },
+              {
+                "task": "Підберіть правильний варіант за описом.",
+                "solution": "Крок 1. Виключіть явно хибні.\nКрок 2. Оберіть найточніший.\nВідповідь: обраний варіант."
+              },
+              {
+                "task": "Поясніть зв’язок двох понять.",
+                "solution": "Крок 1. Дайте визначення кожного.\nКрок 2. Вкажіть спільне/відмінне.\nВідповідь: логічний зв’язок."
+              }
+            ],
+            "mistakes": [
+              "Плутати близькі терміни.",
+              "Ігнорувати контекст.",
+              "Поспішати з вибором.",
+              "Змішувати предметні поняття."
+            ],
+            "summary": "Підсумок теми «Цитologія: будова клітини» для підготовки до НМТ.",
+            "sources": [
+              {
+                "title": "Навчальні програми МОН",
+                "url": "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "code": "s7a-bio-cell-sec-01-e01",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Eukaryote має:",
+              "explanation": "Nucleus.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "оформлене ядро"
+                },
+                {
+                  "label": "Б",
+                  "text": "лише nucleoid"
+                },
+                {
+                  "label": "В",
+                  "text": "немає DNA"
+                },
+                {
+                  "label": "Г",
+                  "text": "немає мембрани"
+                }
+              ]
+            },
+            {
+              "code": "s7a-bio-cell-sec-01-e02",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Mitochondria —",
+              "explanation": "Powerhouse.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "photosynthesis"
+                },
+                {
+                  "label": "Б",
+                  "text": "ATP, клітинне дихання"
+                },
+                {
+                  "label": "В",
+                  "text": "білковий синтез"
+                },
+                {
+                  "label": "Г",
+                  "text": "фотосинтез лише"
+                }
+              ]
+            },
+            {
+              "code": "s7a-bio-cell-sec-01-e03",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Chloroplast —",
+              "explanation": "Plastid.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "у тварин"
+                },
+                {
+                  "label": "Б",
+                  "text": "у рослин для фотосинтезу"
+                },
+                {
+                  "label": "В",
+                  "text": "у бacteria лише"
+                },
+                {
+                  "label": "Г",
+                  "text": "немає"
+                }
+              ]
+            },
+            {
+              "code": "s7a-bio-cell-sec-01-e04",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Ribosome —",
+              "explanation": "Translation.",
+              "correctAnswer": "Г",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "синтез білка"
+                },
+                {
+                  "label": "Б",
+                  "text": "дихання"
+                },
+                {
+                  "label": "В",
+                  "text": "фотosynthesis"
+                },
+                {
+                  "label": "Г",
+                  "text": "поділ ядра"
+                }
+              ]
+            },
+            {
+              "code": "s7a-bio-cell-sec-01-m01",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Клітинна stінка рослин:",
+              "explanation": "Cell wall.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "целюлоза"
+                },
+                {
+                  "label": "Б",
+                  "text": "хітин"
+                },
+                {
+                  "label": "В",
+                  "text": "без stінки"
+                },
+                {
+                  "label": "Г",
+                  "text": "лише білок"
+                }
+              ]
+            },
+            {
+              "code": "s7a-bio-cell-sec-01-m02",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Prokaryote:",
+              "explanation": "Bacteria.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "бacteria, nucleoid"
+                },
+                {
+                  "label": "Б",
+                  "text": "людина"
+                },
+                {
+                  "label": "В",
+                  "text": "гриб"
+                },
+                {
+                  "label": "Г",
+                  "text": "рослина"
+                }
+              ]
+            },
+            {
+              "code": "s7a-bio-cell-sec-01-m03",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Golgi apparatus —",
+              "explanation": "Golgi.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "упаковка/секреція"
+                },
+                {
+                  "label": "Б",
+                  "text": "фотosynthesis"
+                },
+                {
+                  "label": "В",
+                  "text": "DNA replication only"
+                },
+                {
+                  "label": "Г",
+                  "text": "лише в prokaryotes"
+                }
+              ]
+            },
+            {
+              "code": "s7a-bio-cell-sec-01-m04",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Лізосоми типово:",
+              "explanation": "Lysosome.",
+              "correctAnswer": "Г",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "у рослин завжди"
+                },
+                {
+                  "label": "Б",
+                  "text": "у тварин — гідроліз"
+                },
+                {
+                  "label": "В",
+                  "text": "немає у eukaryotes"
+                },
+                {
+                  "label": "Г",
+                  "text": "лише в ядрі"
+                }
+              ]
+            },
+            {
+              "code": "s7a-bio-cell-sec-01-m05",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Мембрана —",
+              "explanation": "Membrane.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "селективна проникність"
+                },
+                {
+                  "label": "Б",
+                  "text": "не пропускає нічого"
+                },
+                {
+                  "label": "В",
+                  "text": "лише в prokaryotes"
+                },
+                {
+                  "label": "Г",
+                  "text": "замінює ядро"
+                }
+              ]
+            },
+            {
+              "code": "s7a-bio-cell-sec-01-h01",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "Ядро містить:",
+              "explanation": "Genetic material.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "DNA"
+                },
+                {
+                  "label": "Б",
+                  "text": "лише воду"
+                },
+                {
+                  "label": "В",
+                  "text": "лише chlorophyll"
+                },
+                {
+                  "label": "Г",
+                  "text": "лише стінку"
+                }
+              ]
+            },
+            {
+              "code": "s7a-bio-cell-sec-01-h02",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "Centrioles типово:",
+              "explanation": "Centrioles.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "у тварин при podілі"
+                },
+                {
+                  "label": "Б",
+                  "text": "у всіх рослин"
+                },
+                {
+                  "label": "В",
+                  "text": "у бacteria"
+                },
+                {
+                  "label": "Г",
+                  "text": "немає"
+                }
+              ]
+            },
+            {
+              "code": "s7a-bio-cell-sec-01-h03",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "Vacuole у рослин:",
+              "explanation": "Vacuole.",
+              "correctAnswer": "Г",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "turgor, запас речовин"
+                },
+                {
+                  "label": "Б",
+                  "text": "дихання"
+                },
+                {
+                  "label": "В",
+                  "text": "лише у тварин"
+                },
+                {
+                  "label": "Г",
+                  "text": "замінює ribosome"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "s7a-sec-bio-molecular",
+      "title": "Stage 7A · biology",
+      "summary": "Службовий розділ імпорту Stage 7A (не змінює структуру програмних розділів).",
+      "topics": [
+        {
+          "code": "zcode-biology-molecular-02",
+          "title": "Молекулярні основи життя та поділ клітини",
+          "summary": "DNA, RNA, білок, реплікація, транскрипція, переклад, mitosis/meiosis.",
+          "estimatedMin": 45,
+          "lesson": {
+            "objectives": [
+              "Усвоїти ключові поняття розділу.",
+              "Застосовувати знання у тестових завданнях НМТ.",
+              "Аналізувати приклади та типові ситуації.",
+              "Уникати поширених помилок."
+            ],
+            "prerequisites": [],
+            "theory": "Молекулярні основи: DNA зберігає genetic information (4 bases A,T,G,C — у RNA U замість T). Double helix, complementary pairs A-T, G-C. Replication — semiconservative. RNA types: mRNA (message), tRNA (transport aa), rRNA (ribosome).\n\nTranscription — DNA → mRNA у nucleus (у prokaryotes — cytoplasm). Translation — ribosome reads mRNA, tRNA brings amino acids → polypeptide. Genetic code — triplet codons.\n\nCell cycle: interphase (G1, S DNA replication, G2), mitosis (prophase, metaphase, anaphase, telophase) — somatic division, 2n → 2n identical. Meiosis — gametes, 2 divisions, crossing-over, 2n → n, genetic diversity.\n\nMutations — DNA changes; can be harmful/beneficial/neutral. For NMT — pairing bases, function RNA, mitosis vs meiosis, stages. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН. У завданнях НМТ звертайте увагу на точність термінів українською та типові формулювання шкільної програми МОН.",
+            "rules": [
+              "Уважно читайте умову.",
+              "Перевіряйте терміни.",
+              "Спирайтеся на програму.",
+              "Пояснюйте відповідь."
+            ],
+            "examples": [
+              {
+                "task": "Типове завдання з теми «Молекулярні основи життя та поділ клітини».",
+                "solution": "Крок 1. Виділіть ключові слова.\nКрок 2. Знайдіть правило в теорії.\nКрок 3. Сформулюйте відповідь.\nВідповідь: за правилом з конспекту."
+              },
+              {
+                "task": "Знайдіть помилку в твердженні.",
+                "solution": "Крок 1. Порівняйте з визначенням.\nКрок 2. Виправте.\nВідповідь: виправлене формулювання."
+              },
+              {
+                "task": "Підберіть правильний варіант за описом.",
+                "solution": "Крок 1. Виключіть явно хибні.\nКрок 2. Оберіть найточніший.\nВідповідь: обраний варіант."
+              },
+              {
+                "task": "Поясніть зв’язок двох понять.",
+                "solution": "Крок 1. Дайте визначення кожного.\nКрок 2. Вкажіть спільне/відмінне.\nВідповідь: логічний зв’язок."
+              }
+            ],
+            "mistakes": [
+              "Плутати близькі терміни.",
+              "Ігнорувати контекст.",
+              "Поспішати з вибором.",
+              "Змішувати предметні поняття."
+            ],
+            "summary": "Підсумок теми «Молекулярні основи життя та поділ клітини» для підготовки до НМТ.",
+            "sources": [
+              {
+                "title": "Навчальні програми МОН",
+                "url": "https://mon.gov.ua/ua/osvita/zagalna-serednya-osvita/navchalni-programi"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "code": "s7a-zcode-biology-molecular-02-e01",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "DNA bases:",
+              "explanation": "Four bases.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "A,T,G,C"
+                },
+                {
+                  "label": "Б",
+                  "text": "лише A,U"
+                },
+                {
+                  "label": "В",
+                  "text": "лише білки"
+                },
+                {
+                  "label": "Г",
+                  "text": "глюкоза"
+                }
+              ]
+            },
+            {
+              "code": "s7a-zcode-biology-molecular-02-e02",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "A pairs with:",
+              "explanation": "Complementarity.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "G"
+                },
+                {
+                  "label": "Б",
+                  "text": "T (U in RNA)"
+                },
+                {
+                  "label": "В",
+                  "text": "C only"
+                },
+                {
+                  "label": "Г",
+                  "text": "any"
+                }
+              ]
+            },
+            {
+              "code": "s7a-zcode-biology-molecular-02-e03",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "mRNA function:",
+              "explanation": "Transcription product.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "carries code to ribosome"
+                },
+                {
+                  "label": "Б",
+                  "text": "only structure"
+                },
+                {
+                  "label": "В",
+                  "text": "photosynthesis"
+                },
+                {
+                  "label": "Г",
+                  "text": "ATP"
+                }
+              ]
+            },
+            {
+              "code": "s7a-zcode-biology-molecular-02-e04",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "EASY",
+              "prompt": "Translation site:",
+              "explanation": "Protein synthesis.",
+              "correctAnswer": "Г",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "nucleus only"
+                },
+                {
+                  "label": "Б",
+                  "text": "chloroplast only"
+                },
+                {
+                  "label": "В",
+                  "text": "membrane"
+                },
+                {
+                  "label": "Г",
+                  "text": "ribosome"
+                }
+              ]
+            },
+            {
+              "code": "s7a-zcode-biology-molecular-02-m01",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Mitosis result:",
+              "explanation": "Somatic.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "2 identical 2n cells"
+                },
+                {
+                  "label": "Б",
+                  "text": "4 n gametes"
+                },
+                {
+                  "label": "В",
+                  "text": "n only"
+                },
+                {
+                  "label": "Г",
+                  "text": "no division"
+                }
+              ]
+            },
+            {
+              "code": "s7a-zcode-biology-molecular-02-m02",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Meiosis:",
+              "explanation": "Reduction division.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "gametes n, diversity"
+                },
+                {
+                  "label": "Б",
+                  "text": "2n somatic"
+                },
+                {
+                  "label": "В",
+                  "text": "no crossing-over"
+                },
+                {
+                  "label": "Г",
+                  "text": "only bacteria"
+                }
+              ]
+            },
+            {
+              "code": "s7a-zcode-biology-molecular-02-m03",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "Replication:",
+              "explanation": "Watson-Crick model.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "semiconservative"
+                },
+                {
+                  "label": "Б",
+                  "text": "does not copy DNA"
+                },
+                {
+                  "label": "В",
+                  "text": "only RNA"
+                },
+                {
+                  "label": "Г",
+                  "text": "random"
+                }
+              ]
+            },
+            {
+              "code": "s7a-zcode-biology-molecular-02-m04",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "tRNA:",
+              "explanation": "tRNA role.",
+              "correctAnswer": "Г",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "delivers amino acids"
+                },
+                {
+                  "label": "Б",
+                  "text": "stores DNA"
+                },
+                {
+                  "label": "В",
+                  "text": "only membrane"
+                },
+                {
+                  "label": "Г",
+                  "text": "ATP synth"
+                }
+              ]
+            },
+            {
+              "code": "s7a-zcode-biology-molecular-02-m05",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "MEDIUM",
+              "prompt": "S phase:",
+              "explanation": "Interphase.",
+              "correctAnswer": "А",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "DNA replication"
+                },
+                {
+                  "label": "Б",
+                  "text": "mitosis"
+                },
+                {
+                  "label": "В",
+                  "text": "cytokinesis only"
+                },
+                {
+                  "label": "Г",
+                  "text": "meiosis II"
+                }
+              ]
+            },
+            {
+              "code": "s7a-zcode-biology-molecular-02-h01",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "Crossing-over:",
+              "explanation": "Prophase I.",
+              "correctAnswer": "Б",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "meiosis"
+                },
+                {
+                  "label": "Б",
+                  "text": "mitosis always"
+                },
+                {
+                  "label": "В",
+                  "text": "photosynthesis"
+                },
+                {
+                  "label": "Г",
+                  "text": "digestion"
+                }
+              ]
+            },
+            {
+              "code": "s7a-zcode-biology-molecular-02-h02",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "Codon —",
+              "explanation": "Genetic code.",
+              "correctAnswer": "В",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "triplet on mRNA"
+                },
+                {
+                  "label": "Б",
+                  "text": "cell wall unit"
+                },
+                {
+                  "label": "В",
+                  "text": "organelle"
+                },
+                {
+                  "label": "Г",
+                  "text": "lipid"
+                }
+              ]
+            },
+            {
+              "code": "s7a-zcode-biology-molecular-02-h03",
+              "type": "SINGLE_CHOICE",
+              "difficulty": "HARD",
+              "prompt": "Mutation —",
+              "explanation": "Mutation.",
+              "correctAnswer": "Г",
+              "options": [
+                {
+                  "label": "А",
+                  "text": "change in DNA sequence"
+                },
+                {
+                  "label": "Б",
+                  "text": "always beneficial"
+                },
+                {
+                  "label": "В",
+                  "text": "only environment"
+                },
+                {
+                  "label": "Г",
+                  "text": "mitosis stage"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
