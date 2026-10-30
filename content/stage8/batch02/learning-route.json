@@ -1,0 +1,77 @@
+{
+  "status": "PREPARED_EXISTING_TESTSET_CONFIGURATION_NOT_APPLIED",
+  "route": [
+    {
+      "topicId": "ukr-morph-sub-01",
+      "prerequisites": [
+        "Слово й речення",
+        "Лексичне і граматичне значення"
+      ],
+      "steps": [
+        "Вхідна перевірка",
+        "Теорія і конспект",
+        "Самостійна спроба прикладів",
+        "Практика й розбір помилок",
+        "Відкладена перевірка новими завданнями"
+      ],
+      "entry": [
+        "s8b2-1-01",
+        "s8b2-1-02",
+        "s8b2-1-03"
+      ],
+      "final": [
+        "s8b2-1-04",
+        "s8b2-1-05",
+        "s8b2-1-06",
+        "s8b2-1-07",
+        "s8b2-1-08",
+        "s8b2-1-09"
+      ],
+      "delayed": [
+        "s8b2-1-10",
+        "s8b2-1-11",
+        "s8b2-1-12"
+      ],
+      "nextTopic": "cm-ukrainian-compound-sentence"
+    },
+    {
+      "topicId": "cm-ukrainian-compound-sentence",
+      "prerequisites": [
+        "Граматична основа",
+        "Однорідні члени",
+        "Самостійні та службові частини мови"
+      ],
+      "steps": [
+        "Вхідна перевірка",
+        "Теорія і конспект",
+        "Самостійна спроба прикладів",
+        "Практика й розбір помилок",
+        "Відкладена перевірка новими завданнями"
+      ],
+      "entry": [
+        "s8b2-2-01",
+        "s8b2-2-02",
+        "s8b2-2-03"
+      ],
+      "final": [
+        "s8b2-2-04",
+        "s8b2-2-05",
+        "s8b2-2-06",
+        "s8b2-2-07",
+        "s8b2-2-08",
+        "s8b2-2-09"
+      ],
+      "delayed": [
+        "s8b2-2-10",
+        "s8b2-2-11",
+        "s8b2-2-12"
+      ],
+      "nextTopic": "cm-ukrainian-complex-sentence"
+    }
+  ],
+  "limitations": [
+    "Thematic automatic practice does not reserve holdout items; use existing curated TestSet mechanism after approval.",
+    "Twelve questions per module are insufficient for robust independent repeated assessments.",
+    "Next-topic plan is not yet a live TopicDependency or calendar update."
+  ]
+}

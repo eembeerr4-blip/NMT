@@ -3,7 +3,7 @@
   "priorityZero": {
     "file": "published-content-blockers.json",
     "reason": "Correctness of currently visible content precedes adding volume.",
-    "application": "Separate owner approval for any working-data correction; no regrading or withdrawal performed."
+    "application": "24 approved corrections applied and verified: WORKING-24-RESULT.json. Additional editorial observations remain separate, with no extra working update authorized."
   },
   "items": [
     {
@@ -6443,7 +6443,12 @@
             4
           ]
         }
-      ]
+      ],
+      "continuationBatch": {
+        "file": "batch02/ukrainian-grammar.package.json",
+        "status": "FOUNDATION_QA_PASSED_NOT_APPLIED",
+        "notFullTopicCoverage": true
+      }
     },
     {
       "subjectId": "ukrainian",
@@ -7205,7 +7210,12 @@
             6
           ]
         }
-      ]
+      ],
+      "continuationBatch": {
+        "file": "batch02/ukrainian-grammar.package.json",
+        "status": "FOUNDATION_QA_PASSED_NOT_APPLIED",
+        "notFullTopicCoverage": true
+      }
     },
     {
       "subjectId": "ukrainian",

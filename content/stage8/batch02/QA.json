@@ -1,0 +1,104 @@
+{
+  "status": "CANDIDATE_QA_PASS_NOT_WORKING_IMPORTED",
+  "questions": 24,
+  "topics": 2,
+  "examples": 6,
+  "unit": {
+    "passed": 30,
+    "failed": 0
+  },
+  "typecheck": "PASS",
+  "targetedEslint": "PASS",
+  "browser": {
+    "packageSha256": {
+      "ukrainian-grammar.package.json": "19724ca995b0d6a94f1a39398da8f6fa2bc4ac18afbb71b47e5ee01ada953079"
+    },
+    "login": true,
+    "viewports": [
+      {
+        "topic": "cm-ukrainian-compound-sentence",
+        "width": 320,
+        "ok": true
+      },
+      {
+        "topic": "ukr-morph-sub-01",
+        "width": 320,
+        "ok": true
+      },
+      {
+        "topic": "cm-ukrainian-compound-sentence",
+        "width": 360,
+        "ok": true
+      },
+      {
+        "topic": "ukr-morph-sub-01",
+        "width": 360,
+        "ok": true
+      },
+      {
+        "topic": "cm-ukrainian-compound-sentence",
+        "width": 390,
+        "ok": true
+      },
+      {
+        "topic": "ukr-morph-sub-01",
+        "width": 390,
+        "ok": true
+      },
+      {
+        "topic": "cm-ukrainian-compound-sentence",
+        "width": 768,
+        "ok": true
+      },
+      {
+        "topic": "ukr-morph-sub-01",
+        "width": 768,
+        "ok": true
+      },
+      {
+        "topic": "cm-ukrainian-compound-sentence",
+        "width": 1280,
+        "ok": true
+      },
+      {
+        "topic": "ukr-morph-sub-01",
+        "width": 1280,
+        "ok": true
+      }
+    ],
+    "cycles": [
+      {
+        "topic": "ukr-morph-sub-01",
+        "answers": 12,
+        "correct": 11,
+        "wrong": 1,
+        "matching": 1,
+        "sequence": 0,
+        "reloaded": true,
+        "ok": true
+      },
+      {
+        "topic": "cm-ukrainian-compound-sentence",
+        "answers": 12,
+        "correct": 11,
+        "wrong": 1,
+        "matching": 1,
+        "sequence": 0,
+        "reloaded": true,
+        "ok": true
+      }
+    ],
+    "retry": true,
+    "errors": [],
+    "ok": true,
+    "serverStopped": true
+  },
+  "workingPreviewFile": "working-preview.json",
+  "limits": [
+    "No working import or publication.",
+    "Foundation modules, not full coverage of morphology/syntax.",
+    "Difficulty labels need calibration; no promised NMT score.",
+    "Existing automatic mastery may mark a topic mastered after one test; this is not independent retention proof.",
+    "Full theory/image/video external editorial approval remains pending."
+  ]
+}

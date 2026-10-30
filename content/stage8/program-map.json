@@ -20523,5 +20523,15 @@
     "Official 2027 specifications were not found in the targeted official-site search. Recheck before treating exam formats as 2027 requirements.",
     "Inherited PDF page mappings and fine-grained subtopics require a renewed page-by-page editorial verification.",
     "All program units have map entries; this is not full content coverage."
-  ]
+  ],
+  "continuationEvidence": {
+    "checkedAt": "2026-10-30",
+    "batch": "batch02/ukrainian-grammar.package.json",
+    "coveredIntroductoryUnits": [
+      "ukr-morph-sub-01",
+      "cm-ukrainian-compound-sentence-sub-01",
+      "cm-ukrainian-compound-sentence-sub-02"
+    ],
+    "scope": "Foundational candidates, not complete morphology or all compound punctuation. Substantive review and QA do not imply working publication."
+  }
 }

@@ -1,0 +1,18 @@
+[
+  {
+    "file": "ukrainian-grammar.package.json",
+    "ok": true,
+    "counts": {
+      "sectionsToCreate": 2,
+      "topicsToCreate": 2,
+      "topicsToUpdate": 0,
+      "topicsSkipped": 0,
+      "questionsToCreate": 24,
+      "questionsToUpdate": 0,
+      "questionsSkipped": 0,
+      "videosToAdd": 0
+    },
+    "errors": [],
+    "warnings": []
+  }
+]
