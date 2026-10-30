@@ -1,0 +1,54 @@
+{
+  "stage": "8.1",
+  "status": "PARTIAL_PRIVATE_ONLY",
+  "originalArchiveModified": false,
+  "aggregateIndex": "content/stage8/telegram-summary.json",
+  "nonVideoIndexed": 5984,
+  "exactDuplicateGroups": 47,
+  "extraDuplicateFiles": 56,
+  "privateMessageLinkage": "Private local ledger retained; raw filenames, captions, personal handles and media excluded from Git.",
+  "newVisuallyReviewed": [
+    {
+      "sample": "UKR-01",
+      "subjectId": "ukrainian",
+      "topicId": "cm-ukrainian-formation",
+      "pages": 2,
+      "messageLinks": 1,
+      "quality": "Readable cover and word-structure chart; base is not itself a morpheme, so heading parts of word needs didactic care.",
+      "factCheck": "NOT_FULL_DOCUMENT_REVIEW",
+      "use": "DO_NOT_COPY; create original diagram from verified textbook definitions."
+    },
+    {
+      "sample": "HIST-01",
+      "subjectId": "history",
+      "topicArea": "Perestroika/glasnost",
+      "pages": 1,
+      "messageLinks": 1,
+      "quality": "Dense but legible at source resolution; chronology/statistical casualty claims need separate primary-source verification.",
+      "factCheck": "NOT_APPROVED",
+      "use": "Reference-only; no raw image reuse."
+    },
+    {
+      "sample": "BIO-01",
+      "subjectId": "biology",
+      "topicArea": "Cell nucleus",
+      "pages": 2,
+      "messageLinks": 1,
+      "quality": "Readable nucleus outline; simplified chromatin statement needs taxonomic context.",
+      "factCheck": "NOT_FULL_DOCUMENT_REVIEW",
+      "use": "Reference-only; redraw original diagram after subject review."
+    }
+  ],
+  "totalVisuallyInspectedUnits": 8,
+  "counting": "Earlier3images plus5newPDFpages; not8wholefiles or5984reviewedfiles.",
+  "rights": "UNKNOWN_DO_NOT_PUBLISH for all archive samples; no new rights permission found.",
+  "publicMediaCopied": 0,
+  "TelegramVideosUsed": 0,
+  "curationBacklog": [
+    "Link remaining files to messages privately",
+    "Review unassigned5535files by caption/content",
+    "Inspect nonthumbnail subject-specific diagrams",
+    "Verify factual claims and lawful rights before any reuse"
+  ],
+  "rightsClearedAlternative": "Original biology-cell-division.svg reviewed and rendered; no copied Telegram illustration."
+}

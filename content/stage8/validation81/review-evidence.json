@@ -1,0 +1,52 @@
+{
+  "evidence": [
+    {
+      "path": "content/stage8/validation81/math-blind-review.json",
+      "sealedOriginalSha256": "81ef85423cee9239683056dcd9510a5ecb9947afa0d535a2805906c07f059871",
+      "privacy": "Administrative local input paths redacted; raw sealed original retained privately."
+    },
+    {
+      "path": "content/stage8/validation81/ukrainian-blind-review.json",
+      "sealedOriginalSha256": "f22872907960879fd256736f2b6dd19fb837fed47b7fabb4e69068c2a55c65f3",
+      "privacy": "Administrative local input paths redacted; raw sealed original retained privately."
+    },
+    {
+      "path": "content/stage8/validation81/history-biology-blind-review.json",
+      "sealedOriginalSha256": "91b0eafe126ba54206d9c543c49415d0b140bc46705e98050fca9d9a54dad325",
+      "privacy": "Administrative local input paths redacted; raw sealed original retained privately."
+    },
+    {
+      "path": "content/stage8/validation81/math-full-review.json",
+      "sealedOriginalSha256": "96ca761bd3395a35cebae0c1d0dfaee92d8d02ace88bde73fdb018747230c57c",
+      "privacy": "Administrative local input paths redacted; raw sealed original retained privately."
+    },
+    {
+      "path": "content/stage8/validation81/ukrainian-full-review.json",
+      "sealedOriginalSha256": "5e6cb846094bbffa0eaf619664e09369742f96b7713e831ac8cca171492dbc67",
+      "privacy": "Administrative local input paths redacted; raw sealed original retained privately."
+    },
+    {
+      "path": "content/stage8/validation81/history-biology-full-review.json",
+      "sealedOriginalSha256": "89a9ef634c51765a88614698d0f7f9b06e0306b81a6ea7177e03143a6b8177b9",
+      "privacy": "Administrative local input paths redacted; raw sealed original retained privately."
+    },
+    {
+      "path": "content/stage8/validation81/ukrainian-post-fix-review.json",
+      "sealedOriginalSha256": "052d7d55ef3c65a4bb1d45815fb1a224399c3c78bedef957fa43081b3366c446",
+      "privacy": "Administrative local input paths redacted; raw sealed original retained privately."
+    },
+    {
+      "path": "content/stage8/validation81/assessment-blind-review.json",
+      "sealedOriginalSha256": "b0180e10251e163f4e6b00db2bc657c3f9b1682e60fe1032b90428cf940e1095",
+      "privacy": "Administrative local input paths redacted; raw sealed original retained privately."
+    },
+    {
+      "path": "content/stage8/validation81/assessment-full-review.json",
+      "sealedOriginalSha256": "510b4c50140eb387f2d95cc4d8de217f00926ef4c00dcaf8438b534a4edc302f",
+      "privacy": "Administrative local input paths redacted; raw sealed original retained privately."
+    }
+  ],
+  "workingDatabaseModified": false,
+  "blindReviewCount": 180,
+  "newAssessmentReviewCount": 12
+}

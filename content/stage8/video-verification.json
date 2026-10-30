@@ -1,0 +1,194 @@
+{
+  "stage": "8.1",
+  "date": "2026-10-30",
+  "method": "actual Chromium channel chrome via Playwright",
+  "results": [
+    {
+      "id": "lNg2auJDOpQ",
+      "status": "PLAYBACK_VERIFIED",
+      "playbackVerified": true,
+      "contentVerified": false,
+      "duration": 625.101,
+      "timestamps": [],
+      "language": "NOT_AUDIBLY_VERIFIED",
+      "commentsReviewed": false,
+      "pageTitle": "Українська мова. Загальна характеристика частин мови. Визначення частин мови. Повнозначні й службові - YouTube",
+      "player": [
+        {
+          "readyState": 4,
+          "currentTime": 0,
+          "duration": 625.101,
+          "paused": true,
+          "error": null
+        }
+      ],
+      "afterPlay": [
+        {
+          "readyState": 4,
+          "currentTime": 1.966317,
+          "duration": 625.101,
+          "paused": false,
+          "error": null
+        }
+      ],
+      "limitation": "No full audiovisual content/language/reputation review; playback advancement alone is not CONTENT_VERIFIED.",
+      "url": "https://www.youtube.com/watch?v=lNg2auJDOpQ",
+      "topicId": "ukr-morph-sub-01",
+      "providerReputation": "VSHO official educational provider; no individual-teacher/review assessment completed.",
+      "usefulTimestamps": [],
+      "contentQuality": "NOT_FULLY_REVIEWED",
+      "playbackSampleSeconds": 2
+    },
+    {
+      "id": "cUvqQWFhbwY",
+      "status": "PLAYBACK_VERIFIED",
+      "playbackVerified": true,
+      "contentVerified": false,
+      "duration": 561.121,
+      "timestamps": [],
+      "language": "NOT_AUDIBLY_VERIFIED",
+      "commentsReviewed": false,
+      "pageTitle": "9 клас. Українська мова. Складносурядне речення, його будова й засоби зв’язку між його частинами - YouTube",
+      "player": [
+        {
+          "readyState": 4,
+          "currentTime": 0,
+          "duration": 561.121,
+          "paused": true,
+          "error": null
+        }
+      ],
+      "afterPlay": [
+        {
+          "readyState": 4,
+          "currentTime": 1.949814,
+          "duration": 561.121,
+          "paused": false,
+          "error": null
+        }
+      ],
+      "limitation": "No full audiovisual content/language/reputation review; playback advancement alone is not CONTENT_VERIFIED.",
+      "url": "https://www.youtube.com/watch?v=cUvqQWFhbwY",
+      "topicId": "cm-ukrainian-compound-sentence",
+      "providerReputation": "VSHO official educational provider; no individual-teacher/review assessment completed.",
+      "usefulTimestamps": [],
+      "contentQuality": "NOT_FULLY_REVIEWED",
+      "playbackSampleSeconds": 2
+    },
+    {
+      "id": "N4hlW7G7bK4",
+      "status": "PLAYBACK_VERIFIED",
+      "playbackVerified": true,
+      "contentVerified": false,
+      "duration": 651.44,
+      "timestamps": [],
+      "language": "NOT_AUDIBLY_VERIFIED",
+      "commentsReviewed": false,
+      "pageTitle": "5 клас. Історія України. Урок узагальнення з теми \"Джерела до вивчення історії\" - YouTube",
+      "player": [
+        {
+          "readyState": 4,
+          "currentTime": 0,
+          "duration": 651.44,
+          "paused": true,
+          "error": null
+        }
+      ],
+      "afterPlay": [
+        {
+          "readyState": 4,
+          "currentTime": 1.972847,
+          "duration": 651.44,
+          "paused": false,
+          "error": null
+        }
+      ],
+      "limitation": "No full audiovisual content/language/reputation review; playback advancement alone is not CONTENT_VERIFIED.",
+      "url": "https://www.youtube.com/watch?v=N4hlW7G7bK4",
+      "topicId": "cm-history-sources",
+      "providerReputation": "VSHO official educational provider; no individual-teacher/review assessment completed.",
+      "usefulTimestamps": [],
+      "contentQuality": "NOT_FULLY_REVIEWED",
+      "playbackSampleSeconds": 2
+    },
+    {
+      "id": "mgNeFmRRIYs",
+      "status": "PLAYBACK_VERIFIED",
+      "playbackVerified": true,
+      "contentVerified": false,
+      "duration": 1039.221,
+      "timestamps": [],
+      "language": "NOT_AUDIBLY_VERIFIED",
+      "commentsReviewed": false,
+      "pageTitle": "Урок №1. Раціональні вирази. Раціональні дроби (8 клас. Алгебра) - YouTube",
+      "player": [
+        {
+          "readyState": 4,
+          "currentTime": 0,
+          "duration": 1039.221,
+          "paused": true,
+          "error": null
+        }
+      ],
+      "afterPlay": [
+        {
+          "readyState": 4,
+          "currentTime": 1.962418,
+          "duration": 1039.221,
+          "paused": false,
+          "error": null
+        }
+      ],
+      "limitation": "No full audiovisual content/language/reputation review; playback advancement alone is not CONTENT_VERIFIED.",
+      "url": "https://www.youtube.com/watch?v=mgNeFmRRIYs",
+      "topicId": "math-expressions",
+      "providerReputation": "NOT_VERIFIED_DO_NOT_ATTRIBUTE_TO_VSHO",
+      "usefulTimestamps": [],
+      "contentQuality": "NOT_FULLY_REVIEWED",
+      "playbackSampleSeconds": 2
+    },
+    {
+      "id": "jDUo_13CeEE",
+      "status": "PLAYBACK_VERIFIED",
+      "playbackVerified": true,
+      "contentVerified": false,
+      "duration": 1114.161,
+      "timestamps": [],
+      "language": "NOT_AUDIBLY_VERIFIED",
+      "commentsReviewed": false,
+      "pageTitle": "9 клас. Біологія. Закони Менделя. Складання схем схрещування - YouTube",
+      "player": [
+        {
+          "readyState": 4,
+          "currentTime": 0,
+          "duration": 1114.161,
+          "paused": true,
+          "error": null
+        }
+      ],
+      "afterPlay": [
+        {
+          "readyState": 4,
+          "currentTime": 1.971486,
+          "duration": 1114.161,
+          "paused": false,
+          "error": null
+        }
+      ],
+      "limitation": "No full audiovisual content/language/reputation review; playback advancement alone is not CONTENT_VERIFIED.",
+      "url": "https://www.youtube.com/watch?v=jDUo_13CeEE",
+      "topicId": "cm-biology-mendel",
+      "providerReputation": "Claimed VSHO indexed primary YouTube description; individual teacher not reviewed.",
+      "usefulTimestamps": [],
+      "contentQuality": "NOT_FULLY_REVIEWED",
+      "playbackSampleSeconds": 2
+    }
+  ],
+  "searchRemaining": [],
+  "newConfirmed": 0,
+  "VideoLessonWrites": 0,
+  "limits": [
+    "Playback advancement for about2seconds is not a complete viewing or voice-language check.",
+    "No comments, timestamps, teacher ratings or content endorsements invented."
+  ]
+}

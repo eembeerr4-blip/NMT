@@ -1,0 +1,73 @@
+{
+  "subjectId": "ukrainian",
+  "phase": "POST_FIX_ACTUAL_PACKAGE_REVIEW",
+  "date": "2026-10-30",
+  "reviewKind": "independent_model_review_not_human_approval",
+  "result": "CONTENT_CORRECTIONS_VERIFIED_FOR_FOUNDATIONAL_PRACTICE",
+  "inputs": [
+    {
+      "path": "content/stage8/packages/ukrainian-foundation.package.json",
+      "sha256": "F094749A5E0718443DE31075BC212210E4F81085FF3650D318BC63DEEDAD7DE3"
+    },
+    {
+      "path": "content/stage8/batch02/ukrainian-grammar.package.json",
+      "sha256": "5CF1A074EC806D884F1A390944AFCA6F79B8A5C21C8EEBB0FB47A4B45CBBD7A0"
+    },
+    {
+      "path": "content/stage8/validation81/candidate-corrections.json",
+      "sha256": "5E4B554FC3E83CD14200936F6EF0EEC32CFCBA8D380DE397A0660D2A4C428684"
+    }
+  ],
+  "checks": [
+    {
+      "id": "foundation09",
+      "status": "PASS",
+      "derivedAnswer": {
+        "1": "А",
+        "2": "Б",
+        "3": "В",
+        "4": "Г"
+      },
+      "note": "All four pairs uniquely match. піч→запічок adds за- and -ок-; explanation agrees."
+    },
+    {
+      "id": "foundation11",
+      "status": "PASS",
+      "derivedAnswer": "В",
+      "note": "Prompt supplies complete chain; final immediate base is хмарний, final formation prefixal. Options and explanation exactly match proposed content fix."
+    },
+    {
+      "id": "theory_and_both_summaries",
+      "status": "PASS",
+      "note": "Theory differentiates existing morphemes from final derivational step; both topic and lesson summary agree on chain and contrasting піч→запічок example. No surviving false simultaneity assertion found in Ukrainian package educational content."
+    },
+    {
+      "id": "compound11_reference",
+      "status": "PASS",
+      "derivedAnswer": "Б",
+      "note": "Explanation now correctly names option Б."
+    },
+    {
+      "id": "other_content_consistency",
+      "status": "PASS_FOR_FOUNDATIONAL_SCOPE",
+      "note": "Reread all three lessons/rules/nine examples and 36 questions/explanations; no new factual conflict from applied corrections. Previous minor assessment/editorial advisories remain."
+    },
+    {
+      "id": "legacy_quota_tags",
+      "status": "VERIFIED_AS_PROVISIONAL_ONLY",
+      "note": "Each topic remains 4 EASY / 5 MEDIUM / 3 HARD. This preserves existing lessonReadiness quota; it does not establish cognitive difficulty or bank readiness."
+    }
+  ],
+  "remainingLimits": {
+    "readyForFinalAssessment": false,
+    "trueHardContentEstablished": false,
+    "humanApproval": false,
+    "calibratedDifficulty": false,
+    "assessmentQuality": "Neither ready for final assessment nor supported as true HARD content. Existing weak distractors, repeated examples and answer-position cues remain. Difficulty recommendations remain separate from retained provisional tags.",
+    "minorEditorial": "Optional -оюю distractor and exact читанням wording improvement were not applied; neither changes a valid answer. The earlier phase1 objection to -ям was erroneous and remains retracted.",
+    "sourceTraceability": "Current foundation lesson lists only the official program. Concrete textbook support remains in phase2 source catalog; adding a precise textbook citation to lesson sources would improve provenance.",
+    "correctionLogProvenance": "candidate-corrections.json records q09 text replacement occurrences=2 and q11 before prompt already containing піч→запічок but old без- wording. This is an intermediate mutation snapshot, not the pristine original blind stem. Final actual q11 is correct; retain original phase1/full packet to reconstruct baseline accurately."
+  },
+  "sourceEvidence": "See sealed phase2 source catalog: Avramenko6 §31–32; official IMZO-indexed Semenog6 formation table; MON orthography §158 and directly read Glazova9 §12.",
+  "operations": "Read-only source-package verification. Only this Temp report written; no package edits, DB or git operations; no runtime/browser claim."
+}

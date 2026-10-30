@@ -1,0 +1,614 @@
+{
+  "subjectId": "ukrainian",
+  "phase": "1_BLIND_LOCKED",
+  "reviewKind": "independent_model_review_not_human_approval",
+  "lockedAt": "2026-10-30",
+  "soleQuestionInput": "PRIVATE_BLIND_PACKET/ukrainian-blind.json",
+  "blindness": {
+    "existingContentPackagesRead": false,
+    "providedKeysRead": false,
+    "providedExplanationsRead": false,
+    "priorSubjectReportsRead": false,
+    "applicationCodeRead": false,
+    "databaseAccess": false,
+    "gitOperations": false
+  },
+  "scope": "Educational review only; no source packages modified. Each answer derived independently from supplied prompt/options.",
+  "completionCriteria": "36 unique IDs; full mapping including explicit invalid-pair finding; reasons, issues, difficulty, sources and confidence for each.",
+  "sourceCatalog": {
+    "A6": {
+      "title": "Авраменко О., Тищенко З. Українська мова, 6 клас (2023), §31–32",
+      "url": "https://lib.imzo.gov.ua/wa-data/public/site/books2/6-kl-23/movna-galuz/ukr-mova/ГРАМОТА_Українська_мова_6_кл_Авраменко_Тищенко_2023.pdf",
+      "access": "Official IMZO PDF discovered by search; repeated direct fetch returned 502. Primary textbook section read via mirror.",
+      "readUrl": "https://uahistory.co/pidruchniki/avramenko-ukrainian-language-6-class-2023/26.php",
+      "supports": "Direct derivational base matters; хмара → хмарний → безхмарний explicitly given, final step prefixal."
+    },
+    "S6": {
+      "title": "Семеног та ін. Українська мова, 6 клас (2023), змінні та незмінні слова",
+      "url": "https://files.pidruchnyk.com.ua/uploads/book/6-klas-ukrmova-semenog-2023.pdf",
+      "access": "Textbook text read via indexed PDF mirror.",
+      "supports": "Unchangeable words lack endings; zero ending belongs to an inflected word."
+    },
+    "A7": {
+      "title": "Авраменко О., Тищенко З. Українська мова, 7 клас (2024), частини мови / члени речення",
+      "url": "https://uahistory.co/pidruchniki/avramenko-ukrainian-language-7-class-2024/1.php",
+      "access": "Primary textbook text on mirror; publication identity corroborated in PDF bibliographic record.",
+      "supports": "School classification of parts of speech and sentence members."
+    },
+    "ORTH": {
+      "title": "Український правопис, офіційне видання 2026, §158 I та II.2, примітка 2",
+      "url": "https://mon.gov.ua/static-objects/mon/sites/1/zagalna%20serednya/Pravopys.2019/ukrayinskii-pravopis-oficiine-vidannia-2026.pdf",
+      "access": "Official MON PDF read; printed pp.184–185 for compound sentence exceptions.",
+      "supports": "Comma between coordinated clauses; exceptions for shared modifier or parenthetical word with single і."
+    },
+    "SUMK": {
+      "title": "СУМ-11, какао (authorized reproduction)",
+      "url": "https://slovnyk.ua/index.php?swrd=какао",
+      "access": "Article explicitly attributed to СУМ, with institute permission stated.",
+      "supports": "Какао marked невідм."
+    },
+    "SUMT": {
+      "title": "СУМ-11, тепло (authorized reproduction)",
+      "url": "https://slovnyk.ua/index.php?swrd=тепло",
+      "access": "Read article and paradigms.",
+      "supports": "Separate noun and adverb entries."
+    },
+    "SUMC": {
+      "title": "СУМ-11, читання (authorized reproduction)",
+      "url": "https://slovnyk.ua/index.php?swrd=читання",
+      "access": "Read article and paradigms.",
+      "supports": "Action noun; instrumental singular читанням."
+    },
+    "PROG": {
+      "title": "Офіційна програма ЗНО з української мови і літератури, наказ МОН №696 від 26.06.2018",
+      "url": "https://testportal.gov.ua/wp-content/uploads/2016/12/Programa_2020_ukr.mova.pdf",
+      "access": "Official PDF read.",
+      "supports": "Topic alignment: morphemics/word formation, morphology, compound sentence syntax."
+    }
+  },
+  "overall": {
+    "questionCount": 36,
+    "uniquelyAnswerable": 34,
+    "blockedQuestionIds": [
+      "s8-ukrainian-foundation-09",
+      "s8-ukrainian-foundation-11"
+    ],
+    "suggestedDifficultyCounts": {
+      "EASY": 29,
+      "MEDIUM": 7,
+      "HARD": 0
+    },
+    "findings": [
+      "Two derivation questions require revision before unqualified educational acceptance.",
+      "Valid foundational exercises; predominantly elementary 5–7-class recall, not a balanced difficulty simulation of NMT.",
+      "Distractors often absurd, answer conspicuously longest, repeated stems/examples allow recognition rather than transfer.",
+      "Some consecutive answer-label patterns recur; randomizing positions would reduce pattern cues.",
+      "Official program alignment is topical only, not proof of examination-standard difficulty or completeness."
+    ],
+    "sourceLimitations": [
+      "Official IMZO 6-class textbook PDF repeatedly returned 502; exact relevant primary textbook text was read from identified mirror, not silently treated as direct official fetch.",
+      "Academic SUM entries read as authorized reproductions on slovnyk.ua; official sum20ua.com returned 403.",
+      "No human philologist approval has been obtained; this is an independent model review."
+    ]
+  },
+  "questions": [
+    {
+      "id": "s8-ukrainian-foundation-01",
+      "derivedAnswer": "А",
+      "reasoning": "Корінь об’єднує лексичне значення споріднених слів.",
+      "issues": [
+        "Наголос і розділовий знак — занадто очевидні сторонні дистрактори."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "S6"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-ukrainian-foundation-02",
+      "derivedAnswer": "Г",
+      "reasoning": "Ліс / лісу — відмінкові форми; решта пар містить різні лексеми.",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "S6"
+      ],
+      "confidence": 0.99,
+      "status": "PASS"
+    },
+    {
+      "id": "s8-ukrainian-foundation-03",
+      "derivedAnswer": "В",
+      "reasoning": "Школ-ою: змінна відмінкова частина -ою.",
+      "issues": [
+        "Дистрактор -оюю виглядає випадковою друкарською помилкою; варто замінити правдоподібною морфемною межею."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "S6"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-ukrainian-foundation-04",
+      "derivedAnswer": "Б",
+      "reasoning": "Стіл / стола: у поданій формі закінчення нульове; інші слова незмінювані.",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "S6"
+      ],
+      "confidence": 0.99,
+      "status": "PASS"
+    },
+    {
+      "id": "s8-ukrainian-foundation-05",
+      "derivedAnswer": "А",
+      "reasoning": "До писати приєднано пере-; суфікс уже наявний у твірному слові.",
+      "issues": [
+        "Позначка MEDIUM завищена для прямого прикладу без чергувань."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "A6"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-ukrainian-foundation-06",
+      "derivedAnswer": "Г",
+      "reasoning": "Ліс → ліс-ник: словотворчий засіб -ник-.",
+      "issues": [
+        "Позначка MEDIUM завищена; зміна закінчення — слабкий дистрактор."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "A6"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-ukrainian-foundation-07",
+      "derivedAnswer": "В",
+      "reasoning": "Школ-и: основа школ-, закінчення -и.",
+      "issues": [
+        "MEDIUM завищено. Омонімія відмінка/числа форми школи не впливає на відповідь."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "S6"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-ukrainian-foundation-08",
+      "derivedAnswer": "Б",
+      "reasoning": "Вода і водій не мають потрібної спільності значення для спорідненості.",
+      "issues": [
+        "Три альтернативи явно хибні; запитання перевіряє впізнавання, а не повний аналіз коренів."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "S6"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-ukrainian-foundation-09",
+      "derivedAnswer": {
+        "1": "А",
+        "2": "Б",
+        "3": "NO_UNAMBIGUOUS_VALID_PAIR",
+        "4": "Г"
+      },
+      "reasoning": "1: пере-; 2: -ник-; 4: відмінювання. Для 3 шкільний ланцюжок: хмара → хмарний → безхмарний; останній крок префіксальний.",
+      "issues": [
+        "BLOCKER: пропущено безпосередню твірну основу хмарний. Формальне зіставлення крайніх слів показує без- та -н-, але не доводить одночасного творення. Позначати 3–В без застережень не можна.",
+        "Якщо 3 читати як реальний останній словотвірний крок, потрібна А, уже зайнята пунктом 1. Повна однозначна взаємно-однозначна відповідність відсутня.",
+        "Рекомендація: замінити пару 3 безсумнівним шкільним префіксально-суфіксальним прикладом після окремої перевірки; не підганяти ключ."
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": [
+        "A6"
+      ],
+      "confidence": 0.96,
+      "status": "BLOCKED_CONTENT"
+    },
+    {
+      "id": "s8-ukrainian-foundation-10",
+      "derivedAnswer": "Г",
+      "reasoning": "Какао невідмінюване, без закінчення; стіл має нульове.",
+      "issues": [
+        "HARD завищено: це розрізнення двох базових понять, уже перевірених у 04."
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": [
+        "SUMK",
+        "S6"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-ukrainian-foundation-11",
+      "derivedAnswer": "NO_VALID_UNAMBIGUOUS_OPTION",
+      "reasoning": "Наявність -н- не доводить одночасного додавання. У підручнику безхмарний утворено від хмарний префіксом без-.",
+      "issues": [
+        "BLOCKER: питання закладає спірну/хибну передумову, що префіксальний аналіз обов’язково неповний.",
+        "В описує механічну різницю крайніх слів, а не встановлений безпосередній спосіб творення. А, Б, Г також неправильні.",
+        "Рекомендація: прямо дати ланцюжок хмара → хмарний → безхмарний і спитати про останній крок; правильне пояснення — додано тільки без-."
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": [
+        "A6"
+      ],
+      "confidence": 0.96,
+      "status": "BLOCKED_CONTENT"
+    },
+    {
+      "id": "s8-ukrainian-foundation-12",
+      "derivedAnswer": "Б",
+      "reasoning": "Б поєднує перевірку форми, морфемної будови й твірного слова.",
+      "issues": [
+        "HARD завищено: решта порад абсурдна.",
+        "Формула скорочена: перед добором споріднених/твірного слова потрібно враховувати значення; не всі слова можна змінити. Це найкращий варіант серед поданих, але не універсальна повна інструкція."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "A6"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8b2-1-01",
+      "derivedAnswer": "А",
+      "reasoning": "Учень називає особу; книжку — предмет, читає — дію.",
+      "issues": [
+        "Майже початковошкільний рівень; для відновлення бази придатне, для складності НМТ — недостатнє."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "A7"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8b2-1-02",
+      "derivedAnswer": "Г",
+      "reasoning": "Читає — особова форма дієслова.",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "A7"
+      ],
+      "confidence": 0.99,
+      "status": "PASS"
+    },
+    {
+      "id": "s8b2-1-03",
+      "derivedAnswer": "В",
+      "reasoning": "Уважно характеризує спосіб читання, відповідає на як?",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "A7"
+      ],
+      "confidence": 0.99,
+      "status": "PASS"
+    },
+    {
+      "id": "s8b2-1-04",
+      "derivedAnswer": "Б",
+      "reasoning": "У поєднане з місцевим відмінком іменника школі.",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "A7"
+      ],
+      "confidence": 0.99,
+      "status": "PASS"
+    },
+    {
+      "id": "s8b2-1-05",
+      "derivedAnswer": "А",
+      "reasoning": "Нову узгоджено з книжку; називає ознаку предмета.",
+      "issues": [
+        "MEDIUM завищено; контекст однозначний."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "A7"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8b2-1-06",
+      "derivedAnswer": "Г",
+      "reasoning": "Вони вказує на осіб, це особовий займенник.",
+      "issues": [
+        "MEDIUM завищено."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "A7"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8b2-1-07",
+      "derivedAnswer": "В",
+      "reasoning": "Три визначає кількість учнів.",
+      "issues": [
+        "Назву частини мови вже повідомлено в умові; перевіряється лише кількісне значення. MEDIUM завищено."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "A7"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8b2-1-08",
+      "derivedAnswer": "Б",
+      "reasoning": "Але сполучає частини складного речення.",
+      "issues": [
+        "MEDIUM завищено; для теми бракує розмежування сполучників і часток у справді схожих контекстах."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "A7"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8b2-1-09",
+      "derivedAnswer": {
+        "1": "А",
+        "2": "Б",
+        "3": "В",
+        "4": "Г"
+      },
+      "reasoning": "Книжка — іменник; цікавий — прикметник; читати — дієслово; уважно — прислівник.",
+      "issues": [
+        "Уточнення значення фактично підказують відповіді; MEDIUM завищено.",
+        "Формат 4↔4 не має зайвого правого дистрактора: останню пару можна встановити виключенням. Для тренування допустимо, як наближення до НМТ слабко."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "A7"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8b2-1-10",
+      "derivedAnswer": "Г",
+      "reasoning": "Усміхнувся як? тепло; що зігріло? тепло.",
+      "issues": [
+        "Правильне зіставлення контекстів; HARD завищено через очевидно абсурдні альтернативи."
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": [
+        "A7",
+        "SUMT"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8b2-1-11",
+      "derivedAnswer": "В",
+      "reasoning": "Читанням — орудний відмінок віддієслівного іменника читання.",
+      "issues": [
+        "Умова називає читання, хоча в цитаті стоїть читанням: для точності «форма читанням».",
+        "У дистракторі А -ям не відповідає написанню форми читанням; навіть хибний дистрактор бажано сформулювати без випадкової похибки.",
+        "HARD завищено: правильна відповідь набагато змістовніша за решту."
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": [
+        "SUMC"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8b2-1-12",
+      "derivedAnswer": "Б",
+      "reasoning": "Не заперечує присудок; окремим членом речення не є.",
+      "issues": [
+        "HARD завищено: типове службове слово без функціональної омонімії."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "A7"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8b2-2-01",
+      "derivedAnswer": "Г",
+      "reasoning": "Учень читає / сестра малює — дві основи.",
+      "issues": [
+        "Інші приклади майже тотожні; кома вже слугує додатковою підказкою."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "A7"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8b2-2-02",
+      "derivedAnswer": "В",
+      "reasoning": "При спільному підметі читає і пише — однорідні присудки.",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "ORTH"
+      ],
+      "confidence": 0.99,
+      "status": "PASS"
+    },
+    {
+      "id": "s8b2-2-03",
+      "derivedAnswer": "Б",
+      "reasoning": "Але передає протиставлення очікуваному наслідкові.",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "A7"
+      ],
+      "confidence": 0.99,
+      "status": "PASS"
+    },
+    {
+      "id": "s8b2-2-04",
+      "derivedAnswer": "А",
+      "reasoning": "І має єднальне значення; але — протиставне, або — розділове, що — підрядне.",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "A7"
+      ],
+      "confidence": 0.99,
+      "status": "PASS"
+    },
+    {
+      "id": "s8b2-2-05",
+      "derivedAnswer": "Г",
+      "reasoning": "Спільна обставина уранці та одиничне і усувають кому між частинами.",
+      "issues": [
+        "Умова явно встановлює спільність, тому семантичної двозначності немає.",
+        "Б і В — неприродні місця ком, слабкі дистрактори."
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": [
+        "ORTH"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8b2-2-06",
+      "derivedAnswer": "В",
+      "reasoning": "Перед але між частинами тут потрібна кома.",
+      "issues": [
+        "MEDIUM завищено; дефіс і двокрапка як перелік — слабкі альтернативи."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "ORTH"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8b2-2-07",
+      "derivedAnswer": "Б",
+      "reasoning": "Повторюване то… то виражає чергування подій.",
+      "issues": [
+        "MEDIUM завищено; більшість альтернатив не належать до типів сурядних відношень."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "ORTH"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8b2-2-08",
+      "derivedAnswer": "А",
+      "reasoning": "Що почався урок залежить від знаю.",
+      "issues": [
+        "MEDIUM завищено: сполучник що дає очевидну відповідь."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "ORTH"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8b2-2-09",
+      "derivedAnswer": {
+        "1": "А",
+        "2": "Б",
+        "3": "В",
+        "4": "Г"
+      },
+      "reasoning": "І — єднання; але — протиставлення; то… то — чергування; що — підрядність.",
+      "issues": [
+        "MEDIUM завищено; повторено приклади з попередніх запитань.",
+        "Установлення 4↔4 без зайвої правої відповіді послаблює перевірку порівняно з НМТ."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "ORTH"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8b2-2-10",
+      "derivedAnswer": "В",
+      "reasoning": "Спільне вставне мабуть поширюється на обидві частини; перед одиничним і коми немає.",
+      "issues": [
+        "Виняток підтверджений правописом; кома після мабуть лишається потрібною.",
+        "HARD завищено: спільність прямо задана, інші пояснення явно хибні."
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": [
+        "ORTH"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8b2-2-11",
+      "derivedAnswer": "Б",
+      "reasoning": "У Б одиничне і з’єднує однорідні присудки без коми.",
+      "issues": [
+        "HARD завищено; лише Б узагалі містить і, тому можна відповісти без пунктуаційного аналізу.",
+        "Повторюється приклад 02, зменшуючи незалежність перевірки."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "ORTH"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8b2-2-12",
+      "derivedAnswer": "А",
+      "reasoning": "Спочатку встановлюють структуру й зв’язок, потім спільність та знак.",
+      "issues": [
+        "HARD завищено: альтернативи — очевидно неправдиві алгоритми.",
+        "Це скорочена схема для запропонованого матеріалу, а не повний алгоритм усієї пунктуації: слід пам’ятати також спільну інтонацію, односкладні конструкції й авторські знаки."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "ORTH"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    }
+  ]
+}

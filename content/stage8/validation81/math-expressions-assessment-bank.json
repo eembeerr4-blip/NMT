@@ -1,0 +1,221 @@
+{
+  "version": 1,
+  "status": "DRAFT_REVIEWED_PROCEDURAL_PARALLEL_FORMS",
+  "topicId": "math-expressions",
+  "source": "https://testportal.gov.ua/wp-content/uploads/2019/12/nakaz-1513_04.12_programa_matematyka.pdf",
+  "programmePages": [
+    3
+  ],
+  "newQuestions": 12,
+  "workingImportAuthorized": false,
+  "final": {
+    "minimumCorrect": 5,
+    "total": 6,
+    "questionIds": [
+      "s81-expressions-final-01",
+      "s81-expressions-final-02",
+      "s81-expressions-final-03",
+      "s81-expressions-final-04",
+      "s81-expressions-final-05",
+      "s81-expressions-final-06"
+    ]
+  },
+  "delayed": {
+    "minimumCorrect": 5,
+    "total": 6,
+    "notBeforeDays": 7,
+    "questionIds": [
+      "s81-expressions-delayed-01",
+      "s81-expressions-delayed-02",
+      "s81-expressions-delayed-03",
+      "s81-expressions-delayed-04",
+      "s81-expressions-delayed-05",
+      "s81-expressions-delayed-06"
+    ]
+  },
+  "trainingQuestionIds": [
+    "math-draft-v1-math-expressions-01",
+    "math-draft-v1-math-expressions-02",
+    "math-draft-v1-math-expressions-03",
+    "math-draft-v1-math-expressions-04",
+    "math-draft-v1-math-expressions-05",
+    "math-draft-v1-math-expressions-06",
+    "math-draft-v1-math-expressions-07",
+    "math-draft-v1-math-expressions-08",
+    "math-draft-v1-math-expressions-09",
+    "math-draft-v1-math-expressions-10",
+    "math-draft-v1-math-expressions-11",
+    "math-draft-v1-math-expressions-12"
+  ],
+  "questions": [
+    {
+      "code": "s81-expressions-final-01",
+      "type": "NUMERIC",
+      "difficulty": "EASY",
+      "prompt": "Обчисліть $\\frac{a^2-9}{a-3}-a$ при $a=-2$.",
+      "correctAnswer": "3",
+      "explanation": "За a≠3 дріб дорівнює a+3; після віднімання a залишається 3. Значення −2 належить ОДЗ.",
+      "source": "Оригінальне завдання NMT Academy; офіційна програма УЦОЯО з математики, розділи «Числа і вирази», «Рівняння». Не офіційне екзаменаційне завдання.",
+      "options": []
+    },
+    {
+      "code": "s81-expressions-final-02",
+      "type": "NUMERIC",
+      "difficulty": "EASY",
+      "prompt": "Обчисліть $\\frac{2^5\\cdot4^{-1}}{\\sqrt{16}}$.",
+      "correctAnswer": "2",
+      "explanation": "4⁻¹=1/4, √16=4. Тому (32/4)/4=2.",
+      "source": "Оригінальне завдання NMT Academy; офіційна програма УЦОЯО з математики, розділи «Числа і вирази», «Рівняння». Не офіційне екзаменаційне завдання.",
+      "options": []
+    },
+    {
+      "code": "s81-expressions-final-03",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "EASY",
+      "prompt": "Яка ОДЗ виразу $\\frac{x+2}{x^2-4}$?",
+      "correctAnswer": "В",
+      "explanation": "Знаменник (x−2)(x+2) не може дорівнювати нулю: x≠−2 і x≠2. Скорочення не повертає вилучені значення.",
+      "source": "Оригінальне завдання NMT Academy; офіційна програма УЦОЯО з математики, розділи «Числа і вирази», «Рівняння». Не офіційне екзаменаційне завдання.",
+      "options": [
+        {
+          "label": "А",
+          "text": "Усі дійсні числа"
+        },
+        {
+          "label": "Б",
+          "text": "x≠2"
+        },
+        {
+          "label": "В",
+          "text": "x≠−2 і x≠2"
+        },
+        {
+          "label": "Г",
+          "text": "x≠−2"
+        },
+        {
+          "label": "Д",
+          "text": "x>2"
+        }
+      ]
+    },
+    {
+      "code": "s81-expressions-final-04",
+      "type": "NUMERIC",
+      "difficulty": "EASY",
+      "prompt": "Знайдіть додатне значення $x$, якщо $\\sqrt{x^2}=7$ і $x>0$.",
+      "correctAnswer": "7",
+      "explanation": "Для дійсних x маємо √(x²)=|x|. Із |x|=7 та x>0 отримуємо x=7.",
+      "source": "Оригінальне завдання NMT Academy; офіційна програма УЦОЯО з математики, розділи «Числа і вирази», «Рівняння». Не офіційне екзаменаційне завдання.",
+      "options": []
+    },
+    {
+      "code": "s81-expressions-final-05",
+      "type": "NUMERIC",
+      "difficulty": "MEDIUM",
+      "prompt": "Ціна після підвищення на 20% становить 360 грн. На скільки гривень зросла початкова ціна?",
+      "correctAnswer": "60",
+      "explanation": "Нехай початкова ціна P. 1,2P=360, звідси P=300; приріст 360−300=60 грн.",
+      "source": "Оригінальне завдання NMT Academy; офіційна програма УЦОЯО з математики, розділи «Числа і вирази», «Рівняння». Не офіційне екзаменаційне завдання.",
+      "options": []
+    },
+    {
+      "code": "s81-expressions-final-06",
+      "type": "NUMERIC",
+      "difficulty": "EASY",
+      "prompt": "Обчисліть $\\log_2 32-\\log_2 4+3^{-1}\\cdot6$.",
+      "correctAnswer": "5",
+      "explanation": "log₂32=5, log₂4=2, 3⁻¹·6=2. Отже 5−2+2=5.",
+      "source": "Оригінальне завдання NMT Academy; офіційна програма УЦОЯО з математики, розділи «Числа і вирази», «Рівняння». Не офіційне екзаменаційне завдання.",
+      "options": []
+    },
+    {
+      "code": "s81-expressions-delayed-01",
+      "type": "NUMERIC",
+      "difficulty": "EASY",
+      "prompt": "Обчисліть $\\frac{b^2-16}{b-4}-b$ при $b=-1$.",
+      "correctAnswer": "4",
+      "explanation": "При b≠4 дріб дорівнює b+4; після віднімання b результат 4. Значення −1 допустиме.",
+      "source": "Оригінальне завдання NMT Academy; офіційна програма УЦОЯО з математики, розділи «Числа і вирази», «Рівняння». Не офіційне екзаменаційне завдання.",
+      "options": []
+    },
+    {
+      "code": "s81-expressions-delayed-02",
+      "type": "NUMERIC",
+      "difficulty": "EASY",
+      "prompt": "Обчисліть $\\frac{3^3\\cdot9^{-1}}{\\sqrt{9}}$.",
+      "correctAnswer": "1",
+      "explanation": "9⁻¹=1/9, √9=3. Тому (27/9)/3=1.",
+      "source": "Оригінальне завдання NMT Academy; офіційна програма УЦОЯО з математики, розділи «Числа і вирази», «Рівняння». Не офіційне екзаменаційне завдання.",
+      "options": []
+    },
+    {
+      "code": "s81-expressions-delayed-03",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "EASY",
+      "prompt": "Яка ОДЗ виразу $\\frac{x-3}{x^2-9}$?",
+      "correctAnswer": "Г",
+      "explanation": "(x−3)(x+3)≠0, отже x≠−3 і x≠3; скорочений вираз визначено лише на початковій ОДЗ.",
+      "source": "Оригінальне завдання NMT Academy; офіційна програма УЦОЯО з математики, розділи «Числа і вирази», «Рівняння». Не офіційне екзаменаційне завдання.",
+      "options": [
+        {
+          "label": "А",
+          "text": "x≠3"
+        },
+        {
+          "label": "Б",
+          "text": "x≠−3"
+        },
+        {
+          "label": "В",
+          "text": "Усі дійсні числа"
+        },
+        {
+          "label": "Г",
+          "text": "x≠−3 і x≠3"
+        },
+        {
+          "label": "Д",
+          "text": "x>3"
+        }
+      ]
+    },
+    {
+      "code": "s81-expressions-delayed-04",
+      "type": "NUMERIC",
+      "difficulty": "EASY",
+      "prompt": "Знайдіть від’ємне значення $t$, якщо $\\sqrt{t^2}=9$ і $t<0$.",
+      "correctAnswer": "-9",
+      "explanation": "√(t²)=|t|. З |t|=9 та t<0 маємо t=−9.",
+      "source": "Оригінальне завдання NMT Academy; офіційна програма УЦОЯО з математики, розділи «Числа і вирази», «Рівняння». Не офіційне екзаменаційне завдання.",
+      "options": []
+    },
+    {
+      "code": "s81-expressions-delayed-05",
+      "type": "NUMERIC",
+      "difficulty": "MEDIUM",
+      "prompt": "Ціна після зниження на 25% становить 450 грн. На скільки гривень зменшилася початкова ціна?",
+      "correctAnswer": "150",
+      "explanation": "0,75P=450, P=600. Зниження 600−450=150 грн.",
+      "source": "Оригінальне завдання NMT Academy; офіційна програма УЦОЯО з математики, розділи «Числа і вирази», «Рівняння». Не офіційне екзаменаційне завдання.",
+      "options": []
+    },
+    {
+      "code": "s81-expressions-delayed-06",
+      "type": "NUMERIC",
+      "difficulty": "EASY",
+      "prompt": "Обчисліть $\\log_3 81-\\log_3 3+2^{-1}\\cdot10$.",
+      "correctAnswer": "8",
+      "explanation": "log₃81=4, log₃3=1, 2⁻¹·10=5. Отже 4−1+5=8.",
+      "source": "Оригінальне завдання NMT Academy; офіційна програма УЦОЯО з математики, розділи «Числа і вирази», «Рівняння». Не офіційне екзаменаційне завдання.",
+      "options": []
+    }
+  ],
+  "limitations": [
+    "Disjoint identifiers/prompts, but six structural parallel pairs. Tests procedural retention, not broad transfer.",
+    "Public source keys are not a secure examination bank.",
+    "No automatic reservation or attempt-use exclusion in current app; manual curated TestSet plus exposure discipline needed.",
+    "Six questions give a coarse threshold:5/6=83.33%,4/6=66.67%.",
+    "Not a complete topic bank or empirically equated forms."
+  ]
+}

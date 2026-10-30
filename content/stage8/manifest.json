@@ -1,12 +1,52 @@
 {
-  "status": "REVIEWED_STAGE8_CHECKPOINT",
+  "status": "STAGE81_REVIEWED_CHECKPOINT_PARTIAL",
   "checkedAt": "2026-10-30",
-  "scope": "Original content, aggregate Telegram metadata only, safe QA reports, offline updaters and isolated tests. No raw media, private index, databases, credentials or unrelated dirty files.",
+  "scope": "Stage8 plus Stage8.1 safe educational artifacts/tests only; no raw Telegram, private credentials/data, SQLite, backup, logs or foreign dirty files.",
   "files": [
     {
+      "path": "content/stage8/CONTINUATION-RESULT.md",
+      "bytes": 3407,
+      "sha256": "2d573b2f9527a77901900a7d50c27c5b882ef347e227ddbbf92c57c98fd51337"
+    },
+    {
+      "path": "content/stage8/FINAL-24-REVIEW.md",
+      "bytes": 14141,
+      "sha256": "7620cc2717466bb3d51da7ce796591b4c1df79eb2135d08d9ceab393d4785fda"
+    },
+    {
+      "path": "content/stage8/INVENTORY.md",
+      "bytes": 21516,
+      "sha256": "3302f4de061920b9dfcf933b36691e74505c68c3f5f86a89da1e3fec7ab6378f"
+    },
+    {
+      "path": "content/stage8/QA-RESULTS.json",
+      "bytes": 9963,
+      "sha256": "848621c053ea1b3030d2d4750eb4868c122b05b30ccb0aa9a14a9f7aa5f77507"
+    },
+    {
+      "path": "content/stage8/STAGE8-1-VALIDATION-REPORT.md",
+      "bytes": 11794,
+      "sha256": "0cf59bf473fdb03bd27c056fe3136e95bfe597aa723e9ab15d5c50fff94477ce"
+    },
+    {
+      "path": "content/stage8/WORKING-24-RESULT.json",
+      "bytes": 802,
+      "sha256": "ee717a5a4cd67daa5b5384cbb2771a933739fffa310babb01a8d5ab665253d38"
+    },
+    {
+      "path": "content/stage8/assessment-bank-plan.json",
+      "bytes": 4658,
+      "sha256": "ee214c1b3f302282d599fe75b6a761b99fa1f909e0386d9085756548aef5ee91"
+    },
+    {
+      "path": "content/stage8/batch02/QA.json",
+      "bytes": 2403,
+      "sha256": "da93489fe23194328f9e45d12c74f4cab68a50f33a18031f464a8a495bc4951f"
+    },
+    {
       "path": "content/stage8/batch02/biology-cell-division.svg",
-      "bytes": 2042,
-      "sha256": "0a828256d0edbb8bac7a0e8f5ea6a8212576e4551065d346096ca3ca2ae27ede"
+      "bytes": 2361,
+      "sha256": "280ff458223bbe61f5d5d3abbecb78c4f2943fdc78f8ff7548f22182748bb172"
     },
     {
       "path": "content/stage8/batch02/history-galicia-timeline.json",
@@ -19,14 +59,9 @@
       "sha256": "12c407d49a45f64edcc3ee46e6d360afa408f1441f234b2d9560fe3ecf51d88f"
     },
     {
-      "path": "content/stage8/batch02/QA.json",
-      "bytes": 2403,
-      "sha256": "da93489fe23194328f9e45d12c74f4cab68a50f33a18031f464a8a495bc4951f"
-    },
-    {
       "path": "content/stage8/batch02/ukrainian-grammar.package.json",
-      "bytes": 52250,
-      "sha256": "19724ca995b0d6a94f1a39398da8f6fa2bc4ac18afbb71b47e5ee01ada953079"
+      "bytes": 52280,
+      "sha256": "5cf1a074ec806d884f1a390944afca6f79b8a5c21c8eebb0fb47a4b45cbbd7a0"
     },
     {
       "path": "content/stage8/batch02/video-candidates.json",
@@ -39,11 +74,6 @@
       "sha256": "8700fcd2b348db8e97b1d7e6cb81d98f47e809a62656cc9dd37c2b82115372e2"
     },
     {
-      "path": "content/stage8/CONTINUATION-RESULT.md",
-      "bytes": 3407,
-      "sha256": "2d573b2f9527a77901900a7d50c27c5b882ef347e227ddbbf92c57c98fd51337"
-    },
-    {
       "path": "content/stage8/final-24-additional-review.json",
       "bytes": 10326,
       "sha256": "4a6fd7159e9ec889a74fdcd34b525710b7c43c3ace380eb68ec79ecf6675e0a7"
@@ -52,11 +82,6 @@
       "path": "content/stage8/final-24-corrections.json",
       "bytes": 79553,
       "sha256": "392291e34155131e2858850e99bb787915de1d1fb1bbdbebb388b155919ad36d"
-    },
-    {
-      "path": "content/stage8/FINAL-24-REVIEW.md",
-      "bytes": 14141,
-      "sha256": "7620cc2717466bb3d51da7ce796591b4c1df79eb2135d08d9ceab393d4785fda"
     },
     {
       "path": "content/stage8/final-24-source-review.json",
@@ -69,14 +94,14 @@
       "sha256": "11d5c6529116e4f9b75fa5b9db0646cd8bb7df115474a9b96c66f30b7ee81be4"
     },
     {
+      "path": "content/stage8/independent-review-ledger.json",
+      "bytes": 403510,
+      "sha256": "057ebf2728db2567e9ee168cc3d6a6272073417f2c8d3802cdce7151a5b346be"
+    },
+    {
       "path": "content/stage8/inventory.json",
       "bytes": 68254,
       "sha256": "6d6987be413decf951bd83a4a3227184043b50f86986ce360849dfadf9d0eceb"
-    },
-    {
-      "path": "content/stage8/INVENTORY.md",
-      "bytes": 21516,
-      "sha256": "3302f4de061920b9dfcf933b36691e74505c68c3f5f86a89da1e3fec7ab6378f"
     },
     {
       "path": "content/stage8/learning-route.json",
@@ -110,13 +135,13 @@
     },
     {
       "path": "content/stage8/packages/biology-foundation.package.json",
-      "bytes": 25701,
-      "sha256": "ba50c2b81e2e87e3ad58b2d5b6e0bd8c271ee849a29af8378a1c7693e5676361"
+      "bytes": 25911,
+      "sha256": "94897c85b69f39335e0286d1445a9d15441667c430dc2e9dbaaf46186c84901b"
     },
     {
       "path": "content/stage8/packages/history-foundation.package.json",
-      "bytes": 24971,
-      "sha256": "fd30353bdafd96171c210f6cde87edade8003249dcaacc6fce1105d157a3e627"
+      "bytes": 25231,
+      "sha256": "b0b5dafd888fd9cf7fdc1aa124e8a886871676a15fed0283bad313d8b661c8a4"
     },
     {
       "path": "content/stage8/packages/math-reviewed.package.json",
@@ -125,13 +150,18 @@
     },
     {
       "path": "content/stage8/packages/ukrainian-foundation.package.json",
-      "bytes": 26532,
-      "sha256": "d52e7e60559b918c19bbc8ca822b7037edde2ace4589a6c9165a542f02abaefd"
+      "bytes": 27080,
+      "sha256": "f094749a5e0718443de31075bc212210e4f81085ff3650d318bc63deedad7de3"
     },
     {
       "path": "content/stage8/production-backlog.json",
       "bytes": 211237,
       "sha256": "eab30f6be2ee7385455f71d09d14a2ca1724353a963e9dd78f4f5c927a269ab5"
+    },
+    {
+      "path": "content/stage8/program-crosswalk-audit.json",
+      "bytes": 472953,
+      "sha256": "62aeeaf3170c65d0191d0f00c883fcef4262b79c34b3f48d9445636d011af448"
     },
     {
       "path": "content/stage8/program-map.json",
@@ -149,11 +179,6 @@
       "sha256": "395df59aac9331c521da79ff7af47acbf6519a6faf1f8bda00a240b0a8aa8791"
     },
     {
-      "path": "content/stage8/QA-RESULTS.json",
-      "bytes": 9963,
-      "sha256": "848621c053ea1b3030d2d4750eb4868c122b05b30ccb0aa9a14a9f7aa5f77507"
-    },
-    {
       "path": "content/stage8/question-review-ledger.json",
       "bytes": 160364,
       "sha256": "ed9307020fde5afa025003661ea3cbc9ae4472c564b221792226dcc55b520b39"
@@ -164,14 +189,89 @@
       "sha256": "9adb3e9ca46e7c3c442030819e4edd2dba65b73f69544191e86eecee0a9601db"
     },
     {
+      "path": "content/stage8/telegram-materials-curation.json",
+      "bytes": 2231,
+      "sha256": "045108b0a9a458b285c619c5041e5b340b6db8d9bd7d1f379316af3cc414a0a7"
+    },
+    {
       "path": "content/stage8/telegram-summary.json",
       "bytes": 1404,
       "sha256": "4be9c0cc51afe32b8ebf9586dfa92d3e9499ef7dccac6a0f6fa70ad6ced17241"
     },
     {
-      "path": "content/stage8/WORKING-24-RESULT.json",
-      "bytes": 802,
-      "sha256": "ee717a5a4cd67daa5b5384cbb2771a933739fffa310babb01a8d5ab665253d38"
+      "path": "content/stage8/validation81/QA-RESULTS.json",
+      "bytes": 4194,
+      "sha256": "67fb75b1c84917484d0007c05e6724ff1ff48c1c205cf6bd72f17b1fdb2d16ec"
+    },
+    {
+      "path": "content/stage8/validation81/assessment-blind-review.json",
+      "bytes": 11688,
+      "sha256": "b0180e10251e163f4e6b00db2bc657c3f9b1682e60fe1032b90428cf940e1095"
+    },
+    {
+      "path": "content/stage8/validation81/assessment-full-review.json",
+      "bytes": 6455,
+      "sha256": "510b4c50140eb387f2d95cc4d8de217f00926ef4c00dcaf8438b534a4edc302f"
+    },
+    {
+      "path": "content/stage8/validation81/assessment-study-guide.md",
+      "bytes": 2310,
+      "sha256": "ec55b8503fd90d8ef5039180b1e1a479ccbca1fc7ed0a793568eef68ee7f7599"
+    },
+    {
+      "path": "content/stage8/validation81/candidate-corrections.json",
+      "bytes": 9661,
+      "sha256": "775c18b03f502de726abdf5f61de4c6a2d5e5ae3e7cd3b4d7a09f0c57ad5f8ca"
+    },
+    {
+      "path": "content/stage8/validation81/history-biology-blind-review.json",
+      "bytes": 13969,
+      "sha256": "aa269676026b0e7be8f2635e77c2a8640f20579aafabc8a1d8f5de17e7949906"
+    },
+    {
+      "path": "content/stage8/validation81/history-biology-full-review.json",
+      "bytes": 30803,
+      "sha256": "268affdc652fe2df1775af13cd315b4120ff2a64c35f517253a8ea5611365634"
+    },
+    {
+      "path": "content/stage8/validation81/math-blind-review.json",
+      "bytes": 85557,
+      "sha256": "c2a454dcd968e3ac5da4ba276af9a3d835c7ec34e59e2de7f54cdf8dec3d9bdc"
+    },
+    {
+      "path": "content/stage8/validation81/math-expressions-assessment-bank.json",
+      "bytes": 10554,
+      "sha256": "c7f8c5dd171bd64b4747b0c90639ab99cafda34d4813a5ca1540a002d2225627"
+    },
+    {
+      "path": "content/stage8/validation81/math-full-review.json",
+      "bytes": 57285,
+      "sha256": "18fefdde2741aafdd4a71dc5c8eb55f30f92d661f579cd6f7a186c9584f9050e"
+    },
+    {
+      "path": "content/stage8/validation81/review-evidence.json",
+      "bytes": 2697,
+      "sha256": "c225d180896b772f06a72dad317a5b4550b7a702f4e88cecb9898180869b39d3"
+    },
+    {
+      "path": "content/stage8/validation81/ukrainian-blind-review.json",
+      "bytes": 25759,
+      "sha256": "06e685537349ec9c3d50334e81decea360168ec697cfa80be195a8ba0919cb95"
+    },
+    {
+      "path": "content/stage8/validation81/ukrainian-full-review.json",
+      "bytes": 32011,
+      "sha256": "23c5a65e6a126675a28126908457a161c28b1e526c6716b67d2454c293f35884"
+    },
+    {
+      "path": "content/stage8/validation81/ukrainian-post-fix-review.json",
+      "bytes": 3989,
+      "sha256": "25d50dce37c175a301a452d7cebf1ef806e29026981048a5290a7b8a057d62ca"
+    },
+    {
+      "path": "content/stage8/video-verification.json",
+      "bytes": 6750,
+      "sha256": "4369256ab87c338bfa5c9f9dba33ab0b92922cfae1f7e9a3b0f53df2fcfed7dc"
     },
     {
       "path": "content/stage8/working-readonly-preview.json",
@@ -189,6 +289,11 @@
       "sha256": "6e3984264bab4b9166b96ab20f49f63c1cecb07dfee1c20e7a38f0c48a97c558"
     },
     {
+      "path": "tests/stage8-batch02.db.test.ts",
+      "bytes": 8528,
+      "sha256": "3e8406e9fb405f5acf1ca5e02ebfb38ecbc8739d231521da4097e6f6d3c609f0"
+    },
+    {
       "path": "tests/stage8-content.db.test.ts",
       "bytes": 11597,
       "sha256": "6a2d3f7b729747df208a544ca3e408ccb8d85d6a48b0e01c8b40a57bbe283068"
@@ -199,9 +304,13 @@
       "sha256": "51cffa901fbd26cd6a82103da9f70c68293a8cc1facaf8398ded999af82a9777"
     },
     {
-      "path": "tests/stage8-batch02.db.test.ts",
-      "bytes": 8528,
-      "sha256": "3e8406e9fb405f5acf1ca5e02ebfb38ecbc8739d231521da4097e6f6d3c609f0"
+      "path": "tests/stage81-review.test.ts",
+      "bytes": 5778,
+      "sha256": "e00af61e03d1e2bb62539eb174d077d1cbef942c231ca90c363936b3f11e98c9"
     }
+  ],
+  "limitations": [
+    "Manifest intentionally excludes itself to avoid recursive hashes.",
+    "Previous historical report artifacts are retained; newer review findings supersede content approval claims."
   ]
 }

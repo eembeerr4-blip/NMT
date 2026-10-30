@@ -1,0 +1,150 @@
+{
+  "stage": "8.1",
+  "date": "2026-10-30",
+  "status": "TECHNICAL_QA_PASS_EDITORIAL_STAGE_PARTIAL",
+  "commands": [
+    {
+      "command": "npx vitest run tests/stage81-review.test.ts tests/stage8-content.db.test.ts tests/stage8-batch02.db.test.ts tests/stage8-published-updater.test.ts",
+      "result": "PASS",
+      "tests": 292,
+      "note": "First run review suite197+existing integration95."
+    },
+    {
+      "command": "npx vitest run tests/stage81-review.test.ts",
+      "result": "PASS",
+      "tests": 376,
+      "note": "Final expanded review suite;197 overlap first run. Distinct total376+95=471."
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "PASS"
+    },
+    {
+      "command": "npx eslint tests/stage81-review.test.ts",
+      "result": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "result": "PASS"
+    }
+  ],
+  "browser": {
+    "engine": "Actual Chromium(channel chrome) + Next.js production build",
+    "database": "Two fresh synthetic temporary SQLite fixtures; no working users or results.",
+    "sourceFilesMatched": 195,
+    "sourceDifferences": 0,
+    "reusedProductionBuild": "XJpob7NDyh-tLWzPQqcYO",
+    "freshBuild": "NOT_RUN: no production app sources changed; matching existing production build reused.",
+    "widths": [
+      320,
+      360,
+      390,
+      768,
+      1280
+    ],
+    "lessonViewportChecks": 75,
+    "cycles": [
+      {
+        "topic": "math-expressions",
+        "answers": 12,
+        "correct": 11,
+        "wrong": 1,
+        "matching": 1,
+        "sequence": 0,
+        "reloaded": true,
+        "ok": true
+      },
+      {
+        "topic": "cm-ukrainian-formation",
+        "answers": 12,
+        "correct": 11,
+        "wrong": 1,
+        "matching": 1,
+        "sequence": 0,
+        "reloaded": true,
+        "ok": true
+      },
+      {
+        "topic": "cm-history-sources",
+        "answers": 12,
+        "correct": 11,
+        "wrong": 1,
+        "matching": 0,
+        "sequence": 1,
+        "reloaded": true,
+        "ok": true
+      },
+      {
+        "topic": "cm-biology-mendel",
+        "answers": 12,
+        "correct": 11,
+        "wrong": 1,
+        "matching": 1,
+        "sequence": 0,
+        "reloaded": true,
+        "ok": true
+      },
+      {
+        "topic": "ukr-morph-sub-01",
+        "answers": 12,
+        "correct": 11,
+        "wrong": 1,
+        "matching": 1,
+        "sequence": 0,
+        "reloaded": true,
+        "ok": true
+      },
+      {
+        "topic": "cm-ukrainian-compound-sentence",
+        "answers": 12,
+        "correct": 11,
+        "wrong": 1,
+        "matching": 1,
+        "sequence": 0,
+        "reloaded": true,
+        "ok": true
+      }
+    ],
+    "resultPersistence": true,
+    "mistakeRetry": true,
+    "draftAccessDeniedBeforeSyntheticPublication": true,
+    "errors": [],
+    "qaServer": "Temporary3138 stopped; existing3000/3100/3102 untouched."
+  },
+  "assessmentPilot": {
+    "validation": "PASS real Zod import contract",
+    "questions": 12,
+    "correctAndWrongGrading": "PASS",
+    "disjointIdsAndPrompts": "PASS",
+    "blindDerivationAndExplanation": "12/12 PASS",
+    "browserImportAndCuratedSetCycle": "NOT_RUN: standalone draft pilot not yet integrated; no real holdout enforcement claimed."
+  },
+  "subjectReview": {
+    "candidateQuestions": 180,
+    "blindAcceptableOriginalKeys": 178,
+    "rewrittenItems": 2,
+    "postFixFactualBlockers": 0,
+    "remainingMethodologicalOrEditorialRevision": 155,
+    "scope": "Separate model agents, not external human sign-off."
+  },
+  "workingDatabase": {
+    "mode": "READ_ONLY_QUERY_ONLY",
+    "tablesCompared": 31,
+    "changedTables": [],
+    "counts": {
+      "topics": 101,
+      "questions": 538,
+      "options": 1617,
+      "studyTasks": 112
+    },
+    "integrity": "ok",
+    "foreignKeyViolations": 0,
+    "unchanged": true
+  },
+  "limitations": [
+    "155 ledger items retain editorial/methodological revision flags; no all-content-publication approval.",
+    "No complete757-line syllabus certification.",
+    "Five short playback observations, zero full content/language verified videos.",
+    "Only one small parallel-form assessment pilot, not15independent banks."
+  ]
+}

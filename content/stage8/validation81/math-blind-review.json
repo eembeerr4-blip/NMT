@@ -1,0 +1,2335 @@
+{
+  "phase": 1,
+  "reviewType": "Independent model-agent blind educational review, not human sign-off",
+  "subjectId": "math",
+  "input": "PRIVATE_BLIND_PACKET/math-blind.json",
+  "inputSha256": "77fbff1ebc1df4e7ba7c0aac84b9bc755d76e587f10a469ce24fcfbe6140a2e5",
+  "blindness": "No stage8 source packages, proposed keys, explanations, or prior subject reports read before this ledger. Only administrative AGENTS/ARCHITECTURE/PLAN, blinded prompts/options, and official sources consulted.",
+  "scope": "120 questions independently solved; no DB access, app edits or git operations.",
+  "assumptions": [
+    "Real-number school mathematics.",
+    "Lengths positive; school right-circular-cone convention flagged where used.",
+    "Random draws uniform among individual balls or unordered samples; standard fair die six-sided.",
+    "Numeric values exact; decimal comma and decimal point equivalent."
+  ],
+  "officialSources": [
+    {
+      "url": "https://testportal.gov.ua/matematyka-2026/",
+      "use": "Personally read official 2026 domains and question forms. Calculations independently derived."
+    },
+    {
+      "url": "https://testportal.gov.ua/progmath/",
+      "use": "Official syllabus landing identified; fetch failed. Full current PDF not personally inspected."
+    },
+    {
+      "url": "https://testportal.gov.ua/wp-content/uploads/2016/12/Programa_2020_matematyka.pdf",
+      "use": "Official search excerpt confirms antiderivative and definite integral topics."
+    }
+  ],
+  "overallObservations": [
+    {
+      "severity": "minor",
+      "category": "difficulty",
+      "message": "All30 assigned HARD items are short standard school tasks and better MEDIUM. Many MEDIUM items are direct formulas and better EASY. Requires empirical calibration."
+    },
+    {
+      "severity": "minor",
+      "category": "answer-position-pattern",
+      "message": "Every module has first four single-choice answers А,Б,В,Г respectively. Randomize choice positions to avoid a predictable guessing cue."
+    },
+    {
+      "severity": "minor",
+      "category": "coverage",
+      "message": "Basic practice pool alone does not establish full NMT readiness: no graphs/diagrams, limited inequalities and nonroutine reasoning. Withheld lessons not assessed in phase1."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-draft-v1-math-expressions-01",
+      "derivedAnswer": "А",
+      "reasoning": "3*4-2*4+5=9",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-expressions-02",
+      "derivedAnswer": "Б",
+      "reasoning": "(2*2)^3=64",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-expressions-03",
+      "derivedAnswer": "В",
+      "reasoning": "Principal sqrt81=9, because9^2=81",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-expressions-04",
+      "derivedAnswer": "Г",
+      "reasoning": "3^3=27, so log_3(27)=3",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-expressions-05",
+      "derivedAnswer": "10",
+      "reasoning": "(6^2-16)/(6-4)=20/2=10; denominator nonzero",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "10"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-expressions-06",
+      "derivedAnswer": "1",
+      "reasoning": "-(2a-3b)+4a=2a+3b=4-3=1",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "1"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-expressions-07",
+      "derivedAnswer": "10",
+      "reasoning": "sqrt50*sqrt2=sqrt100=10, radicands positive",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "10"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-expressions-08",
+      "derivedAnswer": "5",
+      "reasoning": "8*4=32=2^5; logarithm5",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "5"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-expressions-09",
+      "derivedAnswer": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "reasoning": "1:3^2-4=5 ->А;2:2*3+1=7 ->В;3:(3+1)^2=16 ->Д",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS"
+    },
+    {
+      "id": "math-draft-v1-math-expressions-10",
+      "derivedAnswer": "4",
+      "reasoning": "Domain x!=3,1. Cancel x-3: (x+3)(x-1)=2x+13 gives x^2=16. Roots -4,4 both allowed; positive root4",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "4"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-expressions-11",
+      "derivedAnswer": "24",
+      "reasoning": "2^x=8 implies x=3; (4^4-2^6)/8=(256-64)/8=24",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "24"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-expressions-12",
+      "derivedAnswer": "47",
+      "reasoning": "(a+1/a)^2=9 gives a^2+1/a^2=7; squaring gives a^4+1/a^4=49-2=47",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "47"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-01",
+      "derivedAnswer": "А",
+      "reasoning": "s=2+3=5;2-3=-1 satisfies second equation",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-02",
+      "derivedAnswer": "Б",
+      "reasoning": "Add equations:2x=10,x=5",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-03",
+      "derivedAnswer": "В",
+      "reasoning": "x=2y gives3y=9,y=3",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-04",
+      "derivedAnswer": "Г",
+      "reasoning": "Subtract equations:2y=2,y=1",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-05",
+      "derivedAnswer": "2",
+      "reasoning": "x=y+3;2(y+3)+3y=16 gives5y=10,y=2",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "2"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-06",
+      "derivedAnswer": "4",
+      "reasoning": "y=8-x;3x-2(8-x)=4 gives5x=20,x=4",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "4"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-07",
+      "derivedAnswer": "8",
+      "reasoning": "Smaller t: t+(t+7)=23 gives t=8",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "8"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-08",
+      "derivedAnswer": "105",
+      "reasoning": "Child c,adult c+45:2(c+45)+3c=390 gives c=60,adult105",
+      "issues": [],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED",
+      "acceptedNumericValues": [
+        "105"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-09",
+      "derivedAnswer": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "reasoning": "1:2x=8,x=4 ->А;2:2y=6,y=3 ->В;3:y=2,x=4,sum6 ->Д",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS"
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-10",
+      "derivedAnswer": "16",
+      "reasoning": "Downstream60/3=20,upstream60/5=12; own speed=(20+12)/2=16 km/h, assuming constant speeds",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "16"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-11",
+      "derivedAnswer": "7",
+      "reasoning": "40% alloy x kg: .4x+.2(10-x)=.34*10 gives .2x=1.4,x=7",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "7"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-12",
+      "derivedAnswer": "3",
+      "reasoning": "For infinitely many solutions second equation must be twice first:2a=6,a=3; constants already proportional",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "3"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-01",
+      "derivedAnswer": "А",
+      "reasoning": "D=25-4*6=1",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-02",
+      "derivedAnswer": "Б",
+      "reasoning": "Roots of x^2=49 are -7,7; larger7",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-03",
+      "derivedAnswer": "В",
+      "reasoning": "Vieta sum=-b/a=8",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-04",
+      "derivedAnswer": "Г",
+      "reasoning": "D=0-4*1*4=-16",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-05",
+      "derivedAnswer": "3",
+      "reasoning": "D=49-24=25; roots(7+5)/4=3,(7-5)/4=.5; larger3",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "3"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-06",
+      "derivedAnswer": "-3",
+      "reasoning": "(x+3)^2=0 gives one distinct root-3",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "-3"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-07",
+      "derivedAnswer": "-2",
+      "reasoning": "Vieta product=c/a=-6/3=-2;D=97>0",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "-2"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-08",
+      "derivedAnswer": "0",
+      "reasoning": "(x-2)(x-3)<0 iff2<x<3; no integers",
+      "issues": [],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED",
+      "acceptedNumericValues": [
+        "0"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-09",
+      "derivedAnswer": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "reasoning": "Roots2,5:1:sum7 ->А;2:product10 ->В;3:larger5 ->Д",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS"
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-10",
+      "derivedAnswer": "3",
+      "reasoning": "Domain x!=2. Numerator(x-2)(x-3) vanishes at2,3, only3 valid. Sum3",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "3"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-11",
+      "derivedAnswer": "2",
+      "reasoning": "Insert root3:9-3(m+2)+2m=0 gives m=3. Equation(x-2)(x-3)=0; other root2",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "2"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-12",
+      "derivedAnswer": "12",
+      "reasoning": "Sides sum22,product120; roots of t^2-22t+120=0 are10,12; longer12",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "12"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-functions-01",
+      "derivedAnswer": "А",
+      "reasoning": "f(4)=8-3=5",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-functions-02",
+      "derivedAnswer": "Б",
+      "reasoning": "Zero:3x-12=0,x=4",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-functions-03",
+      "derivedAnswer": "В",
+      "reasoning": "On Oy x=0 so y=7",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-functions-04",
+      "derivedAnswer": "Г",
+      "reasoning": "Denominator x-5=0 at excluded x=5",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-functions-05",
+      "derivedAnswer": "3",
+      "reasoning": "Vertex abscissa=-b/(2a)=6/2=3",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "3"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-functions-06",
+      "derivedAnswer": "-3",
+      "reasoning": "Square>=0; atx=4 square0,minimum-3",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "-3"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-functions-07",
+      "derivedAnswer": "8",
+      "reasoning": "f(-3)=9-1=8",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "8"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-functions-08",
+      "derivedAnswer": "7",
+      "reasoning": "Real square root requires7-x>=0,x<=7;greatest integer7",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "7"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-functions-09",
+      "derivedAnswer": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "reasoning": "1:f(2)=4 ->А;2:zero2x-6 gives3 ->В;3:2^5=32,log=5 ->Д",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS"
+    },
+    {
+      "id": "math-draft-v1-math-functions-10",
+      "derivedAnswer": "5",
+      "reasoning": "Negative branch f(-3)=10; nonnegative branch f(4)=5; difference5",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "5"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-functions-11",
+      "derivedAnswer": "1",
+      "reasoning": "g(-2)=-3,f(-3)=8;f(2)=3,g(3)=7;difference1",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "1"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-functions-12",
+      "derivedAnswer": "15",
+      "reasoning": "Intersection x^2-7x+10=0 givesx=2,5;ordinates3,12;sum15",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "15"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-progressions-01",
+      "derivedAnswer": "А",
+      "reasoning": "a5=2+4*3=14",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-progressions-02",
+      "derivedAnswer": "Б",
+      "reasoning": "d=4-7=-3,also1-4=-3",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-progressions-03",
+      "derivedAnswer": "В",
+      "reasoning": "b4=3*2^3=24",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-progressions-04",
+      "derivedAnswer": "Г",
+      "reasoning": "q=15/5=45/15=3",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-progressions-05",
+      "derivedAnswer": "100",
+      "reasoning": "a10=1+9*2=19;S10=10*(1+19)/2=100",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "100"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-progressions-06",
+      "derivedAnswer": "3",
+      "reasoning": "a7-a3=4d=12,d=3",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "3"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-progressions-07",
+      "derivedAnswer": "62",
+      "reasoning": "2+4+8+16+32=62",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "62"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-progressions-08",
+      "derivedAnswer": "10",
+      "reasoning": "4+3(n-1)=31 givesn=10",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "10"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-progressions-09",
+      "derivedAnswer": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "reasoning": "1:a4=1+3*2=7 ->А;2:b4=2^3=8 ->В;3:S4=1+2+3+4=10 ->Д",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS"
+    },
+    {
+      "id": "math-draft-v1-math-progressions-10",
+      "derivedAnswer": "145",
+      "reasoning": "5d=22-7=15,d=3;a1=7-2*3=1;a10=28;S10=10*(1+28)/2=145",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "145"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-progressions-11",
+      "derivedAnswer": "242",
+      "reasoning": "q^3=162/6=27,q>0 givesq=3;b1=2;S5=2*(3^5-1)/(3-1)=242",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "242"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-progressions-12",
+      "derivedAnswer": "59",
+      "reasoning": "a10=S10-S9=(300+20)-(243+18)=59",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "59"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-trig-01",
+      "derivedAnswer": "А",
+      "reasoning": "sin30degrees=1/2=.5",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-trig-02",
+      "derivedAnswer": "Б",
+      "reasoning": "cos180degrees=-1 by unit circle",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-trig-03",
+      "derivedAnswer": "В",
+      "reasoning": "tan45degrees=sin45/cos45=1",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-trig-04",
+      "derivedAnswer": "Г",
+      "reasoning": "pi radians=180degrees;pi/2=90degrees",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-trig-05",
+      "derivedAnswer": "1.5",
+      "reasoning": "2sin30+cos60=2*.5+.5=1.5",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "1.5",
+        "1,5"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-trig-06",
+      "derivedAnswer": "0.8",
+      "reasoning": "cos^2=1-.6^2=.64;first quadrant selects positive .8",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "0.8",
+        "0,8"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-trig-07",
+      "derivedAnswer": "2",
+      "reasoning": "cosx=0 atpi/2+k*pi;only pi/2,3pi/2 in[0,2pi];count2",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "2"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-trig-08",
+      "derivedAnswer": "1",
+      "reasoning": "Identity sin^2t+cos^2t=1",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "1"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-trig-09",
+      "derivedAnswer": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "reasoning": "1:sin30=.5 ->А;2:cos180=-1 ->В;3:tan45=1 ->Д",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS"
+    },
+    {
+      "id": "math-draft-v1-math-trig-10",
+      "derivedAnswer": "-0.96",
+      "reasoning": "QuadrantII:cos=-4/5;sin2x=2*(3/5)*(-4/5)=-24/25=-.96",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "-0.96",
+        "-0,96"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-trig-11",
+      "derivedAnswer": "5",
+      "reasoning": "QuadrantIII:sin=-5/13,tan=5/12,12tan=5",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "5"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-trig-12",
+      "derivedAnswer": "4",
+      "reasoning": "x=pi/4+k*pi/2;four roots pi/4,3pi/4,5pi/4,7pi/4 in[0,2pi]",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "4"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-derivative-01",
+      "derivedAnswer": "А",
+      "reasoning": "f'=2x,f'(2)=4",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-derivative-02",
+      "derivedAnswer": "Б",
+      "reasoning": "Derivative of constant7 is0",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-derivative-03",
+      "derivedAnswer": "В",
+      "reasoning": "(3x+2)'=3 everywhere",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-derivative-04",
+      "derivedAnswer": "Г",
+      "reasoning": "Slope of line and tangent is5",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-derivative-05",
+      "derivedAnswer": "10",
+      "reasoning": "f'=3x^2-2;f'(2)=12-2=10",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "10"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-derivative-06",
+      "derivedAnswer": "54",
+      "reasoning": "Chain rule:f'=6(2x+1)^2;at1 gives6*9=54;expanding polynomial gives same",
+      "issues": [],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED",
+      "acceptedNumericValues": [
+        "54"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-derivative-07",
+      "derivedAnswer": "4",
+      "reasoning": "f=(x-4)^2+4;minimum atx=4;alsof'=2x-8",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "4"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-derivative-08",
+      "derivedAnswer": "8",
+      "reasoning": "Antiderivative x^3;integral=2^3-0^3=8",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        },
+        {
+          "severity": "minor",
+          "category": "topic-placement",
+          "message": "Tests integration rather than derivative; ensure module title or lesson includes antiderivatives/integrals. Integral itself is in syllabus."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "8"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-derivative-09",
+      "derivedAnswer": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "reasoning": "1:(x^2)'at1=2 ->А;2:(x^3)'at1=3 ->В;3:(4x+7)'=4 ->Д",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS"
+    },
+    {
+      "id": "math-draft-v1-math-derivative-10",
+      "derivedAnswer": "2",
+      "reasoning": "At(2,4) slope4;tangent y=4x-4;intercepts(1,0),(0,-4);triangle area=1*4/2=2",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "2"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-derivative-11",
+      "derivedAnswer": "18",
+      "reasoning": "f'=3x^2-3=0 at-1,1;values at-2,-1,1,3 are-2,2,-2,18;maximum18",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "18"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-derivative-12",
+      "derivedAnswer": "100",
+      "reasoning": "Sidesx,20-x;area=x(20-x)=100-(x-10)^2<=100,attained by10x10 square",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "100"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-plane-01",
+      "derivedAnswer": "А",
+      "reasoning": "Triangle area8*5/2=20",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-plane-02",
+      "derivedAnswer": "Б",
+      "reasoning": "Rectangle perimeter2*(3+7)=20",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-plane-03",
+      "derivedAnswer": "В",
+      "reasoning": "Radius12/2=6",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-plane-04",
+      "derivedAnswer": "Г",
+      "reasoning": "Triangle angle180-50-60=70",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-plane-05",
+      "derivedAnswer": "15",
+      "reasoning": "Hypotenuse sqrt(9^2+12^2)=sqrt225=15",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "15"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-plane-06",
+      "derivedAnswer": "16",
+      "reasoning": "Circle area pi*4^2=16pi,k=16",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "16"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-plane-07",
+      "derivedAnswer": "32",
+      "reasoning": "Trapezoid area(6+10)*4/2=32",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "32"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-plane-08",
+      "derivedAnswer": "5",
+      "reasoning": "Distance sqrt((4-1)^2+(6-2)^2)=sqrt25=5",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "5"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-plane-09",
+      "derivedAnswer": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "reasoning": "1:square area3^2=9 ->А;2:perimeter4*3=12 ->В;3:triangle area4*3/2=6 ->Д",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS"
+    },
+    {
+      "id": "math-draft-v1-math-plane-10",
+      "derivedAnswer": "4",
+      "reasoning": "Semiperimeter21;Heron area sqrt(21*8*7*6)=84;inradius84/21=4",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "4"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-plane-11",
+      "derivedAnswer": "312",
+      "reasoning": "Base difference10;height sqrt(26^2-10^2)=24;area(8+18)*24/2=312",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "312"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-plane-12",
+      "derivedAnswer": "900",
+      "reasoning": "Inscribed30degrees subtends60degree arc=pi/3 radians;r*pi/3=10pi,r=30;area900pi,k=900",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "900"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-solid-01",
+      "derivedAnswer": "А",
+      "reasoning": "Cube volume3^3=27",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-solid-02",
+      "derivedAnswer": "Б",
+      "reasoning": "Prism volume base area*height=12*5=60,perpendicular height",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-solid-03",
+      "derivedAnswer": "В",
+      "reasoning": "Pyramid volume18*4/3=24",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-solid-04",
+      "derivedAnswer": "Г",
+      "reasoning": "Cylinder volume pi*2^2*3=12pi,k=12",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-solid-05",
+      "derivedAnswer": "13",
+      "reasoning": "Space diagonal sqrt(9+16+144)=sqrt169=13",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "13"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-solid-06",
+      "derivedAnswer": "5",
+      "reasoning": "Right circular cone assumed:generatrix sqrt(3^2+4^2)=5",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        },
+        {
+          "severity": "minor",
+          "category": "assumption",
+          "message": "Assumes school convention of a right circular cone; explicitly state прямий круговий конус if oblique cones may be considered."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "5"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-solid-07",
+      "derivedAnswer": "36",
+      "reasoning": "Ball volume4/3*pi*3^3=36pi,k=36",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "36"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-solid-08",
+      "derivedAnswer": "52",
+      "reasoning": "Surface area2*(2*3+2*4+3*4)=52",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "52"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-solid-09",
+      "derivedAnswer": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "reasoning": "1:volume2^3=8 ->А;2:surface6*2^2=24 ->В;3:twelve edges length3 total36 ->Д",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS"
+    },
+    {
+      "id": "math-draft-v1-math-solid-10",
+      "derivedAnswer": "144",
+      "reasoning": "Third edge sqrt(13^2-3^2-4^2)=12;volume3*4*12=144",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "144"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-solid-11",
+      "derivedAnswer": "96",
+      "reasoning": "Right circular cone assumed:axial area12h/2=48,h=8;r=6;volume pi*36*8/3=96pi,k=96",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        },
+        {
+          "severity": "minor",
+          "category": "assumption",
+          "message": "Assumes school convention of a right circular cone; explicitly state прямий круговий конус if oblique cones may be considered."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "96"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-solid-12",
+      "derivedAnswer": "216",
+      "reasoning": "Cube diagonal equals sphere diameter6sqrt3;edge a satisfies a*sqrt3=6sqrt3,a=6;volume216",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "216"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-probability-01",
+      "derivedAnswer": "А",
+      "reasoning": "One shirt and one pair of trousers:3*4=12",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-probability-02",
+      "derivedAnswer": "Б",
+      "reasoning": "4!=4*3*2*1=24",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-probability-03",
+      "derivedAnswer": "В",
+      "reasoning": "Fair standard die:even2,4,6 among6 outcomes;probability3/6=.5",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-probability-04",
+      "derivedAnswer": "Г",
+      "reasoning": "Mean(2+4+6)/3=4",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "math-draft-v1-math-probability-05",
+      "derivedAnswer": "15",
+      "reasoning": "Unordered teams C(6,2)=6*5/2=15",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "15"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-probability-06",
+      "derivedAnswer": "20",
+      "reasoning": "5 choices head then4 secretary:5*4=20",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "20"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-probability-07",
+      "derivedAnswer": "0.3",
+      "reasoning": "Uniform draws without replacement:P(WW)=3/5*2/4=.3",
+      "issues": [],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED",
+      "acceptedNumericValues": [
+        "0.3",
+        "0,3"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-probability-08",
+      "derivedAnswer": "5.5",
+      "reasoning": "Sorted2,4,7,9;median=(4+7)/2=5.5",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "5.5",
+        "5,5"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-probability-09",
+      "derivedAnswer": {
+        "1": "А",
+        "2": "В",
+        "3": "Г"
+      },
+      "reasoning": "1:C(4,2)=6 ->А;2:4!=24 ->В;3:(2+8)/2=5 ->Г",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned MEDIUM; recommend EASY: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS"
+    },
+    {
+      "id": "math-draft-v1-math-probability-10",
+      "derivedAnswer": "30",
+      "reasoning": "C(4,2) ways choose girls times5 boys=6*5=30",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "30"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-probability-11",
+      "derivedAnswer": "0.5",
+      "reasoning": "Favorable C(6,2)*C(4,1)=60;total C(10,3)=120;probability=.5",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "0.5",
+        "0,5"
+      ]
+    },
+    {
+      "id": "math-draft-v1-math-probability-12",
+      "derivedAnswer": "108",
+      "reasoning": "Last digit0:5*4*3=60. Last digit5:first digit one of1,2,3,4,then4,3 choices including0:4*4*3=48. Total108",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "difficulty",
+          "message": "Assigned HARD; recommend MEDIUM: routine formula or short standard derivation. This is expert judgement pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Own independent derivation from blinded prompt/options only, without proposed key or explanation.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED_WITH_OBSERVATIONS",
+      "acceptedNumericValues": [
+        "108"
+      ]
+    }
+  ]
+}

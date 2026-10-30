@@ -1,0 +1,153 @@
+{
+  "reviewType": "Independent model-agent educational review, not human sign-off",
+  "phase": "new-bank-key-and-explanation-comparison",
+  "sealedBlindSha256": "b0180e10251e163f4e6b00db2bc657c3f9b1682e60fe1032b90428cf940e1095",
+  "fullInputSha256": "1bd983828d3e2db332e28abda8f5c2a8db78af64b04c12c36c3e65d509e7015a",
+  "summary": {
+    "reviewed": 12,
+    "keyAgreements": 12,
+    "correctExplanations": 12,
+    "factualBlockers": 0,
+    "sourcePackageEdits": 0
+  },
+  "acceptance": {
+    "verdict": "ACCEPT_FOR_DRAFT_MANUALLY_CURATED_TEST_SET",
+    "scope": "Foundational procedural parallel forms in algebraic expressions; short-term retention of taught procedures.",
+    "notEstablished": [
+      "Broad transfer",
+      "Independent mastery across NMT syllabus",
+      "Empirically calibrated difficulty",
+      "Human teacher sign-off"
+    ],
+    "implementationBoundary": "Keep bank DRAFT and manually curated TestSet only; no automatic readiness/promotion claim.",
+    "studyGuideFollowup": "Parent plans reverse-percent worked example plus domain/root/log notes. This review accepts that educational direction, but has not inspected the future guide text."
+  },
+  "comparisons": [
+    {
+      "id": "s81-expressions-final-01",
+      "independentAnswer": "3",
+      "proposedKey": "3",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT",
+      "independentReasoning": "Domain a!=3. Factor (a^2-9)/(a-3)=a+3 on original domain; subtract a to get3. At a=-2 original fraction=(-5)/(-5)=1, minus(-2)=3.",
+      "domainPreserved": true
+    },
+    {
+      "id": "s81-expressions-final-02",
+      "independentAnswer": "2",
+      "proposedKey": "2",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT",
+      "independentReasoning": "2^5=32,4^(-1)=1/4,principal sqrt16=4;32*(1/4)/4=2.",
+      "domainPreserved": true
+    },
+    {
+      "id": "s81-expressions-final-03",
+      "independentAnswer": "В",
+      "proposedKey": "В",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT",
+      "independentReasoning": "x^2-4=(x-2)(x+2) must not be zero, so both x=2 and x=-2 are excluded. Cancelling x+2 does not restore x=-2.",
+      "domainPreserved": true
+    },
+    {
+      "id": "s81-expressions-final-04",
+      "independentAnswer": "7",
+      "proposedKey": "7",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT",
+      "independentReasoning": "Principal sqrt(x^2)=abs(x)=7. Given x>0 selects x=7; negative root excluded.",
+      "domainPreserved": true
+    },
+    {
+      "id": "s81-expressions-final-05",
+      "independentAnswer": "60",
+      "proposedKey": "60",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT",
+      "independentReasoning": "Let original price P>0. After a20% rise,1.2P=360 so P=300. Increase=360-300=60 hryvnias, also .2*300=60.",
+      "domainPreserved": true
+    },
+    {
+      "id": "s81-expressions-final-06",
+      "independentAnswer": "5",
+      "proposedKey": "5",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT",
+      "independentReasoning": "log_2(32)=5,log_2(4)=2,and3^(-1)*6=2. Result5-2+2=5.",
+      "domainPreserved": true
+    },
+    {
+      "id": "s81-expressions-delayed-01",
+      "independentAnswer": "4",
+      "proposedKey": "4",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT",
+      "independentReasoning": "Domain b!=4. Factor fraction=(b-4)(b+4)/(b-4)=b+4,subtract b=4. At b=-1 original fraction=(-15)/(-5)=3,minus(-1)=4.",
+      "domainPreserved": true
+    },
+    {
+      "id": "s81-expressions-delayed-02",
+      "independentAnswer": "1",
+      "proposedKey": "1",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT",
+      "independentReasoning": "3^3=27,9^(-1)=1/9,principal sqrt9=3;27*(1/9)/3=1.",
+      "domainPreserved": true
+    },
+    {
+      "id": "s81-expressions-delayed-03",
+      "independentAnswer": "Г",
+      "proposedKey": "Г",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT",
+      "independentReasoning": "x^2-9=(x-3)(x+3) must be nonzero,so x!=3 and x!=-3. Cancellation retains both original exclusions.",
+      "domainPreserved": true
+    },
+    {
+      "id": "s81-expressions-delayed-04",
+      "independentAnswer": "-9",
+      "proposedKey": "-9",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT",
+      "independentReasoning": "Principal sqrt(t^2)=abs(t)=9; t<0 selects t=-9.",
+      "domainPreserved": true
+    },
+    {
+      "id": "s81-expressions-delayed-05",
+      "independentAnswer": "150",
+      "proposedKey": "150",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT",
+      "independentReasoning": "Let original price P. After25% decrease .75P=450 givesP=600. Decrease=600-450=150 hryvnias;also .25*600=150.",
+      "domainPreserved": true
+    },
+    {
+      "id": "s81-expressions-delayed-06",
+      "independentAnswer": "8",
+      "proposedKey": "8",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT",
+      "independentReasoning": "log_3(81)=4,log_3(3)=1,and2^(-1)*10=5. Result4-1+5=8.",
+      "domainPreserved": true
+    }
+  ],
+  "remainingMethodologyNotes": [
+    "Six final/delayed pairs preserve mathematical procedure and differ by values/signs. Unseen parallel forms can provide narrow retention evidence; stronger transfer needs richer changed contexts and combined constraints.",
+    "Avoid exposing assessment prompts or solutions in reusable practice before first scheduled assessment; record first unseen attempt separately from repeats.",
+    "Ten EASY recommendations from blind review remain expert judgement; reverse-percent tasks appropriately MEDIUM.",
+    "Percent teaching must distinguish original base from final price. Suggested fresh example: price after20% rise is420; original420/1.2=350 and increase70. Use distinct figures from actual bank."
+  ],
+  "optionalPrecisionNote": {
+    "id": "s81-expressions-delayed-03",
+    "finding": "The solution correctly retains original domain. To avoid conflating a simplified formula natural domain with the original expression domain, prefer: Рівність початкового та скороченого виразів використовуємо лише на початковій ОДЗ.",
+    "blocking": false
+  },
+  "sources": [
+    "https://testportal.gov.ua/matematyka-2026/"
+  ],
+  "limits": [
+    "No DB/app/git operations; no package edits.",
+    "Full bank read only after blind answers sealed."
+  ]
+}
