@@ -1,0 +1,1388 @@
+{
+  "date": "2026-10-29",
+  "questions": [
+    {
+      "id": "math-draft-v1-math-expressions-01",
+      "topicId": "math-expressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Подібні доданки дають x+5; при x=4 маємо 9.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "3*4-2*4+5"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-expressions-02",
+      "topicId": "math-expressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Спочатку 2a=4, далі 4³=64.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "(2*2)**3"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-expressions-03",
+      "topicId": "math-expressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Арифметичний корінь невід’ємний; 9²=81.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "sqrt(81)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-expressions-04",
+      "topicId": "math-expressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Оскільки 3³=27, шуканий показник дорівнює 3.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "log(27)/log(3)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-expressions-05",
+      "topicId": "math-expressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "ОДЗ x≠4. Розклад (x−4)(x+4) дає x+4; при x=6 результат 10.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "(6**2-16)/(6-4)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-expressions-06",
+      "topicId": "math-expressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Після розкриття дужок: 2a+3b. Підстановка дає 4−3=1.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "-(2*2-3*(-1))+4*2"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-expressions-07",
+      "topicId": "math-expressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Обидва підкореневі числа невід’ємні; добуток дорівнює √100=10.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "sqrt(50)*sqrt(2)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-expressions-08",
+      "topicId": "math-expressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Добуток 32=2⁵, отже логарифм 5; також 3+2=5.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "log(8*4)/log(2)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-expressions-09",
+      "topicId": "math-expressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Значення відповідно 5, 7, 16. 9 — квадрат без віднімання 4; 12 виникає при хибному розкритті квадрата суми.",
+      "proof": {
+        "kind": "matching",
+        "expressions": {
+          "1": "3**2-4",
+          "2": "2*3+1",
+          "3": "(3+1)**2"
+        }
+      }
+    },
+    {
+      "id": "math-draft-v1-math-expressions-10",
+      "topicId": "math-expressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "ОДЗ: x≠3,1. Ліва частина x+3. Множення на x−1 дає x²+2x−3=2x+13, тобто x²=16. Із ±4 додатний 4; початкові частини при 4 дорівнюють 7.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "qRoots(1,0,-16).filter(x=>x>0&&x!==3&&x!==1)[0]"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-expressions-11",
+      "topicId": "math-expressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "2ˣ=8 дає x=3. Чисельник 4⁴−2⁶=256−64=192; знаменник 8. Частка 24.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "(4**(3+1)-2**(2*3))/2**3"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-expressions-12",
+      "topicId": "math-expressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Квадрат першої рівності: a²+2+1/a²=9, тому a²+1/a²=7. Ще раз підносимо до квадрата й віднімаємо 2: 49−2=47.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "(3**2-2)**2-2"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-01",
+      "topicId": "math-linear-systems",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Підставляємо в перший рядок: s=2+3=5; другий дає 2−3=−1.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "2+3"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-02",
+      "topicId": "math-linear-systems",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Після додавання рядків 2x=10, отже x=5.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "(8+2)/2"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-03",
+      "topicId": "math-linear-systems",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Підставляємо x=2y: 3y=9, тому y=3.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "9/(2+1)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-04",
+      "topicId": "math-linear-systems",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Віднімаємо другий рядок від першого: 2y=2, тому y=1; x=3.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "solveY(1,1,4,1,-1,2)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-05",
+      "topicId": "math-linear-systems",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Із другого рядка x=y+3. Тоді 2y+6+3y=16, отже y=2, x=5. Перевірка: 10+6=16 і 5−2=3.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "solveY(2,3,16,1,-1,3)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-06",
+      "topicId": "math-linear-systems",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "y=8−x. Отже 3x−16+2x=4, 5x=20, x=4; y=4.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "solveX(3,-2,4,1,1,8)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-07",
+      "topicId": "math-linear-systems",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Від суми віднімаємо різницю: двічі менше число дорівнює 16; менше 8, більше 15.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "(23-7)/2"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-08",
+      "topicId": "math-linear-systems",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Нехай дитячий y, дорослий y+45. Тоді 5y+90=390, y=60, дорослий 105. Перевірка: 2·105+3·60=390.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "(390-2*45)/5+45"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-09",
+      "topicId": "math-linear-systems",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Пари дають x=4; y=3; при y=2 сума 6. Значення 2 плутає x із y, а 9 є сумою з іншого рядка.",
+      "proof": {
+        "kind": "matching",
+        "expressions": {
+          "1": "solveX(1,1,6,1,-1,2)",
+          "2": "solveY(1,1,9,1,-1,3)",
+          "3": "2*2+2"
+        }
+      }
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-10",
+      "topicId": "math-linear-systems",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Швидкості відносно берега: 20 та 12. Якщо v — власна, u — течії, то v+u=20, v−u=12. Додаємо: 2v=32, v=16; u=4.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "(60/3+60/5)/2"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-11",
+      "topicId": "math-linear-systems",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Нехай x кг 20%-го, y кг 40%-го. x+y=10, 0,2x+0,4y=3,4. Підставляємо x=10−y: 2+0,2y=3,4; y=7. Перевірка: 0,6+2,8=3,4 кг міді.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "solveY(1,1,10,0.2,0.4,3.4)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-12",
+      "topicId": "math-linear-systems",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Другий рядок має бути першим, помноженим на 2: коефіцієнт y тоді 2a=6. Отже a=3; вільний член 2·6=12 теж збігається.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "6/(4/2)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-01",
+      "topicId": "math-quadratic",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "D=25−24=1.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "(-5)**2-4*1*6"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-02",
+      "topicId": "math-quadratic",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Корені −7 і 7, більший 7.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "sqrt(49)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-03",
+      "topicId": "math-quadratic",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "За Вієтом сума −b/a=8.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "-(-8)/1"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-04",
+      "topicId": "math-quadratic",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Коефіцієнти a=1, b=0, c=4. Дискримінант D=0−16=−16.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "0**2-4*1*4"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-05",
+      "topicId": "math-quadratic",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "D=49−24=25. Корені (7±5)/4: 3 і 0,5. Більший 3.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "max(...qRoots(2,-7,3))"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-06",
+      "topicId": "math-quadratic",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Ліва частина (x+3)². Тому x=−3; D=0.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "qRoots(1,6,9)[0]"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-07",
+      "topicId": "math-quadratic",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "За Вієтом добуток c/a=−6/3=−2. Відповідь є точним цілим числом.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "-6/3"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-08",
+      "topicId": "math-quadratic",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Корені 2 та 3. Парабола напрямлена вгору, тому розв’язки 2<x<3. Цілих між сусідніми числами немає.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "integers(-10,10).filter(x=>x*x-5*x+6<0).length"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-09",
+      "topicId": "math-quadratic",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Корені 2 й 5, їх сума 7, добуток 10. −7 є коефіцієнтом, а 2 — меншим коренем.",
+      "proof": {
+        "kind": "matching",
+        "expressions": {
+          "1": "7",
+          "2": "10",
+          "3": "max(...qRoots(1,-7,10))"
+        }
+      }
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-10",
+      "topicId": "math-quadratic",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "ОДЗ x≠2. Чисельник (x−2)(x−3) нульовий при 2 та 3; перше значення виключено. Єдиний корінь і його сума — 3.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "qRoots(1,-5,6).filter(x=>x!==2).reduce((s,x)=>s+x,0)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-11",
+      "topicId": "math-quadratic",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Підстановка 3 дає 9−3m−6+2m=0, звідси m=3. Рівняння x²−5x+6=0 має корені 3 і 2.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "((9-6)/(3-2)+2)-3"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-12",
+      "topicId": "math-quadratic",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Сума сторін 22. Якщо одна x, друга 22−x, то x(22−x)=120. Рівняння x²−22x+120=0 дає 10 й 12; довша 12 см.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "max(...qRoots(1,-22,120))"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-functions-01",
+      "topicId": "math-functions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Підстановка дає 8−3=5.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "2*4-3"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-functions-02",
+      "topicId": "math-functions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Розв’язуємо 3x−12=0, тому x=4.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "12/3"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-functions-03",
+      "topicId": "math-functions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "На осі Oy x=0; тоді y=7.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "-2*0+7"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-functions-04",
+      "topicId": "math-functions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Знаменник x−5 не може бути нулем, тому x≠5.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "5"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-functions-05",
+      "topicId": "math-functions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "x₀=−b/(2a)=6/2=3.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "-(-6)/(2*1)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-functions-06",
+      "topicId": "math-functions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Квадрат мінімальний і дорівнює нулю при x=4. Значення функції тоді −3.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "(4-4)**2-3"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-functions-07",
+      "topicId": "math-functions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "(−3)²−1=9−1=8.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "(-3)**2-1"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-functions-08",
+      "topicId": "math-functions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Потрібно 7−x≥0, тобто x≤7. Граничне значення 7 допустиме, бо √0 існує.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "7"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-functions-09",
+      "topicId": "math-functions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Значення відповідно 4, 3 та 5. −3 отримують через хибний знак кореня, а 8 — через плутання аргументу зі значенням функції.",
+      "proof": {
+        "kind": "matching",
+        "expressions": {
+          "1": "2**2",
+          "2": "6/2",
+          "3": "log(32)/log(2)"
+        }
+      }
+    },
+    {
+      "id": "math-draft-v1-math-functions-10",
+      "topicId": "math-functions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Для −3 беремо першу гілку: 10. Для 4 — другу: 5. Різниця 5.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "((-3)**2+1)-(2*4-3)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-functions-11",
+      "topicId": "math-functions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "g(−2)=−3, f(−3)=8. Окремо f(2)=3, g(3)=7. Різниця 1.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "((2*(-2)+1)**2-1)-(2*(2**2-1)+1)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-functions-12",
+      "topicId": "math-functions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Прирівнюємо: x²−7x+10=0, отже x=2 і 5. Ординати прямої: 3 та 12. Їх сума 15.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "qRoots(1,-7,10).reduce((s,x)=>s+3*x-3,0)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-progressions-01",
+      "topicId": "math-progressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "a₅=2+4·3=14.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "2+(5-1)*3"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-progressions-02",
+      "topicId": "math-progressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "d=4−7=−3; також 1−4=−3.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "4-7"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-progressions-03",
+      "topicId": "math-progressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "b₄=3·2³=24.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "3*2**(4-1)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-progressions-04",
+      "topicId": "math-progressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "q=15/5=3; 45/15 теж 3.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "15/5"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-progressions-05",
+      "topicId": "math-progressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "a₁₀=19. S₁₀=10(1+19)/2=100.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "10*(1+(1+9*2))/2"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-progressions-06",
+      "topicId": "math-progressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Між номерами 3 і 7 чотири переходи, отже d=12/4=3.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "(20-8)/(7-3)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-progressions-07",
+      "topicId": "math-progressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "S₅=2(32−1)=62; пряме додавання 2+4+8+16+32 підтверджує.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "2*(2**5-1)/(2-1)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-progressions-08",
+      "topicId": "math-progressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "4+3(n−1)=31, тому n−1=9 й n=10.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "1+(31-4)/3"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-progressions-09",
+      "topicId": "math-progressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Отримуємо 7, 8 та 10. 4 є номером, а 16 виникає через завеликий показник степеня.",
+      "proof": {
+        "kind": "matching",
+        "expressions": {
+          "1": "1+3*2",
+          "2": "2**3",
+          "3": "1+2+3+4"
+        }
+      }
+    },
+    {
+      "id": "math-draft-v1-math-progressions-10",
+      "topicId": "math-progressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "d=(22−7)/5=3. a₁=7−2·3=1, a₁₀=28. Сума 10(1+28)/2=145.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "10*((7-2*(22-7)/(8-3))+(7-2*(22-7)/(8-3)+9*(22-7)/(8-3)))/2"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-progressions-11",
+      "topicId": "math-progressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "b₅/b₂=q³=27, тому q=3. b₁=2. Сума перших п’яти: 2(3⁵−1)/(3−1)=242.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "(6/3)*(3**5-1)/(3-1)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-progressions-12",
+      "topicId": "math-progressions",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "a₁₀=S₁₀−S₉. Значення сум: 320 і 261; різниця 59.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "(3*10**2+2*10)-(3*9**2+2*9)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-trig-01",
+      "topicId": "math-trig",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "У прямокутному трикутнику катет навпроти 30° дорівнює половині гіпотенузи, отже синус 1/2.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "sin(30)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-trig-02",
+      "topicId": "math-trig",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Точка одиничного кола має координати (−1;0), тому косинус −1.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "cos(180)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-trig-03",
+      "topicId": "math-trig",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Синус і косинус 45° рівні й ненульові, тому їх частка 1.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "tan(45)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-trig-04",
+      "topicId": "math-trig",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "π радіан відповідає 180°, половина — 90°.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "180/2"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-trig-05",
+      "topicId": "math-trig",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Обидва значення дорівнюють 0,5; отже 1+0,5=1,5.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "2*sin(30)+cos(60)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-trig-06",
+      "topicId": "math-trig",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Косинус додатний; √(1−0,36)=√0,64=0,8.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "sqrt(1-0.6**2)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-trig-07",
+      "topicId": "math-trig",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Корені π/2 та 3π/2. На кінцях 0 і 2π косинус дорівнює 1.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "integers(-3,3).map(k=>PI/2+k*PI).filter(x=>x>=0&&x<=2*PI).length"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-trig-08",
+      "topicId": "math-trig",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "За основною тотожністю сума дорівнює 1 без обчислення окремих функцій.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "sin(37)**2+cos(37)**2"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-trig-09",
+      "topicId": "math-trig",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Значення 0,5; −1; 1. Нуль виникає при плутанні косинуса із синусом 180°, а 2 — при перевертанні 1/2.",
+      "proof": {
+        "kind": "matching",
+        "expressions": {
+          "1": "sin(30)",
+          "2": "cos(180)",
+          "3": "tan(45)"
+        }
+      }
+    },
+    {
+      "id": "math-draft-v1-math-trig-10",
+      "topicId": "math-trig",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "У другій чверті cos x=−4/5. Формула sin2x=2 sin x cos x дає −24/25=−0,96.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "2*(3/5)*(-sqrt(1-(3/5)**2))"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-trig-11",
+      "topicId": "math-trig",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "У третій чверті sin x=−5/13. Тангенс (−5/13)/(−12/13)=5/12, тому 12 tan x=5.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "12*(-sqrt(1-(-12/13)**2))/(-12/13)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-trig-12",
+      "topicId": "math-trig",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "2x=π/2+kπ, звідси x=π/4+kπ/2. У проміжку є π/4, 3π/4, 5π/4, 7π/4 — чотири корені.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "integers(-5,5).map(k=>(PI/2+k*PI)/2).filter(x=>x>=0&&x<=2*PI).length"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-derivative-01",
+      "topicId": "math-derivative",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "f′(x)=2x, тому f′(2)=4.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "polyDerivative([0,0,1],2)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-derivative-02",
+      "topicId": "math-derivative",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Стала не змінюється, її похідна нульова.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "polyDerivative([7],10)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-derivative-03",
+      "topicId": "math-derivative",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Похідна лінійної функції — коефіцієнт при x: 3.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "polyDerivative([2,3],5)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-derivative-04",
+      "topicId": "math-derivative",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Графік сам є прямою, її нахил і похідна дорівнюють 5.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "polyDerivative([-1,5],0)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-derivative-05",
+      "topicId": "math-derivative",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "f′(x)=3x²−2, при x=2: 12−2=10.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "polyDerivative([1,-2,0,1],2)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-derivative-06",
+      "topicId": "math-derivative",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Правило ланцюга: f′(x)=3(2x+1)²·2. При x=1: 6·9=54.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "3*(2*1+1)**2*2"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-derivative-07",
+      "topicId": "math-derivative",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "f′(x)=2x−8. Вона змінює знак із мінуса на плюс при x=4.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "-(-8)/(2*1)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-derivative-08",
+      "topicId": "math-derivative",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Первісна x³. Різниця 2³−0³=8.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "polyIntegral([0,0,3],0,2)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-derivative-09",
+      "topicId": "math-derivative",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Правильні значення 2, 3, 4. 1 є аргументом, 7 — сталою, що дає нульову похідну.",
+      "proof": {
+        "kind": "matching",
+        "expressions": {
+          "1": "polyDerivative([0,0,1],1)",
+          "2": "polyDerivative([0,0,0,1],1)",
+          "3": "polyDerivative([7,4],1)"
+        }
+      }
+    },
+    {
+      "id": "math-draft-v1-math-derivative-10",
+      "topicId": "math-derivative",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "f(2)=4, f′(2)=4, тому дотична y=4+4(x−2)=4x−4. Перетини (1;0) і (0;−4). Площа прямокутного трикутника |1·(−4)|/2=2.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "abs((-(2**2-polyDerivative([0,0,1],2)*2)/polyDerivative([0,0,1],2))*(2**2-polyDerivative([0,0,1],2)*2))/2"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-derivative-11",
+      "topicId": "math-derivative",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "f′=3x²−3, критичні x=−1 і 1. Значення в −2, −1, 1, 3: −2, 2, −2, 18. Найбільше 18 на правому кінці.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "max(...[-2,-1,1,3].map(x=>x**3-3*x))"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-derivative-12",
+      "topicId": "math-derivative",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Нехай сторона x, друга 20−x, 0<x<20. Площа S=20x−x²; S′=20−2x, критична x=10. Парабола напрямлена вниз, максимум 100.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "10*(20-10)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-plane-01",
+      "topicId": "math-plane",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "S=ah/2=8·5/2=20 см².",
+      "proof": {
+        "kind": "numeric",
+        "expression": "8*5/2"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-plane-02",
+      "topicId": "math-plane",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "P=2(a+b)=2·10=20 см.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "2*(3+7)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-plane-03",
+      "topicId": "math-plane",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Радіус удвічі менший за діаметр: 6 см.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "12/2"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-plane-04",
+      "topicId": "math-plane",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Сума внутрішніх кутів 180°; третій 70°.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "180-50-60"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-plane-05",
+      "topicId": "math-plane",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "c=√(81+144)=√225=15 см.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "sqrt(9**2+12**2)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-plane-06",
+      "topicId": "math-plane",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "S=πr²=16π, отже k=16.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "4**2"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-plane-07",
+      "topicId": "math-plane",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "S=(6+10)·4/2=32 см².",
+      "proof": {
+        "kind": "numeric",
+        "expression": "(6+10)*4/2"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-plane-08",
+      "topicId": "math-plane",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Різниці координат 3 й 4; відстань √(9+16)=5.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "sqrt((4-1)**2+(6-2)**2)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-plane-09",
+      "topicId": "math-plane",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Значення 9, 12, 6. 3 є стороною, 24 виникає від зайвого множення на 2.",
+      "proof": {
+        "kind": "matching",
+        "expressions": {
+          "1": "3**2",
+          "2": "4*3",
+          "3": "4*3/2"
+        }
+      }
+    },
+    {
+      "id": "math-draft-v1-math-plane-10",
+      "topicId": "math-plane",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Півпериметр p=21. За Героном S=√(21·8·7·6)=84. Для вписаного кола S=pr, тому r=84/21=4 см.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "sqrt(21*(21-13)*(21-14)*(21-15))/21"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-plane-11",
+      "topicId": "math-plane",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Горизонтальна проєкція похилої сторони 18−8=10. Висота √(26²−10²)=24. Площа (8+18)·24/2=312 см².",
+      "proof": {
+        "kind": "numeric",
+        "expression": "(8+18)*sqrt(26**2-(18-8)**2)/2"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-plane-12",
+      "topicId": "math-plane",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Центральний кут цієї дуги 60°, тобто 1/6 повного кола. Довжина кола 60π, радіус 30. Площа 900π, тому k=900.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "((10*PI)/(2*PI*(2*30/360)))**2"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-solid-01",
+      "topicId": "math-solid",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "V=a³=27 см³.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "3**3"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-solid-02",
+      "topicId": "math-solid",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "V=Sосн·h=12·5=60 см³.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "12*5"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-solid-03",
+      "topicId": "math-solid",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "V=18·4/3=24 см³.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "18*4/3"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-solid-04",
+      "topicId": "math-solid",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "V=πr²h=12π, отже k=12.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "2**2*3"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-solid-05",
+      "topicId": "math-solid",
+      "status": "CORRECTED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "d=√(9+16+144)=13.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "sqrt(3**2+4**2+12**2)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-solid-06",
+      "topicId": "math-solid",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "В осьовому перерізі l²=r²+h², отже l=5 см.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "sqrt(3**2+4**2)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-solid-07",
+      "topicId": "math-solid",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "V=4πr³/3=36π, тому k=36.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "4*3**3/3"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-solid-08",
+      "topicId": "math-solid",
+      "status": "CORRECTED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Три площі різних граней 6, 8, 12; кожна трапляється двічі. Разом 52.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "2*(2*3+2*4+3*4)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-solid-09",
+      "topicId": "math-solid",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Результати 8, 24, 36. 4 є площею однієї грані першого куба; 12 — лише числом його ребер.",
+      "proof": {
+        "kind": "matching",
+        "expressions": {
+          "1": "2**3",
+          "2": "6*2**2",
+          "3": "12*3"
+        }
+      }
+    },
+    {
+      "id": "math-draft-v1-math-solid-10",
+      "topicId": "math-solid",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Третє ребро h=√(13²−3²−4²)=√144=12. Об’єм 3·4·12=144 см³.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "3*4*sqrt(13**2-3**2-4**2)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-solid-11",
+      "topicId": "math-solid",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Радіус 6. Площа осьового трикутника (12·h)/2=6h=48, тому h=8. Об’єм π·36·8/3=96π.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "(12/2)**2*(48/(12/2))/3"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-solid-12",
+      "topicId": "math-solid",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Діагональ куба дорівнює діаметру сфери: d=6√3. Оскільки d=a√3, ребро a=6. Об’єм 216 см³.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "((2*3*sqrt(3))/sqrt(3))**3"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-probability-01",
+      "topicId": "math-probability",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Для кожної сорочки є 4 варіанти штанів: 3·4=12.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "3*4"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-probability-02",
+      "topicId": "math-probability",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "4!=4·3·2·1=24.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "factorial(4)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-probability-03",
+      "topicId": "math-probability",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Сприятливі 2,4,6: три з шести рівноймовірних результатів; 3/6=0,5.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "3/6"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-probability-04",
+      "topicId": "math-probability",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Сума 12, кількість 3, середнє 4.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "(2+4+6)/3"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-probability-05",
+      "topicId": "math-probability",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "C₆²=6·5/2=15. Пари АБ і БА — одна команда.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "choose(6,2)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-probability-06",
+      "topicId": "math-probability",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Голову обираємо 5 способами, після цього секретаря — 4. Разом 20.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "5*4"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-probability-07",
+      "topicId": "math-probability",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Сприятливі C₃²=3 пари, усі C₅²=10; ймовірність 0,3. Перевірка послідовно: 3/5·2/4=0,3.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "choose(3,2)/choose(5,2)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-probability-08",
+      "topicId": "math-probability",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Упорядковуємо 2,4,7,9. Середні елементи 4 й 7, їх середнє 5,5.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "(4+7)/2"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-probability-09",
+      "topicId": "math-probability",
+      "status": "CORRECTED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Кількість неупорядкованих пар із чотирьох: 4·3/2=6. Кількість перестановок чотирьох різних предметів: 4!=24. Середнє чисел 2 і 8: (2+8)/2=5. Дистрактор 3 може виникнути при помилковому підрахунку пар лише з одним зафіксованим учасником; 8 — при виборі більшого числа замість середнього. Сума чисел 2 і 8 дорівнює 10, а не 8.",
+      "proof": {
+        "kind": "matching",
+        "expressions": {
+          "1": "choose(4,2)",
+          "2": "factorial(4)",
+          "3": "(2+8)/2"
+        }
+      }
+    },
+    {
+      "id": "math-draft-v1-math-probability-10",
+      "topicId": "math-probability",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Дві дівчини: C₄²=6 способів; один хлопець — 5. Вибори поєднуємо множенням: 30.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "choose(4,2)*choose(5,1)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-probability-11",
+      "topicId": "math-probability",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Сприятливі C₆²·C₄¹=15·4=60 трійок. Усі C₁₀³=120. Ймовірність 60/120=0,5.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "choose(6,2)*choose(4,1)/choose(10,3)"
+      }
+    },
+    {
+      "id": "math-draft-v1-math-probability-12",
+      "topicId": "math-probability",
+      "status": "REVIEWED_CANDIDATE",
+      "keyUnchanged": true,
+      "reason": "Остання цифра 0 або 5. При 0: перша має 5 варіантів, наступні 4 і 3 — 60. При 5: перша не 0 і не 5, має 4 варіанти; далі 4 й 3 — 48. Разом 108.",
+      "proof": {
+        "kind": "numeric",
+        "expression": "5*4*3+4*4*3"
+      }
+    }
+  ],
+  "revisions": [
+    {
+      "id": "math-draft-v1-math-solid-05",
+      "field": "prompt",
+      "before": "Знайдіть просторову діагональ паралелепіпеда з ребрами 3, 4, 12. У відповіді запишіть лише число.",
+      "after": "Знайдіть просторову діагональ прямокутного паралелепіпеда з ребрами 3, 4, 12. У відповіді запишіть лише число.",
+      "reason": "Формули діагоналі й поверхні застосовні до прямокутного паралелепіпеда; без цієї умови задача неоднозначна."
+    },
+    {
+      "id": "math-draft-v1-math-solid-08",
+      "field": "prompt",
+      "before": "Знайдіть площу повної поверхні паралелепіпеда з ребрами 2, 3, 4. У відповіді запишіть лише число.",
+      "after": "Знайдіть площу повної поверхні прямокутного паралелепіпеда з ребрами 2, 3, 4. У відповіді запишіть лише число.",
+      "reason": "Формули діагоналі й поверхні застосовні до прямокутного паралелепіпеда; без цієї умови задача неоднозначна."
+    },
+    {
+      "id": "math-draft-v1-math-probability-09",
+      "field": "explanation",
+      "before": "Результати 6, 24, 5. Варіант 3 — кількість виборів за іншою умовою, 8 — сума замість середнього для іншого набору.",
+      "after": "Кількість неупорядкованих пар із чотирьох: 4·3/2=6. Кількість перестановок чотирьох різних предметів: 4!=24. Середнє чисел 2 і 8: (2+8)/2=5. Дистрактор 3 може виникнути при помилковому підрахунку пар лише з одним зафіксованим учасником; 8 — при виборі більшого числа замість середнього. Сума чисел 2 і 8 дорівнює 10, а не 8.",
+      "reason": "Старе пояснення дистрактора 8 помилково називало його сумою."
+    }
+  ]
+}

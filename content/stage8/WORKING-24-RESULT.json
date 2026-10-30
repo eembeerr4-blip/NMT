@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-10-30T12:08:35.664Z",
+  "status": "WORKING_UPDATE_VERIFIED",
+  "backup": {
+    "filename": "before-24-corrections.db",
+    "sha256": "1434a86e677d9b7c7e3ee98ac722044a26f3f56df1b9c15d35b3a767d35c927b",
+    "integrity": "ok",
+    "foreignKeyViolations": 0,
+    "mechanism": "SQLite online backup + atomic no-overwrite publication"
+  },
+  "changedRows": {
+    "Question": 24,
+    "QuestionOption": 21
+  },
+  "changedTables": [
+    "Question",
+    "QuestionOption"
+  ],
+  "unchangedOtherTables": 29,
+  "allTargetsMatchApprovedPlan": true,
+  "QuestionTotal": 538,
+  "QuestionOptionTotal": 1617,
+  "StudyTask": 112,
+  "integrity": "ok",
+  "foreignKeyViolations": 0,
+  "publishedNewMaterials": false,
+  "planSha256": "392291e34155131e2858850e99bb787915de1d1fb1bbdbebb388b155919ad36d"
+}

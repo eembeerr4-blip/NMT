@@ -1,0 +1,127 @@
+{
+  "checkedAt": "2026-10-29",
+  "targetYear": 2027,
+  "official2027": "NOT_FOUND_IN_TARGETED_TESTPORTAL_AND_MON_SEARCH; not proof of permanent absence; recheck before release",
+  "formatBaselineYear": 2026,
+  "formats": [
+    {
+      "subject": "ukrainian",
+      "url": "https://testportal.gov.ua/ukrayinska-mova-2026/",
+      "status": "READ",
+      "forms": "25 single choice, 5 matching; maximum 45; current spelling follows 2019 changes with 2026 editorial update."
+    },
+    {
+      "subject": "math",
+      "url": "https://testportal.gov.ua/matematyka-2026/",
+      "status": "SEARCH_TEXT_READ_AFTER_OPEN_TIMEOUT",
+      "forms": "15 single choice, 3 matching, 4 numeric; maximum 32."
+    },
+    {
+      "subject": "history",
+      "url": "https://testportal.gov.ua/istoriya-ukrayiny-2026/",
+      "status": "READ",
+      "forms": "20 single choice, 4 matching, 3 sequence, 3 choose-three-of-seven; maximum 54."
+    },
+    {
+      "subject": "biology",
+      "url": "https://testportal.gov.ua/biologiya-2026/",
+      "status": "READ",
+      "forms": "24 single choice, 4 matching, 2 choose-one-from-each-of-three-groups; maximum 46."
+    }
+  ],
+  "officialDocuments": [
+    {
+      "url": "https://testportal.gov.ua/programy-nmt/",
+      "status": "OPENED",
+      "purpose": "Program index."
+    },
+    {
+      "url": "https://testportal.gov.ua/programe/",
+      "status": "OPENED",
+      "purpose": "Ukrainian language program; literature excluded."
+    },
+    {
+      "url": "https://testportal.gov.ua/progist/",
+      "status": "OPENED",
+      "purpose": "History program."
+    },
+    {
+      "url": "https://testportal.gov.ua/progbio/",
+      "status": "OPENED",
+      "purpose": "Biology program."
+    },
+    {
+      "url": "https://testportal.gov.ua/wp-content/uploads/2019/12/nakaz-1513_04.12_programa_matematyka.pdf",
+      "status": "OPENED_8_PAGES_TEXT_EXTRACTION_EMPTY",
+      "purpose": "Existing canonical crosswalk reused; no claim of new full page review."
+    },
+    {
+      "url": "https://testportal.gov.ua/wp-content/uploads/2016/12/Programa_2020_ukr.mova.pdf",
+      "status": "OPENED_16_PAGES_TEXT_EXTRACTION_GARBLED",
+      "purpose": "Inherited crosswalk needs visual page verification."
+    },
+    {
+      "url": "https://testportal.gov.ua/wp-content/uploads/2016/12/Programa_2020_istoriya.pdf",
+      "status": "OPENED_37_PAGES_TEXT_EXTRACTION_GARBLED",
+      "purpose": "Inherited crosswalk needs visual page verification."
+    },
+    {
+      "url": "https://testportal.gov.ua/wp-content/uploads/2019/01/PROGRAMA_2020_BIO-2-26.pdf",
+      "status": "FETCH_LIMIT_18MB",
+      "purpose": "Program hub available; inherited detailed crosswalk not newly verified."
+    },
+    {
+      "url": "https://testportal.gov.ua/wp-content/uploads/2026/01/NMT-2026_matematyka_demo.pdf",
+      "status": "READ_11_PAGES",
+      "purpose": "Confirmed actual answer forms, examples and published keys; no claim that author questions are official."
+    },
+    {
+      "url": "https://testportal.gov.ua/wp-content/uploads/2026/01/Harakterystyka-NMT_matematyka_2026.pdf",
+      "status": "SEARCH_TEXT_READ",
+      "purpose": "Official scoring distinction: per-pair matching, numeric 2 points."
+    }
+  ],
+  "subjectChecks": [
+    {
+      "url": "https://www.genome.gov/genetics-glossary/Allele",
+      "status": "READ",
+      "purpose": "Alleles, homozygous/heterozygous terminology."
+    },
+    {
+      "url": "https://www.genome.gov/genetics-glossary/Autosomal-Recessive-Disorder",
+      "status": "READ",
+      "purpose": "Simple autosomal recessive inheritance."
+    },
+    {
+      "url": "https://www.genome.gov/genetics-glossary/Uracil",
+      "status": "READ",
+      "purpose": "Uracil in RNA, thymine in DNA."
+    },
+    {
+      "url": "https://www.genome.gov/genetics-glossary/Ribonucleic-Acid-RNA",
+      "status": "READ",
+      "purpose": "RNA composition and functions."
+    },
+    {
+      "url": "https://resource.history.org.ua/cgi-bin/eiu/history.exe?C21COM=S&I21DBN=EIU&P21DBN=+EIU&S21CNR=20&S21COLORTERMS=0&S21FMT=eiu_all&S21P01=0&S21P02=0&S21P03=TRN%3D&S21REF=10&S21STN=1&S21STR=Danylo_Galycky&Z21ID=",
+      "status": "SEARCH_TEXT_READ",
+      "purpose": "Institute of History: Danylo and Roman."
+    },
+    {
+      "url": "https://history.org.ua/JournALL/journal/journal_1991_10/journal_1991_10.pdf",
+      "status": "SEARCH_TEXT_READ",
+      "purpose": "Coronation 1253."
+    }
+  ],
+  "videoChecks": {
+    "queries": [
+      "site:lms.e-school.net.ua Словотвір",
+      "site:lms.e-school.net.ua Закони Менделя",
+      "site:lms.e-school.net.ua Історичні джерела"
+    ],
+    "outcome": "No viewable, substantively verified lesson obtained in this run; no invented URL or duration added.",
+    "existingConfirmed": 1,
+    "existingSuggested": 18,
+    "newConfirmed": 0
+  }
+}
