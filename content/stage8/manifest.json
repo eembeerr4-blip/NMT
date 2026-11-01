@@ -110,8 +110,8 @@
     },
     {
       "path": "content/stage8/math-draft-reviewed.v2.json",
-      "bytes": 265698,
-      "sha256": "af81c3f13c157f824e4ccb8c2f9d8e70028b257df101449bdd44045a4a081ea4"
+      "bytes": 265738,
+      "sha256": "917961b66c81cf2d8709e697880a3b07a2dcc62746da0c80fcd2cb045cdca8a0"
     },
     {
       "path": "content/stage8/math-review-decisions.json",
