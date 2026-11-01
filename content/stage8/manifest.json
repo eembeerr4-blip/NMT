@@ -1,47 +1,12 @@
 {
-  "status": "STAGE81_REVIEWED_CHECKPOINT_PARTIAL",
-  "checkedAt": "2026-10-30",
-  "scope": "Stage8 plus Stage8.1 safe educational artifacts/tests only; no raw Telegram, private credentials/data, SQLite, backup, logs or foreign dirty files.",
+  "status": "STAGE82_LEARNER_DRAFT_PARTIAL",
+  "checkedAt": "2026-11-01",
+  "scope": "Stage8, Stage8.1 and one original Stage8.2 learner-guide candidate. No raw Telegram, credentials, databases, backups, or private records.",
   "files": [
-    {
-      "path": "content/stage8/CONTINUATION-RESULT.md",
-      "bytes": 3407,
-      "sha256": "2d573b2f9527a77901900a7d50c27c5b882ef347e227ddbbf92c57c98fd51337"
-    },
-    {
-      "path": "content/stage8/FINAL-24-REVIEW.md",
-      "bytes": 14141,
-      "sha256": "7620cc2717466bb3d51da7ce796591b4c1df79eb2135d08d9ceab393d4785fda"
-    },
-    {
-      "path": "content/stage8/INVENTORY.md",
-      "bytes": 21516,
-      "sha256": "3302f4de061920b9dfcf933b36691e74505c68c3f5f86a89da1e3fec7ab6378f"
-    },
-    {
-      "path": "content/stage8/QA-RESULTS.json",
-      "bytes": 9963,
-      "sha256": "848621c053ea1b3030d2d4750eb4868c122b05b30ccb0aa9a14a9f7aa5f77507"
-    },
-    {
-      "path": "content/stage8/STAGE8-1-VALIDATION-REPORT.md",
-      "bytes": 11794,
-      "sha256": "0cf59bf473fdb03bd27c056fe3136e95bfe597aa723e9ab15d5c50fff94477ce"
-    },
-    {
-      "path": "content/stage8/WORKING-24-RESULT.json",
-      "bytes": 802,
-      "sha256": "ee717a5a4cd67daa5b5384cbb2771a933739fffa310babb01a8d5ab665253d38"
-    },
     {
       "path": "content/stage8/assessment-bank-plan.json",
       "bytes": 4658,
       "sha256": "ee214c1b3f302282d599fe75b6a761b99fa1f909e0386d9085756548aef5ee91"
-    },
-    {
-      "path": "content/stage8/batch02/QA.json",
-      "bytes": 2403,
-      "sha256": "da93489fe23194328f9e45d12c74f4cab68a50f33a18031f464a8a495bc4951f"
     },
     {
       "path": "content/stage8/batch02/biology-cell-division.svg",
@@ -59,6 +24,11 @@
       "sha256": "12c407d49a45f64edcc3ee46e6d360afa408f1441f234b2d9560fe3ecf51d88f"
     },
     {
+      "path": "content/stage8/batch02/QA.json",
+      "bytes": 2403,
+      "sha256": "da93489fe23194328f9e45d12c74f4cab68a50f33a18031f464a8a495bc4951f"
+    },
+    {
       "path": "content/stage8/batch02/ukrainian-grammar.package.json",
       "bytes": 52280,
       "sha256": "5cf1a074ec806d884f1a390944afca6f79b8a5c21c8eebb0fb47a4b45cbbd7a0"
@@ -74,6 +44,11 @@
       "sha256": "8700fcd2b348db8e97b1d7e6cb81d98f47e809a62656cc9dd37c2b82115372e2"
     },
     {
+      "path": "content/stage8/CONTINUATION-RESULT.md",
+      "bytes": 3407,
+      "sha256": "2d573b2f9527a77901900a7d50c27c5b882ef347e227ddbbf92c57c98fd51337"
+    },
+    {
       "path": "content/stage8/final-24-additional-review.json",
       "bytes": 10326,
       "sha256": "4a6fd7159e9ec889a74fdcd34b525710b7c43c3ace380eb68ec79ecf6675e0a7"
@@ -82,6 +57,11 @@
       "path": "content/stage8/final-24-corrections.json",
       "bytes": 79553,
       "sha256": "392291e34155131e2858850e99bb787915de1d1fb1bbdbebb388b155919ad36d"
+    },
+    {
+      "path": "content/stage8/FINAL-24-REVIEW.md",
+      "bytes": 14141,
+      "sha256": "7620cc2717466bb3d51da7ce796591b4c1df79eb2135d08d9ceab393d4785fda"
     },
     {
       "path": "content/stage8/final-24-source-review.json",
@@ -102,6 +82,11 @@
       "path": "content/stage8/inventory.json",
       "bytes": 68254,
       "sha256": "6d6987be413decf951bd83a4a3227184043b50f86986ce360849dfadf9d0eceb"
+    },
+    {
+      "path": "content/stage8/INVENTORY.md",
+      "bytes": 21516,
+      "sha256": "3302f4de061920b9dfcf933b36691e74505c68c3f5f86a89da1e3fec7ab6378f"
     },
     {
       "path": "content/stage8/learning-route.json",
@@ -179,6 +164,11 @@
       "sha256": "395df59aac9331c521da79ff7af47acbf6519a6faf1f8bda00a240b0a8aa8791"
     },
     {
+      "path": "content/stage8/QA-RESULTS.json",
+      "bytes": 9963,
+      "sha256": "848621c053ea1b3030d2d4750eb4868c122b05b30ccb0aa9a14a9f7aa5f77507"
+    },
+    {
       "path": "content/stage8/question-review-ledger.json",
       "bytes": 160364,
       "sha256": "ed9307020fde5afa025003661ea3cbc9ae4472c564b221792226dcc55b520b39"
@@ -189,6 +179,11 @@
       "sha256": "9adb3e9ca46e7c3c442030819e4edd2dba65b73f69544191e86eecee0a9601db"
     },
     {
+      "path": "content/stage8/STAGE8-1-VALIDATION-REPORT.md",
+      "bytes": 11794,
+      "sha256": "0cf59bf473fdb03bd27c056fe3136e95bfe597aa723e9ab15d5c50fff94477ce"
+    },
+    {
       "path": "content/stage8/telegram-materials-curation.json",
       "bytes": 2231,
       "sha256": "045108b0a9a458b285c619c5041e5b340b6db8d9bd7d1f379316af3cc414a0a7"
@@ -197,11 +192,6 @@
       "path": "content/stage8/telegram-summary.json",
       "bytes": 1404,
       "sha256": "4be9c0cc51afe32b8ebf9586dfa92d3e9499ef7dccac6a0f6fa70ad6ced17241"
-    },
-    {
-      "path": "content/stage8/validation81/QA-RESULTS.json",
-      "bytes": 4194,
-      "sha256": "67fb75b1c84917484d0007c05e6724ff1ff48c1c205cf6bd72f17b1fdb2d16ec"
     },
     {
       "path": "content/stage8/validation81/assessment-blind-review.json",
@@ -249,6 +239,11 @@
       "sha256": "18fefdde2741aafdd4a71dc5c8eb55f30f92d661f579cd6f7a186c9584f9050e"
     },
     {
+      "path": "content/stage8/validation81/QA-RESULTS.json",
+      "bytes": 4194,
+      "sha256": "67fb75b1c84917484d0007c05e6724ff1ff48c1c205cf6bd72f17b1fdb2d16ec"
+    },
+    {
       "path": "content/stage8/validation81/review-evidence.json",
       "bytes": 2697,
       "sha256": "c225d180896b772f06a72dad317a5b4550b7a702f4e88cecb9898180869b39d3"
@@ -269,9 +264,19 @@
       "sha256": "25d50dce37c175a301a452d7cebf1ef806e29026981048a5290a7b8a057d62ca"
     },
     {
+      "path": "content/stage8/validation82/algebraic-expressions-study-module.md",
+      "bytes": 9166,
+      "sha256": "59a11c16df9ca4a53c57679f897adea39d7b3b0c8d6f19245dce4232bd19e682"
+    },
+    {
       "path": "content/stage8/video-verification.json",
       "bytes": 6750,
       "sha256": "4369256ab87c338bfa5c9f9dba33ab0b92922cfae1f7e9a3b0f53df2fcfed7dc"
+    },
+    {
+      "path": "content/stage8/WORKING-24-RESULT.json",
+      "bytes": 802,
+      "sha256": "ee717a5a4cd67daa5b5384cbb2771a933739fffa310babb01a8d5ab665253d38"
     },
     {
       "path": "content/stage8/working-readonly-preview.json",
@@ -311,6 +316,7 @@
   ],
   "limitations": [
     "Manifest intentionally excludes itself to avoid recursive hashes.",
-    "Previous historical report artifacts are retained; newer review findings supersede content approval claims."
+    "Previous historical report artifacts are retained; newer review findings supersede content approval claims.",
+    "Stage8.2 study module is a public, original, review-only candidate: not imported, published, or human-approved; other current Stage8.2 local changes remain unverified."
   ]
 }
