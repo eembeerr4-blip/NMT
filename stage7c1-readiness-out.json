@@ -1,0 +1,195 @@
+{
+  "simulatedVerified": 120,
+  "readiness": [
+    {
+      "topicId": "geography-1",
+      "coverage": "DRAFT",
+      "readiness": {
+        "theory": true,
+        "examples": true,
+        "practice": true,
+        "video": false,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 5,
+          "HARD": 3
+        },
+        "section": false,
+        "ready": true,
+        "canStudy": true,
+        "questionCount": 12
+      }
+    },
+    {
+      "topicId": "geography-2",
+      "coverage": "DRAFT",
+      "readiness": {
+        "theory": true,
+        "examples": true,
+        "practice": true,
+        "video": false,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 5,
+          "HARD": 3
+        },
+        "section": false,
+        "ready": true,
+        "canStudy": true,
+        "questionCount": 12
+      }
+    },
+    {
+      "topicId": "ukr-lexicology-section-01",
+      "coverage": "DRAFT",
+      "readiness": {
+        "theory": true,
+        "examples": true,
+        "practice": true,
+        "video": false,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 5,
+          "HARD": 3
+        },
+        "section": false,
+        "ready": true,
+        "canStudy": true,
+        "questionCount": 12
+      }
+    },
+    {
+      "topicId": "ukr-ortho-sub-01",
+      "coverage": "DRAFT",
+      "readiness": {
+        "theory": true,
+        "examples": true,
+        "practice": true,
+        "video": false,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 5,
+          "HARD": 3
+        },
+        "section": false,
+        "ready": true,
+        "canStudy": true,
+        "questionCount": 12
+      }
+    },
+    {
+      "topicId": "math-linear-eq-sub-02",
+      "coverage": "DRAFT",
+      "readiness": {
+        "theory": true,
+        "examples": true,
+        "practice": true,
+        "video": false,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 5,
+          "HARD": 3
+        },
+        "section": false,
+        "ready": true,
+        "canStudy": true,
+        "questionCount": 12
+      }
+    },
+    {
+      "topicId": "math-quadratic-sub-01",
+      "coverage": "DRAFT",
+      "readiness": {
+        "theory": true,
+        "examples": true,
+        "practice": true,
+        "video": false,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 5,
+          "HARD": 3
+        },
+        "section": false,
+        "ready": true,
+        "canStudy": true,
+        "questionCount": 12
+      }
+    },
+    {
+      "topicId": "cm-history-slavs-sub-01",
+      "coverage": "DRAFT",
+      "readiness": {
+        "theory": true,
+        "examples": true,
+        "practice": true,
+        "video": false,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 5,
+          "HARD": 3
+        },
+        "section": false,
+        "ready": true,
+        "canStudy": true,
+        "questionCount": 12
+      }
+    },
+    {
+      "topicId": "hist-galicia-sub-01",
+      "coverage": "DRAFT",
+      "readiness": {
+        "theory": true,
+        "examples": true,
+        "practice": true,
+        "video": false,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 5,
+          "HARD": 3
+        },
+        "section": false,
+        "ready": true,
+        "canStudy": true,
+        "questionCount": 12
+      }
+    },
+    {
+      "topicId": "bio-cell-sec-01",
+      "coverage": "DRAFT",
+      "readiness": {
+        "theory": true,
+        "examples": true,
+        "practice": true,
+        "video": false,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 5,
+          "HARD": 3
+        },
+        "section": false,
+        "ready": true,
+        "canStudy": true,
+        "questionCount": 12
+      }
+    },
+    {
+      "topicId": "zcode-biology-molecular-02",
+      "coverage": "DRAFT",
+      "readiness": {
+        "theory": true,
+        "examples": true,
+        "practice": true,
+        "video": false,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 5,
+          "HARD": 3
+        },
+        "section": false,
+        "ready": true,
+        "canStudy": true,
+        "questionCount": 12
+      }
+    }
+  ]
+}

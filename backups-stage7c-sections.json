@@ -1,0 +1,547 @@
+﻿{
+  "prodDb": "D:/НМТ Сайт/NMT-academy/prisma/dev.db",
+  "sectionCount": 8,
+  "sections": [
+    {
+      "id": "s7a-sec-bio-cell",
+      "title": "Stage 7A.1 · biology",
+      "parentId": null,
+      "subjectId": "biology",
+      "coverage": "NEEDS_CONTENT",
+      "sortOrder": 87,
+      "lessonLen": 0,
+      "children": [],
+      "packageFiles": [
+        "packages-v2/stage7a1-biology.package.json"
+      ],
+      "similarExistingTopics": []
+    },
+    {
+      "id": "s7a-sec-bio-molecular",
+      "title": "Stage 7A.1 · biology",
+      "parentId": null,
+      "subjectId": "biology",
+      "coverage": "NEEDS_CONTENT",
+      "sortOrder": 88,
+      "lessonLen": 0,
+      "children": [],
+      "packageFiles": [
+        "packages-v2/stage7a1-biology.package.json"
+      ],
+      "similarExistingTopics": []
+    },
+    {
+      "id": "s7a-sec-geography",
+      "title": "Stage 7A.1 · geography",
+      "parentId": null,
+      "subjectId": "geography",
+      "coverage": "NEEDS_CONTENT",
+      "sortOrder": 51,
+      "lessonLen": 0,
+      "children": [],
+      "packageFiles": [
+        "packages-v2/stage7a1-geography.package.json"
+      ],
+      "similarExistingTopics": []
+    },
+    {
+      "id": "s7a-sec-geography-ua",
+      "title": "Stage 7A.1 · geography",
+      "parentId": null,
+      "subjectId": "geography",
+      "coverage": "NEEDS_CONTENT",
+      "sortOrder": 52,
+      "lessonLen": 0,
+      "children": [],
+      "packageFiles": [
+        "packages-v2/stage7a1-geography.package.json"
+      ],
+      "similarExistingTopics": []
+    },
+    {
+      "id": "s7a-sec-history-v2",
+      "title": "Stage 7A.1 · history",
+      "parentId": null,
+      "subjectId": "history",
+      "coverage": "NEEDS_CONTENT",
+      "sortOrder": 91,
+      "lessonLen": 0,
+      "children": [
+        {
+          "id": "cm-history-slavs-sub-01",
+          "title": "Венеди, анти, склавини",
+          "coverage": "DRAFT",
+          "parentId": "s7a-sec-history-v2"
+        },
+        {
+          "id": "hist-galicia-sub-01",
+          "title": "Обʼєднання князівств",
+          "coverage": "DRAFT",
+          "parentId": "s7a-sec-history-v2"
+        }
+      ],
+      "packageFiles": [
+        "packages-v2/stage7a1-history.package.json"
+      ],
+      "similarExistingTopics": []
+    },
+    {
+      "id": "s7a-sec-math-v2",
+      "title": "Stage 7A.1 · math",
+      "parentId": null,
+      "subjectId": "math",
+      "coverage": "NEEDS_CONTENT",
+      "sortOrder": 111,
+      "lessonLen": 0,
+      "children": [
+        {
+          "id": "math-linear-eq-sub-02",
+          "title": "Лінійне рівняння",
+          "coverage": "DRAFT",
+          "parentId": "s7a-sec-math-v2"
+        },
+        {
+          "id": "math-quadratic-sub-01",
+          "title": "Дискримінант і корені",
+          "coverage": "DRAFT",
+          "parentId": "s7a-sec-math-v2"
+        }
+      ],
+      "packageFiles": [
+        "packages-v2/stage7a1-math.package.json"
+      ],
+      "similarExistingTopics": []
+    },
+    {
+      "id": "s7a-sec-ukr-lex",
+      "title": "Stage 7A.1 · ukrainian",
+      "parentId": null,
+      "subjectId": "ukrainian",
+      "coverage": "NEEDS_CONTENT",
+      "sortOrder": 85,
+      "lessonLen": 0,
+      "children": [],
+      "packageFiles": [
+        "packages-v2/stage7a1-ukrainian.package.json"
+      ],
+      "similarExistingTopics": []
+    },
+    {
+      "id": "s7a-sec-ukrainian-v2",
+      "title": "Stage 7A.1 · ukrainian",
+      "parentId": null,
+      "subjectId": "ukrainian",
+      "coverage": "NEEDS_CONTENT",
+      "sortOrder": 86,
+      "lessonLen": 0,
+      "children": [
+        {
+          "id": "ukr-ortho-sub-01",
+          "title": "Ненаголошені голосні",
+          "coverage": "DRAFT",
+          "parentId": "s7a-sec-ukrainian-v2"
+        }
+      ],
+      "packageFiles": [
+        "packages-v2/stage7a1-ukrainian.package.json"
+      ],
+      "similarExistingTopics": []
+    }
+  ],
+  "allowlistTopics": [
+    {
+      "id": "bio-cell-sec-01",
+      "title": "Цитologія: будова клітини",
+      "parentId": null,
+      "subjectId": "biology",
+      "coverage": "DRAFT"
+    },
+    {
+      "id": "cm-history-slavs-sub-01",
+      "title": "Венеди, анти, склавини",
+      "parentId": "s7a-sec-history-v2",
+      "subjectId": "history",
+      "coverage": "DRAFT"
+    },
+    {
+      "id": "geography-1",
+      "title": "Загальна географія",
+      "parentId": null,
+      "subjectId": "geography",
+      "coverage": "DRAFT"
+    },
+    {
+      "id": "geography-2",
+      "title": "Географія України",
+      "parentId": null,
+      "subjectId": "geography",
+      "coverage": "DRAFT"
+    },
+    {
+      "id": "hist-galicia-sub-01",
+      "title": "Обʼєднання князівств",
+      "parentId": "s7a-sec-history-v2",
+      "subjectId": "history",
+      "coverage": "DRAFT"
+    },
+    {
+      "id": "math-linear-eq-sub-02",
+      "title": "Лінійне рівняння",
+      "parentId": "s7a-sec-math-v2",
+      "subjectId": "math",
+      "coverage": "DRAFT"
+    },
+    {
+      "id": "math-quadratic-sub-01",
+      "title": "Дискримінант і корені",
+      "parentId": "s7a-sec-math-v2",
+      "subjectId": "math",
+      "coverage": "DRAFT"
+    },
+    {
+      "id": "ukr-lexicology-section-01",
+      "title": "Лексикологія та фразеологія",
+      "parentId": null,
+      "subjectId": "ukrainian",
+      "coverage": "DRAFT"
+    },
+    {
+      "id": "ukr-ortho-sub-01",
+      "title": "Ненаголошені голосні",
+      "parentId": "s7a-sec-ukrainian-v2",
+      "subjectId": "ukrainian",
+      "coverage": "DRAFT"
+    },
+    {
+      "id": "zcode-biology-molecular-02",
+      "title": "Молекулярні основи життя та поділ клітини",
+      "parentId": null,
+      "subjectId": "biology",
+      "coverage": "DRAFT"
+    }
+  ],
+  "subjectRootSamples": {
+    "geography": [
+      {
+        "id": "geography-1",
+        "title": "Загальна географія",
+        "parentId": null,
+        "coverage": "DRAFT"
+      },
+      {
+        "id": "geography-2",
+        "title": "Географія України",
+        "parentId": null,
+        "coverage": "DRAFT"
+      },
+      {
+        "id": "geography-3",
+        "title": "Населення і господарство",
+        "parentId": null,
+        "coverage": "NEEDS_CONTENT"
+      },
+      {
+        "id": "geography-4",
+        "title": "Регіони світу",
+        "parentId": null,
+        "coverage": "NEEDS_CONTENT"
+      },
+      {
+        "id": "geography-5",
+        "title": "Картографія",
+        "parentId": null,
+        "coverage": "NEEDS_CONTENT"
+      },
+      {
+        "id": "s7a-sec-geography",
+        "title": "Stage 7A.1 · geography",
+        "parentId": null,
+        "coverage": "NEEDS_CONTENT"
+      },
+      {
+        "id": "s7a-sec-geography-ua",
+        "title": "Stage 7A.1 · geography",
+        "parentId": null,
+        "coverage": "NEEDS_CONTENT"
+      }
+    ],
+    "ukrainian": [
+      {
+        "id": "ukr-phonetics",
+        "title": "Фонетика та орфоепія",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "ukr-lexis",
+        "title": "Лексикологія",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "ukr-word",
+        "title": "Будова слова",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "ukr-ortho",
+        "title": "Орфографія",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "ukr-morph",
+        "title": "Морфологія",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "ukr-syntax",
+        "title": "Синтаксис",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "ukr-punct",
+        "title": "Пунктуація",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "ukr-style",
+        "title": "Текст і стилістика",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "ukr-lexicology-section-01",
+        "title": "Лексикологія та фразеологія",
+        "parentId": null,
+        "coverage": "DRAFT"
+      },
+      {
+        "id": "s7a-sec-ukr-lex",
+        "title": "Stage 7A.1 · ukrainian",
+        "parentId": null,
+        "coverage": "NEEDS_CONTENT"
+      },
+      {
+        "id": "s7a-sec-ukrainian-v2",
+        "title": "Stage 7A.1 · ukrainian",
+        "parentId": null,
+        "coverage": "NEEDS_CONTENT"
+      }
+    ],
+    "math": [
+      {
+        "id": "math-numbers",
+        "title": "Числа, відсотки та пропорції",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "math-expressions",
+        "title": "Алгебраїчні вирази",
+        "parentId": null,
+        "coverage": "PARTIAL"
+      },
+      {
+        "id": "math-linear",
+        "title": "Лінійні рівняння та системи",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "math-quadratic",
+        "title": "Квадратні рівняння",
+        "parentId": null,
+        "coverage": "PARTIAL"
+      },
+      {
+        "id": "math-functions",
+        "title": "Функції та графіки",
+        "parentId": null,
+        "coverage": "PARTIAL"
+      },
+      {
+        "id": "math-progressions",
+        "title": "Прогресії",
+        "parentId": null,
+        "coverage": "PARTIAL"
+      },
+      {
+        "id": "math-trig",
+        "title": "Тригонометрія",
+        "parentId": null,
+        "coverage": "PARTIAL"
+      },
+      {
+        "id": "math-derivative",
+        "title": "Похідна",
+        "parentId": null,
+        "coverage": "PARTIAL"
+      },
+      {
+        "id": "math-plane",
+        "title": "Планіметрія",
+        "parentId": null,
+        "coverage": "PARTIAL"
+      },
+      {
+        "id": "math-solid",
+        "title": "Стереометрія",
+        "parentId": null,
+        "coverage": "PARTIAL"
+      },
+      {
+        "id": "math-probability",
+        "title": "Комбінаторика та ймовірність",
+        "parentId": null,
+        "coverage": "PARTIAL"
+      },
+      {
+        "id": "s7a-sec-math-v2",
+        "title": "Stage 7A.1 · math",
+        "parentId": null,
+        "coverage": "NEEDS_CONTENT"
+      }
+    ],
+    "history": [
+      {
+        "id": "hist-ancient",
+        "title": "Стародавня історія України",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "hist-kyiv",
+        "title": "Київська Русь",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "hist-galicia",
+        "title": "Галицько-Волинська держава",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "hist-lithuania",
+        "title": "Литовсько-польська доба",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "hist-cossacks",
+        "title": "Козацька доба",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "hist-revolution",
+        "title": "Українська революція 1917–1921",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "hist-ww2",
+        "title": "Україна в Другій світовій війні",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "hist-soviet",
+        "title": "Україна в 1945–1991 роках",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "hist-independence",
+        "title": "Незалежна Україна",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "s7a-sec-history-v2",
+        "title": "Stage 7A.1 · history",
+        "parentId": null,
+        "coverage": "NEEDS_CONTENT"
+      }
+    ],
+    "biology": [
+      {
+        "id": "bio-cell",
+        "title": "Хімічний склад і клітина",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "bio-metabolism",
+        "title": "Обмін речовин",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "bio-botany",
+        "title": "Ботаніка",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "bio-zoology",
+        "title": "Зоологія",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "bio-human",
+        "title": "Людина та її здоров'я",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "bio-genetics",
+        "title": "Генетика",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "bio-evolution",
+        "title": "Еволюція",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "bio-ecology",
+        "title": "Екологія",
+        "parentId": null,
+        "coverage": "VERIFIED"
+      },
+      {
+        "id": "bio-cell-sec-01",
+        "title": "Цитologія: будова клітини",
+        "parentId": null,
+        "coverage": "DRAFT"
+      },
+      {
+        "id": "zcode-biology-molecular-02",
+        "title": "Молекулярні основи життя та поділ клітини",
+        "parentId": null,
+        "coverage": "DRAFT"
+      },
+      {
+        "id": "s7a-sec-bio-cell",
+        "title": "Stage 7A.1 · biology",
+        "parentId": null,
+        "coverage": "NEEDS_CONTENT"
+      },
+      {
+        "id": "s7a-sec-bio-molecular",
+        "title": "Stage 7A.1 · biology",
+        "parentId": null,
+        "coverage": "NEEDS_CONTENT"
+      }
+    ]
+  }
+}

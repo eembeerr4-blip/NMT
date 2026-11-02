@@ -8,7 +8,7 @@ export default defineConfig({
     // Bound worker/process pressure for SQLite integration tests on local Windows.
     maxWorkers: 1,
     fileParallelism: false,
-    include: ["src/**/*.test.ts", "tests/**/*.test.ts"],
+    include: ["src/**/*.test.ts", "tests/**/*.test.ts", "scripts/**/*.test.ts"],
   },
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },

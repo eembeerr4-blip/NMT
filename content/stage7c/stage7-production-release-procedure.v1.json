@@ -1,0 +1,82 @@
+{
+  "format": "nmt-stage7-production-release-procedure",
+  "version": 1,
+  "stage": "7-final",
+  "productionDatabase": "D:/НМТ Сайт/NMT-academy/prisma/dev.db",
+  "allowlistTopicIds": [
+    "geography-1",
+    "geography-2",
+    "ukr-lexicology-section-01",
+    "ukr-ortho-sub-01",
+    "math-linear-eq-sub-02",
+    "math-quadratic-sub-01",
+    "cm-history-slavs-sub-01",
+    "hist-galicia-sub-01",
+    "bio-cell-sec-01",
+    "zcode-biology-molecular-02"
+  ],
+  "protectedStage6TopicIds": [
+    "ukr-lex-01-meaning",
+    "ukr-lex-02-syn-ant-hom",
+    "ukr-lex-03-phraseology",
+    "bio-cell-01-eukaryotic-cell",
+    "zcode-biology-molecular-dna-rna",
+    "zcode-biology-molecular-protein-synth",
+    "zcode-biology-molecular-division"
+  ],
+  "artifacts": {
+    "corrections": "content/stage7c/stage7c-corrections-manifest.v2.json",
+    "reviewDecisions": "content/stage7c/stage7c-review-decisions.v2.json",
+    "hierarchyFix": "content/stage7c/stage7c-hierarchy-fix.v1.json"
+  },
+  "steps": [
+    {
+      "order": 1,
+      "action": "backup",
+      "detail": "Online backup of prisma/dev.db to dated folder; record SHA-256 and row-count fingerprints (scripts/stage7b-fingerprints.mjs)."
+    },
+    {
+      "order": 2,
+      "action": "snapshotHashes",
+      "detail": "For each correction row in v2 manifest, compute live contentHashBefore from production DB (question core hash + lesson JSON hash). Abort if any row differs from manifest without owner approval."
+    },
+    {
+      "order": 3,
+      "action": "hierarchyFix",
+      "detail": "Apply stage7c-hierarchy-fix.v1.json in one transaction; verify 7 reparents; refuse if child parentId unexpected."
+    },
+    {
+      "order": 4,
+      "action": "applyCorrections",
+      "detail": "Run scripts/stage7c-apply-corrections.mts WITHOUT STAGE7C1_QA_APPLY; STAGE7B_ACK not used — script must refuse production unless separate owner flag added for production apply."
+    },
+    {
+      "order": 5,
+      "action": "verifyQuestions",
+      "detail": "Owner/editor: verifyQuestion(..., VERIFIED) for each allowlist questionId (120), or audited batch with same prepareQuestion gate."
+    },
+    {
+      "order": 6,
+      "action": "publishLessons",
+      "detail": "publishLesson(topicId) for each of 10 allowlist topics after readiness passes."
+    },
+    {
+      "order": 7,
+      "action": "postCheck",
+      "detail": "Re-run fingerprints: User/StudyTask/Answer digests unchanged; Stage 6 READY topics unchanged; only allowlist coverage moves DRAFT→READY."
+    }
+  ],
+  "abortConditions": [
+    "DATABASE_URL resolves to unexpected path",
+    "contentHashBefore mismatch on any correction",
+    "Question or topic outside allowlist would change",
+    "Stage 6 READY topic lessonJson or coverage changes",
+    "User-table digest changes during content apply"
+  ],
+  "explicitlyForbidden": [
+    "syncPlan on production for this release",
+    "Prisma migrate/db push/reset on production",
+    "Deleting s7a-sec-* without navigation audit",
+    "STAGE7C1_QA_APPLY=yes on production"
+  ]
+}

@@ -67,7 +67,7 @@ async function applyPackages(db: PrismaClient) {
   );
 }
 
-async function main() {
+export async function applyStage7Corrections() {
   const databaseUrl = process.env.DATABASE_URL;
   if (!databaseUrl) throw new Error("DATABASE_URL required");
   assertStage7aQaDatabase(databaseUrl, repoRoot);
@@ -75,13 +75,23 @@ async function main() {
   try {
     await verifyHashes(prisma);
     await applyPackages(prisma);
-    console.log(JSON.stringify({ ok: true, step: "apply" }, null, 2));
+    return { ok: true as const, step: "apply" as const };
   } finally {
     await prisma.$disconnect();
   }
 }
 
-main().catch((e) => {
-  console.error(JSON.stringify({ ok: false, error: e.message }, null, 2));
-  process.exit(1);
-});
+async function main() {
+  const result = await applyStage7Corrections();
+  console.log(JSON.stringify(result, null, 2));
+}
+
+const isMain =
+  process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+
+if (isMain) {
+  main().catch((e) => {
+    console.error(JSON.stringify({ ok: false, error: e.message }, null, 2));
+    process.exit(1);
+  });
+}
