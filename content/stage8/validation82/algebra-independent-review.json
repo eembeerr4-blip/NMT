@@ -1,0 +1,130 @@
+{
+  "reviewedAt": "2026-11-02",
+  "method": "Solved from prompts/options before reading candidate answer keys or explanations in this session; single-agent mathematical review, not teacher approval.",
+  "answers": [
+    {
+      "suffix": "01",
+      "value": "9",
+      "reason": "3x-2x+5=x+5; at x=4 gives 9."
+    },
+    {
+      "suffix": "02",
+      "value": "64",
+      "reason": "(2*2)^3=4^3=64."
+    },
+    {
+      "suffix": "03",
+      "value": "9",
+      "reason": "Arithmetic square root is nonnegative; 9^2=81."
+    },
+    {
+      "suffix": "04",
+      "value": "3",
+      "reason": "3^3=27."
+    },
+    {
+      "suffix": "05",
+      "value": "10",
+      "reason": "x!=4; (x^2-16)/(x-4)=x+4=10 at x=6."
+    },
+    {
+      "suffix": "06",
+      "value": "1",
+      "reason": "-(2a-3b)+4a=2a+3b=4-3=1."
+    },
+    {
+      "suffix": "07",
+      "value": "10",
+      "reason": "Both radicands positive; sqrt(50)*sqrt(2)=sqrt(100)=10."
+    },
+    {
+      "suffix": "08",
+      "value": "5",
+      "reason": "8*4=32=2^5."
+    },
+    {
+      "suffix": "09",
+      "value": {
+        "1": "А",
+        "2": "Б",
+        "3": "Д"
+      },
+      "reason": "At x=3: x^2-4=5; 2x+1=7; (x+1)^2=16. Distinct matches."
+    },
+    {
+      "suffix": "10",
+      "value": "-4",
+      "reason": "x!=2. D=a^2-16. For integer a in [-5,5]: a=-4 gives the single root -2; a=4 only gives excluded root 2; a=+-5 give two valid roots; others none. Sum=-4."
+    },
+    {
+      "suffix": "11",
+      "value": "5",
+      "reason": "Both arguments positive implies x>2 and x^2-5x+6>0. Equality gives (x-2)(x-5)=0; only x=5 is admissible."
+    },
+    {
+      "suffix": "12",
+      "value": "1",
+      "reason": "Set y=x-2; |y^2-1|=a. Negative a: none; a=0: two roots; a=1: y=0,+-sqrt(2), three roots; integer a=2,3,4: two roots. Exactly one admissible parameter."
+    }
+  ],
+  "studyModule": {
+    "workedExamplesChecked": 6,
+    "selfStudyTasksChecked": 6,
+    "mathematicalErrorsFound": 0,
+    "answers": [
+      "t!= -4; t-4; -3",
+      "288",
+      "1",
+      "4",
+      "-2<x<4",
+      "3"
+    ],
+    "additionalWorkedExamplesChecked": 3,
+    "additionalExamples": [
+      "Rational parameter equation: exactly one admissible root only for b=-6",
+      "Logarithmic equation: domain x>2 and only root 6",
+      "Absolute quadratic: three distinct roots only for c=4"
+    ]
+  },
+  "keyComparison": {
+    "checked": 12,
+    "matched": 12,
+    "corrected": 0
+  },
+  "quality": {
+    "uniqueAnswers": true,
+    "ambiguousPromptsFound": 0,
+    "distribution": {
+      "EASY": 9,
+      "MEDIUM": 3,
+      "HARD": 0
+    },
+    "limitations": [
+      "Difficulty is an editorial estimate, not empirical calibration.",
+      "Some elementary distractors have weak diagnostic value; no mathematical reason to rewrite correct options in this pass.",
+      "Questions 10-12 require quadratic/parameter/logarithmic-equation prerequisites; missing worked scaffolding added to the study module."
+    ]
+  },
+  "curriculum": {
+    "checkedAt": "2026-11-02",
+    "baselineYear": 2026,
+    "confirmed2027": false,
+    "source": "https://testportal.gov.ua/matematyka-2026/",
+    "program": "https://testportal.gov.ua/wp-content/uploads/2019/12/nakaz-1513_04.12_programa_matematyka.pdf",
+    "mapping": [
+      {
+        "questions": "01-09",
+        "area": "Numbers and expressions: polynomial/rational expressions, integer powers, arithmetic roots, logarithms"
+      },
+      {
+        "questions": "10-12",
+        "area": "Equations/inequalities: quadratic/rational/logarithmic equations and modulus; parameter root counting is supplemental cross-topic material, not certified as a specific 2027 requirement"
+      }
+    ],
+    "scope": "Official 2026 page confirms these broad content areas. No official 2027 specification was found in the targeted search; the historical PDF is not presented as 2027 approval."
+  },
+  "publication": {
+    "status": "BLOCKED",
+    "reason": "Actual candidate practice distribution 9/3/0 fails unchanged 4/5/3. No pilot publication or coverage override."
+  }
+}
