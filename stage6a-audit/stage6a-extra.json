@@ -1,0 +1,203 @@
+{
+  "allVideoByStatus": [
+    {
+      "reviewStatus": "CONFIRMED",
+      "count": 1
+    },
+    {
+      "reviewStatus": "SUGGESTED",
+      "count": 8
+    }
+  ],
+  "confirmedVideos": [
+    {
+      "id": "cmvci5sod0001utjo56grad2h",
+      "topicId": "math-linear-eq",
+      "title": "ВШО: Лінійне рівняння з однією змінною",
+      "youtubeId": "hoM0AHKTc7k",
+      "url": "https://www.youtube.com/watch?v=hoM0AHKTc7k"
+    }
+  ],
+  "suggestedVideosOutside7": [
+    {
+      "topicId": "ukr-ortho",
+      "title": "ВШО: Орфографія (9 клас)",
+      "youtubeId": "uDffUp7AuYQ"
+    }
+  ],
+  "studyTasks": [],
+  "missingOptionsQuestions": [
+    {
+      "id": "bio-cell-01-q07",
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "type": "NUMERIC",
+      "difficulty": "MEDIUM",
+      "prompt": "Скільки мембран оточують ядро еукаріотичної клітини? Відповідайте числом."
+    },
+    {
+      "id": "zcode-biology-molecular-dna-rna-q05",
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "type": "NUMERIC",
+      "difficulty": "MEDIUM",
+      "prompt": "У дволанцюговій молекулі ДНК на аденін припадає 20% усіх нуклеотидів. Скільки відсотків нуклеотидів припадає на тимін? В"
+    },
+    {
+      "id": "zcode-biology-molecular-dna-rna-q10",
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "type": "NUMERIC",
+      "difficulty": "HARD",
+      "prompt": "Дволанцюгова ділянка ДНК містить 100 нуклеотидів, з них з аденіном — 15. Скільки нуклеотидів із гуаніном у цій ділянці? "
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth-q08",
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "type": "NUMERIC",
+      "difficulty": "MEDIUM",
+      "prompt": "Кодируюча ділянка іРНК містить 120 нуклеотидів, що кодують амінокислоти; три нуклеотиди стоп-кодона та нетрансльовані ді"
+    },
+    {
+      "id": "zcode-biology-molecular-division-q08",
+      "topicId": "zcode-biology-molecular-division",
+      "type": "NUMERIC",
+      "difficulty": "MEDIUM",
+      "prompt": "Диплоїдний набір хромосом людини 2n=46. Скільки хромосом містить нормальна гамета людини? Відповідайте числом."
+    },
+    {
+      "id": "zcode-biology-molecular-division-q09",
+      "topicId": "zcode-biology-molecular-division",
+      "type": "NUMERIC",
+      "difficulty": "HARD",
+      "prompt": "У клітині 2n=6. Скільки хроматид містить ця клітина одразу після S-періоду інтерфази? Відповідайте числом."
+    }
+  ],
+  "siblingNav": [
+    {
+      "id": "ukr-lex-01-meaning",
+      "title": "Лексичне значення слова",
+      "subjectId": "ukrainian",
+      "sortOrder": 82,
+      "prev": null,
+      "next": {
+        "id": "ukr-lex-02-syn-ant-hom",
+        "title": "Синоніми, антоніми, омоніми",
+        "sortOrder": 83,
+        "coverage": "DRAFT"
+      },
+      "siblingDraftCount": 3,
+      "siblingTotal": 3
+    },
+    {
+      "id": "ukr-lex-02-syn-ant-hom",
+      "title": "Синоніми, антоніми, омоніми",
+      "subjectId": "ukrainian",
+      "sortOrder": 83,
+      "prev": {
+        "id": "ukr-lex-01-meaning",
+        "title": "Лексичне значення слова",
+        "sortOrder": 82,
+        "coverage": "DRAFT"
+      },
+      "next": {
+        "id": "ukr-lex-03-phraseology",
+        "title": "Фразеологізми",
+        "sortOrder": 84,
+        "coverage": "DRAFT"
+      },
+      "siblingDraftCount": 3,
+      "siblingTotal": 3
+    },
+    {
+      "id": "ukr-lex-03-phraseology",
+      "title": "Фразеологізми",
+      "subjectId": "ukrainian",
+      "sortOrder": 84,
+      "prev": {
+        "id": "ukr-lex-02-syn-ant-hom",
+        "title": "Синоніми, антоніми, омоніми",
+        "sortOrder": 83,
+        "coverage": "DRAFT"
+      },
+      "next": null,
+      "siblingDraftCount": 3,
+      "siblingTotal": 3
+    },
+    {
+      "id": "bio-cell-01-eukaryotic-cell",
+      "title": "Будова еукаріотичної клітини",
+      "subjectId": "biology",
+      "sortOrder": 82,
+      "prev": null,
+      "next": null,
+      "siblingDraftCount": 1,
+      "siblingTotal": 1
+    },
+    {
+      "id": "zcode-biology-molecular-dna-rna",
+      "title": "ДНК і РНК",
+      "subjectId": "biology",
+      "sortOrder": 84,
+      "prev": null,
+      "next": {
+        "id": "zcode-biology-molecular-protein-synth",
+        "title": "Реплікація ДНК і біосинтез білка",
+        "sortOrder": 85,
+        "coverage": "DRAFT"
+      },
+      "siblingDraftCount": 3,
+      "siblingTotal": 3
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth",
+      "title": "Реплікація ДНК і біосинтез білка",
+      "subjectId": "biology",
+      "sortOrder": 85,
+      "prev": {
+        "id": "zcode-biology-molecular-dna-rna",
+        "title": "ДНК і РНК",
+        "sortOrder": 84,
+        "coverage": "DRAFT"
+      },
+      "next": {
+        "id": "zcode-biology-molecular-division",
+        "title": "Клітинний цикл. Мітоз і мейоз",
+        "sortOrder": 86,
+        "coverage": "DRAFT"
+      },
+      "siblingDraftCount": 3,
+      "siblingTotal": 3
+    },
+    {
+      "id": "zcode-biology-molecular-division",
+      "title": "Клітинний цикл. Мітоз і мейоз",
+      "subjectId": "biology",
+      "sortOrder": 86,
+      "prev": {
+        "id": "zcode-biology-molecular-protein-synth",
+        "title": "Реплікація ДНК і біосинтез білка",
+        "sortOrder": 85,
+        "coverage": "DRAFT"
+      },
+      "next": null,
+      "siblingDraftCount": 3,
+      "siblingTotal": 3
+    }
+  ],
+  "workingFingerprint": [
+    {
+      "name": "Topic",
+      "cnt": 88
+    },
+    {
+      "name": "VideoLesson",
+      "cnt": 9
+    },
+    {
+      "name": "Question",
+      "cnt": 404
+    },
+    {
+      "name": "MistakeRetry",
+      "cnt": 0
+    }
+  ]
+}

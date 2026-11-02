@@ -1,0 +1,639 @@
+{
+  "generatedAt": "2026-10-28T13:54:11.790Z",
+  "topicIds": [
+    "ukr-lex-01-meaning",
+    "ukr-lex-02-syn-ant-hom",
+    "ukr-lex-03-phraseology",
+    "bio-cell-01-eukaryotic-cell",
+    "zcode-biology-molecular-dna-rna",
+    "zcode-biology-molecular-protein-synth",
+    "zcode-biology-molecular-division"
+  ],
+  "missingTopicRows": [],
+  "lessons": [
+    {
+      "id": "ukr-lex-01-meaning",
+      "title": "Лексичне значення слова",
+      "subject": {
+        "id": "ukrainian",
+        "name": "Українська мова"
+      },
+      "coverage": "DRAFT",
+      "lessonJsonBytes": 11450,
+      "lessonParseOk": true,
+      "theoryChars": 5675,
+      "objectives": 6,
+      "rules": 9,
+      "mistakes": 6,
+      "examples": 6,
+      "summaryChars": 262,
+      "hasFormulasField": false,
+      "formulasFieldChars": 0,
+      "theorySnippet": "### 1. Що таке лексичне значення слова\n\n**Лексикологія** — це розділ мовознавства, що вивчає словниковий склад мови (лексику). Кожне повнозначне слово має два значення: **лексичне** та **граматичне**.",
+      "childrenCount": 0,
+      "childIds": [],
+      "prerequisites": [],
+      "access": {
+        "theory": false,
+        "video": false,
+        "practice": false,
+        "available": false,
+        "label": "Чернетка не опублікована"
+      },
+      "readiness": {
+        "theory": true,
+        "examples": true,
+        "practice": false,
+        "video": false,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 4,
+          "HARD": 2
+        },
+        "section": false,
+        "ready": false,
+        "canStudy": true,
+        "questionCount": 10
+      },
+      "questions": {
+        "total": 10,
+        "byDifficulty": {
+          "EASY": 4,
+          "MEDIUM": 4,
+          "HARD": 2,
+          "OTHER": 0
+        },
+        "byVerification": {
+          "VERIFIED": 0,
+          "DRAFT": 10,
+          "OTHER": 0
+        },
+        "learnerAvailableCount": 0,
+        "missingCorrect": 0,
+        "missingOptions": 0
+      },
+      "tests": [],
+      "studyTasks": 0,
+      "videos": [
+        {
+          "id": "cmvqmvaz90001ut9s70jnfxgc",
+          "title": "Українська мова. Лексикологія. Лексичне значення слова. Однозначні й багатозначні слова",
+          "youtubeId": "NDmd6xU9F2E",
+          "url": "https://www.youtube.com/watch?v=NDmd6xU9F2E",
+          "reviewStatus": "SUGGESTED",
+          "durationSec": null,
+          "isPrimary": false,
+          "role": "primary",
+          "channel": ""
+        }
+      ]
+    },
+    {
+      "id": "ukr-lex-02-syn-ant-hom",
+      "title": "Синоніми, антоніми, омоніми",
+      "subject": {
+        "id": "ukrainian",
+        "name": "Українська мова"
+      },
+      "coverage": "DRAFT",
+      "lessonJsonBytes": 8455,
+      "lessonParseOk": true,
+      "theoryChars": 3735,
+      "objectives": 6,
+      "rules": 6,
+      "mistakes": 4,
+      "examples": 6,
+      "summaryChars": 190,
+      "hasFormulasField": false,
+      "formulasFieldChars": 0,
+      "theorySnippet": "### 1. Синоніми та синонімічні ряди\n\n**Синоніми** — це слова, що мають однакове або близьке лексичне значення, але відрізняються звучанням і написанням (*сміливий — відважний — хоробрий — безстрашний*",
+      "childrenCount": 0,
+      "childIds": [],
+      "prerequisites": [],
+      "access": {
+        "theory": false,
+        "video": false,
+        "practice": false,
+        "available": false,
+        "label": "Чернетка не опублікована"
+      },
+      "readiness": {
+        "theory": true,
+        "examples": true,
+        "practice": false,
+        "video": false,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 4,
+          "HARD": 2
+        },
+        "section": false,
+        "ready": false,
+        "canStudy": true,
+        "questionCount": 10
+      },
+      "questions": {
+        "total": 10,
+        "byDifficulty": {
+          "EASY": 4,
+          "MEDIUM": 4,
+          "HARD": 2,
+          "OTHER": 0
+        },
+        "byVerification": {
+          "VERIFIED": 0,
+          "DRAFT": 10,
+          "OTHER": 0
+        },
+        "learnerAvailableCount": 0,
+        "missingCorrect": 0,
+        "missingOptions": 0
+      },
+      "tests": [],
+      "studyTasks": 0,
+      "videos": [
+        {
+          "id": "cmvqmvazb0004ut9s6vgj6u3e",
+          "title": "10 клас. Українська мова. Лексичні та фразеологічні синоніми, антоніми. Синонімічне багатство мови",
+          "youtubeId": "scigg_eN4qs",
+          "url": "https://www.youtube.com/watch?v=scigg_eN4qs",
+          "reviewStatus": "SUGGESTED",
+          "durationSec": null,
+          "isPrimary": false,
+          "role": "primary",
+          "channel": ""
+        }
+      ]
+    },
+    {
+      "id": "ukr-lex-03-phraseology",
+      "title": "Фразеологізми",
+      "subject": {
+        "id": "ukrainian",
+        "name": "Українська мова"
+      },
+      "coverage": "DRAFT",
+      "lessonJsonBytes": 9412,
+      "lessonParseOk": true,
+      "theoryChars": 4756,
+      "objectives": 6,
+      "rules": 7,
+      "mistakes": 5,
+      "examples": 6,
+      "summaryChars": 161,
+      "hasFormulasField": false,
+      "formulasFieldChars": 0,
+      "theorySnippet": "### 1. Що таке фразеологізм?\n\n**Фразеологізм (фразеологічна одиниця)** — це стійке, неподільне сполучення слів, яке за значенням тяжіє до єдиного поняття й відтворюється в мовленні за традицією як гот",
+      "childrenCount": 0,
+      "childIds": [],
+      "prerequisites": [],
+      "access": {
+        "theory": false,
+        "video": false,
+        "practice": false,
+        "available": false,
+        "label": "Чернетка не опублікована"
+      },
+      "readiness": {
+        "theory": true,
+        "examples": true,
+        "practice": false,
+        "video": false,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 4,
+          "HARD": 2
+        },
+        "section": false,
+        "ready": false,
+        "canStudy": true,
+        "questionCount": 10
+      },
+      "questions": {
+        "total": 10,
+        "byDifficulty": {
+          "EASY": 4,
+          "MEDIUM": 4,
+          "HARD": 2,
+          "OTHER": 0
+        },
+        "byVerification": {
+          "VERIFIED": 0,
+          "DRAFT": 10,
+          "OTHER": 0
+        },
+        "learnerAvailableCount": 0,
+        "missingCorrect": 0,
+        "missingOptions": 0
+      },
+      "tests": [],
+      "studyTasks": 0,
+      "videos": [
+        {
+          "id": "cmvqmvazd0007ut9s5df76dyb",
+          "title": "Українська мова. Джерела українських фразеологізмів. Фразеологізми у мовленні людини",
+          "youtubeId": "oZfA9V0mhV4",
+          "url": "https://www.youtube.com/watch?v=oZfA9V0mhV4",
+          "reviewStatus": "SUGGESTED",
+          "durationSec": null,
+          "isPrimary": false,
+          "role": "primary",
+          "channel": ""
+        }
+      ]
+    },
+    {
+      "id": "bio-cell-01-eukaryotic-cell",
+      "title": "Будова еукаріотичної клітини",
+      "subject": {
+        "id": "biology",
+        "name": "Біологія"
+      },
+      "coverage": "DRAFT",
+      "lessonJsonBytes": 15466,
+      "lessonParseOk": true,
+      "theoryChars": 8017,
+      "objectives": 6,
+      "rules": 12,
+      "mistakes": 8,
+      "examples": 8,
+      "summaryChars": 481,
+      "hasFormulasField": false,
+      "formulasFieldChars": 0,
+      "theorySnippet": "### 1. Що таке еукаріотична клітина\n\nУсі живі організми складаються з клітин. За будовою клітини поділяють на два типи: прокаріотичні (бактерії) та еукаріотичні. Слово «еукаріотична» походить від грец",
+      "childrenCount": 0,
+      "childIds": [],
+      "prerequisites": [],
+      "access": {
+        "theory": false,
+        "video": false,
+        "practice": false,
+        "available": false,
+        "label": "Чернетка не опублікована"
+      },
+      "readiness": {
+        "theory": true,
+        "examples": true,
+        "practice": false,
+        "video": false,
+        "counts": {
+          "EASY": 3,
+          "MEDIUM": 4,
+          "HARD": 3
+        },
+        "section": false,
+        "ready": false,
+        "canStudy": true,
+        "questionCount": 10
+      },
+      "questions": {
+        "total": 10,
+        "byDifficulty": {
+          "EASY": 3,
+          "MEDIUM": 4,
+          "HARD": 3,
+          "OTHER": 0
+        },
+        "byVerification": {
+          "VERIFIED": 0,
+          "DRAFT": 10,
+          "OTHER": 0
+        },
+        "learnerAvailableCount": 0,
+        "missingCorrect": 0,
+        "missingOptions": 1
+      },
+      "tests": [],
+      "studyTasks": 0,
+      "videos": [
+        {
+          "id": "cmvqmvazg000aut9sfo6c0nu3",
+          "title": "Будова еукаріотичної клітини",
+          "youtubeId": "7DtFjdHJvKg",
+          "url": "https://www.youtube.com/watch?v=7DtFjdHJvKg",
+          "reviewStatus": "SUGGESTED",
+          "durationSec": null,
+          "isPrimary": false,
+          "role": "primary",
+          "channel": ""
+        }
+      ]
+    },
+    {
+      "id": "zcode-biology-molecular-dna-rna",
+      "title": "ДНК і РНК",
+      "subject": {
+        "id": "biology",
+        "name": "Біологія"
+      },
+      "coverage": "DRAFT",
+      "lessonJsonBytes": 9068,
+      "lessonParseOk": true,
+      "theoryChars": 3644,
+      "objectives": 6,
+      "rules": 8,
+      "mistakes": 6,
+      "examples": 7,
+      "summaryChars": 425,
+      "hasFormulasField": false,
+      "formulasFieldChars": 0,
+      "theorySnippet": "### 1. Нуклеотид — цеглинка нуклеїнової кислоти\n\nНуклеїнові кислоти (ДНК і РНК) — біополімери, мономерами яких є нуклеотиди. Кожен нуклеотид складається з трьох частин: пентозного цукру (у ДНК — дезок",
+      "childrenCount": 0,
+      "childIds": [],
+      "prerequisites": [],
+      "access": {
+        "theory": false,
+        "video": false,
+        "practice": false,
+        "available": false,
+        "label": "Чернетка не опублікована"
+      },
+      "readiness": {
+        "theory": true,
+        "examples": true,
+        "practice": false,
+        "video": false,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 4,
+          "HARD": 2
+        },
+        "section": false,
+        "ready": false,
+        "canStudy": true,
+        "questionCount": 10
+      },
+      "questions": {
+        "total": 10,
+        "byDifficulty": {
+          "EASY": 4,
+          "MEDIUM": 4,
+          "HARD": 2,
+          "OTHER": 0
+        },
+        "byVerification": {
+          "VERIFIED": 0,
+          "DRAFT": 10,
+          "OTHER": 0
+        },
+        "learnerAvailableCount": 0,
+        "missingCorrect": 0,
+        "missingOptions": 2
+      },
+      "tests": [],
+      "studyTasks": 0,
+      "videos": [
+        {
+          "id": "cmvqmvazh000dut9sxffamuyt",
+          "title": "ДНК. РНК.(нуклеїнові кислоти)",
+          "youtubeId": "R4USDzLsfNk",
+          "url": "https://www.youtube.com/watch?v=R4USDzLsfNk",
+          "reviewStatus": "SUGGESTED",
+          "durationSec": null,
+          "isPrimary": false,
+          "role": "primary",
+          "channel": ""
+        }
+      ]
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth",
+      "title": "Реплікація ДНК і біосинтез білка",
+      "subject": {
+        "id": "biology",
+        "name": "Біологія"
+      },
+      "coverage": "DRAFT",
+      "lessonJsonBytes": 11626,
+      "lessonParseOk": true,
+      "theoryChars": 4710,
+      "objectives": 6,
+      "rules": 9,
+      "mistakes": 7,
+      "examples": 7,
+      "summaryChars": 438,
+      "hasFormulasField": false,
+      "formulasFieldChars": 0,
+      "theorySnippet": "### 1. Матричні синтези: спільна ідея\n\nУсі реакції, про які йдеться в цій темі, — реплікація ДНК, транскрипція, трансляція — об'єднані однією ідеєю: нова молекула будується за зразком, «матрицею», як ",
+      "childrenCount": 0,
+      "childIds": [],
+      "prerequisites": [],
+      "access": {
+        "theory": false,
+        "video": false,
+        "practice": false,
+        "available": false,
+        "label": "Чернетка не опублікована"
+      },
+      "readiness": {
+        "theory": true,
+        "examples": true,
+        "practice": false,
+        "video": false,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 4,
+          "HARD": 2
+        },
+        "section": false,
+        "ready": false,
+        "canStudy": true,
+        "questionCount": 10
+      },
+      "questions": {
+        "total": 10,
+        "byDifficulty": {
+          "EASY": 4,
+          "MEDIUM": 4,
+          "HARD": 2,
+          "OTHER": 0
+        },
+        "byVerification": {
+          "VERIFIED": 0,
+          "DRAFT": 10,
+          "OTHER": 0
+        },
+        "learnerAvailableCount": 0,
+        "missingCorrect": 0,
+        "missingOptions": 1
+      },
+      "tests": [],
+      "studyTasks": 0,
+      "videos": [
+        {
+          "id": "cmvqmvazl000gut9sta1xl6cb",
+          "title": "Реплікація ДНК та РНК транскрипція і трансляція | Академія Хана",
+          "youtubeId": "ia61JnRXC9o",
+          "url": "https://www.youtube.com/watch?v=ia61JnRXC9o",
+          "reviewStatus": "SUGGESTED",
+          "durationSec": null,
+          "isPrimary": false,
+          "role": "primary",
+          "channel": ""
+        }
+      ]
+    },
+    {
+      "id": "zcode-biology-molecular-division",
+      "title": "Клітинний цикл. Мітоз і мейоз",
+      "subject": {
+        "id": "biology",
+        "name": "Біологія"
+      },
+      "coverage": "DRAFT",
+      "lessonJsonBytes": 10831,
+      "lessonParseOk": true,
+      "theoryChars": 4663,
+      "objectives": 6,
+      "rules": 10,
+      "mistakes": 7,
+      "examples": 7,
+      "summaryChars": 452,
+      "hasFormulasField": false,
+      "formulasFieldChars": 0,
+      "theorySnippet": "### 1. Клітинний цикл\n\nКлітинний цикл — життя клітини від її утворення до власного поділу або смерті. Він складається з інтерфази (підготовка) і поділу (мітоз або мейоз). У багатоклітинних організмів ",
+      "childrenCount": 0,
+      "childIds": [],
+      "prerequisites": [],
+      "access": {
+        "theory": false,
+        "video": false,
+        "practice": false,
+        "available": false,
+        "label": "Чернетка не опублікована"
+      },
+      "readiness": {
+        "theory": true,
+        "examples": true,
+        "practice": false,
+        "video": false,
+        "counts": {
+          "EASY": 4,
+          "MEDIUM": 4,
+          "HARD": 2
+        },
+        "section": false,
+        "ready": false,
+        "canStudy": true,
+        "questionCount": 10
+      },
+      "questions": {
+        "total": 10,
+        "byDifficulty": {
+          "EASY": 4,
+          "MEDIUM": 4,
+          "HARD": 2,
+          "OTHER": 0
+        },
+        "byVerification": {
+          "VERIFIED": 0,
+          "DRAFT": 10,
+          "OTHER": 0
+        },
+        "learnerAvailableCount": 0,
+        "missingCorrect": 0,
+        "missingOptions": 2
+      },
+      "tests": [],
+      "studyTasks": 0,
+      "videos": [
+        {
+          "id": "cmvqmvazm000jut9syst6u8un",
+          "title": "Мітоз і мейоз/ Фази мітозу і мейозу / будова хромосом.",
+          "youtubeId": "WMtpCLP1B2A",
+          "url": "https://www.youtube.com/watch?v=WMtpCLP1B2A",
+          "reviewStatus": "SUGGESTED",
+          "durationSec": null,
+          "isPrimary": false,
+          "role": "primary",
+          "channel": ""
+        }
+      ]
+    }
+  ],
+  "allVideos": [
+    {
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "topicTitle": "Будова еукаріотичної клітини",
+      "title": "Будова еукаріотичної клітини",
+      "url": "https://www.youtube.com/watch?v=7DtFjdHJvKg",
+      "youtubeId": "7DtFjdHJvKg",
+      "durationSec": null,
+      "reviewStatus": "SUGGESTED",
+      "isPrimary": false,
+      "channel": ""
+    },
+    {
+      "topicId": "ukr-lex-01-meaning",
+      "topicTitle": "Лексичне значення слова",
+      "title": "Українська мова. Лексикологія. Лексичне значення слова. Однозначні й багатозначні слова",
+      "url": "https://www.youtube.com/watch?v=NDmd6xU9F2E",
+      "youtubeId": "NDmd6xU9F2E",
+      "durationSec": null,
+      "reviewStatus": "SUGGESTED",
+      "isPrimary": false,
+      "channel": ""
+    },
+    {
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "topicTitle": "Синоніми, антоніми, омоніми",
+      "title": "10 клас. Українська мова. Лексичні та фразеологічні синоніми, антоніми. Синонімічне багатство мови",
+      "url": "https://www.youtube.com/watch?v=scigg_eN4qs",
+      "youtubeId": "scigg_eN4qs",
+      "durationSec": null,
+      "reviewStatus": "SUGGESTED",
+      "isPrimary": false,
+      "channel": ""
+    },
+    {
+      "topicId": "ukr-lex-03-phraseology",
+      "topicTitle": "Фразеологізми",
+      "title": "Українська мова. Джерела українських фразеологізмів. Фразеологізми у мовленні людини",
+      "url": "https://www.youtube.com/watch?v=oZfA9V0mhV4",
+      "youtubeId": "oZfA9V0mhV4",
+      "durationSec": null,
+      "reviewStatus": "SUGGESTED",
+      "isPrimary": false,
+      "channel": ""
+    },
+    {
+      "topicId": "zcode-biology-molecular-division",
+      "topicTitle": "Клітинний цикл. Мітоз і мейоз",
+      "title": "Мітоз і мейоз/ Фази мітозу і мейозу / будова хромосом.",
+      "url": "https://www.youtube.com/watch?v=WMtpCLP1B2A",
+      "youtubeId": "WMtpCLP1B2A",
+      "durationSec": null,
+      "reviewStatus": "SUGGESTED",
+      "isPrimary": false,
+      "channel": ""
+    },
+    {
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "topicTitle": "ДНК і РНК",
+      "title": "ДНК. РНК.(нуклеїнові кислоти)",
+      "url": "https://www.youtube.com/watch?v=R4USDzLsfNk",
+      "youtubeId": "R4USDzLsfNk",
+      "durationSec": null,
+      "reviewStatus": "SUGGESTED",
+      "isPrimary": false,
+      "channel": ""
+    },
+    {
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "topicTitle": "Реплікація ДНК і біосинтез білка",
+      "title": "Реплікація ДНК та РНК транскрипція і трансляція | Академія Хана",
+      "url": "https://www.youtube.com/watch?v=ia61JnRXC9o",
+      "youtubeId": "ia61JnRXC9o",
+      "durationSec": null,
+      "reviewStatus": "SUGGESTED",
+      "isPrimary": false,
+      "channel": ""
+    }
+  ],
+  "aggregates": {
+    "videoReviewStatus": {
+      "SUGGESTED": 7
+    },
+    "draftTopics": 7
+  }
+}
