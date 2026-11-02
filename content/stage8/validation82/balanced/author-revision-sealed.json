@@ -1,0 +1,23 @@
+{
+  "changes": [
+    {
+      "suffix": "01",
+      "reason": "Replace weak24 by -3: omitting first term3x."
+    },
+    {
+      "suffix": "02",
+      "answer": "-64",
+      "reason": "(-2*2)^3=(-4)^3=-64. Added negative factor provides sign-error64; -16 ignores cubing2, -12 replaces power by multiplication3, -8 drops coefficient2."
+    },
+    {
+      "suffix": "04",
+      "reason": "Replace exponent guess2 by1/3 from reversing base/argument."
+    },
+    {
+      "suffix": "06",
+      "answer": "5",
+      "difficulty": "EASY",
+      "reason": "One direct arithmetic-root identity sqrt((-5)^2)=|-5|=5. Avoid borderline multi-operation EASY label."
+    }
+  ]
+}

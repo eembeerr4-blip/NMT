@@ -1,0 +1,188 @@
+{
+  "reviewType": "final_independent_question_only_re_review",
+  "input": "content/stage8/validation82/balanced/blind-questions.v2.json",
+  "provenance": {
+    "onlyNewFileReadThisPass": "blind-questions.v2.json",
+    "authorKeysOrSolutionsRead": false,
+    "packageRead": false,
+    "originalBlindReportModified": false,
+    "priorExposure": "Reviewer independently solved the original question-only version previously. This pass reassesses the revision; it is not a fresh first-exposure review.",
+    "editorialClarificationsReceived": "Parent supplied proposed distractor explanations for 01:-3 and 03:7/12 after the original blind review. Their assessment below is explicitly post-blind editorial judgment."
+  },
+  "difficultyRubric": {
+    "EASY": "One basic skill, including immediate substitution and arithmetic.",
+    "MEDIUM": "Two or three linked rules or operations requiring coordination.",
+    "HARD": "Multiple ideas, cases, domain restrictions, or nontrivial reasoning."
+  },
+  "questions": [
+    {
+      "code": "math-draft-v1-math-expressions-01",
+      "answer": "9",
+      "option": "В",
+      "difficulty": "EASY",
+      "reasoning": "3x-2x+5=x+5=9 for x=4.",
+      "unique": true,
+      "wording": "Clear and complete.",
+      "topicFit": "Evaluation of an algebraic expression.",
+      "distractors": "4 omits the constant; 5 loses the variable terms; -3 follows exactly from omitting 3x, leaving -2*4+5. The proposed -3 explanation is a post-blind clarification and is mathematically coherent. 20 can result from adding the variable coefficients and omitting the constant, a less clean two-error route.",
+      "concerns": ["20 remains less diagnostic than the other options; no mathematical ambiguity."]
+    },
+    {
+      "code": "math-draft-v1-math-expressions-02",
+      "answer": "-64",
+      "option": "Д",
+      "difficulty": "EASY",
+      "reasoning": "(-2*2)^3=(-4)^3=-64. An odd power preserves the negative sign.",
+      "unique": true,
+      "wording": "Clear; parentheses fix the base of the power.",
+      "topicFit": "Numerical evaluation of a power.",
+      "distractors": "64 loses the negative sign; -12 treats cubing as multiplication by 3; -16 can arise from cubing a but leaving the coefficient -2 unchanged; -8 can arise from cubing the coefficient and omitting a. Each wrong option has a coherent error route.",
+      "concerns": []
+    },
+    {
+      "code": "math-draft-v1-math-expressions-03",
+      "answer": "6",
+      "option": "Б",
+      "difficulty": "MEDIUM",
+      "reasoning": "sqrt((-1-2)^2)=sqrt(9)=3 and log_2(8)=3, giving 6.",
+      "unique": true,
+      "wording": "Clear and complete.",
+      "topicFit": "Numerical expressions with roots and logarithms.",
+      "distractors": "0 results from treating sqrt(t^2) as t when t=-3. 11 results from replacing log_2(8) with 8. See the explicit post-blind assessment for 7 and 12 below.",
+      "postBlindEditorialAssessment": {
+        "provenance": "The explanations for 7 and 12 were supplied after the original blind review; they were not independently inferred during that review.",
+        "7": "Mathematically coherent: interpreting log_2(8) as 8/2=4 gives 3+4=7. This represents a recognizable logarithm-as-division error and is a plausible distractor rationale.",
+        "12": "Mathematically coherent: dropping the radical while retaining (-3)^2=9 gives 9+3=12. This is a plausible omitted-operation error, though its prevalence is unverified.",
+        "conclusion": "The supplied rationales resolve the earlier concern that these values lacked obvious error routes. This is editorial plausibility assessment, not empirical validation."
+      },
+      "concerns": []
+    },
+    {
+      "code": "math-draft-v1-math-expressions-04",
+      "answer": "3",
+      "option": "Б",
+      "difficulty": "EASY",
+      "reasoning": "3^3=27, so log_3(27)=3.",
+      "unique": true,
+      "wording": "Clear.",
+      "topicFit": "Elementary logarithm evaluation.",
+      "distractors": "1/3 can result from reversing the base and argument; 9 from division 27/3; 24 from subtraction 27-3; 81 from multiplication 27*3. These are coherent operator confusions. The latter two are relatively transparent to a prepared student.",
+      "concerns": ["The relative effectiveness of the distractors is unverified."]
+    },
+    {
+      "code": "math-draft-v1-math-expressions-05",
+      "answer": "-2",
+      "difficulty": "MEDIUM",
+      "reasoning": "At x=-2, the first fraction is (4-9)/(-2-3)=1 and the second is (4-4)/(-2-2)=0. The result is (1-0)*(-2)=-2. Both denominators are nonzero.",
+      "unique": true,
+      "wording": "Clear; the evaluation point is admissible.",
+      "topicFit": "Rational algebraic expressions.",
+      "distractors": "Not applicable: numeric response.",
+      "concerns": ["Direct substitution is short, so the symbolic appearance does not justify HARD."]
+    },
+    {
+      "code": "math-draft-v1-math-expressions-06",
+      "answer": "5",
+      "difficulty": "EASY",
+      "reasoning": "sqrt((-5)^2)=|-5|=5, equivalently sqrt(25)=5. The principal square root is nonnegative.",
+      "unique": true,
+      "wording": "Clear and complete; neither -5 nor plus-or-minus 5 is valid.",
+      "topicFit": "Square root of a square.",
+      "distractors": "Not applicable: numeric response.",
+      "concerns": []
+    },
+    {
+      "code": "math-draft-v1-math-expressions-07",
+      "answer": "2",
+      "difficulty": "HARD",
+      "reasoning": "The original domain excludes -4,-2,3. The bracket is sign(x+4)-sign(x-3), equal to 2 on (-4,3) and 0 outside. The rational factor simplifies to (x+4)/(x+2), retaining original exclusions. On (-4,3) this factor is positive exactly when x>-2. Thus strict positivity holds on (-2,3); the integers -1,0,1,2 sum to 2.",
+      "solutionSet": "(-2,3)",
+      "integerValues": [-1,0,1,2],
+      "unique": true,
+      "wording": "Clear: the expression must be both defined and strictly positive.",
+      "topicFit": "Expression domains and signs; includes inequality reasoning as a synthesis task.",
+      "difficultyJustification": "Genuine interaction of absolute values, sign cases, factorization, denominator holes and integer selection; not merely lengthy arithmetic.",
+      "distractors": "Not applicable: numeric response.",
+      "concerns": []
+    },
+    {
+      "code": "math-draft-v1-math-expressions-08",
+      "answer": "22",
+      "difficulty": "HARD",
+      "reasoning": "The logarithm base requires x>1 and x!=2. Its argument simplifies from (x-2)(x-3)/((x-2)(x+2)) to (x-3)/(x+2), while retaining x!=2,-2. For x>1 the argument is positive exactly for x>3. The root requires x<=7. The domain is (3,7]; integers 4,5,6,7 sum to 22.",
+      "domain": "(3,7]",
+      "integerValues": [4,5,6,7],
+      "unique": true,
+      "wording": "Clear and complete.",
+      "topicFit": "Domain of a composite expression.",
+      "difficultyJustification": "Combines variable-base logarithm restrictions, rational argument positivity and a square-root restriction; several independent conditions must be intersected.",
+      "distractors": "Not applicable: numeric response.",
+      "concerns": []
+    },
+    {
+      "code": "math-draft-v1-math-expressions-09",
+      "answer": {"1":"А","2":"Б","3":"В"},
+      "difficulty": "HARD",
+      "reasoning": "The rational expression factors to (x+3)/(x+2) with x!=-2,3 retained. For item1, positivity gives (-infinity,-3) union (-2,3) union (3,infinity), option А. For item2, nonnegativity additionally admits -3, giving option Б. Item3 requires x^2-9>=0 and x!=3, yielding (-infinity,-3] union (3,infinity), option В.",
+      "unique": true,
+      "wording": "Clear, including explicit real-variable assumption.",
+      "topicFit": "Domains of logarithmic, rational and radical expressions.",
+      "difficultyJustification": "Requires rational sign intervals, strict versus non-strict endpoints and preservation of a canceled denominator hole across three related expressions.",
+      "distractors": "Г wrongly restores x=3 after cancellation; Д wrongly includes denominator zero x=-2. Distinction between А and Б tests whether zero is allowed in the log argument or radical.",
+      "concerns": []
+    },
+    {
+      "code": "math-draft-v1-math-expressions-10",
+      "answer": "1",
+      "difficulty": "MEDIUM",
+      "reasoning": "At a=3,b=1, the first part is 3/2-1/4=5/4. The divisor is (9+1)/(9-1)=5/4. Their quotient is 1; all original denominators and the divisor are nonzero.",
+      "unique": true,
+      "wording": "Clear; colon denotes division.",
+      "topicFit": "Rational expressions and fraction operations.",
+      "distractors": "Not applicable: numeric response.",
+      "concerns": ["The direct-substitution solution supports MEDIUM rather than HARD."]
+    },
+    {
+      "code": "math-draft-v1-math-expressions-11",
+      "answer": "1",
+      "difficulty": "MEDIUM",
+      "reasoning": "3^5*9^(-1)/sqrt(81)=243/(9*9)=3. log_4(1/16)=-2. The sum is 1.",
+      "unique": true,
+      "wording": "Clear and complete.",
+      "topicFit": "Powers, roots and logarithms in a numerical expression.",
+      "distractors": "Not applicable: numeric response.",
+      "concerns": []
+    },
+    {
+      "code": "math-draft-v1-math-expressions-12",
+      "answer": "1.5",
+      "acceptedMathematicalNotation": ["1.5","1,5"],
+      "difficulty": "MEDIUM",
+      "reasoning": "(1/4+1/8)/(1/2-1/4)=(3/8)/(1/4)=3/2=1.5.",
+      "unique": true,
+      "wording": "Clear; the answer has a terminating decimal representation.",
+      "topicFit": "Negative powers and fraction arithmetic.",
+      "distractors": "Not applicable: numeric response.",
+      "concerns": ["Ukrainian decimal comma is mathematically valid; response normalization was not inspected."]
+    }
+  ],
+  "summary": {
+    "allTwelvePromptsAndOptionsChecked": true,
+    "allHaveUniqueMathematicalAnswers": true,
+    "blockingMathematicalDefects": [],
+    "difficultyCounts": {"EASY":4,"MEDIUM":5,"HARD":3},
+    "easyQuestions": ["01","02","04","06"],
+    "mediumQuestions": ["03","05","10","11","12"],
+    "hardQuestions": ["07","08","09"],
+    "classificationComparison": "Independent classification is given without reading proposed labels or keys. HARD 07-09 satisfies the supplied reasoning-based rubric. Revised 06 now clearly meets the one-basic-skill EASY criterion.",
+    "acceptedRisksAndLimitations": [
+      "Qualitative expert-like mathematical review is not empirical difficulty calibration or teacher validation.",
+      "Distractor error routes are plausible editorial explanations; student frequency and diagnostic performance are unmeasured.",
+      "Some distractors remain easier to reject or involve omission/multiple errors, especially 01:20 and 04:24/81.",
+      "Reviewer has prior exposure to original question-only prompts. This is an independent revision review with explicitly disclosed post-blind editorial clarifications, not an entirely fresh blind trial.",
+      "Question06 and question03 share the square-root-of-square skill; this is a modest content overlap, not a correctness defect.",
+      "Broad expressions-topic fit is supported by the mathematics. The 2026 baseline syllabus was not externally audited in this pass; 2027 specification remains unconfirmed.",
+      "No runtime behavior, rendering, numeric input normalization or stored author keys were inspected."
+    ]
+  }
+}
