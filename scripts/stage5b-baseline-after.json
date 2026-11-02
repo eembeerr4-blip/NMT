@@ -1,0 +1,180 @@
+﻿{
+  "userTableCount": 30,
+  "tableNames": [
+    "Answer",
+    "AuditLog",
+    "AuthToken",
+    "ExamResult",
+    "ExternalPractice",
+    "ExternalResultRevision",
+    "Flashcard",
+    "Invitation",
+    "Mistake",
+    "MistakeRetry",
+    "OAuthAccount",
+    "OAuthFlow",
+    "Question",
+    "QuestionOption",
+    "ReviewSchedule",
+    "Session",
+    "StudySession",
+    "StudyTask",
+    "Subject",
+    "Test",
+    "TestAttempt",
+    "TestQuestion",
+    "Topic",
+    "TopicDependency",
+    "User",
+    "UserSettings",
+    "UserSubject",
+    "UserTopicProgress",
+    "UserVideoProgress",
+    "VideoLesson"
+  ],
+  "integrity": [
+    {
+      "integrity_check": "ok"
+    }
+  ],
+  "fkCount": 0,
+  "answerCheck": 25,
+  "studyTasks": 110,
+  "draftTopics": 7,
+  "videos": [
+    {
+      "_count": {
+        "_all": 1
+      },
+      "reviewStatus": "CONFIRMED"
+    },
+    {
+      "_count": {
+        "_all": 8
+      },
+      "reviewStatus": "SUGGESTED"
+    }
+  ],
+  "fingerprints": {
+    "Answer": {
+      "count": 12,
+      "hash": "18294021f2cec5a09e487418a230bec96d085602fddf30fcc0c3e1f3b020f443"
+    },
+    "AuditLog": {
+      "count": 34,
+      "hash": "09723a7d3cad192ffcef2178fd8639050ea51f462f5577cc2fe5ccba61f3b5ca"
+    },
+    "AuthToken": {
+      "count": 0,
+      "hash": "empty"
+    },
+    "ExamResult": {
+      "count": 7,
+      "hash": "a77b77ff55b6d6ed4758c5fd7207aa8237d0a93f90bd1fcdbf01c729e8b83f4c"
+    },
+    "ExternalPractice": {
+      "count": 0,
+      "hash": "empty"
+    },
+    "ExternalResultRevision": {
+      "count": 0,
+      "hash": "empty"
+    },
+    "Flashcard": {
+      "count": 9,
+      "hash": "96a783e6e449d79457ff6b57abb0eccf716f2e58f413d8af9895f66ddd42b46d"
+    },
+    "Invitation": {
+      "count": 0,
+      "hash": "empty"
+    },
+    "Mistake": {
+      "count": 10,
+      "hash": "6b2c10f2714b4cd3a9335897b4906de91fc982e696ef05a52f2d742f4a91ed88"
+    },
+    "MistakeRetry": {
+      "count": 0,
+      "hash": "empty"
+    },
+    "OAuthAccount": {
+      "count": 1,
+      "hash": "d6b5915c46057bcb005f46f6433df65609dd3a7a57af75ac1a5a4a7c299ebffb"
+    },
+    "OAuthFlow": {
+      "count": 0,
+      "hash": "empty"
+    },
+    "Question": {
+      "count": 404,
+      "hash": "b10372ef34c8d6f71011dd618d96e409d6a6540fa2ee729ce204107fc758d044"
+    },
+    "QuestionOption": {
+      "count": 1085,
+      "hash": "b80842724d72ff46383b2c5b62bbae544ce3f4a61f9451e6a2697063cbd82f24"
+    },
+    "ReviewSchedule": {
+      "count": 3,
+      "hash": "87450e25fb5dc7226729fd770d0718f31fde365883161df13c85565d479e8fc1"
+    },
+    "Session": {
+      "count": 7,
+      "hash": "a77b77ff55b6d6ed4758c5fd7207aa8237d0a93f90bd1fcdbf01c729e8b83f4c"
+    },
+    "StudySession": {
+      "count": 1,
+      "hash": "d6b5915c46057bcb005f46f6433df65609dd3a7a57af75ac1a5a4a7c299ebffb"
+    },
+    "StudyTask": {
+      "count": 110,
+      "hash": "2b8d554227e0d0a82c2287acedc454d20b6ae1679fac0391c1dfbcedc7ff5620"
+    },
+    "Subject": {
+      "count": 12,
+      "hash": "790c621586dd1358966960d06066c01ed0d111ec60f546789bbb2208f0084eaa"
+    },
+    "Test": {
+      "count": 4,
+      "hash": "19ddcbd63481a38a7295a25a298a5d45bd75568a4f64dd513804c9cbf72810c1"
+    },
+    "TestAttempt": {
+      "count": 3,
+      "hash": "87450e25fb5dc7226729fd770d0718f31fde365883161df13c85565d479e8fc1"
+    },
+    "TestQuestion": {
+      "count": 42,
+      "hash": "d3de0a6f8a8935ee3d311bd81cc1af2ad5eb7e61c742ae2468bce86a8854f063"
+    },
+    "Topic": {
+      "count": 88,
+      "hash": "443120f31c57c0cf63434e331c38b57b8c0795297d2d177802ff6484e7ad866f"
+    },
+    "TopicDependency": {
+      "count": 5,
+      "hash": "7b14d83f937f0444ec11e1c88cc998c0c7d165507ba561d99b56ed232c7f8b2b"
+    },
+    "User": {
+      "count": 2,
+      "hash": "86030cb152df26787d8f3964267020f34cf45557aee8046190a1f790dbd36028"
+    },
+    "UserSettings": {
+      "count": 2,
+      "hash": "05b89fb0a9ac455916836346934b7aa3890103583e1022dee1662fa16543f999"
+    },
+    "UserSubject": {
+      "count": 4,
+      "hash": "d409ba86ee9e3d5b845e48cb4ade5c21a50521599b83f42f57790ccbcc16e7c7"
+    },
+    "UserTopicProgress": {
+      "count": 4,
+      "hash": "d409ba86ee9e3d5b845e48cb4ade5c21a50521599b83f42f57790ccbcc16e7c7"
+    },
+    "UserVideoProgress": {
+      "count": 2,
+      "hash": "86030cb152df26787d8f3964267020f34cf45557aee8046190a1f790dbd36028"
+    },
+    "VideoLesson": {
+      "count": 9,
+      "hash": "23fb2ac5a779859ce7de64ca828368cb34fffd0914e8ebea79aa7687c458e790"
+    }
+  }
+}

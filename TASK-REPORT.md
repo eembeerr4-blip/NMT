@@ -1,59 +1,49 @@
-# TASK-REPORT — діагностика Turbopack / ролі (Block 1)
+# TASK-REPORT: Webpack + Tailwind UI fix
 
 ## Ціль
 
-Знайти й усунути дефекти, що заважають стабільній роботі після міграції Block 1, зокрема помилку Turbopack при зміні ролі користувача.
+Відновити коректний layout (sidebar, responsive `md:*`/`lg:*`, мобільна навігація лише на малих екранах) після переходу `next dev` на Webpack, без повернення Turbopack.
 
-## Висновок щодо Turbopack
+## Точна причина
 
-- У `prisma/dev.db` зміна ролі **вже виконалась успішно** до цієї задачі: `USER_ROLE_CHANGED` (STUDENT → ADMIN для `cmvi9mrg80001ut6wlomk1tym`, 2026-10-22 10:39 UTC).
-- Оверлей «An unexpected Turbopack error» у dev часто ховає **необроблену помилку RSC/серверної дії**, а не окремий баг Turbopack.
-- Підтверджені фактори для нового адміністратора без onboarding:
-  - `onboarded: false`, **немає** `UserSettings` → `/admin/settings` викликав `getSettings()` з throw.
-  - `requireAdministrator()` йшов через `requireUser()` → редірект на `/onboarding` для staff без завершеного профілю.
-- Після `router.refresh()` повідомлення успіху в `RoleManager` зникає (ремонт компонента) — це виглядає як «збій» у UI, хоча БД уже оновлена.
+При `next dev --webpack` Tailwind CSS v4 **не проходив через PostCSS**: у репозиторії не було `postcss.config.*`, а інтеграція `@tailwindcss/turbopack` у `next.config.ts` працює лише з Turbopack. Браузер отримував **необроблений** `globals.css` (директиви `@import "tailwindcss"`, `@config`, `@source` без згенерованих utility-класів). Через це не застосовувались `hidden`, `md:hidden`, `md:pl-64` тощо — нижня мобільна панель була видима на десктопі, sidebar «зжимався».
 
 ## Що змінено
 
 | Файл | Зміна |
 |------|--------|
-| `src/server/sync.ts` | `ensureUserSettings()` — клон шаблону `default` для staff |
-| `src/server/actions.ts` | При ADMIN/EDITOR — provisioning settings; audit з іменем актора з сесії |
-| `src/server/session.ts` | Адмін/редактор без onboarding → доступ до `/admin` і `/editor`; учні як раніше |
-| `src/app/admin/settings/page.tsx` | `ensureUserSettings` перед `getSettings` |
-| `src/components/role-manager.tsx` | `unstable_rethrow` для Next redirect/errors |
-| `src/server/role-database.test.ts` | Регресія provisioning settings |
-| `src/server/audit-actions.test.ts` | Mock `ensureUserSettings` |
-| `e2e/academy.spec.ts` | E2E зміни ролі (ізольована `e2e.db`) |
+| `postcss.config.mjs` | **Новий:** `@tailwindcss/postcss` |
+| `package.json` / `package-lock.json` | devDependency `@tailwindcss/postcss`; `dev` залишається `next dev --webpack` |
+| `src/app/globals.css` | `@config`, `@source` обмежено `./src/**` (без сканування `prisma/` і WAL) |
+| `tailwind.config.ts` | `content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"]` (узгоджено з `@source`) |
+| `src/components/app-shell.tsx` | Logout у Radix: `onSelect` → `preventDefault()`, щоб форма «Вийти» відправлялась |
+| `e2e/editor-flow.spec.ts`, `e2e/student-flow.spec.ts` | Селектор меню профілю: `button` замість `summary` |
+| `e2e/registration-flow.spec.ts` | Очікування повідомлення після skip діагностики через `role="status"` |
 
-## Перевірки
+Інші зміни на гілці (`admin-nav`, block-02) — поза ядром Tailwind-фіксу.
 
-| Перевірка | Результат |
-|-----------|-----------|
+## Перевірка відображення
+
+- **CSS на `localhost:3000`:** згенерований bundle великого розміру, без сирих `@config`; присутні правила на кшталт `md:pl-64`, `md:hidden` (перевірка HTTP).
+- **Браузер MCP:** `/login` на `localhost:3000` — стилізована форма (світла/темна тема на сторінці входу). Вхід `e2e_student` на **dev.db** не вдався (користувача немає) — повний logged-in shell на :3000 не перевірявся вручну.
+- **Playwright E2E (webpack, `127.0.0.1:3010`, e2e.db):** `nav-consistency` (390/320, світла/темна), `student-flow` (390px темна), `academy` (мобільна навігація без горизонтального скролу), решта сценаріїв — **31/31 PASS** (фактичний рендер UI в Chromium).
+
+## Команди та результати
+
+| Команда | Результат |
+|---------|-----------|
 | `npm run typecheck` | PASS |
-| `npm run lint` | PASS (1 попереднє warning у `scripts/set-user-password-local.mjs`) |
-| `npm test` | **314** passed, 8 skipped |
+| `npm run lint` | PASS (1 warning у `scripts/set-user-password-local.mjs`, не з цієї задачі) |
 | `npm run build` | PASS |
-| `npm run test:e2e` | **13/14** PASS; сценарій ролі оновлено (стабільні assert після refresh); повний повтор SKIPPED (timeout webServer 120s, ймовірно конфлікт порту з `next dev`) |
-| `prisma/dev.db` | **Не змінювалась** у цій задачі (лише read-only перевірки раніше) |
-| Резервна копія | `prisma/backups/dev-block01-pre-migrate-20261022-1330.db` на місці |
-
-## Рекомендації власнику
-
-1. Перезапустити `npm run dev` після `prisma-generate-safe` (якщо engine був locked).
-2. Новому адміну (`g7a3013ca3d5b05a1`): відкрити `/admin/settings` один раз — створиться `UserSettings` автоматично; за бажанням завершити onboarding.
-3. Google OAuth UI/callback видалені в Block 1 — лишається email-вхід/реєстрація (`auth-service`).
-
-## Ризики
-
-- Існуючий ADMIN у dev без settings — виправляється при першому відкритті `/admin/settings` або повторному підвищенні ролі.
-- `prisma-generate-safe` може пропускати locked `query_engine` — потрібен рестарт dev.
+| `npm run test:e2e` | **31 passed** |
 
 ## Git
 
-- Гілка: `feature/block-01-cleanup-unused`
-- HEAD: `b97dd5a` (локальні незакомічені зміни включають цю задачу)
+- Гілка: `feature/block-02-fixes`
+- PostCSS/Tailwind та e2e/logout — **локально змінені**, коміт не виконувався (за запитом власника).
 
-## Block 1
+## Ризики / дії власника
 
-Функціонально Block 1 готовий до завершення після цих виправлень і ручної перевірки `/admin/users` + `/admin/settings` у dev. Block 2 не починався.
+- Після зміни PostCSS перезапустити `npm run dev` і за потреби очистити `.next`, якщо CSS знову виглядає «сирим».
+- Turbopack не повертати, поки не вирішено читання `prisma/dev.db-shm` у CSS pipeline.
+- За бажанням — коміт фіксу Tailwind + e2e + logout окремим комітом.
