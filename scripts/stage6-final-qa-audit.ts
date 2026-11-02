@@ -1,12 +1,11 @@
-import { copyFileSync, mkdirSync } from "node:fs";
-import path from "node:path";
 import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import { PrismaClient } from "@prisma/client";
 import { lessonReadiness, lessonAccess, publishReadinessError } from "../src/lib/readiness";
 
-const WORKING = path.join(process.cwd(), "prisma", "dev.db");
-const QA_DIR = path.join(process.cwd(), "..", "backups", "stage6-text-only-qa");
-const QA_DB = path.join(QA_DIR, "dev.db");
+const WORKING = path.join(process.cwd(), "..", "NMT-academy", "prisma", "dev.db");
+const QA_DB = path.join(process.cwd(), "prisma", "stage6-final-qa.db");
 
 const topics = [
   "ukr-lex-01-meaning",
@@ -19,13 +18,10 @@ const topics = [
 ];
 
 async function hashFile(file: string) {
-  const { readFileSync } = await import("node:fs");
   return createHash("sha256").update(readFileSync(file)).digest("hex");
 }
 
 async function main() {
-  mkdirSync(QA_DIR, { recursive: true });
-  copyFileSync(WORKING, QA_DB);
   const workingSha = await hashFile(WORKING);
   const qaSha = await hashFile(QA_DB);
 
