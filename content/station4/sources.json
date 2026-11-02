@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-11-02",
+  "baseline": 2026,
+  "nmt2027Confirmed": false,
+  "official": [
+    {"subject":"math","url":"https://testportal.gov.ua/matematyka-2026/","mapping":"Числа і вирази; existing program-map: math-numbers-sub-02/03/04","use":"curriculum scope, not copied questions"},
+    {"subject":"ukrainian","url":"https://testportal.gov.ua/ukrayinska-mova-2026/","use":"language-only programme scope and official formats"},
+    {"subject":"history","url":"https://testportal.gov.ua/istoriya-ukrayiny-2026/","use":"programme scope and official formats"},
+    {"subject":"biology","url":"https://testportal.gov.ua/biologiya-2026/","use":"programme scope and official formats"}
+  ],
+  "existingEvidenceReused": ["content/stage8/INVENTORY.md","content/stage8/inventory.json","content/stage8/program-crosswalk-audit.json","content/stage8/program-map.json","content/stage8/production-backlog.json","content/stage8/CONTINUATION-RESULT.md","content/stage8/telegram-summary.json","content/stage8/telegram-materials-curation.json"],
+  "authorship": "Original Ukrainian theory, notes, explanations and practice. No third-party page, image, audio or video copied into this package.",
+  "telegram": {
+    "existingIndexReused": true,
+    "indexedNonVideoFiles": 5984,
+    "archiveRescanned": false,
+    "mathCandidatesBeforeAdditionalDeduplication": 13,
+    "selectionDeduplicatedByExistingSha256": true,
+    "selection": [
+      {"sample":"S4-MATH-1","pagesInspected":[1],"finding":"Cover: irrational equations. Outside the three foundation modules; excluded."},
+      {"sample":"S4-MATH-2","pagesInspected":[1,2,3,4,5],"topicMapping":["math-numbers-sub-03","math-numbers-sub-04"],"finding":"Readable ratio/percentage notes. Reverse-percent example incorrectly gives40 when20 is5% of the unknown number; correct whole is400. Do not adopt without correction and permission. Other sampled ratio/simple-percent arithmetic checked independently."},
+      {"sample":"S4-MATH-3","pagesInspected":[1],"finding":"Cover: logarithmic expressions. Outside this batch; excluded."}
+    ],
+    "rights":"UNKNOWN_DO_NOT_PUBLISH",
+    "publicMediaCopied":0,
+    "telegramVideosUsed":0,
+    "privateOriginalsAndDetailedIndex":"Retained locally outside Git; no raw filenames, captions or channel/user identities in public evidence."
+  },
+  "youtubeCandidates": [
+    {"topic":"s4-math-fractions","url":"https://www.youtube.com/watch?v=fTy55mhANcQ","title":"Математика. Звичайні дроби","status":"DISCOVERED_UNWATCHED","fullPlayback":false,"durationSeconds":null,"views":null,"likes":null,"comments":null,"positiveFeedbackReviewed":false},
+    {"topics":["s4-math-percentages","s4-math-ratios"],"url":"https://www.youtube.com/watch?v=S_yWujryZ2k","title":"Відсотки і Пропорції. Як знайти відсоток від числа та число за відсотком","status":"DISCOVERED_UNWATCHED","fullPlayback":false,"durationSeconds":null,"views":null,"likes":null,"comments":null,"positiveFeedbackReviewed":false}
+  ],
+  "videoLimitation":"Direct YouTube fetch failed; computer-use browser inventory exposes only MCP Apps, no ordinary browser tab provider for playback. Search metadata is not viewing. No CONFIRMED videos, no invented engagement measurements and no links added as confirmed app videos.",
+  "officialLimitations":"Bounded official-site search did not locate a final2027 specification. Official2026 scope was refreshed; the inherited full PDF/page crosswalk was not independently repeated."
+}

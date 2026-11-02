@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "contentAcceptance": "BLOCKED: independent HARD quota not met",
+  "database": "unique temporary SQLite",
+  "productionAccessed": false,
+  "modules": 3,
+  "practiceQuestions": 36,
+  "privateControls": 36,
+  "publication": "REFUSED for all3 by unchanged real gate; lessons and control sets remain DRAFT",
+  "practiceSha256": "37403944f8dba5d09fbb9f286ba59e67c299cd616fc36051c238659eec779c40"
+}

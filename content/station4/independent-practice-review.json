@@ -1,0 +1,378 @@
+{
+  "method": "Єдине джерело умов — blind-questions.v2.json. Авторські ключі/скрипти, попередні огляди, controls.json та пакет репозиторію не читалися. Усі 72 задачі розв’язано незалежно.",
+  "totalReviewed": 72,
+  "practiceQuestions": [
+    {
+      "code": "s4-math-fractions-p01",
+      "answer": "0.875",
+      "solution": "3/4+1/8=7/8=0,875.",
+      "difficulty": {
+        "actual_qualitative_nmt": "елементарна",
+        "relative_basic_module": "низька"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-fractions-p02",
+      "answer": "0.5",
+      "solution": "5/6−1/3=3/6=0,5.",
+      "difficulty": {
+        "actual_qualitative_nmt": "елементарна",
+        "relative_basic_module": "низька"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-fractions-p03",
+      "answer": "1",
+      "solution": "0,6·5/3=(3/5)·(5/3)=1.",
+      "difficulty": {
+        "actual_qualitative_nmt": "елементарна",
+        "relative_basic_module": "низька"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-fractions-p04",
+      "answer": "0.4",
+      "solution": "1/2,5=0,4.",
+      "difficulty": {
+        "actual_qualitative_nmt": "елементарна",
+        "relative_basic_module": "низька"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-fractions-p05",
+      "answer": "1.125",
+      "solution": "(1,5−3/4):(2/3)=(3/4)·(3/2)=9/8=1,125.",
+      "difficulty": {
+        "actual_qualitative_nmt": "проста",
+        "relative_basic_module": "середня"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-fractions-p06",
+      "answer": "3",
+      "solution": "(2+1/3):(7/9)=(7/3)·(9/7)=3.",
+      "difficulty": {
+        "actual_qualitative_nmt": "проста",
+        "relative_basic_module": "середня"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-fractions-p07",
+      "answer": "32",
+      "solution": "20:(5/8)=32 л.",
+      "difficulty": {
+        "actual_qualitative_nmt": "проста",
+        "relative_basic_module": "середня"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-fractions-p08",
+      "answer": "12",
+      "solution": "(2/3−1/4)x=(5/12)x=5, отже x=12.",
+      "difficulty": {
+        "actual_qualitative_nmt": "проста",
+        "relative_basic_module": "середня"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-fractions-p09",
+      "answer": "45",
+      "solution": "Лишилося (3/5)·(2/3)=2/5 маршруту; 18:(2/5)=45 км.",
+      "difficulty": {
+        "actual_qualitative_nmt": "проста",
+        "relative_basic_module": "середня"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-fractions-p10",
+      "answer": "315",
+      "solution": "Часи етапів: (1/2−1/4)/(1/4+1/12)=3/4 год; (3/4−1/2)/(1/4+1/12−1/6)=3/2 год; (1−3/4)/(1/4−1/6)=3 год. Разом 21/4 год=315 хв. Усі швидкості додатні, етапи однозначні.",
+      "difficulty": {
+        "actual_qualitative_nmt": "середня",
+        "relative_basic_module": "висока"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-fractions-p11",
+      "answer": "420",
+      "solution": "Продажі N/3, N/6, N/10 потребують 30|N. Залишок 2N/5 кратний 14, тому 35|N. Отже 210|N. У 300<N<500 є лише N=420.",
+      "difficulty": {
+        "actual_qualitative_nmt": "середня",
+        "relative_basic_module": "висока"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-fractions-p12",
+      "answer": "8",
+      "solution": "18(1−x/24)(1−(x+4)/24)=6, звідки (24−x)(20−x)=192 та x²−44x+288=0. Корені 8 і 36; обмеження 0<x<20 залишає лише 8 л.",
+      "difficulty": {
+        "actual_qualitative_nmt": "середня",
+        "relative_basic_module": "висока"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-percentages-p01",
+      "answer": "30",
+      "solution": "200·0,15=30.",
+      "difficulty": {
+        "actual_qualitative_nmt": "елементарна",
+        "relative_basic_module": "низька"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-percentages-p02",
+      "answer": "80",
+      "solution": "0,30x=24, тому x=80.",
+      "difficulty": {
+        "actual_qualitative_nmt": "елементарна",
+        "relative_basic_module": "низька"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-percentages-p03",
+      "answer": "30",
+      "solution": "18/60·100=30 відсотків.",
+      "difficulty": {
+        "actual_qualitative_nmt": "елементарна",
+        "relative_basic_module": "низька"
+      },
+      "issues": [
+        "Редакційне: у «без знака%» бракує пробілу перед знаком %."
+      ]
+    },
+    {
+      "code": "s4-math-percentages-p04",
+      "answer": "200",
+      "solution": "250·0,8=200 грн.",
+      "difficulty": {
+        "actual_qualitative_nmt": "елементарна",
+        "relative_basic_module": "низька"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-percentages-p05",
+      "answer": "480",
+      "solution": "500·1,2·0,8=480.",
+      "difficulty": {
+        "actual_qualitative_nmt": "проста",
+        "relative_basic_module": "середня"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-percentages-p06",
+      "answer": "800",
+      "solution": "680/0,85=800 грн.",
+      "difficulty": {
+        "actual_qualitative_nmt": "проста",
+        "relative_basic_module": "середня"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-percentages-p07",
+      "answer": "25",
+      "solution": "(100−80)/80·100=25 відсотків.",
+      "difficulty": {
+        "actual_qualitative_nmt": "проста",
+        "relative_basic_module": "середня"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-percentages-p08",
+      "answer": "8",
+      "solution": "Солі 400·0,12=48 г; 48/600·100=8 відсотків.",
+      "difficulty": {
+        "actual_qualitative_nmt": "проста",
+        "relative_basic_module": "середня"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-percentages-p09",
+      "answer": "720",
+      "solution": "1000·0,8·0,9=720 грн.",
+      "difficulty": {
+        "actual_qualitative_nmt": "проста",
+        "relative_basic_module": "середня"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-percentages-p10",
+      "answer": "100",
+      "solution": "Нехай t=x/500, 0<t<1. Цукру після замін 100(1−t)²+500t=164 г. 100t²+300t−64=0, корені 0,2 і −3,2. Прийнятне t=0,2, отже x=100 г.",
+      "difficulty": {
+        "actual_qualitative_nmt": "середня",
+        "relative_basic_module": "висока"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-percentages-p11",
+      "answer": "20",
+      "solution": "Нехай q=1−p/100, 0<q<1. 1,5(0,4+0,3q+0,3q²)=1,248. Отже q²+q−1,44=0, корені 0,8 і −1,8. Прийнятне q=0,8 дає p=20.",
+      "difficulty": {
+        "actual_qualitative_nmt": "середня",
+        "relative_basic_module": "висока"
+      },
+      "issues": [
+        "Редакційне: у «ціною,30%» бракує пробілу після коми."
+      ]
+    },
+    {
+      "code": "s4-math-percentages-p12",
+      "answer": "1000",
+      "solution": "Нехай d — частка знижки, 0<d<0,5. C(1−2d)=600, C(1−d)²=640. Різниця дає Cd²=40, тому (C−600)²=160C. Корені C=1000 і 360; C>600 залишає 1000 грн (d=0,2).",
+      "difficulty": {
+        "actual_qualitative_nmt": "підвищена",
+        "relative_basic_module": "висока"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-ratios-p01",
+      "answer": "15",
+      "solution": "40·3/8=15.",
+      "difficulty": {
+        "actual_qualitative_nmt": "елементарна",
+        "relative_basic_module": "низька"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-ratios-p02",
+      "answer": "16",
+      "solution": "x=6·8/3=16.",
+      "difficulty": {
+        "actual_qualitative_nmt": "елементарна",
+        "relative_basic_module": "низька"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-ratios-p03",
+      "answer": "2.5",
+      "solution": "2,5·100000 см=250000 см=2,5 км.",
+      "difficulty": {
+        "actual_qualitative_nmt": "проста",
+        "relative_basic_module": "низька"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-ratios-p04",
+      "answer": "2",
+      "solution": "4·6/12=2 год.",
+      "difficulty": {
+        "actual_qualitative_nmt": "проста",
+        "relative_basic_module": "низька"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-ratios-p05",
+      "answer": "2",
+      "solution": "Шлях 3·60=180 км; 180/90=2 год.",
+      "difficulty": {
+        "actual_qualitative_nmt": "проста",
+        "relative_basic_module": "низька"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-ratios-p06",
+      "answer": "16",
+      "solution": "a:b:c=8:12:15, сума 35 частин дорівнює 70, a=16.",
+      "difficulty": {
+        "actual_qualitative_nmt": "проста",
+        "relative_basic_module": "середня"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-ratios-p07",
+      "answer": "300",
+      "solution": "480·5/8=300 грн.",
+      "difficulty": {
+        "actual_qualitative_nmt": "елементарна",
+        "relative_basic_module": "низька"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-ratios-p08",
+      "answer": "36",
+      "solution": "Площі відносяться як 9:25; 100·9/25=36 см².",
+      "difficulty": {
+        "actual_qualitative_nmt": "проста",
+        "relative_basic_module": "середня"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-ratios-p09",
+      "answer": "11",
+      "solution": "Обсяг 6·8=48 людино-днів. Після 2 днів лишається 36; чотири працівники завершать за 9 днів. Разом 11.",
+      "difficulty": {
+        "actual_qualitative_nmt": "проста",
+        "relative_basic_module": "середня"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-ratios-p10",
+      "answer": "240",
+      "solution": "Швидкості 4v і 5v, час першого T хв. Другий рухався T−30−18=T−48 хв. 4T=5(T−48), T=240. Перша зустріч через 150 хв від старту першого, до прибуття.",
+      "difficulty": {
+        "actual_qualitative_nmt": "середня",
+        "relative_basic_module": "висока"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-ratios-p11",
+      "answer": "6",
+      "solution": "Початкова продуктивність 6·3+4·2=26; нова 4·3+7·2=26. За наступні 3 дні виконано 78 — половину замовлення. Усього 156; 156/26=6 днів.",
+      "difficulty": {
+        "actual_qualitative_nmt": "проста",
+        "relative_basic_module": "середня"
+      },
+      "issues": []
+    },
+    {
+      "code": "s4-math-ratios-p12",
+      "answer": "7.6",
+      "solution": "Початкові продуктивності 3v і 2v. За 4 дні виконано 20v. Перша після переведення має 1,5v; за 6 днів виконує 9v, половину залишку. Обсяг 20v+18v=38v. Час початкових бригад 38/5=7,6 дня.",
+      "difficulty": {
+        "actual_qualitative_nmt": "середня",
+        "relative_basic_module": "висока"
+      },
+      "issues": []
+    }
+  ],
+  "privateControlsReviewed": 36,
+  "keysMatched": 72,
+  "arithmeticDefects": 0,
+  "postReviewEdits": "Three explicit private model assumptions plus homogeneous-mixture/constant-speed clarifications; public summary deduplicated and punctuation adjusted. No numeric data or keys changed.",
+  "difficultyAcceptance": "BLOCKED: zero confidently HARD practice questions; elevated percentage task mapped conservatively to MEDIUM.",
+  "teacherApproval": false,
+  "empiricalCalibration": false,
+  "practiceSha256": "37403944f8dba5d09fbb9f286ba59e67c299cd616fc36051c238659eec779c40"
+}
