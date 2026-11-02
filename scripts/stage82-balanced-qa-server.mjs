@@ -1,0 +1,12 @@
+import { readFileSync, realpathSync } from 'node:fs';
+import path from 'node:path';
+import { tmpdir } from 'node:os';
+import { spawn } from 'node:child_process';
+const fixture = JSON.parse(readFileSync(process.env.STAGE82_BALANCED_LOCATION, 'utf8'));
+const folder = realpathSync(fixture.folder);
+if (!fixture.synthetic || path.dirname(folder) !== path.resolve(tmpdir()) || !path.basename(folder).startsWith('nmt-stage82-balanced-') || path.resolve(fixture.database) !== path.join(folder, 'qa.db')) throw Error('Refusing non-fixture database');
+const marker = JSON.parse(readFileSync(path.join(folder, 'stage82-fixture.json'), 'utf8'));
+if (marker.database !== fixture.database || !marker.synthetic) throw Error('Fixture marker mismatch');
+const child = spawn(process.execPath, ['node_modules/next/dist/bin/next', 'dev', '--webpack', '--hostname', '127.0.0.1', '--port', '3148'], { cwd: process.cwd(), env: { ...process.env, DATABASE_URL: 'file:' + fixture.database.replaceAll('\\', '/') + '?connection_limit=1', NEXT_TELEMETRY_DISABLED: '1' }, stdio: 'inherit', windowsHide: true });
+for (const signal of ['SIGINT', 'SIGTERM']) process.on(signal, () => child.kill(signal));
+child.on('exit', code => process.exit(code ?? 1));

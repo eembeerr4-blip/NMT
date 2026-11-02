@@ -104,13 +104,12 @@ it("imports the pilot as DRAFT and preserves all twelve independent answer keys"
   for (const q of await prisma.question.findMany({ where: { topicId: "math-expressions" } })) expect(await verifyQuestion(q.id, "VERIFIED")).toMatchObject({ ok: true });
 });
 
-it("keeps the pilot BLOCKED at the unchanged 4/5/3 gate, without overriding coverage", async () => {
+it("publishes the balanced pilot only through the unchanged 4/5/3 gate", async () => {
   const topic = await prisma.topic.findUniqueOrThrow({ where: { id: "math-expressions" }, include: { questions: true, children: true, videos: true } });
-  expect(lessonReadiness(topic)).toMatchObject({ counts: { EASY: 9, MEDIUM: 3, HARD: 0 }, ready: false });
-  expect(await publishLesson(topic.id)).toMatchObject({ ok: false, error: expect.stringContaining("4/5/3") });
-  expect((await prisma.topic.findUniqueOrThrow({ where: { id: topic.id } })).coverage).toBe("DRAFT");
-  auth.id = "student";
-  expect(await startTopicTest(topic.id)).toMatchObject({ ok: false });
+  expect(lessonReadiness(topic)).toMatchObject({ counts: { EASY: 4, MEDIUM: 5, HARD: 3 }, ready: true });
+  expect(await publishLesson(topic.id)).toMatchObject({ ok: true });
+  expect((await prisma.topic.findUniqueOrThrow({ where: { id: topic.id } })).coverage).toBe("READY");
+  expect(lessonAccess(topic).available).toBe(false); // Snapshot was DRAFT before publication.
   expect(await prisma.testAttempt.count({ where: { test: { topicId: topic.id } } })).toBe(0);
 });
 
@@ -143,7 +142,7 @@ it("excludes control questions from topic practice, diagnostics and ordinary exa
   expect(attempts).toHaveLength(3);
   const controls = [...bank.final.questionIds, ...bank.delayed.questionIds];
   for (const a of attempts) expect(a.test.questions.every(q => !controls.includes(q.questionId))).toBe(true);
-  expect(attempts.find(a => a.test.kind === "EXAM")!.test.questions.length).toBe(13);
+  expect(attempts.find(a => a.test.kind === "EXAM")!.test.questions.length).toBe(25);
 });
 
 it("reserves archived/draft banks and refuses moving previously trained questions into controls", async () => {
@@ -310,5 +309,5 @@ it("rejects historical overlap as mastery evidence and excludes controls from pu
   const topic = await prisma.topic.findUniqueOrThrow({ where: { id: topicId }, include: { questions: { where: trainingQuestionWhere }, videos: true } });
   expect(lessonAccess(topic).available).toBe(true);
   expect(lessonReadiness(topic).counts).toEqual({ EASY: 12, MEDIUM: 0, HARD: 0 });
-  expect(await prisma.auditLog.count({ where: { action: "LESSON_PUBLISHED" } })).toBe(0);
+  expect(await prisma.auditLog.count({ where: { action: "LESSON_PUBLISHED" } })).toBe(1);
 });

@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "temporaryDatabase": true,
+  "retainedLocally": true,
+  "serverStopped": true,
+  "productionConnected": false,
+  "productionDbWalShmMetadataUnchanged": true,
+  "subjectCount": 1,
+  "questionCount": 24,
+  "coverage": "READY",
+  "attempts": [
+    {
+      "status": "COMPLETED",
+      "correctCount": 11,
+      "totalCount": 12,
+      "pendingCount": 0,
+      "test": {
+        "kind": "TOPIC"
+      }
+    },
+    {
+      "status": "COMPLETED",
+      "correctCount": 5,
+      "totalCount": 6,
+      "pendingCount": 0,
+      "test": {
+        "kind": "FINAL"
+      }
+    },
+    {
+      "status": "COMPLETED",
+      "correctCount": 6,
+      "totalCount": 6,
+      "pendingCount": 0,
+      "test": {
+        "kind": "DELAYED"
+      }
+    }
+  ],
+  "mastery": "MASTERED",
+  "integrity": [
+    {
+      "integrity_check": "ok"
+    }
+  ],
+  "foreignKeys": []
+}

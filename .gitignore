@@ -77,3 +77,6 @@ next-env.d.ts
 
 # Stage 5A isolated visual QA evidence (not for git)
 /stage5-qa/
+
+# Isolated Stage 8.2 browser runner output
+/.stage82-browser/

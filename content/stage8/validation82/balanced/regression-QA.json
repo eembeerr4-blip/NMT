@@ -1,0 +1,130 @@
+{
+  "status": "PASS",
+  "fullRun": true,
+  "total": 29,
+  "passed": 29,
+  "failed": 0,
+  "tests": [
+    {
+      "name": "requires two independent successes, not one or a duplicated ID",
+      "status": "passed"
+    },
+    {
+      "name": "accepts exactly seven elapsed days and5/6 on each form",
+      "status": "passed"
+    },
+    {
+      "name": "rejects six days23hours59minutes",
+      "status": "passed"
+    },
+    {
+      "name": "rejects4/6 and pending manual grading",
+      "status": "passed"
+    },
+    {
+      "name": "uses exact80percent rather than rounded proportional defaults",
+      "status": "passed"
+    },
+    {
+      "name": "rejects reused questions and other users or topics",
+      "status": "passed"
+    },
+    {
+      "name": "does not count training or external self-reports as mastery",
+      "status": "passed"
+    },
+    {
+      "name": "blocks holdout reuse and practice overlap in the proposal",
+      "status": "passed"
+    },
+    {
+      "name": "blocks early delayed entry and accepts only after the interval",
+      "status": "passed"
+    },
+    {
+      "name": "requires mastered prerequisites for the proposed recommendation",
+      "status": "passed"
+    },
+    {
+      "name": "imports the pilot as DRAFT and preserves all twelve independent answer keys",
+      "status": "passed"
+    },
+    {
+      "name": "publishes the balanced pilot only through the unchanged 4/5/3 gate",
+      "status": "passed"
+    },
+    {
+      "name": "preserves OWNER/STUDENT, approval and active-subject launch restrictions",
+      "status": "passed"
+    },
+    {
+      "name": "rejects training/control overlap, mixed-topic controls and invalid purposes",
+      "status": "passed"
+    },
+    {
+      "name": "excludes control questions from topic practice, diagnostics and ordinary exams",
+      "status": "passed"
+    },
+    {
+      "name": "reserves archived/draft banks and refuses moving previously trained questions into controls",
+      "status": "passed"
+    },
+    {
+      "name": "saves practice results and does not award MASTERED after one perfect training attempt",
+      "status": "passed"
+    },
+    {
+      "name": "finishes a genuine final, persists its draft/results and creates mistake/review records",
+      "status": "passed"
+    },
+    {
+      "name": "blocks repeat finals, including another set with the same topic and purpose",
+      "status": "passed"
+    },
+    {
+      "name": "blocks delayed admission just before seven full days and permits the exact boundary",
+      "status": "passed"
+    },
+    {
+      "name": "supports owned mistake correction without permitting access to another user's data",
+      "status": "passed"
+    },
+    {
+      "name": "atomically allows only one of simultaneous FINAL requests (same sets)",
+      "status": "passed"
+    },
+    {
+      "name": "atomically allows only one of simultaneous FINAL requests (different sets)",
+      "status": "passed"
+    },
+    {
+      "name": "scopes evidence to the specific user and topic",
+      "status": "passed"
+    },
+    {
+      "name": "rejects 4/6 finals as delayed prerequisites, even after seven days",
+      "status": "passed"
+    },
+    {
+      "name": "does not award MASTERED when the delayed form scores only 4/6",
+      "status": "passed"
+    },
+    {
+      "name": "keeps manual grading pending and starts the seven-day interval only after successful grading",
+      "status": "passed"
+    },
+    {
+      "name": "does not let content editors assign MASTERED without independent evidence",
+      "status": "passed"
+    },
+    {
+      "name": "rejects historical overlap as mastery evidence and excludes controls from publication practice counts",
+      "status": "passed"
+    }
+  ],
+  "previousRun": {
+    "passed": 28,
+    "failed": 1,
+    "reason": "Obsolete DRAFT expectation remained after the balanced gate legitimately published the temporary pilot. Corrected test assertion; no gate change."
+  }
+}
