@@ -1,0 +1,105 @@
+
+> nmt-academy@0.1.0 test
+> vitest run --maxWorkers=2
+
+
+ RUN  v3.2.7 D:/Вайб-кодинг/nmt-beta
+
+ ✓ tests/db.test.ts (1 test) 23530ms
+   ✓ зберігає результат пробника і читає його після нового підключення  380ms
+stderr | src/server/role-database.test.ts > role changes on an isolated real database > rolls a role change back if the audit record cannot be saved
+PrismaClientKnownRequestError: 
+Invalid `tx.auditLog.create()` invocation in
+D:\Вайб-кодинг\nmt-beta\src\server\audit-log.ts:57:22
+
+  54 }
+  55 
+  56 export async function recordAudit(actor: AuditActor | null, event: AuditEvent, tx: Prisma.TransactionClient = prisma) {
+→ 57   return tx.auditLog.create(
+Foreign key constraint violated on the foreign key
+    at ei.handleRequestError (D:\Вайб-кодинг\nmt-beta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:228:13)
+    at ei.handleAndLogRequestError (D:\Вайб-кодинг\nmt-beta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:174:12)
+    at ei.request (D:\Вайб-кодинг\nmt-beta\node_modules\@prisma\client\src\runtime\RequestHandler.ts:143:12)
+    at a (D:\Вайб-кодинг\nmt-beta\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:833:24)
+    at __vite_ssr_import_15__.prisma.$transaction.timeout (D:\Вайб-кодинг\nmt-beta\src\server\actions.ts:1441:7)
+    at Proxy._transactionWithCallback (D:\Вайб-кодинг\nmt-beta\node_modules\@prisma\client\src\runtime\getPrismaClient.ts:722:18)
+    at Module.updateUserRole (D:\Вайб-кодинг\nmt-beta\src\server\actions.ts:1421:12)
+    at D:\Вайб-кодинг\nmt-beta\src\server\role-database.test.ts:48:15
+    at file:///D:/%D0%92%D0%B0%D0%B9%D0%B1-%D0%BA%D0%BE%D0%B4%D0%B8%D0%BD%D0%B3/nmt-beta/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20 {
+  code: 'P2003',
+  meta: { modelName: 'AuditLog', constraint: null },
+  clientVersion: '6.19.3'
+}
+
+ ✓ src/server/role-database.test.ts (7 tests) 3607ms
+   ✓ role changes on an isolated real database > enforces case-insensitive nickname uniqueness in SQLite  990ms
+ ✓ tests/beta-auth.test.ts (2 tests) 5534ms
+   ✓ beta regression: wrong password, case-insensitive login, logout, repeat login and session persistence  645ms
+   ✓ beta regression: real sessions enforce anonymous 401, student 403, owner 200 on backup  447ms
+ ✓ tests/reliability-database.test.ts (17 tests) 5320ms
+   ✓ C04: sync never silently shifts overdue custom or personally moved tasks  548ms
+ ✓ tests/math-content-import.test.ts (2 tests) 2166ms
+   ✓ imports only incomplete mathematics, preserves existing data and is idempotent  540ms
+ ✓ src/server/audit-log.test.ts (5 tests) 80ms
+ ✓ src/lib/auth.test.ts (2 tests) 214ms
+ ✓ tests/math-content.test.ts (17 tests) 164ms
+ ✓ src/components/app-shell.test.ts (1 test) 23ms
+ ✓ tests/isolation-hardening.test.ts (10 tests) 1936ms
+stderr | src/server/audit-actions.test.ts > personal learning data isolation > requires an owned pending review before awarding XP
+Error: Record not found
+    at D:\Вайб-кодинг\nmt-beta\src\server\audit-actions.test.ts:98:57
+    at file:///D:/%D0%92%D0%B0%D0%B9%D0%B1-%D0%BA%D0%BE%D0%B4%D0%B8%D0%BD%D0%B3/nmt-beta/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///D:/%D0%92%D0%B0%D0%B9%D0%B1-%D0%BA%D0%BE%D0%B4%D0%B8%D0%BD%D0%B3/nmt-beta/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///D:/%D0%92%D0%B0%D0%B9%D0%B1-%D0%BA%D0%BE%D0%B4%D0%B8%D0%BD%D0%B3/nmt-beta/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///D:/%D0%92%D0%B0%D0%B9%D0%B1-%D0%BA%D0%BE%D0%B4%D0%B8%D0%BD%D0%B3/nmt-beta/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///D:/%D0%92%D0%B0%D0%B9%D0%B1-%D0%BA%D0%BE%D0%B4%D0%B8%D0%BD%D0%B3/nmt-beta/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at runSuite (file:///D:/%D0%92%D0%B0%D0%B9%D0%B1-%D0%BA%D0%BE%D0%B4%D0%B8%D0%BD%D0%B3/nmt-beta/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///D:/%D0%92%D0%B0%D0%B9%D0%B1-%D0%BA%D0%BE%D0%B4%D0%B8%D0%BD%D0%B3/nmt-beta/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+
+ ✓ src/server/audit-actions.test.ts (19 tests) 16ms
+ ✓ src/lib/scoring.test.ts (16 tests) 16ms
+ ✓ src/components/lesson-completion.test.ts (1 test) 10ms
+ ✓ src/app/api/ai/stream/route.test.ts (6 tests) 9ms
+ ✓ src/server/permissions-matrix.test.ts (50 tests) 10ms
+ ✓ src/lib/question-input.test.ts (9 tests) 7ms
+stderr | src/server/content-actions.test.ts > subject editing permissions > does not record a successful event when persistence fails
+Error: storage unavailable
+    at D:\Вайб-кодинг\nmt-beta\src\server\content-actions.test.ts:13:162
+    at file:///D:/%D0%92%D0%B0%D0%B9%D0%B1-%D0%BA%D0%BE%D0%B4%D0%B8%D0%BD%D0%B3/nmt-beta/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///D:/%D0%92%D0%B0%D0%B9%D0%B1-%D0%BA%D0%BE%D0%B4%D0%B8%D0%BD%D0%B3/nmt-beta/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///D:/%D0%92%D0%B0%D0%B9%D0%B1-%D0%BA%D0%BE%D0%B4%D0%B8%D0%BD%D0%B3/nmt-beta/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///D:/%D0%92%D0%B0%D0%B9%D0%B1-%D0%BA%D0%BE%D0%B4%D0%B8%D0%BD%D0%B3/nmt-beta/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///D:/%D0%92%D0%B0%D0%B9%D0%B1-%D0%BA%D0%BE%D0%B4%D0%B8%D0%BD%D0%B3/nmt-beta/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at runSuite (file:///D:/%D0%92%D0%B0%D0%B9%D0%B1-%D0%BA%D0%BE%D0%B4%D0%B8%D0%BD%D0%B3/nmt-beta/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///D:/%D0%92%D0%B0%D0%B9%D0%B1-%D0%BA%D0%BE%D0%B4%D0%B8%D0%BD%D0%B3/nmt-beta/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+
+ ✓ src/server/content-actions.test.ts (4 tests) 13ms
+ ✓ src/app/api/export/results/route.test.ts (2 tests) 6ms
+ ✓ src/lib/attempt-draft.test.ts (8 tests) 6ms
+ ✓ src/app/api/export/questions/route.test.ts (3 tests) 6ms
+ ✓ src/proxy.test.ts (3 tests) 7ms
+ ✓ src/app/api/export/backup/route.test.ts (3 tests) 4ms
+ ✓ src/lib/errors.test.ts (4 tests) 4ms
+ ✓ src/lib/ai-audit.test.ts (3 tests) 4ms
+ ✓ src/lib/permissions.test.ts (7 tests) 3ms
+ ✓ src/lib/login-throttle.test.ts (3 tests) 3ms
+ ✓ src/lib/sqlite-init.test.ts (2 tests) 3ms
+ ✓ src/components/task-controls.test.ts (3 tests) 3ms
+ ✓ src/lib/session-cookie.test.ts (5 tests) 2ms
+ ✓ src/lib/fit-daily-load.test.ts (3 tests) 2ms
+ ✓ src/lib/dates.test.ts (13 tests) 4ms
+ ✓ src/lib/validators-audit.test.ts (2 tests) 2ms
+ ✓ src/lib/readiness.test.ts (3 tests) 3ms
+ ✓ src/lib/nickname.test.ts (2 tests) 2ms
+ ↓ tests/audit-database.test.ts (7 tests | 7 skipped)
+ ↓ tests/plan-upgrade.test.ts (1 test | 1 skipped)
+
+ Test Files  34 passed | 2 skipped (36)
+      Tests  238 passed | 8 skipped (246)
+   Start at  11:59:21
+   Duration  50.21s (transform 1.09s, setup 0ms, collect 46.63s, tests 42.71s, environment 4ms, prepare 4.07s)
+

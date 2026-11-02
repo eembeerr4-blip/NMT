@@ -1,0 +1,100 @@
+Error [PrismaClientKnownRequestError]: 
+Invalid `prisma.studyTask.create()` invocation:
+
+
+Foreign key constraint violated on the foreign key
+    at async aS (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_server_actions_ts_1rweruefq73pr._.js:1:33775) {
+  code: 'P2003',
+  meta: { modelName: 'StudyTask', constraint: null },
+  clientVersion: '6.19.3'
+}
+Error [PrismaClientKnownRequestError]: 
+Invalid `prisma.studyTask.create()` invocation:
+
+
+Foreign key constraint violated on the foreign key
+    at async aS (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_server_actions_ts_1rweruefq73pr._.js:1:33775) {
+  code: 'P2003',
+  meta: { modelName: 'StudyTask', constraint: null },
+  clientVersion: '6.19.3'
+}
+Error [PrismaClientKnownRequestError]: 
+Invalid `prisma.studyTask.create()` invocation:
+
+
+Foreign key constraint violated on the foreign key
+    at async aS (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_server_actions_ts_1rweruefq73pr._.js:1:33775) {
+  code: 'P2003',
+  meta: { modelName: 'StudyTask', constraint: null },
+  clientVersion: '6.19.3'
+}
+Error [PrismaClientKnownRequestError]: 
+Invalid `prisma.studyTask.create()` invocation:
+
+
+Foreign key constraint violated on the foreign key
+    at async aS (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_server_actions_ts_1rweruefq73pr._.js:1:33775) {
+  code: 'P2003',
+  meta: { modelName: 'StudyTask', constraint: null },
+  clientVersion: '6.19.3'
+}
+Error [PrismaClientKnownRequestError]: 
+Invalid `prisma.studyTask.create()` invocation:
+
+
+Foreign key constraint violated on the foreign key
+    at async aS (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_server_actions_ts_1rweruefq73pr._.js:1:33775) {
+  code: 'P2003',
+  meta: { modelName: 'StudyTask', constraint: null },
+  clientVersion: '6.19.3'
+}
+Error [PrismaClientKnownRequestError]: 
+Invalid `prisma.studyTask.create()` invocation:
+
+
+Foreign key constraint violated on the foreign key
+    at async aS (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_server_actions_ts_1rweruefq73pr._.js:1:33775) {
+  code: 'P2003',
+  meta: { modelName: 'StudyTask', constraint: null },
+  clientVersion: '6.19.3'
+}
+Error [PrismaClientKnownRequestError]: 
+Invalid `prisma.studyTask.create()` invocation:
+
+
+Foreign key constraint violated on the foreign key
+    at async aS (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_server_actions_ts_1rweruefq73pr._.js:1:33775) {
+  code: 'P2003',
+  meta: { modelName: 'StudyTask', constraint: null },
+  clientVersion: '6.19.3'
+}
+Error [PrismaClientKnownRequestError]: 
+Invalid `prisma.studyTask.create()` invocation:
+
+
+Foreign key constraint violated on the foreign key
+    at async aS (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_server_actions_ts_1rweruefq73pr._.js:1:33775) {
+  code: 'P2003',
+  meta: { modelName: 'StudyTask', constraint: null },
+  clientVersion: '6.19.3'
+}
+Error [PrismaClientKnownRequestError]: 
+Invalid `prisma.studyTask.create()` invocation:
+
+
+Foreign key constraint violated on the foreign key
+    at async aS (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_server_actions_ts_1rweruefq73pr._.js:1:33775) {
+  code: 'P2003',
+  meta: { modelName: 'StudyTask', constraint: null },
+  clientVersion: '6.19.3'
+}
+Error [PrismaClientKnownRequestError]: 
+Invalid `prisma.studyTask.create()` invocation:
+
+
+Foreign key constraint violated on the foreign key
+    at async aS (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_server_actions_ts_1rweruefq73pr._.js:1:33775) {
+  code: 'P2003',
+  meta: { modelName: 'StudyTask', constraint: null },
+  clientVersion: '6.19.3'
+}

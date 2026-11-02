@@ -1,0 +1,109 @@
+
+ RUN  v3.2.7 D:/Вайб-кодинг/nmt-beta
+
+ ❯ src/lib/dates.test.ts (13 tests | 10 failed) 11ms
+   × A10 rejects impossible or malformed calendar date 2026-02-31 5ms
+     → expected [Function] to throw an error
+   × A10 rejects impossible or malformed calendar date 2025-02-29 0ms
+     → expected [Function] to throw an error
+   × A10 rejects impossible or malformed calendar date 2026-04-31 0ms
+     → expected [Function] to throw an error
+   × A10 rejects impossible or malformed calendar date 2026-00-10 0ms
+     → expected [Function] to throw an error
+   × A10 rejects impossible or malformed calendar date 2026-13-01 0ms
+     → expected [Function] to throw an error
+   × A10 rejects impossible or malformed calendar date 2026-01-00 0ms
+     → expected [Function] to throw an error
+   × A10 rejects impossible or malformed calendar date 2026-1-01 0ms
+     → expected [Function] to throw an error
+   × A10 rejects impossible or malformed calendar date 2026-01-01extra 0ms
+     → expected [Function] to throw an error
+   × A10 rejects impossible or malformed calendar date  0ms
+     → expected [Function] to throw an error
+   ✓ A10 preserves valid calendar date 2024-02-29 0ms
+   ✓ A10 preserves valid calendar date 2026-02-28 0ms
+   ✓ A10 preserves valid calendar date 2026-12-31 0ms
+   × A10 preserves valid calendar date 0100-01-01 2ms
+     → expected '100-01-01' to be '0100-01-01' // Object.is equality
+ ❯ tests/reliability-database.test.ts (16 tests | 1 failed | 15 skipped) 1344ms
+   × A10: invalid dates and kinds never write tasks or move an existing task 9ms
+     → expected true to be false // Object.is equality
+   ↓ A15: student playback cannot change shared video duration; positions are bounded and private
+   ↓ rolls back ALL finish writes when the second answer fails; a retry succeeds exactly once
+   ↓ concurrent finish calls cannot duplicate answers, progress, sessions or XP
+   ↓ B cannot claim, finish or save A's attempt and no data changes
+   ↓ rolls back task cancellation, elective membership AND schedule on a midway failure
+   ↓ serializes elective changes and retains exactly one elective and all DONE history
+   ↓ custom/moved/DONE tasks survive sync, reduced study days and explicit recalculation
+   ↓ an acknowledged theory-only lesson can finish, but empty content or missing acknowledgement cannot
+   ↓ round-trips text-only edits for SINGLE_CHOICE without losing option ids or grading
+   ↓ round-trips text-only edits for MATCHING without losing option ids or grading
+   ↓ round-trips text-only edits for SEQUENCE without losing option ids or grading
+   ↓ round-trips text-only edits for NUMERIC without losing option ids or grading
+   ↓ students cannot edit shared questions; used questions remain immutable
+   ↓ rolls back even a late achievement failure after the result, mastery, task and XP were written
+   ↓ finishes with intact SQLite constraints
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 11 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/reliability-database.test.ts > A10: invalid dates and kinds never write tasks or move an existing task
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/reliability-database.test.ts:27:89
+     25|  const before=await prisma.studyTask.count();
+     26|  for(const date of ["2026-02-31","2026-13-01","2026-01-01bad"]){
+     27|   expect((await createCustomTask({dateKey:date,title:"QA-invalid",dura…
+       |                                                                                         ^
+     28|  }
+     29|  expect((await createCustomTask({dateKey:"2026-10-19",title:"QA-invali…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/11]⎯
+
+ FAIL  src/lib/dates.test.ts > A10 rejects impossible or malformed calendar date 2026-02-31
+ FAIL  src/lib/dates.test.ts > A10 rejects impossible or malformed calendar date 2025-02-29
+ FAIL  src/lib/dates.test.ts > A10 rejects impossible or malformed calendar date 2026-04-31
+ FAIL  src/lib/dates.test.ts > A10 rejects impossible or malformed calendar date 2026-00-10
+ FAIL  src/lib/dates.test.ts > A10 rejects impossible or malformed calendar date 2026-13-01
+ FAIL  src/lib/dates.test.ts > A10 rejects impossible or malformed calendar date 2026-01-00
+ FAIL  src/lib/dates.test.ts > A10 rejects impossible or malformed calendar date 2026-1-01
+ FAIL  src/lib/dates.test.ts > A10 rejects impossible or malformed calendar date 2026-01-01extra
+ FAIL  src/lib/dates.test.ts > A10 rejects impossible or malformed calendar date 
+AssertionError: expected [Function] to throw an error
+ ❯ src/lib/dates.test.ts:5:34
+      3| 
+      4| it.each(["2026-02-31","2025-02-29","2026-04-31","2026-00-10","2026-13-…
+      5|  expect(()=>parseDateKey(value)).toThrow();
+       |                                  ^
+      6| });
+      7| it.each(["2024-02-29","2026-02-28","2026-12-31","0100-01-01"])("A10 pr…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/11]⎯
+
+ FAIL  src/lib/dates.test.ts > A10 preserves valid calendar date 0100-01-01
+AssertionError: expected '100-01-01' to be '0100-01-01' // Object.is equality
+
+Expected: "0100-01-01"
+Received: "100-01-01"
+
+ ❯ src/lib/dates.test.ts:8:39
+      6| });
+      7| it.each(["2024-02-29","2026-02-28","2026-12-31","0100-01-01"])("A10 pr…
+      8|  expect(dateKey(parseDateKey(value))).toBe(value);
+       |                                       ^
+      9| });
+     10| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/11]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  11 failed | 3 passed | 15 skipped (29)
+   Start at  22:51:56
+   Duration  4.09s (transform 246ms, setup 0ms, collect 4.54s, tests 1.36s, environment 0ms, prepare 218ms)
+

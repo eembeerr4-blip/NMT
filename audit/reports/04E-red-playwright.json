@@ -1,0 +1,217 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\Вайб-кодинг\\nmt-beta\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.beta.config.ts",
+      "e2e/beta/mistakes.spec.ts",
+      "--project",
+      "desktop",
+      "--max-failures=1"
+    ],
+    "configFile": "D:\\Вайб-кодинг\\nmt-beta\\playwright.beta.config.ts",
+    "rootDir": "D:/Вайб-кодинг/nmt-beta/e2e/beta",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 1,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Вайб-кодинг/nmt-beta/test-results/beta",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/Вайб-кодинг/nmt-beta/e2e/beta",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Вайб-кодинг/nmt-beta/test-results/beta",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/Вайб-кодинг/nmt-beta/e2e/beta",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta",
+        "snapshotDir": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3100",
+          "channel": "chrome",
+          "headless": true,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "audit/reports/04E-red-playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "mistakes.spec.ts",
+      "file": "mistakes.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "mistake status failure is visible and retry persists",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6087,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('alert')\nExpected substring: \u001b[32m\"Не вдалося\"\u001b[39m\nReceived string:    \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('alert') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('alert')\u001b[22m\n\u001b[2m    14 × locator resolved to <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('alert')\nExpected substring: \u001b[32m\"Не вдалося\"\u001b[39m\nReceived string:    \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('alert') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('alert')\u001b[22m\n\u001b[2m    14 × locator resolved to <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n    at D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\mistakes.spec.ts:10:126",
+                    "location": {
+                      "file": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\mistakes.spec.ts",
+                      "column": 126,
+                      "line": 10
+                    },
+                    "snippet": "   8 |  await page.goto(\"/mistakes\");await page.getByLabel(\"Стан помилки\").first().selectOption(\"REVIEWING\");\n   9 |  db.exec(\"CREATE TRIGGER QA_mistake_fail BEFORE UPDATE ON Mistake BEGIN SELECT RAISE(ABORT,'QA injected failure'); END\");\n> 10 |  try {await page.getByRole(\"button\",{name:\"Зберегти стан\",exact:true}).first().click();await expect(page.getByRole(\"alert\")).toContainText(\"Не вдалося\");await expect(page.getByLabel(\"Стан помилки\").first()).toHaveValue(\"REVIEWING\");}\n     |                                                                                                                              ^\n  11 |  finally {db.exec(\"DROP TRIGGER IF EXISTS QA_mistake_fail\");db.close();}\n  12 |  await page.getByRole(\"button\",{name:\"Зберегти стан\",exact:true}).first().click();await expect(page.getByRole(\"status\").filter({hasText:\"Стан збережено\"})).toBeVisible();await page.reload();await expect(page.getByLabel(\"Стан помилки\").first()).toHaveValue(\"REVIEWING\");\n  13 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\mistakes.spec.ts",
+                        "column": 126,
+                        "line": 10
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('alert')\nExpected substring: \u001b[32m\"Не вдалося\"\u001b[39m\nReceived string:    \u001b[31m\"\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('alert') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('alert')\u001b[22m\n\u001b[2m    14 × locator resolved to <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div>\u001b[22m\n\u001b[2m       - unexpected value \"\"\u001b[22m\n\n\n   8 |  await page.goto(\"/mistakes\");await page.getByLabel(\"Стан помилки\").first().selectOption(\"REVIEWING\");\n   9 |  db.exec(\"CREATE TRIGGER QA_mistake_fail BEFORE UPDATE ON Mistake BEGIN SELECT RAISE(ABORT,'QA injected failure'); END\");\n> 10 |  try {await page.getByRole(\"button\",{name:\"Зберегти стан\",exact:true}).first().click();await expect(page.getByRole(\"alert\")).toContainText(\"Не вдалося\");await expect(page.getByLabel(\"Стан помилки\").first()).toHaveValue(\"REVIEWING\");}\n     |                                                                                                                              ^\n  11 |  finally {db.exec(\"DROP TRIGGER IF EXISTS QA_mistake_fail\");db.close();}\n  12 |  await page.getByRole(\"button\",{name:\"Зберегти стан\",exact:true}).first().click();await expect(page.getByRole(\"status\").filter({hasText:\"Стан збережено\"})).toBeVisible();await page.reload();await expect(page.getByLabel(\"Стан помилки\").first()).toHaveValue(\"REVIEWING\");\n  13 | });\n    at D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\mistakes.spec.ts:10:126"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T09:25:43.678Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta\\mistakes-mistake-status-fa-3c9ef--visible-and-retry-persists-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta\\mistakes-mistake-status-fa-3c9ef--visible-and-retry-persists-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta\\mistakes-mistake-status-fa-3c9ef--visible-and-retry-persists-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\mistakes.spec.ts",
+                    "column": 126,
+                    "line": 10
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "819d5ca2903612361565-9609b3ccdd53fd627aee",
+          "file": "mistakes.spec.ts",
+          "line": 4,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "message": "\u001b[31mTesting stopped early after 1 maximum allowed failures.\u001b[39m"
+    }
+  ],
+  "stats": {
+    "startTime": "2026-10-19T09:25:43.314Z",
+    "duration": 6861.777,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

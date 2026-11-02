@@ -1,0 +1,51 @@
+
+Running 1 test using 1 worker
+
+(node:28412) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 [desktop] › e2e\beta\dashboard.spec.ts:4:5 › dashboard never recommends an unavailable lesson even if its status is IN_PROGRESS (6.9s)
+Testing stopped early after 1 maximum allowed failures.
+
+
+  1) [desktop] › e2e\beta\dashboard.spec.ts:4:5 › dashboard never recommends an unavailable lesson even if its status is IN_PROGRESS 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('a[href="/learn/QA-unavailable"]')
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('a[href="/learn/QA-unavailable"]') with timeout 5000ms
+      - waiting for locator('a[href="/learn/QA-unavailable"]')
+        14 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+       8 |  try {
+       9 |   await page.goto("/login");await page.getByLabel("Нікнейм",{exact:true}).fill("student_b");await page.getByLabel("Пароль",{exact:true}).fill("Nmt-Ui-QA-Only-2026");await page.getByRole("button",{name:"Увійти",exact:true}).click();await expect(page).toHaveURL(/:3100\/$/);
+    > 10 |   await expect(page.locator('a[href="/learn/QA-unavailable"]')).toHaveCount(0);
+         |                                                                 ^
+      11 |   await expect(page.locator('a[href="/learn/qa-linear"],a[href="/learn/qa-empty"]')).toHaveCount(1);
+      12 |  } finally {db.prepare("DELETE FROM UserTopicProgress WHERE id='QA-availability-probe'").run();db.close();}
+      13 | });
+        at D:\Вайб-кодинг\nmt-beta\e2e\beta\dashboard.spec.ts:10:65
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\beta\dashboard-dashboard-never--6ef9e-f-its-status-is-IN-PROGRESS-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\beta\dashboard-dashboard-never--6ef9e-f-its-status-is-IN-PROGRESS-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\beta\dashboard-dashboard-never--6ef9e-f-its-status-is-IN-PROGRESS-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\beta\dashboard-dashboard-never--6ef9e-f-its-status-is-IN-PROGRESS-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop] › e2e\beta\dashboard.spec.ts:4:5 › dashboard never recommends an unavailable lesson even if its status is IN_PROGRESS 
+  1 error was not a part of any test, see above for details

@@ -1,0 +1,97 @@
+
+ RUN  v3.2.7 D:/Вайб-кодинг/nmt-beta
+
+ ❯ tests/reliability-database.test.ts (17 tests | 1 failed | 16 skipped) 1501ms
+   × C04: sync never silently shifts overdue custom or personally moved tasks 169ms
+     → expected [ …(2) ] to deeply equal [ …(2) ]
+   ↓ A10: invalid dates and kinds never write tasks or move an existing task
+   ↓ A15: student playback cannot change shared video duration; positions are bounded and private
+   ↓ rolls back ALL finish writes when the second answer fails; a retry succeeds exactly once
+   ↓ concurrent finish calls cannot duplicate answers, progress, sessions or XP
+   ↓ B cannot claim, finish or save A's attempt and no data changes
+   ↓ rolls back task cancellation, elective membership AND schedule on a midway failure
+   ↓ serializes elective changes and retains exactly one elective and all DONE history
+   ↓ custom/moved/DONE tasks survive sync, reduced study days and explicit recalculation
+   ↓ an acknowledged theory-only lesson can finish, but empty content or missing acknowledgement cannot
+   ↓ round-trips text-only edits for SINGLE_CHOICE without losing option ids or grading
+   ↓ round-trips text-only edits for MATCHING without losing option ids or grading
+   ↓ round-trips text-only edits for SEQUENCE without losing option ids or grading
+   ↓ round-trips text-only edits for NUMERIC without losing option ids or grading
+   ↓ students cannot edit shared questions; used questions remain immutable
+   ↓ rolls back even a late achievement failure after the result, mastery, task and XP were written
+   ↓ finishes with intact SQLite constraints
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/reliability-database.test.ts > C04: sync never silently shifts overdue custom or personally moved tasks
+AssertionError: expected [ …(2) ] to deeply equal [ …(2) ]
+
+- Expected
++ Received
+
+  [
+    {
+      "completedAt": null,
+      "createdAt": 2026-10-18T19:56:38.807Z,
+-     "dateKey": "2026-10-17",
++     "dateKey": "2026-10-18",
+      "detail": "",
+      "durationMin": 10,
+      "id": "QA-past-custom",
+      "kind": "custom",
+-     "movedFromId": null,
+-     "notes": "",
++     "movedFromId": "QA-past-custom",
++     "notes": "Автоматично перенесено на вільний день",
+      "optional": false,
+      "sortOrder": 0,
+      "status": "PLANNED",
+      "subjectId": null,
+      "templateKey": "custom-QA-past",
+      "title": "QA-own date",
+      "topicId": null,
+-     "updatedAt": 2026-10-18T19:56:38.807Z,
++     "updatedAt": 2026-10-18T19:56:38.959Z,
+      "userId": "A",
+    },
+    {
+      "completedAt": null,
+      "createdAt": 2026-10-18T19:56:38.807Z,
+-     "dateKey": "2026-10-17",
++     "dateKey": "2026-10-18",
+      "detail": "",
+      "durationMin": 10,
+      "id": "QA-past-moved",
+      "kind": "study",
+      "movedFromId": "QA-past-original",
+-     "notes": "",
++     "notes": "Автоматично перенесено на вільний день",
+      "optional": false,
+      "sortOrder": 0,
+      "status": "PLANNED",
+      "subjectId": null,
+      "templateKey": "moved-QA-past",
+      "title": "QA-own move",
+      "topicId": null,
+-     "updatedAt": 2026-10-18T19:56:38.807Z,
++     "updatedAt": 2026-10-18T19:56:38.961Z,
+      "userId": "A",
+    },
+  ]
+
+ ❯ tests/reliability-database.test.ts:33:16
+     31|  await syncPlanWithClient("A",prisma);await syncPlanWithClient("A",pri…
+     32|  const after=await prisma.studyTask.findMany({where:{id:{in:["QA-past-…
+     33|  expect(after).toEqual(before);
+       |                ^
+     34| });
+     35| it("A10: invalid dates and kinds never write tasks or move an existing…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 16 skipped (17)
+   Start at  22:56:35
+   Duration  3.87s (transform 192ms, setup 0ms, collect 2.04s, tests 1.50s, environment 0ms, prepare 106ms)
+

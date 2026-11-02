@@ -1,0 +1,35 @@
+{
+  "workingDatabasePath": "C:\\Users\\User\\nmt-academy\\prisma\\dev.db",
+  "snapshotPath": "D:\\Вайб-кодинг\\nmt-beta\\audit\\reports\\00-working-snapshot.db",
+  "sourceAccess": "readOnly; VACUUM INTO only",
+  "duplicateNicknames": [],
+  "damagedTasks": [],
+  "migrations": [
+    {
+      "migration_name": "20261017083146_init",
+      "finished_at": 1792225906471,
+      "rolled_back_at": null
+    },
+    {
+      "migration_name": "20261018000000_reconcile_history",
+      "finished_at": 1792316526035,
+      "rolled_back_at": null
+    },
+    {
+      "migration_name": "20261018000100_normalize_user_video_progress",
+      "finished_at": 1792316527744,
+      "rolled_back_at": null
+    },
+    {
+      "migration_name": "20261018093650_add_query_indexes",
+      "finished_at": 1792316527767,
+      "rolled_back_at": null
+    }
+  ],
+  "integrity": [
+    {
+      "integrity_check": "ok"
+    }
+  ],
+  "foreignKeys": []
+}

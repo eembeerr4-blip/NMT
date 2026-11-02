@@ -1,0 +1,52 @@
+
+Running 2 tests using 1 worker
+
+(node:30888) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 [desktop] › e2e\beta\catalog.spec.ts:3:5 › unavailable topic has an honest state and no active lesson start (6.0s)
+Testing stopped early after 1 maximum allowed failures.
+
+
+  1) [desktop] › e2e\beta\catalog.spec.ts:3:5 › unavailable topic has an honest state and no active lesson start 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByRole('link', { name: 'Відкрити урок →', exact: true })
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" getByRole('link', { name: 'Відкрити урок →', exact: true }) with timeout 5000ms
+      - waiting for getByRole('link', { name: 'Відкрити урок →', exact: true })
+        14 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      2 | test.beforeEach(async({page})=>{await page.goto("/login");await page.getByLabel("Нікнейм",{exact:true}).fill("student_a");await page.getByLabel("Пароль",{exact:true}).fill("Nmt-Ui-QA-Only-2026");await page.getByRole("button",{name:"Увійти",exact:true}).click();await expect(page).toHaveURL(/:3100\/$/);});
+      3 | test("unavailable topic has an honest state and no active lesson start",async({page})=>{
+    > 4 |  await page.goto("/topics/QA-unavailable");await expect(page.getByRole("link",{name:"Відкрити урок →",exact:true})).toHaveCount(0);
+        |                                                                                                                     ^
+      5 |  await expect(page.getByText("Матеріал готується",{exact:true}).first()).toBeVisible();
+      6 |  await page.goto("/learn/QA-unavailable");await expect(page.getByText("Матеріал готується",{exact:true}).first()).toBeVisible();await expect(page.getByRole("button",{name:"Пройти тест",exact:true})).toHaveCount(0);
+      7 | });
+        at D:\Вайб-кодинг\nmt-beta\e2e\beta\catalog.spec.ts:4:117
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\beta\catalog-unavailable-topic--6b100--and-no-active-lesson-start-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\beta\catalog-unavailable-topic--6b100--and-no-active-lesson-start-desktop\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\beta\catalog-unavailable-topic--6b100--and-no-active-lesson-start-desktop\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\beta\catalog-unavailable-topic--6b100--and-no-active-lesson-start-desktop\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop] › e2e\beta\catalog.spec.ts:3:5 › unavailable topic has an honest state and no active lesson start 
+  1 did not run
+  1 error was not a part of any test, see above for details

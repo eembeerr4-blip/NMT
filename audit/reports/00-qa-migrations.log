@@ -1,0 +1,29 @@
+warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+For more information, see: https://pris.ly/prisma-config
+
+Prisma schema loaded from prisma\schema.prisma
+Datasource "db": SQLite database "beta-chrome.db" at "file:D:/Вайб-кодинг/nmt-beta/audit/tests/beta-chrome.db"
+
+5 migrations found in prisma/migrations
+
+Applying migration `20261017083146_init`
+Applying migration `20261018000000_reconcile_history`
+Applying migration `20261018000100_normalize_user_video_progress`
+Applying migration `20261018093650_add_query_indexes`
+Applying migration `20261018130000_nickname_case_insensitive`
+
+The following migration(s) have been applied:
+
+migrations/
+  └─ 20261017083146_init/
+    └─ migration.sql
+  └─ 20261018000000_reconcile_history/
+    └─ migration.sql
+  └─ 20261018000100_normalize_user_video_progress/
+    └─ migration.sql
+  └─ 20261018093650_add_query_indexes/
+    └─ migration.sql
+  └─ 20261018130000_nickname_case_insensitive/
+    └─ migration.sql
+      
+All migrations have been successfully applied.

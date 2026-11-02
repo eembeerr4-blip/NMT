@@ -1,0 +1,10 @@
+
+ RUN  v3.2.7 D:/Вайб-кодинг/nmt-beta
+
+ ✓ src/lib/lesson-access.test.ts (3 tests) 2ms
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  12:10:42
+   Duration  353ms (transform 32ms, setup 0ms, collect 39ms, tests 2ms, environment 0ms, prepare 99ms)
+

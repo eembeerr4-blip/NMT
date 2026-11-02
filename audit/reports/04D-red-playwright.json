@@ -1,0 +1,217 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\Вайб-кодинг\\nmt-beta\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.beta.config.ts",
+      "e2e/beta/test-runner.spec.ts",
+      "--project",
+      "desktop",
+      "--max-failures=1"
+    ],
+    "configFile": "D:\\Вайб-кодинг\\nmt-beta\\playwright.beta.config.ts",
+    "rootDir": "D:/Вайб-кодинг/nmt-beta/e2e/beta",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 1,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Вайб-кодинг/nmt-beta/test-results/beta",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/Вайб-кодинг/nmt-beta/e2e/beta",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Вайб-кодинг/nmt-beta/test-results/beta",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/Вайб-кодинг/nmt-beta/e2e/beta",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta",
+        "snapshotDir": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3100",
+          "channel": "chrome",
+          "headless": true,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "audit/reports/04D-red-playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "test-runner.spec.ts",
+      "file": "test-runner.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "sequence requires an intentional answer and restores it after reload",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6595,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Завдання 1, без відповіді', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('button', { name: 'Завдання 1, без відповіді', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Завдання 1, без відповіді', exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Завдання 1, без відповіді', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('button', { name: 'Завдання 1, без відповіді', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Завдання 1, без відповіді', exact: true })\u001b[22m\n\n    at D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\test-runner.spec.ts:16:88",
+                    "location": {
+                      "file": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\test-runner.spec.ts",
+                      "column": 88,
+                      "line": 16
+                    },
+                    "snippet": "  14 |   await page.goto(\"/login\");await page.getByLabel(\"Нікнейм\",{exact:true}).fill(\"student_a\");await page.getByLabel(\"Пароль\",{exact:true}).fill(\"Nmt-Ui-QA-Only-2026\");await page.getByRole(\"button\",{name:\"Увійти\",exact:true}).click();await expect(page).toHaveURL(/:3100\\/$/);\n  15 |   await page.goto(`/tests/${attempt}`);\n> 16 |   await expect(page.getByRole(\"button\",{name:\"Завдання 1, без відповіді\",exact:true})).toBeVisible();\n     |                                                                                        ^\n  17 |   await page.getByRole(\"button\",{name:\"Завершити\",exact:true}).click();await expect(page.getByRole(\"alertdialog\")).toContainText(\"1 із 1\");\n  18 |   await page.getByRole(\"button\",{name:\"Повернутися до тесту\",exact:true}).click();\n  19 |   await page.getByRole(\"button\",{name:\"Підтвердити поточний порядок\",exact:true}).click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\test-runner.spec.ts",
+                        "column": 88,
+                        "line": 16
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('button', { name: 'Завдання 1, без відповіді', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('button', { name: 'Завдання 1, без відповіді', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Завдання 1, без відповіді', exact: true })\u001b[22m\n\n\n  14 |   await page.goto(\"/login\");await page.getByLabel(\"Нікнейм\",{exact:true}).fill(\"student_a\");await page.getByLabel(\"Пароль\",{exact:true}).fill(\"Nmt-Ui-QA-Only-2026\");await page.getByRole(\"button\",{name:\"Увійти\",exact:true}).click();await expect(page).toHaveURL(/:3100\\/$/);\n  15 |   await page.goto(`/tests/${attempt}`);\n> 16 |   await expect(page.getByRole(\"button\",{name:\"Завдання 1, без відповіді\",exact:true})).toBeVisible();\n     |                                                                                        ^\n  17 |   await page.getByRole(\"button\",{name:\"Завершити\",exact:true}).click();await expect(page.getByRole(\"alertdialog\")).toContainText(\"1 із 1\");\n  18 |   await page.getByRole(\"button\",{name:\"Повернутися до тесту\",exact:true}).click();\n  19 |   await page.getByRole(\"button\",{name:\"Підтвердити поточний порядок\",exact:true}).click();\n    at D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\test-runner.spec.ts:16:88"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T09:22:44.463Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta\\test-runner-sequence-requi-c365e-nd-restores-it-after-reload-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta\\test-runner-sequence-requi-c365e-nd-restores-it-after-reload-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta\\test-runner-sequence-requi-c365e-nd-restores-it-after-reload-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\test-runner.spec.ts",
+                    "column": 88,
+                    "line": 16
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b03dcbd4bd63f2752ad4-624b64dbe9b350f3d894",
+          "file": "test-runner.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "message": "\u001b[31mTesting stopped early after 1 maximum allowed failures.\u001b[39m"
+    }
+  ],
+  "stats": {
+    "startTime": "2026-10-19T09:22:44.097Z",
+    "duration": 7455.201,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

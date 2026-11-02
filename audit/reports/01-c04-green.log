@@ -1,0 +1,10 @@
+
+ RUN  v3.2.7 D:/Вайб-кодинг/nmt-beta
+
+ ✓ tests/reliability-database.test.ts (17 tests | 16 skipped) 1458ms
+
+ Test Files  1 passed (1)
+      Tests  1 passed | 16 skipped (17)
+   Start at  22:57:11
+   Duration  3.80s (transform 183ms, setup 0ms, collect 2.02s, tests 1.46s, environment 0ms, prepare 113ms)
+

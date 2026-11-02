@@ -1,0 +1,300 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\Вайб-кодинг\\nmt-beta\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.beta.config.ts",
+      "e2e/beta/accessibility.spec.ts",
+      "e2e/beta/video-failure.spec.ts",
+      "--project",
+      "desktop"
+    ],
+    "configFile": "D:\\Вайб-кодинг\\nmt-beta\\playwright.beta.config.ts",
+    "rootDir": "D:/Вайб-кодинг/nmt-beta/e2e/beta",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Вайб-кодинг/nmt-beta/test-results/beta",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/Вайб-кодинг/nmt-beta/e2e/beta",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Вайб-кодинг/nmt-beta/test-results/beta",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/Вайб-кодинг/nmt-beta/e2e/beta",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta",
+        "snapshotDir": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3100",
+          "channel": "chrome",
+          "headless": true,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "audit/reports/06-open-forms-before-playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "accessibility.spec.ts",
+      "file": "accessibility.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "key learning and administration screens have no serious accessibility violations",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 7413,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -   1\u001b[39m\n\u001b[31m+ Received  + 102\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"label\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"summary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element has no placeholder attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"input[type=\\\"number\\\"]\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"summary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element has no placeholder attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"input[name=\\\"date\\\"]\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"select-name\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"summary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"select\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"label\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"summary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element has no placeholder attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"input[type=\\\"number\\\"]\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"summary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element has no placeholder attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"input[name=\\\"date\\\"]\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"select-name\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"summary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"select\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -   1\u001b[39m\n\u001b[31m+ Received  + 102\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"label\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"summary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element has no placeholder attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"input[type=\\\"number\\\"]\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"summary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element has no placeholder attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"input[name=\\\"date\\\"]\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"select-name\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"summary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"select\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"label\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"summary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element has no placeholder attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"input[type=\\\"number\\\"]\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"summary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element has no placeholder attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"input[name=\\\"date\\\"]\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"select-name\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"summary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"select\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\accessibility.spec.ts:10:176",
+                    "location": {
+                      "file": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\accessibility.spec.ts",
+                      "column": 176,
+                      "line": 10
+                    },
+                    "snippet": "   8 |   }\n   9 |  }\n> 10 |  await info.attach(\"axe-report\",{body:JSON.stringify(report,null,2),contentType:\"application/json\"});expect(report.flatMap(item=>(item as {violations:unknown[]}).violations)).toEqual([]);\n     |                                                                                                                                                                                ^\n  11 | });\n  12 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\accessibility.spec.ts",
+                        "column": 176,
+                        "line": 10
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -   1\u001b[39m\n\u001b[31m+ Received  + 102\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"label\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"summary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element has no placeholder attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"input[type=\\\"number\\\"]\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"summary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element has no placeholder attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"input[name=\\\"date\\\"]\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"select-name\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"summary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"select\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"label\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"summary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element has no placeholder attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"input[type=\\\"number\\\"]\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"summary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element has no placeholder attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"input[name=\\\"date\\\"]\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"id\": \"select-name\",\u001b[39m\n\u001b[31m+     \"impact\": \"critical\",\u001b[39m\n\u001b[31m+     \"nodes\": Array [\u001b[39m\n\u001b[31m+       Object {\u001b[39m\n\u001b[31m+         \"summary\": \"Fix any of the following:\u001b[39m\n\u001b[31m+   Element does not have an implicit (wrapped) <label>\u001b[39m\n\u001b[31m+   Element does not have an explicit <label>\u001b[39m\n\u001b[31m+   aria-label attribute does not exist or is empty\u001b[39m\n\u001b[31m+   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\u001b[39m\n\u001b[31m+   Element has no title attribute\u001b[39m\n\u001b[31m+   Element's default semantics were not overridden with role=\\\"none\\\" or role=\\\"presentation\\\"\",\u001b[39m\n\u001b[31m+         \"target\": Array [\u001b[39m\n\u001b[31m+           \"select\",\u001b[39m\n\u001b[31m+         ],\u001b[39m\n\u001b[31m+       },\u001b[39m\n\u001b[31m+     ],\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n   8 |   }\n   9 |  }\n> 10 |  await info.attach(\"axe-report\",{body:JSON.stringify(report,null,2),contentType:\"application/json\"});expect(report.flatMap(item=>(item as {violations:unknown[]}).violations)).toEqual([]);\n     |                                                                                                                                                                                ^\n  11 | });\n  12 |\n    at D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\accessibility.spec.ts:10:176"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:01:29.605Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "axe-report",
+                      "contentType": "application/json",
+                      "body": "WwogIHsKICAgICJpZGVudGl0eSI6ICJzdHVkZW50X2EiLAogICAgInRoZW1lIjogImxpZ2h0IiwKICAgICJyb3V0ZSI6ICIvc3ViamVjdHMiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0sCiAgewogICAgImlkZW50aXR5IjogInN0dWRlbnRfYSIsCiAgICAidGhlbWUiOiAibGlnaHQiLAogICAgInJvdXRlIjogIi9sZWFybi9xYS1lbXB0eSIsCiAgICAidmlvbGF0aW9ucyI6IFtdCiAgfSwKICB7CiAgICAiaWRlbnRpdHkiOiAic3R1ZGVudF9hIiwKICAgICJ0aGVtZSI6ICJsaWdodCIsCiAgICAicm91dGUiOiAiL3NldHRpbmdzIiwKICAgICJ2aW9sYXRpb25zIjogW10KICB9LAogIHsKICAgICJpZGVudGl0eSI6ICJzdHVkZW50X2EiLAogICAgInRoZW1lIjogImxpZ2h0IiwKICAgICJyb3V0ZSI6ICIvY2FsZW5kYXIiLAogICAgInZpb2xhdGlvbnMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAibGFiZWwiLAogICAgICAgICJpbXBhY3QiOiAiY3JpdGljYWwiLAogICAgICAgICJub2RlcyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgInRhcmdldCI6IFsKICAgICAgICAgICAgICAiaW5wdXRbdHlwZT1cIm51bWJlclwiXSIKICAgICAgICAgICAgXSwKICAgICAgICAgICAgInN1bW1hcnkiOiAiRml4IGFueSBvZiB0aGUgZm9sbG93aW5nOlxuICBFbGVtZW50IGRvZXMgbm90IGhhdmUgYW4gaW1wbGljaXQgKHdyYXBwZWQpIDxsYWJlbD5cbiAgRWxlbWVudCBkb2VzIG5vdCBoYXZlIGFuIGV4cGxpY2l0IDxsYWJlbD5cbiAgYXJpYS1sYWJlbCBhdHRyaWJ1dGUgZG9lcyBub3QgZXhpc3Qgb3IgaXMgZW1wdHlcbiAgYXJpYS1sYWJlbGxlZGJ5IGF0dHJpYnV0ZSBkb2VzIG5vdCBleGlzdCwgcmVmZXJlbmNlcyBlbGVtZW50cyB0aGF0IGRvIG5vdCBleGlzdCBvciByZWZlcmVuY2VzIGVsZW1lbnRzIHRoYXQgYXJlIGVtcHR5XG4gIEVsZW1lbnQgaGFzIG5vIHRpdGxlIGF0dHJpYnV0ZVxuICBFbGVtZW50IGhhcyBubyBwbGFjZWhvbGRlciBhdHRyaWJ1dGVcbiAgRWxlbWVudCdzIGRlZmF1bHQgc2VtYW50aWNzIHdlcmUgbm90IG92ZXJyaWRkZW4gd2l0aCByb2xlPVwibm9uZVwiIG9yIHJvbGU9XCJwcmVzZW50YXRpb25cIiIKICAgICAgICAgIH0sCiAgICAgICAgICB7CiAgICAgICAgICAgICJ0YXJnZXQiOiBbCiAgICAgICAgICAgICAgImlucHV0W25hbWU9XCJkYXRlXCJdIgogICAgICAgICAgICBdLAogICAgICAgICAgICAic3VtbWFyeSI6ICJGaXggYW55IG9mIHRoZSBmb2xsb3dpbmc6XG4gIEVsZW1lbnQgZG9lcyBub3QgaGF2ZSBhbiBpbXBsaWNpdCAod3JhcHBlZCkgPGxhYmVsPlxuICBFbGVtZW50IGRvZXMgbm90IGhhdmUgYW4gZXhwbGljaXQgPGxhYmVsPlxuICBhcmlhLWxhYmVsIGF0dHJpYnV0ZSBkb2VzIG5vdCBleGlzdCBvciBpcyBlbXB0eVxuICBhcmlhLWxhYmVsbGVkYnkgYXR0cmlidXRlIGRvZXMgbm90IGV4aXN0LCByZWZlcmVuY2VzIGVsZW1lbnRzIHRoYXQgZG8gbm90IGV4aXN0IG9yIHJlZmVyZW5jZXMgZWxlbWVudHMgdGhhdCBhcmUgZW1wdHlcbiAgRWxlbWVudCBoYXMgbm8gdGl0bGUgYXR0cmlidXRlXG4gIEVsZW1lbnQgaGFzIG5vIHBsYWNlaG9sZGVyIGF0dHJpYnV0ZVxuICBFbGVtZW50J3MgZGVmYXVsdCBzZW1hbnRpY3Mgd2VyZSBub3Qgb3ZlcnJpZGRlbiB3aXRoIHJvbGU9XCJub25lXCIgb3Igcm9sZT1cInByZXNlbnRhdGlvblwiIgogICAgICAgICAgfQogICAgICAgIF0KICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJzZWxlY3QtbmFtZSIsCiAgICAgICAgImltcGFjdCI6ICJjcml0aWNhbCIsCiAgICAgICAgIm5vZGVzIjogWwogICAgICAgICAgewogICAgICAgICAgICAidGFyZ2V0IjogWwogICAgICAgICAgICAgICJzZWxlY3QiCiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJzdW1tYXJ5IjogIkZpeCBhbnkgb2YgdGhlIGZvbGxvd2luZzpcbiAgRWxlbWVudCBkb2VzIG5vdCBoYXZlIGFuIGltcGxpY2l0ICh3cmFwcGVkKSA8bGFiZWw+XG4gIEVsZW1lbnQgZG9lcyBub3QgaGF2ZSBhbiBleHBsaWNpdCA8bGFiZWw+XG4gIGFyaWEtbGFiZWwgYXR0cmlidXRlIGRvZXMgbm90IGV4aXN0IG9yIGlzIGVtcHR5XG4gIGFyaWEtbGFiZWxsZWRieSBhdHRyaWJ1dGUgZG9lcyBub3QgZXhpc3QsIHJlZmVyZW5jZXMgZWxlbWVudHMgdGhhdCBkbyBub3QgZXhpc3Qgb3IgcmVmZXJlbmNlcyBlbGVtZW50cyB0aGF0IGFyZSBlbXB0eVxuICBFbGVtZW50IGhhcyBubyB0aXRsZSBhdHRyaWJ1dGVcbiAgRWxlbWVudCdzIGRlZmF1bHQgc2VtYW50aWNzIHdlcmUgbm90IG92ZXJyaWRkZW4gd2l0aCByb2xlPVwibm9uZVwiIG9yIHJvbGU9XCJwcmVzZW50YXRpb25cIiIKICAgICAgICAgIH0KICAgICAgICBdCiAgICAgIH0KICAgIF0KICB9LAogIHsKICAgICJpZGVudGl0eSI6ICJzdHVkZW50X2EiLAogICAgInRoZW1lIjogImxpZ2h0IiwKICAgICJyb3V0ZSI6ICIvbWlzdGFrZXMiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0sCiAgewogICAgImlkZW50aXR5IjogInN0dWRlbnRfYSIsCiAgICAidGhlbWUiOiAiZGFyayIsCiAgICAicm91dGUiOiAiL3N1YmplY3RzIiwKICAgICJ2aW9sYXRpb25zIjogW10KICB9LAogIHsKICAgICJpZGVudGl0eSI6ICJzdHVkZW50X2EiLAogICAgInRoZW1lIjogImRhcmsiLAogICAgInJvdXRlIjogIi9sZWFybi9xYS1lbXB0eSIsCiAgICAidmlvbGF0aW9ucyI6IFtdCiAgfSwKICB7CiAgICAiaWRlbnRpdHkiOiAic3R1ZGVudF9hIiwKICAgICJ0aGVtZSI6ICJkYXJrIiwKICAgICJyb3V0ZSI6ICIvc2V0dGluZ3MiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0sCiAgewogICAgImlkZW50aXR5IjogInN0dWRlbnRfYSIsCiAgICAidGhlbWUiOiAiZGFyayIsCiAgICAicm91dGUiOiAiL2NhbGVuZGFyIiwKICAgICJ2aW9sYXRpb25zIjogWwogICAgICB7CiAgICAgICAgImlkIjogImxhYmVsIiwKICAgICAgICAiaW1wYWN0IjogImNyaXRpY2FsIiwKICAgICAgICAibm9kZXMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJ0YXJnZXQiOiBbCiAgICAgICAgICAgICAgImlucHV0W3R5cGU9XCJudW1iZXJcIl0iCiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJzdW1tYXJ5IjogIkZpeCBhbnkgb2YgdGhlIGZvbGxvd2luZzpcbiAgRWxlbWVudCBkb2VzIG5vdCBoYXZlIGFuIGltcGxpY2l0ICh3cmFwcGVkKSA8bGFiZWw+XG4gIEVsZW1lbnQgZG9lcyBub3QgaGF2ZSBhbiBleHBsaWNpdCA8bGFiZWw+XG4gIGFyaWEtbGFiZWwgYXR0cmlidXRlIGRvZXMgbm90IGV4aXN0IG9yIGlzIGVtcHR5XG4gIGFyaWEtbGFiZWxsZWRieSBhdHRyaWJ1dGUgZG9lcyBub3QgZXhpc3QsIHJlZmVyZW5jZXMgZWxlbWVudHMgdGhhdCBkbyBub3QgZXhpc3Qgb3IgcmVmZXJlbmNlcyBlbGVtZW50cyB0aGF0IGFyZSBlbXB0eVxuICBFbGVtZW50IGhhcyBubyB0aXRsZSBhdHRyaWJ1dGVcbiAgRWxlbWVudCBoYXMgbm8gcGxhY2Vob2xkZXIgYXR0cmlidXRlXG4gIEVsZW1lbnQncyBkZWZhdWx0IHNlbWFudGljcyB3ZXJlIG5vdCBvdmVycmlkZGVuIHdpdGggcm9sZT1cIm5vbmVcIiBvciByb2xlPVwicHJlc2VudGF0aW9uXCIiCiAgICAgICAgICB9LAogICAgICAgICAgewogICAgICAgICAgICAidGFyZ2V0IjogWwogICAgICAgICAgICAgICJpbnB1dFtuYW1lPVwiZGF0ZVwiXSIKICAgICAgICAgICAgXSwKICAgICAgICAgICAgInN1bW1hcnkiOiAiRml4IGFueSBvZiB0aGUgZm9sbG93aW5nOlxuICBFbGVtZW50IGRvZXMgbm90IGhhdmUgYW4gaW1wbGljaXQgKHdyYXBwZWQpIDxsYWJlbD5cbiAgRWxlbWVudCBkb2VzIG5vdCBoYXZlIGFuIGV4cGxpY2l0IDxsYWJlbD5cbiAgYXJpYS1sYWJlbCBhdHRyaWJ1dGUgZG9lcyBub3QgZXhpc3Qgb3IgaXMgZW1wdHlcbiAgYXJpYS1sYWJlbGxlZGJ5IGF0dHJpYnV0ZSBkb2VzIG5vdCBleGlzdCwgcmVmZXJlbmNlcyBlbGVtZW50cyB0aGF0IGRvIG5vdCBleGlzdCBvciByZWZlcmVuY2VzIGVsZW1lbnRzIHRoYXQgYXJlIGVtcHR5XG4gIEVsZW1lbnQgaGFzIG5vIHRpdGxlIGF0dHJpYnV0ZVxuICBFbGVtZW50IGhhcyBubyBwbGFjZWhvbGRlciBhdHRyaWJ1dGVcbiAgRWxlbWVudCdzIGRlZmF1bHQgc2VtYW50aWNzIHdlcmUgbm90IG92ZXJyaWRkZW4gd2l0aCByb2xlPVwibm9uZVwiIG9yIHJvbGU9XCJwcmVzZW50YXRpb25cIiIKICAgICAgICAgIH0KICAgICAgICBdCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAic2VsZWN0LW5hbWUiLAogICAgICAgICJpbXBhY3QiOiAiY3JpdGljYWwiLAogICAgICAgICJub2RlcyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgInRhcmdldCI6IFsKICAgICAgICAgICAgICAic2VsZWN0IgogICAgICAgICAgICBdLAogICAgICAgICAgICAic3VtbWFyeSI6ICJGaXggYW55IG9mIHRoZSBmb2xsb3dpbmc6XG4gIEVsZW1lbnQgZG9lcyBub3QgaGF2ZSBhbiBpbXBsaWNpdCAod3JhcHBlZCkgPGxhYmVsPlxuICBFbGVtZW50IGRvZXMgbm90IGhhdmUgYW4gZXhwbGljaXQgPGxhYmVsPlxuICBhcmlhLWxhYmVsIGF0dHJpYnV0ZSBkb2VzIG5vdCBleGlzdCBvciBpcyBlbXB0eVxuICBhcmlhLWxhYmVsbGVkYnkgYXR0cmlidXRlIGRvZXMgbm90IGV4aXN0LCByZWZlcmVuY2VzIGVsZW1lbnRzIHRoYXQgZG8gbm90IGV4aXN0IG9yIHJlZmVyZW5jZXMgZWxlbWVudHMgdGhhdCBhcmUgZW1wdHlcbiAgRWxlbWVudCBoYXMgbm8gdGl0bGUgYXR0cmlidXRlXG4gIEVsZW1lbnQncyBkZWZhdWx0IHNlbWFudGljcyB3ZXJlIG5vdCBvdmVycmlkZGVuIHdpdGggcm9sZT1cIm5vbmVcIiBvciByb2xlPVwicHJlc2VudGF0aW9uXCIiCiAgICAgICAgICB9CiAgICAgICAgXQogICAgICB9CiAgICBdCiAgfSwKICB7CiAgICAiaWRlbnRpdHkiOiAic3R1ZGVudF9hIiwKICAgICJ0aGVtZSI6ICJkYXJrIiwKICAgICJyb3V0ZSI6ICIvbWlzdGFrZXMiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0sCiAgewogICAgImlkZW50aXR5IjogIm93bmVyIiwKICAgICJ0aGVtZSI6ICJsaWdodCIsCiAgICAicm91dGUiOiAiL2FkbWluL3VzZXJzIiwKICAgICJ2aW9sYXRpb25zIjogW10KICB9LAogIHsKICAgICJpZGVudGl0eSI6ICJvd25lciIsCiAgICAidGhlbWUiOiAibGlnaHQiLAogICAgInJvdXRlIjogIi9hZG1pbi90ZXN0cyIsCiAgICAidmlvbGF0aW9ucyI6IFtdCiAgfSwKICB7CiAgICAiaWRlbnRpdHkiOiAib3duZXIiLAogICAgInRoZW1lIjogImRhcmsiLAogICAgInJvdXRlIjogIi9hZG1pbi91c2VycyIsCiAgICAidmlvbGF0aW9ucyI6IFtdCiAgfSwKICB7CiAgICAiaWRlbnRpdHkiOiAib3duZXIiLAogICAgInRoZW1lIjogImRhcmsiLAogICAgInJvdXRlIjogIi9hZG1pbi90ZXN0cyIsCiAgICAidmlvbGF0aW9ucyI6IFtdCiAgfQpd"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta\\accessibility-key-learning-7d7d5-us-accessibility-violations-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta\\accessibility-key-learning-7d7d5-us-accessibility-violations-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta\\accessibility-key-learning-7d7d5-us-accessibility-violations-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\accessibility.spec.ts",
+                    "column": 176,
+                    "line": 10
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "ddd864604af8a6a0198f-4d1e1975e6924fa81341",
+          "file": "accessibility.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "video-failure.spec.ts",
+      "file": "video-failure.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "video alternatives and external failures are visible to students",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 17129,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('alert').filter({ hasText: 'з’єднання' })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('alert').filter({ hasText: 'з’єднання' }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('alert').filter({ hasText: 'з’єднання' })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('alert').filter({ hasText: 'з’єднання' })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('alert').filter({ hasText: 'з’єднання' }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('alert').filter({ hasText: 'з’єднання' })\u001b[22m\n\n    at D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\video-failure.spec.ts:7:1046",
+                    "location": {
+                      "file": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\video-failure.spec.ts",
+                      "column": 1046,
+                      "line": 7
+                    },
+                    "snippet": "   5 |  if(!process.cwd().endsWith(\"nmt-beta\"))throw Error(\"QA worktree required\");const db=new DatabaseSync(path.resolve(\"audit/tests/beta-chrome.db\"));db.exec(\"PRAGMA busy_timeout=5000\");\n   6 |  const before=db.prepare(\"SELECT reviewStatus FROM VideoLesson WHERE id='qa-video'\").get() as {reviewStatus:string};db.prepare(\"UPDATE VideoLesson SET reviewStatus='CONFIRMED' WHERE id='qa-video'\").run();\n>  7 |  try {await page.route(/youtube\\.com|ytimg\\.com/,route=>route.abort());await page.goto(\"/login\");await page.getByLabel(\"Нікнейм\",{exact:true}).fill(\"student_a\");await page.getByLabel(\"Пароль\",{exact:true}).fill(\"Nmt-Ui-QA-Only-2026\");await page.getByRole(\"button\",{name:\"Увійти\",exact:true}).click();await expect(page).toHaveURL(/:3100\\/$/);await page.goto(\"/learn/qa-linear\");await page.getByRole(\"tab\",{name:\"Відео\",exact:true}).click();await page.getByRole(\"button\",{name:\"Інше пояснення\",exact:true}).click();await expect(page.getByText(\"Іншого підтвердженого відео для цієї теми ще немає.\",{exact:true})).toBeVisible();await page.getByRole(\"button\",{name:\"Запустити лекцію\",exact:true}).click();await expect(page.getByRole(\"alert\").filter({hasText:\"YouTube\"})).toBeVisible();await page.getByLabel(\"Нотатки до лекції\",{exact:true}).fill(\"QA-offline-video-note\");await context.setOffline(true);try{await page.getByRole(\"button\",{name:\"Зберегти нотатки\",exact:true}).click();await expect(page.getByRole(\"alert\").filter({hasText:\"з’єднання\"})).toBeVisible();await expect(page.getByLabel(\"Нотатки до лекції\",{exact:true})).toHaveValue(\"QA-offline-video-note\");}finally{await context.setOffline(false);}await page.getByRole(\"tab\",{name:\"Конспект\",exact:true}).click();await expect(page.getByRole(\"tab\",{name:\"Конспект\",exact:true})).toHaveAttribute(\"aria-selected\",\"true\");}\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^\n   8 |  finally {db.prepare(\"UPDATE VideoLesson SET reviewStatus=? WHERE id='qa-video'\").run(before.reviewStatus);db.close();}\n   9 | });\n  10 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\video-failure.spec.ts",
+                        "column": 1046,
+                        "line": 7
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('alert').filter({ hasText: 'з’єднання' })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('alert').filter({ hasText: 'з’єднання' }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('alert').filter({ hasText: 'з’єднання' })\u001b[22m\n\n\n   5 |  if(!process.cwd().endsWith(\"nmt-beta\"))throw Error(\"QA worktree required\");const db=new DatabaseSync(path.resolve(\"audit/tests/beta-chrome.db\"));db.exec(\"PRAGMA busy_timeout=5000\");\n   6 |  const before=db.prepare(\"SELECT reviewStatus FROM VideoLesson WHERE id='qa-video'\").get() as {reviewStatus:string};db.prepare(\"UPDATE VideoLesson SET reviewStatus='CONFIRMED' WHERE id='qa-video'\").run();\n>  7 |  try {await page.route(/youtube\\.com|ytimg\\.com/,route=>route.abort());await page.goto(\"/login\");await page.getByLabel(\"Нікнейм\",{exact:true}).fill(\"student_a\");await page.getByLabel(\"Пароль\",{exact:true}).fill(\"Nmt-Ui-QA-Only-2026\");await page.getByRole(\"button\",{name:\"Увійти\",exact:true}).click();await expect(page).toHaveURL(/:3100\\/$/);await page.goto(\"/learn/qa-linear\");await page.getByRole(\"tab\",{name:\"Відео\",exact:true}).click();await page.getByRole(\"button\",{name:\"Інше пояснення\",exact:true}).click();await expect(page.getByText(\"Іншого підтвердженого відео для цієї теми ще немає.\",{exact:true})).toBeVisible();await page.getByRole(\"button\",{name:\"Запустити лекцію\",exact:true}).click();await expect(page.getByRole(\"alert\").filter({hasText:\"YouTube\"})).toBeVisible();await page.getByLabel(\"Нотатки до лекції\",{exact:true}).fill(\"QA-offline-video-note\");await context.setOffline(true);try{await page.getByRole(\"button\",{name:\"Зберегти нотатки\",exact:true}).click();await expect(page.getByRole(\"alert\").filter({hasText:\"з’єднання\"})).toBeVisible();await expect(page.getByLabel(\"Нотатки до лекції\",{exact:true})).toHaveValue(\"QA-offline-video-note\");}finally{await context.setOffline(false);}await page.getByRole(\"tab\",{name:\"Конспект\",exact:true}).click();await expect(page.getByRole(\"tab\",{name:\"Конспект\",exact:true})).toHaveAttribute(\"aria-selected\",\"true\");}\n     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ^\n   8 |  finally {db.prepare(\"UPDATE VideoLesson SET reviewStatus=? WHERE id='qa-video'\").run(before.reviewStatus);db.close();}\n   9 | });\n  10 |\n    at D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\video-failure.spec.ts:7:1046"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:01:38.685Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta\\video-failure-video-altern-8c8eb-res-are-visible-to-students-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta\\video-failure-video-altern-8c8eb-res-are-visible-to-students-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta\\video-failure-video-altern-8c8eb-res-are-visible-to-students-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\video-failure.spec.ts",
+                    "column": 1046,
+                    "line": 7
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "2b5437c288666966870b-d5692540d60dcca49865",
+          "file": "video-failure.spec.ts",
+          "line": 4,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T10:01:29.159Z",
+    "duration": 27236.627,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

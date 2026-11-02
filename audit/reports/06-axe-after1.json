@@ -1,0 +1,112 @@
+[
+  {
+    "identity": "student_a",
+    "theme": "light",
+    "route": "/subjects",
+    "violations": []
+  },
+  {
+    "identity": "student_a",
+    "theme": "light",
+    "route": "/learn/qa-empty",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              "#radix-_R_4anpfirppflb_-trigger-notes"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.48 (foreground color: #ffffff, background color: #326bff, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "identity": "student_a",
+    "theme": "light",
+    "route": "/settings",
+    "violations": []
+  },
+  {
+    "identity": "student_a",
+    "theme": "light",
+    "route": "/calendar",
+    "violations": []
+  },
+  {
+    "identity": "student_a",
+    "theme": "light",
+    "route": "/mistakes",
+    "violations": []
+  },
+  {
+    "identity": "student_a",
+    "theme": "dark",
+    "route": "/subjects",
+    "violations": []
+  },
+  {
+    "identity": "student_a",
+    "theme": "dark",
+    "route": "/learn/qa-empty",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              "#radix-_R_4anpfirppflb_-trigger-notes"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.48 (foreground color: #ffffff, background color: #326bff, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "identity": "student_a",
+    "theme": "dark",
+    "route": "/settings",
+    "violations": []
+  },
+  {
+    "identity": "student_a",
+    "theme": "dark",
+    "route": "/calendar",
+    "violations": []
+  },
+  {
+    "identity": "student_a",
+    "theme": "dark",
+    "route": "/mistakes",
+    "violations": []
+  },
+  {
+    "identity": "owner",
+    "theme": "light",
+    "route": "/admin/users",
+    "violations": []
+  },
+  {
+    "identity": "owner",
+    "theme": "light",
+    "route": "/admin/tests",
+    "violations": []
+  },
+  {
+    "identity": "owner",
+    "theme": "dark",
+    "route": "/admin/users",
+    "violations": []
+  },
+  {
+    "identity": "owner",
+    "theme": "dark",
+    "route": "/admin/tests",
+    "violations": []
+  }
+]

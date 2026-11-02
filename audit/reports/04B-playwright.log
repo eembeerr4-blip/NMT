@@ -1,0 +1,25 @@
+
+Running 16 tests using 1 worker
+
+(node:11048) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [desktop] › e2e\beta\dashboard.spec.ts:4:5 › dashboard never recommends an unavailable lesson even if its status is IN_PROGRESS (876ms)
+  ok  2 [desktop] › e2e\beta\permissions.spec.ts:3:5 › expired cookie never changes API auth errors into HTML or plain text (209ms)
+  ok  3 [desktop] › e2e\beta\permissions.spec.ts:13:5 › owner learning sidebar has no administration; profile menu switches context (766ms)
+  ok  4 [desktop] › e2e\beta\stability.spec.ts:12:5 › HTTP auth, styles and protected API (2.1s)
+  ok  5 [desktop] › e2e\beta\stability.spec.ts:21:5 › C07 theory acknowledgement reports reading and never mastery (1.3s)
+  ok  6 [desktop] › e2e\beta\stability.spec.ts:28:5 › A07 custom task failure retains inputs and offers a working retry (2.3s)
+  ok  7 [desktop] › e2e\beta\stability.spec.ts:39:5 › A07 review and C08 elective expose errors without silent navigation (1.2s)
+  ok  8 [desktop] › e2e\beta\stability.spec.ts:44:5 › C05 editor route and private attempt enforce real HTTP boundaries (3.3s)
+(node:26000) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  9 [mobile] › e2e\beta\dashboard.spec.ts:4:5 › dashboard never recommends an unavailable lesson even if its status is IN_PROGRESS (1.8s)
+  ok 10 [mobile] › e2e\beta\permissions.spec.ts:3:5 › expired cookie never changes API auth errors into HTML or plain text (150ms)
+  ok 11 [mobile] › e2e\beta\permissions.spec.ts:13:5 › owner learning sidebar has no administration; profile menu switches context (633ms)
+  ok 12 [mobile] › e2e\beta\stability.spec.ts:12:5 › HTTP auth, styles and protected API (1.2s)
+  ok 13 [mobile] › e2e\beta\stability.spec.ts:21:5 › C07 theory acknowledgement reports reading and never mastery (1.6s)
+  ok 14 [mobile] › e2e\beta\stability.spec.ts:28:5 › A07 custom task failure retains inputs and offers a working retry (2.2s)
+  ok 15 [mobile] › e2e\beta\stability.spec.ts:39:5 › A07 review and C08 elective expose errors without silent navigation (1.2s)
+  ok 16 [mobile] › e2e\beta\stability.spec.ts:44:5 › C05 editor route and private attempt enforce real HTTP boundaries (3.7s)
+
+  16 passed (26.6s)

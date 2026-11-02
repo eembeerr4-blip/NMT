@@ -1,0 +1,48 @@
+
+ RUN  v3.2.7 D:/Вайб-кодинг/nmt-beta
+
+ ❯ tests/reliability-database.test.ts (15 tests | 1 failed | 14 skipped) 1353ms
+   × A15: student playback cannot change shared video duration; positions are bounded and private 11ms
+     → expected 100 to be null
+   ↓ rolls back ALL finish writes when the second answer fails; a retry succeeds exactly once
+   ↓ concurrent finish calls cannot duplicate answers, progress, sessions or XP
+   ↓ B cannot claim, finish or save A's attempt and no data changes
+   ↓ rolls back task cancellation, elective membership AND schedule on a midway failure
+   ↓ serializes elective changes and retains exactly one elective and all DONE history
+   ↓ custom/moved/DONE tasks survive sync, reduced study days and explicit recalculation
+   ↓ an acknowledged theory-only lesson can finish, but empty content or missing acknowledgement cannot
+   ↓ round-trips text-only edits for SINGLE_CHOICE without losing option ids or grading
+   ↓ round-trips text-only edits for MATCHING without losing option ids or grading
+   ↓ round-trips text-only edits for SEQUENCE without losing option ids or grading
+   ↓ round-trips text-only edits for NUMERIC without losing option ids or grading
+   ↓ students cannot edit shared questions; used questions remain immutable
+   ↓ rolls back even a late achievement failure after the result, mastery, task and XP were written
+   ↓ finishes with intact SQLite constraints
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/reliability-database.test.ts > A15: student playback cannot change shared video duration; positions are bounded and private
+AssertionError: expected 100 to be null
+
+- Expected: 
+null
+
++ Received: 
+100
+
+ ❯ tests/reliability-database.test.ts:27:95
+     25|  await prisma.videoLesson.create({data:{id:"QA-playback",topicId:"topi…
+     26|  expect((await saveVideoPosition("QA-playback",12.9,100)).ok).toBe(tru…
+     27|  expect((await prisma.videoLesson.findUniqueOrThrow({where:{id:"QA-pla…
+       |                                                                                               ^
+     28|  expect((await prisma.userVideoProgress.findUniqueOrThrow({where:{user…
+     29|  expect((await saveVideoPosition("QA-playback",1000000,1000000)).ok).t…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 14 skipped (15)
+   Start at  22:50:56
+   Duration  3.75s (transform 201ms, setup 0ms, collect 2.08s, tests 1.35s, environment 0ms, prepare 110ms)
+

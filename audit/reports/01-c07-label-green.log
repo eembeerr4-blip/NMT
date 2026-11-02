@@ -1,0 +1,10 @@
+
+ RUN  v3.2.7 D:/Вайб-кодинг/nmt-beta
+
+ ✓ src/components/lesson-completion.test.ts (1 test) 10ms
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  22:59:27
+   Duration  400ms (transform 48ms, setup 0ms, collect 97ms, tests 10ms, environment 0ms, prepare 99ms)
+

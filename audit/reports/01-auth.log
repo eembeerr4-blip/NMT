@@ -1,0 +1,10 @@
+
+ RUN  v3.2.7 D:/Вайб-кодинг/nmt-beta
+
+ ✓ tests/beta-auth.test.ts (2 tests) 1745ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  23:00:07
+   Duration  4.04s (transform 169ms, setup 0ms, collect 2.00s, tests 1.74s, environment 0ms, prepare 103ms)
+

@@ -1,0 +1,217 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\Вайб-кодинг\\nmt-beta\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.beta.config.ts",
+      "e2e/beta/auth-ui.spec.ts",
+      "--project",
+      "desktop",
+      "--max-failures=1"
+    ],
+    "configFile": "D:\\Вайб-кодинг\\nmt-beta\\playwright.beta.config.ts",
+    "rootDir": "D:/Вайб-кодинг/nmt-beta/e2e/beta",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 1,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Вайб-кодинг/nmt-beta/test-results/beta",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/Вайб-кодинг/nmt-beta/e2e/beta",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Вайб-кодинг/nmt-beta/test-results/beta",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/Вайб-кодинг/nmt-beta/e2e/beta",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta",
+        "snapshotDir": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3100",
+          "channel": "chrome",
+          "headless": true,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "audit/reports/04H-red-playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "auth-ui.spec.ts",
+      "file": "auth-ui.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "login has persistent field labels and supports keyboard submission",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 15299,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Нікнейм', { exact: true })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Нікнейм', { exact: true }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Нікнейм', { exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Нікнейм', { exact: true })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Нікнейм', { exact: true }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Нікнейм', { exact: true })\u001b[22m\n\n    at D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\auth-ui.spec.ts:3:81",
+                    "location": {
+                      "file": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\auth-ui.spec.ts",
+                      "column": 81,
+                      "line": 3
+                    },
+                    "snippet": "  1 | import {expect,test} from \"@playwright/test\";\n  2 | test(\"login has persistent field labels and supports keyboard submission\",async({page})=>{\n> 3 |  await page.goto(\"/login\");await expect(page.getByText(\"Нікнейм\",{exact:true})).toBeVisible();await expect(page.getByText(\"Пароль\",{exact:true})).toBeVisible();\n    |                                                                                 ^\n  4 |  await page.getByLabel(\"Нікнейм\",{exact:true}).fill(\"student_a\");await page.keyboard.press(\"Tab\");await expect(page.getByLabel(\"Пароль\",{exact:true})).toBeFocused();await page.keyboard.type(\"wrong\");await page.keyboard.press(\"Enter\");await expect(page.getByRole(\"alert\").filter({hasText:\"Невірний\"})).toBeVisible();\n  5 |  await page.getByRole(\"link\",{name:\"Створити профіль\",exact:true}).click();await page.getByRole(\"button\",{name:\"Розпочати\",exact:true}).click();await expect(page.getByText(\"Нікнейм\",{exact:true})).toBeVisible();await expect(page.getByText(\"Пароль\",{exact:true})).toBeVisible();\n  6 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\auth-ui.spec.ts",
+                        "column": 81,
+                        "line": 3
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Нікнейм', { exact: true })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Нікнейм', { exact: true }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Нікнейм', { exact: true })\u001b[22m\n\n\n  1 | import {expect,test} from \"@playwright/test\";\n  2 | test(\"login has persistent field labels and supports keyboard submission\",async({page})=>{\n> 3 |  await page.goto(\"/login\");await expect(page.getByText(\"Нікнейм\",{exact:true})).toBeVisible();await expect(page.getByText(\"Пароль\",{exact:true})).toBeVisible();\n    |                                                                                 ^\n  4 |  await page.getByLabel(\"Нікнейм\",{exact:true}).fill(\"student_a\");await page.keyboard.press(\"Tab\");await expect(page.getByLabel(\"Пароль\",{exact:true})).toBeFocused();await page.keyboard.type(\"wrong\");await page.keyboard.press(\"Enter\");await expect(page.getByRole(\"alert\").filter({hasText:\"Невірний\"})).toBeVisible();\n  5 |  await page.getByRole(\"link\",{name:\"Створити профіль\",exact:true}).click();await page.getByRole(\"button\",{name:\"Розпочати\",exact:true}).click();await expect(page.getByText(\"Нікнейм\",{exact:true})).toBeVisible();await expect(page.getByText(\"Пароль\",{exact:true})).toBeVisible();\n  6 | });\n    at D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\auth-ui.spec.ts:3:81"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T09:36:31.981Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta\\auth-ui-login-has-persiste-be9a4-upports-keyboard-submission-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta\\auth-ui-login-has-persiste-be9a4-upports-keyboard-submission-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta\\auth-ui-login-has-persiste-be9a4-upports-keyboard-submission-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\auth-ui.spec.ts",
+                    "column": 81,
+                    "line": 3
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8ea4a662121586c12754-fbe6e369e9debafa8fec",
+          "file": "auth-ui.spec.ts",
+          "line": 2,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "message": "\u001b[31mTesting stopped early after 1 maximum allowed failures.\u001b[39m"
+    }
+  ],
+  "stats": {
+    "startTime": "2026-10-19T09:36:31.623Z",
+    "duration": 16012.335,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

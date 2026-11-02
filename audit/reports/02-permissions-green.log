@@ -1,0 +1,11 @@
+
+ RUN  v3.2.7 D:/Вайб-кодинг/nmt-beta
+
+ ✓ src/app/api/export/results/route.test.ts (2 tests) 6ms
+ ✓ src/server/permissions-matrix.test.ts (50 tests) 9ms
+
+ Test Files  2 passed (2)
+      Tests  52 passed (52)
+   Start at  23:11:12
+   Duration  2.30s (transform 174ms, setup 0ms, collect 2.03s, tests 15ms, environment 0ms, prepare 204ms)
+

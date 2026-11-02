@@ -1,0 +1,21 @@
+20 captures; last /ai-tutor 390 light
+40 captures; last /ai-tutor 768 light
+60 captures; last /ai-tutor 1280 light
+80 captures; last /ai-tutor 1920 light
+100 captures; last /analytics 1920 light
+120 captures; last /admin/tests 390 light
+140 captures; last /admin/subjects/math 1280 light
+160 captures; last /admin/questions/qa-unused-NUMERIC 1920 light
+180 captures; last /editor/lessons/qa-linear 768 light
+200 captures; last /editor/questions/qa-unused-NUMERIC 1920 light
+220 captures; last /analytics 390 dark
+240 captures; last /analytics 768 dark
+260 captures; last /analytics 1280 dark
+280 captures; last /analytics 1920 dark
+300 captures; last /calendar?view=day&date=2028-01-01 768 dark
+320 captures; last /admin/subjects/math 390 dark
+340 captures; last /admin/questions/qa-unused-NUMERIC 768 dark
+360 captures; last /admin/users 1920 dark
+380 captures; last /editor/questions 390 dark
+400 captures; last /editor 1920 dark
+{"sha":"ea6fb12f5bc7249376b1f0bdd9c3bf3bba7cc89b","captures":416,"overflowCaptures":36,"pageErrors":0}

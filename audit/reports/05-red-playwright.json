@@ -1,0 +1,217 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\Вайб-кодинг\\nmt-beta\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.beta.config.ts",
+      "e2e/beta/admin-tests.spec.ts",
+      "--project",
+      "desktop",
+      "--max-failures=1"
+    ],
+    "configFile": "D:\\Вайб-кодинг\\nmt-beta\\playwright.beta.config.ts",
+    "rootDir": "D:/Вайб-кодинг/nmt-beta/e2e/beta",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 1,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Вайб-кодинг/nmt-beta/test-results/beta",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/Вайб-кодинг/nmt-beta/e2e/beta",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Вайб-кодинг/nmt-beta/test-results/beta",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/Вайб-кодинг/nmt-beta/e2e/beta",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta",
+        "snapshotDir": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3100",
+          "channel": "chrome",
+          "headless": true,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "audit/reports/05-red-playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "admin-tests.spec.ts",
+      "file": "admin-tests.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "administrator preview opens the test set rather than a missing attempt",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 15868,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/admin\\/tests\\/qa-test$/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:3100/tests/qa-test\"\u001b[39m\nTimeout: 15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 15000ms\u001b[22m\n\u001b[2m    2 × locator resolved to <html lang=\"uk\" class=\"psv_pW_variable h-full light\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:3100/admin/tests?q=QA-%D0%A2%D0%B5%D1%81%D1%82+3+%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F\"\u001b[22m\n\u001b[2m    31 × locator resolved to <html lang=\"uk\" class=\"psv_pW_variable h-full light\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:3100/tests/qa-test\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/admin\\/tests\\/qa-test$/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:3100/tests/qa-test\"\u001b[39m\nTimeout: 15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 15000ms\u001b[22m\n\u001b[2m    2 × locator resolved to <html lang=\"uk\" class=\"psv_pW_variable h-full light\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:3100/admin/tests?q=QA-%D0%A2%D0%B5%D1%81%D1%82+3+%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F\"\u001b[22m\n\u001b[2m    31 × locator resolved to <html lang=\"uk\" class=\"psv_pW_variable h-full light\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:3100/tests/qa-test\"\u001b[22m\n\n    at D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\admin-tests.spec.ts:4:119",
+                    "location": {
+                      "file": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\admin-tests.spec.ts",
+                      "column": 119,
+                      "line": 4
+                    },
+                    "snippet": "  2 | test(\"administrator preview opens the test set rather than a missing attempt\",async({page})=>{\n  3 |  await page.goto(\"/login\");await page.getByLabel(\"Нікнейм\",{exact:true}).fill(\"qa_admin\");await page.getByLabel(\"Пароль\",{exact:true}).fill(\"Nmt-Ui-QA-Only-2026\");await page.getByRole(\"button\",{name:\"Увійти\",exact:true}).click();await expect(page).toHaveURL(/:3100\\/$/);\n> 4 |  await page.goto(\"/admin/tests?q=QA-Тест+3+питання\");await page.locator('tbody a').first().click();await expect(page).toHaveURL(/\\/admin\\/tests\\/qa-test$/);await expect(page.getByRole(\"heading\",{name:\"QA-Тест 3 питання\",exact:true})).toBeVisible();\n    |                                                                                                                       ^\n  5 | });\n  6 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\admin-tests.spec.ts",
+                        "column": 119,
+                        "line": 4
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/admin\\/tests\\/qa-test$/\u001b[39m\nReceived string:  \u001b[31m\"http://127.0.0.1:3100/tests/qa-test\"\u001b[39m\nTimeout: 15000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 15000ms\u001b[22m\n\u001b[2m    2 × locator resolved to <html lang=\"uk\" class=\"psv_pW_variable h-full light\">…</html>\u001b[22m\n\u001b[2m      - unexpected value \"http://127.0.0.1:3100/admin/tests?q=QA-%D0%A2%D0%B5%D1%81%D1%82+3+%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F\"\u001b[22m\n\u001b[2m    31 × locator resolved to <html lang=\"uk\" class=\"psv_pW_variable h-full light\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://127.0.0.1:3100/tests/qa-test\"\u001b[22m\n\n\n  2 | test(\"administrator preview opens the test set rather than a missing attempt\",async({page})=>{\n  3 |  await page.goto(\"/login\");await page.getByLabel(\"Нікнейм\",{exact:true}).fill(\"qa_admin\");await page.getByLabel(\"Пароль\",{exact:true}).fill(\"Nmt-Ui-QA-Only-2026\");await page.getByRole(\"button\",{name:\"Увійти\",exact:true}).click();await expect(page).toHaveURL(/:3100\\/$/);\n> 4 |  await page.goto(\"/admin/tests?q=QA-Тест+3+питання\");await page.locator('tbody a').first().click();await expect(page).toHaveURL(/\\/admin\\/tests\\/qa-test$/);await expect(page.getByRole(\"heading\",{name:\"QA-Тест 3 питання\",exact:true})).toBeVisible();\n    |                                                                                                                       ^\n  5 | });\n  6 |\n    at D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\admin-tests.spec.ts:4:119"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T09:39:19.615Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta\\admin-tests-administrator--b2d52-ther-than-a-missing-attempt-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta\\admin-tests-administrator--b2d52-ther-than-a-missing-attempt-desktop\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta\\admin-tests-administrator--b2d52-ther-than-a-missing-attempt-desktop\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta\\admin-tests.spec.ts",
+                    "column": 119,
+                    "line": 4
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5b100a6726a47f7e16e6-dc3710984651e041e1ce",
+          "file": "admin-tests.spec.ts",
+          "line": 2,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "message": "\u001b[31mTesting stopped early after 1 maximum allowed failures.\u001b[39m"
+    }
+  ],
+  "stats": {
+    "startTime": "2026-10-19T09:39:19.264Z",
+    "duration": 16616.658,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

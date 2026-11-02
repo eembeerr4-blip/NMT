@@ -1,0 +1,120 @@
+Error [PrismaClientKnownRequestError]: 
+Invalid `prisma.mistake.update()` invocation:
+
+
+Foreign key constraint violated on the foreign key
+    at async aY (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_server_actions_ts_1rweruefq73pr._.js:1:36275) {
+  code: 'P2003',
+  meta: { modelName: 'Mistake', constraint: null },
+  clientVersion: '6.19.3'
+}
+Error [PrismaClientKnownRequestError]: 
+Invalid `prisma.studyTask.create()` invocation:
+
+
+Foreign key constraint violated on the foreign key
+    at async aS (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_server_actions_ts_1rweruefq73pr._.js:1:33775) {
+  code: 'P2003',
+  meta: { modelName: 'StudyTask', constraint: null },
+  clientVersion: '6.19.3'
+}
+Error [PrismaClientKnownRequestError]: 
+Invalid `prisma.mistake.update()` invocation:
+
+
+Foreign key constraint violated on the foreign key
+    at async aY (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_server_actions_ts_1rweruefq73pr._.js:1:36275) {
+  code: 'P2003',
+  meta: { modelName: 'Mistake', constraint: null },
+  clientVersion: '6.19.3'
+}
+Error [PrismaClientKnownRequestError]: 
+Invalid `prisma.studyTask.create()` invocation:
+
+
+Foreign key constraint violated on the foreign key
+    at async aS (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_server_actions_ts_1rweruefq73pr._.js:1:33775) {
+  code: 'P2003',
+  meta: { modelName: 'StudyTask', constraint: null },
+  clientVersion: '6.19.3'
+}
+[main-layout] Unable to synchronize the learner plan. SyntaxError: Unexpected token 'Q', "QA-invalid-json" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at j (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3098)
+    at async l (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3256)
+⨯ SyntaxError: Unexpected token 'Q', "QA-invalid-json" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at j (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3098)
+    at async l (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3256) {
+  digest: '3420289282'
+}
+[main-layout] Unable to synchronize the learner plan. SyntaxError: Unexpected token 'Q', "QA-invalid-json" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at j (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3098)
+    at async l (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3256)
+⨯ SyntaxError: Unexpected token 'Q', "QA-invalid-json" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at j (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3098)
+    at async l (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3256) {
+  digest: '3420289282'
+}
+[main-layout] Unable to synchronize the learner plan. SyntaxError: Unexpected token 'Q', "QA-invalid-json" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at j (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3098)
+    at async l (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3256)
+⨯ SyntaxError: Unexpected token 'Q', "QA-invalid-json" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at j (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3098)
+    at async l (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3256) {
+  digest: '3420289282'
+}
+[main-layout] Unable to synchronize the learner plan. SyntaxError: Unexpected token 'Q', "QA-invalid-json" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at j (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3098)
+    at async l (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3256)
+⨯ SyntaxError: Unexpected token 'Q', "QA-invalid-json" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at j (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3098)
+    at async l (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3256) {
+  digest: '3420289282'
+}
+[main-layout] Unable to synchronize the learner plan. SyntaxError: Unexpected token 'Q', "QA-invalid-json" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at j (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3098)
+    at async l (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3256)
+⨯ SyntaxError: Unexpected token 'Q', "QA-invalid-json" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at j (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3098)
+    at async l (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3256) {
+  digest: '3420289282'
+}
+[main-layout] Unable to synchronize the learner plan. SyntaxError: Unexpected token 'Q', "QA-invalid-json" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at j (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3098)
+    at async l (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3256)
+⨯ SyntaxError: Unexpected token 'Q', "QA-invalid-json" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at j (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3098)
+    at async l (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3256) {
+  digest: '3420289282'
+}
+[main-layout] Unable to synchronize the learner plan. SyntaxError: Unexpected token 'Q', "QA-invalid-json" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at j (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3098)
+    at async l (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3256)
+⨯ SyntaxError: Unexpected token 'Q', "QA-invalid-json" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at j (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3098)
+    at async l (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3256) {
+  digest: '3420289282'
+}
+[main-layout] Unable to synchronize the learner plan. SyntaxError: Unexpected token 'Q', "QA-invalid-json" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at j (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3098)
+    at async l (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3256)
+⨯ SyntaxError: Unexpected token 'Q', "QA-invalid-json" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at j (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3098)
+    at async l (D:\Вайб-кодинг\nmt-beta\.next\server\chunks\ssr\src_0s0hk3-9uaidu._.js:1:3256) {
+  digest: '3420289282'
+}

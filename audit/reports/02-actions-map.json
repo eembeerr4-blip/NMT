@@ -1,0 +1,2402 @@
+[
+  {
+    "file": "src/app/(main)/mistakes/page.tsx",
+    "line": 67,
+    "name": "inline@67",
+    "kind": "inline",
+    "calls": [
+      "setMistakeMeta",
+      "String",
+      "formData.get"
+    ],
+    "queries": [],
+    "guard": "indirect: setMistakeMeta → session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/app/(main)/tests/[id]/page.tsx",
+    "line": 79,
+    "name": "inline@79",
+    "kind": "inline",
+    "calls": [
+      "gradeManually"
+    ],
+    "queries": [],
+    "guard": "indirect: gradeManually → session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/app/(main)/tests/[id]/page.tsx",
+    "line": 80,
+    "name": "inline@80",
+    "kind": "inline",
+    "calls": [
+      "gradeManually"
+    ],
+    "queries": [],
+    "guard": "indirect: gradeManually → session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/app/(main)/tests/[id]/page.tsx",
+    "line": 89,
+    "name": "inline@89",
+    "kind": "inline",
+    "calls": [
+      "startTopicTest"
+    ],
+    "queries": [],
+    "guard": "indirect: startTopicTest → session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/app/api/ai/stream/route.ts",
+    "line": 19,
+    "name": "POST",
+    "kind": "HTTP",
+    "calls": [
+      "getSessionUser",
+      "Response.json",
+      "request.json",
+      "(body.prompt ?? \"\").trim",
+      "getSettings",
+      "prisma.topic.findUnique",
+      "[mode, topic ? `Тема: ${topic.title}. ${topic.summary}` : \"\", prompt].filter(Boolean).join",
+      "[mode, topic ? `Тема: ${topic.title}. ${topic.summary}` : \"\", prompt].filter",
+      "readSecrets",
+      "completeAI",
+      "AbortSignal.any",
+      "AbortSignal.timeout",
+      "save",
+      "probeOllama"
+    ],
+    "queries": [
+      {
+        "line": 32,
+        "callee": "prisma.topic.findUnique",
+        "args": "{ where: { id: body.topicId } }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/app/api/export/backup/route.ts",
+    "line": 7,
+    "name": "GET",
+    "kind": "HTTP",
+    "calls": [
+      "getSessionUser",
+      "Response.json",
+      "isOwner",
+      "buildBackup"
+    ],
+    "queries": [],
+    "guard": "OWNER",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/app/api/export/questions/route.ts",
+    "line": 8,
+    "name": "GET",
+    "kind": "HTTP",
+    "calls": [
+      "getSessionUser",
+      "Response.json",
+      "canEditContent",
+      "prisma.question.findMany",
+      "recordAudit"
+    ],
+    "queries": [
+      {
+        "line": 12,
+        "callee": "prisma.question.findMany",
+        "args": "{ include: { options: true }, orderBy: { createdAt: \"asc\" } }"
+      }
+    ],
+    "guard": "EDITOR+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/app/api/export/results/route.ts",
+    "line": 6,
+    "name": "GET",
+    "kind": "HTTP",
+    "calls": [
+      "getSessionUser",
+      "Response.json",
+      "prisma.examResult.findMany",
+      "results.map",
+      "[\r\n    result.date.toISOString().slice(0, 10),\r\n    result.subject.name,\r\n    result.testType,\r\n    result.title,\r\n    result.rawScore ?? \"\",\r\n    result.maxRawScore ?? \"\",\r\n    result.ratingScore ?? \"\",\r\n    result.partial ? \"yes\" : \"no\",\r\n    result.countsTowardAverage ? \"yes\" : \"no\",\r\n    result.comment,\r\n  ].map(csv).join",
+      "[\r\n    result.date.toISOString().slice(0, 10),\r\n    result.subject.name,\r\n    result.testType,\r\n    result.title,\r\n    result.rawScore ?? \"\",\r\n    result.maxRawScore ?? \"\",\r\n    result.ratingScore ?? \"\",\r\n    result.partial ? \"yes\" : \"no\",\r\n    result.countsTowardAverage ? \"yes\" : \"no\",\r\n    result.comment,\r\n  ].map",
+      "result.date.toISOString().slice",
+      "result.date.toISOString",
+      "[header.join(\",\"), ...lines].join",
+      "header.join"
+    ],
+    "queries": [
+      {
+        "line": 9,
+        "callee": "prisma.examResult.findMany",
+        "args": "{ where: { userId: user.id }, include: { subject: true }, orderBy: { date: \"asc\" } }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/app/login/page.tsx",
+    "line": 12,
+    "name": "inline@12",
+    "kind": "inline",
+    "calls": [
+      "formData.get",
+      "login",
+      "String"
+    ],
+    "queries": [],
+    "guard": "indirect: login → public contract",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 90,
+    "name": "addVideo",
+    "kind": "action",
+    "calls": [
+      "editor",
+      "auditedWrite",
+      "parseYouTubeId",
+      "allowed.includes",
+      "tx.videoLesson.findFirst",
+      "tx.videoLesson.update",
+      "title.trim",
+      "youtubeWatchUrl",
+      "refresh",
+      "tx.videoLesson.count",
+      "tx.videoLesson.create",
+      "tx.topic.update({ where: { id: topicId }, data: { status: \"IN_PROGRESS\" } }).catch",
+      "tx.topic.update",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 100,
+        "callee": "tx.videoLesson.findFirst",
+        "args": "{ where: { topicId, youtubeId } }"
+      },
+      {
+        "line": 102,
+        "callee": "tx.videoLesson.update",
+        "args": "{ where: { id: existing.id }, data: { title: title.trim() || existing.title, role: safeRole, reviewStatus: \"CONFIRMED\", url: youtubeWatchUrl(youtubeId) } }"
+      },
+      {
+        "line": 106,
+        "callee": "tx.videoLesson.count",
+        "args": "{ where: { topicId, reviewStatus: { not: \"REJECTED\" } } }"
+      },
+      {
+        "line": 107,
+        "callee": "tx.videoLesson.create",
+        "args": "{\r\n      data: {\r\n        topicId,\r\n        youtubeId,\r\n        url: youtubeWatchUrl(youtubeId),\r\n        title: title.trim(),\r\n        role: safeRole,\r\n        reviewStatus: \"CONFIRMED\",\r\n        isPrimary: count === 0 || safeRole === \"primary\",\r\n      },\r\n    }"
+      },
+      {
+        "line": 118,
+        "callee": "tx.topic.update({ where: { id: topicId }, data: { status: \"IN_PROGRESS\" } }).catch",
+        "args": "() => undefined"
+      },
+      {
+        "line": 118,
+        "callee": "tx.topic.update",
+        "args": "{ where: { id: topicId }, data: { status: \"IN_PROGRESS\" } }"
+      }
+    ],
+    "guard": "EDITOR+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 128,
+    "name": "updateVideo",
+    "kind": "action",
+    "calls": [
+      "editor",
+      "auditedWrite",
+      "parseYouTubeId",
+      "tx.videoLesson.update",
+      "youtubeWatchUrl",
+      "title.trim",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 136,
+        "callee": "tx.videoLesson.update",
+        "args": "{\r\n      where: { id },\r\n      data: { youtubeId, url: youtubeWatchUrl(youtubeId), title: title.trim(), lastPositionSec: 0 },\r\n    }"
+      }
+    ],
+    "guard": "EDITOR+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 149,
+    "name": "deleteVideo",
+    "kind": "action",
+    "calls": [
+      "editor",
+      "auditedWrite",
+      "tx.videoLesson.delete",
+      "tx.videoLesson.findFirst",
+      "tx.videoLesson.update",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 155,
+        "callee": "tx.videoLesson.delete",
+        "args": "{ where: { id } }"
+      },
+      {
+        "line": 156,
+        "callee": "tx.videoLesson.findFirst",
+        "args": "{ where: { topicId: video.topicId }, orderBy: { createdAt: \"asc\" } }"
+      },
+      {
+        "line": 157,
+        "callee": "tx.videoLesson.update",
+        "args": "{ where: { id: next.id }, data: { isPrimary: true } }"
+      }
+    ],
+    "guard": "EDITOR+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 167,
+    "name": "makePrimary",
+    "kind": "action",
+    "calls": [
+      "editor",
+      "auditedWrite",
+      "tx.videoLesson.findUnique",
+      "tx.videoLesson.updateMany",
+      "tx.videoLesson.update",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 173,
+        "callee": "tx.videoLesson.findUnique",
+        "args": "{ where: { id } }"
+      },
+      {
+        "line": 175,
+        "callee": "tx.videoLesson.updateMany",
+        "args": "{ where: { topicId: video.topicId }, data: { isPrimary: false } }"
+      },
+      {
+        "line": 176,
+        "callee": "tx.videoLesson.update",
+        "args": "{ where: { id }, data: { isPrimary: true } }"
+      }
+    ],
+    "guard": "EDITOR+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 186,
+    "name": "saveVideoNotes",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "prisma.userVideoProgress.upsert",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 190,
+        "callee": "prisma.userVideoProgress.upsert",
+        "args": "{ where: { userId_videoId: { userId: user.id, videoId: id } }, update: { notes }, create: { userId: user.id, videoId: id, notes } }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 195,
+    "name": "saveVideoPosition",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "Number.isFinite",
+      "prisma.videoLesson.findUniqueOrThrow",
+      "Math.floor",
+      "Math.min",
+      "prisma.userVideoProgress.upsert",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 199,
+        "callee": "prisma.videoLesson.findUniqueOrThrow",
+        "args": "{ where: { id } }"
+      },
+      {
+        "line": 203,
+        "callee": "prisma.userVideoProgress.upsert",
+        "args": "{ where: { userId_videoId: { userId: user.id, videoId: id } }, update: { lastPositionSec: position }, create: { userId: user.id, videoId: id, lastPositionSec: position } }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 208,
+    "name": "searchYouTube",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "youtubeSearchUrl",
+      "searchYouTubeApi",
+      "readSecrets",
+      "unique.set",
+      "canEditContent",
+      "prisma.$transaction",
+      "unique.values",
+      "tx.videoLesson.findFirst",
+      "tx.videoLesson.update",
+      "tx.videoLesson.create",
+      "youtubeWatchUrl",
+      "recordAudit",
+      "refresh"
+    ],
+    "queries": [
+      {
+        "line": 216,
+        "callee": "prisma.$transaction",
+        "args": "async tx=>{\r\n    let changed=0;\r\n    for (const item of unique.values()) {\r\n      const existing = await tx.videoLesson.findFirst({ where: { topicId, youtubeId: item.id } });\r\n      if (existing) {\r\n        if (existing.reviewStatus !== \"REJECTED\") {\r\n          changed++;\r\n          await tx.videoLesson.update({ where: { id: existing.id }, data: { title: item.title, channel: item.channel } });\r\n        }\r\n        continue;\r\n      }\r\n      changed++;\r\n      await tx.videoLesson.create({\r\n        data: { topicId, youtubeId: item.id, url: youtubeWatchUrl(item.id), title: item.title, channel: item.channel, role: \"simple\", reviewStatus: \"SUGGESTED\", isPrimary: false },\r\n      });\r\n    }\r\n    if(changed) await recordAudit(user,{action:\"VIDEO_SEARCH\",entityType:\"topic\",entityId:topicId,metadata:{count:changed}},tx);\r\n    }"
+      },
+      {
+        "line": 219,
+        "callee": "tx.videoLesson.findFirst",
+        "args": "{ where: { topicId, youtubeId: item.id } }"
+      },
+      {
+        "line": 223,
+        "callee": "tx.videoLesson.update",
+        "args": "{ where: { id: existing.id }, data: { title: item.title, channel: item.channel } }"
+      },
+      {
+        "line": 228,
+        "callee": "tx.videoLesson.create",
+        "args": "{\r\n        data: { topicId, youtubeId: item.id, url: youtubeWatchUrl(item.id), title: item.title, channel: item.channel, role: \"simple\", reviewStatus: \"SUGGESTED\", isPrimary: false },\r\n      }"
+      }
+    ],
+    "guard": "EDITOR+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 239,
+    "name": "setVideoReview",
+    "kind": "action",
+    "calls": [
+      "editor",
+      "auditedWrite",
+      "tx.videoLesson.update",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 245,
+        "callee": "tx.videoLesson.update",
+        "args": "{ where: { id }, data: { reviewStatus: status, isPrimary: status === \"CONFIRMED\" ? undefined : false } }"
+      }
+    ],
+    "guard": "EDITOR+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 255,
+    "name": "setVideoRole",
+    "kind": "action",
+    "calls": [
+      "editor",
+      "auditedWrite",
+      "allowed.includes",
+      "tx.videoLesson.update",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 263,
+        "callee": "tx.videoLesson.update",
+        "args": "{ where: { id }, data: { role, isPrimary: role === \"primary\" } }"
+      }
+    ],
+    "guard": "EDITOR+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 273,
+    "name": "saveNote",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "input.title.trim",
+      "input.content.trim",
+      "prisma.note.update",
+      "prisma.note.create",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 278,
+        "callee": "prisma.note.update",
+        "args": "{ where: { id: input.id, userId: user.id }, data: { title: input.title.trim(), content: input.content, topicId: input.topicId || null, subjectId: input.subjectId || null } }"
+      },
+      {
+        "line": 280,
+        "callee": "prisma.note.create",
+        "args": "{ data: { title: input.title.trim(), content: input.content, topicId: input.topicId || null, subjectId: input.subjectId || null, userId: user.id } }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 289,
+    "name": "deleteNote",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "prisma.note.delete",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 292,
+        "callee": "prisma.note.delete",
+        "args": "{ where: { id, userId: user.id } }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 319,
+    "name": "saveQuestion",
+    "kind": "action",
+    "calls": [
+      "editor",
+      "auditedWrite",
+      "persistQuestion",
+      "refresh",
+      "fail"
+    ],
+    "queries": [],
+    "guard": "EDITOR+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 323,
+    "name": "deleteQuestion",
+    "kind": "action",
+    "calls": [
+      "editor",
+      "auditedWrite",
+      "tx.question.update",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 327,
+        "callee": "tx.question.update",
+        "args": "{where:{id},data:{verificationStatus:\"REJECTED\"}}"
+      }
+    ],
+    "guard": "EDITOR+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 332,
+    "name": "importQuestions",
+    "kind": "action",
+    "calls": [
+      "editor",
+      "z.array(questionSchema).min(1).max(500).parse",
+      "z.array(questionSchema).min(1).max",
+      "z.array(questionSchema).min",
+      "z.array",
+      "JSON.parse",
+      "items.forEach",
+      "prepareQuestion",
+      "prisma.$transaction",
+      "tx.question.findFirst",
+      "persistQuestion",
+      "recordAudit",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 339,
+        "callee": "prisma.$transaction",
+        "args": "async tx=>{\r\n   let imported=0, skipped=0;\r\n   for(const item of items){\r\n    const existing=await tx.question.findFirst({where:{subjectId:item.subjectId,topicId:item.topicId,prompt:item.prompt}});\r\n    if(existing){skipped++;continue;}\r\n    await persistQuestion(tx,{...item,id:undefined,verificationStatus:\"PENDING_REVIEW\"});imported++;\r\n   }\r\n   if(imported) await recordAudit(user,{action:\"QUESTIONS_IMPORTED\",entityType:\"question\",metadata:{imported,skipped}},tx);\r\n   return {imported,skipped};\r\n  }, {timeout:20000}"
+      },
+      {
+        "line": 342,
+        "callee": "tx.question.findFirst",
+        "args": "{where:{subjectId:item.subjectId,topicId:item.topicId,prompt:item.prompt}}"
+      }
+    ],
+    "guard": "EDITOR+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 353,
+    "name": "reportQuestion",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "issue.trim",
+      "prisma.question.update",
+      "issue.trim().slice",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 357,
+        "callee": "prisma.question.update",
+        "args": "{ where: { id }, data: { issueReport: issue.trim().slice(0, 1000) } }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 365,
+    "name": "verifyQuestion",
+    "kind": "action",
+    "calls": [
+      "editor",
+      "auditedWrite",
+      "z.enum([\"VERIFIED\", \"DRAFT\", \"REJECTED\"]).parse",
+      "z.enum",
+      "tx.question.findUniqueOrThrow",
+      "prepareQuestion",
+      "tx.question.update",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 372,
+        "callee": "tx.question.findUniqueOrThrow",
+        "args": "{where:{id},include:{options:true}}"
+      },
+      {
+        "line": 373,
+        "callee": "tx.question.update",
+        "args": "{ where: { id }, data: { verificationStatus: status } }"
+      }
+    ],
+    "guard": "EDITOR+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 383,
+    "name": "startTopicTest",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "prisma.topic.findUnique",
+      "prisma.question.findMany",
+      "pickBalanced",
+      "prisma.test.create",
+      "JSON.stringify",
+      "picked.questions.map",
+      "prisma.testAttempt.create",
+      "prisma.userTopicProgress.upsert",
+      "redirect"
+    ],
+    "queries": [
+      {
+        "line": 385,
+        "callee": "prisma.topic.findUnique",
+        "args": "{ where: { id: topicId } }"
+      },
+      {
+        "line": 387,
+        "callee": "prisma.question.findMany",
+        "args": "{ where: { topicId, verificationStatus: \"VERIFIED\" } }"
+      },
+      {
+        "line": 390,
+        "callee": "prisma.test.create",
+        "args": "{\r\n    data: {\r\n      subjectId: topic.subjectId,\r\n      topicId,\r\n      title: `Тематичний тест: ${topic.title}`,\r\n      kind: \"TOPIC\",\r\n      configJson: JSON.stringify({ convertsToRating: false, shortfall: picked.shortfall, actual: picked.questions.length }),\r\n      questions: { create: picked.questions.map((question, index) => ({ questionId: question.id, sortOrder: index })) },\r\n    },\r\n  }"
+      },
+      {
+        "line": 400,
+        "callee": "prisma.testAttempt.create",
+        "args": "{ data: { testId: test.id, userId: user.id } }"
+      },
+      {
+        "line": 401,
+        "callee": "prisma.userTopicProgress.upsert",
+        "args": "{\r\n    where: { userId_topicId: { userId: user.id, topicId } },\r\n    update: {},\r\n    create: { userId: user.id, topicId, status: \"IN_PROGRESS\" },\r\n  }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 409,
+    "name": "skipDiagnostic",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "prisma.user.update",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 410,
+        "callee": "prisma.user.update",
+        "args": "{where:{id:user.id},data:{diagnosticSkipped:true}}"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 413,
+    "name": "startDiagnostic",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "prisma.testAttempt.findFirst",
+      "redirect",
+      "user.subjects.filter(s=>s.active).map",
+      "user.subjects.filter",
+      "prisma.question.findMany",
+      "active.flatMap",
+      "pickBalanced",
+      "bank.filter",
+      "prisma.test.create",
+      "JSON.stringify",
+      "selected.map",
+      "prisma.testAttempt.create"
+    ],
+    "queries": [
+      {
+        "line": 415,
+        "callee": "prisma.testAttempt.findFirst",
+        "args": "{where:{userId:user.id,status:\"IN_PROGRESS\",test:{kind:\"DIAGNOSTIC\"}}}"
+      },
+      {
+        "line": 418,
+        "callee": "prisma.question.findMany",
+        "args": "{where:{subjectId:{in:active},verificationStatus:\"VERIFIED\",type:{notIn:[\"SHORT_TEXT\",\"STEP_BY_STEP\"]}}}"
+      },
+      {
+        "line": 421,
+        "callee": "prisma.test.create",
+        "args": "{data:{title:\"Вхідна діагностика\",kind:\"DIAGNOSTIC\",configJson:JSON.stringify({convertsToRating:false,requested:active.length*3,actual:selected.length,shortfall:active.length*3-selected.length}),questions:{create:selected.map((q,index)=>({questionId:q.id,sortOrder:index}))}}}"
+      },
+      {
+        "line": 422,
+        "callee": "prisma.testAttempt.create",
+        "args": "{data:{testId:test.id,userId:user.id}}"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 425,
+    "name": "startExam",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "getSettings",
+      "prisma.question.findMany",
+      "Math.max",
+      "Math.min",
+      "pickBalanced",
+      "scaleTargets",
+      "prisma.test.create",
+      "input.title.trim",
+      "JSON.stringify",
+      "picked.questions.map",
+      "prisma.testAttempt.create",
+      "redirect"
+    ],
+    "queries": [
+      {
+        "line": 431,
+        "callee": "prisma.question.findMany",
+        "args": "{ where: { subjectId: input.subjectId, verificationStatus: \"VERIFIED\" } }"
+      },
+      {
+        "line": 435,
+        "callee": "prisma.test.create",
+        "args": "{\r\n    data: {\r\n      subjectId: input.subjectId,\r\n      title: input.title.trim() || \"Пробник\",\r\n      kind: \"EXAM\",\r\n      timeLimitSec: input.minutes ? input.minutes * 60 : null,\r\n      configJson: JSON.stringify({\r\n        year: settings.format.year,\r\n        officialFormatConfirmed: settings.format.officialFormatConfirmed,\r\n        convertsToRating: false,\r\n        requested: wanted,\r\n        actual: picked.questions.length,\r\n      }),\r\n      questions: { create: picked.questions.map((question, index) => ({ questionId: question.id, sortOrder: index })) },\r\n    },\r\n  }"
+      },
+      {
+        "line": 451,
+        "callee": "prisma.testAttempt.create",
+        "args": "{ data: { testId: test.id, userId: user.id } }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 462,
+    "name": "saveDraft",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "prisma.testAttempt.updateMany",
+      "JSON.stringify",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 465,
+        "callee": "prisma.testAttempt.updateMany",
+        "args": "{where:{id:attemptId,userId:user.id,status:\"IN_PROGRESS\"},data:{draftJson:JSON.stringify(draft),currentIndex}}"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 470,
+    "name": "finishAttempt",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "getSettings",
+      "prisma.$transaction",
+      "tx.testAttempt.updateMany",
+      "tx.testAttempt.findUnique",
+      "tx.answer.deleteMany",
+      "gradeAnswer",
+      "tx.answer.create",
+      "JSON.stringify",
+      "rememberMistake",
+      "Math.max",
+      "Math.round",
+      "Date.now",
+      "attempt.startedAt.getTime",
+      "tx.testAttempt.update",
+      "tx.answer.findMany",
+      "answers.filter(a=>a.userAnswer !== \"null\" && a.userAnswer !== '\"\"').map(a=>a.question.topicId).filter",
+      "answers.filter(a=>a.userAnswer !== \"null\" && a.userAnswer !== '\"\"').map",
+      "answers.filter",
+      "Boolean",
+      "tx.userTopicProgress.upsert",
+      "rebuildFuturePlan",
+      "applyMastery",
+      "tx.studySession.create",
+      "completeOpenTask",
+      "addXp",
+      "refreshAchievements",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 474,
+        "callee": "prisma.$transaction",
+        "args": "async (tx) => {\r\n    // Acquire the SQLite write lock before reading. The state change is invisible outside this transaction.\r\n    const claimed = await tx.testAttempt.updateMany({where:{id:attemptId,userId:user.id,status:\"IN_PROGRESS\"},data:{status:\"FINALIZING\"}});\r\n    if (!claimed.count) {\r\n      const existing = await tx.testAttempt.findUnique({where:{id:attemptId,userId:user.id}});\r\n      if(existing?.status === \"COMPLETED\") return;\r\n      throw new UserError(\"Спроба недоступна або вже завершується. Спробуйте ще раз.\");\r\n    }\r\n    const attempt = await tx.testAttempt.findUnique({\r\n      where: { id: attemptId, userId: user.id },\r\n      include: { test: { include: { questions: { include: { question: true }, orderBy: { sortOrder: \"asc\" } } } } },\r\n    });\r\n    if (!attempt || attempt.userId !== user.id) throw new UserError(\"Спроба недоступна.\");\r\n    await tx.answer.deleteMany({ where: { attemptId } });\r\n    let correct = 0;\r\n    let pending = 0;\r\n    for (const row of attempt.test.questions) {\r\n      const question = row.question;\r\n      const userValue = draft[question.id] ?? null;\r\n      const graded = gradeAnswer({ type: question.type, correctAnswer: question.correctAnswer, userAnswer: userValue });\r\n      if (graded.isCorrect) correct += 1;\r\n      if (graded.needsManualReview) pending += 1;\r\n      await tx.answer.create({\r\n        data: {\r\n          attemptId,\r\n          questionId: question.id,\r\n          userAnswer: JSON.stringify(userValue),\r\n          isCorrect: graded.isCorrect,\r\n          needsManualReview: graded.needsManualReview,\r\n        },\r\n      });\r\n      if (graded.isCorrect === false && question.topicId && (attempt.test.kind !== \"DIAGNOSTIC\" || (userValue !== null && userValue !== \"\"))) {\r\n        await rememberMistake(question, userValue, tx, user.id);\r\n      }\r\n    }\r\n    const total = attempt.test.questions.length;\r\n    const durationSec = Math.max(1, Math.round((Date.now() - attempt.startedAt.getTime()) / 1000));\r\n    await tx.testAttempt.update({\r\n      where: { id: attemptId, userId: user.id },\r\n      data: {\r\n        status: \"COMPLETED\",\r\n        finishedAt: new Date(),\r\n        durationSec,\r\n        draftJson: JSON.stringify(draft),\r\n        correctCount: correct,\r\n        totalCount: total,\r\n        pendingCount: pending,\r\n        percent: total ? (correct / total) * 100 : 0,\r\n      },\r\n    });\r\n    if (attempt.test.kind === \"DIAGNOSTIC\") {\r\n      const answers=await tx.answer.findMany({where:{attemptId,isCorrect:false},include:{question:true}});\r\n      const weakTopics=[...new Set(answers.filter(a=>a.userAnswer !== \"null\" && a.userAnswer !== '\"\"').map(a=>a.question.topicId).filter((id):id is string=>Boolean(id)))];\r\n      for(const topicId of weakTopics)await tx.userTopicProgress.upsert({where:{userId_topicId:{userId:user.id,topicId}},update:{status:\"NEEDS_REVIEW\"},create:{userId:user.id,topicId,status:\"NEEDS_REVIEW\"}});\r\n      await rebuildFuturePlan(user.id, tx);\r\n    }\r\n    if (attempt.test.topicId && pending === 0) {\r\n      await applyMastery(attempt.test.topicId, correct, total, settings.masteryHighMin, settings.masteryMidMin, tx, user.id);\r\n    } else if (attempt.test.topicId) {\r\n      await tx.userTopicProgress.upsert({ where: { userId_topicId: { userId: user.id, topicId: attempt.test.topicId } }, update: { status: \"IN_PROGRESS\", lastCorrect: correct, lastTotal: total }, create: { userId: user.id, topicId: attempt.test.topicId, status: \"IN_PROGRESS\", lastCorrect: correct, lastTotal: total } });\r\n    }\r\n    await tx.studySession.create({\r\n      data: {\r\n        subjectId: attempt.test.subjectId,\r\n        topicId: attempt.test.topicId,\r\n        startedAt: attempt.startedAt,\r\n        endedAt: new Date(),\r\n        durationMin: Math.max(1, Math.round(durationSec / 60)),\r\n        kind: attempt.test.kind === \"EXAM\" ? \"mock\" : \"test\",\r\n        userId: user.id,\r\n      },\r\n    });\r\n    if (attempt.test.topicId) await completeOpenTask(user.id, attempt.test.topicId, tx);\r\n    await addXp(30 + correct * 2, \"Завершений тест\", tx, user.id);\r\n    await refreshAchievements(tx, user.id);\r\n    }, {maxWait: 15000, timeout: 30000}"
+      },
+      {
+        "line": 476,
+        "callee": "tx.testAttempt.updateMany",
+        "args": "{where:{id:attemptId,userId:user.id,status:\"IN_PROGRESS\"},data:{status:\"FINALIZING\"}}"
+      },
+      {
+        "line": 478,
+        "callee": "tx.testAttempt.findUnique",
+        "args": "{where:{id:attemptId,userId:user.id}}"
+      },
+      {
+        "line": 482,
+        "callee": "tx.testAttempt.findUnique",
+        "args": "{\r\n      where: { id: attemptId, userId: user.id },\r\n      include: { test: { include: { questions: { include: { question: true }, orderBy: { sortOrder: \"asc\" } } } } },\r\n    }"
+      },
+      {
+        "line": 487,
+        "callee": "tx.answer.deleteMany",
+        "args": "{ where: { attemptId } }"
+      },
+      {
+        "line": 496,
+        "callee": "tx.answer.create",
+        "args": "{\r\n        data: {\r\n          attemptId,\r\n          questionId: question.id,\r\n          userAnswer: JSON.stringify(userValue),\r\n          isCorrect: graded.isCorrect,\r\n          needsManualReview: graded.needsManualReview,\r\n        },\r\n      }"
+      },
+      {
+        "line": 511,
+        "callee": "tx.testAttempt.update",
+        "args": "{\r\n      where: { id: attemptId, userId: user.id },\r\n      data: {\r\n        status: \"COMPLETED\",\r\n        finishedAt: new Date(),\r\n        durationSec,\r\n        draftJson: JSON.stringify(draft),\r\n        correctCount: correct,\r\n        totalCount: total,\r\n        pendingCount: pending,\r\n        percent: total ? (correct / total) * 100 : 0,\r\n      },\r\n    }"
+      },
+      {
+        "line": 525,
+        "callee": "tx.answer.findMany",
+        "args": "{where:{attemptId,isCorrect:false},include:{question:true}}"
+      },
+      {
+        "line": 527,
+        "callee": "tx.userTopicProgress.upsert",
+        "args": "{where:{userId_topicId:{userId:user.id,topicId}},update:{status:\"NEEDS_REVIEW\"},create:{userId:user.id,topicId,status:\"NEEDS_REVIEW\"}}"
+      },
+      {
+        "line": 533,
+        "callee": "tx.userTopicProgress.upsert",
+        "args": "{ where: { userId_topicId: { userId: user.id, topicId: attempt.test.topicId } }, update: { status: \"IN_PROGRESS\", lastCorrect: correct, lastTotal: total }, create: { userId: user.id, topicId: attempt.test.topicId, status: \"IN_PROGRESS\", lastCorrect: correct, lastTotal: total } }"
+      },
+      {
+        "line": 535,
+        "callee": "tx.studySession.create",
+        "args": "{\r\n      data: {\r\n        subjectId: attempt.test.subjectId,\r\n        topicId: attempt.test.topicId,\r\n        startedAt: attempt.startedAt,\r\n        endedAt: new Date(),\r\n        durationMin: Math.max(1, Math.round(durationSec / 60)),\r\n        kind: attempt.test.kind === \"EXAM\" ? \"mock\" : \"test\",\r\n        userId: user.id,\r\n      },\r\n    }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 604,
+    "name": "completeLesson",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "prisma.topic.findUnique",
+      "prisma.question.count",
+      "prisma.testAttempt.findFirst",
+      "parseLesson(topic.lessonJson)?.theory.trim",
+      "parseLesson",
+      "prisma.userTopicProgress.findUnique",
+      "prisma.userTopicProgress.upsert",
+      "completeOpenTask",
+      "todayStart.setHours",
+      "prisma.studySession.findFirst",
+      "prisma.studySession.create",
+      "Date.now",
+      "prisma.reviewSchedule.count",
+      "prisma.reviewSchedule.create",
+      "addDateKeys",
+      "dateKey",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 607,
+        "callee": "prisma.topic.findUnique",
+        "args": "{ where: { id: topicId } }"
+      },
+      {
+        "line": 609,
+        "callee": "prisma.question.count",
+        "args": "{ where: { topicId, verificationStatus: \"VERIFIED\" } }"
+      },
+      {
+        "line": 610,
+        "callee": "prisma.testAttempt.findFirst",
+        "args": "{\r\n      where: { userId: user.id, status: \"COMPLETED\", test: { topicId } },\r\n      orderBy: { finishedAt: \"desc\" },\r\n    }"
+      },
+      {
+        "line": 617,
+        "callee": "prisma.userTopicProgress.findUnique",
+        "args": "{ where: { userId_topicId: { userId: user.id, topicId } } }"
+      },
+      {
+        "line": 619,
+        "callee": "prisma.userTopicProgress.upsert",
+        "args": "{\r\n        where: { userId_topicId: { userId: user.id, topicId } },\r\n        update: { status: \"IN_PROGRESS\" },\r\n        create: { userId: user.id, topicId, status: \"IN_PROGRESS\" },\r\n      }"
+      },
+      {
+        "line": 628,
+        "callee": "prisma.studySession.findFirst",
+        "args": "{ where: { userId: user.id, topicId, startedAt: { gte: todayStart } } }"
+      },
+      {
+        "line": 630,
+        "callee": "prisma.studySession.create",
+        "args": "{\r\n        data: { userId: user.id, subjectId: topic.subjectId, topicId, startedAt: new Date(Date.now() - topic.estimatedMin * 60 * 1000), endedAt: new Date(), durationMin: topic.estimatedMin, kind: \"lesson\" },\r\n      }"
+      },
+      {
+        "line": 634,
+        "callee": "prisma.reviewSchedule.count",
+        "args": "{ where: { userId: user.id, topicId, status: \"PENDING\" } }"
+      },
+      {
+        "line": 636,
+        "callee": "prisma.reviewSchedule.create",
+        "args": "{ data: { userId: user.id, topicId, dueKey: addDateKeys(dateKey(), 1), intervalDays: 1, priority: 1, status: \"PENDING\" } }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 669,
+    "name": "gradeManually",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "prisma.answer.update",
+      "rememberMistake",
+      "JSON.parse",
+      "prisma.answer.findMany",
+      "answers.filter",
+      "prisma.testAttempt.update",
+      "getSettings",
+      "applyMastery",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 672,
+        "callee": "prisma.answer.update",
+        "args": "{\r\n      where: { id: answerId, attempt: { userId: user.id } },\r\n      data: { isCorrect: correct, needsManualReview: false },\r\n      include: { attempt: { include: { test: true } }, question: true },\r\n    }"
+      },
+      {
+        "line": 678,
+        "callee": "prisma.answer.findMany",
+        "args": "{ where: { attemptId: answer.attemptId } }"
+      },
+      {
+        "line": 681,
+        "callee": "prisma.testAttempt.update",
+        "args": "{\r\n      where: { id: answer.attemptId, userId: user.id },\r\n      data: { correctCount, pendingCount: pending, percent: answers.length ? (correctCount / answers.length) * 100 : 0 },\r\n    }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 696,
+    "name": "saveExamResult",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "examResultSchema.parse",
+      "noonUtc",
+      "prisma.examResult.findUnique",
+      "prisma.examResult.update",
+      "prisma.examResult.create",
+      "addXp",
+      "refreshPages",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 717,
+        "callee": "prisma.examResult.findUnique",
+        "args": "{ where: { id: data.id, userId: user.id } }"
+      },
+      {
+        "line": 719,
+        "callee": "prisma.examResult.update",
+        "args": "{ where: { id: data.id, userId: user.id }, data: payload }"
+      },
+      {
+        "line": 720,
+        "callee": "prisma.examResult.create",
+        "args": "{ data: { ...payload, userId: user.id } }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 729,
+    "name": "deleteExamResult",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "id.startsWith",
+      "prisma.examResult.findUnique",
+      "prisma.examResult.delete",
+      "refreshPages",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 733,
+        "callee": "prisma.examResult.findUnique",
+        "args": "{ where: { id, userId: user.id } }"
+      },
+      {
+        "line": 735,
+        "callee": "prisma.examResult.delete",
+        "args": "{ where: { id, userId: user.id } }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 743,
+    "name": "setTaskStatus",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "prisma.studyTask.findUnique",
+      "prisma.studyTask.update",
+      "prisma.studySession.create",
+      "addXp",
+      "refreshAchievements",
+      "refreshPages",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 746,
+        "callee": "prisma.studyTask.findUnique",
+        "args": "{ where: { id, userId: user.id } }"
+      },
+      {
+        "line": 749,
+        "callee": "prisma.studyTask.update",
+        "args": "{ where: { id, userId: user.id }, data: { status, completedAt: status === \"DONE\" ? new Date() : null } }"
+      },
+      {
+        "line": 751,
+        "callee": "prisma.studySession.create",
+        "args": "{\r\n        data: {\r\n          userId: user.id,\r\n          subjectId: task.subjectId,\r\n          topicId: task.topicId,\r\n          startedAt: new Date(),\r\n          endedAt: new Date(),\r\n          durationMin: task.durationMin,\r\n          kind: task.kind,\r\n        },\r\n      }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 772,
+    "name": "moveTask",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "isDateKey",
+      "prisma.studyTask.findUnique",
+      "relocationMode",
+      "prisma.studyTask.update",
+      "prisma.studyTask.create",
+      "refreshPages",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 776,
+        "callee": "prisma.studyTask.findUnique",
+        "args": "{ where: { id, userId: user.id } }"
+      },
+      {
+        "line": 779,
+        "callee": "prisma.studyTask.update",
+        "args": "{ where: { id, userId: user.id }, data: { dateKey: nextDate, status: \"PLANNED\" } }"
+      },
+      {
+        "line": 781,
+        "callee": "prisma.studyTask.update",
+        "args": "{ where: { id, userId: user.id }, data: { status: \"MOVED\" } }"
+      },
+      {
+        "line": 782,
+        "callee": "prisma.studyTask.create",
+        "args": "{\r\n        data: {\r\n          dateKey: nextDate,\r\n          subjectId: task.subjectId,\r\n          topicId: task.topicId,\r\n          title: task.title,\r\n          detail: task.detail,\r\n          kind: task.kind,\r\n          durationMin: task.durationMin,\r\n          optional: task.optional,\r\n          sortOrder: task.sortOrder,\r\n          notes: task.notes,\r\n          templateKey: `moved-${task.id}`,\r\n          movedFromId: task.id,\r\n          userId: user.id,\r\n          status: \"PLANNED\",\r\n        },\r\n      }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 808,
+    "name": "createCustomTask",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "isDateKey",
+      "TASK_KINDS.some",
+      "input.title.trim",
+      "prisma.studyTask.create",
+      "Math.max",
+      "randomUUID",
+      "refreshPages",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 814,
+        "callee": "prisma.studyTask.create",
+        "args": "{\r\n      data: {\r\n        userId: user.id,\r\n        dateKey: input.dateKey,\r\n        title: input.title.trim(),\r\n        subjectId: input.subjectId || null,\r\n        durationMin: Math.max(0, input.durationMin),\r\n        kind: input.kind || \"custom\",\r\n        templateKey: `custom-${randomUUID()}`,\r\n        detail: \"Власне заняття\",\r\n      },\r\n    }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 833,
+    "name": "recalculateFuturePlan",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "prisma.$transaction",
+      "rebuildFuturePlan",
+      "refreshPages",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 836,
+        "callee": "prisma.$transaction",
+        "args": "tx => rebuildFuturePlan(user.id, tx), {maxWait:15000,timeout:30000}"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 844,
+    "name": "logStudyMinutes",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "prisma.studySession.create",
+      "addXp",
+      "refreshAchievements",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 848,
+        "callee": "prisma.studySession.create",
+        "args": "{\r\n      data: {\r\n        userId: user.id,\r\n        subjectId: input.subjectId || null,\r\n        topicId: input.topicId || null,\r\n        startedAt: new Date(),\r\n        endedAt: new Date(),\r\n        durationMin: input.minutes,\r\n        kind: \"study\",\r\n        note: input.note ?? \"\",\r\n      },\r\n    }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 869,
+    "name": "completeReview",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "prisma.reviewSchedule.update",
+      "addXp",
+      "refreshPages",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 872,
+        "callee": "prisma.reviewSchedule.update",
+        "args": "{ where: { id, userId: user.id, status: \"PENDING\" }, data: { status: \"DONE\", completedAt: new Date() } }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 881,
+    "name": "reviewFlashcard",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "prisma.flashcard.findUnique",
+      "prisma.flashcard.update",
+      "addDateKeys",
+      "dateKey",
+      "prisma.userTopicProgress.upsert",
+      "Math.max",
+      "Math.round",
+      "addXp",
+      "refreshPages",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 884,
+        "callee": "prisma.flashcard.findUnique",
+        "args": "{ where: { id, userId: user.id } }"
+      },
+      {
+        "line": 887,
+        "callee": "prisma.flashcard.update",
+        "args": "{ where: { id, userId: user.id }, data: { intervalDays: 1, dueKey: addDateKeys(dateKey(), 1), lapses: { increment: 1 } } }"
+      },
+      {
+        "line": 889,
+        "callee": "prisma.userTopicProgress.upsert",
+        "args": "{ where: { userId_topicId: { userId: user.id, topicId: card.topicId } }, update: { status: \"NEEDS_REVIEW\" }, create: { userId: user.id, topicId: card.topicId, status: \"NEEDS_REVIEW\" } }"
+      },
+      {
+        "line": 893,
+        "callee": "prisma.flashcard.update",
+        "args": "{ where: { id, userId: user.id }, data: { intervalDays: interval, dueKey: addDateKeys(dateKey(), interval), reps: { increment: 1 } } }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 903,
+    "name": "saveFlashcard",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "input.front.trim",
+      "input.back.trim",
+      "prisma.flashcard.create",
+      "dateKey",
+      "refreshPages",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 907,
+        "callee": "prisma.flashcard.create",
+        "args": "{\r\n      data: {\r\n        userId: user.id,\r\n        subjectId: input.subjectId || null,\r\n        topicId: input.topicId || null,\r\n        kind: input.kind,\r\n        front: input.front.trim(),\r\n        back: input.back.trim(),\r\n        dueKey: dateKey(),\r\n      },\r\n    }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 925,
+    "name": "setMistakeMeta",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "prisma.mistake.update",
+      "refreshPages",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 928,
+        "callee": "prisma.mistake.update",
+        "args": "{ where: { id, userId: user.id }, data: { category, status } }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 936,
+    "name": "savePreferences",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "auditedWrite",
+      "preferencesSchema.parse",
+      "tx.userSettings.update",
+      "getSettings",
+      "noonUtc",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 943,
+        "callee": "tx.userSettings.update",
+        "args": "{\r\n      where: { id: (await getSettings(user.id)).id },\r\n      data: {\r\n        theme: data.theme,\r\n        examDate: data.examDate ? noonUtc(data.examDate) : null,\r\n        targetScore: data.targetScore,\r\n        masteryHighMin: data.masteryHighMin,\r\n        masteryMidMin: data.masteryMidMin,\r\n        timerEnabled: data.timerEnabled,\r\n        aiProvider: \"none\",\r\n        aiModel: \"\",\r\n        mathPriority: data.mathPriority,\r\n        ukrainianPriority: data.ukrainianPriority,\r\n        historyPriority: data.historyPriority,\r\n        biologyPriority: data.biologyPriority,\r\n      },\r\n    }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 969,
+    "name": "saveSchedule",
+    "kind": "action",
+    "calls": [
+      "administrator",
+      "auditedWrite",
+      "JSON.parse",
+      "tx.userSettings.update",
+      "getSettings",
+      "JSON.stringify",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 977,
+        "callee": "tx.userSettings.update",
+        "args": "{ where: { id: (await getSettings(user.id)).id }, data: { scheduleJson: JSON.stringify(parsed) } }"
+      }
+    ],
+    "guard": "ADMIN+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 987,
+    "name": "saveFormat",
+    "kind": "action",
+    "calls": [
+      "administrator",
+      "auditedWrite",
+      "JSON.parse",
+      "tx.userSettings.update",
+      "getSettings",
+      "JSON.stringify",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 997,
+        "callee": "tx.userSettings.update",
+        "args": "{ where: { id: (await getSettings(user.id)).id }, data: { formatJson: JSON.stringify({ ...DEFAULT_FORMAT, ...parsed }) } }"
+      }
+    ],
+    "guard": "ADMIN+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1007,
+    "name": "saveSecretSettings",
+    "kind": "action",
+    "calls": [
+      "administrator",
+      "readSecrets",
+      "next?.trim",
+      "writeSecrets",
+      "keepOrReplace",
+      "input.ollamaBaseUrl?.trim",
+      "recordAudit",
+      "fail"
+    ],
+    "queries": [],
+    "guard": "ADMIN+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1029,
+    "name": "enableLocalTutor",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "fail"
+    ],
+    "queries": [],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1038,
+    "name": "askTutor",
+    "kind": "action",
+    "calls": [
+      "actor"
+    ],
+    "queries": [],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1048,
+    "name": "saveGeneratedQuestions",
+    "kind": "action",
+    "calls": [
+      "editor",
+      "aiPackSchema.parse",
+      "prisma.$transaction",
+      "persistQuestion",
+      "tx.question.update",
+      "recordAudit",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 1052,
+        "callee": "prisma.$transaction",
+        "args": "async tx=>{\r\n      for(const question of pack.questions){\r\n        const id=await persistQuestion(tx,{...question,subjectId,topicId,source:\"Згенеровано AI. Потребує перевірки. Не офіційне завдання НМТ.\",verificationStatus:\"DRAFT\"});\r\n        await tx.question.update({where:{id},data:{generatedByAi:true}});\r\n      }\r\n      await recordAudit(user,{action:\"QUESTIONS_GENERATED\",entityType:\"topic\",entityId:topicId,metadata:{count:pack.questions.length}},tx);\r\n    }"
+      },
+      {
+        "line": 1055,
+        "callee": "tx.question.update",
+        "args": "{where:{id},data:{generatedByAi:true}}"
+      }
+    ],
+    "guard": "EDITOR+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1066,
+    "name": "buildBackup",
+    "kind": "action",
+    "calls": [
+      "owner",
+      "Promise.all",
+      "prisma.user.findMany",
+      "prisma.userSubject.findMany",
+      "prisma.userTopicProgress.findMany",
+      "prisma.userVideoProgress.findMany",
+      "prisma.userSettings.findMany",
+      "prisma.subject.findMany",
+      "prisma.topic.findMany",
+      "prisma.topicDependency.findMany",
+      "prisma.videoLesson.findMany",
+      "prisma.note.findMany",
+      "prisma.question.findMany",
+      "prisma.questionOption.findMany",
+      "prisma.test.findMany",
+      "prisma.testQuestion.findMany",
+      "prisma.testAttempt.findMany",
+      "prisma.answer.findMany",
+      "prisma.examResult.findMany",
+      "prisma.studySession.findMany",
+      "prisma.studyTask.findMany",
+      "prisma.reviewSchedule.findMany",
+      "prisma.mistake.findMany",
+      "prisma.flashcard.findMany",
+      "prisma.aIConversation.findMany",
+      "prisma.aIMessage.findMany",
+      "prisma.achievement.findMany",
+      "prisma.xpEvent.findMany",
+      "recordAudit",
+      "prisma.auditLog.findMany",
+      "new Date().toISOString"
+    ],
+    "queries": [
+      {
+        "line": 1068,
+        "callee": "prisma.user.findMany",
+        "args": ""
+      },
+      {
+        "line": 1068,
+        "callee": "prisma.userSubject.findMany",
+        "args": ""
+      },
+      {
+        "line": 1068,
+        "callee": "prisma.userTopicProgress.findMany",
+        "args": ""
+      },
+      {
+        "line": 1068,
+        "callee": "prisma.userVideoProgress.findMany",
+        "args": ""
+      },
+      {
+        "line": 1070,
+        "callee": "prisma.userSettings.findMany",
+        "args": ""
+      },
+      {
+        "line": 1071,
+        "callee": "prisma.subject.findMany",
+        "args": ""
+      },
+      {
+        "line": 1072,
+        "callee": "prisma.topic.findMany",
+        "args": ""
+      },
+      {
+        "line": 1073,
+        "callee": "prisma.topicDependency.findMany",
+        "args": ""
+      },
+      {
+        "line": 1074,
+        "callee": "prisma.videoLesson.findMany",
+        "args": ""
+      },
+      {
+        "line": 1075,
+        "callee": "prisma.note.findMany",
+        "args": ""
+      },
+      {
+        "line": 1076,
+        "callee": "prisma.question.findMany",
+        "args": ""
+      },
+      {
+        "line": 1077,
+        "callee": "prisma.questionOption.findMany",
+        "args": ""
+      },
+      {
+        "line": 1078,
+        "callee": "prisma.test.findMany",
+        "args": ""
+      },
+      {
+        "line": 1079,
+        "callee": "prisma.testQuestion.findMany",
+        "args": ""
+      },
+      {
+        "line": 1080,
+        "callee": "prisma.testAttempt.findMany",
+        "args": ""
+      },
+      {
+        "line": 1081,
+        "callee": "prisma.answer.findMany",
+        "args": ""
+      },
+      {
+        "line": 1082,
+        "callee": "prisma.examResult.findMany",
+        "args": ""
+      },
+      {
+        "line": 1083,
+        "callee": "prisma.studySession.findMany",
+        "args": ""
+      },
+      {
+        "line": 1084,
+        "callee": "prisma.studyTask.findMany",
+        "args": ""
+      },
+      {
+        "line": 1085,
+        "callee": "prisma.reviewSchedule.findMany",
+        "args": ""
+      },
+      {
+        "line": 1086,
+        "callee": "prisma.mistake.findMany",
+        "args": ""
+      },
+      {
+        "line": 1087,
+        "callee": "prisma.flashcard.findMany",
+        "args": ""
+      },
+      {
+        "line": 1088,
+        "callee": "prisma.aIConversation.findMany",
+        "args": ""
+      },
+      {
+        "line": 1089,
+        "callee": "prisma.aIMessage.findMany",
+        "args": ""
+      },
+      {
+        "line": 1090,
+        "callee": "prisma.achievement.findMany",
+        "args": ""
+      },
+      {
+        "line": 1091,
+        "callee": "prisma.xpEvent.findMany",
+        "args": ""
+      },
+      {
+        "line": 1094,
+        "callee": "prisma.auditLog.findMany",
+        "args": "{orderBy:[{createdAt:\"asc\"},{id:\"asc\"}]}"
+      }
+    ],
+    "guard": "OWNER",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1098,
+    "name": "restoreBackup",
+    "kind": "action",
+    "calls": [
+      "owner",
+      "JSON.parse",
+      "Array.isArray",
+      "[2, 3].includes",
+      "data.users.some",
+      "prisma.$transaction",
+      "tx.answer.deleteMany",
+      "tx.testQuestion.deleteMany",
+      "tx.testAttempt.deleteMany",
+      "tx.test.deleteMany",
+      "tx.mistake.deleteMany",
+      "tx.reviewSchedule.deleteMany",
+      "tx.studyTask.deleteMany",
+      "tx.studySession.deleteMany",
+      "tx.videoLesson.deleteMany",
+      "tx.note.deleteMany",
+      "tx.questionOption.deleteMany",
+      "tx.question.deleteMany",
+      "tx.flashcard.deleteMany",
+      "tx.xpEvent.deleteMany",
+      "tx.aIConversation.deleteMany",
+      "tx.examResult.deleteMany",
+      "tx.topicDependency.deleteMany",
+      "tx.topic.deleteMany",
+      "tx.achievement.deleteMany",
+      "tx.subject.deleteMany",
+      "tx.userSettings.deleteMany",
+      "tx.session.deleteMany",
+      "tx.user.deleteMany",
+      "tx.user.createMany",
+      "tx.subject.createMany",
+      "tx.userSettings.createMany",
+      "tx.topic.createMany",
+      "tx.userSubject.createMany",
+      "tx.userTopicProgress.createMany",
+      "tx.topicDependency.createMany",
+      "tx.question.createMany",
+      "tx.questionOption.createMany",
+      "tx.note.createMany",
+      "tx.videoLesson.createMany",
+      "tx.userVideoProgress.createMany",
+      "tx.flashcard.createMany",
+      "tx.test.createMany",
+      "tx.testQuestion.createMany",
+      "tx.testAttempt.createMany",
+      "tx.answer.createMany",
+      "tx.examResult.createMany",
+      "tx.studySession.createMany",
+      "tx.studyTask.createMany",
+      "tx.reviewSchedule.createMany",
+      "tx.mistake.createMany",
+      "tx.aIConversation.createMany",
+      "tx.aIMessage.createMany",
+      "tx.achievement.createMany",
+      "tx.xpEvent.createMany",
+      "recordAudit",
+      "refresh",
+      "clearSession",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 1104,
+        "callee": "prisma.$transaction",
+        "args": "async (tx) => {\r\n      await tx.answer.deleteMany();\r\n      await tx.testQuestion.deleteMany();\r\n      await tx.testAttempt.deleteMany();\r\n      await tx.test.deleteMany();\r\n      await tx.mistake.deleteMany();\r\n      await tx.reviewSchedule.deleteMany();\r\n      await tx.studyTask.deleteMany();\r\n      await tx.studySession.deleteMany();\r\n      await tx.videoLesson.deleteMany();\r\n      await tx.note.deleteMany();\r\n      await tx.questionOption.deleteMany();\r\n      await tx.question.deleteMany();\r\n      await tx.flashcard.deleteMany();\r\n      await tx.xpEvent.deleteMany();\r\n      await tx.aIConversation.deleteMany();\r\n      await tx.examResult.deleteMany();\r\n      await tx.topicDependency.deleteMany();\r\n      await tx.topic.deleteMany();\r\n      await tx.achievement.deleteMany();\r\n      await tx.subject.deleteMany();\r\n      await tx.userSettings.deleteMany();\r\n      await tx.session.deleteMany();\r\n      await tx.user.deleteMany();\r\n      if (data.users.length) await tx.user.createMany({ data: data.users });\r\n      if (data.subjects.length) await tx.subject.createMany({ data: data.subjects });\r\n      if (data.settings.length) await tx.userSettings.createMany({ data: data.settings });\r\n      if (data.topics.length) await tx.topic.createMany({ data: data.topics });\r\n      if (data.userSubjects.length) await tx.userSubject.createMany({ data: data.userSubjects });\r\n      if (data.progress.length) await tx.userTopicProgress.createMany({ data: data.progress });\r\n      if (data.dependencies.length) await tx.topicDependency.createMany({ data: data.dependencies });\r\n      if (data.questions.length) await tx.question.createMany({ data: data.questions });\r\n      if (data.options.length) await tx.questionOption.createMany({ data: data.options });\r\n      if (data.notes.length) await tx.note.createMany({ data: data.notes });\r\n      if (data.videos.length) await tx.videoLesson.createMany({ data: data.videos });\r\n      if (data.videoProgress?.length) await tx.userVideoProgress.createMany({ data: data.videoProgress });\r\n      if (data.flashcards.length) await tx.flashcard.createMany({ data: data.flashcards });\r\n      if (data.tests.length) await tx.test.createMany({ data: data.tests });\r\n      if (data.testQuestions.length) await tx.testQuestion.createMany({ data: data.testQuestions });\r\n      if (data.attempts.length) await tx.testAttempt.createMany({ data: data.attempts });\r\n      if (data.answers.length) await tx.answer.createMany({ data: data.answers });\r\n      if (data.examResults.length) await tx.examResult.createMany({ data: data.examResults });\r\n      if (data.sessions.length) await tx.studySession.createMany({ data: data.sessions });\r\n      if (data.tasks.length) await tx.studyTask.createMany({ data: data.tasks });\r\n      if (data.reviews.length) await tx.reviewSchedule.createMany({ data: data.reviews });\r\n      if (data.mistakes.length) await tx.mistake.createMany({ data: data.mistakes });\r\n      if (data.conversations.length) await tx.aIConversation.createMany({ data: data.conversations });\r\n      if (data.messages.length) await tx.aIMessage.createMany({ data: data.messages });\r\n      if (data.achievements.length) await tx.achievement.createMany({ data: data.achievements });\r\n      if (data.xp.length) await tx.xpEvent.createMany({ data: data.xp });\r\n      // Preserve the live journal; archived events must never be replayed as new actions.\r\n      await recordAudit(user,{action:\"BACKUP_RESTORED\",entityType:\"backup\",metadata:{version:data.version}},tx);\r\n    }"
+      },
+      {
+        "line": 1105,
+        "callee": "tx.answer.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1106,
+        "callee": "tx.testQuestion.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1107,
+        "callee": "tx.testAttempt.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1108,
+        "callee": "tx.test.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1109,
+        "callee": "tx.mistake.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1110,
+        "callee": "tx.reviewSchedule.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1111,
+        "callee": "tx.studyTask.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1112,
+        "callee": "tx.studySession.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1113,
+        "callee": "tx.videoLesson.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1114,
+        "callee": "tx.note.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1115,
+        "callee": "tx.questionOption.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1116,
+        "callee": "tx.question.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1117,
+        "callee": "tx.flashcard.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1118,
+        "callee": "tx.xpEvent.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1119,
+        "callee": "tx.aIConversation.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1120,
+        "callee": "tx.examResult.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1121,
+        "callee": "tx.topicDependency.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1122,
+        "callee": "tx.topic.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1123,
+        "callee": "tx.achievement.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1124,
+        "callee": "tx.subject.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1125,
+        "callee": "tx.userSettings.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1126,
+        "callee": "tx.session.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1127,
+        "callee": "tx.user.deleteMany",
+        "args": ""
+      },
+      {
+        "line": 1128,
+        "callee": "tx.user.createMany",
+        "args": "{ data: data.users }"
+      },
+      {
+        "line": 1129,
+        "callee": "tx.subject.createMany",
+        "args": "{ data: data.subjects }"
+      },
+      {
+        "line": 1130,
+        "callee": "tx.userSettings.createMany",
+        "args": "{ data: data.settings }"
+      },
+      {
+        "line": 1131,
+        "callee": "tx.topic.createMany",
+        "args": "{ data: data.topics }"
+      },
+      {
+        "line": 1132,
+        "callee": "tx.userSubject.createMany",
+        "args": "{ data: data.userSubjects }"
+      },
+      {
+        "line": 1133,
+        "callee": "tx.userTopicProgress.createMany",
+        "args": "{ data: data.progress }"
+      },
+      {
+        "line": 1134,
+        "callee": "tx.topicDependency.createMany",
+        "args": "{ data: data.dependencies }"
+      },
+      {
+        "line": 1135,
+        "callee": "tx.question.createMany",
+        "args": "{ data: data.questions }"
+      },
+      {
+        "line": 1136,
+        "callee": "tx.questionOption.createMany",
+        "args": "{ data: data.options }"
+      },
+      {
+        "line": 1137,
+        "callee": "tx.note.createMany",
+        "args": "{ data: data.notes }"
+      },
+      {
+        "line": 1138,
+        "callee": "tx.videoLesson.createMany",
+        "args": "{ data: data.videos }"
+      },
+      {
+        "line": 1139,
+        "callee": "tx.userVideoProgress.createMany",
+        "args": "{ data: data.videoProgress }"
+      },
+      {
+        "line": 1140,
+        "callee": "tx.flashcard.createMany",
+        "args": "{ data: data.flashcards }"
+      },
+      {
+        "line": 1141,
+        "callee": "tx.test.createMany",
+        "args": "{ data: data.tests }"
+      },
+      {
+        "line": 1142,
+        "callee": "tx.testQuestion.createMany",
+        "args": "{ data: data.testQuestions }"
+      },
+      {
+        "line": 1143,
+        "callee": "tx.testAttempt.createMany",
+        "args": "{ data: data.attempts }"
+      },
+      {
+        "line": 1144,
+        "callee": "tx.answer.createMany",
+        "args": "{ data: data.answers }"
+      },
+      {
+        "line": 1145,
+        "callee": "tx.examResult.createMany",
+        "args": "{ data: data.examResults }"
+      },
+      {
+        "line": 1146,
+        "callee": "tx.studySession.createMany",
+        "args": "{ data: data.sessions }"
+      },
+      {
+        "line": 1147,
+        "callee": "tx.studyTask.createMany",
+        "args": "{ data: data.tasks }"
+      },
+      {
+        "line": 1148,
+        "callee": "tx.reviewSchedule.createMany",
+        "args": "{ data: data.reviews }"
+      },
+      {
+        "line": 1149,
+        "callee": "tx.mistake.createMany",
+        "args": "{ data: data.mistakes }"
+      },
+      {
+        "line": 1150,
+        "callee": "tx.aIConversation.createMany",
+        "args": "{ data: data.conversations }"
+      },
+      {
+        "line": 1151,
+        "callee": "tx.aIMessage.createMany",
+        "args": "{ data: data.messages }"
+      },
+      {
+        "line": 1152,
+        "callee": "tx.achievement.createMany",
+        "args": "{ data: data.achievements }"
+      },
+      {
+        "line": 1153,
+        "callee": "tx.xpEvent.createMany",
+        "args": "{ data: data.xp }"
+      }
+    ],
+    "guard": "OWNER",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1165,
+    "name": "login",
+    "kind": "action",
+    "calls": [
+      "normalizeNickname",
+      "isLocked",
+      "prisma.user.findUnique",
+      "verifyPasswordAsync",
+      "registerFail",
+      "recordAudit",
+      "clearFails",
+      "prisma.session.deleteMany",
+      "createSession",
+      "redirect"
+    ],
+    "queries": [
+      {
+        "line": 1169,
+        "callee": "prisma.user.findUnique",
+        "args": "{where:{id:match.id}}"
+      },
+      {
+        "line": 1177,
+        "callee": "prisma.session.deleteMany",
+        "args": "{where:{expiresAt:{lt:new Date()}}}"
+      }
+    ],
+    "guard": "public password verification",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1183,
+    "name": "logout",
+    "kind": "action",
+    "calls": [
+      "getSessionUser",
+      "clearSession",
+      "recordAudit",
+      "redirect"
+    ],
+    "queries": [],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1190,
+    "name": "claimOwner",
+    "kind": "action",
+    "calls": [
+      "(await headers()).get",
+      "headers",
+      "host.startsWith",
+      "prisma.user.findUnique",
+      "createSession",
+      "redirect"
+    ],
+    "queries": [
+      {
+        "line": 1193,
+        "callee": "prisma.user.findUnique",
+        "args": "{ where: { id: \"owner\" } }"
+      }
+    ],
+    "guard": "bootstrap: local host + owner without password",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1199,
+    "name": "completeOnboarding",
+    "kind": "action",
+    "calls": [
+      "input.firstName.trim",
+      "isValidNickname",
+      "ELECTIVE_SUBJECT_IDS.includes",
+      "normalizeNickname",
+      "Number.isInteger",
+      "/^(?:[01]\\d|2[0-3]):[0-5]\\d$/.test",
+      "input.studyDays.some",
+      "getSessionUser",
+      "prisma.user.findUnique",
+      "hashPasswordAsync",
+      "prisma.$transaction",
+      "tx.user.create",
+      "input.lastName.trim",
+      "recordAudit",
+      "prisma.user.update",
+      "personalSchedule",
+      "prisma.userSettings.upsert",
+      "JSON.stringify",
+      "prisma.userSubject.deleteMany",
+      "prisma.userSubject.createMany",
+      "REQUIRED_SUBJECT_IDS.map",
+      "syncPlan",
+      "clearSession",
+      "createSession",
+      "redirect"
+    ],
+    "queries": [
+      {
+        "line": 1223,
+        "callee": "prisma.user.findUnique",
+        "args": "{ where: { id: signedIn.id } }"
+      },
+      {
+        "line": 1231,
+        "callee": "prisma.$transaction",
+        "args": "async (tx) => {\r\n        const created = await tx.user.create({ data: { firstName: input.firstName.trim(), nickname, passwordHash, examYear: input.examYear, lastName: input.lastName.trim() } });\r\n        await recordAudit(null, { action: \"USER_CREATED\", entityType: \"user\", entityId: created.id, metadata: { role: \"STUDENT\" } }, tx);\r\n        return created;\r\n      }"
+      },
+      {
+        "line": 1232,
+        "callee": "tx.user.create",
+        "args": "{ data: { firstName: input.firstName.trim(), nickname, passwordHash, examYear: input.examYear, lastName: input.lastName.trim() } }"
+      },
+      {
+        "line": 1241,
+        "callee": "prisma.user.update",
+        "args": "{\r\n    where: { id: user.id },\r\n    data: {\r\n      firstName: input.firstName.trim(),\r\n      lastName: input.lastName.trim(),\r\n      nickname,\r\n      examYear: input.examYear,\r\n      onboarded: true,\r\n      passwordHash: user.passwordHash && existing ? user.passwordHash : await hashPasswordAsync(input.password),\r\n    },\r\n  }"
+      },
+      {
+        "line": 1253,
+        "callee": "prisma.user.update",
+        "args": "{ where: { id: user.id }, data: { passwordHash: await hashPasswordAsync(input.password) } }"
+      },
+      {
+        "line": 1257,
+        "callee": "prisma.userSettings.upsert",
+        "args": "{\r\n    where: { id: settingsId },\r\n    update: {\r\n      userId: user.id,\r\n      targetScore: input.targetScore,\r\n      dailyMinutes: input.dailyMinutes,\r\n      intensity: input.intensity,\r\n      preferredTime: input.preferredTime,\r\n      studyDaysJson: JSON.stringify(input.studyDays),\r\n      scheduleJson: JSON.stringify(schedule),\r\n    },\r\n    create: {\r\n      id: settingsId,\r\n      userId: user.id,\r\n      targetScore: input.targetScore,\r\n      dailyMinutes: input.dailyMinutes,\r\n      intensity: input.intensity,\r\n      preferredTime: input.preferredTime,\r\n      studyDaysJson: JSON.stringify(input.studyDays),\r\n      scheduleJson: JSON.stringify(schedule),\r\n      formatJson: JSON.stringify(DEFAULT_FORMAT),\r\n    },\r\n  }"
+      },
+      {
+        "line": 1280,
+        "callee": "prisma.userSubject.deleteMany",
+        "args": "{ where: { userId: user.id } }"
+      },
+      {
+        "line": 1281,
+        "callee": "prisma.userSubject.createMany",
+        "args": "{\r\n    data: [\r\n      ...REQUIRED_SUBJECT_IDS.map((subjectId) => ({ userId: user.id, subjectId, role: \"REQUIRED\", active: true })),\r\n      { userId: user.id, subjectId: input.electiveId, role: \"ELECTIVE\", active: true },\r\n    ],\r\n  }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1295,
+    "name": "changeElective",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "ELECTIVE_SUBJECT_IDS.includes",
+      "prisma.$transaction",
+      "tx.user.update",
+      "tx.userSubject.findFirst",
+      "dateKey",
+      "tx.studyTask.updateMany",
+      "tx.userSubject.updateMany",
+      "tx.userSubject.upsert",
+      "getSettings",
+      "personalSchedule",
+      "tx.userSettings.update",
+      "JSON.stringify",
+      "syncPlanWithClient",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 1300,
+        "callee": "prisma.$transaction",
+        "args": "async (tx) => {\r\n    // Serialize competing changes before reading the current elective.\r\n    await tx.user.update({where:{id:user.id},data:{updatedAt:new Date()}});\r\n    const current = await tx.userSubject.findFirst({where:{userId:user.id,role:\"ELECTIVE\",active:true}});\r\n    if (current?.subjectId === subjectId) return;\r\n    const today = dateKey();\r\n    if (current) {\r\n      await tx.studyTask.updateMany({\r\n        where: { userId: user.id, subjectId: current.subjectId, status: \"PLANNED\", dateKey: { gte: today } },\r\n        data: { status: \"DROPPED\", notes: \"Предмет на вибір змінено. Завершені заняття збережено.\" },\r\n      });\r\n      await tx.userSubject.updateMany({ where: { userId:user.id, role:\"ELECTIVE\", active:true }, data: { active: false } });\r\n    }\r\n    await tx.userSubject.upsert({\r\n      where: { userId_subjectId: { userId: user.id, subjectId } },\r\n      update: { active: true, role: \"ELECTIVE\" },\r\n      create: { userId: user.id, subjectId, role: \"ELECTIVE\", active: true },\r\n    });\r\n    const settings = await getSettings(user.id, tx);\r\n    const schedule = personalSchedule(subjectId, settings.intensity === \"light\" || settings.intensity === \"intense\" ? settings.intensity : \"standard\");\r\n    await tx.userSettings.update({ where: { userId: user.id }, data: { scheduleJson: JSON.stringify(schedule) } });\r\n    await syncPlanWithClient(user.id, tx);\r\n    }, {maxWait:15000,timeout:30000}"
+      },
+      {
+        "line": 1302,
+        "callee": "tx.user.update",
+        "args": "{where:{id:user.id},data:{updatedAt:new Date()}}"
+      },
+      {
+        "line": 1303,
+        "callee": "tx.userSubject.findFirst",
+        "args": "{where:{userId:user.id,role:\"ELECTIVE\",active:true}}"
+      },
+      {
+        "line": 1307,
+        "callee": "tx.studyTask.updateMany",
+        "args": "{\r\n        where: { userId: user.id, subjectId: current.subjectId, status: \"PLANNED\", dateKey: { gte: today } },\r\n        data: { status: \"DROPPED\", notes: \"Предмет на вибір змінено. Завершені заняття збережено.\" },\r\n      }"
+      },
+      {
+        "line": 1311,
+        "callee": "tx.userSubject.updateMany",
+        "args": "{ where: { userId:user.id, role:\"ELECTIVE\", active:true }, data: { active: false } }"
+      },
+      {
+        "line": 1313,
+        "callee": "tx.userSubject.upsert",
+        "args": "{\r\n      where: { userId_subjectId: { userId: user.id, subjectId } },\r\n      update: { active: true, role: \"ELECTIVE\" },\r\n      create: { userId: user.id, subjectId, role: \"ELECTIVE\", active: true },\r\n    }"
+      },
+      {
+        "line": 1320,
+        "callee": "tx.userSettings.update",
+        "args": "{ where: { userId: user.id }, data: { scheduleJson: JSON.stringify(schedule) } }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1330,
+    "name": "updateTopic",
+    "kind": "action",
+    "calls": [
+      "editor",
+      "auditedWrite",
+      "input.title.trim",
+      "[\"NOT_STARTED\", \"IN_PROGRESS\", \"NEEDS_REVIEW\", \"MASTERED\"].includes",
+      "tx.topic.update",
+      "tx.userTopicProgress.upsert",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 1339,
+        "callee": "tx.topic.update",
+        "args": "{\r\n      where: { id: input.id },\r\n      data: { title: input.title.trim(), summary: input.summary, formulas: input.formulas },\r\n    }"
+      },
+      {
+        "line": 1343,
+        "callee": "tx.userTopicProgress.upsert",
+        "args": "{\r\n      where: { userId_topicId: { userId: user.id, topicId: input.id } },\r\n      update: { status: input.status },\r\n      create: { userId: user.id, topicId: input.id, status: input.status },\r\n    }"
+      }
+    ],
+    "guard": "EDITOR+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1357,
+    "name": "createTopic",
+    "kind": "action",
+    "calls": [
+      "editor",
+      "auditedWrite",
+      "input.title.trim",
+      "tx.topic.findMany",
+      "Math.max",
+      "siblings.map",
+      "tx.topic.create",
+      "randomUUID",
+      "input.summary.trim",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 1364,
+        "callee": "tx.topic.findMany",
+        "args": "{ where: { subjectId: input.subjectId }, select: { sortOrder: true } }"
+      },
+      {
+        "line": 1366,
+        "callee": "tx.topic.create",
+        "args": "{\r\n      data: {\r\n        id: randomUUID(),\r\n        subjectId: input.subjectId,\r\n        parentId: input.parentId || null,\r\n        title: input.title.trim(),\r\n        summary: input.summary.trim(),\r\n        sortOrder,\r\n      },\r\n    }"
+      }
+    ],
+    "guard": "EDITOR+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1385,
+    "name": "resetScheduleToDefault",
+    "kind": "action",
+    "calls": [
+      "actor",
+      "auditedWrite",
+      "tx.userSettings.update",
+      "getSettings",
+      "JSON.stringify",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 1391,
+        "callee": "tx.userSettings.update",
+        "args": "{ where: { id: (await getSettings(user.id)).id }, data: { scheduleJson: JSON.stringify(DEFAULT_SCHEDULE) } }"
+      }
+    ],
+    "guard": "session / own data",
+    "ownership": "verify userId or parent chain (see isolation tests)"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1401,
+    "name": "saveLessonContent",
+    "kind": "action",
+    "calls": [
+      "editor",
+      "auditedWrite",
+      "z.array(z.string().trim().min(1).max(1000)).max",
+      "z.array",
+      "z.string().trim().min(1).max",
+      "z.string().trim().min",
+      "z.string().trim",
+      "z.string",
+      "z.object({objectives:lines,prerequisites:lines,theory:z.string().trim().min(50,\"Додайте пояснення щонайменше на 50 символів.\").max(50000),rules:lines,examples:z.array(z.object({task:z.string().trim().min(1).max(3000),solution:z.string().trim().min(1).max(5000)})).max(20),mistakes:lines,summary:z.string().trim().max(3000),sources:z.array(z.object({title:z.string().trim().min(1).max(200),url:z.string().url().refine(url=>url.startsWith(\"https://\"),\"Джерело має використовувати https://\")})).max(10)}).parse",
+      "z.object",
+      "z.string().trim().min(50,\"Додайте пояснення щонайменше на 50 символів.\").max",
+      "z.array(z.object({task:z.string().trim().min(1).max(3000),solution:z.string().trim().min(1).max(5000)})).max",
+      "z.string().trim().max",
+      "z.array(z.object({title:z.string().trim().min(1).max(200),url:z.string().url().refine(url=>url.startsWith(\"https://\"),\"Джерело має використовувати https://\")})).max",
+      "z.string().url().refine",
+      "z.string().url",
+      "url.startsWith",
+      "tx.topic.update",
+      "JSON.stringify",
+      "refresh",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 1409,
+        "callee": "tx.topic.update",
+        "args": "{where:{id:topicId},data:{lessonJson:JSON.stringify(lesson),coverage:\"PARTIAL\"}}"
+      }
+    ],
+    "guard": "EDITOR+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/actions.ts",
+    "line": 1416,
+    "name": "updateUserRole",
+    "kind": "action",
+    "calls": [
+      "administrator",
+      "z.enum([\"OWNER\", \"ADMIN\", \"EDITOR\", \"STUDENT\"]).parse",
+      "z.enum",
+      "z.object({ password: z.string().max(200).optional(), nickname: z.string().max(24).optional() }).parse",
+      "z.object",
+      "z.string().max(200).optional",
+      "z.string().max",
+      "z.string",
+      "z.string().max(24).optional",
+      "prisma.$transaction",
+      "Promise.all",
+      "tx.user.findUnique",
+      "canManageRole",
+      "effectiveRole",
+      "verifyPasswordAsync",
+      "confirmation.nickname?.normalize(\"NFKC\").toLocaleLowerCase",
+      "confirmation.nickname?.normalize",
+      "target.nickname.normalize(\"NFKC\").toLocaleLowerCase",
+      "target.nickname.normalize",
+      "tx.user.findMany",
+      "owners.filter",
+      "tx.user.update",
+      "recordAudit",
+      "refreshPages",
+      "fail"
+    ],
+    "queries": [
+      {
+        "line": 1421,
+        "callee": "prisma.$transaction",
+        "args": "async tx => {\r\n      const [current, target] = await Promise.all([\r\n        tx.user.findUnique({where:{id:user.id},select:{id:true,role:true,passwordHash:true}}),\r\n        tx.user.findUnique({where:{id},select:{id:true,role:true,nickname:true}}),\r\n      ]);\r\n      if (!current || !target) return {ok:false as const,error:\"Профіль не знайдено.\"};\r\n      if (!canManageRole(current,target,role)) return {ok:false as const,error:\"Недостатньо прав для цієї зміни. Власний профіль і початковий власник захищені.\"};\r\n      const previousRole=effectiveRole(target);\r\n      if(previousRole===role) return {ok:true as const,message:\"Цю роль уже призначено.\"};\r\n      const ownerSensitive=role===\"OWNER\"||previousRole===\"OWNER\";\r\n      if(ownerSensitive) {\r\n        if(effectiveRole(current)!==\"OWNER\") return {ok:false as const,error:\"Призначати та змінювати роль власника може лише власник платформи.\"};\r\n        if(!confirmation.password||!await verifyPasswordAsync(confirmation.password,current.passwordHash)) return {ok:false as const,error:\"Повторно підтвердьте особу паролем власника.\"};\r\n        if(confirmation.nickname?.normalize(\"NFKC\").toLocaleLowerCase(\"uk-UA\")!==target.nickname.normalize(\"NFKC\").toLocaleLowerCase(\"uk-UA\")) return {ok:false as const,error:\"Введіть нікнейм користувача для підтвердження.\"};\r\n        if(previousRole===\"OWNER\"&&role!==\"OWNER\") {\r\n          const owners=await tx.user.findMany({where:{OR:[{id:\"owner\"},{role:\"OWNER\"}]},select:{id:true,role:true}});\r\n          if(owners.filter((ownerProfile)=>effectiveRole(ownerProfile)===\"OWNER\").length<=1) return {ok:false as const,error:\"Не можна змінити роль останнього власника платформи.\"};\r\n        }\r\n      }\r\n      await tx.user.update({where:{id},data:{role}});\r\n      await recordAudit(current,{action:\"USER_ROLE_CHANGED\",entityType:\"user\",entityId:id,metadata:{role,previousRole}},tx);\r\n      refreshPages(\"/admin/users\", \"/admin\", \"/admin/audit\");\r\n      return {ok:true as const};\r\n    }, {timeout:20000}"
+      },
+      {
+        "line": 1423,
+        "callee": "tx.user.findUnique",
+        "args": "{where:{id:user.id},select:{id:true,role:true,passwordHash:true}}"
+      },
+      {
+        "line": 1424,
+        "callee": "tx.user.findUnique",
+        "args": "{where:{id},select:{id:true,role:true,nickname:true}}"
+      },
+      {
+        "line": 1436,
+        "callee": "tx.user.findMany",
+        "args": "{where:{OR:[{id:\"owner\"},{role:\"OWNER\"}]},select:{id:true,role:true}}"
+      },
+      {
+        "line": 1440,
+        "callee": "tx.user.update",
+        "args": "{where:{id},data:{role}}"
+      }
+    ],
+    "guard": "ADMIN+",
+    "ownership": "shared/system; role checked"
+  },
+  {
+    "file": "src/server/content-actions.ts",
+    "line": 10,
+    "name": "saveSubjectDetails",
+    "kind": "action",
+    "calls": [
+      "getSessionUser",
+      "canEditContent",
+      "subjectSchema.safeParse",
+      "auditedWrite",
+      "tx.subject.update",
+      "revalidatePath",
+      "userFacingError"
+    ],
+    "queries": [
+      {
+        "line": 14,
+        "callee": "tx.subject.update",
+        "args": "{where:{id},data}"
+      }
+    ],
+    "guard": "EDITOR+",
+    "ownership": "shared/system; role checked"
+  }
+]

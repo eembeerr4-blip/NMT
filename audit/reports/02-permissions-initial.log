@@ -1,0 +1,28 @@
+
+ RUN  v3.2.7 D:/Вайб-кодинг/nmt-beta
+
+ ❯ src/app/api/export/results/route.test.ts (2 tests | 1 failed) 8ms
+   × C09: absent or expired sessions get JSON 401 before any private query 6ms
+     → expected 'text/plain;charset=UTF-8' to contain 'application/json'
+   ✓ CSV results only query the current user's records 1ms
+ ✓ src/server/permissions-matrix.test.ts (50 tests) 9ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/app/api/export/results/route.test.ts > C09: absent or expired sessions get JSON 401 before any private query
+AssertionError: expected 'text/plain;charset=UTF-8' to contain 'application/json'
+
+Expected: "application/json"
+Received: "text/plain;charset=UTF-8"
+
+ ❯ src/app/api/export/results/route.test.ts:8:142
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 51 passed (52)
+   Start at  23:10:33
+   Duration  2.37s (transform 202ms, setup 0ms, collect 2.09s, tests 17ms, environment 0ms, prepare 226ms)
+

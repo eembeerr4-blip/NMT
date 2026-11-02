@@ -1,0 +1,10 @@
+
+ RUN  v3.2.7 D:/Вайб-кодинг/nmt-beta
+
+ ✓ src/components/app-shell.test.ts (1 test) 29ms
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  23:15:07
+   Duration  723ms (transform 70ms, setup 0ms, collect 348ms, tests 29ms, environment 0ms, prepare 106ms)
+

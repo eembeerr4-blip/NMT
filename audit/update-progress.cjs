@@ -1,0 +1,13 @@
+const fs=require('node:fs'),cp=require('node:child_process'),path=require('node:path');
+const root=path.resolve(__dirname,'..');if(!root.endsWith('nmt-beta'))throw Error('QA worktree required');
+const file=path.join(root,'audit/PROGRESS.md');let text=fs.readFileSync(file,'utf8');
+const git=args=>cp.execFileSync('git',args,{cwd:root,encoding:'utf8'}).trim();
+const sha=git(['rev-parse','HEAD']),branch=git(['branch','--show-current']);
+const next=process.argv[2];if(!next)throw Error('Next step required');
+text=text.replace(/^Исполнение:.*$/m,`Исполнение: D:/Вайб-кодинг/nmt-beta, ветка ${branch}.`);
+text=text.replace(/^Актуальный HEAD:.*\r?\n?/m,'').replace(/^Текущая задача:.*\r?\n?/m,'');
+text=text.replace(/^# NMT Academy beta: состояние выполнения\r?\n/,`# NMT Academy beta: состояние выполнения\n\nАктуальный HEAD: ${sha}.\nТекущая задача: ${next}\n`);
+if(branch.includes('/04'))text=text.replace('- [ ] 4. Интерфейс ученика — не начат.','- [ ] 4. Интерфейс ученика — выполняется по группам A–H.');
+text+=`\n${new Date().toISOString()} — ${branch}, ${sha}: ${next}\n`;
+fs.writeFileSync(file,text);fs.writeFileSync('C:/Users/User/nmt-academy/audit/PROGRESS.md',text);
+console.log(JSON.stringify({branch,sha,next}));

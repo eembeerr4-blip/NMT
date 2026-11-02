@@ -1,0 +1,316 @@
+{
+  "sha": "9ef3c662f6e90cf2c9720977ad4dc0d67696d4d6",
+  "captures": 432,
+  "uniqueRoutes": 48,
+  "pageErrors": 0,
+  "non200": [],
+  "tableOverflow": 0,
+  "overflowHeuristics": [
+    {
+      "role": "student_a",
+      "route": "/",
+      "width": 390,
+      "theme": "psv_pW_variable h-full light",
+      "classification": "clipped decorative glow",
+      "items": [
+        {
+          "tag": "DIV",
+          "className": "pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl",
+          "right": 437,
+          "left": 149
+        }
+      ]
+    },
+    {
+      "role": "student_a",
+      "route": "/ai-tutor",
+      "width": 390,
+      "theme": "psv_pW_variable h-full light",
+      "classification": "clipped decorative glow",
+      "items": [
+        {
+          "tag": "DIV",
+          "className": "pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl",
+          "right": 437,
+          "left": 149
+        }
+      ]
+    },
+    {
+      "role": "student_a",
+      "route": "/",
+      "width": 768,
+      "theme": "psv_pW_variable h-full light",
+      "classification": "clipped decorative glow",
+      "items": [
+        {
+          "tag": "DIV",
+          "className": "pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl",
+          "right": 807,
+          "left": 519
+        }
+      ]
+    },
+    {
+      "role": "student_a",
+      "route": "/ai-tutor",
+      "width": 768,
+      "theme": "psv_pW_variable h-full light",
+      "classification": "clipped decorative glow",
+      "items": [
+        {
+          "tag": "DIV",
+          "className": "pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl",
+          "right": 807,
+          "left": 519
+        }
+      ]
+    },
+    {
+      "role": "owner",
+      "route": "/admin/topics",
+      "width": 390,
+      "theme": "psv_pW_variable h-full light",
+      "classification": "clipped responsive table headers",
+      "items": [
+        {
+          "tag": "TH",
+          "className": "px-4 py-3 font-medium",
+          "right": 433,
+          "left": 381
+        }
+      ]
+    },
+    {
+      "role": "owner",
+      "route": "/admin/lessons",
+      "width": 390,
+      "theme": "psv_pW_variable h-full light",
+      "classification": "clipped responsive table headers",
+      "items": [
+        {
+          "tag": "TH",
+          "className": "px-4 py-3 font-medium",
+          "right": 392,
+          "left": 297
+        },
+        {
+          "tag": "TH",
+          "className": "px-4 py-3 font-medium",
+          "right": 441,
+          "left": 392
+        }
+      ]
+    },
+    {
+      "role": "qa_editor",
+      "route": "/editor",
+      "width": 390,
+      "theme": "psv_pW_variable h-full light",
+      "classification": "clipped responsive table headers",
+      "items": [
+        {
+          "tag": "TH",
+          "className": "px-4 py-3 font-medium",
+          "right": 392,
+          "left": 297
+        },
+        {
+          "tag": "TH",
+          "className": "px-4 py-3 font-medium",
+          "right": 441,
+          "left": 392
+        }
+      ]
+    },
+    {
+      "role": "qa_editor",
+      "route": "/editor/topics",
+      "width": 390,
+      "theme": "psv_pW_variable h-full light",
+      "classification": "clipped responsive table headers",
+      "items": [
+        {
+          "tag": "TH",
+          "className": "px-4 py-3 font-medium",
+          "right": 433,
+          "left": 381
+        }
+      ]
+    },
+    {
+      "role": "qa_editor",
+      "route": "/editor/lessons",
+      "width": 390,
+      "theme": "psv_pW_variable h-full light",
+      "classification": "clipped responsive table headers",
+      "items": [
+        {
+          "tag": "TH",
+          "className": "px-4 py-3 font-medium",
+          "right": 392,
+          "left": 297
+        },
+        {
+          "tag": "TH",
+          "className": "px-4 py-3 font-medium",
+          "right": 441,
+          "left": 392
+        }
+      ]
+    },
+    {
+      "role": "student_a",
+      "route": "/",
+      "width": 390,
+      "theme": "psv_pW_variable h-full dark",
+      "classification": "clipped decorative glow",
+      "items": [
+        {
+          "tag": "DIV",
+          "className": "pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl",
+          "right": 437,
+          "left": 149
+        }
+      ]
+    },
+    {
+      "role": "student_a",
+      "route": "/ai-tutor",
+      "width": 390,
+      "theme": "psv_pW_variable h-full dark",
+      "classification": "clipped decorative glow",
+      "items": [
+        {
+          "tag": "DIV",
+          "className": "pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl",
+          "right": 437,
+          "left": 149
+        }
+      ]
+    },
+    {
+      "role": "student_a",
+      "route": "/",
+      "width": 768,
+      "theme": "psv_pW_variable h-full dark",
+      "classification": "clipped decorative glow",
+      "items": [
+        {
+          "tag": "DIV",
+          "className": "pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl",
+          "right": 807,
+          "left": 519
+        }
+      ]
+    },
+    {
+      "role": "student_a",
+      "route": "/ai-tutor",
+      "width": 768,
+      "theme": "psv_pW_variable h-full dark",
+      "classification": "clipped decorative glow",
+      "items": [
+        {
+          "tag": "DIV",
+          "className": "pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl",
+          "right": 807,
+          "left": 519
+        }
+      ]
+    },
+    {
+      "role": "owner",
+      "route": "/admin/topics",
+      "width": 390,
+      "theme": "psv_pW_variable h-full dark",
+      "classification": "clipped responsive table headers",
+      "items": [
+        {
+          "tag": "TH",
+          "className": "px-4 py-3 font-medium",
+          "right": 433,
+          "left": 381
+        }
+      ]
+    },
+    {
+      "role": "owner",
+      "route": "/admin/lessons",
+      "width": 390,
+      "theme": "psv_pW_variable h-full dark",
+      "classification": "clipped responsive table headers",
+      "items": [
+        {
+          "tag": "TH",
+          "className": "px-4 py-3 font-medium",
+          "right": 392,
+          "left": 297
+        },
+        {
+          "tag": "TH",
+          "className": "px-4 py-3 font-medium",
+          "right": 441,
+          "left": 392
+        }
+      ]
+    },
+    {
+      "role": "qa_editor",
+      "route": "/editor",
+      "width": 390,
+      "theme": "psv_pW_variable h-full dark",
+      "classification": "clipped responsive table headers",
+      "items": [
+        {
+          "tag": "TH",
+          "className": "px-4 py-3 font-medium",
+          "right": 392,
+          "left": 297
+        },
+        {
+          "tag": "TH",
+          "className": "px-4 py-3 font-medium",
+          "right": 441,
+          "left": 392
+        }
+      ]
+    },
+    {
+      "role": "qa_editor",
+      "route": "/editor/topics",
+      "width": 390,
+      "theme": "psv_pW_variable h-full dark",
+      "classification": "clipped responsive table headers",
+      "items": [
+        {
+          "tag": "TH",
+          "className": "px-4 py-3 font-medium",
+          "right": 433,
+          "left": 381
+        }
+      ]
+    },
+    {
+      "role": "qa_editor",
+      "route": "/editor/lessons",
+      "width": 390,
+      "theme": "psv_pW_variable h-full dark",
+      "classification": "clipped responsive table headers",
+      "items": [
+        {
+          "tag": "TH",
+          "className": "px-4 py-3 font-medium",
+          "right": 392,
+          "left": 297
+        },
+        {
+          "tag": "TH",
+          "className": "px-4 py-3 font-medium",
+          "right": 441,
+          "left": 392
+        }
+      ]
+    }
+  ]
+}

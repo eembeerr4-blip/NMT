@@ -1,0 +1,43 @@
+{
+  "source": "D:\\Вайб-кодинг\\nmt-beta\\audit\\tests\\beta-fresh.db",
+  "snapshot": "D:\\Вайб-кодинг\\nmt-beta\\audit\\tests\\QA-snapshot-20261019.db",
+  "restored": "D:\\Вайб-кодинг\\nmt-beta\\audit\\tests\\QA-restored-20261019.db",
+  "identical": true,
+  "counts": {
+    "AIConversation": 0,
+    "AIMessage": 0,
+    "Achievement": 0,
+    "Answer": 21,
+    "AuditLog": 11,
+    "ExamResult": 1,
+    "Flashcard": 1,
+    "Mistake": 13,
+    "Note": 1,
+    "Question": 7,
+    "QuestionOption": 6,
+    "ReviewSchedule": 10,
+    "Session": 5,
+    "StudySession": 3,
+    "StudyTask": 371,
+    "Subject": 12,
+    "Test": 5,
+    "TestAttempt": 5,
+    "TestQuestion": 31,
+    "Topic": 2,
+    "TopicDependency": 0,
+    "User": 10,
+    "UserSettings": 10,
+    "UserSubject": 40,
+    "UserTopicProgress": 4,
+    "UserVideoProgress": 0,
+    "VideoLesson": 1,
+    "XpEvent": 3,
+    "_prisma_migrations": 5
+  },
+  "integrity": [
+    {
+      "integrity_check": "ok"
+    }
+  ],
+  "foreignKeys": []
+}

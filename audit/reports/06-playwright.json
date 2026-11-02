@@ -1,0 +1,1934 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\Вайб-кодинг\\nmt-beta\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.beta.config.ts",
+      "--max-failures=1"
+    ],
+    "configFile": "D:\\Вайб-кодинг\\nmt-beta\\playwright.beta.config.ts",
+    "rootDir": "D:/Вайб-кодинг/nmt-beta/e2e/beta",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 1,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Вайб-кодинг/nmt-beta/test-results/beta",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "D:/Вайб-кодинг/nmt-beta/e2e/beta",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "D:/Вайб-кодинг/nmt-beta/test-results/beta",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "D:/Вайб-кодинг/nmt-beta/e2e/beta",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "desktop",
+        "testDir": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta",
+        "snapshotDir": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3100",
+          "channel": "chrome",
+          "headless": true,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "D:\\Вайб-кодинг\\nmt-beta\\test-results\\beta",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta",
+        "snapshotDir": "D:\\Вайб-кодинг\\nmt-beta\\e2e\\beta",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3100",
+          "channel": "chrome",
+          "headless": true,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "audit/reports/06-playwright.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "accessibility.spec.ts",
+      "file": "accessibility.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "key learning and administration screens have no serious accessibility violations",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6172,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:30.277Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "axe-report",
+                      "contentType": "application/json",
+                      "body": "WwogIHsKICAgICJpZGVudGl0eSI6ICJzdHVkZW50X2EiLAogICAgInRoZW1lIjogImxpZ2h0IiwKICAgICJyb3V0ZSI6ICIvc3ViamVjdHMiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0sCiAgewogICAgImlkZW50aXR5IjogInN0dWRlbnRfYSIsCiAgICAidGhlbWUiOiAibGlnaHQiLAogICAgInJvdXRlIjogIi9sZWFybi9xYS1lbXB0eSIsCiAgICAidmlvbGF0aW9ucyI6IFtdCiAgfSwKICB7CiAgICAiaWRlbnRpdHkiOiAic3R1ZGVudF9hIiwKICAgICJ0aGVtZSI6ICJsaWdodCIsCiAgICAicm91dGUiOiAiL3NldHRpbmdzIiwKICAgICJ2aW9sYXRpb25zIjogW10KICB9LAogIHsKICAgICJpZGVudGl0eSI6ICJzdHVkZW50X2EiLAogICAgInRoZW1lIjogImxpZ2h0IiwKICAgICJyb3V0ZSI6ICIvY2FsZW5kYXIiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0sCiAgewogICAgImlkZW50aXR5IjogInN0dWRlbnRfYSIsCiAgICAidGhlbWUiOiAibGlnaHQiLAogICAgInJvdXRlIjogIi9taXN0YWtlcyIsCiAgICAidmlvbGF0aW9ucyI6IFtdCiAgfSwKICB7CiAgICAiaWRlbnRpdHkiOiAic3R1ZGVudF9hIiwKICAgICJ0aGVtZSI6ICJkYXJrIiwKICAgICJyb3V0ZSI6ICIvc3ViamVjdHMiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0sCiAgewogICAgImlkZW50aXR5IjogInN0dWRlbnRfYSIsCiAgICAidGhlbWUiOiAiZGFyayIsCiAgICAicm91dGUiOiAiL2xlYXJuL3FhLWVtcHR5IiwKICAgICJ2aW9sYXRpb25zIjogW10KICB9LAogIHsKICAgICJpZGVudGl0eSI6ICJzdHVkZW50X2EiLAogICAgInRoZW1lIjogImRhcmsiLAogICAgInJvdXRlIjogIi9zZXR0aW5ncyIsCiAgICAidmlvbGF0aW9ucyI6IFtdCiAgfSwKICB7CiAgICAiaWRlbnRpdHkiOiAic3R1ZGVudF9hIiwKICAgICJ0aGVtZSI6ICJkYXJrIiwKICAgICJyb3V0ZSI6ICIvY2FsZW5kYXIiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0sCiAgewogICAgImlkZW50aXR5IjogInN0dWRlbnRfYSIsCiAgICAidGhlbWUiOiAiZGFyayIsCiAgICAicm91dGUiOiAiL21pc3Rha2VzIiwKICAgICJ2aW9sYXRpb25zIjogW10KICB9LAogIHsKICAgICJpZGVudGl0eSI6ICJvd25lciIsCiAgICAidGhlbWUiOiAibGlnaHQiLAogICAgInJvdXRlIjogIi9hZG1pbi91c2VycyIsCiAgICAidmlvbGF0aW9ucyI6IFtdCiAgfSwKICB7CiAgICAiaWRlbnRpdHkiOiAib3duZXIiLAogICAgInRoZW1lIjogImxpZ2h0IiwKICAgICJyb3V0ZSI6ICIvYWRtaW4vdGVzdHMiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0sCiAgewogICAgImlkZW50aXR5IjogIm93bmVyIiwKICAgICJ0aGVtZSI6ICJkYXJrIiwKICAgICJyb3V0ZSI6ICIvYWRtaW4vdXNlcnMiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0sCiAgewogICAgImlkZW50aXR5IjogIm93bmVyIiwKICAgICJ0aGVtZSI6ICJkYXJrIiwKICAgICJyb3V0ZSI6ICIvYWRtaW4vdGVzdHMiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0KXQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ddd864604af8a6a0198f-4d1e1975e6924fa81341",
+          "file": "accessibility.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "key learning and administration screens have no serious accessibility violations",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6802,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:08.589Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "axe-report",
+                      "contentType": "application/json",
+                      "body": "WwogIHsKICAgICJpZGVudGl0eSI6ICJzdHVkZW50X2EiLAogICAgInRoZW1lIjogImxpZ2h0IiwKICAgICJyb3V0ZSI6ICIvc3ViamVjdHMiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0sCiAgewogICAgImlkZW50aXR5IjogInN0dWRlbnRfYSIsCiAgICAidGhlbWUiOiAibGlnaHQiLAogICAgInJvdXRlIjogIi9sZWFybi9xYS1lbXB0eSIsCiAgICAidmlvbGF0aW9ucyI6IFtdCiAgfSwKICB7CiAgICAiaWRlbnRpdHkiOiAic3R1ZGVudF9hIiwKICAgICJ0aGVtZSI6ICJsaWdodCIsCiAgICAicm91dGUiOiAiL3NldHRpbmdzIiwKICAgICJ2aW9sYXRpb25zIjogW10KICB9LAogIHsKICAgICJpZGVudGl0eSI6ICJzdHVkZW50X2EiLAogICAgInRoZW1lIjogImxpZ2h0IiwKICAgICJyb3V0ZSI6ICIvY2FsZW5kYXIiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0sCiAgewogICAgImlkZW50aXR5IjogInN0dWRlbnRfYSIsCiAgICAidGhlbWUiOiAibGlnaHQiLAogICAgInJvdXRlIjogIi9taXN0YWtlcyIsCiAgICAidmlvbGF0aW9ucyI6IFtdCiAgfSwKICB7CiAgICAiaWRlbnRpdHkiOiAic3R1ZGVudF9hIiwKICAgICJ0aGVtZSI6ICJkYXJrIiwKICAgICJyb3V0ZSI6ICIvc3ViamVjdHMiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0sCiAgewogICAgImlkZW50aXR5IjogInN0dWRlbnRfYSIsCiAgICAidGhlbWUiOiAiZGFyayIsCiAgICAicm91dGUiOiAiL2xlYXJuL3FhLWVtcHR5IiwKICAgICJ2aW9sYXRpb25zIjogW10KICB9LAogIHsKICAgICJpZGVudGl0eSI6ICJzdHVkZW50X2EiLAogICAgInRoZW1lIjogImRhcmsiLAogICAgInJvdXRlIjogIi9zZXR0aW5ncyIsCiAgICAidmlvbGF0aW9ucyI6IFtdCiAgfSwKICB7CiAgICAiaWRlbnRpdHkiOiAic3R1ZGVudF9hIiwKICAgICJ0aGVtZSI6ICJkYXJrIiwKICAgICJyb3V0ZSI6ICIvY2FsZW5kYXIiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0sCiAgewogICAgImlkZW50aXR5IjogInN0dWRlbnRfYSIsCiAgICAidGhlbWUiOiAiZGFyayIsCiAgICAicm91dGUiOiAiL21pc3Rha2VzIiwKICAgICJ2aW9sYXRpb25zIjogW10KICB9LAogIHsKICAgICJpZGVudGl0eSI6ICJvd25lciIsCiAgICAidGhlbWUiOiAibGlnaHQiLAogICAgInJvdXRlIjogIi9hZG1pbi91c2VycyIsCiAgICAidmlvbGF0aW9ucyI6IFtdCiAgfSwKICB7CiAgICAiaWRlbnRpdHkiOiAib3duZXIiLAogICAgInRoZW1lIjogImxpZ2h0IiwKICAgICJyb3V0ZSI6ICIvYWRtaW4vdGVzdHMiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0sCiAgewogICAgImlkZW50aXR5IjogIm93bmVyIiwKICAgICJ0aGVtZSI6ICJkYXJrIiwKICAgICJyb3V0ZSI6ICIvYWRtaW4vdXNlcnMiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0sCiAgewogICAgImlkZW50aXR5IjogIm93bmVyIiwKICAgICJ0aGVtZSI6ICJkYXJrIiwKICAgICJyb3V0ZSI6ICIvYWRtaW4vdGVzdHMiLAogICAgInZpb2xhdGlvbnMiOiBbXQogIH0KXQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ddd864604af8a6a0198f-3937712654038586c08b",
+          "file": "accessibility.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "admin-tests.spec.ts",
+      "file": "admin-tests.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "administrator preview opens the test set rather than a missing attempt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 646,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:36.611Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5b100a6726a47f7e16e6-dc3710984651e041e1ce",
+          "file": "admin-tests.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "test set publication, student start, archive and protected history work",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2968,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:37.264Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5b100a6726a47f7e16e6-e1ef9a588d24f04d0107",
+          "file": "admin-tests.spec.ts",
+          "line": 8,
+          "column": 5
+        },
+        {
+          "title": "administrative tables keep action cells inside a phone viewport",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 881,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:40.241Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5b100a6726a47f7e16e6-0970a2decc174dcae42c",
+          "file": "admin-tests.spec.ts",
+          "line": 16,
+          "column": 5
+        },
+        {
+          "title": "administrative action columns fit beside the sidebar at tablet width",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1014,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:41.132Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5b100a6726a47f7e16e6-42bda082f72fc14f233c",
+          "file": "admin-tests.spec.ts",
+          "line": 19,
+          "column": 5
+        },
+        {
+          "title": "administrator preview opens the test set rather than a missing attempt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 717,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:15.557Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5b100a6726a47f7e16e6-13e1c05b8a8013fec951",
+          "file": "admin-tests.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "test set publication, student start, archive and protected history work",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4904,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:16.281Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5b100a6726a47f7e16e6-7cb943c021b0d97cd9e7",
+          "file": "admin-tests.spec.ts",
+          "line": 8,
+          "column": 5
+        },
+        {
+          "title": "administrative tables keep action cells inside a phone viewport",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 985,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:21.193Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5b100a6726a47f7e16e6-cc84064e068af0ee2d26",
+          "file": "admin-tests.spec.ts",
+          "line": 16,
+          "column": 5
+        },
+        {
+          "title": "administrative action columns fit beside the sidebar at tablet width",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1012,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:22.186Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5b100a6726a47f7e16e6-128a2fc1323a9f0280de",
+          "file": "admin-tests.spec.ts",
+          "line": 19,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "auth-ui.spec.ts",
+      "file": "auth-ui.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "login has persistent field labels and supports keyboard submission",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 527,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:42.156Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ea4a662121586c12754-fbe6e369e9debafa8fec",
+          "file": "auth-ui.spec.ts",
+          "line": 2,
+          "column": 5
+        },
+        {
+          "title": "login has persistent field labels and supports keyboard submission",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 573,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:23.212Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8ea4a662121586c12754-43033782c3b71b05f4ac",
+          "file": "auth-ui.spec.ts",
+          "line": 2,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "catalog.spec.ts",
+      "file": "catalog.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "unavailable topic has an honest state and no active lesson start",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 734,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:42.696Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "30aa42b97d8966d0c2dc-9fadeb7f020d3f093bf2",
+          "file": "catalog.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "four active subjects are separated from the library and topics can be searched",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 929,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:43.438Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "30aa42b97d8966d0c2dc-d0d7940ddb649a414b41",
+          "file": "catalog.spec.ts",
+          "line": 8,
+          "column": 5
+        },
+        {
+          "title": "unavailable topic has an honest state and no active lesson start",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 704,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:23.798Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "30aa42b97d8966d0c2dc-7200946db4021db494a8",
+          "file": "catalog.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "four active subjects are separated from the library and topics can be searched",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1085,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:24.510Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "30aa42b97d8966d0c2dc-2b7de5ca03532a6d22ca",
+          "file": "catalog.spec.ts",
+          "line": 8,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "dashboard.spec.ts",
+      "file": "dashboard.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "dashboard never recommends an unavailable lesson even if its status is IN_PROGRESS",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1730,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:44.380Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "90cda532ab82d274b30b-1b19129028658452d81c",
+          "file": "dashboard.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "dashboard never recommends an unavailable lesson even if its status is IN_PROGRESS",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1813,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:25.607Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "90cda532ab82d274b30b-84307c4bc5386c949a32",
+          "file": "dashboard.spec.ts",
+          "line": 4,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "keyboard.spec.ts",
+      "file": "keyboard.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "lesson and profile controls support keyboard activation with visible focus",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1126,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:46.120Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "866d5cea7c69e902a1e2-d5ab5c98d0c0a996430d",
+          "file": "keyboard.spec.ts",
+          "line": 2,
+          "column": 5
+        },
+        {
+          "title": "lesson and profile controls support keyboard activation with visible focus",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 864,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:27.432Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "866d5cea7c69e902a1e2-2caa76d3d30e2fc5b9f6",
+          "file": "keyboard.spec.ts",
+          "line": 2,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "learning-time.spec.ts",
+      "file": "learning-time.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "learning load can be saved and survives reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1426,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:47.258Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "89dec5192c972e105d7a-6aa2e3c15291b8808782",
+          "file": "learning-time.spec.ts",
+          "line": 2,
+          "column": 5
+        },
+        {
+          "title": "learning load can be saved and survives reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1428,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:28.310Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "89dec5192c972e105d7a-7b30e6a81391e5016a6f",
+          "file": "learning-time.spec.ts",
+          "line": 2,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "mistakes.spec.ts",
+      "file": "mistakes.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "mistake status failure is visible and retry persists",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1085,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:48.696Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "819d5ca2903612361565-9609b3ccdd53fd627aee",
+          "file": "mistakes.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "mistake status failure is visible and retry persists",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1263,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:29.748Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "819d5ca2903612361565-177b69af65194998b48f",
+          "file": "mistakes.spec.ts",
+          "line": 4,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "offline-note.spec.ts",
+      "file": "offline-note.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "offline note keeps text and exposes retryable failure",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 969,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:49.791Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "43d45883855ea0716440-40a01799a86c8afbaafd",
+          "file": "offline-note.spec.ts",
+          "line": 2,
+          "column": 5
+        },
+        {
+          "title": "offline note keeps text and exposes retryable failure",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 873,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:31.021Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "43d45883855ea0716440-c603124278dbbc08ffda",
+          "file": "offline-note.spec.ts",
+          "line": 2,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "permissions.spec.ts",
+      "file": "permissions.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "expired cookie never changes API auth errors into HTML or plain text",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 199,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:50.769Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "API auth evidence",
+                      "contentType": "application/json",
+                      "body": "W3sicm91dGUiOiIvYXBpL2V4cG9ydC9yZXN1bHRzIiwic3RhdHVzIjo0MDEsImNvbnRlbnRUeXBlIjoiYXBwbGljYXRpb24vanNvbiJ9LHsicm91dGUiOiIvYXBpL2V4cG9ydC9xdWVzdGlvbnMiLCJzdGF0dXMiOjQwMSwiY29udGVudFR5cGUiOiJhcHBsaWNhdGlvbi9qc29uIn0seyJyb3V0ZSI6Ii9hcGkvZXhwb3J0L2JhY2t1cCIsInN0YXR1cyI6NDAxLCJjb250ZW50VHlwZSI6ImFwcGxpY2F0aW9uL2pzb24ifSx7InJvdXRlIjoiL2FwaS9haS9zdHJlYW0iLCJzdGF0dXMiOjQwMSwiY29udGVudFR5cGUiOiJhcHBsaWNhdGlvbi9qc29uIn1d"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e2c839d05731ea67d2a7-68f554ccccbd23baea67",
+          "file": "permissions.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "owner learning sidebar has no administration; profile menu switches context",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 637,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:50.976Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e2c839d05731ea67d2a7-3b9e9710480ee6491497",
+          "file": "permissions.spec.ts",
+          "line": 13,
+          "column": 5
+        },
+        {
+          "title": "expired cookie never changes API auth errors into HTML or plain text",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 154,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:31.904Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "API auth evidence",
+                      "contentType": "application/json",
+                      "body": "W3sicm91dGUiOiIvYXBpL2V4cG9ydC9yZXN1bHRzIiwic3RhdHVzIjo0MDEsImNvbnRlbnRUeXBlIjoiYXBwbGljYXRpb24vanNvbiJ9LHsicm91dGUiOiIvYXBpL2V4cG9ydC9xdWVzdGlvbnMiLCJzdGF0dXMiOjQwMSwiY29udGVudFR5cGUiOiJhcHBsaWNhdGlvbi9qc29uIn0seyJyb3V0ZSI6Ii9hcGkvZXhwb3J0L2JhY2t1cCIsInN0YXR1cyI6NDAxLCJjb250ZW50VHlwZSI6ImFwcGxpY2F0aW9uL2pzb24ifSx7InJvdXRlIjoiL2FwaS9haS9zdHJlYW0iLCJzdGF0dXMiOjQwMSwiY29udGVudFR5cGUiOiJhcHBsaWNhdGlvbi9qc29uIn1d"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e2c839d05731ea67d2a7-48d80b3c3ab87d9ff613",
+          "file": "permissions.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "owner learning sidebar has no administration; profile menu switches context",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 589,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:32.065Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e2c839d05731ea67d2a7-832995054a5c4c53a7e8",
+          "file": "permissions.spec.ts",
+          "line": 13,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "personal-lists.spec.ts",
+      "file": "personal-lists.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "personal histories apply search and keep an owned editor accessible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 845,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:51.626Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e765bc97e9de93ece25a-44a1d40db0d6ed5baedf",
+          "file": "personal-lists.spec.ts",
+          "line": 2,
+          "column": 5
+        },
+        {
+          "title": "personal histories apply search and keep an owned editor accessible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 844,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:32.665Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e765bc97e9de93ece25a-66e4061051309b57a519",
+          "file": "personal-lists.spec.ts",
+          "line": 2,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "stability.spec.ts",
+      "file": "stability.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "HTTP auth, styles and protected API",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1392,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:52.483Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1602a8ecbd2018ad3a6-5279f2420d07be8be6d2",
+          "file": "stability.spec.ts",
+          "line": 12,
+          "column": 5
+        },
+        {
+          "title": "C07 theory acknowledgement reports reading and never mastery",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1056,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:53.884Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1602a8ecbd2018ad3a6-b19385478c1e4c1e7fcb",
+          "file": "stability.spec.ts",
+          "line": 21,
+          "column": 5
+        },
+        {
+          "title": "A07 custom task failure retains inputs and offers a working retry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1604,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:54.949Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1602a8ecbd2018ad3a6-7c1dab25d619762b7379",
+          "file": "stability.spec.ts",
+          "line": 28,
+          "column": 5
+        },
+        {
+          "title": "A07 review and C08 elective expose errors without silent navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1043,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:56.561Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1602a8ecbd2018ad3a6-6b83a1489fe35ee3e557",
+          "file": "stability.spec.ts",
+          "line": 39,
+          "column": 5
+        },
+        {
+          "title": "C05 editor route and private attempt enforce real HTTP boundaries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3230,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:13:57.612Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1602a8ecbd2018ad3a6-3fa7eaa6d7846c958bee",
+          "file": "stability.spec.ts",
+          "line": 44,
+          "column": 5
+        },
+        {
+          "title": "HTTP auth, styles and protected API",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1037,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:33.522Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1602a8ecbd2018ad3a6-866cf27caebeabe67fb2",
+          "file": "stability.spec.ts",
+          "line": 12,
+          "column": 5
+        },
+        {
+          "title": "C07 theory acknowledgement reports reading and never mastery",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1690,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:34.568Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1602a8ecbd2018ad3a6-2adb854628a39f2a0daa",
+          "file": "stability.spec.ts",
+          "line": 21,
+          "column": 5
+        },
+        {
+          "title": "A07 custom task failure retains inputs and offers a working retry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1767,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:36.266Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1602a8ecbd2018ad3a6-9d50441f5ea4153e9711",
+          "file": "stability.spec.ts",
+          "line": 28,
+          "column": 5
+        },
+        {
+          "title": "A07 review and C08 elective expose errors without silent navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1226,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:38.041Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1602a8ecbd2018ad3a6-ea47227b434110d2aa39",
+          "file": "stability.spec.ts",
+          "line": 39,
+          "column": 5
+        },
+        {
+          "title": "C05 editor route and private attempt enforce real HTTP boundaries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2697,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:39.275Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a1602a8ecbd2018ad3a6-8ff01692d6261529428b",
+          "file": "stability.spec.ts",
+          "line": 44,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "test-runner.spec.ts",
+      "file": "test-runner.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "sequence requires an intentional answer and restores it after reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1086,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:00.853Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b03dcbd4bd63f2752ad4-624b64dbe9b350f3d894",
+          "file": "test-runner.spec.ts",
+          "line": 5,
+          "column": 5
+        },
+        {
+          "title": "sequence requires an intentional answer and restores it after reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1021,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:41.982Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b03dcbd4bd63f2752ad4-d55803ec4f875307ff7d",
+          "file": "test-runner.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "video-failure.spec.ts",
+      "file": "video-failure.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "video alternatives and external failures are visible to students",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1118,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:01.950Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2b5437c288666966870b-d5692540d60dcca49865",
+          "file": "video-failure.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "video alternatives and external failures are visible to students",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 997,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:43.014Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2b5437c288666966870b-adc635c571e4af4e0641",
+          "file": "video-failure.spec.ts",
+          "line": 4,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "visual.spec.ts",
+      "file": "visual.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "reviewed key screens match visual baselines in both themes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4631,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:03.078Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8324bb52c49185e48ff4-f5a476bad4db01ff1d83",
+          "file": "visual.spec.ts",
+          "line": 2,
+          "column": 5
+        },
+        {
+          "title": "reviewed key screens match visual baselines in both themes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3700,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-19T10:14:44.021Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8324bb52c49185e48ff4-079c5ac0dcf077b5263d",
+          "file": "visual.spec.ts",
+          "line": 2,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-19T10:13:29.877Z",
+    "duration": 78495.707,
+    "expected": 48,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

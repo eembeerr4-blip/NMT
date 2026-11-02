@@ -1,0 +1,49 @@
+
+ RUN  v3.2.7 D:/Вайб-кодинг/nmt-beta
+
+ ❯ src/app/(main)/error.test.ts (2 tests | 2 failed) 15ms
+   × student error state never renders database, stack or credential details 9ms
+     → expected '<div class="rounded-2xl border border…' not to contain 'passwordHash'
+   × loading is announced to assistive technology 5ms
+     → expected '<div class="space-y-4"><div class="an…' to contain 'role="status"'
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/app/(main)/error.test.ts > student error state never renders database, stack or credential details
+AssertionError: expected '<div class="rounded-2xl border border…' not to contain 'passwordHash'
+
+Expected: "passwordHash"
+Received: "<div class="rounded-2xl border border-border bg-card p-6"><h1 class="text-lg font-semibold">Щось пішло не так</h1><p class="mt-2 text-sm text-muted-foreground">SELECT passwordHash FROM Session -- QA-private</p><button class="mt-4 rounded-lg bg-primary px-3 py-2 text-sm text-primary-foreground" type="button">Спробувати знову</button></div>"
+
+ ❯ src/app/(main)/error.test.ts:8:19
+      6| it("student error state never renders database, stack or credential de…
+      7|  const html=renderToStaticMarkup(createElement(ErrorPage,{error:new Er…
+      8|  expect(html).not.toContain("passwordHash");expect(html).not.toContain…
+       |                   ^
+      9| });
+     10| it("loading is announced to assistive technology",()=>{
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/app/(main)/error.test.ts > loading is announced to assistive technology
+AssertionError: expected '<div class="space-y-4"><div class="an…' to contain 'role="status"'
+
+Expected: "role="status""
+Received: "<div class="space-y-4"><div class="animate-pulse rounded-xl bg-muted h-8 w-64"></div><div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4"><div class="animate-pulse rounded-xl bg-muted h-24"></div><div class="animate-pulse rounded-xl bg-muted h-24"></div><div class="animate-pulse rounded-xl bg-muted h-24"></div><div class="animate-pulse rounded-xl bg-muted h-24"></div></div><div class="animate-pulse rounded-xl bg-muted h-48"></div></div>"
+
+ ❯ src/app/(main)/error.test.ts:11:71
+      9| });
+     10| it("loading is announced to assistive technology",()=>{
+     11|  const html=renderToStaticMarkup(createElement(Loading));expect(html).…
+       |                                                                       ^
+     12| });
+     13| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  12:05:35
+   Duration  399ms (transform 45ms, setup 0ms, collect 95ms, tests 15ms, environment 0ms, prepare 101ms)
+
