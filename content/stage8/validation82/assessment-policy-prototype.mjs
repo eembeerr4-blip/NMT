@@ -1,4 +1,5 @@
-// QA-only proposal. Not imported by the application or connected to Prisma.
+// Historical QA-only proposal. Production guards live in src/server/assessment.ts.
+// This proposal is not imported by the application or connected to Prisma.
 const week = 7 * 24 * 60 * 60 * 1000;
 const success = a => a.status === 'COMPLETED' && a.pendingCount === 0 &&
   Number.isInteger(a.totalCount) && a.totalCount > 0 &&

@@ -3,6 +3,7 @@
 import type { Prisma } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { lessonReadiness, publishReadinessError } from "@/lib/readiness";
+import { trainingQuestionWhere } from "@/server/assessment";
 import { canEditContent } from "@/lib/permissions";
 import { prisma } from "@/lib/prisma";
 import { userFacingError } from "@/lib/errors";
@@ -171,7 +172,7 @@ export async function publishLesson(topicId: string): Promise<{ ok: true; messag
     const result = await prisma.$transaction(async (tx) => {
       const topic = await tx.topic.findUnique({
         where: { id: topicId },
-        include: { questions: true, videos: true, children: { select: { id: true } } },
+        include: { questions: { where: trainingQuestionWhere }, videos: true, children: { select: { id: true } } },
       });
       if (!topic) return { ok: false as const, error: "Тему не знайдено." };
       if (topic.coverage === "READY" || topic.coverage === "VERIFIED") return { ok: true as const, message: "Урок уже опубліковано для учнів." };
