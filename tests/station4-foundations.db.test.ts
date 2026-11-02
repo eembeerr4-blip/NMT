@@ -23,10 +23,10 @@ vi.mock('next/navigation', () => ({ redirect: vi.fn(), notFound: vi.fn() }));
 import { prisma } from '@/lib/prisma';
 import { importContentPackage, publishLesson } from '@/server/content-import';
 import { verifyQuestion } from '@/server/actions';
-import { saveTestSet } from '@/server/test-sets';
+import { saveTestSet, setTestPublication } from '@/server/test-sets';
 afterAll(async () => { await prisma.$disconnect(); });
 const packagePath = 'content/station4/math-foundations.PRACTICE.package.json';
-it('validates original PRACTICE modules and blocks publication when independent review does not support HARD', () => {
+it('validates reviewed Station4.1 PRACTICE modules with exact 4/5/3 and all answer types', () => {
   const parsed = parseContentPackage(readFileSync(packagePath, 'utf8'));
   expect(parsed.report.errors).toEqual([]);
   expect(parsed.package?.provenance.note).toContain('REVIEW-ONLY');
@@ -35,15 +35,16 @@ it('validates original PRACTICE modules and blocks publication when independent 
     expect(topic.questions).toHaveLength(12);
     expect(topic.lesson.notes.length).toBeGreaterThan(500);
     expect(topic.lesson.examples.length).toBeGreaterThanOrEqual(5);
-    expect(lessonReadiness({ lessonJson: JSON.stringify(topic.lesson), questions: topic.questions, videos: [] })).toMatchObject({ theory: true, examples: true, ready: false, counts: { HARD: 0 } });
+    expect(lessonReadiness({ lessonJson: JSON.stringify(topic.lesson), questions: topic.questions, videos: [] })).toMatchObject({ theory: true, examples: true, ready: true, counts: { EASY: 4, MEDIUM: 5, HARD: 3 } });
     for (const q of topic.questions) {
       expect(q.source).toContain('PRACTICE');
+      if (q.difficulty === 'HARD') { expect(q.type).toBe('SINGLE_CHOICE'); expect(q.options).toHaveLength(5); }
       expect(gradeAnswer({ type: q.type, correctAnswer: q.correctAnswer, userAnswer: q.correctAnswer.replace('.', ',') }).isCorrect).toBe(true);
       expect(gradeAnswer({ type: q.type, correctAnswer: q.correctAnswer, userAnswer: '999999' }).isCorrect).toBe(false);
     }
   }
 });
-it.skipIf(!location)('imports three real modules only into a fresh disposable database and refuses premature publication', async () => {
+it.skipIf(!location)('imports reviewed modules into a disposable database through unchanged publication gates', async () => {
   const bankPath = process.env.STATION4_PRIVATE_BANK!;
   if (!path.isAbsolute(bankPath) || path.resolve(bankPath).startsWith(process.cwd() + path.sep)) throw Error('Control bank must remain outside this repository');
   const bank = JSON.parse(readFileSync(bankPath, 'utf8')) as { private: boolean; topics: { topicId: string; questions: ContentPackage['sections'][number]['topics'][number]['questions']; final: string[]; delayed: string[] }[] };
@@ -68,10 +69,10 @@ it.skipIf(!location)('imports three real modules only into a fresh disposable da
   const topics = [];
   for (const topic of parsed.package!.sections[0].topics) {
     const row = await prisma.topic.findUniqueOrThrow({ where: { id: topic.code }, include: { questions: true, videos: true } });
-    expect(lessonReadiness(row)).toMatchObject({ ready: false, counts: { HARD: 0 } });
+    expect(lessonReadiness(row)).toMatchObject({ ready: true, counts: { EASY: 4, MEDIUM: 5, HARD: 3 } });
     expect(row.coverage).toBe('DRAFT');
-    expect(await publishLesson(row.id)).toMatchObject({ ok: false });
-    expect((await prisma.topic.findUniqueOrThrow({ where: { id: row.id } })).coverage).toBe('DRAFT');
+    expect(await publishLesson(row.id)).toMatchObject({ ok: true });
+    expect((await prisma.topic.findUniqueOrThrow({ where: { id: row.id } })).coverage).not.toBe('DRAFT');
     const control = bank.topics.find(t => t.topicId === row.id)!;
     expect(control.questions).toHaveLength(12);
     const allIds = [...topic.questions, ...control.questions].map(q => q.code);
@@ -87,15 +88,16 @@ it.skipIf(!location)('imports three real modules only into a fresh disposable da
       const result = await saveTestSet({ title: `${purpose === 'FINAL' ? 'Підсумкова перевірка' : 'Відкладена перевірка'} · ${topic.title}`, subjectId: 'math', timeLimitMin: 0, questionIds, assessmentPurpose: purpose });
       expect(result.ok).toBe(true);
       if (!result.ok || !result.id) throw Error('Cannot create QA control');
+      expect(await setTestPublication(result.id, 'PUBLISHED')).toMatchObject({ ok: true });
       sets[purpose] = result.id;
     }
     topics.push({ id: row.id, title: topic.title, sets, practiceIds: topic.questions.map(q => q.code) });
   }
   expect(await prisma.testAttempt.count()).toBe(0);
-  expect(await prisma.auditLog.count({ where: { action: 'LESSON_PUBLISHED' } })).toBe(0);
-  const fixture = { station4: true, synthetic: true, draftOnly: true, folder, database, password, topics };
+  expect(await prisma.auditLog.count({ where: { action: 'LESSON_PUBLISHED' } })).toBe(3);
+  const fixture = { station4: true, synthetic: true, draftOnly: false, folder, database, password, topics };
   writeFileSync(path.join(folder, 'station4-fixture.json'), JSON.stringify(fixture), { flag: 'wx' });
   writeFileSync(location!, JSON.stringify(fixture));
-  const publicEvidence = { status: 'PASS', contentAcceptance: 'BLOCKED: independent HARD quota not met', database: 'unique temporary SQLite', productionAccessed: false, modules: 3, practiceQuestions: 36, privateControls: 36, publication: 'REFUSED for all3 by unchanged real gate; lessons and control sets remain DRAFT', practiceSha256: createHash('sha256').update(readFileSync(packagePath)).digest('hex') };
-  writeFileSync('content/station4/integration-QA.json', JSON.stringify(publicEvidence, null, 2) + '\n');
+  const publicEvidence = { status: 'PASS', contentAcceptance: 'REVIEW-ONLY: independent AI checks, no teacher or empirical calibration', database: 'unique temporary SQLite', productionAccessed: false, modules: 3, practiceQuestions: 36, privateControls: 36, publication: 'Allowed for all3 by unchanged real gates inside disposable QA fixture only', practiceSha256: createHash('sha256').update(readFileSync(packagePath)).digest('hex') };
+  writeFileSync('content/station41/integration-QA.json', JSON.stringify(publicEvidence, null, 2) + '\n');
 }, 60000);

@@ -1,5 +1,7 @@
 # Station 4 — audit and first foundation batch
 
+Historical result at319e0b1. The PRACTICE package and targeted tests were subsequently revised in [Station4.1](../station41/RESULT.md); difficulty and final-QA statements below describe the earlier version.
+
 2026-11-02. Base: `84c1ea922b509bfcff72417896455d23dc0e039f`. Branch: `station4/math-foundations`.
 
 **PARTIAL. Three original modules and their numeric keys are prepared and checked. The required genuine NMT difficulty distribution is NOT achieved. Publication remains blocked; no production import or deployment occurred.**

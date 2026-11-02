@@ -1,0 +1,64 @@
+{
+  "existingIndexEntries": 5984,
+  "archiveRescanned": false,
+  "videosUsed": false,
+  "selectedForPrivateScreening": 9,
+  "rights": "UNKNOWN_DO_NOT_PUBLISH",
+  "publishedFiles": 0,
+  "candidates": [
+    {
+      "sample": "S41-MATH-1",
+      "pagesInspected": [
+        2
+      ],
+      "decision": "PRIVATE REFERENCE ONLY",
+      "finding": "Rational/irrational number chart and sqrt0.64=0.8 checked; fractions prerequisite; commercial watermark, redistribution unknown."
+    },
+    {
+      "sample": "S41-MATH-4",
+      "pagesInspected": [
+        1,
+        2,
+        3
+      ],
+      "decision": "PRIVATE REFERENCE ONLY",
+      "finding": "Proportion workbook; checked divisibility-by3 option72 and examples16,126,8 independently. Elementary level; not a source of genuinely HARD applications."
+    },
+    {
+      "sample": "S41-MATH-2",
+      "decision": "NOT USED",
+      "finding": "Modulus equations; no matching page in text screening."
+    },
+    {
+      "sample": "S41-MATH-3",
+      "decision": "NOT USED",
+      "finding": "Text matches only; no visual or full mathematical approval."
+    },
+    {
+      "sample": "S41-MATH-5",
+      "decision": "NOT USED",
+      "finding": "Text match only; no visual approval."
+    },
+    {
+      "sample": "S41-MATH-6",
+      "decision": "NOT USED",
+      "finding": "No relevant text match."
+    },
+    {
+      "sample": "S41-MATH-7",
+      "decision": "EXCLUDED",
+      "finding": "Visual inspection: physics, not target mathematics."
+    },
+    {
+      "sample": "S41-MATH-8",
+      "decision": "EXCLUDED",
+      "finding": "Visual inspection: physics, not target mathematics."
+    },
+    {
+      "sample": "S41-MATH-9",
+      "decision": "EXCLUDED",
+      "finding": "Visual inspection: physics, not target mathematics."
+    }
+  ],
+  "useInPackage": "No questions, images or PDF pages copied. All revised text and tasks original. No third-party asset adds verified value sufficient to justify publication without rights."
+}

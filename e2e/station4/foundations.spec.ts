@@ -20,16 +20,22 @@ async function login(page: Page) {
 async function takeAttempt(page: Page, wrongCount: number, reloadFirst = false) {
   await expect(page).toHaveURL(/\/tests\/[^/]+$/);
   const id = page.url().split('/').pop()!;
-  const attempt = await db.testAttempt.findUniqueOrThrow({ where: { id }, include: { test: { include: { questions: { orderBy: { sortOrder: 'asc' }, include: { question: true } } } } } });
+  const attempt = await db.testAttempt.findUniqueOrThrow({ where: { id }, include: { test: { include: { questions: { orderBy: { sortOrder: 'asc' }, include: { question: { include: { options: true } } } } } } } });
   for (let i = 0; i < attempt.test.questions.length; i++) {
     const q = attempt.test.questions[i].question;
     await expect(page.getByText(`Завдання ${i + 1} з ${attempt.test.questions.length}`, { exact: true })).toBeVisible();
-    const answer = i < wrongCount ? '999999' : q.correctAnswer.replace('.', ',');
-    await page.getByLabel('Числова відповідь', { exact: true }).fill(answer);
+    const answer = q.type === 'SINGLE_CHOICE'
+      ? (i < wrongCount ? q.options.find(o => o.id !== q.correctAnswer)!.id : q.correctAnswer)
+      : (i < wrongCount ? '999999' : q.correctAnswer.replace('.', ','));
+    if (q.type === 'SINGLE_CHOICE') {
+      const option = q.options.find(o => o.id === answer)!;
+      await page.locator('label').filter({ hasText: option.label + '.' }).filter({ has: page.getByRole('radio') }).click();
+    } else await page.getByLabel('Числова відповідь', { exact: true }).fill(answer);
     if (i === 0 && reloadFirst) {
       await expect.poll(async () => JSON.parse((await db.testAttempt.findUniqueOrThrow({ where: { id } })).draftJson)[q.id]).not.toBeUndefined();
       await page.reload();
-      await expect(page.getByLabel('Числова відповідь', { exact: true })).toHaveValue(answer);
+      if (q.type === 'SINGLE_CHOICE') await expect(page.getByRole('radio', { checked: true })).toHaveCount(1);
+      else await expect(page.getByLabel('Числова відповідь', { exact: true })).toHaveValue(answer);
     }
     if (i < attempt.test.questions.length - 1) await page.getByRole('button', { name: 'Далі', exact: true }).click();
   }
@@ -52,6 +58,12 @@ test('three real foundation modules: mobile learning, mistakes, persistence and 
   let status = 'BLOCKED';
   try {
     await login(page);
+    await page.goto('/tests');
+    const catalogue = await page.content();
+    const controls = await db.question.findMany({ where: { source: { startsWith: 'PRIVATE CONTROL' } }, select: { id: true, prompt: true } });
+    expect(controls).toHaveLength(36);
+    for (const q of controls) { expect(catalogue).not.toContain(q.id); expect(catalogue).not.toContain(q.prompt); }
+    steps.push({ module: 'all', check: '36 closed control prompts and IDs absent from student catalogue', status: 'PASS' });
     for (const topic of fixture.topics) {
       const record = (check: string) => steps.push({ module: topic.id, check, status: 'PASS' });
       await page.goto(`/learn/${topic.id}`);
@@ -83,6 +95,7 @@ test('three real foundation modules: mobile learning, mistakes, persistence and 
       await page.getByRole('tab', { name: 'Практика', exact: true }).click();
       await page.getByRole('button', { name: 'Пройти тест', exact: true }).click();
       const practice = await takeAttempt(page, 1, true);
+      await expect(page.locator('.d05-explanation')).toHaveCount(12);
       expect(practice.test.questions).toHaveLength(12);
       expect(practice.test.questions.every(q => topic.practiceIds.includes(q.questionId))).toBe(true);
       record('12 real practice answers; deliberate error; saved draft survives reload');
@@ -109,6 +122,20 @@ test('three real foundation modules: mobile learning, mistakes, persistence and 
       await expect(page.getByRole('heading', { name: 'Результат', exact: true })).toBeVisible();
       expect(await db.answer.count({ where: { attemptId: final.id } })).toBe(6);
       record('login again; saved results and progress');
+      const outsider = await page.context().browser()!.newContext();
+      const other = await outsider.newPage();
+      await other.goto('http://127.0.0.1:3154/login');
+      await other.getByLabel('Нікнейм або email', { exact: true }).fill('s4_other');
+      await other.getByLabel('Пароль', { exact: true }).fill(fixture.password);
+      await other.getByRole('button', { name: 'Увійти', exact: true }).click();
+      await expect(other).not.toHaveURL(/\/login/);
+      await other.goto('http://127.0.0.1:3154/tests/' + final.id);
+      await expect(other.getByRole('heading', { name: 'Сторінку не знайдено', exact: true })).toBeVisible();
+      await expect(other.locator('.d05-review-card')).toHaveCount(0);
+      const unauthorizedHtml = await other.content();
+      for (const q of controls) { expect(unauthorizedHtml).not.toContain(q.prompt); }
+      await outsider.close();
+      record('other STUDENT sees not-found for private attempt; no review or control prompts exposed');
       const early = await card(page, topic.title, 'DELAYED');
       await early.getByRole('button', { name: 'Розпочати тест' }).click();
       await expect(early.getByRole('alert')).toContainText('7 повних діб');
@@ -133,7 +160,7 @@ test('three real foundation modules: mobile learning, mistakes, persistence and 
   } finally {
     await db.$disconnect();
     // No control prompts, keys, cookies or private database path in public output.
-    writeFileSync('content/station4/browser-QA.json', JSON.stringify({ status, steps, browserErrors: errors, actualSevenDayWait: false, intervalMethod: 'Only fixture-owned FINAL timestamps moved back; server clock unchanged', productionAccessed: false }, null, 2) + '\n');
+    writeFileSync('content/station41/browser-QA.json', JSON.stringify({ status, steps, browserErrors: errors, actualSevenDayWait: false, intervalMethod: 'Only fixture-owned FINAL timestamps moved back; server clock unchanged', productionAccessed: false }, null, 2) + '\n');
   }
 });
 
@@ -155,6 +182,6 @@ test('final independently reviewed drafts stay unavailable to STUDENT until the 
     expect(controls).toHaveLength(36);
     for (const q of controls) { expect(html).not.toContain(q.id); expect(html).not.toContain(q.prompt); }
     expect(await db.testAttempt.count()).toBe(0);
-    writeFileSync('content/station4/draft-guard-QA.json', JSON.stringify({ status: 'PASS', modulesHidden: 3, controlsHidden: 36, attempts: 0, publicationBypassed: false, productionAccessed: false, practiceSha256: (JSON.parse(readFileSync('content/station4/integration-QA.json', 'utf8'))).practiceSha256 }, null, 2) + '\n');
+    writeFileSync('content/station41/draft-guard-QA.json', JSON.stringify({ status: 'PASS', modulesHidden: 3, controlsHidden: 36, attempts: 0, publicationBypassed: false, productionAccessed: false, practiceSha256: (JSON.parse(readFileSync('content/station41/integration-QA.json', 'utf8'))).practiceSha256 }, null, 2) + '\n');
   } finally { await db.$disconnect(); }
 });

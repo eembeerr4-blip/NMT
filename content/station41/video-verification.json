@@ -1,0 +1,54 @@
+{
+  "checkedAt": "2026-11-02",
+  "method": "Anonymous isolated Chromium; main-player progression checked only while no ad-showing class; visible metadata and screenshots inspected. Ad playback excluded.",
+  "fullContentReview": false,
+  "teacherQualityVerified": false,
+  "addedToLessons": 0,
+  "candidates": [
+    {
+      "id": "fTy55mhANcQ",
+      "url": "https://www.youtube.com/watch?v=fTy55mhANcQ",
+      "title": "Математика. Звичайні дроби",
+      "channel": "Всеукраїнська школа онлайн",
+      "status": "PLAYBACK_VERIFIED",
+      "durationSeconds": 438.421,
+      "displayDuration": "7:18",
+      "viewsDisplay": "75 тис. переглядів",
+      "viewsExact": null,
+      "likesObserved": 837,
+      "comments": "disabled",
+      "viewerFeedback": "unavailable",
+      "observedMainPlayback": {
+        "from": 6.977,
+        "to": 13
+      },
+      "topicFit": "Fractions prerequisite; intro only observed, full mathematical content/clarity not assessed",
+      "fullWatch": false
+    },
+    {
+      "id": "S_yWujryZ2k",
+      "url": "https://www.youtube.com/watch?v=S_yWujryZ2k",
+      "title": "Відсотки і Пропорції. Як знайти відсоток від числа та число за відсотком: Практичні Завдання з НМТ",
+      "channel": "Репетитор з математики. Підготовка до ЗНО",
+      "status": "PLAYBACK_VERIFIED",
+      "durationSeconds": 768.821,
+      "displayDuration": "12:48",
+      "viewsDisplay": "1 тис. переглядів",
+      "viewsExact": null,
+      "likesObserved": 28,
+      "commentsCountObserved": 0,
+      "viewerFeedback": "no comments displayed",
+      "observedMainPlayback": {
+        "from": 5.977,
+        "to": 11.987
+      },
+      "topicFit": "Title and intro match percentages/proportions; mathematical correctness and teaching quality not yet assessed",
+      "fullWatch": false
+    }
+  ],
+  "limitations": [
+    "No CONTENT_VERIFIED or CONFIRMED candidate. Full viewing still required; raw recommendations/ad screenshots remain private.",
+    "Native Chrome attempt encountered Computer Use approval timeout; anonymous browser used. No sign-in or user profile accessed.",
+    "Rounded view labels retained verbatim; no exact view count inferred."
+  ]
+}

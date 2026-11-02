@@ -1,0 +1,381 @@
+{
+  "stage": "4.1",
+  "preservedIds": 36,
+  "allReviewed": true,
+  "changes": [
+    {
+      "code": "s4-math-fractions-p01",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "EASY",
+      "type": "NUMERIC",
+      "changed": []
+    },
+    {
+      "code": "s4-math-fractions-p02",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "EASY",
+      "type": "NUMERIC",
+      "changed": []
+    },
+    {
+      "code": "s4-math-fractions-p03",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "EASY",
+      "type": "NUMERIC",
+      "changed": []
+    },
+    {
+      "code": "s4-math-fractions-p04",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "EASY",
+      "type": "NUMERIC",
+      "changed": []
+    },
+    {
+      "code": "s4-math-fractions-p05",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "MEDIUM",
+      "type": "NUMERIC",
+      "changed": [
+        "prompt",
+        "options",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-fractions-p06",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "MEDIUM",
+      "type": "NUMERIC",
+      "changed": [
+        "prompt",
+        "options",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-fractions-p07",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "changed": [
+        "prompt",
+        "type",
+        "options",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-fractions-p08",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "MEDIUM",
+      "type": "NUMERIC",
+      "changed": [
+        "prompt",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-fractions-p09",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "MEDIUM",
+      "type": "NUMERIC",
+      "changed": [
+        "prompt",
+        "options",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-fractions-p10",
+      "originalDifficulty": "MEDIUM",
+      "finalDifficulty": "MEDIUM",
+      "type": "SINGLE_CHOICE",
+      "changed": [
+        "prompt",
+        "type",
+        "options",
+        "explanation"
+      ]
+    },
+    {
+      "code": "s4-math-fractions-p11",
+      "originalDifficulty": "MEDIUM",
+      "finalDifficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "changed": [
+        "prompt",
+        "type",
+        "options",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-fractions-p12",
+      "originalDifficulty": "MEDIUM",
+      "finalDifficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "changed": [
+        "prompt",
+        "type",
+        "options",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-percentages-p01",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "EASY",
+      "type": "NUMERIC",
+      "changed": []
+    },
+    {
+      "code": "s4-math-percentages-p02",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "EASY",
+      "type": "NUMERIC",
+      "changed": []
+    },
+    {
+      "code": "s4-math-percentages-p03",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "EASY",
+      "type": "NUMERIC",
+      "changed": [
+        "prompt"
+      ]
+    },
+    {
+      "code": "s4-math-percentages-p04",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "EASY",
+      "type": "NUMERIC",
+      "changed": []
+    },
+    {
+      "code": "s4-math-percentages-p05",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "MEDIUM",
+      "type": "NUMERIC",
+      "changed": [
+        "prompt",
+        "options",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-percentages-p06",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "MEDIUM",
+      "type": "NUMERIC",
+      "changed": [
+        "prompt",
+        "options",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-percentages-p07",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "MEDIUM",
+      "type": "NUMERIC",
+      "changed": [
+        "prompt",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-percentages-p08",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "MEDIUM",
+      "type": "NUMERIC",
+      "changed": [
+        "prompt",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-percentages-p09",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "MEDIUM",
+      "type": "NUMERIC",
+      "changed": [
+        "prompt",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-percentages-p10",
+      "originalDifficulty": "MEDIUM",
+      "finalDifficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "changed": [
+        "prompt",
+        "type",
+        "options",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-percentages-p11",
+      "originalDifficulty": "MEDIUM",
+      "finalDifficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "changed": [
+        "prompt",
+        "type",
+        "options",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-percentages-p12",
+      "originalDifficulty": "MEDIUM",
+      "finalDifficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "changed": [
+        "prompt",
+        "type",
+        "options",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-ratios-p01",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "EASY",
+      "type": "NUMERIC",
+      "changed": []
+    },
+    {
+      "code": "s4-math-ratios-p02",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "EASY",
+      "type": "NUMERIC",
+      "changed": []
+    },
+    {
+      "code": "s4-math-ratios-p03",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "EASY",
+      "type": "NUMERIC",
+      "changed": []
+    },
+    {
+      "code": "s4-math-ratios-p04",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "EASY",
+      "type": "NUMERIC",
+      "changed": []
+    },
+    {
+      "code": "s4-math-ratios-p05",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "MEDIUM",
+      "type": "NUMERIC",
+      "changed": [
+        "prompt",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-ratios-p06",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "MEDIUM",
+      "type": "NUMERIC",
+      "changed": [
+        "prompt",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-ratios-p07",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "MEDIUM",
+      "type": "NUMERIC",
+      "changed": [
+        "prompt",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-ratios-p08",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "MEDIUM",
+      "type": "NUMERIC",
+      "changed": [
+        "prompt",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-ratios-p09",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "MEDIUM",
+      "type": "NUMERIC",
+      "changed": [
+        "prompt",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-ratios-p10",
+      "originalDifficulty": "MEDIUM",
+      "finalDifficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "changed": [
+        "prompt",
+        "type",
+        "options",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-ratios-p11",
+      "originalDifficulty": "EASY",
+      "finalDifficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "changed": [
+        "prompt",
+        "type",
+        "options",
+        "explanation",
+        "difficulty"
+      ]
+    },
+    {
+      "code": "s4-math-ratios-p12",
+      "originalDifficulty": "MEDIUM",
+      "finalDifficulty": "HARD",
+      "type": "SINGLE_CHOICE",
+      "changed": [
+        "prompt",
+        "type",
+        "options",
+        "explanation",
+        "difficulty"
+      ]
+    }
+  ]
+}

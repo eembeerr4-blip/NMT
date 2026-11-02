@@ -1,0 +1,38 @@
+{
+  "protocol": "Independent solutions and difficulty before keys; original immutable evidence retained privately. Public files contain final PRACTICE reviews only. Superseded overlap question is excluded.",
+  "rounds": [
+    {
+      "round": 1,
+      "questions": 36,
+      "blindSha256": "fe325f75a2864bce3ab23373a6d32ccc1fabce1c7c092933246a4183ff21a2b6",
+      "reviewA": "f55b8dcb2234be6349f478634f50b595486a0af4b49c141dd7c7fdf6a996ceaa",
+      "reviewB": "d7aeb247b796ef9f25437634af867460f2674fb16d0fd2f61194383bad294cc5",
+      "frozenRecordSha256": "e56f704b2510eab5e83702c86d97220e6a8fe63bed2b6d8ebaa2046445b5b69c"
+    },
+    {
+      "round": 2,
+      "questions": 9,
+      "blindSha256": "6131f5a37490a137ad02ff68be531e3aa84f477b9c4f67104cce0486e2ca0488",
+      "reviewA": "149276aaaa6fb34c1a63f3ecda6c8a34ce6fd8d05051fc9bad2e4abf373b0ec6",
+      "reviewB": "47c3cc94e124c326db7a25b6a112d6d809bb50ef77fd8e7863fb17f1c39cccfe",
+      "frozenRecordSha256": "c439b1234b2772d9409a3bce6bcad47b89ac3145fde679e44f3dea89317c521b"
+    },
+    {
+      "round": 3,
+      "questions": 2,
+      "blindSha256": "0034c11b2bbd15f4290cb5508cb2714caa306353d2c97123eea81e9945ef1e68",
+      "reviewA": "7eb36f39e2287a5abfb84799825b23622cdb0b05da1d13e2ceca0a4a255514e5",
+      "reviewB": "e9bd39a99a491b1004f9d66e082da589636f98bdd779a56ff254e7d81f39ee90",
+      "frozenRecordSha256": "8f9f6caf5de5b52856010b85ae727c140e36f29a69c0769fab6d60427cfc9c24"
+    }
+  ],
+  "practiceSha256": "12a0b0b24bafe93844758dade3dc26ba17623ff401e678f3650d8677933eb333",
+  "finalAnswerMatches": 72,
+  "difficultyDecision": {
+    "code": "s4-math-fractions-p10",
+    "A": "MEDIUM",
+    "B": "HARD",
+    "accepted": "MEDIUM",
+    "reason": "Conservative lower level; one standard work equation and rejection of negative root. No HARD promotion to satisfy quota."
+  }
+}

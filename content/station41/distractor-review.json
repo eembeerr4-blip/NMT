@@ -1,0 +1,19 @@
+{
+  "method": "Post-blind explanation of error routes after original independent solutions were frozen; no empirical error-frequency claims",
+  "F12": {
+    "8": "4+4 mistaken for total vessel volume",
+    "16": "4 litres mistaken for initial quarter of water",
+    "24": "Loss of 12/V term in repeated mixture model",
+    "48": "One-stage model4/(3/4−2/3), ignoring mixing"
+  },
+  "P10": {
+    "360": "Extraneous algebraic root implies negative discount"
+  },
+  "R10": {
+    "27": "First meeting coordinate substituted for city distance"
+  },
+  "R12": {
+    "30": "Internal transfers double-counted as added volume"
+  },
+  "outcome": "Both reviewers accept plausible origins; some are weaker reading/target errors rather than alternative models"
+}
