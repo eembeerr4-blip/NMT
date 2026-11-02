@@ -1,0 +1,193 @@
+{
+  "status": "PROPOSED_EDITORIAL_ROUTE_NOT_PUBLISHED",
+  "existingStrongLessonsReused": 3,
+  "candidates": 20,
+  "automaticPrerequisiteEnforcement": false,
+  "runtimeNextLinks": "Existing application links only available siblings. Draft candidates do not create a learner route or unlock each other.",
+  "steps": [
+    {
+      "step": 1,
+      "topicId": "s5-ukr-phonetics",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": []
+    },
+    {
+      "step": 2,
+      "topicId": "s5-ukr-spelling-core",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": [
+        "s5-ukr-phonetics"
+      ]
+    },
+    {
+      "step": 3,
+      "topicId": "cm-ukrainian-formation",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": [
+        "s5-ukr-spelling-core"
+      ]
+    },
+    {
+      "step": 4,
+      "topicId": "ukr-morph-sub-01",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": [
+        "cm-ukrainian-formation"
+      ]
+    },
+    {
+      "step": 5,
+      "topicId": "s5-ukr-noun",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": [
+        "ukr-morph-sub-01"
+      ]
+    },
+    {
+      "step": 6,
+      "topicId": "s5-ukr-adjective",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": [
+        "s5-ukr-noun"
+      ]
+    },
+    {
+      "step": 7,
+      "topicId": "s5-ukr-numeral",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": [
+        "s5-ukr-adjective"
+      ]
+    },
+    {
+      "step": 8,
+      "topicId": "s5-ukr-pronoun",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": [
+        "s5-ukr-numeral"
+      ]
+    },
+    {
+      "step": 9,
+      "topicId": "s5-ukr-verb",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": [
+        "s5-ukr-pronoun"
+      ]
+    },
+    {
+      "step": 10,
+      "topicId": "s5-ukr-adverb",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": [
+        "s5-ukr-verb"
+      ]
+    },
+    {
+      "step": 11,
+      "topicId": "s5-ukr-service",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": [
+        "s5-ukr-adverb"
+      ]
+    },
+    {
+      "step": 12,
+      "topicId": "s5-ukr-spelling-advanced",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": [
+        "s5-ukr-service"
+      ]
+    },
+    {
+      "step": 13,
+      "topicId": "ukr-lex-01-meaning",
+      "existingProductionLesson": true,
+      "prerequisiteTopicIds": [
+        "s5-ukr-spelling-advanced"
+      ]
+    },
+    {
+      "step": 14,
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "existingProductionLesson": true,
+      "prerequisiteTopicIds": [
+        "ukr-lex-01-meaning"
+      ]
+    },
+    {
+      "step": 15,
+      "topicId": "ukr-lex-03-phraseology",
+      "existingProductionLesson": true,
+      "prerequisiteTopicIds": [
+        "ukr-lex-02-syn-ant-hom"
+      ]
+    },
+    {
+      "step": 16,
+      "topicId": "s5-ukr-register",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": [
+        "ukr-lex-03-phraseology"
+      ]
+    },
+    {
+      "step": 17,
+      "topicId": "s5-ukr-syntax-simple",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": [
+        "s5-ukr-register"
+      ]
+    },
+    {
+      "step": 18,
+      "topicId": "s5-ukr-syntax-complicated",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": [
+        "s5-ukr-syntax-simple"
+      ]
+    },
+    {
+      "step": 19,
+      "topicId": "cm-ukrainian-compound-sentence",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": [
+        "s5-ukr-syntax-complicated"
+      ]
+    },
+    {
+      "step": 20,
+      "topicId": "s5-ukr-subordinate",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": [
+        "cm-ukrainian-compound-sentence"
+      ]
+    },
+    {
+      "step": 21,
+      "topicId": "s5-ukr-asyndetic",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": [
+        "s5-ukr-subordinate"
+      ]
+    },
+    {
+      "step": 22,
+      "topicId": "s5-ukr-quotation",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": [
+        "s5-ukr-asyndetic"
+      ]
+    },
+    {
+      "step": 23,
+      "topicId": "s5-ukr-text-style",
+      "existingProductionLesson": false,
+      "prerequisiteTopicIds": [
+        "s5-ukr-quotation"
+      ]
+    }
+  ],
+  "cycle": "Theory → notes → worked examples → practice → error explanation/correction → repetition → independent control",
+  "limits": "Proposed order, not a claim that all23steps are available to a student. Production remains unchanged; future approved import must reconcile grouping/order and retain correct publication gates."
+}

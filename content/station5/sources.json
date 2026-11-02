@@ -1,0 +1,52 @@
+{
+  "checkedAt": "2026-11-02",
+  "targetYear": 2027,
+  "confirmedBaselineYear": 2026,
+  "official2027SpecificationFound": false,
+  "sources": [
+    {
+      "id": "programme",
+      "url": "https://testportal.gov.ua/programe/",
+      "pdfUrl": "https://testportal.gov.ua/wp-content/uploads/2016/12/Programa_2020_ukr.mova.pdf",
+      "pdfSha256": "6baf58343d40d18f344263da20bb3752817830f526e83382ab17228bc64a3a5d",
+      "languagePagesVisuallyInspected": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "literatureExcluded": true
+    },
+    {
+      "id": "nmt2026",
+      "url": "https://testportal.gov.ua/ukrayinska-mova-2026/",
+      "scope": "Confirmed2026 baseline:30 tasks,25single-choice and5matching, no extended written answer. Not a2027 promise."
+    },
+    {
+      "id": "nmt2026-characteristics",
+      "url": "https://testportal.gov.ua/wp-content/uploads/2026/01/Harakterystyka-NMT_ukrmova_2026.pdf",
+      "scope": "Single-choice4/5options; matching4left5right."
+    },
+    {
+      "id": "orthography2026",
+      "url": "https://mon.gov.ua/static-objects/mon/sites/1/zagalna%20serednya/Pravopys.2019/ukrayinskii-pravopis-oficiine-vidannia-2026.pdf",
+      "scope": "Current state-language standard, decision47of1March2026, effective28March2026; individual relevant rules checked, not every page."
+    },
+    {
+      "id": "orthography2026-status",
+      "url": "https://mon.gov.ua/news/nabrav-chynnosti-standart-derzhavnoi-movy-ukrainskyi-pravopys",
+      "scope": "Official status and editorial/technical updates without rule changes."
+    },
+    {
+      "id": "commission-clarification",
+      "url": "https://mova.gov.ua/news/ohliad-novyn-natsionalnoi-komisii-zi-standartiv-derzhavnoi-movy-za-berezen-2026-roku",
+      "scope": "Commission states2026 changes do not affect spelling rules."
+    }
+  ],
+  "limitations": [
+    "Full stress-list and dictionary-exception coverage is not established by the initial route.",
+    "AI editorial and independent question checks do not constitute teacher approval or empirical score calibration."
+  ]
+}

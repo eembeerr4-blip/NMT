@@ -1,0 +1,80 @@
+{
+  "indexEntries": 5984,
+  "uniqueLanguageCandidates": 369,
+  "archiveRescanned": false,
+  "videosUsed": false,
+  "assetsPublished": 0,
+  "method": "Existing index filtered and SHA-deduplicated once. Five topical PDFs selected; covers and page2 visually inspected, text extracted privately. Whole files not approved.",
+  "materials": [
+    {
+      "sample": "S5-UA-1",
+      "sha256": "d0d81325d43c9ee609271da200946a0baf46b28572fad5fe417561bf14058b51",
+      "pages": 9,
+      "pagesVisuallyInspected": [
+        1,
+        2
+      ],
+      "imageQuality": "legible at rendered resolution, watermark present",
+      "rights": "UNKNOWN_DO_NOT_PUBLISH",
+      "use": "PRIVATE_REFERENCE_ONLY",
+      "fullRulesAudit": false
+    },
+    {
+      "sample": "S5-UA-2",
+      "sha256": "fa89248d9e454056e56ead4314d98fff150cc978a82d8ca4559e5b75db128841",
+      "pages": 13,
+      "pagesVisuallyInspected": [
+        1,
+        2
+      ],
+      "imageQuality": "legible at rendered resolution, watermark present",
+      "rights": "UNKNOWN_DO_NOT_PUBLISH",
+      "use": "PRIVATE_REFERENCE_ONLY",
+      "fullRulesAudit": false
+    },
+    {
+      "sample": "S5-UA-3",
+      "sha256": "0f1884de9552d23ca5648941a9662b28e30f5c8e6dad89b2fbeffc16a54a1faf",
+      "pages": 10,
+      "pagesVisuallyInspected": [
+        1,
+        2
+      ],
+      "imageQuality": "legible at rendered resolution, watermark present",
+      "rights": "UNKNOWN_DO_NOT_PUBLISH",
+      "use": "PRIVATE_REFERENCE_ONLY",
+      "fullRulesAudit": false
+    },
+    {
+      "sample": "S5-UA-4",
+      "sha256": "c51079a5e8d61cc9079fb7f1b75d062dbeee0dafffabda99a5f0295492b60105",
+      "pages": 5,
+      "pagesVisuallyInspected": [
+        1,
+        2
+      ],
+      "imageQuality": "legible at rendered resolution, watermark present",
+      "rights": "UNKNOWN_DO_NOT_PUBLISH",
+      "use": "PRIVATE_REFERENCE_ONLY",
+      "fullRulesAudit": false
+    },
+    {
+      "sample": "S5-UA-5",
+      "sha256": "56dc59d36f4c009c214db59bfb9e8d50d7ea952179c005a0326639739ba5fa6b",
+      "pages": 8,
+      "pagesVisuallyInspected": [
+        1,
+        2
+      ],
+      "imageQuality": "legible at rendered resolution, watermark present",
+      "rights": "UNKNOWN_DO_NOT_PUBLISH",
+      "use": "PRIVATE_REFERENCE_ONLY",
+      "fullRulesAudit": false
+    }
+  ],
+  "conclusions": [
+    "Morpheme chart is a useful reading prompt, but the original lesson distinguishes a morpheme from an entire stem and checks immediate derivation separately.",
+    "Parts-of-speech, numeral, pronoun and participle tables were checked for the visible basic classification; context, exceptions and normative examples must come from primary sources.",
+    "No paid page, original exercise, archive path or account identity copied to Git. Original notes/rules retained; internal file references stay outside repository."
+  ]
+}

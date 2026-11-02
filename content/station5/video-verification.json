@@ -1,0 +1,129 @@
+{
+  "checkedAt": "2026-11-02",
+  "method": "Real anonymous Chromium main-player progression; advertisements excluded; public metadata and accessible like labels observed.",
+  "fullyWatched": 0,
+  "confirmed": 0,
+  "addedToLessons": 0,
+  "candidates": [
+    {
+      "id": "NDmd6xU9F2E",
+      "url": "https://www.youtube.com/watch?v=NDmd6xU9F2E",
+      "title": "Українська мова. Лексикологія. Лексичне значення слова. Однозначні й багатозначні слова",
+      "status": "PLAYBACK_VERIFIED",
+      "durationSeconds": 663.401,
+      "viewsDisplay": "29 тис. переглядів",
+      "viewsExact": null,
+      "likesObserved": 268,
+      "comments": "disabled",
+      "positiveViewerFeedback": null,
+      "fullWatch": false,
+      "mathematicalOrLanguageContentVerified": false,
+      "mainPlayerObserved": {
+        "before": 5.888549,
+        "after": 11.900456
+      },
+      "usefulTeachingTimestamps": [],
+      "limitation": "Only opening playback observed; full content, teaching quality and useful timestamps remain unverified. No promotion from a title or few seconds."
+    },
+    {
+      "id": "scigg_eN4qs",
+      "url": "https://www.youtube.com/watch?v=scigg_eN4qs",
+      "title": "10 клас. Українська мова. Лексичні та фразеологічні синоніми, антоніми. Синонімічне багатство мови",
+      "status": "PLAYBACK_VERIFIED",
+      "durationSeconds": 548.761,
+      "viewsDisplay": "31 тис. переглядів",
+      "viewsExact": null,
+      "likesObserved": 325,
+      "comments": "disabled",
+      "positiveViewerFeedback": null,
+      "fullWatch": false,
+      "mathematicalOrLanguageContentVerified": false,
+      "mainPlayerObserved": {
+        "before": 5.880063,
+        "after": 11.888048
+      },
+      "usefulTeachingTimestamps": [],
+      "limitation": "Only opening playback observed; full content, teaching quality and useful timestamps remain unverified. No promotion from a title or few seconds."
+    },
+    {
+      "id": "o9xcL5pCxog",
+      "url": "https://www.youtube.com/watch?v=o9xcL5pCxog",
+      "title": "Українська мова. Омоніми. Пароніми. Словник омонімів. Словник паронімів",
+      "status": "PLAYBACK_VERIFIED",
+      "durationSeconds": 681.441,
+      "viewsDisplay": "26 тис. переглядів",
+      "viewsExact": null,
+      "likesObserved": 325,
+      "comments": "disabled",
+      "positiveViewerFeedback": null,
+      "fullWatch": false,
+      "mathematicalOrLanguageContentVerified": false,
+      "mainPlayerObserved": {
+        "before": 5.871288,
+        "after": 11.889551
+      },
+      "usefulTeachingTimestamps": [],
+      "limitation": "Only opening playback observed; full content, teaching quality and useful timestamps remain unverified. No promotion from a title or few seconds."
+    },
+    {
+      "id": "oZfA9V0mhV4",
+      "url": "https://www.youtube.com/watch?v=oZfA9V0mhV4",
+      "title": "Українська мова. Джерела українських фразеологізмів. Фразеологізми у мовленні людини",
+      "status": "PLAYBACK_VERIFIED",
+      "durationSeconds": 685.561,
+      "viewsDisplay": "20 тис. переглядів",
+      "viewsExact": null,
+      "likesObserved": 216,
+      "comments": "disabled",
+      "positiveViewerFeedback": null,
+      "fullWatch": false,
+      "mathematicalOrLanguageContentVerified": false,
+      "mainPlayerObserved": {
+        "before": 5.941999,
+        "after": 11.951967
+      },
+      "usefulTeachingTimestamps": [],
+      "limitation": "Only opening playback observed; full content, teaching quality and useful timestamps remain unverified. No promotion from a title or few seconds."
+    },
+    {
+      "id": "wm0X68H_WtQ",
+      "url": "https://www.youtube.com/watch?v=wm0X68H_WtQ",
+      "title": "Українська мова. Фразеологія. Поняття про фразеологізм, його лексичне значення",
+      "status": "PLAYBACK_VERIFIED",
+      "durationSeconds": 625.201,
+      "viewsDisplay": "40 тис. переглядів",
+      "viewsExact": null,
+      "likesObserved": 466,
+      "comments": "disabled",
+      "positiveViewerFeedback": null,
+      "fullWatch": false,
+      "mathematicalOrLanguageContentVerified": false,
+      "mainPlayerObserved": {
+        "before": 5.992977,
+        "after": 12.011663
+      },
+      "usefulTeachingTimestamps": [],
+      "limitation": "Only opening playback observed; full content, teaching quality and useful timestamps remain unverified. No promotion from a title or few seconds."
+    },
+    {
+      "id": "uDffUp7AuYQ",
+      "url": "https://www.youtube.com/watch?v=uDffUp7AuYQ",
+      "title": "9 клас. Українська мова. Орфографія",
+      "status": "PLAYBACK_VERIFIED",
+      "durationSeconds": 553.801,
+      "viewsDisplay": "15 тис. переглядів",
+      "viewsExact": null,
+      "likesObserved": 312,
+      "comments": "disabled",
+      "positiveViewerFeedback": null,
+      "fullWatch": false,
+      "mathematicalOrLanguageContentVerified": false,
+      "mainPlayerObserved": {
+        "before": 5.476317,
+        "after": 11.482606
+      },
+      "usefulTeachingTimestamps": [],
+      "limitation": "Only opening playback observed; full content, teaching quality and useful timestamps remain unverified. No promotion from a title or few seconds."
+    }
+  ]
+}

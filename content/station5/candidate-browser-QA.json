@@ -1,0 +1,148 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "cm-ukrainian-formation",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    },
+    {
+      "id": "ukr-morph-sub-01",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    },
+    {
+      "id": "cm-ukrainian-compound-sentence",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    },
+    {
+      "id": "s5-ukr-register",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    },
+    {
+      "id": "s5-ukr-noun",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    },
+    {
+      "id": "s5-ukr-adjective",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    },
+    {
+      "id": "s5-ukr-numeral",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    },
+    {
+      "id": "s5-ukr-pronoun",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    },
+    {
+      "id": "s5-ukr-verb",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    },
+    {
+      "id": "s5-ukr-adverb",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    },
+    {
+      "id": "s5-ukr-service",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    },
+    {
+      "id": "s5-ukr-phonetics",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    },
+    {
+      "id": "s5-ukr-spelling-core",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    },
+    {
+      "id": "s5-ukr-spelling-advanced",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    },
+    {
+      "id": "s5-ukr-syntax-simple",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    },
+    {
+      "id": "s5-ukr-syntax-complicated",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    },
+    {
+      "id": "s5-ukr-subordinate",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    },
+    {
+      "id": "s5-ukr-asyndetic",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    },
+    {
+      "id": "s5-ukr-quotation",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    },
+    {
+      "id": "s5-ukr-text-style",
+      "staffTheoryNotesSixExamples": "PASS",
+      "mobileOverflow": false,
+      "studentAvailable": false,
+      "gateBypassed": false
+    }
+  ],
+  "browserErrors": [],
+  "productionAccessed": false,
+  "studentCycleForDrafts": "BLOCKED by unchanged gate, not claimed PASS"
+}

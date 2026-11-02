@@ -1,0 +1,273 @@
+{
+  "checkedAt": "2026-11-02T18:27:28.425Z",
+  "mode": "READ_ONLY_QUERY_ONLY",
+  "personalTablesRead": false,
+  "topics": [
+    {
+      "id": "ukr-phonetics",
+      "parentId": null,
+      "title": "Фонетика та орфоепія",
+      "coverage": "VERIFIED",
+      "available": true,
+      "theoryChars": 215,
+      "notesChars": 0,
+      "examples": 1,
+      "questions": 4,
+      "verification": {
+        "VERIFIED": 4
+      },
+      "shortExplanations": 4
+    },
+    {
+      "id": "ukr-lexis",
+      "parentId": null,
+      "title": "Лексикологія",
+      "coverage": "VERIFIED",
+      "available": true,
+      "theoryChars": 222,
+      "notesChars": 0,
+      "examples": 1,
+      "questions": 4,
+      "verification": {
+        "VERIFIED": 4
+      },
+      "shortExplanations": 4
+    },
+    {
+      "id": "ukr-word",
+      "parentId": null,
+      "title": "Будова слова",
+      "coverage": "VERIFIED",
+      "available": true,
+      "theoryChars": 202,
+      "notesChars": 0,
+      "examples": 1,
+      "questions": 4,
+      "verification": {
+        "VERIFIED": 4
+      },
+      "shortExplanations": 4
+    },
+    {
+      "id": "ukr-ortho",
+      "parentId": null,
+      "title": "Орфографія",
+      "coverage": "VERIFIED",
+      "available": true,
+      "theoryChars": 1536,
+      "notesChars": 0,
+      "examples": 3,
+      "questions": 12,
+      "verification": {
+        "VERIFIED": 12
+      },
+      "shortExplanations": 10
+    },
+    {
+      "id": "ukr-morph",
+      "parentId": null,
+      "title": "Морфологія",
+      "coverage": "VERIFIED",
+      "available": true,
+      "theoryChars": 227,
+      "notesChars": 0,
+      "examples": 1,
+      "questions": 4,
+      "verification": {
+        "VERIFIED": 4
+      },
+      "shortExplanations": 4
+    },
+    {
+      "id": "ukr-syntax",
+      "parentId": null,
+      "title": "Синтаксис",
+      "coverage": "VERIFIED",
+      "available": true,
+      "theoryChars": 235,
+      "notesChars": 0,
+      "examples": 1,
+      "questions": 4,
+      "verification": {
+        "VERIFIED": 4
+      },
+      "shortExplanations": 4
+    },
+    {
+      "id": "ukr-punct",
+      "parentId": null,
+      "title": "Пунктуація",
+      "coverage": "VERIFIED",
+      "available": true,
+      "theoryChars": 204,
+      "notesChars": 0,
+      "examples": 1,
+      "questions": 4,
+      "verification": {
+        "VERIFIED": 4
+      },
+      "shortExplanations": 4
+    },
+    {
+      "id": "ukr-style",
+      "parentId": null,
+      "title": "Текст і стилістика",
+      "coverage": "VERIFIED",
+      "available": true,
+      "theoryChars": 258,
+      "notesChars": 0,
+      "examples": 1,
+      "questions": 4,
+      "verification": {
+        "VERIFIED": 4
+      },
+      "shortExplanations": 4
+    },
+    {
+      "id": "ukr-lexicology-section-01",
+      "parentId": null,
+      "title": "Лексикологія та фразеологія",
+      "coverage": "READY",
+      "available": true,
+      "theoryChars": 1147,
+      "notesChars": 72,
+      "examples": 4,
+      "questions": 12,
+      "verification": {
+        "VERIFIED": 12
+      },
+      "shortExplanations": 4
+    },
+    {
+      "id": "ukr-lex-01-meaning",
+      "parentId": "s7a-sec-ukr-lex",
+      "title": "Лексичне значення слова",
+      "coverage": "READY",
+      "available": true,
+      "theoryChars": 5675,
+      "notesChars": 136,
+      "examples": 6,
+      "questions": 12,
+      "verification": {
+        "VERIFIED": 12
+      },
+      "shortExplanations": 0
+    },
+    {
+      "id": "ukr-lex-02-syn-ant-hom",
+      "parentId": "s7a-sec-ukr-lex",
+      "title": "Синоніми, антоніми, омоніми",
+      "coverage": "READY",
+      "available": true,
+      "theoryChars": 3735,
+      "notesChars": 184,
+      "examples": 6,
+      "questions": 12,
+      "verification": {
+        "VERIFIED": 12
+      },
+      "shortExplanations": 1
+    },
+    {
+      "id": "ukr-lex-03-phraseology",
+      "parentId": "s7a-sec-ukr-lex",
+      "title": "Фразеологізми",
+      "coverage": "READY",
+      "available": true,
+      "theoryChars": 4756,
+      "notesChars": 176,
+      "examples": 6,
+      "questions": 12,
+      "verification": {
+        "VERIFIED": 12
+      },
+      "shortExplanations": 0
+    },
+    {
+      "id": "s7a-sec-ukr-lex",
+      "parentId": null,
+      "title": "Stage 7A.1 · ukrainian",
+      "coverage": "NEEDS_CONTENT",
+      "available": false,
+      "theoryChars": 0,
+      "notesChars": 0,
+      "examples": 0,
+      "questions": 0,
+      "verification": {},
+      "shortExplanations": 0
+    },
+    {
+      "id": "s7a-sec-ukrainian-v2",
+      "parentId": null,
+      "title": "Stage 7A.1 · ukrainian",
+      "coverage": "NEEDS_CONTENT",
+      "available": false,
+      "theoryChars": 0,
+      "notesChars": 0,
+      "examples": 0,
+      "questions": 0,
+      "verification": {},
+      "shortExplanations": 0
+    },
+    {
+      "id": "ukr-ortho-sub-01",
+      "parentId": "s7a-sec-ukrainian-v2",
+      "title": "Ненаголошені голосні",
+      "coverage": "READY",
+      "available": true,
+      "theoryChars": 1209,
+      "notesChars": 0,
+      "examples": 4,
+      "questions": 12,
+      "verification": {
+        "VERIFIED": 12
+      },
+      "shortExplanations": 9
+    }
+  ],
+  "videos": [
+    {
+      "topicId": "ukr-lex-01-meaning",
+      "title": "Українська мова. Лексикологія. Лексичне значення слова. Однозначні й багатозначні слова",
+      "youtubeId": "NDmd6xU9F2E",
+      "reviewStatus": "SUGGESTED"
+    },
+    {
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "title": "10 клас. Українська мова. Лексичні та фразеологічні синоніми, антоніми. Синонімічне багатство мови",
+      "youtubeId": "scigg_eN4qs",
+      "reviewStatus": "SUGGESTED"
+    },
+    {
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "title": "Українська мова. Омоніми. Пароніми. Словник омонімів. Словник паронімів",
+      "youtubeId": "o9xcL5pCxog",
+      "reviewStatus": "SUGGESTED"
+    },
+    {
+      "topicId": "ukr-lex-03-phraseology",
+      "title": "Українська мова. Джерела українських фразеологізмів. Фразеологізми у мовленні людини",
+      "youtubeId": "oZfA9V0mhV4",
+      "reviewStatus": "SUGGESTED"
+    },
+    {
+      "topicId": "ukr-lex-03-phraseology",
+      "title": "Українська мова. Фразеологія. Поняття про фразеологізм, його лексичне значення",
+      "youtubeId": "wm0X68H_WtQ",
+      "reviewStatus": "SUGGESTED"
+    },
+    {
+      "topicId": "ukr-ortho",
+      "title": "ВШО: Орфографія (9 клас)",
+      "youtubeId": "uDffUp7AuYQ",
+      "reviewStatus": "SUGGESTED"
+    }
+  ],
+  "duplicatePromptIds": [
+    "q-u4",
+    "q-u6",
+    "q-u7",
+    "q-u11"
+  ],
+  "duplicateCheckScope": "Exact repeated stems only; differing options/keys may make distinct questions. No full-item duplicate claim."
+}

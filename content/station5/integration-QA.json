@@ -1,0 +1,216 @@
+{
+  "status": "PASS",
+  "productionWrites": false,
+  "candidates": [
+    {
+      "id": "cm-ukrainian-formation",
+      "title": "Словотвір і морфемний аналіз",
+      "ready": false,
+      "counts": {
+        "EASY": 9,
+        "MEDIUM": 3,
+        "HARD": 0
+      }
+    },
+    {
+      "id": "ukr-morph-sub-01",
+      "title": "Самостійні та службові частини мови: визначення в контексті",
+      "ready": false,
+      "counts": {
+        "EASY": 10,
+        "MEDIUM": 2,
+        "HARD": 0
+      }
+    },
+    {
+      "id": "cm-ukrainian-compound-sentence",
+      "title": "Складносурядне речення: граматичні основи, кома та винятки",
+      "ready": false,
+      "counts": {
+        "EASY": 9,
+        "MEDIUM": 3,
+        "HARD": 0
+      }
+    },
+    {
+      "id": "s5-ukr-register",
+      "title": "Лексика за походженням, уживанням і забарвленням",
+      "ready": false,
+      "counts": {
+        "EASY": 12,
+        "MEDIUM": 0,
+        "HARD": 0
+      }
+    },
+    {
+      "id": "s5-ukr-noun",
+      "title": "Іменник: рід, число, відмінки та відмінювання",
+      "ready": false,
+      "counts": {
+        "EASY": 10,
+        "MEDIUM": 2,
+        "HARD": 0
+      }
+    },
+    {
+      "id": "s5-ukr-adjective",
+      "title": "Прикметник: розряди, ступені порівняння та узгодження",
+      "ready": false,
+      "counts": {
+        "EASY": 10,
+        "MEDIUM": 2,
+        "HARD": 0
+      }
+    },
+    {
+      "id": "s5-ukr-numeral",
+      "title": "Числівник: відмінювання, узгодження, позначення часу",
+      "ready": false,
+      "counts": {
+        "EASY": 6,
+        "MEDIUM": 6,
+        "HARD": 0
+      }
+    },
+    {
+      "id": "s5-ukr-pronoun",
+      "title": "Займенник: розряди, відмінювання та точність уживання",
+      "ready": false,
+      "counts": {
+        "EASY": 8,
+        "MEDIUM": 4,
+        "HARD": 0
+      }
+    },
+    {
+      "id": "s5-ukr-verb",
+      "title": "Дієслово, дієприкметник і дієприслівник",
+      "ready": false,
+      "counts": {
+        "EASY": 9,
+        "MEDIUM": 3,
+        "HARD": 0
+      }
+    },
+    {
+      "id": "s5-ukr-adverb",
+      "title": "Прислівник: значення, ступені порівняння та правопис",
+      "ready": false,
+      "counts": {
+        "EASY": 6,
+        "MEDIUM": 6,
+        "HARD": 0
+      }
+    },
+    {
+      "id": "s5-ukr-service",
+      "title": "Прийменник, сполучник, частка та вигук",
+      "ready": false,
+      "counts": {
+        "EASY": 6,
+        "MEDIUM": 6,
+        "HARD": 0
+      }
+    },
+    {
+      "id": "s5-ukr-phonetics",
+      "title": "Фонетика, графіка й орфоепія",
+      "ready": false,
+      "counts": {
+        "EASY": 9,
+        "MEDIUM": 3,
+        "HARD": 0
+      }
+    },
+    {
+      "id": "s5-ukr-spelling-core",
+      "title": "Орфографія: основні буквені написання",
+      "ready": false,
+      "counts": {
+        "EASY": 10,
+        "MEDIUM": 2,
+        "HARD": 0
+      }
+    },
+    {
+      "id": "s5-ukr-spelling-advanced",
+      "title": "Орфографія: разом, окремо, дефіс і велика буква",
+      "ready": false,
+      "counts": {
+        "EASY": 8,
+        "MEDIUM": 4,
+        "HARD": 0
+      }
+    },
+    {
+      "id": "s5-ukr-syntax-simple",
+      "title": "Словосполучення й просте речення",
+      "ready": false,
+      "counts": {
+        "EASY": 9,
+        "MEDIUM": 3,
+        "HARD": 0
+      }
+    },
+    {
+      "id": "s5-ukr-syntax-complicated",
+      "title": "Просте ускладнене речення й пунктуація",
+      "ready": false,
+      "counts": {
+        "EASY": 7,
+        "MEDIUM": 5,
+        "HARD": 0
+      }
+    },
+    {
+      "id": "s5-ukr-subordinate",
+      "title": "Складнопідрядне речення й кілька підрядних",
+      "ready": false,
+      "counts": {
+        "EASY": 4,
+        "MEDIUM": 8,
+        "HARD": 0
+      }
+    },
+    {
+      "id": "s5-ukr-asyndetic",
+      "title": "Безсполучникове речення і змішаний зв’язок",
+      "ready": false,
+      "counts": {
+        "EASY": 8,
+        "MEDIUM": 4,
+        "HARD": 0
+      }
+    },
+    {
+      "id": "s5-ukr-quotation",
+      "title": "Пряма й непряма мова, цитата та діалог",
+      "ready": false,
+      "counts": {
+        "EASY": 6,
+        "MEDIUM": 6,
+        "HARD": 0
+      }
+    },
+    {
+      "id": "s5-ukr-text-style",
+      "title": "Стилістика, культура мовлення і читання тексту",
+      "ready": false,
+      "counts": {
+        "EASY": 8,
+        "MEDIUM": 4,
+        "HARD": 0
+      }
+    }
+  ],
+  "questionsImported": 240,
+  "gatesUnchanged": true,
+  "privateControls": 12,
+  "controlBankScope": "QA-only original candidate; not a complete Ukrainian assessment system",
+  "legacyStatePreserved": true,
+  "packageHashes": {
+    "content/station5/existing-foundations.PRACTICE.package.json": "e6199b30684b6b67ecf4f5b5d17922e61ebd4767f6e0dacff5eb159affe1dc94",
+    "content/station5/morphology.PRACTICE.package.json": "26c3b99791c1a8553a91901f5fc0fc154ecd61e841b9ded4290459c5ec38eb2f",
+    "content/station5/language-route.PRACTICE.package.json": "0301d79d42911cbdc9ebc8bcf575b1e64e64e3baf4c5863e014829f218c71a87"
+  }
+}

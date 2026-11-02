@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "scope": "One existing READY lexical lesson; this does not assert new DRAFT candidate availability or full course acceptance",
+  "checks": [
+    "12-question real legacy practice, one error, SC/matching/legacy short text, draft reload, explanations, private controls excluded",
+    "mistake correction, lesson completion, saved progress and review schedule",
+    "FINAL6/6, relogin and persistence",
+    "other learner denied, premature DELAYED denied, fixture-only7day simulation, DELAYED6/6 and MASTERED;24answers3attempts; integrity/FK clean"
+  ],
+  "browserErrors": [],
+  "actualSevenDayWait": false,
+  "productionAccessed": false,
+  "privateControlBankPublished": false
+}

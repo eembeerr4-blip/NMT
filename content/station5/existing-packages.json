@@ -1,0 +1,74 @@
+[
+  {
+    "file": "content/stage8/packages/ukrainian-foundation.package.json",
+    "note": "AI-authored, subject review candidate, isolated QA required; no working publication authorized.",
+    "topics": [
+      {
+        "code": "cm-ukrainian-formation",
+        "title": "Словотвір і морфемний аналіз",
+        "theory": 2082,
+        "notes": 270,
+        "examples": 3,
+        "questions": 12
+      }
+    ]
+  },
+  {
+    "file": "content/stage8/batch02/ukrainian-grammar.package.json",
+    "note": "Original educational candidate. No working import/publication authorized. Sources verify rules, not copied exercises.",
+    "topics": [
+      {
+        "code": "ukr-morph-sub-01",
+        "title": "Самостійні та службові частини мови: визначення в контексті",
+        "theory": 2081,
+        "notes": 86,
+        "examples": 3,
+        "questions": 12
+      },
+      {
+        "code": "cm-ukrainian-compound-sentence",
+        "title": "Складносурядне речення: граматичні основи, кома та винятки",
+        "theory": 2076,
+        "notes": 104,
+        "examples": 3,
+        "questions": 12
+      }
+    ]
+  },
+  {
+    "file": "content/stage8/validation82/packages/ukrainian-foundation.package.json",
+    "note": "Stage8.2 candidate revision. Separate blind review required. No working import or publication authorized; real difficulty labels do not satisfy arbitrary HARD quotas.",
+    "topics": [
+      {
+        "code": "cm-ukrainian-formation",
+        "title": "Словотвір і морфемний аналіз",
+        "theory": 2082,
+        "notes": 270,
+        "examples": 3,
+        "questions": 12
+      }
+    ]
+  },
+  {
+    "file": "content/stage8/validation82/packages/ukrainian-grammar.package.json",
+    "note": "Stage8.2 candidate revision. Separate blind review required. No working import or publication authorized; real difficulty labels do not satisfy arbitrary HARD quotas.",
+    "topics": [
+      {
+        "code": "ukr-morph-sub-01",
+        "title": "Самостійні та службові частини мови: визначення в контексті",
+        "theory": 2081,
+        "notes": 86,
+        "examples": 3,
+        "questions": 12
+      },
+      {
+        "code": "cm-ukrainian-compound-sentence",
+        "title": "Складносурядне речення: граматичні основи, кома та винятки",
+        "theory": 2076,
+        "notes": 104,
+        "examples": 3,
+        "questions": 12
+      }
+    ]
+  }
+]

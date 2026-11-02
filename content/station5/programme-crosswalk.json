@@ -1,0 +1,1021 @@
+{
+  "checkedAt": "2026-11-02",
+  "targetYear": 2027,
+  "status": "PROVISIONAL_2026_BASELINE_NOT_FULLY_COVERED",
+  "programme": "https://testportal.gov.ua/wp-content/uploads/2016/12/Programa_2020_ukr.mova.pdf",
+  "languagePagesVisuallyRead": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "literatureExcluded": true,
+  "orthographyStandard": "https://mon.gov.ua/static-objects/mon/sites/1/zagalna%20serednya/Pravopys.2019/ukrayinskii-pravopis-oficiine-vidannia-2026.pdf",
+  "no2027SpecificationClaim": true,
+  "rows": [
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Алфавіт і порядок слів",
+      "existingTopicId": "ukr-phonetics",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 215,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-phonetics",
+      "remaining": "Повний банк алфавітного впорядкування",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Наголос за програмним додатком",
+      "existingTopicId": "ukr-phonetics",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 215,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-phonetics",
+      "remaining": "Повний перевірений список наголосів і відкладене відтворення, а не кілька слів",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Звуки і букви; я/ю/є/ї/щ; дж/дз; м’якість",
+      "existingTopicId": "ukr-phonetics",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 215,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-phonetics",
+      "remaining": "Контекстні винятки й достатня кількість транскрипцій",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Уподібнення приголосних",
+      "existingTopicId": "ukr-phonetics",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 215,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-phonetics",
+      "remaining": "Усі передбачені основні типи вимови в контексті",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Спрощення та винятки",
+      "existingTopicId": "ukr-phonetics",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 215,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-spelling-core",
+      "remaining": "Систематичне повторення всіх винятків",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Милозвучність у/в та і/й",
+      "existingTopicId": "ukr-phonetics",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 215,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-phonetics",
+      "remaining": "Контекстні межі взаємозаміни",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Ненаголошені е/и/о",
+      "existingTopicId": "ukr-ortho-sub-01",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 1209,
+        "examples": 4,
+        "verifiedQuestions": 12
+      },
+      "candidateTopicId": "s5-ukr-spelling-core",
+      "remaining": "Словникові слова поза перевірними моделями",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Йо/ьо, м’який знак",
+      "existingTopicId": "ukr-ortho",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 1536,
+        "examples": 3,
+        "verifiedQuestions": 12
+      },
+      "candidateTopicId": "s5-ukr-spelling-core",
+      "remaining": "Повний набір позицій і винятків",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Апостроф",
+      "existingTopicId": "ukr-ortho",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 1536,
+        "examples": 3,
+        "verifiedQuestions": 12
+      },
+      "candidateTopicId": "s5-ukr-spelling-core",
+      "remaining": "Запозичені слова та морфемні межі",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Подовження і збіг однакових приголосних",
+      "existingTopicId": "ukr-ortho",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 1536,
+        "examples": 3,
+        "verifiedQuestions": 12
+      },
+      "candidateTopicId": "s5-ukr-spelling-core",
+      "remaining": "Відмінювання і словникові винятки",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Префікси і суфікси",
+      "existingTopicId": "ukr-ortho",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 1536,
+        "examples": 3,
+        "verifiedQuestions": 12
+      },
+      "candidateTopicId": "s5-ukr-spelling-core",
+      "remaining": "Словотвірні суфіксальні чергування",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Чергування голосних і приголосних",
+      "existingTopicId": "ukr-ortho",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 1536,
+        "examples": 3,
+        "verifiedQuestions": 12
+      },
+      "candidateTopicId": "s5-ukr-spelling-core",
+      "remaining": "Повний банк основних чергувань",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Велика літера і лапки у власних назвах",
+      "existingTopicId": "ukr-ortho",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 1536,
+        "examples": 3,
+        "verifiedQuestions": 12
+      },
+      "candidateTopicId": "s5-ukr-spelling-advanced",
+      "remaining": "Усі основні групи власних назв",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Іншомовні слова",
+      "existingTopicId": "ukr-ortho",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 1536,
+        "examples": 3,
+        "verifiedQuestions": 12
+      },
+      "candidateTopicId": "s5-ukr-spelling-advanced",
+      "remaining": "Правило дев’ятки, подвоєння, апостроф, нормативні варіанти",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Перенос слів",
+      "existingTopicId": "ukr-ortho",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 1536,
+        "examples": 3,
+        "verifiedQuestions": 12
+      },
+      "candidateTopicId": "s5-ukr-spelling-advanced",
+      "remaining": "Окремі завдання на всі обмеження переносу",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Складні і складноскорочені слова",
+      "existingTopicId": "ukr-ortho",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 1536,
+        "examples": 3,
+        "verifiedQuestions": 12
+      },
+      "candidateTopicId": "s5-ukr-spelling-advanced",
+      "remaining": "Різні моделі разом/дефіс та абревіатури",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Відмінкові закінчення",
+      "existingTopicId": "ukr-morph",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 227,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-noun",
+      "remaining": "Контекстне словникове розмежування -а/-у",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Н/нн; не з різними частинами мови",
+      "existingTopicId": "ukr-ortho",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 1536,
+        "examples": 3,
+        "verifiedQuestions": 12
+      },
+      "candidateTopicId": "s5-ukr-spelling-advanced",
+      "remaining": "Контекстне відрізнення ознаки/заперечення та винятки",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Однозначність і багатозначність, пряме/переносне значення",
+      "existingTopicId": "ukr-lex-01-meaning",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 5675,
+        "examples": 6,
+        "verifiedQuestions": 12
+      },
+      "candidateTopicId": null,
+      "remaining": "Зберегти якісну наявну тему; повна нова перевірка старого банку не виконувалась",
+      "coverageStatus": "SUBSTANTIAL_EXISTING_NOT_FULL_PROGRAMME_APPROVAL",
+      "reviewStatus": "EXISTING_AUDIT_ONLY_NOT_FRESH_KEY_REVIEW",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 1,
+      "officialRequirement": "Синоніми, антоніми, омоніми, пароніми",
+      "existingTopicId": "ukr-lex-02-syn-ant-hom",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 3735,
+        "examples": 6,
+        "verifiedQuestions": 12
+      },
+      "candidateTopicId": null,
+      "remaining": "Паронімічні словникові групи поза поточними вправами",
+      "coverageStatus": "SUBSTANTIAL_EXISTING_NOT_FULL_PROGRAMME_APPROVAL",
+      "reviewStatus": "EXISTING_AUDIT_ONLY_NOT_FRESH_KEY_REVIEW",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 2,
+      "officialRequirement": "Походження, запозичення, власне українська лексика",
+      "existingTopicId": "ukr-lexicology-section-01",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 1147,
+        "examples": 4,
+        "verifiedQuestions": 12
+      },
+      "candidateTopicId": "s5-ukr-register",
+      "remaining": "Підготовлено окремий базовий урок; етимологічні словникові реєстри та розгорнуте контекстне повторення не заявляються повними.",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 2,
+      "officialRequirement": "Професійна, діалектна, розмовна лексика; терміни",
+      "existingTopicId": "ukr-lexicology-section-01",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 1147,
+        "examples": 4,
+        "verifiedQuestions": 12
+      },
+      "candidateTopicId": "s5-ukr-register",
+      "remaining": "Підготовлено окремий базовий урок; етимологічні словникові реєстри та розгорнуте контекстне повторення не заявляються повними.",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 2,
+      "officialRequirement": "Застарілі слова, неологізми, емоційна й нейтральна лексика",
+      "existingTopicId": "ukr-lexicology-section-01",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 1147,
+        "examples": 4,
+        "verifiedQuestions": 12
+      },
+      "candidateTopicId": "s5-ukr-register",
+      "remaining": "Підготовлено окремий базовий урок; етимологічні словникові реєстри та розгорнуте контекстне повторення не заявляються повними.",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 2,
+      "officialRequirement": "Значення та доречне вживання фразеологізмів",
+      "existingTopicId": "ukr-lex-03-phraseology",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 4756,
+        "examples": 6,
+        "verifiedQuestions": 12
+      },
+      "candidateTopicId": null,
+      "remaining": "Зберегти якісну тему; словниковий запас потребує подальшого повторення",
+      "coverageStatus": "SUBSTANTIAL_EXISTING_NOT_FULL_PROGRAMME_APPROVAL",
+      "reviewStatus": "EXISTING_AUDIT_ONLY_NOT_FRESH_KEY_REVIEW",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 2,
+      "officialRequirement": "Морфеми; основа/закінчення; форми і споріднені слова",
+      "existingTopicId": "ukr-word",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 202,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "cm-ukrainian-formation",
+      "remaining": "Кандидат доповнює доступний стислий огляд; робочий імпорт заборонено",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 2,
+      "officialRequirement": "Способи творення та безпосередня твірна основа",
+      "existingTopicId": "ukr-word",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 202,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "cm-ukrainian-formation",
+      "remaining": "Повний банк на складання/перехід/безафіксне творення поза старими12питаннями",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 2,
+      "officialRequirement": "Частини мови в контексті",
+      "existingTopicId": "ukr-morph",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 227,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "ukr-morph-sub-01",
+      "remaining": "Кандидат-вступ не замінює окремих розділів морфології",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 2,
+      "officialRequirement": "Іменник: значення, власні/загальні, істоти/неістоти",
+      "existingTopicId": "ukr-morph",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 227,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-noun",
+      "remaining": "Достатня різноманітність контекстів",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 2,
+      "officialRequirement": "Іменник: рід, число, незмінювані слова",
+      "existingTopicId": "ukr-morph",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 227,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-noun",
+      "remaining": "Словникові випадки за межами наведеного набору",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 2,
+      "officialRequirement": "Іменник: відмінювання, по батькові, кличний",
+      "existingTopicId": "ukr-morph",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 227,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-noun",
+      "remaining": "Повні відмінкові парадигми й винятки",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 2,
+      "officialRequirement": "Прикметник: розряди, відмінювання, ступені порівняння",
+      "existingTopicId": "ukr-morph",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 227,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-adjective",
+      "remaining": "Непорівнювані ознаки і нормативні форми в контексті",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 2,
+      "officialRequirement": "Числівник: кількісні та порядкові парадигми",
+      "existingTopicId": "ukr-morph",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 227,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-numeral",
+      "remaining": "Усі типи складених числівників",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 2,
+      "officialRequirement": "Числівник: узгодження, час і дати",
+      "existingTopicId": "ukr-morph",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 227,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-numeral",
+      "remaining": "Контекстні вправи з дробовими/збірними та датами",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 2,
+      "officialRequirement": "Займенник: розряди, відмінювання, неозначені/заперечні",
+      "existingTopicId": "ukr-morph",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 227,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-pronoun",
+      "remaining": "Варіантні відмінкові форми та текстова однозначність",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 3,
+      "officialRequirement": "Дієслово: вид, час, способи, особові форми, дієвідміни",
+      "existingTopicId": "ukr-morph",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 227,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-verb",
+      "remaining": "Повні парадигми й винятки дієвідмінювання",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 3,
+      "officialRequirement": "Дієприкметник, активні/пасивні форми, зворот, -но/-то",
+      "existingTopicId": "ukr-morph",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 227,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-verb",
+      "remaining": "Самостійний поглиблений банк на морфологію і пунктуацію",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 3,
+      "officialRequirement": "Дієприслівник, зворот, спільний діяч",
+      "existingTopicId": "ukr-morph",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 227,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-verb",
+      "remaining": "Межі відокремлення в усіх програмних конструкціях",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 3,
+      "officialRequirement": "Прислівник: роль, ступені, правопис",
+      "existingTopicId": "ukr-morph",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 227,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-adverb",
+      "remaining": "Лексикалізовані сполуки та словникові випадки",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 3,
+      "officialRequirement": "Прийменник: керування і написання",
+      "existingTopicId": "ukr-morph",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 227,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-service",
+      "remaining": "Повний перелік похідних/складених моделей",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 3,
+      "officialRequirement": "Сполучник: групи, будова, написання, омонімічні сполуки",
+      "existingTopicId": "ukr-morph",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 227,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-service",
+      "remaining": "Вправи на всі типи зв’язку",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 4,
+      "officialRequirement": "Частка: функції та написання",
+      "existingTopicId": "ukr-morph",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 227,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-service",
+      "remaining": "Контекстне не/ні та формотворчі частки",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 4,
+      "officialRequirement": "Вигук: функції й написання",
+      "existingTopicId": "ukr-morph",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 227,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-service",
+      "remaining": "Звуконаслідування й пунктуаційні варіанти",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 4,
+      "officialRequirement": "Словосполучення; сурядність/підрядність",
+      "existingTopicId": "ukr-syntax",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 235,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-syntax-simple",
+      "remaining": "Систематичне розрізнення синтаксичних одиниць",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 4,
+      "officialRequirement": "Речення: мета, емоційність, будова, повнота, поширеність",
+      "existingTopicId": "ukr-syntax",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 235,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-syntax-simple",
+      "remaining": "Окремий банк неповних конструкцій",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 4,
+      "officialRequirement": "Підмет/присудок, зв’язок і тире",
+      "existingTopicId": "ukr-syntax",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 235,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-syntax-simple",
+      "remaining": "Складені присудки та винятки постановки тире",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 4,
+      "officialRequirement": "Другорядні члени, прикладка, порівняльний зворот",
+      "existingTopicId": "ukr-syntax",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 235,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-syntax-simple",
+      "remaining": "Контекстна неоднозначність функцій та відокремлення",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 4,
+      "officialRequirement": "Усі типи односкладних речень",
+      "existingTopicId": "ukr-syntax",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 235,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-syntax-simple",
+      "remaining": "Розрізнення односкладного та неповного двоскладного",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 5,
+      "officialRequirement": "Однорідні члени, узагальнювальні слова",
+      "existingTopicId": "ukr-punct",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 204,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-syntax-complicated",
+      "remaining": "Однорідні/неоднорідні означення, багатокомпонентні переліки",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 5,
+      "officialRequirement": "Звертання, вставні компоненти",
+      "existingTopicId": "ukr-punct",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 204,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-syntax-complicated",
+      "remaining": "Омонімічні члени речення та вставні конструкції",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 5,
+      "officialRequirement": "Відокремлені означення, прикладки, додатки, обставини, уточнення",
+      "existingTopicId": "ukr-punct",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 204,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-syntax-complicated",
+      "remaining": "Повний банк винятків і контекстних відмінностей",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 5,
+      "officialRequirement": "Типи складного речення і смислові відношення",
+      "existingTopicId": "ukr-syntax",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 235,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "cm-ukrainian-compound-sentence",
+      "remaining": "Групування складних синтаксичних блоків",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 5,
+      "officialRequirement": "Складносурядне: сполучники, кома, винятки, сильні знаки",
+      "existingTopicId": "ukr-syntax",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 235,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "cm-ukrainian-compound-sentence",
+      "remaining": "У кандидаті розширено теорію; для нових правил потрібна додаткова практика",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 5,
+      "officialRequirement": "Складнопідрядне: сполучники/сполучні слова, види підрядних",
+      "existingTopicId": "ukr-syntax",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 235,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-subordinate",
+      "remaining": "Усі обставинні типи та контекстні переходи",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 5,
+      "officialRequirement": "Кілька підрядних: однорідність, послідовність, неоднорідність",
+      "existingTopicId": "ukr-syntax",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 235,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-subordinate",
+      "remaining": "Достатня кількість багаторівневих конструкцій",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 5,
+      "officialRequirement": "Безсполучникове: відношення і розділові знаки",
+      "existingTopicId": "ukr-syntax",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 235,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-asyndetic",
+      "remaining": "Варіантність кома/крапка з комою; залежність від смислу",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 6,
+      "officialRequirement": "Різні види сполучникового й безсполучникового зв’язку",
+      "existingTopicId": "ukr-syntax",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 235,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-asyndetic",
+      "remaining": "Поглиблений банк інтегрованих завдань",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 6,
+      "officialRequirement": "Пряма/непряма мова, заміна, цитати, діалог",
+      "existingTopicId": "ukr-punct",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 204,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-quotation",
+      "remaining": "Усі схеми розриву прямої мови словами автора",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 6,
+      "officialRequirement": "П’ять програмних стилів, функції й мовні ознаки",
+      "existingTopicId": "ukr-style",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 258,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-text-style",
+      "remaining": "Розрізнення стилів на розгорнутих текстах",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 6,
+      "officialRequirement": "Адресат/адресант, усне/писемне, монолог/діалог",
+      "existingTopicId": "ukr-style",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 258,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-text-style",
+      "remaining": "Комунікативні ситуації різних жанрів",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 6,
+      "officialRequirement": "Тема, основна думка, мікротеми, абзаци, зв’язність",
+      "existingTopicId": "ukr-style",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 258,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-text-style",
+      "remaining": "Більше повних текстів із кількома питаннями",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 6,
+      "officialRequirement": "Критичне читання, головне/другорядне, аргументи/висновки",
+      "existingTopicId": "ukr-style",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 258,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-text-style",
+      "remaining": "Повноцінний розгорнутий модуль читання й редагування",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    },
+    {
+      "pdfPage": 6,
+      "officialRequirement": "Власне висловлення та редагування мовлення",
+      "existingTopicId": "ukr-style",
+      "productionAvailable": true,
+      "existingEvidence": {
+        "theoryChars": 258,
+        "examples": 1,
+        "verifiedQuestions": 4
+      },
+      "candidateTopicId": "s5-ukr-text-style",
+      "remaining": "Не змішувати програмну навичку письма з форматом НМТ2026: розгорнутої відповіді немає",
+      "coverageStatus": "PARTIAL_OR_REVIEW_ONLY",
+      "reviewStatus": "INDEPENDENT_AI_REVIEWED_FOUNDATIONAL_CANDIDATE",
+      "candidateAvailableInProduction": false
+    }
+  ],
+  "finalReconciledAt": "2026-11-03",
+  "all62RowsMapped": true,
+  "fullCurriculumAcceptance": false,
+  "blockers": [
+    "No new production import/publication authorized; all20candidates remainDRAFT in real-gate QA.",
+    "Full prescribed stress list and dictionary exception coverage not established.",
+    "Only one short new reading text, no extensive reviewed mixed NMT bank.",
+    "No full-course private FINAL/DELAYED assessment banks;12QA-only controls are not course acceptance.",
+    "Videos not fully watched or confirmed."
+  ]
+}

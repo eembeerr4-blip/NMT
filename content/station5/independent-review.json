@@ -1,0 +1,1766 @@
+{
+  "completedAt": "2026-11-02T22:49:15.669Z",
+  "kind": "Independent AI cross-review; not teacher approval or empirical calibration",
+  "protocol": "Author and reviewer differ for each packet. Independent answers frozen before keys; delta questions only rechecked. All explanations then read, five final explanation fixes separately accepted.",
+  "coverage": "One independent agent review per PRACTICE question across two reviewers, not two reviews of every question.",
+  "practiceKeysMatched": 240,
+  "synopsisModulesReviewed": 9,
+  "privateQaControlsMatched": 12,
+  "privateControlsIncluded": false,
+  "unresolvedKeyOrExplanationErrors": 0,
+  "remainingPedagogicalLimits": [
+    "Foundational/intermediate practice; no genuine HARD labels established.",
+    "Some inherited explanations group incorrect options; no claim that each distractor is individually calibrated.",
+    "Complete stress list, dictionary exceptions, extensive reading and full-course closed assessments remain incomplete."
+  ],
+  "corrections": [
+    "Two existing MATCHING questions extended to4left/5right.",
+    "14 morphology matching answer orders permuted and rechecked; repeated answer pattern removed.",
+    "Ambiguous spelling distractor replaced; indirect-speech addressee made explicit; verification-word stress marked.",
+    "Pronoun/adverb example wording and five final explanation errors fixed and checked."
+  ],
+  "evidenceHashes": [
+    {
+      "file": "review-existing-blind.json",
+      "sha256": "bcb444104fcf2813146f3c645b2eb311e1fc6d1553dbef9ccec28e8bb7c28032"
+    },
+    {
+      "file": "review-existing-blind.v2.json",
+      "sha256": "d86bf09b5ad5afbd2473fe1369fd1440e06e21eaef4cba9dd06d5c6bc08344c8"
+    },
+    {
+      "file": "review-existing-full.json",
+      "sha256": "3c8dec60b98fe956143fb5ff8cb61d868b46a031d4520c1dc042d2ba618a6c4b"
+    },
+    {
+      "file": "review-morphology-blind.json",
+      "sha256": "853aacc25e9bbb47ff325a33c5ac7dfb1e8a3d567266951c3c9f94bc664b100e"
+    },
+    {
+      "file": "review-morphology-blind.v2.json",
+      "sha256": "186478f93dfdc66a575e44b12d45d65cf6b1f2102d6af367874e362d8a57dbe1"
+    },
+    {
+      "file": "review-morphology-full.json",
+      "sha256": "4acef38d04ce730940d7ef4ef9ebfb5f263d0ec7a055635af3d014e8407fad7d"
+    },
+    {
+      "file": "review-language-route-blind.json",
+      "sha256": "b1a22fd933a5db5383f2f68d303813b3c4137bba7fbcbe72cf789477fde1cdab"
+    },
+    {
+      "file": "review-language-route-blind.v2.json",
+      "sha256": "2bdf8ba450145c9578a070f6255a5d14ef19dd47097b2e070caf36d4ddaf8194"
+    },
+    {
+      "file": "review-language-route-full.json",
+      "sha256": "4c99aba2a90e77ebdd754557cc8020034c5458c85b85eb4c5eb1c4b7c74c91af"
+    },
+    {
+      "file": "explanation-route-fix-review.json",
+      "sha256": "fc1edb5be13bdcc995a503ac8f2721d238a65194a6c0c608bc096a3e587f141b"
+    },
+    {
+      "file": "explanation-morphology-fix-review.json",
+      "sha256": "851afbe16ec335d693a1b13aa71310391d6924ae08d5c69e1e785f5f880e2823"
+    },
+    {
+      "file": "synopsis-review.json",
+      "sha256": "ab975f0928869ac07dd5c47c9f27fa8b1f220f7ccd23e027592ff8815acb471b"
+    },
+    {
+      "file": "synopsis-review.v2.json",
+      "sha256": "a76bc5e637d99d41efd3ba2a793d23b723857f64d291b3242a31181faf20bb09"
+    },
+    {
+      "file": "review-controls-blind.json",
+      "sha256": "b4921124daa91403671cae292b5e8cb6c74314eb59f15dfe7cd2e26ac16aaa96"
+    },
+    {
+      "file": "review-controls-blind.v2.json",
+      "sha256": "3e965d7d88e1b0e16ac1312f27eac36841a158e112cbbedab7470ff9661a7b11"
+    }
+  ],
+  "questions": [
+    {
+      "code": "s8-ukrainian-foundation-01",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8-ukrainian-foundation-02",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8-ukrainian-foundation-03",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8-ukrainian-foundation-04",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8-ukrainian-foundation-05",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8-ukrainian-foundation-06",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8-ukrainian-foundation-07",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8-ukrainian-foundation-08",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8-ukrainian-foundation-09",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8-ukrainian-foundation-10",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8-ukrainian-foundation-11",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8-ukrainian-foundation-12",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-1-01",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-1-02",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-1-03",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-1-04",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-1-05",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-1-06",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-1-07",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-1-08",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-1-09",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-1-10",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-1-11",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-1-12",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-2-01",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-2-02",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-2-03",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-2-04",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-2-05",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-2-06",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-2-07",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-2-08",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-2-09",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-2-10",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-2-11",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s8b2-2-12",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-register-p01",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-register-p02",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-register-p03",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-register-p04",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-register-p05",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-register-p06",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-register-p07",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-register-p08",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-register-p09",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-register-p10",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-register-p11",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-register-p12",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-noun-p01",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-noun-p02",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-noun-p03",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-noun-p04",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-noun-p05",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-noun-p06",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-noun-p07",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-noun-p08",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-noun-p09",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-noun-p10",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-noun-p11",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-noun-p12",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adjective-p01",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adjective-p02",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adjective-p03",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adjective-p04",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adjective-p05",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adjective-p06",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adjective-p07",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adjective-p08",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adjective-p09",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adjective-p10",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adjective-p11",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adjective-p12",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-numeral-p01",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-numeral-p02",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-numeral-p03",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-numeral-p04",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-numeral-p05",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-numeral-p06",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-numeral-p07",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-numeral-p08",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-numeral-p09",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-numeral-p10",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-numeral-p11",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-numeral-p12",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-pronoun-p01",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-pronoun-p02",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-pronoun-p03",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-pronoun-p04",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-pronoun-p05",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-pronoun-p06",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-pronoun-p07",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-pronoun-p08",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-pronoun-p09",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-pronoun-p10",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-pronoun-p11",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-pronoun-p12",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-verb-p01",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-verb-p02",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-verb-p03",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-verb-p04",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-verb-p05",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-verb-p06",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-verb-p07",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-verb-p08",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-verb-p09",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-verb-p10",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-verb-p11",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-verb-p12",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adverb-p01",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adverb-p02",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adverb-p03",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adverb-p04",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adverb-p05",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adverb-p06",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adverb-p07",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adverb-p08",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adverb-p09",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adverb-p10",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adverb-p11",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-adverb-p12",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-service-p01",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-service-p02",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-service-p03",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-service-p04",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-service-p05",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-service-p06",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-service-p07",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-service-p08",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-service-p09",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-service-p10",
+      "reviewer": "s5_language_route",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-service-p11",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-service-p12",
+      "reviewer": "s5_language_route",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-phonetics-p01",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-phonetics-p02",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-phonetics-p03",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-phonetics-p04",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-phonetics-p05",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-phonetics-p06",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-phonetics-p07",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-phonetics-p08",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-phonetics-p09",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-phonetics-p10",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-phonetics-p11",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-phonetics-p12",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-core-p01",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-core-p02",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-core-p03",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-core-p04",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-core-p05",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-core-p06",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-core-p07",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-core-p08",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-core-p09",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-core-p10",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-core-p11",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-core-p12",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-advanced-p01",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-advanced-p02",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-advanced-p03",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-advanced-p04",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-advanced-p05",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-advanced-p06",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-advanced-p07",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-advanced-p08",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-advanced-p09",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-advanced-p10",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-advanced-p11",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-spelling-advanced-p12",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-simple-p01",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-simple-p02",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-simple-p03",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-simple-p04",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-simple-p05",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-simple-p06",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-simple-p07",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-simple-p08",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-simple-p09",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-simple-p10",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-simple-p11",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-simple-p12",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-complicated-p01",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-complicated-p02",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-complicated-p03",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-complicated-p04",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-complicated-p05",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-complicated-p06",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-complicated-p07",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-complicated-p08",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-complicated-p09",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-complicated-p10",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-complicated-p11",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-syntax-complicated-p12",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-subordinate-p01",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-subordinate-p02",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-subordinate-p03",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-subordinate-p04",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-subordinate-p05",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-subordinate-p06",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-subordinate-p07",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-subordinate-p08",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-subordinate-p09",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-subordinate-p10",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-subordinate-p11",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-subordinate-p12",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-asyndetic-p01",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-asyndetic-p02",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-asyndetic-p03",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-asyndetic-p04",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-asyndetic-p05",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-asyndetic-p06",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-asyndetic-p07",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-asyndetic-p08",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-asyndetic-p09",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-asyndetic-p10",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-asyndetic-p11",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-asyndetic-p12",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-quotation-p01",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-quotation-p02",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-quotation-p03",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-quotation-p04",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-quotation-p05",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-quotation-p06",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-quotation-p07",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-quotation-p08",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-quotation-p09",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-quotation-p10",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-quotation-p11",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-quotation-p12",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-text-style-p01",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-text-style-p02",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-text-style-p03",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-text-style-p04",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-text-style-p05",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-text-style-p06",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-text-style-p07",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-text-style-p08",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-text-style-p09",
+      "reviewer": "s5_morphology",
+      "difficulty": "MEDIUM",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-text-style-p10",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-text-style-p11",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    },
+    {
+      "code": "s5-ukr-text-style-p12",
+      "reviewer": "s5_morphology",
+      "difficulty": "EASY",
+      "keyMatches": true,
+      "explanationReviewed": true
+    }
+  ]
+}

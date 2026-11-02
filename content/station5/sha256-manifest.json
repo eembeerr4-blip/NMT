@@ -1,0 +1,106 @@
+{
+  "createdAt": "2026-11-02T22:53:35.169Z",
+  "format": "UTF-8 LF canonical text; manifest excludes itself",
+  "files": [
+    {
+      "file": "content/station5/RESULT.md",
+      "bytes": 5741,
+      "sha256": "85533f8424dc08a58eb210e11d48baa883dd1f6a8ca0009d0306779df77d3191"
+    },
+    {
+      "file": "content/station5/candidate-browser-QA.json",
+      "bytes": 3837,
+      "sha256": "cbf3bc6b0d826149c2fb4396f2c97be693d56bf067304effe3895d2e0afc8c20"
+    },
+    {
+      "file": "content/station5/existing-foundations.PRACTICE.package.json",
+      "bytes": 122973,
+      "sha256": "e6199b30684b6b67ecf4f5b5d17922e61ebd4767f6e0dacff5eb159affe1dc94"
+    },
+    {
+      "file": "content/station5/existing-packages.json",
+      "bytes": 2624,
+      "sha256": "18a3a7b033333177d6c166c3895a5be51bd1ae428a28d54c2dc5bc894b7877de"
+    },
+    {
+      "file": "content/station5/independent-review.json",
+      "bytes": 45746,
+      "sha256": "bf0d0198e34a084aed649b1584dd24659ab6aca0c2c688ecb4bcaa4fbd30b2e9"
+    },
+    {
+      "file": "content/station5/integration-QA.json",
+      "bytes": 5763,
+      "sha256": "492b872f53c9c5ae92d689924ed852dea6cc52fb54826981208975dd554612af"
+    },
+    {
+      "file": "content/station5/language-route.PRACTICE.package.json",
+      "bytes": 297858,
+      "sha256": "0301d79d42911cbdc9ebc8bcf575b1e64e64e3baf4c5863e014829f218c71a87"
+    },
+    {
+      "file": "content/station5/learner-browser-QA.json",
+      "bytes": 701,
+      "sha256": "4023a23c2ee6dd93a3728291ed61827ae2a65335215526bfdf4f4a5f79d64fe9"
+    },
+    {
+      "file": "content/station5/learning-route.json",
+      "bytes": 4750,
+      "sha256": "c9688d3f8e22a5725402abae1ec4118a2a97b26c6ed37090807ec8111c22af90"
+    },
+    {
+      "file": "content/station5/live-audit.json",
+      "bytes": 7251,
+      "sha256": "9975d86d009a9b1fda2d5eb371de1c3957d4838d87d1e33cfff7bdbc45c014c9"
+    },
+    {
+      "file": "content/station5/morphology.PRACTICE.package.json",
+      "bytes": 254873,
+      "sha256": "26c3b99791c1a8553a91901f5fc0fc154ecd61e841b9ded4290459c5ec38eb2f"
+    },
+    {
+      "file": "content/station5/programme-crosswalk.json",
+      "bytes": 42461,
+      "sha256": "8e71693bc5e3c87f1c04e79e7d6042b2791f53f4ccfd253d6f8282531e75809f"
+    },
+    {
+      "file": "content/station5/sources.json",
+      "bytes": 2091,
+      "sha256": "53f3a7dc74ed1f43bc8f1f6cb2b837687190c6a185f4ab4458ed370d80fa2b82"
+    },
+    {
+      "file": "content/station5/telegram-selection.json",
+      "bytes": 2848,
+      "sha256": "6d2537d2951f2982df3b7481c2f59b60fcb233db0be9650e701a3f568309e0a5"
+    },
+    {
+      "file": "content/station5/video-verification.json",
+      "bytes": 5598,
+      "sha256": "4b98a61f116584649a7e145e2401aabc18d16d2aa86e9511a59c588850c364bc"
+    },
+    {
+      "file": "e2e/station5/ukrainian.spec.ts",
+      "bytes": 12033,
+      "sha256": "51bc50a3a7b3b46bfecbe76f0109fb9f6b417fa2c13b0ee619947760c61e5d2c"
+    },
+    {
+      "file": "playwright.station5.config.ts",
+      "bytes": 562,
+      "sha256": "a97502b2c36e0b30505b86bbf6b84060e64e450e929e1b1e2619930ddd75371d"
+    },
+    {
+      "file": "scripts/station5-audit.mjs",
+      "bytes": 2534,
+      "sha256": "1563e1a9c6467036ad9c6050607f44ce585fca3842330c8795eb0042e0f9bb98"
+    },
+    {
+      "file": "scripts/station5-qa-server.mjs",
+      "bytes": 1230,
+      "sha256": "81d144b8daa5f9d8456459098a495f632684bb4ae9a10593af1b94663b07200c"
+    },
+    {
+      "file": "tests/station5-ukrainian.db.test.ts",
+      "bytes": 9519,
+      "sha256": "4e2994b60f39ffe1fd6fe3a8b834449ae8a26ec4655c53f4f6c71a655991abe2"
+    }
+  ]
+}
