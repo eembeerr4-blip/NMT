@@ -1,0 +1,15 @@
+import { expect, it } from 'vitest';
+import { proposedMastery, proposedStart, proposedNextTopic } from '../content/stage8/validation82/assessment-policy-prototype.mjs';
+const first = { id:'a',userId:'qa',topicId:'math-expressions',purpose:'FINAL',status:'COMPLETED',pendingCount:0,totalCount:6,correctCount:5,questionIds:['f1','f2','f3','f4','f5','f6'],completedAt:'2026-10-01T12:00:00Z' };
+const later = { ...first,id:'b',purpose:'DELAYED',questionIds:['d1','d2','d3','d4','d5','d6'],completedAt:'2026-10-08T12:00:00Z' };
+const evaluate = (attempts: typeof first[]) => proposedMastery({userId:'qa',topicId:'math-expressions',attempts});
+it('requires two independent successes, not one or a duplicated ID',()=>{expect(evaluate([first]).mastered).toBe(false);expect(evaluate([first,first]).mastered).toBe(false);});
+it('accepts exactly seven elapsed days and5/6 on each form',()=>expect(evaluate([first,later]).mastered).toBe(true));
+it('rejects six days23hours59minutes',()=>expect(evaluate([first,{...later,completedAt:'2026-10-08T11:59:00Z'}]).mastered).toBe(false));
+it('rejects4/6 and pending manual grading',()=>{expect(evaluate([first,{...later,correctCount:4}]).mastered).toBe(false);expect(evaluate([first,{...later,pendingCount:1}]).mastered).toBe(false);});
+it('uses exact80percent rather than rounded proportional defaults',()=>{expect(evaluate([{...first,totalCount:11,correctCount:8,questionIds:Array.from({length:11},(_,i)=>'x'+i)},later]).mastered).toBe(false);});
+it('rejects reused questions and other users or topics',()=>{expect(evaluate([first,{...later,questionIds:first.questionIds}]).mastered).toBe(false);expect(evaluate([first,{...later,userId:'other'}]).mastered).toBe(false);expect(evaluate([first,{...later,topicId:'other'}]).mastered).toBe(false);});
+it('does not count training or external self-reports as mastery',()=>{expect(evaluate([{...first,purpose:'TRAINING'},later]).mastered).toBe(false);expect(evaluate([{...first,purpose:'SELF_REPORTED'},later]).mastered).toBe(false);});
+it('blocks holdout reuse and practice overlap in the proposal',()=>{const p={userId:'qa',topicId:'math-expressions',purpose:'FINAL',questionIds:first.questionIds,trainingQuestionIds:[],attempts:[first],now:later.completedAt};expect(proposedStart(p).reason).toBe('ALREADY_EXPOSED');expect(proposedStart({...p,attempts:[],trainingQuestionIds:['f1']}).reason).toBe('TRAINING_OVERLAP');});
+it('blocks early delayed entry and accepts only after the interval',()=>{const p={userId:'qa',topicId:'math-expressions',purpose:'DELAYED',questionIds:later.questionIds,trainingQuestionIds:[],attempts:[first],now:first.completedAt};expect(proposedStart(p).reason).toBe('DELAY_NOT_REACHED');expect(proposedStart({...p,now:later.completedAt}).allowed).toBe(true);});
+it('requires mastered prerequisites for the proposed recommendation',()=>{expect(proposedNextTopic({prerequisiteIds:['base'],masteredTopicIds:[]}).allowed).toBe(false);expect(proposedNextTopic({prerequisiteIds:['base'],masteredTopicIds:['base']}).allowed).toBe(true);});
