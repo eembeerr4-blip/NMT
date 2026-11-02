@@ -1,0 +1,1260 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "status": "PARTIAL_RECOVERY_STATION5_NOT_READY",
+  "repository": "eembeerr4-blip/NMT",
+  "base_head": "164a3e6f03512a2afa9d5e952e22f886d8debeb9",
+  "publication_branch": "station5/academic-audit-recovery-20261103",
+  "original_opus": {
+    "files_found": false,
+    "integrity": "NOT CHECKABLE: original files not found",
+    "searched_locations": [
+      "local Downloads",
+      "project work areas",
+      "available local temporary results",
+      "targeted local research-note names"
+    ],
+    "verified_conclusions_recovered_from_opus": [],
+    "reported_prior_work": "User reports Opus research; no accessible original final report or attributable working notes recovered",
+    "authorship": "Codex reconstruction from existing Antigravity/Codex/repository materials; not an original Opus report"
+  },
+  "verdicts": [
+    {
+      "id": "s7a-ukr-ortho-sub-01-e05",
+      "verdict": "CONFIRMED_ERROR",
+      "finding": "Сохранённое объяснение неверно ставит ударение в земля́ на е. Непомеченные землі допускают разные формы, а зе́млю также имеет ударный е: одной заменой ключа неоднозначность не устранить.",
+      "proposed_correction": "Переработать набор вариантов и явно обозначить ударения/падеж. Оставить ровно одну проверочную форму; не применять механическую смену ключа.",
+      "applied": false,
+      "provenance": "CODEX_ADDITIONAL_TARGETED_CHECK_NOT_RECOVERED_OPUS_VERDICT",
+      "evidence": "Antigravity educational snapshot record; content/stage8/final-24-additional-review.json observations[id]; SUM11 stress.",
+      "source_ids": [
+        "SUM_EARTH"
+      ],
+      "inspected_record_sha256": "f5265f2227d3384e105d1326ae022599f0f0503bc1410010b5ba2ce2453beb17"
+    },
+    {
+      "id": "ukr-lex-01-q12",
+      "verdict": "NEEDS_MORE_EVIDENCE",
+      "finding": "Объяснение признаёт сочетание с відкрити підручник безошибочным; q04 отвергает его. Внутренняя коллизия подтверждена. Консультация ИУЯ предпочитает розгортати, но окончательное решение об универсальной допустимости и единственности ошибки в данном тесте не восстановлено.",
+      "proposed_correction": "Согласовать q04/q12 по явно названной учебной норме. После предметного решения можно заменить спорный контекст однозначным; сейчас не менять ключ.",
+      "applied": false,
+      "provenance": "CODEX_ADDITIONAL_TARGETED_CHECK_NOT_RECOVERED_OPUS_VERDICT",
+      "evidence": "Snapshot q12 versus q04; IUL consultation printed p260; general SUM11 article is not explicit collocation approval.",
+      "source_ids": [
+        "IUL_CONSULTATION",
+        "SUM_OPEN"
+      ],
+      "inspected_record_sha256": "212cf859bd4fbb6414bae8ce8914e41dae04ff4cb8ef0ac301c42432e160510b"
+    },
+    {
+      "id": "ukr-lex-01-q04",
+      "verdict": "NEEDS_MORE_EVIDENCE",
+      "finding": "Ключ со школьно рекомендуемым розгорнути поддержан консультацией ИУЯ, но абсолютный запрет альтернативы в объяснении и согласование с q12 требуют отдельного нормативного решения. Внутреннее противоречие не объявляется доказанной новой неверной буквой ключа.",
+      "proposed_correction": "Уточнить рамку нормативного/редакторского предпочтения и заменить спорный дистрактор после согласованного решения по паре.",
+      "applied": false,
+      "provenance": "CODEX_ADDITIONAL_TARGETED_CHECK_NOT_RECOVERED_OPUS_VERDICT",
+      "evidence": "Snapshot q04; existing Stage8 finding NEEDS_NORMATIVE_REVIEW; IUL2020 consultation.",
+      "source_ids": [
+        "IUL_CONSULTATION",
+        "SUM_OPEN"
+      ],
+      "inspected_record_sha256": "2ce103eb35ca881dfd6f0157b0f4fa11d6e4b40d9e5f9a853b0a47be714dc5a5"
+    },
+    {
+      "id": "qx-word-4",
+      "verdict": "PASS",
+      "finding": "Вопрос спрашивает именно суффикс инфинитива: -ти корректен; наличие -а- в основе не делает его ответом на другой вопрос. Метка HARD не обоснована содержательной сложностью.",
+      "proposed_correction": "Предметный ключ не менять. Отдельно пересмотреть сложность при будущей калибровке, не в этой задаче.",
+      "applied": false,
+      "provenance": "CODEX_ADDITIONAL_TARGETED_CHECK_NOT_RECOVERED_OPUS_VERDICT",
+      "evidence": "prisma/practice-extra.ts:140; last file commit248620d9265907a3924bf5fd78726f2cd9f2f10c; textbook§46.",
+      "source_ids": [
+        "INFINITIVE_TEXTBOOK",
+        "ULIF_ARCHIVE"
+      ],
+      "inspected_record_sha256": "f561c243e3cda063e22b799d540f2ff2d280f5adbf2c8419494e5964a216e9bc"
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e02",
+      "verdict": "CONFIRMED_ERROR",
+      "finding": "Объяснение утверждает ударное о в вода́. Среди сохранённых вариантов нет нужной формы с ударным корневым о; однокоренность сама по себе не проверяет безударный гласный.",
+      "proposed_correction": "Добавить явно акцентированную проверочную форму во́ди с однозначным контекстом и полностью пересмотреть варианты/объяснение. Не менять лишь букву ключа.",
+      "applied": false,
+      "provenance": "CODEX_ADDITIONAL_TARGETED_CHECK_NOT_RECOVERED_OPUS_VERDICT",
+      "evidence": "Snapshot e02; Stage8 final-24-additional-review; SUM11 вода́.",
+      "source_ids": [
+        "SUM_WATER"
+      ],
+      "inspected_record_sha256": "fce1382d82ac5bf6f9dbb216e230838a83867de15f5caa910fb09495d4d70085"
+    },
+    {
+      "id": "s5-ukr-syntax-simple-p01",
+      "verdict": "PASS",
+      "finding": "Читати книжку — подчинительное сочетание полнозначных слов. Однородное соединение, предикативная основа, предложная форма и аналитическое будущее исключаются по школьной классификации. Подтверждённой неоднозначности не найдено.",
+      "proposed_correction": "Корректировку не предлагать без нового предметного основания.",
+      "applied": false,
+      "provenance": "CODEX_ADDITIONAL_TARGETED_CHECK_NOT_RECOVERED_OPUS_VERDICT",
+      "evidence": "language-route.PRACTICE.package.json topic=s5-ukr-syntax-simple questions[code]; earlier independent-review plus present targeted analysis.",
+      "source_ids": [
+        "SYNTAX_TEXTBOOK",
+        "ULIF_ARCHIVE"
+      ],
+      "inspected_record_sha256": "b6cfe8208c0ad1a7979ebbf005b78c76cd6574ce688e3f699ab50e46b757b805"
+    },
+    {
+      "id": "s5-ukr-phonetics-E5",
+      "verdict": "PASS",
+      "finding": "В м’ята два слога и два гласных звука [а]. Я после апострофа передаёт [йа], конечная а — второй гласный. Утверждение примера не следует ошибочно читать как «две буквы а».",
+      "proposed_correction": "Не исправлять как предметную ошибку; для новичка допустимо предложить явную запись звуков [а], а не менять результат.",
+      "applied": false,
+      "provenance": "CODEX_ADDITIONAL_TARGETED_CHECK_NOT_RECOVERED_OPUS_VERDICT",
+      "evidence": "language-route.PRACTICE.package.json topic=s5-ukr-phonetics lesson.examples[4]. E5 is a report alias, not a persisted ID. Present direct phonetic analysis.",
+      "source_ids": [],
+      "inspected_record_sha256": "ecc278520c72d307e4b4299c97865b5a04ea115b36b6e21f543a04c312327879"
+    },
+    {
+      "id": "s5-ukr-verb-E4",
+      "verdict": "PASS",
+      "finding": "Предложенное исправление с я впустив грамматически даёт общего деятеля для обеих действий. Падение предмета и его выпускание не полностью тождественны по контексту, но это не доказанная грамматическая ошибка исправленного предложения.",
+      "proposed_correction": "Если требуется строго сохранить исходную ситуацию, предложить вариант Коли я йшов до школи, у мене впав зошит. Это редакторская рекомендация, не применённое исправление.",
+      "applied": false,
+      "provenance": "CODEX_ADDITIONAL_TARGETED_CHECK_NOT_RECOVERED_OPUS_VERDICT",
+      "evidence": "morphology.PRACTICE.package.json topic=s5-ukr-verb lesson.examples[3]. E4 is a report alias. Same-doer rule corroborated by indexed textbook excerpt.",
+      "source_ids": [
+        "GERUND_TEXTBOOK"
+      ],
+      "inspected_record_sha256": "276a4d9c54b808e7cd7d5a2f8626fdec4a62d4325c3ffde7d15228bf24e8606f"
+    },
+    {
+      "id": "s5-ukr-asyndetic-p06",
+      "verdict": "PASS",
+      "finding": "В кликав — ніхто не озвався естественно восстанавливается але и контраст ожидания/результата. Другие варианты представлены как следствие, пояснение, причина и условие; подтверждённого второго столь же подходящего варианта не найдено.",
+      "proposed_correction": "Не менять ключ. Дополнительный контекст можно рассмотреть при редактуре; утверждение PASS ограничено данным набором, не всем модулем.",
+      "applied": false,
+      "provenance": "CODEX_ADDITIONAL_TARGETED_CHECK_NOT_RECOVERED_OPUS_VERDICT",
+      "evidence": "language-route.PRACTICE.package.json topic=s5-ukr-asyndetic questions[code]; prior independent AI review and present targeted semantic analysis, not a new external teacher review.",
+      "source_ids": [],
+      "inspected_record_sha256": "03072ae3c6fda9a62013a889823035657739721a9761ca4ffad3e2d72325971e"
+    }
+  ],
+  "score_rubric": {
+    "0": "Not evidenced or not accepted for full-course use; not proof of bad unseen material",
+    "1": "Fragmentary",
+    "2": "Useful but materially incomplete",
+    "3": "Substantial partial coverage, acceptance gaps remain",
+    "4": "Near complete and independently verified, minor gaps",
+    "5": "Complete verified course with demonstrated learning results"
+  },
+  "scores": [
+    {
+      "dimension": "theory",
+      "score": 1,
+      "max_score": 5,
+      "scope": "Published164a3e6 plus dated evidence, not fresh production inspection",
+      "reason": "Неравномерная опубликованная база: сильнее три лексических урока, большинство остальных — короткие обзоры."
+    },
+    {
+      "dimension": "synopses",
+      "score": 1,
+      "max_score": 5,
+      "scope": "Published164a3e6 plus dated evidence, not fresh production inspection",
+      "reason": "Непустые итоги/правила есть у13/13 по предшествующему техническому QA; краткость не обеспечивает полноценного повторения. notes=0 не означает пустой конспект."
+    },
+    {
+      "dimension": "worked_examples",
+      "score": 2,
+      "max_score": 5,
+      "scope": "Published164a3e6 plus dated evidence, not fresh production inspection",
+      "reason": "В исторических доступных уроках36 примеров; есть полезные разборы, но охват программы и обучение переносу навыка не доказаны."
+    },
+    {
+      "dimension": "practice",
+      "score": 1,
+      "max_score": 5,
+      "scope": "Published164a3e6 plus dated evidence, not fresh production inspection",
+      "reason": "100 исторически доступных заданий; две подтверждённые ошибки и неразрешённая коллизия.240 новых REVIEW-ONLY нельзя прибавлять к доступной практике."
+    },
+    {
+      "dimension": "difficulty",
+      "score": 1,
+      "max_score": 5,
+      "scope": "Published164a3e6 plus dated evidence, not fresh production inspection",
+      "reason": "Нет эмпирической калибровки; простой qx-word-4 помечен HARD. Кандидаты164EASY/76MEDIUM/0HARD — не доказательство экзаменационной готовности."
+    },
+    {
+      "dimension": "knowledge_control",
+      "score": 1,
+      "max_score": 5,
+      "scope": "Published164a3e6 plus dated evidence, not fresh production inspection",
+      "reason": "Механика проверялась на QA, но полноценные независимые FINAL/DELAYED банки всей программы не подготовлены;12 QA-вопросов не являются курсом контроля."
+    },
+    {
+      "dimension": "video",
+      "score": 0,
+      "max_score": 5,
+      "scope": "Published164a3e6 plus dated evidence, not fresh production inspection",
+      "reason": "Ни одного полностью просмотренного со звуком и принятого видео.0 — объём подтверждённого включения в курс, не оценка качества неизвестных роликов."
+    },
+    {
+      "dimension": "learning_route",
+      "score": 1,
+      "max_score": 5,
+      "scope": "Published164a3e6 plus dated evidence, not fresh production inspection",
+      "reason": "В опубликованном checkpoint23шага являются редакционным планом, не принятым маршрутом. Локальные технические улучшения13шагов отдельно проверены, но не включены в этот reports-only checkpoint."
+    },
+    {
+      "dimension": "independent_from_zero",
+      "score": 0,
+      "max_score": 5,
+      "scope": "Published164a3e6 plus dated evidence, not fresh production inspection",
+      "reason": "Недостающие предпосылки, неполный охват62групп, словарные исключения и контроль не позволяют принять самостоятельную подготовку с нуля."
+    }
+  ],
+  "local_technical_work": {
+    "branch": "station5/technical-completion",
+    "uncommitted": true,
+    "route_score": 3,
+    "scale_max": 5,
+    "browser_lessons_checked": 13,
+    "checks_reused": true,
+    "not_published_here": true,
+    "not_academic_acceptance": true
+  },
+  "curriculum": {
+    "requirements": 62,
+    "official_numbering": false,
+    "source_sha256": "88288d3d14366e8ecce9537e49d8fe2b9f4b332887b52a14e0bb69e3ee0ca710",
+    "assessment": "62 mapped editorial groups, no full-course acceptance",
+    "rows": [
+      {
+        "requirement_id": 1,
+        "topic": "Алфавіт і порядок слів",
+        "existing_topic_id": "ukr-phonetics",
+        "candidate_topic_id": "s5-ukr-phonetics",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 57,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Повний банк алфавітного впорядкування; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 2,
+        "topic": "Наголос за програмним додатком",
+        "existing_topic_id": "ukr-phonetics",
+        "candidate_topic_id": "s5-ukr-phonetics",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 57,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Повний перевірений список наголосів і відкладене відтворення, а не кілька слів; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 3,
+        "topic": "Звуки і букви; я/ю/є/ї/щ; дж/дз; м’якість",
+        "existing_topic_id": "ukr-phonetics",
+        "candidate_topic_id": "s5-ukr-phonetics",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 57,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Контекстні винятки й достатня кількість транскрипцій; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 4,
+        "topic": "Уподібнення приголосних",
+        "existing_topic_id": "ukr-phonetics",
+        "candidate_topic_id": "s5-ukr-phonetics",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 57,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Усі передбачені основні типи вимови в контексті; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 5,
+        "topic": "Спрощення та винятки",
+        "existing_topic_id": "ukr-phonetics",
+        "candidate_topic_id": "s5-ukr-spelling-core",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 57,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Систематичне повторення всіх винятків; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 6,
+        "topic": "Милозвучність у/в та і/й",
+        "existing_topic_id": "ukr-phonetics",
+        "candidate_topic_id": "s5-ukr-phonetics",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 57,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Контекстні межі взаємозаміни; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 7,
+        "topic": "Ненаголошені е/и/о",
+        "existing_topic_id": "ukr-ortho-sub-01",
+        "candidate_topic_id": "s5-ukr-spelling-core",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 121,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Словникові слова поза перевірними моделями; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 8,
+        "topic": "Йо/ьо, м’який знак",
+        "existing_topic_id": "ukr-ortho",
+        "candidate_topic_id": "s5-ukr-spelling-core",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Повний набір позицій і винятків; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 9,
+        "topic": "Апостроф",
+        "existing_topic_id": "ukr-ortho",
+        "candidate_topic_id": "s5-ukr-spelling-core",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Запозичені слова та морфемні межі; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 10,
+        "topic": "Подовження і збіг однакових приголосних",
+        "existing_topic_id": "ukr-ortho",
+        "candidate_topic_id": "s5-ukr-spelling-core",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Відмінювання і словникові винятки; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 11,
+        "topic": "Префікси і суфікси",
+        "existing_topic_id": "ukr-ortho",
+        "candidate_topic_id": "s5-ukr-spelling-core",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Словотвірні суфіксальні чергування; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 12,
+        "topic": "Чергування голосних і приголосних",
+        "existing_topic_id": "ukr-ortho",
+        "candidate_topic_id": "s5-ukr-spelling-core",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Повний банк основних чергувань; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 13,
+        "topic": "Велика літера і лапки у власних назвах",
+        "existing_topic_id": "ukr-ortho",
+        "candidate_topic_id": "s5-ukr-spelling-advanced",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Усі основні групи власних назв; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 14,
+        "topic": "Іншомовні слова",
+        "existing_topic_id": "ukr-ortho",
+        "candidate_topic_id": "s5-ukr-spelling-advanced",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Правило дев’ятки, подвоєння, апостроф, нормативні варіанти; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 15,
+        "topic": "Перенос слів",
+        "existing_topic_id": "ukr-ortho",
+        "candidate_topic_id": "s5-ukr-spelling-advanced",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Окремі завдання на всі обмеження переносу; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 16,
+        "topic": "Складні і складноскорочені слова",
+        "existing_topic_id": "ukr-ortho",
+        "candidate_topic_id": "s5-ukr-spelling-advanced",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Різні моделі разом/дефіс та абревіатури; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 17,
+        "topic": "Відмінкові закінчення",
+        "existing_topic_id": "ukr-morph",
+        "candidate_topic_id": "s5-ukr-noun",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Контекстне словникове розмежування -а/-у; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 18,
+        "topic": "Н/нн; не з різними частинами мови",
+        "existing_topic_id": "ukr-ortho",
+        "candidate_topic_id": "s5-ukr-spelling-advanced",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Контекстне відрізнення ознаки/заперечення та винятки; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 19,
+        "topic": "Однозначність і багатозначність, пряме/переносне значення",
+        "existing_topic_id": "ukr-lex-01-meaning",
+        "candidate_topic_id": "",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 262,
+        "additional_notes_chars_at_shared_topic": 136,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Зберегти якісну наявну тему; повна нова перевірка старого банку не виконувалась; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 20,
+        "topic": "Синоніми, антоніми, омоніми, пароніми",
+        "existing_topic_id": "ukr-lex-02-syn-ant-hom",
+        "candidate_topic_id": "",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 190,
+        "additional_notes_chars_at_shared_topic": 184,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Паронімічні словникові групи поза поточними вправами; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 21,
+        "topic": "Походження, запозичення, власне українська лексика",
+        "existing_topic_id": "ukr-lexicology-section-01",
+        "candidate_topic_id": "s5-ukr-register",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 166,
+        "additional_notes_chars_at_shared_topic": 72,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Підготовлено окремий базовий урок; етимологічні словникові реєстри та розгорнуте контекстне повторення не заявляються повними.; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 22,
+        "topic": "Професійна, діалектна, розмовна лексика; терміни",
+        "existing_topic_id": "ukr-lexicology-section-01",
+        "candidate_topic_id": "s5-ukr-register",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 166,
+        "additional_notes_chars_at_shared_topic": 72,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Підготовлено окремий базовий урок; етимологічні словникові реєстри та розгорнуте контекстне повторення не заявляються повними.; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 23,
+        "topic": "Застарілі слова, неологізми, емоційна й нейтральна лексика",
+        "existing_topic_id": "ukr-lexicology-section-01",
+        "candidate_topic_id": "s5-ukr-register",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 166,
+        "additional_notes_chars_at_shared_topic": 72,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Підготовлено окремий базовий урок; етимологічні словникові реєстри та розгорнуте контекстне повторення не заявляються повними.; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 24,
+        "topic": "Значення та доречне вживання фразеологізмів",
+        "existing_topic_id": "ukr-lex-03-phraseology",
+        "candidate_topic_id": "",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 161,
+        "additional_notes_chars_at_shared_topic": 176,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Зберегти якісну тему; словниковий запас потребує подальшого повторення; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 25,
+        "topic": "Морфеми; основа/закінчення; форми і споріднені слова",
+        "existing_topic_id": "ukr-word",
+        "candidate_topic_id": "cm-ukrainian-formation",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 60,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Кандидат доповнює доступний стислий огляд; робочий імпорт заборонено; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 26,
+        "topic": "Способи творення та безпосередня твірна основа",
+        "existing_topic_id": "ukr-word",
+        "candidate_topic_id": "cm-ukrainian-formation",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 60,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Повний банк на складання/перехід/безафіксне творення поза старими12питаннями; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 27,
+        "topic": "Частини мови в контексті",
+        "existing_topic_id": "ukr-morph",
+        "candidate_topic_id": "ukr-morph-sub-01",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Кандидат-вступ не замінює окремих розділів морфології; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 28,
+        "topic": "Іменник: значення, власні/загальні, істоти/неістоти",
+        "existing_topic_id": "ukr-morph",
+        "candidate_topic_id": "s5-ukr-noun",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Достатня різноманітність контекстів; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 29,
+        "topic": "Іменник: рід, число, незмінювані слова",
+        "existing_topic_id": "ukr-morph",
+        "candidate_topic_id": "s5-ukr-noun",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Словникові випадки за межами наведеного набору; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 30,
+        "topic": "Іменник: відмінювання, по батькові, кличний",
+        "existing_topic_id": "ukr-morph",
+        "candidate_topic_id": "s5-ukr-noun",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Повні відмінкові парадигми й винятки; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 31,
+        "topic": "Прикметник: розряди, відмінювання, ступені порівняння",
+        "existing_topic_id": "ukr-morph",
+        "candidate_topic_id": "s5-ukr-adjective",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Непорівнювані ознаки і нормативні форми в контексті; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 32,
+        "topic": "Числівник: кількісні та порядкові парадигми",
+        "existing_topic_id": "ukr-morph",
+        "candidate_topic_id": "s5-ukr-numeral",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Усі типи складених числівників; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 33,
+        "topic": "Числівник: узгодження, час і дати",
+        "existing_topic_id": "ukr-morph",
+        "candidate_topic_id": "s5-ukr-numeral",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Контекстні вправи з дробовими/збірними та датами; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 34,
+        "topic": "Займенник: розряди, відмінювання, неозначені/заперечні",
+        "existing_topic_id": "ukr-morph",
+        "candidate_topic_id": "s5-ukr-pronoun",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Варіантні відмінкові форми та текстова однозначність; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 35,
+        "topic": "Дієслово: вид, час, способи, особові форми, дієвідміни",
+        "existing_topic_id": "ukr-morph",
+        "candidate_topic_id": "s5-ukr-verb",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Повні парадигми й винятки дієвідмінювання; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 36,
+        "topic": "Дієприкметник, активні/пасивні форми, зворот, -но/-то",
+        "existing_topic_id": "ukr-morph",
+        "candidate_topic_id": "s5-ukr-verb",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Самостійний поглиблений банк на морфологію і пунктуацію; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 37,
+        "topic": "Дієприслівник, зворот, спільний діяч",
+        "existing_topic_id": "ukr-morph",
+        "candidate_topic_id": "s5-ukr-verb",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Межі відокремлення в усіх програмних конструкціях; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 38,
+        "topic": "Прислівник: роль, ступені, правопис",
+        "existing_topic_id": "ukr-morph",
+        "candidate_topic_id": "s5-ukr-adverb",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Лексикалізовані сполуки та словникові випадки; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 39,
+        "topic": "Прийменник: керування і написання",
+        "existing_topic_id": "ukr-morph",
+        "candidate_topic_id": "s5-ukr-service",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Повний перелік похідних/складених моделей; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 40,
+        "topic": "Сполучник: групи, будова, написання, омонімічні сполуки",
+        "existing_topic_id": "ukr-morph",
+        "candidate_topic_id": "s5-ukr-service",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Вправи на всі типи зв’язку; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 41,
+        "topic": "Частка: функції та написання",
+        "existing_topic_id": "ukr-morph",
+        "candidate_topic_id": "s5-ukr-service",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Контекстне не/ні та формотворчі частки; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 42,
+        "topic": "Вигук: функції й написання",
+        "existing_topic_id": "ukr-morph",
+        "candidate_topic_id": "s5-ukr-service",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 62,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Звуконаслідування й пунктуаційні варіанти; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 43,
+        "topic": "Словосполучення; сурядність/підрядність",
+        "existing_topic_id": "ukr-syntax",
+        "candidate_topic_id": "s5-ukr-syntax-simple",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 64,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Систематичне розрізнення синтаксичних одиниць; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 44,
+        "topic": "Речення: мета, емоційність, будова, повнота, поширеність",
+        "existing_topic_id": "ukr-syntax",
+        "candidate_topic_id": "s5-ukr-syntax-simple",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 64,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Окремий банк неповних конструкцій; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 45,
+        "topic": "Підмет/присудок, зв’язок і тире",
+        "existing_topic_id": "ukr-syntax",
+        "candidate_topic_id": "s5-ukr-syntax-simple",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 64,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Складені присудки та винятки постановки тире; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 46,
+        "topic": "Другорядні члени, прикладка, порівняльний зворот",
+        "existing_topic_id": "ukr-syntax",
+        "candidate_topic_id": "s5-ukr-syntax-simple",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 64,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Контекстна неоднозначність функцій та відокремлення; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 47,
+        "topic": "Усі типи односкладних речень",
+        "existing_topic_id": "ukr-syntax",
+        "candidate_topic_id": "s5-ukr-syntax-simple",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 64,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Розрізнення односкладного та неповного двоскладного; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 48,
+        "topic": "Однорідні члени, узагальнювальні слова",
+        "existing_topic_id": "ukr-punct",
+        "candidate_topic_id": "s5-ukr-syntax-complicated",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 69,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Однорідні/неоднорідні означення, багатокомпонентні переліки; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 49,
+        "topic": "Звертання, вставні компоненти",
+        "existing_topic_id": "ukr-punct",
+        "candidate_topic_id": "s5-ukr-syntax-complicated",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 69,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Омонімічні члени речення та вставні конструкції; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 50,
+        "topic": "Відокремлені означення, прикладки, додатки, обставини, уточнення",
+        "existing_topic_id": "ukr-punct",
+        "candidate_topic_id": "s5-ukr-syntax-complicated",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 69,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Повний банк винятків і контекстних відмінностей; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 51,
+        "topic": "Типи складного речення і смислові відношення",
+        "existing_topic_id": "ukr-syntax",
+        "candidate_topic_id": "cm-ukrainian-compound-sentence",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 64,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Групування складних синтаксичних блоків; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 52,
+        "topic": "Складносурядне: сполучники, кома, винятки, сильні знаки",
+        "existing_topic_id": "ukr-syntax",
+        "candidate_topic_id": "cm-ukrainian-compound-sentence",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 64,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "У кандидаті розширено теорію; для нових правил потрібна додаткова практика; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 53,
+        "topic": "Складнопідрядне: сполучники/сполучні слова, види підрядних",
+        "existing_topic_id": "ukr-syntax",
+        "candidate_topic_id": "s5-ukr-subordinate",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 64,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Усі обставинні типи та контекстні переходи; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 54,
+        "topic": "Кілька підрядних: однорідність, послідовність, неоднорідність",
+        "existing_topic_id": "ukr-syntax",
+        "candidate_topic_id": "s5-ukr-subordinate",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 64,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Достатня кількість багаторівневих конструкцій; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 55,
+        "topic": "Безсполучникове: відношення і розділові знаки",
+        "existing_topic_id": "ukr-syntax",
+        "candidate_topic_id": "s5-ukr-asyndetic",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 64,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Варіантність кома/крапка з комою; залежність від смислу; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 56,
+        "topic": "Різні види сполучникового й безсполучникового зв’язку",
+        "existing_topic_id": "ukr-syntax",
+        "candidate_topic_id": "s5-ukr-asyndetic",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 64,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Поглиблений банк інтегрованих завдань; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 57,
+        "topic": "Пряма/непряма мова, заміна, цитати, діалог",
+        "existing_topic_id": "ukr-punct",
+        "candidate_topic_id": "s5-ukr-quotation",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 69,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Усі схеми розриву прямої мови словами автора; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 58,
+        "topic": "П’ять програмних стилів, функції й мовні ознаки",
+        "existing_topic_id": "ukr-style",
+        "candidate_topic_id": "s5-ukr-text-style",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 61,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Розрізнення стилів на розгорнутих текстах; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 59,
+        "topic": "Адресат/адресант, усне/писемне, монолог/діалог",
+        "existing_topic_id": "ukr-style",
+        "candidate_topic_id": "s5-ukr-text-style",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 61,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Комунікативні ситуації різних жанрів; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 60,
+        "topic": "Тема, основна думка, мікротеми, абзаци, зв’язність",
+        "existing_topic_id": "ukr-style",
+        "candidate_topic_id": "s5-ukr-text-style",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 61,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Більше повних текстів із кількома питаннями; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 61,
+        "topic": "Критичне читання, головне/другорядне, аргументи/висновки",
+        "existing_topic_id": "ukr-style",
+        "candidate_topic_id": "s5-ukr-text-style",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 61,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Повноцінний розгорнутий модуль читання й редагування; whole-course self-study acceptance not established"
+      },
+      {
+        "requirement_id": 62,
+        "topic": "Власне висловлення та редагування мовлення",
+        "existing_topic_id": "ukr-style",
+        "candidate_topic_id": "s5-ukr-text-style",
+        "available_evidence": "HISTORICAL_CONTENT_AUDIT_2026-11-02_NOT_FRESH_PRODUCTION",
+        "synopsis_summary_chars_at_shared_topic": 61,
+        "additional_notes_chars_at_shared_topic": 0,
+        "synopsis_correction": "notesChars=0 does not imply no synopsis; actual summary/rules shown in prior technical Chromium",
+        "requirement_specific_mastery": "NOT VERIFIED",
+        "candidate_access": "DRAFT_REVIEW_ONLY_UNAVAILABLE",
+        "gap": "Не змішувати програмну навичку письма з форматом НМТ2026: розгорнутої відповіді немає; whole-course self-study acceptance not established"
+      }
+    ]
+  },
+  "videos": [
+    {
+      "id": "NDmd6xU9F2E",
+      "url": "https://www.youtube.com/watch?v=NDmd6xU9F2E",
+      "status": "BLOCKED",
+      "scope": "FULL_AUDIOVISUAL_CONTENT_REVIEW",
+      "historical_playback_status": "PLAYBACK_VERIFIED",
+      "historical_evidence_date": "2026-11-02",
+      "fully_watched": false,
+      "teacher_accuracy": "NOT VERIFIED",
+      "timestamps": "NOT VERIFIED",
+      "statistics": "Not refreshed; original dated ledger reused without invented values"
+    },
+    {
+      "id": "scigg_eN4qs",
+      "url": "https://www.youtube.com/watch?v=scigg_eN4qs",
+      "status": "BLOCKED",
+      "scope": "FULL_AUDIOVISUAL_CONTENT_REVIEW",
+      "historical_playback_status": "PLAYBACK_VERIFIED",
+      "historical_evidence_date": "2026-11-02",
+      "fully_watched": false,
+      "teacher_accuracy": "NOT VERIFIED",
+      "timestamps": "NOT VERIFIED",
+      "statistics": "Not refreshed; original dated ledger reused without invented values"
+    },
+    {
+      "id": "o9xcL5pCxog",
+      "url": "https://www.youtube.com/watch?v=o9xcL5pCxog",
+      "status": "BLOCKED",
+      "scope": "FULL_AUDIOVISUAL_CONTENT_REVIEW",
+      "historical_playback_status": "PLAYBACK_VERIFIED",
+      "historical_evidence_date": "2026-11-02",
+      "fully_watched": false,
+      "teacher_accuracy": "NOT VERIFIED",
+      "timestamps": "NOT VERIFIED",
+      "statistics": "Not refreshed; original dated ledger reused without invented values"
+    },
+    {
+      "id": "oZfA9V0mhV4",
+      "url": "https://www.youtube.com/watch?v=oZfA9V0mhV4",
+      "status": "BLOCKED",
+      "scope": "FULL_AUDIOVISUAL_CONTENT_REVIEW",
+      "historical_playback_status": "PLAYBACK_VERIFIED",
+      "historical_evidence_date": "2026-11-02",
+      "fully_watched": false,
+      "teacher_accuracy": "NOT VERIFIED",
+      "timestamps": "NOT VERIFIED",
+      "statistics": "Not refreshed; original dated ledger reused without invented values"
+    },
+    {
+      "id": "wm0X68H_WtQ",
+      "url": "https://www.youtube.com/watch?v=wm0X68H_WtQ",
+      "status": "BLOCKED",
+      "scope": "FULL_AUDIOVISUAL_CONTENT_REVIEW",
+      "historical_playback_status": "PLAYBACK_VERIFIED",
+      "historical_evidence_date": "2026-11-02",
+      "fully_watched": false,
+      "teacher_accuracy": "NOT VERIFIED",
+      "timestamps": "NOT VERIFIED",
+      "statistics": "Not refreshed; original dated ledger reused without invented values"
+    },
+    {
+      "id": "uDffUp7AuYQ",
+      "url": "https://www.youtube.com/watch?v=uDffUp7AuYQ",
+      "status": "BLOCKED",
+      "scope": "FULL_AUDIOVISUAL_CONTENT_REVIEW",
+      "historical_playback_status": "PLAYBACK_VERIFIED",
+      "historical_evidence_date": "2026-11-02",
+      "fully_watched": false,
+      "teacher_accuracy": "NOT VERIFIED",
+      "timestamps": "NOT VERIFIED",
+      "statistics": "Not refreshed; original dated ledger reused without invented values"
+    }
+  ],
+  "sources": [
+    {
+      "id": "NMT2026",
+      "url": "https://testportal.gov.ua/wp-content/uploads/2026/01/Harakterystyka-NMT_ukrmova_2026.pdf",
+      "kind": "PRIMARY",
+      "checked": "2026-11-03",
+      "finding": "30 tasks,25 single choice,5 matching; approximately60minutes; programme order696/2018. Does not confirm2027."
+    },
+    {
+      "id": "PROGRAMME",
+      "url": "https://testportal.gov.ua/wp-content/uploads/2016/12/Programa_2020_ukr.mova.pdf",
+      "kind": "PRIMARY_REUSED",
+      "checked": "2026-11-02 prior visual review",
+      "finding": "Language pages1–6 previously reviewed;62 is project decomposition, not official lesson numbering."
+    },
+    {
+      "id": "STANDARD2026",
+      "url": "https://mon.gov.ua/news/nabrav-chynnosti-standart-derzhavnoi-movy-ukrainskyi-pravopys",
+      "kind": "PRIMARY_REUSED",
+      "checked": "2026-11-03 previous research direction",
+      "finding": "Current2026 state-language standard; do not infer a confirmed2027 exam specification."
+    },
+    {
+      "id": "SUM_WATER",
+      "url": "https://slovnyk.me/dict/sum/вода",
+      "kind": "DICTIONARY_REPRINT_MIRROR",
+      "checked": "2026-11-03",
+      "finding": "SUM11 headword вода́; mirror, not publisher-hosted original."
+    },
+    {
+      "id": "SUM_EARTH",
+      "url": "https://slovnyk.me/dict/sum/земля",
+      "kind": "DICTIONARY_REPRINT_MIRROR",
+      "checked": "2026-11-03",
+      "finding": "SUM11 земля́; stressed accusative зе́млю and form ambiguity are relevant."
+    },
+    {
+      "id": "IUL_CONSULTATION",
+      "url": "https://iul-nasu.org.ua/pdf/kulturaslova/92/23_ks_92.pdf",
+      "kind": "PRIMARY_SCHOLARLY_CONSULTATION",
+      "checked": "2026-11-03",
+      "finding": "O.Dilna,2020,printed p260 recommends розгортати книжку; distinguish stylistic prescription from universal exam adjudication."
+    },
+    {
+      "id": "SUM_OPEN",
+      "url": "https://slovnyk.me/dict/sum/відкривати",
+      "kind": "DICTIONARY_REPRINT_MIRROR",
+      "checked": "2026-11-03",
+      "finding": "General meanings inspected; no explicit book collocation found. Not proof of its universal prohibition or acceptance."
+    },
+    {
+      "id": "INFINITIVE_TEXTBOOK",
+      "url": "https://subjectum.eu/textbook/mova/10klas_6/47.html",
+      "kind": "TEXTBOOK_REPRINT_MIRROR",
+      "checked": "2026-11-03",
+      "finding": "Voron2018 §46 explicitly identifies suffix-ти when extracting infinitive stem."
+    },
+    {
+      "id": "ULIF_ARCHIVE",
+      "url": "https://spelling.ulif.org.ua/ptr_2.htm",
+      "kind": "PRIMARY_ARCHIVE_2012_NOT_CURRENT_STANDARD",
+      "checked": "2026-11-03",
+      "finding": "Infinitive and analytic future morphology; historical corroboration only."
+    },
+    {
+      "id": "SYNTAX_TEXTBOOK",
+      "url": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-5-klas-2018/14-ukr-mova-dlya-nacmenshyn-5-klas/ykr-mova-5-klas-dlya-pereglyadu-5-1-1.pdf",
+      "kind": "PRIMARY_HOST_SEARCH_EXCERPT_ONLY",
+      "checked": "2026-11-03",
+      "finding": "Indexed excerpt corroborates analytic буду писати classification; full book not reread."
+    },
+    {
+      "id": "GERUND_TEXTBOOK",
+      "url": "https://mybook.dniprorada.gov.ua/uploads/6f8c0b7037e911ed80b40b0a33cb4a70Ukraiinskamova7klasIermolenko2015.pdf",
+      "kind": "TEXTBOOK_HOST_SEARCH_EXCERPT_ONLY",
+      "checked": "2026-11-03",
+      "finding": "Indexed excerpt: same doer for main/additional action. Full PDF fetch blocked by16MB tool limit; not a new full-book verification."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "content\\station5\\programme-crosswalk.json",
+      "sha256": "8e71693bc5e3c87f1c04e79e7d6042b2791f53f4ccfd253d6f8282531e75809f",
+      "origin": "Existing Codex/Antigravity evidence, not attributable Opus output"
+    },
+    {
+      "path": "curriculum-crosswalk.csv",
+      "sha256": "88288d3d14366e8ecce9537e49d8fe2b9f4b332887b52a14e0bb69e3ee0ca710",
+      "origin": "Existing Codex/Antigravity evidence, not attributable Opus output"
+    },
+    {
+      "path": "content\\station5\\learning-route.json",
+      "sha256": "c9688d3f8e22a5725402abae1ec4118a2a97b26c6ed37090807ec8111c22af90",
+      "origin": "Existing Codex/Antigravity evidence, not attributable Opus output"
+    },
+    {
+      "path": "content\\station5\\independent-review.json",
+      "sha256": "bf0d0198e34a084aed649b1584dd24659ab6aca0c2c688ecb4bcaa4fbd30b2e9",
+      "origin": "Existing Codex/Antigravity evidence, not attributable Opus output"
+    },
+    {
+      "path": "content\\station5\\video-verification.json",
+      "sha256": "4b98a61f116584649a7e145e2401aabc18d16d2aa86e9511a59c588850c364bc",
+      "origin": "Existing Codex/Antigravity evidence, not attributable Opus output"
+    },
+    {
+      "path": "content\\stage8\\final-24-additional-review.json",
+      "sha256": "70463ffb5c909f793a577cfc40ed404192d6b59395259aca6eae9fe5c1046da1",
+      "origin": "Existing Codex/Antigravity evidence, not attributable Opus output"
+    },
+    {
+      "path": "STATION5-TECHNICAL-RESULT.md",
+      "sha256": "90878514debcfc0bf4d2ac52d1802852e7057378f5a10292e406d4cc9d062e44",
+      "origin": "Existing Codex/Antigravity evidence, not attributable Opus output"
+    },
+    {
+      "path": "docs\\station5-technical-QA.json",
+      "sha256": "8942ec1934e4c306d2012cb363edaba9328819bf615ab9d8446a72294455d9cb",
+      "origin": "Existing Codex/Antigravity evidence, not attributable Opus output"
+    }
+  ],
+  "safety": {
+    "application_code_modified": false,
+    "educational_packages_modified": false,
+    "working_database_accessed": false,
+    "env_accessed": false,
+    "tests_rerun": false,
+    "existing_worktrees_modified": false,
+    "technical_dirty_tree_preserved": true,
+    "merge": false,
+    "deploy": false,
+    "publish_scope": "Exactly two new report files; no code or educational assets"
+  },
+  "unknowns": [
+    "Original Opus files and exact verdicts",
+    "Complete original Git-history provenance of four Stage7A items beyond available snapshots; qx source file commit checked",
+    "Final normative adjudication of q04/q12 pair",
+    "Full audiovisual viewing and meaningful timestamps for six videos",
+    "Teacher approval and empirical calibration",
+    "Fresh production data and runtime",
+    "Confirmed NMT2027 requirements"
+  ],
+  "next_actions": [
+    "Obtain original Opus report when available and reconcile only material differences",
+    "Resolve q04/q12 with a named current academic norm and teacher decision",
+    "Propose a single-answer redesign for e02/e05; no automatic edits",
+    "Keep20candidates REVIEW-ONLY and arrange full audiovisual video review",
+    "Close62-row curricular gaps and independent controls before full-course acceptance"
+  ]
+}
