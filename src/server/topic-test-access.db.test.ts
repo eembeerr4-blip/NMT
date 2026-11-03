@@ -41,6 +41,7 @@ beforeAll(async () => {
   sql.exec(definition(reconcile, "new_Topic").replace('"new_Topic"', '"Topic"'));
   for (const table of ["Question", "QuestionOption", "Test", "TestQuestion", "TestAttempt", "Answer", "StudySession", "Mistake", "ReviewSchedule", "StudyTask"]) sql.exec(definition(initial, table));
   for (const table of ["TestAttempt", "StudySession", "Mistake", "ReviewSchedule", "StudyTask"]) sql.exec('ALTER TABLE "' + table + '" ADD COLUMN "userId" TEXT;');
+  sql.exec('ALTER TABLE "StudyTask" ADD COLUMN "movedFromId" TEXT;');
   sql.exec(definition(reconcile, "UserTopicProgress"));
   sql.exec('CREATE UNIQUE INDEX progress_identity ON UserTopicProgress(userId,topicId);');
   sql.exec("INSERT INTO User VALUES ('qa-student'); INSERT INTO Subject VALUES ('qa-subject');");
@@ -196,6 +197,21 @@ it("does not complete a hidden lesson via historical results", async () => {
   expect(await prisma.testAttempt.findUnique({ where: { id: attempt.id } })).toEqual(attempt);
   expect(await prisma.userTopicProgress.count()).toBe(0);
   expect(await prisma.studySession.count()).toBe(0);
+});
+it("does not make reserved controls a practice prerequisite for a theory-only lesson", async () => {
+  await fixture("READY", "VERIFIED");
+  await prisma.topic.update({where:{id:"qa-topic"},data:{lessonJson:JSON.stringify({objectives:[],theory:"QA theory",summary:"QA summary"})}});
+  await prisma.test.create({data:{id:"qa-control",topicId:"qa-topic",subjectId:"qa-subject",title:"Private fixture",kind:"FINAL",questions:{create:{questionId:"qa-question",sortOrder:0}}}});
+  expect(await completeLesson("qa-topic", true)).toMatchObject({ok:true});
+  expect(await prisma.testAttempt.count()).toBe(0);
+  expect(await prisma.userTopicProgress.findFirst()).toMatchObject({status:"IN_PROGRESS"});
+});
+it("rejects REVIEW-ONLY content even when its coverage is READY", async () => {
+  await fixture("READY", "VERIFIED");
+  await prisma.topic.update({where:{id:"qa-topic"},data:{lessonJson:JSON.stringify({objectives:[],theory:"QA candidate",provenance:{origin:"original",title:"QA",license:"original",note:"REVIEW-ONLY"}})}});
+  expect(await startTopicTest("qa-topic")).toMatchObject({ok:false});
+  expect(await completeLesson("qa-topic", true)).toMatchObject({ok:false});
+  expect(await counts()).toEqual([0,0,0]);
 });
 for (const kind of ["diagnostic", "exam"]) {
   it(`${kind} selects only published questions from a mixed bank`, async () => {

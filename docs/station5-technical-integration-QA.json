@@ -1,0 +1,234 @@
+{
+  "baseHead": "3659b78bacfb4908345a2baad9bcd761da970996",
+  "retainedLocally": [
+    {
+      "path": "STATION5-TECHNICAL-RESULT.md",
+      "reason": "Historical evidence for the original worktree; preserved locally and not presented as this integration run.",
+      "sha256": "90878514DEBCFC0BF4D2AC52D1802852E7057378F5A10292E406D4CC9D062E44"
+    },
+    {
+      "path": "docs/station5-technical-QA.json",
+      "reason": "Historical evidence for the original worktree; preserved locally and not presented as this integration run.",
+      "sha256": "8942EC1934E4C306D2012CB363EDABA9328819BF615AB9D8446A72294455D9CB"
+    },
+    {
+      "path": "scripts/station5-technical-fixture.mjs",
+      "reason": "Old fixture invokes migrations; preserved but not integrated or executed. Replaced by explicit synthetic-only copy helper.",
+      "sha256": "6D50DC25ACC07234E3B8CDA1512904B48F8EA5C0D38BACE55F65E5909E645844"
+    }
+  ],
+  "integratedSourceFiles": [
+    {
+      "path": "src/app/(main)/learn/[topicId]/page.tsx",
+      "classification": "application-code",
+      "integratedSha256": "F665A00940D321F6B4E37C41631D9DD6CACA84BBD4FEBEAF2F468A1DF7AA6A24",
+      "sourceSha256": "F665A00940D321F6B4E37C41631D9DD6CACA84BBD4FEBEAF2F468A1DF7AA6A24"
+    },
+    {
+      "path": "src/app/(main)/subjects/[slug]/page.tsx",
+      "classification": "application-code",
+      "integratedSha256": "B4F2CC8BB41F3631F180C631D41080D25AD30507E457B1792B1524232B61604C",
+      "sourceSha256": "B4F2CC8BB41F3631F180C631D41080D25AD30507E457B1792B1524232B61604C"
+    },
+    {
+      "path": "src/components/lesson/lesson-content.tsx",
+      "classification": "application-code",
+      "integratedSha256": "61B7C33FD6E7B27F83826213BFE2861507E36750C6B21DDDE890EF79D887E0BC",
+      "sourceSha256": "61B7C33FD6E7B27F83826213BFE2861507E36750C6B21DDDE890EF79D887E0BC"
+    },
+    {
+      "path": "src/components/lesson/lesson-page.test.ts",
+      "classification": "targeted-test",
+      "integratedSha256": "D4D3D31355E96256293F61AC1CE6B125E62C5B922E5CF502908C82663287B530",
+      "sourceSha256": "D4D3D31355E96256293F61AC1CE6B125E62C5B922E5CF502908C82663287B530"
+    },
+    {
+      "path": "src/components/lesson/lesson-presentation.test.ts",
+      "classification": "targeted-test",
+      "integratedSha256": "CD9A97183A49B1C7DA2D78AA2E79C10C31A828556801DEBA25293EFAA7DDFE1D",
+      "sourceSha256": "CD9A97183A49B1C7DA2D78AA2E79C10C31A828556801DEBA25293EFAA7DDFE1D"
+    },
+    {
+      "path": "src/components/subject-flow.test.ts",
+      "classification": "targeted-test",
+      "integratedSha256": "749ECD823FD4FD2DB912B25362EBB13792DF67A51467FE0DC2420AACFEA1C364",
+      "sourceSha256": "749ECD823FD4FD2DB912B25362EBB13792DF67A51467FE0DC2420AACFEA1C364"
+    },
+    {
+      "path": "src/lib/lesson-access.test.ts",
+      "classification": "targeted-test",
+      "integratedSha256": "C8F2DCC8B7B908A31D364437948237D43A9AE87A1746FC96D8D02D357BFF015B",
+      "sourceSha256": "C8F2DCC8B7B908A31D364437948237D43A9AE87A1746FC96D8D02D357BFF015B"
+    },
+    {
+      "path": "src/lib/readiness.ts",
+      "classification": "application-code",
+      "integratedSha256": "168AD175942F0BAFDDD1B89A0E494CFE2A732614CD3B216FF3FA934D43AEFA47",
+      "sourceSha256": "168AD175942F0BAFDDD1B89A0E494CFE2A732614CD3B216FF3FA934D43AEFA47"
+    },
+    {
+      "path": "src/server/actions.ts",
+      "classification": "application-code",
+      "integratedSha256": "B10E5D8DBC4A23287652BEC5F9A68738D8C1375DBD6899678747403C90328630",
+      "sourceSha256": "B10E5D8DBC4A23287652BEC5F9A68738D8C1375DBD6899678747403C90328630"
+    },
+    {
+      "path": "src/server/topic-test-access.db.test.ts",
+      "classification": "targeted-test",
+      "integratedSha256": "F9EC2272ADB87AC22BE09DEA19088F621B924F95F60FAD11322DA31B19D4514F",
+      "sourceSha256": "F9EC2272ADB87AC22BE09DEA19088F621B924F95F60FAD11322DA31B19D4514F"
+    },
+    {
+      "path": "e2e/station5-technical/learner.spec.ts",
+      "classification": "browser-test",
+      "integratedSha256": "19DE206B81C7F9A4BB55A7A7976B3E10DE1C21A1C9A9C44B30E2319F62CEA993",
+      "sourceSha256": "21CCF1A992CF45CD46C7E40E411D6AD7D96A8FC1AE1E17F8A57D0C2C07D88064"
+    },
+    {
+      "path": "playwright.station5-technical.config.ts",
+      "classification": "browser-test",
+      "integratedSha256": "CDE352CAC205F7DBBE8235171011DC31474AA78EF143B8DFA244F91358649C09",
+      "sourceSha256": "CDE352CAC205F7DBBE8235171011DC31474AA78EF143B8DFA244F91358649C09"
+    },
+    {
+      "path": "src/components/ukrainian-route.tsx",
+      "classification": "application-code",
+      "integratedSha256": "95E006780E8FD1AC86F0AD0E712A6F23ED9AB2EB92279F9449239BC1B05F9065",
+      "sourceSha256": "95E006780E8FD1AC86F0AD0E712A6F23ED9AB2EB92279F9449239BC1B05F9065"
+    },
+    {
+      "path": "src/lib/ukrainian-route.test.ts",
+      "classification": "targeted-test",
+      "integratedSha256": "AB8BFBBE582BB4610E5EA22895DAE5FF2B1B73DD92F82EDE14A368609651C15B",
+      "sourceSha256": "AB8BFBBE582BB4610E5EA22895DAE5FF2B1B73DD92F82EDE14A368609651C15B"
+    },
+    {
+      "path": "src/lib/ukrainian-route.ts",
+      "classification": "application-code",
+      "integratedSha256": "4F91C79D6EE0E67B319B4FC1AAB31D85A2A2F64D4876F5A0A98862AF3A5449BD",
+      "sourceSha256": "4F91C79D6EE0E67B319B4FC1AAB31D85A2A2F64D4876F5A0A98862AF3A5449BD"
+    }
+  ],
+  "addedFiles": [
+    "scripts/station5-technical-copy-fixture.mjs",
+    "docs/station5-technical-integration-QA.json"
+  ],
+  "scope": "Station5 technical integration only",
+  "sourceHead": "164a3e6f03512a2afa9d5e952e22f886d8debeb9",
+  "limits": [
+    "Current Chromium checks navigation across all 13 lessons and one full mixed-template cycle, not a repeat of all 13 previously accepted full cycles.",
+    "New reading candidates and original academic disputes are unchanged. No content publication or overall academic PASS.",
+    "Production preservation checked by absence of a connection and unchanged size/last-write metadata; no production database content read."
+  ],
+  "verification": {
+    "readinessRegressionTests": 12,
+    "schemaOrMigrationsChanged": false,
+    "worktreesBefore": 30,
+    "contentPackagesChanged": false,
+    "productionSQLiteWalShmMetadataUnchanged": true,
+    "browser": {
+      "fullLessonCycles": 1,
+      "fullLessonId": "ukr-lex-01-meaning",
+      "newReadingCandidateNotLoadedInBrowserFixture": true,
+      "serverStopped": true,
+      "screenshotsVisuallyReviewed": true,
+      "candidatesDenied": 20,
+      "result": "3/3 PASS, 1.6 minutes",
+      "templates": [
+        "SINGLE_CHOICE",
+        "MATCHING",
+        "SHORT_TEXT"
+      ],
+      "baselineSnapshotDate": "2026-11-02",
+      "outcomes": [
+        {
+          "scope": "route-and-access",
+          "status": "PASS",
+          "routeSteps": [
+            "ukr-lexis",
+            "ukr-lexicology-section-01",
+            "ukr-lex-01-meaning",
+            "ukr-lex-02-syn-ant-hom",
+            "ukr-lex-03-phraseology",
+            "ukr-morph",
+            "ukr-word",
+            "ukr-phonetics",
+            "ukr-ortho",
+            "ukr-ortho-sub-01",
+            "ukr-syntax",
+            "ukr-punct",
+            "ukr-style"
+          ],
+          "candidatesDenied": 20,
+          "privateControlsHidden": true
+        },
+        {
+          "scope": "continue-after-practice",
+          "status": "PASS",
+          "masteryNotFabricated": true,
+          "reloginPersisted": true,
+          "horizontalOverflow": false
+        },
+        {
+          "id": "ukr-lex-01-meaning",
+          "status": "PASS",
+          "theoryChars": 5675,
+          "synopsisPresent": true,
+          "synopsisSummaryChars": 262,
+          "additionalNotesChars": 136,
+          "examples": 6,
+          "practiceQuestions": 12,
+          "questionTemplates": [
+            "SINGLE_CHOICE",
+            "MATCHING",
+            "SHORT_TEXT"
+          ],
+          "draftReload": true,
+          "wrongAnswerExplanation": true,
+          "mistakeCorrected": true,
+          "completion": true,
+          "reloginPersisted": true,
+          "horizontalOverflow": false,
+          "browserErrors": []
+        }
+      ],
+      "routeLessons": 13,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    "sqlite": {
+      "source": "Previous synthetic Station5 QA fixture; verified two synthetic account IDs; read-only online backup to a new disposable database",
+      "foreignKeyViolations": 0,
+      "unitFixture": "Minimal tables created directly only inside a new mkdtemp SQLite; no migration runner/db push/seed",
+      "integrity": "ok",
+      "migrationsRun": false,
+      "seedRun": false,
+      "productionConnected": false
+    },
+    "otherWorktreesChanged": false,
+    "targetedTests": 77,
+    "eslint": "PASS for all 15 transferred files; final targeted check also covers the new copy helper and adapted browser test",
+    "totalUniqueUnitIntegrationTests": 89,
+    "answerKeysChanged": false,
+    "typeScript": "PASS; final run includes generated dev types and browser assertion adaptation",
+    "gradingImplementationChanged": false,
+    "worktreesAfter": 31,
+    "reason": "First verification of this selected technical diff on the latest published base; fresh targeted integration evidence rather than repeating old full suites."
+  },
+  "sourceBranch": "station5/technical-completion",
+  "sourcePreservation": {
+    "files": 18,
+    "previousRecoveryPreserved": true,
+    "originalUnchanged": true,
+    "sha256Verified": true,
+    "binaryPatchSaved": true
+  },
+  "status": "TARGETED_QA_PASSED",
+  "branch": "station5/technical-integration-20261103",
+  "station5Overall": "PARTIAL / NEEDS FIXES: academic blockers unchanged",
+  "date": "2026-11-03",
+  "checkpoint": "The commit introducing this evidence file; exact final SHA and remote verification are supplied in the final delivery.",
+  "testHarnessAdaptation": "Browser no-write assertion compares attempt count before/after instead of requiring an empty database, enabling reuse of an isolated synthetic copy without reset/migrations/seed."
+}

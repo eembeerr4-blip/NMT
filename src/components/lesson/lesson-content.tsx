@@ -19,7 +19,7 @@ export function LessonExamples({lesson,topicId}:{lesson:LessonContent|null;topic
 }
 
 export function LessonSynopsis({lesson,summary,formulas}:{lesson:LessonContent|null;summary:string;formulas:string}) {
-  const hasSynopsis=Boolean(lesson?.summary.trim()||summary.trim()||formulas.trim()||lesson?.rules.length||lesson?.mistakes.length);
+  const hasSynopsis=Boolean(lesson?.summary.trim()||formulas.trim()||lesson?.rules.some(rule=>rule.trim())||lesson?.mistakes.some(mistake=>mistake.trim())||lesson?.notes?.trim());
   return <Card className="d04-material d04-reading"><div className="d04-section-title"><FileText aria-hidden="true"/><h2>Навчальний конспект</h2></div>
     {!hasSynopsis?<div className="d04-empty"><p>{lesson?.theory.trim()?"Окремого короткого конспекту ще немає. Повний матеріал доступний у вкладці «Теорія».":"Навчальний конспект ще готується. Скористайтеся іншими доступними матеріалами теми."}</p></div>:<>
       {lesson?.summary.trim()||summary.trim()?<LessonText text={lesson?.summary.trim()?lesson.summary:summary}/>:null}

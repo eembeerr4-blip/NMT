@@ -539,7 +539,7 @@ export async function completeLesson(topicId: string, studied: boolean): Promise
     const user = await actor();
     const topic = await prisma.topic.findUnique({ where: { id: topicId } });
     if (!topic) return { ok: false, error: "Тему не знайдено." };
-    const verified = await prisma.question.count({ where: { topicId, verificationStatus: "VERIFIED" } });
+    const verified = await prisma.question.count({ where: { topicId, verificationStatus: "VERIFIED", ...trainingQuestionWhere } });
     if (!lessonAccess({ ...topic, questions: verified ? [{}] : [] }).available) return { ok: false, error: unavailableTestMessage };
     const attempt = await prisma.testAttempt.findFirst({
       where: { userId: user.id, status: "COMPLETED", test: { topicId } },

@@ -7,8 +7,9 @@ export function lessonAccess(topic: {
   questions?: unknown[];
   videos?: { reviewStatus: string }[];
 }) {
-  const hidden = topic.coverage === "DRAFT";
-  const theory = !hidden && Boolean(parseLesson(topic.lessonJson)?.theory.trim());
+  const lesson = parseLesson(topic.lessonJson);
+  const hidden = topic.coverage === "DRAFT" || /REVIEW-ONLY/i.test(lesson?.provenance?.note ?? "");
+  const theory = !hidden && Boolean(lesson?.theory.trim());
   const video = !hidden && Boolean(topic.videos?.some((item) => item.reviewStatus === "CONFIRMED"));
   const practice = !hidden && Boolean(topic.questions?.length);
   return {
@@ -19,7 +20,7 @@ export function lessonAccess(topic: {
     label: hidden
       ? "Чернетка не опублікована"
       : theory
-        ? "Конспект доступний"
+        ? "Теорія доступна"
         : video
           ? "Відео доступне"
           : practice

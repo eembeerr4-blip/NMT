@@ -15,6 +15,13 @@ const render=async()=>renderToStaticMarkup(await LessonPage({params:Promise.reso
 beforeEach(()=>{vi.clearAllMocks();Object.assign(mock.user,{id:"A",role:"STUDENT"});mock.topic.mockResolvedValue(topic());mock.siblings.mockResolvedValue([topic("previous",0),topic("missing",1,false),topic(),topic("unavailable-next",3,false),topic("next",4)]);mock.progress.mockResolvedValue(null);mock.questions.mockResolvedValue(0);mock.attempt.mockResolvedValue(null);mock.review.mockResolvedValue(null)});
 
 it("uses real available sibling IDs, skips unavailable lessons and never invents numbered URLs",async()=>{const html=await render();expect(html).toContain('href="/learn/previous"');expect(html).toContain('href="/learn/next"');expect(html).not.toContain('/learn/missing');expect(html).not.toContain('/learn/unavailable-next');expect(mock.siblings).toHaveBeenCalledWith(expect.objectContaining({where:{subjectId:"math",parentId:null},orderBy:{sortOrder:"asc"}}))});
+it("uses the available Ukrainian route across parent sections and excludes an unpublished candidate",async()=>{
+ mock.topic.mockResolvedValue({...topic("ukr-word"),subjectId:"ukrainian"});
+ mock.siblings.mockResolvedValue([{...topic("ukr-phonetics",0),parentId:"other"},{...topic("ukr-morph",20),parentId:null},{...topic("ukr-word",30),parentId:"words"},{...topic("draft",10),coverage:"DRAFT"}]);
+ const html=await render();
+ expect(html).toContain('/learn/ukr-morph');expect(html).toContain('/learn/ukr-phonetics');expect(html).not.toContain('/learn/draft');expect(html).toContain('Прогалини маршруту');
+ expect(mock.siblings).toHaveBeenCalledWith(expect.objectContaining({where:{subjectId:"ukrainian"}}));
+});
 it("keeps video, attempt, review and progress queries scoped to each authenticated user",async()=>{
  for(const userId of ["A","B"]){
   mock.user.id=userId;await render();

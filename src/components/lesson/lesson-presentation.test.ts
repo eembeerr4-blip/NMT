@@ -15,3 +15,11 @@ it("renders lesson synopsis without personal note UI",()=>{const synopsis=render
 it("describes missing examples and synopsis honestly",()=>{expect(renderToStaticMarkup(createElement(LessonExamples,{lesson:null,topicId:"topic"}))).toContain('Приклади ще готуються');const html=renderToStaticMarkup(createElement(LessonSynopsis,{lesson:null,summary:"",formulas:""}));expect(html).toContain('Навчальний конспект ще готується');expect(html).not.toContain('Повний матеріал доступний');expect(renderToStaticMarkup(createElement(LessonSynopsis,{lesson:{...lesson,summary:"",rules:[],mistakes:[]},summary:"",formulas:""}))).toContain('Повний матеріал доступний')});
 
 it("omits the video tab when no confirmed video is supplied",()=>{const html=renderToStaticMarkup(createElement(LessonTabs,{variant:"lesson",theory:"THEORY",examples:"EXAMPLES",practice:"PRACTICE",notes:"NOTES"}));expect(html).not.toContain('Відеоурок');expect((html.match(/role="tab"/g)||[])).toHaveLength(4);expect(html).toContain('data-state="active"');});
+
+it("shows notes-only synopsis and does not pass a topic description off as a synopsis",()=>{
+ const base={...lesson,summary:"",rules:[],mistakes:[],notes:"Справжні навчальні нотатки"};
+ expect(renderToStaticMarkup(createElement(LessonSynopsis,{lesson:base,summary:"Опис теми",formulas:""}))).toContain("Справжні навчальні нотатки");
+ const html=renderToStaticMarkup(createElement(LessonSynopsis,{lesson:{...base,notes:" ",rules:[" "],mistakes:[" "]},summary:"Опис теми",formulas:""}));
+ expect(html).toContain("Окремого короткого конспекту ще немає");
+ expect(html).not.toContain("Опис теми");
+});

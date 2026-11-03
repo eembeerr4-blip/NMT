@@ -5,7 +5,7 @@ it("empty material and unconfirmed video cannot enable learning",()=>{
 });
 it("short genuine theory can be studied without pretending the editorial checklist is complete",()=>{
  const lessonJson=JSON.stringify({objectives:[],theory:"QA-конспект",rules:[],examples:[],mistakes:[],summary:""});
- expect(lessonAccess({lessonJson})).toMatchObject({available:true,theory:true,label:"Конспект доступний"});
+ expect(lessonAccess({lessonJson})).toMatchObject({available:true,theory:true,label:"Теорія доступна"});
 });
 it("keeps an imported draft invisible until publication",()=>{
  const lessonJson=JSON.stringify({objectives:[],theory:"Чернетка конспекту для перевірки перед показом учням.",rules:[],examples:[],mistakes:[],summary:""});
@@ -15,4 +15,8 @@ it("keeps an imported draft invisible until publication",()=>{
 it("verified practice and confirmed video have independent honest availability",()=>{
  expect(lessonAccess({lessonJson:"{}",questions:[{}]})).toMatchObject({practice:true,available:true});
  expect(lessonAccess({lessonJson:"{}",videos:[{reviewStatus:"CONFIRMED"}]})).toMatchObject({video:true,available:true});
+});
+it("fails closed for REVIEW-ONLY provenance even if coverage is accidentally READY",()=>{
+ const lessonJson=JSON.stringify({objectives:[],theory:"Candidate",provenance:{origin:"original",title:"Candidate",license:"original",note:"REVIEW-ONLY"}});
+ expect(lessonAccess({lessonJson,coverage:"READY",questions:[{}],videos:[{reviewStatus:"CONFIRMED"}]})).toMatchObject({available:false,theory:false,practice:false,video:false});
 });
