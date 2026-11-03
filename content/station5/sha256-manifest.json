@@ -34,8 +34,8 @@
     },
     {
       "file": "content/station5/language-route.PRACTICE.package.json",
-      "bytes": 297858,
-      "sha256": "0301d79d42911cbdc9ebc8bcf575b1e64e64e3baf4c5863e014829f218c71a87"
+      "bytes": 302573,
+      "sha256": "1c6a57990340349ae1e28a589cc69d8d11ab01cef52356bab50db1cab6b15e7d"
     },
     {
       "file": "content/station5/learner-browser-QA.json",
@@ -54,8 +54,8 @@
     },
     {
       "file": "content/station5/morphology.PRACTICE.package.json",
-      "bytes": 254873,
-      "sha256": "26c3b99791c1a8553a91901f5fc0fc154ecd61e841b9ded4290459c5ec38eb2f"
+      "bytes": 258510,
+      "sha256": "0cd6cd23f2666961923f2f41fd23a58000f18e7dd6c7bdb2f462ffee9d232e09"
     },
     {
       "file": "content/station5/programme-crosswalk.json",
@@ -101,6 +101,23 @@
       "file": "tests/station5-ukrainian.db.test.ts",
       "bytes": 9519,
       "sha256": "4e2994b60f39ffe1fd6fe3a8b834449ae8a26ec4655c53f4f6c71a655991abe2"
+    },
+    {
+      "file": "content/station5/reconciliation/legacy-corrections.REVIEW-ONLY.package.json",
+      "bytes": 16820,
+      "sha256": "357f679461b64b9bb5b3ce5126faf335493465c10bb25a1c513f5913091f5356"
+    },
+    {
+      "file": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "bytes": 113166,
+      "sha256": "3d7e5beb267276b828f09f250e6aabb63607ed076a5dc9aa45016724c54a6791"
+    },
+    {
+      "file": "tests/station5-reconciliation.db.test.ts",
+      "bytes": 8228,
+      "sha256": "5287ed62f3d1890628e1514dd6aa1883533c95e81315f962290ec44f51dd0c34"
     }
-  ]
+  ],
+  "reconciledAt": "2026-11-03",
+  "reconciliationScope": "Only listed changed/new files refreshed; previous audit evidence remains dated baseline, not a new 240-item review."
 }
