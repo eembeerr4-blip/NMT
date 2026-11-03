@@ -1,0 +1,1014 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-03",
+  "status": "PARTIAL / NEEDS FIXES",
+  "branch": "station5/academic-reconciliation-20261103",
+  "base": "a2cbabd0a0e847bb4d4946462d81fa3e26c44fbb",
+  "ancestry": "164a3e6f03512a2afa9d5e952e22f886d8debeb9 is ancestor; recovery adds only two report files",
+  "provenance": {
+    "originalOpusFound": false,
+    "originalAntigravity": "D:/NMT-agent-sandbox/ukrainian-content-audit.md, 2026-11-02, explicitly 100 active questions and 15 topics",
+    "candidateAudit": "Four candidate flags preserved as user-reported; original Antigravity 240/120 report not recovered. Repository independent-review.json is prior Codex AI cross-review, not a third independent expert.",
+    "recovery": "Root STATION5-ACADEMIC-AUDIT-RECOVERY.md/json; user-provided nested path does not exist at recovery commit.",
+    "additionalWork": "Targeted nine-case reconciliation, normative sources, one candidate-question refinement, two worked-example clarifications, four review-only legacy proposals, four original reading texts/24 questions; no repeat full-bank academic review."
+  },
+  "ledger": [
+    {
+      "id": "s5-ukr-syntax-simple-p01",
+      "file": "content/station5/language-route.PRACTICE.package.json",
+      "selector": "topic=s5-ukr-syntax-simple/questions[code]",
+      "original": {
+        "code": "s5-ukr-syntax-simple-p01",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "EASY",
+        "prompt": "Яка сполука є підрядним словосполученням?",
+        "options": [
+          {
+            "label": "А",
+            "text": "дощ і вітер"
+          },
+          {
+            "label": "Б",
+            "text": "птах співає"
+          },
+          {
+            "label": "В",
+            "text": "біля річки"
+          },
+          {
+            "label": "Г",
+            "text": "читати книжку"
+          },
+          {
+            "label": "Д",
+            "text": "буду писати"
+          }
+        ],
+        "correctAnswer": "Г",
+        "explanation": "Читати книжку має головне й залежне повнозначні слова. А — однорідні члени, Б — основа, В — прийменникова форма, Д — аналітична форма майбутнього часу.",
+        "source": "Station 5 · original · REVIEW-ONLY · без учительської/емпіричної калібрації"
+      },
+      "antigravity": {
+        "verdict": "Потенциальная неоднозначность",
+        "provenance": "USER_REPORTED_CANDIDATE_AUDIT_NOT_FOUND_AS_ORIGINAL"
+      },
+      "codex_recovery": "PASS",
+      "final_status": "VALID",
+      "reason": "Біля річки содержит только одно полнозначное слово и предлог. Это предложно-падежная форма, а не подчинительное сочетание двух полнозначных слов. Теория этого же модуля уже объясняет различие. Второй правильный ответ не подтверждён.",
+      "sources": [
+        {
+          "url": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-5-klas-2018/14-ukr-mova-dlya-nacmenshyn-5-klas/ykr-mova-5-klas-dlya-pereglyadu-5-1-1.pdf",
+          "locator": "Раздел о словосочетании; доступен индексированный фрагмент, не полное чтение PDF",
+          "confirmation": "Не являются словосочетаниями служебное+полнозначное слово и аналитическое будущее"
+        }
+      ],
+      "after": {
+        "code": "s5-ukr-syntax-simple-p01",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "EASY",
+        "prompt": "Яка сполука є підрядним словосполученням?",
+        "options": [
+          {
+            "label": "А",
+            "text": "дощ і вітер"
+          },
+          {
+            "label": "Б",
+            "text": "птах співає"
+          },
+          {
+            "label": "В",
+            "text": "біля річки"
+          },
+          {
+            "label": "Г",
+            "text": "читати книжку"
+          },
+          {
+            "label": "Д",
+            "text": "буду писати"
+          }
+        ],
+        "correctAnswer": "Г",
+        "explanation": "Читати книжку має головне й залежне повнозначні слова. А — однорідні члени, Б — основа, В — прийменникова форма, Д — аналітична форма майбутнього часу.",
+        "source": "Station 5 · original · REVIEW-ONLY · без учительської/емпіричної калібрації"
+      },
+      "original_normative_acceptance": "RESOLVED_FOR_STATED_SCOPE",
+      "production_applied": false
+    },
+    {
+      "id": "s5-ukr-phonetics-E5",
+      "file": "content/station5/language-route.PRACTICE.package.json",
+      "selector": "topic=s5-ukr-phonetics/lesson.examples[4]",
+      "original": {
+        "task": "Скільки складів у слові м’ята?",
+        "solution": "1. Знайдіть голосні а й а. 2. Апостроф і й не утворюють окремих складів. 3. Складів два."
+      },
+      "antigravity": {
+        "verdict": "Ошибка объяснения",
+        "provenance": "USER_REPORTED_CANDIDATE_AUDIT_NOT_FOUND_AS_ORIGINAL"
+      },
+      "codex_recovery": "PASS",
+      "final_status": "EDITORIAL_LIMITATION",
+      "reason": "Два гласных звука [а] названы верно; две буквы а не утверждаются. Добавлена явная транскрипция и различение буквы/звука, итог два слога сохранён.",
+      "sources": [
+        {
+          "url": "https://www.ulif.org.ua/data/pravopus_ua_05.06/content.htm",
+          "locator": "§4 п1",
+          "confirmation": "Я после апострофа передаёт й+а; м’я́та — явный пример"
+        }
+      ],
+      "after": {
+        "task": "Скільки складів у слові м’ята?",
+        "solution": "1. Вимовте м’ята: [мйа́та]. Після апострофа я передає [йа]. 2. Голосні звуки — [а] та [а], хоча на письмі їм відповідають різні букви: я й а. 3. Кожен голосний утворює склад: м’я-та, два склади; апостроф і [й] складу не утворюють."
+      },
+      "original_normative_acceptance": "RESOLVED_FOR_STATED_SCOPE",
+      "production_applied": false
+    },
+    {
+      "id": "s5-ukr-verb-E4",
+      "file": "content/station5/morphology.PRACTICE.package.json",
+      "selector": "topic=s5-ukr-verb/lesson.examples[3]",
+      "original": {
+        "task": "Виправте «Йдучи до школи, у мене впав зошит».",
+        "solution": "1. Ішов учень, а впав зошит: діячі різні. 2. Називаємо спільного діяча. 3. Йдучи до школи, я впустив зошит."
+      },
+      "antigravity": {
+        "verdict": "Исправление меняет исходный смысл",
+        "provenance": "USER_REPORTED_CANDIDATE_AUDIT_NOT_FOUND_AS_ORIGINAL"
+      },
+      "codex_recovery": "PASS",
+      "final_status": "EDITORIAL_LIMITATION",
+      "reason": "Предыдущий вариант грамматически правилен, но добавляет причинную интерпретацию я впустив. Редактура через временную придаточную сохраняет исходное падение предмета.",
+      "sources": [
+        {
+          "url": "https://mybook.dniprorada.gov.ua/uploads/6f8c0b7037e911ed80b40b0a33cb4a70Ukraiinskamova7klasIermolenko2015.pdf",
+          "locator": "Єрмоленко,7клас2015; ранее индексированный фрагмент",
+          "confirmation": "Основное и дополнительное действие имеют общего деятеля; сохранение смысла — отдельный редакторский критерий"
+        }
+      ],
+      "after": {
+        "task": "Виправте «Йдучи до школи, у мене впав зошит».",
+        "solution": "1. Дієприслівник йдучи вимагає спільного діяча з основною дією, але підмет зошит не може йти до школи. 2. Щоб зберегти саме падіння зошита, не замінюємо його на іншу дію учня. 3. Перебудовуємо речення з підрядною частиною часу: «Коли я йшов до школи, у мене впав зошит». Тепер діяч ходи названий, а початкову ситуацію збережено."
+      },
+      "original_normative_acceptance": "RESOLVED_FOR_STATED_SCOPE",
+      "production_applied": false
+    },
+    {
+      "id": "s5-ukr-asyndetic-p06",
+      "file": "content/station5/language-route.PRACTICE.package.json",
+      "selector": "topic=s5-ukr-asyndetic/questions[code]",
+      "original": {
+        "code": "s5-ukr-asyndetic-p06",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "EASY",
+        "prompt": "Протиставлення виражене в реченні",
+        "options": [
+          {
+            "label": "А",
+            "text": "Я кликав — ніхто не озвався."
+          },
+          {
+            "label": "Б",
+            "text": "Зійшло сонце — стало тепліше."
+          },
+          {
+            "label": "В",
+            "text": "Я зрозумів: вихід є."
+          },
+          {
+            "label": "Г",
+            "text": "Ми не пішли: почався дощ."
+          },
+          {
+            "label": "Д",
+            "text": "Завершиш вправу — відпочинь."
+          }
+        ],
+        "correctAnswer": "А",
+        "explanation": "Між кликав і ніхто не озвався можливе але: очікуваний результат заперечено. Б наслідок, В пояснення, Г причина, Д умова.",
+        "source": "Station 5 · original · REVIEW-ONLY · без учительської/емпіричної калібрації"
+      },
+      "antigravity": {
+        "verdict": "Неоднозначность смыслового отношения",
+        "provenance": "USER_REPORTED_CANDIDATE_AUDIT_NOT_FOUND_AS_ORIGINAL"
+      },
+      "codex_recovery": "PASS",
+      "final_status": "EDITORIAL_LIMITATION",
+      "reason": "Исходное отрицание ожидаемого результата допускает контраст, но новичок может смешивать его со следствием. Второй равноценный ключ не доказан; контекст уточнён до наглядного противопоставления состояний.",
+      "sources": [
+        {
+          "url": "https://www.ulif.org.ua/data/pravopus_ua_05.06/content.htm",
+          "locator": "§161 II п2",
+          "confirmation": "Тире между частями с противопоставлением или сопоставлением; пунктуация сама не задаёт единственное отношение"
+        }
+      ],
+      "after": {
+        "code": "s5-ukr-asyndetic-p06",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "EASY",
+        "prompt": "У якому безсполучниковому реченні протиставлено стани двох різних приміщень?",
+        "options": [
+          {
+            "label": "А",
+            "text": "У коридорі було гамірно — у читальні панувала тиша."
+          },
+          {
+            "label": "Б",
+            "text": "Зійшло сонце — стало тепліше."
+          },
+          {
+            "label": "В",
+            "text": "Я зрозумів: вихід є."
+          },
+          {
+            "label": "Г",
+            "text": "Ми не пішли: почався дощ."
+          },
+          {
+            "label": "Д",
+            "text": "Завершиш вправу — відпочинь."
+          }
+        ],
+        "correctAnswer": "А",
+        "explanation": "А зіставляє протилежні стани двох місць: гамір і тишу; можна вставити а або але. Б подає наслідок потепління після сходу сонця; В пояснює зміст зрозумів; Г називає причину рішення; Д ставить відпочинок у залежність від виконання вправи. Саме тире без аналізу змісту не визначає відношення.",
+        "source": "Station 5 · original · REVIEW-ONLY · без учительської/емпіричної калібрації"
+      },
+      "original_normative_acceptance": "RESOLVED_FOR_STATED_SCOPE",
+      "production_applied": false
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e02",
+      "file": "content/station5/reconciliation/legacy-corrections.REVIEW-ONLY.package.json",
+      "selector": "topic=ukr-ortho-sub-01/questions[code]",
+      "original": {
+        "id": "s7a-ukr-ortho-sub-01-e02",
+        "topicId": "ukr-ortho-sub-01",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "EASY",
+        "prompt": "У «водопровід» корінь «вод-» перевіряється словом:",
+        "explanation": "У «вода» наголос на «о».",
+        "options": [
+          {
+            "label": "А",
+            "text": "вода"
+          },
+          {
+            "label": "Б",
+            "text": "водій"
+          },
+          {
+            "label": "В",
+            "text": "провід"
+          },
+          {
+            "label": "Г",
+            "text": "від"
+          }
+        ],
+        "correctAnswer": "А"
+      },
+      "antigravity": {
+        "verdict": "Неточное объяснение, методический дефект",
+        "provenance": "D:/NMT-agent-sandbox/ukrainian-content-audit.md; original100-question audit"
+      },
+      "codex_recovery": "CONFIRMED_ERROR",
+      "final_status": "CONFIRMED_ERROR",
+      "reason": "Вода́ не имеет ударного о; исходное объяснение неверно и нужной проверочной формы в вариантах нет. Подготовлена однозначная форма с пометой падежа.",
+      "sources": [
+        {
+          "url": "https://slovnyk.me/dict/sum/вода",
+          "locator": "СУМ11,статья вода (зеркало)",
+          "confirmation": "Нормативное ударение вода́; во́ди — проверочная форма"
+        }
+      ],
+      "after": {
+        "code": "s7a-ukr-ortho-sub-01-e02",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "EASY",
+        "prompt": "Яка форма перевіряє перший ненаголошений о у слові водопровід?",
+        "options": [
+          {
+            "label": "А",
+            "text": "води́ (родовий відмінок однини)"
+          },
+          {
+            "label": "Б",
+            "text": "воді́й"
+          },
+          {
+            "label": "В",
+            "text": "во́ди (називний відмінок множини)"
+          },
+          {
+            "label": "Г",
+            "text": "прові́д"
+          }
+        ],
+        "correctAnswer": "В",
+        "explanation": "Перевірна форма во́ди має той самий корінь вод- зі значенням води й наголос на потрібному о. У води́ цей о ненаголошений; воді́й має інше значення кореня; прові́д не перевіряє перший корінь вод- у водопровід.",
+        "source": "Station5 reconciliation · REVIEW-ONLY · legacy proposal; published rows must not be overwritten"
+      },
+      "original_normative_acceptance": "RESOLVED_FOR_STATED_SCOPE",
+      "production_applied": false
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e05",
+      "file": "content/station5/reconciliation/legacy-corrections.REVIEW-ONLY.package.json",
+      "selector": "topic=ukr-ortho-sub-01/questions[code]",
+      "original": {
+        "id": "s7a-ukr-ortho-sub-01-e05",
+        "topicId": "ukr-ortho-sub-01",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "MEDIUM",
+        "prompt": "У «земляний» «е» в «зем-» перевіряємо формою:",
+        "explanation": "У «земля» наголос на «е».",
+        "options": [
+          {
+            "label": "А",
+            "text": "землі"
+          },
+          {
+            "label": "Б",
+            "text": "земля"
+          },
+          {
+            "label": "В",
+            "text": "землю"
+          },
+          {
+            "label": "Г",
+            "text": "земельний"
+          }
+        ],
+        "correctAnswer": "Б"
+      },
+      "antigravity": {
+        "verdict": "Подтверждённая ошибка; предложена простая смена ключа",
+        "provenance": "D:/NMT-agent-sandbox/ukrainian-content-audit.md; original100-question audit"
+      },
+      "codex_recovery": "CONFIRMED_ERROR",
+      "final_status": "CONFIRMED_ERROR",
+      "reason": "В исходном объяснении ложное ударение земля́. Дополнительно исходные зе́млю и непомеченные землі не дают уникального решения. Переработаны варианты целиком.",
+      "sources": [
+        {
+          "url": "https://slovnyk.me/dict/sum/земля",
+          "locator": "СУМ11,статья земля (зеркало)",
+          "confirmation": "Земля́ и зе́млю подтверждают ошибку и недостаточность простой смены ключа"
+        }
+      ],
+      "after": {
+        "code": "s7a-ukr-ortho-sub-01-e05",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "MEDIUM",
+        "prompt": "У якій формі кореневий е слова земляний перебуває під наголосом?",
+        "options": [
+          {
+            "label": "А",
+            "text": "зе́млі (називний відмінок множини)"
+          },
+          {
+            "label": "Б",
+            "text": "земля́ (називний відмінок однини)"
+          },
+          {
+            "label": "В",
+            "text": "землі́ (родовий відмінок однини)"
+          },
+          {
+            "label": "Г",
+            "text": "земляни́й"
+          }
+        ],
+        "correctAnswer": "А",
+        "explanation": "Лише зе́млі в називному множини має наголос на кореневому е. У земля́, землі́ та земляни́й наголос падає на інші голосні. У початковому наборі форму землю також можна було прочитати з наголошеним е, тому недостатньо просто змінити ключ без перегляду дистракторів.",
+        "source": "Station5 reconciliation · REVIEW-ONLY · legacy proposal; published rows must not be overwritten"
+      },
+      "original_normative_acceptance": "RESOLVED_FOR_STATED_SCOPE",
+      "production_applied": false
+    },
+    {
+      "id": "ukr-lex-01-q04",
+      "file": "content/station5/reconciliation/legacy-corrections.REVIEW-ONLY.package.json",
+      "selector": "topic=ukr-lex-01-meaning/questions[code]",
+      "original": {
+        "id": "ukr-lex-01-q04",
+        "topicId": "ukr-lex-01-meaning",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "EASY",
+        "prompt": "Укажіть правильний варіант слововживання зі словом «підручник»:",
+        "explanation": "Книги, підручники, зошити та журнали в українській мові розгортають (і згортають). Відчиняють двері й вікна; розплющують очі; відкривають рахунок у банку чи науковий закон.",
+        "options": [
+          {
+            "label": "А",
+            "text": "відкрити підручник"
+          },
+          {
+            "label": "Б",
+            "text": "відчинити підручник"
+          },
+          {
+            "label": "В",
+            "text": "розгорнути підручник"
+          },
+          {
+            "label": "Г",
+            "text": "розплющити підручник"
+          }
+        ],
+        "correctAnswer": "В"
+      },
+      "antigravity": {
+        "verdict": "Отвергает відкрити в q12 и отмечает конфликт с q04",
+        "provenance": "D:/NMT-agent-sandbox/ukrainian-content-audit.md; original100-question audit"
+      },
+      "codex_recovery": "NEEDS_MORE_EVIDENCE",
+      "final_status": "NEEDS_SOURCE",
+      "reason": "Абсолютное противопоставление відкрити/розгорнути и его трактовка в q12 не согласованы. ИУЯ рекомендует розгортати для книги, но универсальный запрет не доказан. Исходная нормативная претензия BLOCKED; новая формулировка устраняет её из оцениваемого набора.",
+      "sources": [
+        {
+          "url": "https://iul-nasu.org.ua/pdf/kulturaslova/92/23_ks_92.pdf",
+          "locator": "О.Дільна,Культура слова92,2020,с260",
+          "confirmation": "Редакторская рекомендация розгортати книжку; не универсальный официальный ключ НМТ"
+        }
+      ],
+      "after": {
+        "code": "ukr-lex-01-q04",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "EASY",
+        "prompt": "Який варіант точно називає дію з паперовим підручником перед читанням його сторінок?",
+        "options": [
+          {
+            "label": "А",
+            "text": "відчинити підручник"
+          },
+          {
+            "label": "Б",
+            "text": "відкоркувати підручник"
+          },
+          {
+            "label": "В",
+            "text": "розгорнути підручник"
+          },
+          {
+            "label": "Г",
+            "text": "розплющити підручник"
+          }
+        ],
+        "correctAnswer": "В",
+        "explanation": "Паперовий підручник розгортають, щоб читати сторінки. Відчиняють двері, відкорковують пляшку, розплющують очі. Спірного варіанта відкрити підручник тут немає: завдання не проголошує універсальної заборони цього дієслова в усіх контекстах.",
+        "source": "Station5 reconciliation · REVIEW-ONLY · legacy proposal; published rows must not be overwritten"
+      },
+      "original_normative_acceptance": "BLOCKED",
+      "production_applied": false
+    },
+    {
+      "id": "ukr-lex-01-q12",
+      "file": "content/station5/reconciliation/legacy-corrections.REVIEW-ONLY.package.json",
+      "selector": "topic=ukr-lex-01-meaning/questions[code]",
+      "original": {
+        "id": "ukr-lex-01-q12",
+        "topicId": "ukr-lex-01-meaning",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "HARD",
+        "prompt": "У якому варіанті допущено лексичну помилку?",
+        "explanation": "Нормативне стійке словосполучення — «брати / взяти участь». «Прийняти участь» є калькою і не збігається з цим сполученням. «Сплатити рахунок», «взяти участь» і «відкрити підручник» лексичної помилки не містять, тож правильний рядок лише Г.",
+        "options": [
+          {
+            "label": "А",
+            "text": "Сплатити рахунок за проїзд у транспорті."
+          },
+          {
+            "label": "Б",
+            "text": "Взяти участь у конференції."
+          },
+          {
+            "label": "В",
+            "text": "Відкрити підручник на потрібній сторінці."
+          },
+          {
+            "label": "Г",
+            "text": "Прийняти участь у конференції."
+          }
+        ],
+        "correctAnswer": "Г"
+      },
+      "antigravity": {
+        "verdict": "Считает q12 критической коллизией",
+        "provenance": "D:/NMT-agent-sandbox/ukrainian-content-audit.md; original100-question audit"
+      },
+      "codex_recovery": "NEEDS_MORE_EVIDENCE",
+      "final_status": "NEEDS_SOURCE",
+      "reason": "Исходное объяснение безоговорочно разрешает спорное сочетание, противореча q04. Устранение коллизии в предложенном наборе не выдано за доказанный общий запрет. Спор исходной формулировки остаётся BLOCKED до отдельного нормативного решения.",
+      "sources": [
+        {
+          "url": "https://iul-nasu.org.ua/pdf/kulturaslova/92/23_ks_92.pdf",
+          "locator": "О.Дільна,2020,с260",
+          "confirmation": "Поддерживает редакторское предпочтение розгортати книжку"
+        }
+      ],
+      "after": {
+        "code": "ukr-lex-01-q12",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "HARD",
+        "prompt": "У якому варіанті допущено лексичну помилку?",
+        "options": [
+          {
+            "label": "А",
+            "text": "Сплатити рахунок за електроенергію."
+          },
+          {
+            "label": "Б",
+            "text": "Взяти участь у конференції."
+          },
+          {
+            "label": "В",
+            "text": "Розгорнути підручник на потрібній сторінці."
+          },
+          {
+            "label": "Г",
+            "text": "Прийняти участь у конференції."
+          }
+        ],
+        "correctAnswer": "Г",
+        "explanation": "Нейтральна нормативна сполука — брати або взяти участь; варіант прийняти участь потребує редагування. Сплатити рахунок, взяти участь і розгорнути паперовий підручник мають нормативну сполучуваність. Контекст рахунку уточнено; спірне відкрити підручник вилучено з цього набору без твердження про його універсальну ненормативність.",
+        "source": "Station5 reconciliation · REVIEW-ONLY · legacy proposal; published rows must not be overwritten"
+      },
+      "original_normative_acceptance": "BLOCKED",
+      "production_applied": false
+    },
+    {
+      "id": "qx-word-4",
+      "file": "prisma/practice-extra.ts",
+      "selector": "single(qx-word-4)",
+      "original": {
+        "id": "qx-word-4",
+        "prompt": "Суфікс інфінітива в слові «читати» —",
+        "explanation": "-ти є суфіксом інфінітива, не закінченням.",
+        "difficulty": "HARD",
+        "options": [
+          {
+            "label": "А",
+            "text": "чит-"
+          },
+          {
+            "label": "Б",
+            "text": "-ти"
+          },
+          {
+            "label": "В",
+            "text": "-а-"
+          },
+          {
+            "label": "Г",
+            "text": "чита-"
+          }
+        ],
+        "correctAnswer": "Б"
+      },
+      "antigravity": {
+        "verdict": "Методическая неоднозначность -а-/-ти",
+        "provenance": "Original Antigravity100-question audit"
+      },
+      "codex_recovery": "PASS",
+      "final_status": "VALID",
+      "reason": "Спрошен суффикс инфинитива, а не любой суффикс основы. -ти корректен. Метка HARD — отдельный дефект некалиброванной сложности; корректный материал сохранён.",
+      "sources": [
+        {
+          "url": "https://subjectum.eu/textbook/mova/10klas_6/47.html",
+          "locator": "Ворон2018,§46; зеркало учебника",
+          "confirmation": "Основа инфинитива выделяется отделением суффикса-ти"
+        }
+      ],
+      "after": {
+        "id": "qx-word-4",
+        "prompt": "Суфікс інфінітива в слові «читати» —",
+        "explanation": "-ти є суфіксом інфінітива, не закінченням.",
+        "difficulty": "HARD",
+        "options": [
+          {
+            "label": "А",
+            "text": "чит-"
+          },
+          {
+            "label": "Б",
+            "text": "-ти"
+          },
+          {
+            "label": "В",
+            "text": "-а-"
+          },
+          {
+            "label": "Г",
+            "text": "чита-"
+          }
+        ],
+        "correctAnswer": "Б"
+      },
+      "original_normative_acceptance": "RESOLVED_FOR_STATED_SCOPE",
+      "production_applied": false
+    }
+  ],
+  "verdictCounts": {
+    "VALID": 2,
+    "EDITORIAL_LIMITATION": 3,
+    "CONFIRMED_ERROR": 2,
+    "NEEDS_SOURCE": 2
+  },
+  "reading": {
+    "texts": [
+      {
+        "title": "Тінь і температура",
+        "genre": "науково-популярний",
+        "words": 145,
+        "characters": 1051
+      },
+      {
+        "title": "Майстерня речей",
+        "genre": "публіцистичний",
+        "words": 194,
+        "characters": 1446
+      },
+      {
+        "title": "Карта з порожнім місцем",
+        "genre": "художній",
+        "words": 294,
+        "characters": 1966
+      },
+      {
+        "title": "Оголошення про читальний зал",
+        "genre": "офіційно-діловий",
+        "words": 99,
+        "characters": 741
+      }
+    ],
+    "questions": [
+      {
+        "id": "s5-ukr-readext-t1-q1",
+        "text": "Тінь і температура",
+        "genre": "науково-популярний",
+        "skill": "main-idea",
+        "evidenceParagraphs": "2–4",
+        "key": "А",
+        "rationale": "Абзаци 2–4 обмежують початковий висновок і пояснюють перевірку. Б суперечить абзацу 1; В прямо відкинуто в абзаці 4; Г ігнорує затінення.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t1-q2",
+        "text": "Тінь і температура",
+        "genre": "науково-популярний",
+        "skill": "inference",
+        "evidenceParagraphs": "3",
+        "key": "Б",
+        "rationale": "Абзац 3 залишає матеріал однаковим, змінюючи освітлення. Однакові плитки не усувають вітер, не охоплюють місто й не скасовують повторення.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t1-q3",
+        "text": "Тінь і температура",
+        "genre": "науково-популярний",
+        "skill": "argument",
+        "evidenceParagraphs": "1",
+        "key": "В",
+        "rationale": "В абзаці 1 одночасно наведено різні температури поверхонь і приблизно однакові температури повітря. А та Б стосуються процедури, Г сам по собі не містить температурного порівняння.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t1-q4",
+        "text": "Тінь і температура",
+        "genre": "науково-популярний",
+        "skill": "cohesion",
+        "evidenceParagraphs": "3",
+        "key": "Г",
+        "rationale": "Займенник і прислівник підсумовують два попередні речення абзацу 3. А заперечується; Б належить першому досліду; В не було досягнуто.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t1-q5",
+        "text": "Тінь і температура",
+        "genre": "науково-популярний",
+        "skill": "style",
+        "evidenceParagraphs": "2–4",
+        "key": "А",
+        "rationale": "Текст пояснює поглинання, випаровування та контроль умов без спеціального математичного апарату. Б — агітація, В — припис, Г — художня оповідь; цих способів викладу тут немає.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t1-q6",
+        "text": "Тінь і температура",
+        "genre": "науково-популярний",
+        "skill": "editing",
+        "evidenceParagraphs": "2,4",
+        "key": "Б",
+        "rationale": "Б зберігає межі висновку з абзацу 4. А підмінює поверхню повітрям і вводить універсальну цифру; В обіцяє неможливу гарантію; Г суперечить обмеженню в абзаці 2.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t2-q1",
+        "text": "Майстерня речей",
+        "genre": "публіцистичний",
+        "skill": "main-idea",
+        "evidenceParagraphs": "1,3–5",
+        "key": "В",
+        "rationale": "Відповідь В поєднує підтримку з умовами з абзаців 3–5. А заперечує підтримку; Б відкинуто в абзаці 1; Г суперечить вимозі відповідального організатора.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t2-q2",
+        "text": "Майстерня речей",
+        "genre": "публіцистичний",
+        "skill": "inference",
+        "evidenceParagraphs": "1–2",
+        "key": "Г",
+        "rationale": "Абзац 2 визначає результатом самостійне опанування операції. А прибирає навчальну участь, Б лише звітує, В порушує обмеження безпеки.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t2-q3",
+        "text": "Майстерня речей",
+        "genre": "публіцистичний",
+        "skill": "argument",
+        "evidenceParagraphs": "3",
+        "key": "А",
+        "rationale": "Абзац 3 прямо називає два обґрунтовані побоювання. Б у тексті немає; В протилежне малому пілоту; Г суперечить аргументам абзацу 2.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t2-q4",
+        "text": "Майстерня речей",
+        "genre": "публіцистичний",
+        "skill": "cohesion",
+        "evidenceParagraphs": "2–3",
+        "key": "Б",
+        "rationale": "Перехід від переваг до обмежень — заперечно-допустова функція. Рішення ще не ухвалене; екологічні переваги наведено раніше; заняття лише планують.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t2-q5",
+        "text": "Майстерня речей",
+        "genre": "публіцистичний",
+        "skill": "style",
+        "evidenceParagraphs": "3",
+        "key": "В",
+        "rationale": "В містить оцінне добра й застереження щодо наслідків. Решта фрагментів називає частоту, кількість або приміщення без такого оцінного висновку.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t2-q6",
+        "text": "Майстерня речей",
+        "genre": "публіцистичний",
+        "skill": "editing",
+        "evidenceParagraphs": "1,4–5",
+        "key": "Г",
+        "rationale": "Г зберігає пілот, обмеження й двобічну оцінку. А додає необґрунтовану гарантію, Б підмінює призначення, В суперечить відкритому звітуванню.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t3-q1",
+        "text": "Карта з порожнім місцем",
+        "genre": "художній",
+        "skill": "main-idea",
+        "evidenceParagraphs": "3–6",
+        "key": "А",
+        "rationale": "Дії з картою, приклад хлопчика й остання думка поєднують пам’ять із чесною невизначеністю. Б протиставляє карти всупереч абзацу 5; В суперечить словам хлопчика; Г у тексті не заявлено.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t3-q2",
+        "text": "Карта з порожнім місцем",
+        "genre": "художній",
+        "skill": "inference",
+        "evidenceParagraphs": "2,5",
+        "key": "Б",
+        "rationale": "Абзац 2 зіставляє друкарську помилку й реальне минуле. А не має підстав; В суперечить початку; Г суперечить дозволу залишити позначену карту.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t3-q3",
+        "text": "Карта з порожнім місцем",
+        "genre": "художній",
+        "skill": "argument",
+        "evidenceParagraphs": "5",
+        "key": "В",
+        "rationale": "Саме її знак питання є дією, яка фіксує невідому дату. А та Б стосуються мосту; Г належить хлопчикові й лише впливає на героїню.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t3-q4",
+        "text": "Карта з порожнім місцем",
+        "genre": "художній",
+        "skill": "cohesion",
+        "evidenceParagraphs": "3–4",
+        "key": "Г",
+        "rationale": "Обидва епізоди зберігають свідчення без вигаданих точних деталей. А пов’язує текст із відсутнім розкладом; Б не стосується невизначеності; плану В немає.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t3-q5",
+        "text": "Карта з порожнім місцем",
+        "genre": "художній",
+        "skill": "style",
+        "evidenceParagraphs": "6",
+        "key": "А",
+        "rationale": "Неістотам приписано дії підказувати й берегти; функції зіставлено. Вислів не є інструкцією чи терміном і не заперечує, що для сучасного шляху потрібна нова карта.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t3-q6",
+        "text": "Карта з порожнім місцем",
+        "genre": "художній",
+        "skill": "editing",
+        "evidenceParagraphs": "3,5",
+        "key": "Б",
+        "rationale": "Б відтворює абзац 5. А вигадує дату й відбудову; В суперечить незнанню хлопчика; Г суперечить рішенню зберегти карту на стенді.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t4-q1",
+        "text": "Оголошення про читальний зал",
+        "genre": "офіційно-діловий",
+        "skill": "main-idea",
+        "evidenceParagraphs": "1–4",
+        "key": "В",
+        "rationale": "В охоплює години, бронювання та замовлення. Оцінювання творів, відмова від паперу й набір ремонтників у повідомленні відсутні.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t4-q2",
+        "text": "Оголошення про читальний зал",
+        "genre": "офіційно-діловий",
+        "skill": "inference",
+        "evidenceParagraphs": "2–3",
+        "key": "Г",
+        "rationale": "Останнє речення абзацу 2 дозволяє доступ до вільних місць. А надмірне; Б не враховує заповненості; В прямо заборонено в абзаці 3.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t4-q3",
+        "text": "Оголошення про читальний зал",
+        "genre": "офіційно-діловий",
+        "skill": "argument",
+        "evidenceParagraphs": "1",
+        "key": "А",
+        "rationale": "А прямо подає виняток з узагальнення про всі відділи. Б–Г не містять інформації про графік інших відділів.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t4-q4",
+        "text": "Оголошення про читальний зал",
+        "genre": "офіційно-діловий",
+        "skill": "cohesion",
+        "evidenceParagraphs": "1,3–4",
+        "key": "Б",
+        "rationale": "Період тимчасових змін задано в абзаці 1 й обмежено в абзаці 4. Двадцять хвилин — інша умова, а постійної чи річної заборони текст не встановлює.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t4-q5",
+        "text": "Оголошення про читальний зал",
+        "genre": "офіційно-діловий",
+        "skill": "style",
+        "evidenceParagraphs": "1–4",
+        "key": "В",
+        "rationale": "Часові межі, правила бронювання та конструкції можна/не дозволено організують повідомлення. Монологів, римування й етичного есе немає.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      },
+      {
+        "id": "s5-ukr-readext-t4-q6",
+        "text": "Оголошення про читальний зал",
+        "genre": "офіційно-діловий",
+        "skill": "editing",
+        "evidenceParagraphs": "2",
+        "key": "Г",
+        "rationale": "Г зберігає умову й тривалість очікування. А прибирає двадцять хвилин; Б скасовує обмеження; В підмінює допустиме запізнення вимогою раннього прибуття.",
+        "review": "AUTHOR_EDITORIAL_REVIEW; not an independent external review"
+      }
+    ]
+  },
+  "changes": {
+    "candidateQuestionEdits": 1,
+    "workedExampleEdits": 2,
+    "legacyProposals": 4,
+    "newTexts": 4,
+    "newReadingQuestions": 24,
+    "newWorkedExamples": 6,
+    "originalCandidateQuestions": 240,
+    "totalOriginalPlusReading": 264,
+    "difficultyOriginal": {
+      "EASY": 164,
+      "MEDIUM": 76,
+      "HARD": 0
+    },
+    "difficultyReading": {
+      "EASY": 8,
+      "MEDIUM": 16,
+      "HARD": 0
+    },
+    "difficultyCombined": {
+      "EASY": 172,
+      "MEDIUM": 92,
+      "HARD": 0
+    },
+    "calibration": "Editorial only, NOT empirically calibrated",
+    "legacyProposalsExcludedFrom264": true,
+    "studentPublication": false,
+    "legacyProductionApplied": false
+  },
+  "tests": {
+    "targeted": {
+      "command": "node node_modules/vitest/vitest.mjs run tests/station5-reconciliation.db.test.ts --reporter=verbose",
+      "result": "3/3 PASS",
+      "durationSeconds": 5.41
+    },
+    "postEditorialChange": {
+      "command": "node node_modules/vitest/vitest.mjs run tests/station5-reconciliation.db.test.ts -t 'validates changed|imports into' --reporter=verbose",
+      "result": "2/2 PASS; unchanged delta test not rerun",
+      "reason": "After first pass, narrowed legacy proposal lessons to relevant material instead of copying unrelated old lesson examples.",
+      "durationSeconds": 5.27
+    },
+    "typescript": {
+      "command": "node node_modules/typescript/bin/tsc --noEmit --incremental false",
+      "result": "PASS"
+    },
+    "eslint": {
+      "command": "node node_modules/eslint/bin/eslint.js tests/station5-reconciliation.db.test.ts",
+      "result": "PASS"
+    },
+    "chromium": {
+      "result": "NOT RUN",
+      "reason": "No interface or server logic changed; previous browser evidence not relabelled as a fresh run."
+    },
+    "database": {
+      "scope": "New mkdtemp SQLite per integration run; migrate deploy only with explicit new DATABASE_URL; no production copy/reset/read/write",
+      "importedCandidateQuestions": 216,
+      "legacyProtectedQuestionsImported": 0,
+      "studentDraftAttempts": 0,
+      "syntheticControlKinds": [
+        "FINAL",
+        "DELAYED"
+      ],
+      "privateBanksOpened": false
+    }
+  },
+  "sources": [
+    {
+      "title": "УЦОЯО: Українська мова НМТ-2026",
+      "url": "https://testportal.gov.ua/ukrayinska-mova-2026/",
+      "support": "30 tasks: 25 single-choice and 5 matching; official 2026 baseline, not a 2027 guarantee."
+    },
+    {
+      "title": "УЦОЯО: програми НМТ",
+      "url": "https://testportal.gov.ua/programy-nmt/",
+      "support": "Programme reference; existing 62-row crosswalk retained."
+    },
+    {
+      "title": "МОН: вступна кампанія 2026",
+      "url": "https://mon.gov.ua/news/vstupna-kampaniia-v-umovakh-viiny-iaki-zminy-zaprovadzheno-v-2026-rotsi",
+      "support": "Distinguishes enacted annual 2026 arrangements from submitted legislative proposals for 2027; final 2027 requirements NOT VERIFIED."
+    },
+    {
+      "title": "УЛІФ: Український правопис 2019",
+      "url": "https://www.ulif.org.ua/data/pravopus_ua_05.06/content.htm",
+      "support": "§4 p1 sound values after apostrophe; §161 II p2 dash in juxtaposition/contrast. Linguistic provisions, not evidence of final 2027 examination specification."
+    }
+  ],
+  "limitations": [
+    "Two original book-collocation claims remain NEEDS_SOURCE / BLOCKED; review-only replacements avoid disputed alternatives without inventing a universal ban.",
+    "Two confirmed legacy stress errors remain unapplied in student data; no production writes authorised.",
+    "62 programme groups still partially covered; no new 62-row availability audit or claim of full coverage.",
+    "20 existing candidate topics plus one new reading candidate remain REVIEW-ONLY; available learner course unchanged.",
+    "Six videos retain previous PLAYBACK_VERIFIED only; full watch/content quality BLOCKED, no new stats or invented timestamps.",
+    "Final NMT-2027 rules NOT VERIFIED.",
+    "No HARD quota, empirical calibration or complete NMT-format mock added.",
+    "Targeted automated grading validates encoded keys, not linguistic uniqueness; source reasoning and author editorial review are separate, no claim of new independent review."
+  ],
+  "safety": {
+    "productionDatabaseAccess": false,
+    "envAccess": false,
+    "privateControlBankAccess": false,
+    "appServerCodeChanged": false,
+    "otherWorktreesModified": false,
+    "preexistingWorktrees": 29,
+    "worktreesAfter": 30,
+    "newIsolatedWorktree": true,
+    "merge": false,
+    "deployment": false
+  },
+  "publication": {
+    "contentCheckpoint": "5658dce55335a7bdcedfb1c1510274fd20c3164a",
+    "verifiedRemoteHeadAtContentCheckpoint": "5658dce55335a7bdcedfb1c1510274fd20c3164a",
+    "reportCommit": "Resolve final report-bearing commit from this file Git history; a commit cannot include its own SHA. Final owner message provides final SHA and observed remote HEAD.",
+    "verificationMethod": "Successful ordinary git push followed by git ls-remote --heads origin refs/heads/station5/academic-reconciliation-20261103",
+    "verifiedOn": "2026-11-03",
+    "plannedReportFiles": 3,
+    "totalPublishedFilesIncludingReports": 9
+  },
+  "files": [
+    "content/station5/language-route.PRACTICE.package.json",
+    "content/station5/morphology.PRACTICE.package.json",
+    "content/station5/reconciliation/legacy-corrections.REVIEW-ONLY.package.json",
+    "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+    "tests/station5-reconciliation.db.test.ts",
+    "content/station5/sha256-manifest.json"
+  ]
+}
