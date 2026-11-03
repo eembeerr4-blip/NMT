@@ -1,0 +1,1357 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-03",
+  "reviewStatus": "NEEDS_REVISION",
+  "station5Status": "PARTIAL / NEEDS FIXES",
+  "repository": "eembeerr4-blip/NMT",
+  "branch": "station5/independent-academic-review-20261103",
+  "baseHead": "1e861ff3b33c1d270fe94d39255a78edcee04af4",
+  "protocol": {
+    "reviewer": "One separate AI agent: /root/station52_blind_review",
+    "conversationInheritance": "none; new agent received no author conversation/history",
+    "parentRole": "Original author/integrator; assembled blind input and compared frozen answers, not counted as an independent reviewer",
+    "blindInputFields": [
+      "id",
+      "prompt including original passage",
+      "options.label",
+      "options.text"
+    ],
+    "blindInputExcluded": [
+      "correctAnswer",
+      "explanation",
+      "lesson solutions",
+      "previous reviews"
+    ],
+    "blindPackSha256": "ca08097083007193906f10a203106f7ec03ff1d16179db49c610178be6b3640f",
+    "frozenBlindAnswersSha256": "ed01eb1a71915f029ca4e8b02adee86be516568b7c1cd8cdc0992f74b8054567",
+    "postRevealReviewSha256": "cc0335d298c11b934c74207dbca68cf96f39e53d4eb882654e85d6b5bf64d06b",
+    "sequence": [
+      "Agent received only blind input and independent normative research permission.",
+      "Agent froze all 28 answers and sent SHA256 before keys/explanations were supplied.",
+      "Parent verified hash and made a byte-identical frozen copy.",
+      "Only then phase2 keys/explanations were created and supplied; additional primary normative sources were supplied after freeze.",
+      "Reviewer checked explanations and final statuses in a separate phase2 file; frozen answers unchanged."
+    ],
+    "teacherReview": false,
+    "empiricalCalibration": false,
+    "independentReviewAvailable": true
+  },
+  "sourcePackages": [
+    {
+      "file": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "sha256": "3d7e5beb267276b828f09f250e6aabb63607ed076a5dc9aa45016724c54a6791",
+      "unchanged": true
+    },
+    {
+      "file": "content/station5/reconciliation/legacy-corrections.REVIEW-ONLY.package.json",
+      "sha256": "357f679461b64b9bb5b3ce5126faf335493465c10bb25a1c513f5913091f5356",
+      "unchanged": true
+    }
+  ],
+  "statistics": {
+    "reading": {
+      "total": 24,
+      "keyMatches": 24,
+      "keyMismatches": 0,
+      "PASS": 23,
+      "NEEDS_REVISION": 1,
+      "BLOCKED": 0,
+      "mandatoryCorrections": 1,
+      "keyChangesRequired": 0
+    },
+    "legacy": {
+      "total": 4,
+      "keyMatches": 4,
+      "keyMismatches": 0,
+      "PASS": 4,
+      "NEEDS_REVISION": 0,
+      "BLOCKED": 0,
+      "mandatoryCorrections": 0,
+      "keyChangesRequired": 0
+    },
+    "total": {
+      "items": 28,
+      "keyMatches": 28,
+      "keyErrors": 0,
+      "PASS": 27,
+      "NEEDS_REVISION": 1,
+      "BLOCKED": 0,
+      "mandatoryCorrections": 1,
+      "correctionsApplied": 0
+    }
+  },
+  "items": [
+    {
+      "id": "s5-ukr-readext-t1-q1",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/0",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "А",
+      "independentAnswer": "А",
+      "acceptableIndependentAnswers": [
+        "А"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Абзаци 2–4 поєднують можливе охолодження затіненої поверхні з вимогою контролювати чинники й обмежувати узагальнення.",
+      "distractorReview": {
+        "Б": "Суперечить різній температурі поверхонь за приблизно однакової температури повітря.",
+        "В": "Абзац 4 прямо відкидає універсальне зниження на однакову величину.",
+        "Г": "Текст називає щонайменше затримування променів і випаровування."
+      },
+      "skill": "Визначення основної думки інформаційного тексту.",
+      "languageReview": "Грамотно, зрозуміло. У спільному тексті неточно: «Обидві виміряли одночасно тим самим приладом»; звичайний одноканальний прилад вимірює послідовно, а багатоканальність не зазначено.",
+      "blindFindings": [
+        "Правильна відповідь однозначна.",
+        "Три абсолютні твердження легко відсіюються; реальна складність невисока.",
+        "Результатів другого досліду не наведено: текст радше демонструє метод перевірки, ніж подає завершений доказ ефекту.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Абзаци 2–4 обмежують початковий висновок і пояснюють перевірку. Б суперечить абзацу 1; В прямо відкинуто в абзаці 4; Г ігнорує затінення.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ А совпадает со слепым А. Объяснение верно связывает общий вывод с ограничениями и проверкой; все три дистрактора разобраны правильно.",
+      "proposedCorrection": null,
+      "optionalImprovement": "Можно явно назвать основную мысль: тень может охлаждать поверхность, но обобщение требует контролируемых измерений.",
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Тінь і температура, абз.1–4"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t1-q2",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/1",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "Б",
+      "independentAnswer": "Б",
+      "acceptableIndependentAnswers": [
+        "Б"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Абзац 3 прямо пояснює: матеріал поверхні залишили однаковим, змінивши переважно освітлення.",
+      "distractorReview": {
+        "А": "Однаковий матеріал не усуває вітер; повтори лише зменшують випадковість його впливу.",
+        "В": "Міського обстеження дерев не проводили.",
+        "Г": "Вимірювання, навпаки, повторювали."
+      },
+      "skill": "Розуміння причинно-наслідкового зв’язку та контролю змінних.",
+      "languageReview": "Нормативно; «відмінність матеріалів менше впливала» прийнятне обережне формулювання, хоча точніше «усунути відмінність матеріалу як чинник». Спільна неточність одночасності вимірів зберігається.",
+      "blindFindings": [
+        "Однозначно; відповідь майже дослівно підказана.",
+        "Дистрактор В надто далекий від мети досліду.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Абзац 3 залишає матеріал однаковим, змінюючи освітлення. Однакові плитки не усувають вітер, не охоплюють місто й не скасовують повторення.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ Б совпадает со слепым Б. Одинаковый материал позволяет сравнивать освещение; никакого устранения ветра или отказа от повторов текст не обещает.",
+      "proposedCorrection": null,
+      "optionalImprovement": null,
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Тінь і температура, абз.3"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t1-q3",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/2",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "В",
+      "independentAnswer": "В",
+      "acceptableIndependentAnswers": [
+        "В"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "За однакової температури повітря показники поверхонь 41 і 29 градусів різні; тому їх не можна ототожнювати з одним показником повітря.",
+      "distractorReview": {
+        "А": "Наступний день не встановлює відмінності між двома видами температури.",
+        "Б": "Повторення саме собою не спростовує ототожнення.",
+        "Г": "Наявність липи без температурних даних недостатня."
+      },
+      "skill": "Добір текстового доказу для спростування твердження.",
+      "languageReview": "Нормативно. «Повітря мало близьку температуру» дещо менш точно за «температура повітря біля обох ділянок була приблизно однакова».",
+      "blindFindings": [
+        "Єдина обґрунтована відповідь; решта варіантів лише супутні факти.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "В абзаці 1 одночасно наведено різні температури поверхонь і приблизно однакові температури повітря. А та Б стосуються процедури, Г сам по собі не містить температурного порівняння.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ В совпадает со слепым В. Верно выделено температурное сравнение. Слово «одночасно» здесь означает совместное изложение данных в абзаце, поэтому не является новым утверждением о физически одновременном измерении.",
+      "proposedCorrection": null,
+      "optionalImprovement": null,
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Тінь і температура, абз.1"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t1-q4",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/3",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "Г",
+      "independentAnswer": "Г",
+      "acceptableIndependentAnswers": [
+        "Г"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "«Так» підсумовує попередній спосіб організації досліду: однакові плитки в різному освітленні й зіставні вимірювання; «вони» називає учнів.",
+      "distractorReview": {
+        "А": "Обіцянку універсального охолодження текст заперечує.",
+        "Б": "Посилання стосується безпосередньо другого досліду, не першого.",
+        "В": "Випаровування окремо не визначали."
+      },
+      "skill": "Розпізнавання міжреченнєвого зв’язку й референції.",
+      "languageReview": "Питання методично неточне: «Так вони» не є єдиним референтним засобом; «так» відсилає до способу дії, «вони» — до учнів.",
+      "blindFindings": [
+        "Г єдина прийнятна відповідь серед наданих.",
+        "Краще питати окремо: «На які попередні дії вказує слово “так”?».",
+        "Варіант Г повторює наукову неточність про одночасність одним приладом.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Займенник і прислівник підсумовують два попередні речення абзацу 3. А заперечується; Б належить першому досліду; В не було досягнуто.",
+      "explanationCorrect": false,
+      "explanationReview": "Ключ Г совпадает со слепым Г, но объяснение неточно приписывает местоимению и наречию одинаковую функцию: «вони» обозначает учеников, а способ предыдущих действий подытоживает «так». Разбор дистракторов правилен. Ошибка локальная и не требует смены ключа.",
+      "proposedCorrection": "Замінити перше речення пояснення: «Прислівник “так” указує на описаний у двох попередніх реченнях спосіб організації досліду: розміщення однакових плиток у різному освітленні та їх зіставне вимірювання. Займенник “вони” стосується учнів». Далі можна зберегти розбір А–В.",
+      "optionalImprovement": "У запитанні замінити «На що вказують слова “Так вони”» на «На які попередні дії вказує слово “так”?». Окремо уточнити в тексті спосіб вимірювання одним приладом.",
+      "status": "NEEDS_REVISION",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Тінь і температура, абз.3: «учні поставили ... Так вони змінили...»"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t1-q5",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/4",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "А",
+      "independentAnswer": "А",
+      "acceptableIndependentAnswers": [
+        "А"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Механізми поглинання випромінювання, затінення й випаровування та обмеження висновків пояснено без вузькоспеціального викладу.",
+      "distractorReview": {
+        "Б": "Голосування чи конкретного проєкту для голосування немає.",
+        "В": "Текст не встановлює обов’язкових приписів для відвідувачів.",
+        "Г": "Героя та художнього розкриття його переживань немає."
+      },
+      "skill": "Визначення ознак науково-популярного викладу.",
+      "languageReview": "Нормативно, стильова назва коректна.",
+      "blindFindings": [
+        "Варіанти належать очевидно різним комунікативним типам, тому завдання легке.",
+        "Предметну точність тексту слід поліпшити без зміни відповіді.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Текст пояснює поглинання, випаровування та контроль умов без спеціального математичного апарату. Б — агітація, В — припис, Г — художня оповідь; цих способів викладу тут немає.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ А совпадает со слепым А. Доступное объяснение механизмов и контроля соответствует научно-популярному изложению; ложные жанровые признаки отвергнуты верно.",
+      "proposedCorrection": null,
+      "optionalImprovement": "Добавить упоминание ограничений опыта: именно они входят в правильный вариант. Отсутствие математического аппарата само по себе не является обязательным признаком научно-популярного текста.",
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Тінь і температура, абз.2–4"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t1-q6",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/5",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "Б",
+      "independentAnswer": "Б",
+      "acceptableIndependentAnswers": [
+        "Б"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Обмеження даних поверхнями й конкретними умовами відтворює застереження абзаців 2 і 4.",
+      "distractorReview": {
+        "А": "Підмінює поверхню повітрям і необґрунтовано поширює ефект на всі дерева.",
+        "В": "Повторення не гарантує повної відсутності випадкових чи систематичних похибок.",
+        "Г": "У першому досліді одночасно відрізнялися освітлення й покриття, тому їхніх внесків не відокремлено."
+      },
+      "skill": "Узгодження висновку з доказами; недопущення надмірного узагальнення.",
+      "languageReview": "Нормативно; «механічно узагальнювати» зрозуміле в контексті.",
+      "blindFindings": [
+        "Однозначно.",
+        "Перетинається з q1 за перевірюваним змістом; дистрактори з абсолютами спрощують вибір.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Б зберігає межі висновку з абзацу 4. А підмінює поверхню повітрям і вводить універсальну цифру; В обіцяє неможливу гарантію; Г суперечить обмеженню в абзаці 2.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ Б совпадает со слепым Б. Верно показаны подмена поверхности воздухом, универсализация числа, неоправданная гарантия отсутствия ошибок и смешение факторов первого опыта.",
+      "proposedCorrection": null,
+      "optionalImprovement": null,
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Тінь і температура, абз.1–4"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t2-q1",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/6",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "В",
+      "independentAnswer": "В",
+      "acceptableIndependentAnswers": [
+        "В"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Абзаци 4–5 пропонують пробне заняття та підтримку за умов організації, безпеки й відкритого оцінювання.",
+      "distractorReview": {
+        "А": "Автор підтримує майстерню умовно, не забороняє ремонт.",
+        "Б": "Абзац 1 прямо відкидає заміну професійних сервісів.",
+        "Г": "Питання відповідальності автор визнає слушним."
+      },
+      "skill": "Визначення авторської позиції та її умовності.",
+      "languageReview": "Грамотно. «Професійні сервіси» допустиме, хоча «ремонтні служби» конкретніше.",
+      "blindFindings": [
+        "Єдина відповідь.",
+        "Усі хибні варіанти категоричні й прямо заперечені текстом; складність низька.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Відповідь В поєднує підтримку з умовами з абзаців 3–5. А заперечує підтримку; Б відкинуто в абзаці 1; Г суперечить вимозі відповідального організатора.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ В совпадает со слепым В. Поддержка проекта условна; безопасность и оценивание отражены точно.",
+      "proposedCorrection": null,
+      "optionalImprovement": null,
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Майстерня речей, абз.1,3–5"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t2-q2",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/7",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "Г",
+      "independentAnswer": "Г",
+      "acceptableIndependentAnswers": [
+        "Г"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Навчальна мета в абзаці 2 — дати відвідувачеві побачити послідовність дій і згодом виконувати прості операції самостійно.",
+      "distractorReview": {
+        "А": "Видавання готових речей без участі власника не забезпечує навчання.",
+        "Б": "Кількість ремонтів є показником звіту, а не навчальною дією.",
+        "В": "Необмежене приймання електроприладів не реалізує навчальної мети і суперечить обмеженню ризиків."
+      },
+      "skill": "Застосування сформульованої мети до практичного рішення.",
+      "languageReview": "Нормативно; «власникові» правильна давальна форма.",
+      "blindFindings": [
+        "Г однозначно найкраще.",
+        "Не слід у поясненні прирівнювати всі електроприлади до робіт з електромережею: текст забороняє саме останні; слово «без обмежень» робить В хибним незалежно від цього.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Абзац 2 визначає результатом самостійне опанування операції. А прибирає навчальну участь, Б лише звітує, В порушує обмеження безпеки.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ Г совпадает со слепым Г. Объяснение верно выделяет обучение и устраняет отсутствие участия владельца, простую отчетность и бесконтрольный прием техники.",
+      "proposedCorrection": null,
+      "optionalImprovement": "Уточнить В: «необмежений прийом суперечить вимозі переліку дозволених і безпечних робіт». Не утверждать, что все электроприборы прямо запрещены: в тексте прямо исключены работы с электросетью.",
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Майстерня речей, абз.1–4"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t2-q3",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/8",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "А",
+      "independentAnswer": "А",
+      "acceptableIndependentAnswers": [
+        "А"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Абзац 3 прямо визнає слушними питання про відповідального за безпеку та можливі перешкоди читачам.",
+      "distractorReview": {
+        "Б": "Неможливості пришити ґудзик не зазначено; така допомога запланована.",
+        "В": "Пропонується невелика проба, а не негайне охоплення району.",
+        "Г": "Автор називає екологічну та навчальну користь, не заперечує її."
+      },
+      "skill": "Виявлення визнаного контраргументу.",
+      "languageReview": "Нормативно; перетворення питань на «заперечення» дещо узагальнює їхню функцію, але не створює неоднозначності.",
+      "blindFindings": [
+        "А точно передає обидва застереження.",
+        "Б і Г надто очевидно несумісні з текстом.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Абзац 3 прямо називає два обґрунтовані побоювання. Б у тексті немає; В протилежне малому пілоту; Г суперечить аргументам абзацу 2.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ А совпадает со слепым А. Два признанных опасения названы в абз.3; остальные положения отсутствуют либо противоречат тексту.",
+      "proposedCorrection": null,
+      "optionalImprovement": "Вместо жаргонного «малий пілот» можно написать «невелике пробне заняття».",
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Майстерня речей, абз.2–4"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t2-q4",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/9",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "Б",
+      "independentAnswer": "Б",
+      "acceptableIndependentAnswers": [
+        "Б"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "MEDIUM",
+      "evidence": "Після двох аргументів підтримки «Проте» вводить протиставний поворот до ризиків і необхідних умов.",
+      "distractorReview": {
+        "А": "Рішення бібліотеки ще не ухвалено.",
+        "В": "Друга перевага подана в попередньому абзаці після «По-друге».",
+        "Г": "Заняття ще лише запропоноване; часової послідовності завершених подій тут немає."
+      },
+      "skill": "Розуміння логічної функції засобу зв’язку.",
+      "languageReview": "Нормативно, запитання точне.",
+      "blindFindings": [
+        "Єдина відповідь; перевіряється базове розпізнавання протиставлення.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Перехід від переваг до обмежень — заперечно-допустова функція. Рішення ще не ухвалене; екологічні переваги наведено раніше; заняття лише планують.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ Б совпадает со слепым Б. Переход от доводов за идею к оговоркам описан верно. «Заперечно-допустова функція» интерпретирует контекст уступки, но менее прозрачно для школьника, чем прямое описание противопоставления; смены ключа это не требует.",
+      "proposedCorrection": null,
+      "optionalImprovement": "Рекомендована простіша редакція: «Слово “проте” вводить протиставний перехід від переваг задуму до застережень щодо безпеки й зручності читачів». Не подавати сполучник як окремий засіб заперечення істинності попередніх переваг.",
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Майстерня речей, абз.2–3"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t2-q5",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/10",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "В",
+      "independentAnswer": "В",
+      "acceptableIndependentAnswers": [
+        "В"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Оцінний прикметник «добра», підсилення «навіть» і визнання можливих незручностей виражають авторське ставлення.",
+      "distractorReview": {
+        "А": "Позначає періодичність, а не оцінку.",
+        "Б": "Кількісно визначає учасників.",
+        "Г": "Називає просторову умову; сама собою не містить оцінної лексики."
+      },
+      "skill": "Виявлення оцінності та відокремлення її від фактичних параметрів.",
+      "languageReview": "Запитання «яка мовна ознака» очікує назву засобу, тоді як варіанти — цитати; точніше «У якому фрагменті виражено авторську оцінку?».",
+      "blindFindings": [
+        "В однозначна.",
+        "Варто в поясненні назвати конкретно «добра» й «навіть», а не лише переказати речення.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "В містить оцінне добра й застереження щодо наслідків. Решта фрагментів називає частоту, кількість або приміщення без такого оцінного висновку.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ В совпадает со слепым В. Конкретное оценочное слово «добра» названо; фактические параметры остальных фрагментов различены верно.",
+      "proposedCorrection": null,
+      "optionalImprovement": "Выделить «добра» кавычками; дополнительно можно отметить усилительное «навіть». Вопрос лучше формулировать «У якому фрагменті виражено авторську оцінку?».",
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Майстерня речей, абз.3"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t2-q6",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/11",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "Г",
+      "independentAnswer": "Г",
+      "acceptableIndependentAnswers": [
+        "Г"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Пробне заняття, обмеження робіт і оцінювання як користі, так і незручностей відповідають абзацам 3–5.",
+      "distractorReview": {
+        "А": "Гарантія ремонту всього без обмежень суперечить переліку дозволених робіт і відмовам через небезпеку.",
+        "Б": "Автор не відмовляється від професійних сервісів.",
+        "В": "Автор вимагає оприлюднення результатів."
+      },
+      "skill": "Збереження змісту й умов пропозиції під час редагування.",
+      "languageReview": "Нормативно. Слово «редакція оголошення» умовне, бо вихідний текст є міркуванням, а не наданим оголошенням.",
+      "blindFindings": [
+        "Г зберігає головне, хоча стисло не повторює всіх умов.",
+        "Протилежні до тексту дистрактори роблять вибір легким.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Г зберігає пілот, обмеження й двобічну оцінку. А додає необґрунтовану гарантію, Б підмінює призначення, В суперечить відкритому звітуванню.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ Г совпадает со слепым Г. Пробный формат, ограничение работ и учет как пользы, так и неудобств переданы точно; все дистракторы опровергнуты текстом.",
+      "proposedCorrection": null,
+      "optionalImprovement": "«Пілот» заменить на «пробне заняття», если объяснение предназначено школьникам.",
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Майстерня речей, абз.1,3–5"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t3-q1",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/12",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "А",
+      "independentAnswer": "А",
+      "acceptableIndependentAnswers": [
+        "А"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Історії старої карти, порожньої вивіски, неповного датування фото та знака питання об’єднані чесним збереженням пам’яті без вигадування невідомого.",
+      "distractorReview": {
+        "Б": "Текст зберігає обидві карти з різними функціями, не встановлює переваги кожної старої карти.",
+        "В": "Хлопчик прямо відмовляється вигадувати; Марта переймає цю настанову.",
+        "Г": "Відбудову мосту не плановано й не здійснено."
+      },
+      "skill": "Інтерпретація наскрізної думки художнього тексту.",
+      "languageReview": "Образна, зв’язна українська; «пам’ять можна зберігати» в контексті природно.",
+      "blindFindings": [
+        "А об’єднує всі головні епізоди.",
+        "Хибні варіанти надто категоричні або сюжетно вигадані; інтерпретаційна складність нижча за потенціал тексту.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Дії з картою, приклад хлопчика й остання думка поєднують пам’ять із чесною невизначеністю. Б протиставляє карти всупереч абзацу 5; В суперечить словам хлопчика; Г у тексті не заявлено.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ А совпадает со слепым А. Объединяющая мысль определена верно; необоснованное абсолютное предпочтение старых карт, вымысел и восстановление моста не поддерживаются рассказом.",
+      "proposedCorrection": null,
+      "optionalImprovement": "В разборе Б точнее «безпідставно проголошує перевагу будь-якої старої карти», поскольку само сопоставление функций карт тексту не противоречит.",
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Карта з порожнім місцем, абз.2–6"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t3-q2",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/13",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "Б",
+      "independentAnswer": "Б",
+      "acceptableIndependentAnswers": [
+        "Б"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Абзац 2 пояснює вагання: перекреслення робило б реальний колишній міст схожим на друкарську помилку.",
+      "distractorReview": {
+        "А": "Невміння користуватися олівцем не зазначено; пізніше вона робить позначки.",
+        "В": "Міст уже розібрано до її повернення.",
+        "Г": "Заборони немає; бібліотекар потім дозволяє виставити карту."
+      },
+      "skill": "Розуміння мотиву вчинку персонажа.",
+      "languageReview": "Нормативно, мотив передано точно.",
+      "blindFindings": [
+        "Пряма текстова підстава робить відповідь однозначною.",
+        "А — малоправдоподібний дистрактор.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Абзац 2 зіставляє друкарську помилку й реальне минуле. А не має підстав; В суперечить початку; Г суперечить дозволу залишити позначену карту.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ Б совпадает со слепым Б. Мотив сохранения реального прошлого вместо обозначения якобы ошибки передан точно. Альтернативы опровергнуты правильно.",
+      "proposedCorrection": null,
+      "optionalImprovement": null,
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Карта з порожнім місцем, абз.1–2,5"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t3-q3",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/14",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "В",
+      "independentAnswer": "В",
+      "acceptableIndependentAnswers": [
+        "В"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Знак питання біля дати прямо позначає конкретне незнання Марти; це її власна дія в абзаці 5.",
+      "distractorReview": {
+        "А": "Образ зі спогаду, а не позначення невідомого.",
+        "Б": "Залишки мосту є спостережуваними предметами.",
+        "Г": "Аркуш належить хлопчикові; пов’язаний із темою, але не є прямим свідченням нової дії Марти."
+      },
+      "skill": "Добір найпрямішого доказу зміни персонажа.",
+      "languageReview": "Нормативно; «почала позначати невідоме замість здогадуватися» змістово прийнятне, хоча ранішого активного вигадування Мартою текст не показує.",
+      "blindFindings": [
+        "В однозначна завдяки слову «найпряміше».",
+        "Г є тематично близьким і якіснішим за решту дистракторів.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Саме її знак питання є дією, яка фіксує невідому дату. А та Б стосуються мосту; Г належить хлопчикові й лише впливає на героїню.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ В совпадает со слепым В. Собственное действие Марты прямо фиксирует незнание; рисунок мальчика — тематическое влияние, а не ее действие.",
+      "proposedCorrection": null,
+      "optionalImprovement": null,
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Карта з порожнім місцем, абз.3,5"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t3-q4",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/15",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "Г",
+      "independentAnswer": "Г",
+      "acceptableIndependentAnswers": [
+        "Г"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Хлопчик лишає невідоме непідписаним; дід замінює невідому точну дату чесним відносним орієнтиром. Обидва епізоди про правдивість неповного знання.",
+      "distractorReview": {
+        "А": "Точного розкладу автобуса текст не подає.",
+        "Б": "Бібліотекар пропонує новий примірник, але про придбання не сказано; тематичний зв’язок слабший.",
+        "В": "Плану відбудови крамниці немає."
+      },
+      "skill": "Установлення тематичної паралелі між епізодами.",
+      "languageReview": "«Перегукується» природне літературознавче формулювання.",
+      "blindFindings": [
+        "Г найточніша.",
+        "Три альтернативи містять відсутні в тексті уточнення, тому зіставлення фактично спрощене до перевірки фактів.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Обидва епізоди зберігають свідчення без вигаданих точних деталей. А пов’язує текст із відсутнім розкладом; Б не стосується невизначеності; плану В немає.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ Г совпадает со слепым Г. Тематическая параллель установлена точно: неполное свидетельство остается честным без придуманных подробностей.",
+      "proposedCorrection": null,
+      "optionalImprovement": "Для Б можно дополнительно указать: библиотекарь предлагал новый экземпляр, а не обязательно его приобретение; это вторичная деталь, не необходимая для выбора.",
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Карта з порожнім місцем, абз.2–4"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t3-q5",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/16",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "А",
+      "independentAnswer": "А",
+      "acceptableIndependentAnswers": [
+        "А"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Паралель «одна — інша» зіставляє навігаційну функцію нової карти й збереження пам’яті старою; «підказувала», «берегла запитання» надають картам людських дій.",
+      "distractorReview": {
+        "Б": "Немає буквальних операцій ремонту.",
+        "В": "Вислів образний, терміна не визначає.",
+        "Г": "Різні функції не доводять однакової навігаційної актуальності; старий міст на старій карті не існує."
+      },
+      "skill": "Розпізнавання образного зіставлення та уособлення.",
+      "languageReview": "Нормативно. «Протиставлення» допустиме як контраст функцій, хоча вони також доповнюють одна одну.",
+      "blindFindings": [
+        "А найкраще й однозначно серед варіантів.",
+        "Для точності можна назвати «образне зіставлення різних функцій»; не слід робити з цього сувору взаємовиключність карт.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Неістотам приписано дії підказувати й берегти; функції зіставлено. Вислів не є інструкцією чи терміном і не заперечує, що для сучасного шляху потрібна нова карта.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ А совпадает со слепым А. Олицетворение и сопоставление функций объяснены корректно; равная навигационная актуальность не вытекает из образа.",
+      "proposedCorrection": null,
+      "optionalImprovement": "В варианте А допустимо предпочесть «образне зіставлення різних функцій»: они различаются и дополняют друг друга, а не исключают одна другую.",
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Карта з порожнім місцем, абз.6"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t3-q6",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/17",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "Б",
+      "independentAnswer": "Б",
+      "acceptableIndependentAnswers": [
+        "Б"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Абзац 5 підтверджує позначення колишнього мосту й знак питання біля невідомої дати розбирання.",
+      "distractorReview": {
+        "А": "Точної дати не встановлено, відбудови немає.",
+        "В": "Хлопчик не пам’ятає вивіски й залишає порожній прямокутник.",
+        "Г": "Карту залишають на стенді, а не викидають."
+      },
+      "skill": "Стислий переказ без домислів.",
+      "languageReview": "«Залишивши невідому дату відкритою» зрозуміле, але абстрактне й двозначне: можна на мить прочитати як дату відкриття мосту. Природніше «не встановивши точної дати його розбирання».",
+      "blindFindings": [
+        "Б єдина змістово правильна.",
+        "Редакційна рекомендація стосується ясності, не множинності відповіді.",
+        "Дистрактори грубо змінюють сюжет.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Б відтворює абзац 5. А вигадує дату й відбудову; В суперечить незнанню хлопчика; Г суперечить рішенню зберегти карту на стенді.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ Б совпадает со слепым Б. Все фактические основания верны; добавленные в остальных вариантах события отсутствуют или прямо опровергаются.",
+      "proposedCorrection": null,
+      "optionalImprovement": "Правильный вариант яснее: «Марта позначила місце колишнього мосту, не встановивши точної дати його розбирання». «Дата відкритою» может кратковременно восприниматься как дата открытия моста.",
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Карта з порожнім місцем, абз.3,5"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t4-q1",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/18",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "В",
+      "independentAnswer": "В",
+      "acceptableIndependentAnswers": [
+        "В"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Оголошення визначає тимчасові години, бронювання, замовлення фонду й копіювання на 12–16 листопада.",
+      "distractorReview": {
+        "А": "Художніх оцінок рідкісних книжок немає.",
+        "Б": "Непотрібність паперу не доводиться; цифрові копії лише альтернатива копіюванню.",
+        "Г": "Про ремонт повідомлено як причину, набору волонтерів немає."
+      },
+      "skill": "Визначення комунікативного призначення оголошення.",
+      "languageReview": "Загалом нормативно. У спільному тексті «Питання щодо замовлень приймає» трохи канцелярське; «На запитання ... відповідає» природніше, якщо йдеться про консультації.",
+      "blindFindings": [
+        "В однозначна.",
+        "Звичайних годин читального залу не подано, тому сам факт скорочення часу текст формально не доводить; це не впливає на q1.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "В охоплює години, бронювання та замовлення. Оцінювання творів, відмова від паперу й набір ремонтників у повідомленні відсутні.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ В совпадает со слепым В. Назначение объявления и отсутствие альтернативных коммуникативных целей описаны правильно.",
+      "proposedCorrection": null,
+      "optionalImprovement": null,
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Оголошення про читальний зал, абз.1–4"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t4-q2",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/19",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "Г",
+      "independentAnswer": "Г",
+      "acceptableIndependentAnswers": [
+        "Г"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Абзац 2 прямо дозволяє надавати вільні місця без попереднього запису.",
+      "distractorReview": {
+        "А": "Обмеження всіх відділів не встановлено; абонемент працює звичайно.",
+        "Б": "Наявність вільного місця не гарантовано.",
+        "В": "Копіювання рідкісних видань власними пристроями прямо заборонено в зазначений період."
+      },
+      "skill": "Застосування умов доступу до конкретної ситуації.",
+      "languageReview": "Нормативно, умовність передано точно.",
+      "blindFindings": [
+        "Г єдина допустима відповідь.",
+        "Варіант В не слід пояснювати загальною постійною забороною: вона лише на зазначений період.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Останнє речення абзацу 2 дозволяє доступ до вільних місць. А надмірне; Б не враховує заповненості; В прямо заборонено в абзаці 3.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ Г совпадает со слепым Г. Свободные места доступны без записи, гарантии места нет. Запрет самостоятельного копирования редких изданий объяснен в рамках периода объявления.",
+      "proposedCorrection": null,
+      "optionalImprovement": null,
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Оголошення про читальний зал, абз.1–3"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t4-q3",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/20",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "А",
+      "independentAnswer": "А",
+      "acceptableIndependentAnswers": [
+        "А"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Звичайний розклад абонемента є прямим контрприкладом до твердження про скорочення роботи всіх відділів.",
+      "distractorReview": {
+        "Б": "Безоплатність не характеризує тривалості роботи.",
+        "В": "Наявність закритого фонду не визначає розкладу.",
+        "Г": "Місце зазначення телефону не визначає робочих годин."
+      },
+      "skill": "Спростування загального твердження конкретним винятком.",
+      "languageReview": "Нормативно.",
+      "blindFindings": [
+        "А однозначна.",
+        "У самому оголошенні немає звичайних годин залу: твердження про скорочення саме залу було б непідтвердженим; q3 коректно спростовує ширше «всіх».",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "А прямо подає виняток з узагальнення про всі відділи. Б–Г не містять інформації про графік інших відділів.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ А совпадает со слепым А. Обычный график абонемента опровергает всеобщность сокращения; остальные детали не относятся к графику.",
+      "proposedCorrection": null,
+      "optionalImprovement": "Не добавлять в расширенное объяснение неподтвержденное сравнение прежних и новых часов самого зала: исходного обычного графика залa нет.",
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Оголошення про читальний зал, абз.1"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t4-q4",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/21",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "Б",
+      "independentAnswer": "Б",
+      "acceptableIndependentAnswers": [
+        "Б"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Початок визначає інтервал 12–16 листопада, а завершення ще раз обмежує зміни цими датами; «цей період» відсилає до нього.",
+      "distractorReview": {
+        "А": "Безстрокове поширення суперечить часовому обмеженню.",
+        "В": "Двадцять хвилин — умова конкретного бронювання, не період заборони копіювання.",
+        "Г": "Наступний рік не згаданий."
+      },
+      "skill": "Установлення часової референції в інформаційному тексті.",
+      "languageReview": "Нормативно; «у цей період» і текстове «в цей період» — милозвучні варіанти, зміст однаковий.",
+      "blindFindings": [
+        "Б однозначна.",
+        "Дистрактор В тематично близький, але його легко відсікти за змістом абзацу.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Період тимчасових змін задано в абзаці 1 й обмежено в абзаці 4. Двадцять хвилин — інша умова, а постійної чи річної заборони текст не встановлює.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ Б совпадает со слепым Б. Начальный и заключительный абзацы однозначно ограничивают период 12–16 ноября; двадцать минут относятся к иному условию.",
+      "proposedCorrection": null,
+      "optionalImprovement": null,
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Оголошення про читальний зал, абз.1–4"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t4-q5",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/22",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "В",
+      "independentAnswer": "В",
+      "acceptableIndependentAnswers": [
+        "В"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Дати й години, умови бронювання та безособові «можна», «потрібно», «не дозволено» забезпечують точність і регулятивність повідомлення.",
+      "distractorReview": {
+        "А": "Внутрішніх монологів немає.",
+        "Б": "Рими й віршового опису немає.",
+        "Г": "Моральних авторських сумнівів не висловлено."
+      },
+      "skill": "Розпізнавання ознак офіційно-ділового стилю.",
+      "languageReview": "Нормативно, терміни вжито коректно.",
+      "blindFindings": [
+        "В однозначна; дуже легка через очевидно художні альтернативи.",
+        "У поясненні слід навести реальні безособові конструкції з тексту, а не приписувати весь текст безособовому викладу.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Часові межі, правила бронювання та конструкції можна/не дозволено організують повідомлення. Монологів, римування й етичного есе немає.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ В совпадает со слепым В. Конкретные безличные конструкции и организационные условия названы правильно.",
+      "proposedCorrection": null,
+      "optionalImprovement": "Визуально выделить «можна» и «не дозволено», не оставлять их через косую черту, если пояснение предназначено для последовательного чтения.",
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Оголошення про читальний зал, абз.1–3"
+        }
+      ]
+    },
+    {
+      "id": "s5-ukr-readext-t4-q6",
+      "group": "reading",
+      "sourceFile": "content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/23",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/reading-extension.REVIEW-ONLY.package.json",
+      "originalKey": "Г",
+      "independentAnswer": "Г",
+      "acceptableIndependentAnswers": [
+        "Г"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Г зберігає умовність, двадцятихвилинний інтервал і відлік після погодженого часу; «впродовж» рівнозначне «протягом».",
+      "distractorReview": {
+        "А": "Прибирає двадцятихвилинний допуск; до того ж «скасувати місце» менш точно за «скасувати бронювання».",
+        "Б": "Ігнорує скасування через неявку в установлений інтервал.",
+        "В": "Переносить інтервал до погодженого часу й вигадує обов’язок приходити раніше."
+      },
+      "skill": "Точне переформулювання умови зі збереженням часових відношень.",
+      "languageReview": "Нормативно. Позначення «скорочена редакція» неточне: Г майже дослівно повторює повне вихідне речення й фактично його не скорочує.",
+      "blindFindings": [
+        "Г єдина правильна за змістом.",
+        "Краще питати «Яка редакція точно передає ...?» без «скорочена».",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Г зберігає умову й тривалість очікування. А прибирає двадцять хвилин; Б скасовує обмеження; В підмінює допустиме запізнення вимогою раннього прибуття.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ Г совпадает со слепым Г. Условие и отсчет двадцати минут после согласованного времени сохранены; альтернативы правильно отвергнуты.",
+      "proposedCorrection": null,
+      "optionalImprovement": "В вопросе убрать «скорочена»: правильный вариант почти дословно повторяет исходное предложение и его не сокращает. Это редакционная точность задания, а не ошибка объяснения или ключа.",
+      "status": "PASS",
+      "sources": [
+        {
+          "type": "provided_text",
+          "location": "Оголошення про читальний зал, абз.2"
+        }
+      ]
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e02",
+      "group": "legacy",
+      "sourceFile": "content/station5/reconciliation/legacy-corrections.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/0",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/legacy-corrections.REVIEW-ONLY.package.json",
+      "originalKey": "В",
+      "independentAnswer": "В",
+      "acceptableIndependentAnswers": [
+        "В"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Перший о належить кореневі вод-; у спорідненій формі во́ди він наголошений і чітко чутний. У води́ наголос на закінченні.",
+      "distractorReview": {
+        "А": "Форма того самого іменника, але о лишається ненаголошеним.",
+        "Б": "Воді́й має інше лексичне походження й значення (вести); потрібний о не наголошено.",
+        "Г": "Прові́д стосується іншої частини складного слова; не перевіряє першого о."
+      },
+      "skill": "Добір перевірної форми з наголошеним голосним у відповідному корені.",
+      "languageReview": "Нормативно; граматичне уточнення розрізняє води́ і во́ди. «Форма» в запитанні бажано уточнити як «форма спорідненого слова», адже це не форма самого водопровід.",
+      "blindFindings": [
+        "В однозначна.",
+        "Не плутати перший кореневий о зі сполучним о між основами.",
+        "Джерело підтверджує наголос во́ди; повну парадигму УМІФ напряму не отримано.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Перевірна форма во́ди має той самий корінь вод- зі значенням води й наголос на потрібному о. У води́ цей о ненаголошений; воді́й має інше значення кореня; прові́д не перевіряє перший корінь вод- у водопровід.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ В совпадает со слепым В. Нужный корневой о наголошен в во́ди; формы и другие корневые значения разграничены верно.",
+      "proposedCorrection": null,
+      "optionalImprovement": "В вопросе желательно «форма спорідненого слова», поскольку во́ди — не словоформа самого сложного слова водопровід.",
+      "status": "PASS",
+      "sources": [
+        {
+          "url": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-5-klas-2018/14-ukr-mova-dlya-nacmenshyn-5-klas/5klass2.pdf",
+          "location": "§32, друкована с.106, вправа 285",
+          "exactConfirmation": "Вóди є, нема води",
+          "supports": "Першоскладовий наголос у формі множини во́ди; акцент у другій формі в пошуковій витяжці не збережено."
+        },
+        {
+          "url": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-5-klas-2018/14-ukr-mova-dlya-nacmenshyn-5-klas/5klass2.pdf",
+          "location": "§32, с.106, вправа285; проверено в фазе1",
+          "exactConfirmation": "Вóди є, нема води"
+        }
+      ]
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e05",
+      "group": "legacy",
+      "sourceFile": "content/station5/reconciliation/legacy-corrections.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/0/questions/1",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/legacy-corrections.REVIEW-ONLY.package.json",
+      "originalKey": "А",
+      "independentAnswer": "А",
+      "acceptableIndependentAnswers": [
+        "А"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "У зе́млі (називний множини) наголос припадає на кореневе е; у земля́, землі́ та земляни́й воно ненаголошене.",
+      "distractorReview": {
+        "Б": "Наголошене закінчення -я́, а не е.",
+        "В": "Родовий однини землі́ має наголос на -і́.",
+        "Г": "Наголос на -ни́й, кореневий е ненаголошений."
+      },
+      "skill": "Розрізнення омографічних словоформ за наголосом; перевірка ненаголошеного е.",
+      "languageReview": "«У якій формі ... слова земляний» може створювати хибне враження, що землі — словозміна прикметника. Точніше «У якому спорідненому слові / якій формі спорідненого слова ...».",
+      "blindFindings": [
+        "А однозначна з наданими наголосами.",
+        "Незалежного точного акцентологічного підтвердження з доступного УМІФ/СУМ/ІМЗО в цій фазі не отримано; відповідь ґрунтується на нормативному мовному знанні й явно поданому наголосі.",
+        "Знайдене ІМЗО «земля — землі» стосувалося родового однини без акцентів, тому не використане як доказ потрібного наголосу.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Лише зе́млі в називному множини має наголос на кореневому е. У земля́, землі́ та земляни́й наголос падає на інші голосні. У початковому наборі форму землю також можна було прочитати з наголошеним е, тому недостатньо просто змінити ключ без перегляду дистракторів.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ А совпадает со слепым А. Нынешние варианты и их акценты разобраны верно; пробел прямого подтверждения землі́/зе́млі закрыт первоисточником УЛІФ. Историческое утверждение о начальном наборе не проверялось: он не входит в разрешенные материалы фазы2. Оно не влияет на правильность нынешнего решения.",
+      "proposedCorrection": null,
+      "optionalImprovement": "Для ученического объяснения оставить: «У зе́млі (називний відмінок множини) наголошений кореневий е. У земля́, землі́ та земляни́й цей голосний ненаголошений». Историю исправлений вынести в редакторское примечание. В вопросе уточнить «форма спорідненого слова».",
+      "status": "PASS",
+      "sources": [
+        {
+          "url": "https://www.ulif.org.ua/data/pravopus_ua_05.06/content.htm",
+          "location": "§69, примітка, строка2745",
+          "exactConfirmation": "землі́ — зе́млі",
+          "supports": "Примечание различает родительный единственного и именительный множественного по ударению."
+        }
+      ]
+    },
+    {
+      "id": "ukr-lex-01-q04",
+      "group": "legacy",
+      "sourceFile": "content/station5/reconciliation/legacy-corrections.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/1/questions/0",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/legacy-corrections.REVIEW-ONLY.package.json",
+      "originalKey": "В",
+      "independentAnswer": "В",
+      "acceptableIndependentAnswers": [
+        "В"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "Розгорнути підручник — розкрити його обкладинку й сторінки для читання. З наданих дієслів лише «розгорнути» має потрібну звичайну сполучуваність із паперовою книжкою.",
+      "distractorReview": {
+        "А": "«Відчинити» звичайно поєднується з дверима, вікнами, воротами; у буквальній дії з підручником неточне.",
+        "Б": "«Відкоркувати» означає вийняти корок із посудини, чого звичайний підручник не має.",
+        "Г": "«Розплющити» у потрібному значенні стосується очей; підручник не є таким об’єктом."
+      },
+      "skill": "Лексична сполучуваність; точний вибір дієслова за предметом дії.",
+      "languageReview": "Нормативно; уточнення «паперовим» і «перед читанням його сторінок» усуває цифрові та переносні контексти.",
+      "blindFindings": [
+        "В однозначна серед наданих варіантів.",
+        "Варіанта «відкрити» немає, тому висновок про абсолютну заборону «відкрити книгу» із цього завдання не випливає.",
+        "Дистрактори Б і Г дуже очевидні, завдання базове.",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Паперовий підручник розгортають, щоб читати сторінки. Відчиняють двері, відкорковують пляшку, розплющують очі. Спірного варіанта відкрити підручник тут немає: завдання не проголошує універсальної заборони цього дієслова в усіх контекстах.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ В совпадает со слепым В. Сполучуваність с бумажным учебником и три отвлекающих значения объяснены точно. Оговорка об отсутствии универсального запрета «відкрити» корректно ограничивает вывод рамками вариантов.",
+      "proposedCorrection": null,
+      "optionalImprovement": "Ученическое объяснение можно завершить после сопоставления предметов; обсуждение исключенного варианта перенести в редакторскую справку, если оно перегружает урок.",
+      "status": "PASS",
+      "sources": [
+        {
+          "url": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-6-klas-2019/01-ukrainska-mova-dlya-nacionalnyh-menshyn-6-klas/tushnicka-ukr-mova-6-kl-pol.pdf",
+          "location": "друкована с.30, «Запам’ятайте!»",
+          "exactConfirmation": "розгорнути, загорнути книжку",
+          "supports": "Пряма рекомендована сполучуваність дієслова з книжкою; у тій самій таблиці «відчиняти, зачиняти — двері, вікно» та «заплющити, розплющити — очі»."
+        },
+        {
+          "url": "https://iul-nasu.org.ua/pdf/kulturaslova/92/23_ks_92.pdf",
+          "location": "О.Дільна, Культура слова92(2020), с.260, строки53–54",
+          "exactConfirmation": "відкривати книжку – треба розгортати книжку",
+          "supports": "Подтверждает рекомендацию для обычного действия с книжкой; не используется как абсолютный запрет глагола во всех контекстах."
+        }
+      ]
+    },
+    {
+      "id": "ukr-lex-01-q12",
+      "group": "legacy",
+      "sourceFile": "content/station5/reconciliation/legacy-corrections.REVIEW-ONLY.package.json",
+      "jsonPointer": "/sections/0/topics/1/questions/1",
+      "sourceUrl": "https://github.com/eembeerr4-blip/NMT/blob/1e861ff3b33c1d270fe94d39255a78edcee04af4/content/station5/reconciliation/legacy-corrections.REVIEW-ONLY.package.json",
+      "originalKey": "Г",
+      "independentAnswer": "Г",
+      "acceptableIndependentAnswers": [
+        "Г"
+      ],
+      "keyMatches": true,
+      "blindConfidence": "HIGH",
+      "confidence": "HIGH",
+      "evidence": "У шкільній літературній нормі усталено «брати / взяти участь»; «прийняти участь» є ненормативним калькованим поєднанням у цьому значенні.",
+      "distractorReview": {
+        "А": "«Сплатити рахунок» нормативно: виконати платіж за виставленим рахунком; не треба штучно оголошувати це помилкою через можливість «оплатити рахунок».",
+        "Б": "«Взяти участь» є нормативним усталеним сполученням.",
+        "В": "«Розгорнути підручник на потрібній сторінці» точно називає дію й нормативно сполучає слова."
+      },
+      "skill": "Виявлення порушення лексичної сполучуваності та фразеологічної норми.",
+      "languageReview": "Усі варіанти граматично оформлено коректно; Г містить саме цільову лексичну помилку.",
+      "blindFindings": [
+        "Г єдина помилка серед наданих варіантів.",
+        "Для «сплатити рахунок» окремого прямого підтвердження з цільових першоджерел у цій фазі не отримано; оцінка А спирається на нормативне мовне знання.",
+        "Не переносити оцінку на всі вживання дієслова «прийняти»: помилка саме в сполученні з «участь».",
+        "Обязательное исправление ключа или вариантов не выявлено. Указанные замечания к ясности и дистракторам желательные; простота задания сама по себе не ошибка."
+      ],
+      "originalExplanation": "Нейтральна нормативна сполука — брати або взяти участь; варіант прийняти участь потребує редагування. Сплатити рахунок, взяти участь і розгорнути паперовий підручник мають нормативну сполучуваність. Контекст рахунку уточнено; спірне відкрити підручник вилучено з цього набору без твердження про його універсальну ненормативність.",
+      "explanationCorrect": true,
+      "explanationReview": "Ключ Г совпадает со слепым Г. «Брати/взяти участь» противопоставлено кальке правильно; другие предоставленные сочетания нормативны. Указанный первоисточник прямо подтверждает замену «приймати участь», но отдельно не подтверждает «сплатити рахунок»: последняя оценка основана на предметном языковом знании.",
+      "proposedCorrection": null,
+      "optionalImprovement": "Для ученика достаточно нормы и краткого разбора вариантов; техническую историю уточнения контекста и удаления спорного варианта можно вынести в редакторскую заметку.",
+      "status": "PASS",
+      "sources": [
+        {
+          "url": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-10-klas-2018/01-ukrainska-mova-10-klas/ukr-mova10-gramota.pdf",
+          "location": "О. Авраменко, 10 клас, друкована с.35, примітка «До речі»",
+          "exactConfirmation": "приймати участь — рос. принимать участие (правильно сказати: брати участь)",
+          "supports": "Пряма нормативна оцінка калькованого словосполучення; для доконаного виду відповідно «взяти участь»."
+        },
+        {
+          "url": "https://iul-nasu.org.ua/pdf/kulturaslova/84/17-ks_84.pdf",
+          "location": "І.Заліпська, Культура слова84(2016), с.156, строки191–197",
+          "exactConfirmation": "приймати участь (замість брати участь)",
+          "supports": "Пряма нормативная замена калькованного сочетания; совершенный вид соответственно «взяти участь»."
+        }
+      ]
+    }
+  ],
+  "primarySources": [
+    {
+      "url": "https://www.ulif.org.ua/data/pravopus_ua_05.06/content.htm",
+      "title": "Український правопис, УЛІФ НАН України",
+      "locator": "§69, примітка до родового відмінка однини",
+      "support": "Прямо различает землі́ (родительный единственного) и зе́млі (именительный множественного).",
+      "verification": "Direct primary text read by parent and independently checked in phase 2; provided after blind answers were frozen."
+    },
+    {
+      "url": "https://iul-nasu.org.ua/pdf/kulturaslova/84/17-ks_84.pdf",
+      "title": "Ірина Заліпська. Порушення літературних норм у мові прямого ефіру. Культура слова84,2016",
+      "locator": "печатная с156 / PDF страница6",
+      "support": "Прямо редактирует приймати участь на брати участь.",
+      "verification": "Direct primary publication checked in phase 2."
+    },
+    {
+      "url": "https://iul-nasu.org.ua/pdf/kulturaslova/92/23_ks_92.pdf",
+      "title": "О.Дільна. Чи варто відкривати вогонь? Культура слова92,2020",
+      "locator": "печатная с260 / PDF страница2",
+      "support": "Рекомендует розгортати книжку в рассматриваемой сочетаемости; не используется как доказательство универсальной недопустимости всех значений відкрити.",
+      "verification": "Direct primary consultation checked in phase 2."
+    },
+    {
+      "url": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-5-klas-2018/14-ukr-mova-dlya-nacmenshyn-5-klas/5klass2.pdf",
+      "title": "Учебник украинского языка, электронная библиотека ИМЗО",
+      "locator": "§32, печатная с106, упражнение285",
+      "support": "Акцентированная форма во́ди в примере, найденном независимым рецензентом.",
+      "verification": "Indexed primary excerpt; complete PDF retrieval by parent timed out. Do not claim a full textbook review."
+    },
+    {
+      "url": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-6-klas-2019/01-ukrainska-mova-dlya-nacionalnyh-menshyn-6-klas/tushnicka-ukr-mova-6-kl-pol.pdf",
+      "title": "Учебник украинского языка, электронная библиотека ИМЗО",
+      "locator": "печатная с30, Запам’ятайте!",
+      "support": "Рекомендованные сочетания розгорнути книжку, відчиняти двері, розплющити очі.",
+      "verification": "Primary excerpt located independently during blind phase; no claim of whole-book reading."
+    },
+    {
+      "url": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-10-klas-2018/01-ukrainska-mova-10-klas/ukr-mova10-gramota.pdf",
+      "title": "О.Авраменко. Українська мова,10клас,2018; ИМЗО",
+      "locator": "печатная с35, До речі",
+      "support": "Рекомендация брати участь вместо калькованного приймати участь.",
+      "verification": "Primary excerpt located independently during blind phase."
+    }
+  ],
+  "reviewerOverallNotes": [
+    "Проверены ровно28 записей. Все28 исходных ключей совпадают с замороженными независимыми ответами фазы1; ни одной смены ответа или добавления допустимой буквы нет.",
+    "Итог по объяснениям:27 PASS,1 NEEDS_REVISION (s5-ukr-readext-t1-q4),0 BLOCKED. Обязательна локальная правка утверждения о функции местоимения; ключ Г сохраняется.",
+    "Простые или очевидные дистракторы сами по себе не признаны дефектом и не переводят задания в NEEDS_REVISION. Рекомендации повысить сложность зависят от образовательной цели и факультативны.",
+    "Общая редакционная оговорка t1 из фазы1 сохраняется: «одночасно тим самим приладом» требует указания многоканального/визуализирующего прибора либо замены на измерения в максимально близкое время. Физическую невозможность без сведений о приборе не утверждаю. Второй опыт описан без численных результатов: объяснения должны говорить о процедуре проверки, а не приписывать ему неуказанные результаты.",
+    "Нормативные источники, переданные для фазы2, проверены адресно. УЛІФ §69 подтверждает ударения землі́/зе́млі; І.Заліпська с.156 — брати участь; О.Дільна с.260 — рекомендацию розгортати книжку. Никакой универсальный запрет «відкрити книгу» из последнего не выводится.",
+    "Исторические сведения о прежних наборах в объяснениях e05 и lex не сверялись с репозиторием и не объявляются подтвержденными. Для ученического текста предпочтительнее отделить норму от истории исправлений.",
+    "Замороженный independent-blind-answers.json не изменялся. Для этой фазы локально открыт только phase2-keys-explanations.json; репозиторий, отчеты и история не читались. Учебные файлы/БД не изменялись, тесты не запускались."
+  ],
+  "scopeDecisions": {
+    "acceptedForNextEditorialStage": [
+      "s5-ukr-readext-t1-q1",
+      "s5-ukr-readext-t1-q2",
+      "s5-ukr-readext-t1-q3",
+      "s5-ukr-readext-t1-q5",
+      "s5-ukr-readext-t1-q6",
+      "s5-ukr-readext-t2-q1",
+      "s5-ukr-readext-t2-q2",
+      "s5-ukr-readext-t2-q3",
+      "s5-ukr-readext-t2-q4",
+      "s5-ukr-readext-t2-q5",
+      "s5-ukr-readext-t2-q6",
+      "s5-ukr-readext-t3-q1",
+      "s5-ukr-readext-t3-q2",
+      "s5-ukr-readext-t3-q3",
+      "s5-ukr-readext-t3-q4",
+      "s5-ukr-readext-t3-q5",
+      "s5-ukr-readext-t3-q6",
+      "s5-ukr-readext-t4-q1",
+      "s5-ukr-readext-t4-q2",
+      "s5-ukr-readext-t4-q3",
+      "s5-ukr-readext-t4-q4",
+      "s5-ukr-readext-t4-q5",
+      "s5-ukr-readext-t4-q6",
+      "s7a-ukr-ortho-sub-01-e02",
+      "s7a-ukr-ortho-sub-01-e05",
+      "ukr-lex-01-q04",
+      "ukr-lex-01-q12"
+    ],
+    "withheldUntilCorrection": [
+      "s5-ukr-readext-t1-q4"
+    ],
+    "studentPublicationAllowed": false,
+    "legacyOriginalControversy": "Original q04/q12 universal norm dispute remains BLOCKED for its old wording; PASS applies only to the four replacement proposals reviewed here.",
+    "fullStation5Acceptance": false
+  },
+  "optionalBacklog": [
+    "Clarify simultaneous measurement with one instrument: specify a multi-channel/imaging instrument or closely timed measurements. Physical impossibility is not asserted without knowing the instrument.",
+    "If aiming above introductory reading practice, replace some obviously false distractors with plausible near-miss readings; do not invent HARD labels.",
+    "In t2-q4 prefer a clear description of the contrastive transition instead of the debatable term заперечно-допустова.",
+    "Clarify форма спорідненого слова in stress questions; distinguish classroom explanation from the history of repairs."
+  ],
+  "verification": {
+    "json": "Parsed and structural checks of 28 unique records, key comparison, source hashes and immutable reviewer hashes; not an application test run",
+    "technicalTests": "NOT RUN: no code changed; previous 89 tests not repeated",
+    "chromium": "NOT RUN: no UI or server changes",
+    "productionDatabaseConnected": false,
+    "productionDatabaseContentsRead": false,
+    "productionMetadataBeforeCaptured": true,
+    "productionSQLiteWalShmMetadataUnchanged": true,
+    "envReadOrChanged": false,
+    "contentPackagesChanged": false,
+    "closedControlsOpened": false,
+    "migrations": false,
+    "seed": false,
+    "imports": false,
+    "deployment": false,
+    "merge": false,
+    "worktreesBefore": 31,
+    "worktreesAfter": 32
+  },
+  "limitations": [
+    "Independent AI review, not a teacher or examination authority approval.",
+    "Reading evidence is the original authored passage; no third-party text copied.",
+    "No full 240-question repeat, no new video review, no whole-course or final NMT2027 acceptance.",
+    "Dictionary endpoints had access limitations; they are not cited as if all paradigms were retrieved. Primary orthography, IMZO excerpts and IUL publications support the scoped legacy decisions.",
+    "All proposed corrections remain in reports; original packages are intentionally unchanged."
+  ]
+}
