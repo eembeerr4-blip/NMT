@@ -71,16 +71,21 @@ it.each(packages)("validates $name with the actual package parser", ({ raw }) =>
   expect(parsed.report.errors).toEqual([]);
   expect(parsed.package).not.toBeNull();
 });
-it("preserves all mathematics keys and corrects only the three substantiated question fields", () => {
+it("preserves all mathematics keys and limits changes to reviewed question fields and one distractor", () => {
   const old = loadMathContent(), next = loadMathContent(path.resolve("content/stage8/math-draft-reviewed.v2.json"));
   const changed: string[] = [];
   old.packs.forEach((p, i) => p.questions.forEach((q, j) => {
     const updated = next.packs[i].questions[j];
     expect(updated.correctAnswer).toBe(q.correctAnswer);
-    for (const field of ["id", "topicId", "subjectId", "type", "difficulty", "options"] as const) expect(updated[field]).toEqual(q[field]);
+    for (const field of ["id", "topicId", "subjectId", "type", "difficulty"] as const) expect(updated[field]).toEqual(q[field]);
+    if (q.id === "math-draft-v1-math-expressions-01") {
+      expect(updated.options.slice(0, 4)).toEqual(q.options.slice(0, 4));
+      expect(q.options[4]).toMatchObject({ label: "Д", text: "25", numericValue: 25 });
+      expect(updated.options[4]).toEqual({ label: "Д", text: "24", numericValue: (3 - 2 + 5) * 4, rationale: "Помилково сприйнято вільний член 5 як 5x: (3−2+5)·4 = 24." });
+    } else expect(updated.options).toEqual(q.options);
     for (const field of ["prompt", "explanation"] as const) if (q[field] !== updated[field]) changed.push(q.id + ":" + field);
   }));
-  expect(changed.sort()).toEqual(["math-draft-v1-math-probability-09:explanation", "math-draft-v1-math-solid-05:prompt", "math-draft-v1-math-solid-08:prompt"]);
+  expect(changed.sort()).toEqual(["math-draft-v1-math-expressions-01:explanation", "math-draft-v1-math-probability-09:explanation", "math-draft-v1-math-solid-05:prompt", "math-draft-v1-math-solid-08:prompt"]);
 });
 it("preserves all 19 existing example answerCheck keys with their original task and solution", () => {
   const guards = JSON.parse(readFileSync("content/stage8/math-current-preconditions.json", "utf8")) as { topics: {topicId:string;examples:{index:number;task:string;solution:string;answerCheck:unknown}[]}[] };

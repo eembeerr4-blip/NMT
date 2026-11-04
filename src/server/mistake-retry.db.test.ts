@@ -1,12 +1,13 @@
 import {beforeAll,beforeEach,afterAll,it,expect,vi} from 'vitest';
 import {randomUUID} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
-import {mkdtempSync,writeFileSync,mkdirSync} from 'node:fs';
+import {mkdtempSync,writeFileSync} from 'node:fs';
+import {tmpdir} from 'node:os';
 import path from 'node:path';
 const auth=vi.hoisted(()=>({user:{id:'A',role:'STUDENT',accountStatus:'APPROVED',onboarded:true} as {id:string;role:string;accountStatus:string;onboarded:boolean}|null}));
 vi.mock('@/lib/prisma',async()=>{
  const {PrismaClient}=await import('@prisma/client');
- const dir=path.join(process.cwd(),'stage5-qa');mkdirSync(dir,{recursive:true});const folder=mkdtempSync(path.join(dir,'retry-tests-'));const database=path.join(folder,'qa.db');
+ const folder=mkdtempSync(path.join(tmpdir(),'nmt-mistake-retry-'));const database=path.join(folder,'qa.db');
  return {prisma:new PrismaClient({datasourceUrl:'file:'+database.replaceAll('\\','/')+'?connection_limit=1'}),database};
 });
 vi.mock('@/server/session',()=>({getSessionUser:()=>auth.user,createSession:vi.fn(),clearSession:vi.fn(),assertLearningAccess:(user:{accountStatus:string})=>{if(user.accountStatus!=='APPROVED')throw Error('PENDING');}}));

@@ -5,6 +5,10 @@ async function login(nickname: string, page: import("@playwright/test").Page) {
   await page.getByLabel("Нікнейм або email").fill(nickname);
   await page.locator("input[type=password]").fill("test-pass-2027");
   await page.getByRole("button", { name: "Увійти" }).click();
+  if (nickname === "owner" || nickname === "e2e_admin") {
+    await expect(page).toHaveURL(/\/admin$/, { timeout: 15_000 });
+    await page.goto("/");
+  }
   await expect(page.getByRole("heading", { name: /Привіт/ })).toBeVisible({ timeout: 15_000 });
 }
 

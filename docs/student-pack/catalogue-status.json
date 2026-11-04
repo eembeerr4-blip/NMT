@@ -1,0 +1,666 @@
+[
+  {
+    "name": "Namecheap",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Name.com",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Microsoft Azure",
+    "status": "SKIPPED",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Excluded by owner",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": ".TECH",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Microsoft 365",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "GitHub",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Notion",
+    "status": "SKIPPED",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Excluded by owner",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "GitHub Copilot",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "DataCamp",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Heroku",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "JetBrains",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Boot.dev",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "1Password",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Testmail",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Codedex",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Microsoft Azure (for ages 13-17)",
+    "status": "SKIPPED",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Excluded by owner",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Camber",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Termius",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Datadog",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Educative",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "GitHub Codespaces",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "MongoDB",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "GitHub Pages",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Visual Studio Code",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Stripe",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Microsoft Visual Studio Dev Essentials",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Clerk",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Sentry",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Notion Template Collection",
+    "status": "SKIPPED",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Excluded by owner",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "FrontendMasters",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Github Campus Experts",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "LocalStack",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "PomoDone",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Appwrite",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Icons8",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Bootstrap Studio",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "BrowserStack",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "New Relic",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "LambdaTest",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "CodeScene",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Polypane",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "HazeOver",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Arduino",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Deepnote",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Visme",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Zyte",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "GitLens",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Blackfire",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "IconScout",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Pageclip",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Scrimba",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Doppler",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "GitHub Desktop",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Travis CI",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Octicons",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "AlgoExpert",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Requestly",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "GitKraken",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Adafruit",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Imgbot",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Codecov",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "ToDiagram",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Tower",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "AstraSecurity",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "CARTO",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "SQLGate",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "GoRails",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Blockchair",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Xojo",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "WorkingCopy",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "InterviewCake",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "SimpleAnalytics",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "DeepScan",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "PopSQL",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Vaadin",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "DevCycle",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Honeybadger",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "POEditor",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "ConfigCat",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Appfigures",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Themeisle",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "SymfonyCasts",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  },
+  {
+    "name": "Dashlane",
+    "status": "PENDING",
+    "accountVerified": false,
+    "activated": false,
+    "blocker": "Account eligibility and vendor redemption not yet verified; browser page control unavailable",
+    "catalogue": "https://education.github.com/pack"
+  }
+]

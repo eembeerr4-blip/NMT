@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
   await page.getByPlaceholder("Нікнейм").fill("owner");
   await page.locator("input[type=password]").fill("test-pass-2027");
   await page.getByRole("button", { name: "Увійти" }).click();
-  await expect(page.getByRole("heading", { name: /Привіт/ })).toBeVisible({ timeout: 15_000 });
+  await expect(page).toHaveURL(/\/admin$/, { timeout: 15_000 });
 });
 
 test("власник призначає ADMIN через інтерфейс, БД і вхід нового адміністратора", async ({ page }) => {
@@ -34,7 +34,7 @@ test("власник призначає ADMIN через інтерфейс, Б�
   await page.getByPlaceholder("Нікнейм").fill(TARGET_NICK);
   await page.locator("input[type=password]").fill("test-pass-2027");
   await page.getByRole("button", { name: "Увійти" }).click();
-  await expect(page.getByRole("heading", { name: /Привіт, E2E-B/ })).toBeVisible({ timeout: 15_000 });
+  await expect(page).toHaveURL(/\/admin$/, { timeout: 15_000 });
 
   await page.goto("/admin/settings");
   await expect(page.getByRole("heading", { name: "Налаштування платформи" })).toBeVisible();
