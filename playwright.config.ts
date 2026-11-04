@@ -2,7 +2,13 @@ import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
   testDir: "e2e",
-  testIgnore: ["**/beta/**", "**/fresh/**"],
+  // beta/fresh: alternate suites. stage5b + stage82: import-time gates require dedicated QA DBs/worktrees — not the default e2e.db webServer.
+  testIgnore: [
+    "**/beta/**",
+    "**/fresh/**",
+    "**/stage5/stage5b-retry.spec.ts",
+    "**/stage82/**",
+  ],
   timeout: 90_000,
   fullyParallel: false,
   workers: 1,
