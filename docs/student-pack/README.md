@@ -16,14 +16,14 @@ All 39 registered worktrees were inventoried in the local-only, ignored `worktre
 | Requirement | Status | Evidence / remaining check |
 | --- | --- | --- |
 | Complete offer catalogue | CONFIGURED | 83 public catalogue entries saved in catalogue-status.json; account-specific eligibility and vendor activation remain PENDING |
-| All eligible benefits activated | PENDING | No new benefit claimed as activated; browser page control fails before page access |
-| Copilot in VS Code | CONFIGURED | VS Code 1.144.1 includes GitHub Copilot 0.72.0; instructions, nine prompts and workspace settings added; real authenticated completion/chat still unverified |
-| Copilot plan, models, credits, cloud agent, review | PENDING | Previous Student/Pro claims are not reused as evidence; billing dashboard required |
+| All eligible benefits activated | BLOCKED | No new benefit claimed as activated; browser page control fails before page access |
+| Copilot in VS Code | CONFIGURED | VS Code 1.144.1 includes GitHub Copilot 0.72.0; instructions, nine prompts and workspace settings added; correct account eembeerr4-blip confirmed by extension log; editor completion still unverified; official CLI smoke test passed |
+| Copilot plan, models, credits, cloud agent, review | CONFIGURED | Official authenticated CLI confirms Student, 200 AI credits and Fusion automatic model selection; smoke response used 0.3 credits. GitHub Pro, cloud coding agent and review remain unverified |
 | Codecov | CONFIGURED | OIDC upload succeeded; public Codecov API reports commit 8a26e0d complete, 181 files and 51.46% coverage. Native App installation and PR comment remain unverified |
 | Sentry | PENDING | No SDK added before educational entitlement is confirmed; no test event sent |
 | 1Password | PENDING | Account/benefit not verified; no vault read, export or migration performed |
 | Codespaces | CONFIGURED | Node 22 devcontainer, npm ci, Prisma generation, extensions and private forwarding prepared; cloud launch and allowance unverified |
-| Actions | CONFIGURED | Push runs CI 41836100803, E2E 41836100890 and Security 41836100905 succeeded. PR E2E/Security succeeded; one PR CI backup test exceeded its default 5-second timeout and is being corrected |
+| Actions | PASS | Commit 825632d: all six push/PR runs succeeded. PR CI 41837639382, E2E 41837639413, Security 41837639342; push CI 41837631860, E2E 41837631884, Security 41837631802 |
 | Secret scanning / push protection | PASS | Both reported enabled by authenticated GitHub repository API |
 | Dependabot alerts / security updates | PASS | Enabled and independently re-read through GitHub API |
 | Vercel | CONFIGURED | Created separate Hobby project taply12/nmt-academy after confirming taply belongs to finance-tracker; verified Git link to eembeerr4-blip/NMT, Next.js, Node 24.x, npm ci/build; all automatic builds skipped, zero deployments |
@@ -35,15 +35,15 @@ All 39 registered worktrees were inventoried in the local-only, ignored `worktre
 ## Verification checkpoint
 
 - Full Vitest/V8 run: PASS, 86 files passed, 3 explicitly skipped; 1111 tests passed and 9 skipped. Duration 183.86 seconds.
-- Coverage: statements 58.8%, branches 50.89%, functions 50.99%, lines 63.2%. `coverage/lcov.info` is real local output, not a confirmed Codecov upload.
+- Coverage: statements 58.8%, branches 50.89%, functions 50.99%, lines 63.2%. `coverage/lcov.info` is real local output and its upload is confirmed independently by the Codecov API below.
 - TypeScript: PASS. ESLint: PASS with two existing unused-variable warnings.
 - Content JSON: PASS, 73 files. Math validator: PASS, 10 topics, 120 questions, 160 computations, 303 formulas.
 - Prisma schema validation: PASS. Production build with network access to Google Fonts: PASS. Restricted-network build failed on the font download.
 - Dependency audit after fixes: PASS at high severity; 0 high, 0 critical, 19 moderate remain.
 - All workflow, Dependabot and Codecov YAML files parse successfully; editor/devcontainer/Vercel JSON parses successfully.
 - E2E: PASS, all 32 standard tests in one fresh isolated run (3.0 minutes), including registration/email confirmation/moderation, role/record isolation, learning/results, imports, backups and mobile/tablet navigation. Local run used `NMT_E2E_PORT=3037` because another worktree owned 3010; that server was not stopped. Historical stage-specific suites remain opt-in because they require separate worktrees/fixtures.
-- Push Actions CI/E2E/Security: PASS. PR Security includes successful dependency review and CodeQL; PR E2E: PASS. PR CI required a scoped timeout fix for a child-process/live-WAL backup test. Its assertions remain unchanged; targeted regression passed all 10 tests after the change.
-- Codecov processed commit 8a26e0d successfully: 181 files, 4543 reported lines, 2338 hits, 1737 misses and 468 partials; API coverage is 51.46%. This service metric differs from Vitest's local line percentage; neither is substituted for the other. Native PR feedback still requires verification.
+- Push Actions CI/E2E/Security: PASS. PR Security includes successful dependency review and CodeQL; PR E2E: PASS. PR CI now passes after a scoped timeout fix for a child-process/live-WAL backup test. Its assertions remain unchanged; targeted regression passed all 10 tests after the change.
+- Codecov processed commits 8a26e0d and 825632d successfully: 181 files, 4543 reported lines, 2338 hits, 1737 misses and 468 partials; API coverage is 51.46%. This service metric differs from Vitest's local line percentage; neither is substituted for the other. Native PR feedback still requires verification.
 - Live editor Copilot and external benefit activation remain unverified.
 
 ## Implementation files
@@ -82,13 +82,13 @@ Installation confirmed by VS Code CLI:
 
 Official Vercel CLI 65.11.0 is available via npm execution and successfully authenticated; no global CLI duplicate was installed.
 
-The legacy Copilot installation attempt was rejected because it attempted to downgrade the built-in Chat extension. No working Copilot response has yet been observed.
+The legacy Copilot installation attempt was rejected because it attempted to downgrade the built-in Chat extension. A working Copilot response is verified through the official CLI; an editor response remains unverified.
 
 ## Using the prepared configuration
 
 Open this worktree in VS Code. Use `/architecture`, `/debug`, `/tests`, `/refactor`, `/review`, `/prisma`, `/nextjs`, `/security` or `/learning-module` in chat after prompt discovery and sign-in have been verified. Keep prompts scoped to relevant files and start a fresh conversation for unrelated work to reduce repeated context. Do not enable overage spending.
 
-Current official Copilot Student terms describe unlimited completions, an AI-credit allowance and limited chat/agent use through automatic model selection. This does not establish this account's active plan or remaining credits. GitHub Pro and Copilot are separate entitlements; do not add their allowances together.
+Authenticated official Copilot CLI 1.0.105 confirmed the active Student plan, 200 AI credits with 0% used before the probe, and Fusion automatic model selection. An isolated, tool-denied smoke prompt returned NMT_COPILOT_OK, changed zero files and consumed 0.3 credits; auto selection reported GPT-5.6 Luna. No paid overage was enabled. Manual model selection was unavailable on this Student plan. Repository instructions and AGENTS.md were discovered by the CLI. VS Code's Copilot extension log separately confirms login as eembeerr4-blip and successful model-metadata retrieval, but opening a minimal Ask prompt does not prove an editor response. GitHub Pro, cloud coding agent and code-review entitlement remain unverified; their allowances are not added together.
 
 The devcontainer installs dependencies and generates the Prisma client. Before using its app, an empty, isolated development database still needs deliberate initialization with synthetic data; the configuration does not seed or migrate any existing database automatically. A real Codespaces smoke test and billing allowance check remain necessary. No cloud machine was started.
 
@@ -127,3 +127,7 @@ Preview must use an isolated database and synthetic identities; production email
 ## Cost and renewal
 
 No paid subscription, overage, automatic payment or trial renewal was enabled. No cloud hours intentionally started. The catalogue does not prove a vendor's actual renewal price or this account's billing settings; those remain PENDING for each offer. Do not auto-upgrade when a student benefit expires. Check entitlement expiry, payment settings and current official vendor pricing before activation. A trial, student benefit and permanently free tier must be recorded separately.
+
+## Remaining access blocker
+
+Chrome inventory is connected, but the existing Pack tab fails before any page observation with an undefined timeout-options error. Resetting/reconnecting did not resolve it. Native app control is unavailable in this session (empty app inventory), so mouse authorization alone cannot provide control of VS Code or vendor account screens. This blocks account-specific Pack eligibility/redemption, Sentry educational verification, 1Password verification and Codecov App installation/PR feedback. No offer is marked activated from catalogue presence alone. Vercel Preview additionally needs a verified isolated persistence strategy for the existing SQLite/upload architecture; no production deployment or storage migration was performed.
