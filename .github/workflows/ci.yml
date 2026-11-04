@@ -1,0 +1,78 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master, "feature/**", "infra/**", "beta/**"]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    name: Lint · Typecheck · Unit · Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prisma generate (no production DB)
+        env:
+          DATABASE_URL: file:./ci-placeholder.db
+        run: npx prisma generate
+
+      - name: ESLint
+        run: npm run lint
+
+      - name: TypeScript
+        run: npm run typecheck
+
+      - name: Prisma schema validate (disposable URL)
+        run: node scripts/ci/prisma-validate.mjs
+
+      - name: Content package JSON check
+        run: node scripts/ci/validate-content-json.mjs
+
+      - name: Unit / integration tests
+        env:
+          # Most DB tests create their own temp files; this blocks accidental ./dev.db use.
+          DATABASE_URL: file:./ci-unit-unused.db
+          CI: "true"
+        run: npm run test:ci
+
+      - name: Coverage
+        env:
+          DATABASE_URL: file:./ci-unit-unused.db
+          CI: "true"
+        run: npm run test:coverage
+
+      - name: Upload coverage to Codecov
+        if: always()
+        uses: codecov/codecov-action@v5
+        with:
+          files: coverage/lcov.info
+          fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Next.js build
+        env:
+          DATABASE_URL: file:./ci-build.db
+          # Sentry optional — build must succeed without DSN.
+          NEXT_PUBLIC_SENTRY_DSN: ""
+          SENTRY_DSN: ""
+        run: npm run build
