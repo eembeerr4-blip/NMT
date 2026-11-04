@@ -12,6 +12,15 @@
 
 # testing
 /coverage
+/.coverage-run.log
+/.build-run.log
+/.build-network-run.log
+/.audit-run.json
+/.e2e-run.log
+/.e2e-recheck.log
+/.e2e-import-recheck.log
+/coverage-targeted/
+/docs/student-pack/worktree-baseline.json
 
 # next.js
 /.next/

@@ -8,11 +8,11 @@ const mock = vi.hoisted(() => ({
     $transaction: vi.fn(),
     $queryRaw: vi.fn(),
     auditLog: { create: vi.fn() },
-    flashcard: { create: vi.fn(), findUnique: vi.fn(), update: vi.fn() },
+    flashcard: { create: vi.fn(), findFirst: vi.fn(), update: vi.fn(), updateMany: vi.fn() },
     studySession: { create: vi.fn() },
     studyTask: { findUnique: vi.fn(), update: vi.fn(), findMany: vi.fn(), deleteMany: vi.fn() },
     testAttempt: { findUnique: vi.fn(), update: vi.fn(), updateMany: vi.fn() },
-    reviewSchedule: { update: vi.fn() },
+    reviewSchedule: { findFirst: vi.fn(), update: vi.fn(), updateMany: vi.fn() },
     mistake: { update: vi.fn() },
     userTopicProgress: { upsert: vi.fn() },
     user: { findUnique: vi.fn(), create: vi.fn(), update: vi.fn() },
@@ -71,15 +71,17 @@ describe("personal learning data isolation", () => {
   });
 
   it("does not allow another learner's flashcard to be reviewed", async () => {
-    mock.prisma.flashcard.findUnique.mockResolvedValue(null);
+    mock.prisma.flashcard.findFirst.mockResolvedValue(null);
     expect((await reviewFlashcard("other-card", "again")).ok).toBe(false);
-    expect(mock.prisma.flashcard.findUnique).toHaveBeenCalledWith({ where: { id: "other-card", userId: "learner-a" } });
+    expect(mock.prisma.flashcard.findFirst).toHaveBeenCalledWith(expect.objectContaining({ where: { id: "other-card", userId: "learner-a" } }));
     expect(mock.prisma.flashcard.update).not.toHaveBeenCalled();
+    expect(mock.prisma.flashcard.updateMany).not.toHaveBeenCalled();
   });
 
   it("updates only personal topic progress after a difficult card", async () => {
-    mock.prisma.flashcard.findUnique.mockResolvedValue({ id: "card", topicId: "math-linear-eq", userId: "learner-a" });
-    await reviewFlashcard("card", "again");
+    mock.prisma.flashcard.findFirst.mockResolvedValue({ id: "card", topicId: "math-linear-eq", userId: "learner-a", dueKey: "2000-01-01", intervalDays: 1, ease: 2.5 });
+    mock.prisma.flashcard.updateMany.mockResolvedValue({ count: 1 });
+    expect((await reviewFlashcard("card", "again")).ok).toBe(true);
     expect(mock.prisma.userTopicProgress.upsert).toHaveBeenCalledWith(expect.objectContaining({ where: { userId_topicId: { userId: "learner-a", topicId: "math-linear-eq" } } }));
   });
 
@@ -91,9 +93,11 @@ describe("personal learning data isolation", () => {
   });
 
   it("requires an owned pending review before completion", async () => {
-    mock.prisma.reviewSchedule.update.mockRejectedValue(new Error("Record not found"));
+    mock.prisma.reviewSchedule.findFirst.mockResolvedValue(null);
     expect((await completeReview("already-done-or-other")).ok).toBe(false);
-    expect(mock.prisma.reviewSchedule.update).toHaveBeenCalledWith(expect.objectContaining({ where: { id: "already-done-or-other", userId: "learner-a", status: "PENDING" } }));
+    expect(mock.prisma.reviewSchedule.findFirst).toHaveBeenCalledWith(expect.objectContaining({ where: { id: "already-done-or-other", userId: "learner-a" } }));
+    expect(mock.prisma.reviewSchedule.update).not.toHaveBeenCalled();
+    expect(mock.prisma.reviewSchedule.updateMany).not.toHaveBeenCalled();
   });
 
   it("blocks installation backups and restore for a regular learner", async () => {

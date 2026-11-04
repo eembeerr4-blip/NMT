@@ -43,6 +43,8 @@ test.beforeEach(async ({ page }) => {
   await page.getByPlaceholder("Нікнейм").fill("owner");
   await page.locator("input[type=password]").fill("test-pass-2027");
   await page.getByRole("button", { name: "Увійти" }).click();
+  await expect(page).toHaveURL(/\/admin$/, { timeout: 15_000 });
+  await page.goto("/");
   await expect(page.getByRole("heading", { name: /Привіт/ })).toBeVisible({ timeout: 15_000 });
 });
 
@@ -63,7 +65,9 @@ test("відкриває предмет і тему без вигаданого 
   await page.locator("a[href='/topics/math-linear-eq']").click();
   await expect(page.getByRole("heading", { name: "Лінійні рівняння", exact: true })).toBeVisible();
   await page.getByRole("link", { name: "Відкрити урок" }).click();
-  await expect(page.getByRole("heading", { name: "Відео поки не додано", level: 2 })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Теорія", level: 2 })).toBeVisible();
+  await expect(page.getByRole("tab", { name: "Відео", exact: true })).toHaveCount(0);
+  await expect(page.locator('iframe[src*="youtube"]')).toHaveCount(0);
 });
 
 test("додає YouTube-відео і зберігає його після перезавантаження", async ({ page }) => {
@@ -119,7 +123,9 @@ test("створює резервну копію", async ({ page }) => {
   const response = await page.request.get("/api/export/backup");
   expect(response.ok()).toBeTruthy();
   const body = await response.json();
-  expect(body.version).toBe(5);
+  expect(body.version).toBe(6);
+  expect(Array.isArray(body.mistakeRetries)).toBe(true);
+  expect(Array.isArray(body.externalPractice)).toBe(true);
   expect(body.examResults.length).toBeGreaterThan(0);
 });
 
@@ -180,7 +186,7 @@ test("адміністратор e2e_admin зберігає налаштуван
   await page.getByPlaceholder("Нікнейм").fill("e2e_admin");
   await page.locator("input[type=password]").fill("test-pass-2027");
   await page.getByRole("button", { name: "Увійти" }).click();
-  await expect(page.getByRole("heading", { name: /Привіт, E2E-Admin/ })).toBeVisible({ timeout: 15_000 });
+  await expect(page).toHaveURL(/\/admin$/, { timeout: 15_000 });
   await page.goto("/admin/settings");
   await expect(page.getByRole("heading", { name: "Налаштування платформи" })).toBeVisible();
   await page.getByText("Додаткові параметри навчання").click();

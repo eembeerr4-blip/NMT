@@ -10,6 +10,7 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "db:setup": "prisma migrate deploy && prisma generate && tsx prisma/seed.ts",
     "db:seed": "tsx prisma/seed.ts",
@@ -21,6 +22,7 @@
     "postinstall": "node scripts/localize-next-devtools.cjs",
     "predev": "node scripts/localize-next-devtools.cjs",
     "content:verify:math": "tsx scripts/verify-math-content.ts",
+    "content:verify:json": "node scripts/verify-content-json.mjs",
     "content:upgrade:math": "tsx prisma/upgrade-math-content.ts"
   },
   "prisma": {
@@ -65,12 +67,16 @@
     "@types/node": "^24.19.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitest/coverage-v8": "4.1.11",
     "dotenv": "^18.0.8",
     "eslint": "^9",
     "eslint-config-next": "16.4.2",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
     "typescript": "^5",
-    "vitest": "^3.2.7"
+    "vitest": "4.1.11"
+  },
+  "overrides": {
+    "deepmerge-ts": "8.0.0"
   }
 }

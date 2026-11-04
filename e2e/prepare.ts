@@ -1,5 +1,6 @@
 import { execSync } from "child_process";
 import { rmSync, writeFileSync } from "fs";
+import { DatabaseSync } from "node:sqlite";
 import { assertE2eDbWritable } from "./helpers/ensure-e2e-ready";
 
 assertE2eDbWritable();
@@ -19,6 +20,10 @@ for (const file of ["prisma/e2e.db", "prisma/e2e.db-journal", "prisma/e2e.db-wal
 writeFileSync("prisma/e2e.db", "");
 const env = { ...process.env, DATABASE_URL: "file:./e2e.db" };
 execSync("npx prisma db push --skip-generate --accept-data-loss", { env, stdio: "inherit" });
+// Avoid thousands of rollback-journal file operations while seeding this fixture.
+const fixture = new DatabaseSync("prisma/e2e.db");
+fixture.exec("PRAGMA journal_mode=WAL;");
+fixture.close();
 execSync("npx tsx prisma/seed.ts", { env, stdio: "inherit" });
 execSync("npx tsx prisma/migrate-owner.ts", { env, stdio: "inherit" });
 execSync("npx tsx e2e/bootstrap.ts", { env, stdio: "inherit" });

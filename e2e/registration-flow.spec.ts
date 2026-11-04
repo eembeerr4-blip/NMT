@@ -10,7 +10,7 @@ async function login(page: Page, nickname: string) {
   await page.locator("input[type=password]").fill(password);
   await page.getByRole("button", { name: "Увійти" }).click();
   if (nickname === "owner") {
-    await expect(page.getByRole("heading", { name: /Привіт/ })).toBeVisible({ timeout: 15_000 });
+    await expect(page).toHaveURL(/\/admin$/, { timeout: 15_000 });
   }
 }
 

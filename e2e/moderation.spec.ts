@@ -14,7 +14,7 @@ test("власник схвалює заявку, після чого учень
   await expect(page).toHaveURL(/\/login/, { timeout: 15_000 });
 
   await login(page, "owner");
-  await expect(page.getByRole("heading", { name: /Привіт/ })).toBeVisible({ timeout: 15_000 });
+  await expect(page).toHaveURL(/\/admin$/, { timeout: 15_000 });
   await page.goto("/admin/moderation");
   await expect(page.getByRole("heading", { name: "Модерація реєстрацій" })).toBeVisible();
   await page.locator("div.flex.flex-col.gap-3").filter({ hasText: "e2e-pending@example.test" }).getByRole("button", { name: "Схвалити" }).click();

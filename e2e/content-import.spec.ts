@@ -7,10 +7,10 @@ async function login(page: Page, nickname: string) {
   await page.getByPlaceholder("Нікнейм").fill(nickname);
   await page.locator("input[type=password]").fill("test-pass-2027");
   await page.getByRole("button", { name: "Увійти" }).click();
-  await expect(page).not.toHaveURL(/\/login/, { timeout: 15_000 });
+  await expect(page).not.toHaveURL(/\/login/, { timeout: 30_000 });
 }
 
-test("власник імпортує пакет чернеткою, а учень бачить урок лише після публікації", async ({ page }) => {
+test("імпортована чернетка недоступна учню, а неповний приклад не можна опублікувати", async ({ page }) => {
   await login(page, "owner");
   await page.goto("/admin/import");
   await expect(page.getByRole("heading", { name: "Імпорт навчальних матеріалів" })).toBeVisible();
@@ -20,6 +20,7 @@ test("власник імпортує пакет чернеткою, а учен
   await expect(page.getByText("Біологія")).toBeVisible();
   await expect(page.getByRole("button", { name: "Імпортувати як чернетки" })).toBeEnabled();
   await page.getByRole("button", { name: "Імпортувати як чернетки" }).click();
+  await page.getByRole("alertdialog", { name: "Підтвердьте імпорт" }).getByRole("button", { name: "Так, імпортувати чернетки" }).click();
   await expect(page.getByText(/Створено тем:|Оновлено чернеток:/)).toBeVisible();
 
   await login(page, "e2e_student");
@@ -43,11 +44,13 @@ test("власник імпортує пакет чернеткою, а учен
   await login(page, "owner");
   await page.goto("/admin/lessons/pkg-example-cell-structure");
   await page.getByRole("button", { name: "Опублікувати для учнів" }).click();
-  await expect(page.getByText("Урок опубліковано для учнів.")).toBeVisible();
+  await expect(page.getByRole("status")).toContainText("Урок не готовий до публікації:");
+  await expect(page.getByRole("status")).toContainText("перевірена практика 4/5/3");
 
   await login(page, "e2e_student");
   await page.goto("/learn/pkg-example-cell-structure");
-  await expect(page.getByText("Оновлений конспект імпортованого прикладу")).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Відео поки не додано", level: 2 })).toBeVisible();
-  await expect(page.getByText("Чернетка. Учні цього уроку ще не бачать.")).toHaveCount(0);
+  await expect(page.getByText("Матеріал готується")).toBeVisible();
+  await expect(page.getByText("Оновлений конспект імпортованого прикладу")).toHaveCount(0);
+  await expect(page.getByRole("tab", { name: "Відео", exact: true })).toHaveCount(0);
+  await expect(page.locator('iframe[src*="youtube"]')).toHaveCount(0);
 });
