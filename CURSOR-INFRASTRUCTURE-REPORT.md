@@ -3,7 +3,7 @@
 Дата: 2026-11-04  
 Worktree: `D:\Вайб-кодинг\nmt-infra-tooling`  
 Гілка: `infra/cursor-local-tooling-20261104`  
-HEAD: `a4e4781828c68757533ba0f9d3f1fa1b049919fe`  
+HEAD: `246e345c09fca1d6cbfe91d12b6ac3d878a9cf02`  
 Remote: `https://github.com/eembeerr4-blip/NMT`  
 PR (do not merge): https://github.com/eembeerr4-blip/NMT/pull/8  
 Base branch note: repo `default_branch` = `codex/github-publication`; PR opened to `main` as requested.
@@ -27,7 +27,7 @@ Base branch note: repo `default_branch` = `codex/github-publication`; PR opened 
 | Copilot (GitHub) | **PENDING** | Instructions/prompts present; Cursor marketplace has no `GitHub.copilot`; VS Code has built-in Copilot Chat — Student/eligibility not verified in-editor here |
 | Codespaces | **CONFIGURED** + cloud **SKIPPED** | `.devcontainer/devcontainer.json` valid (Node 22, `npm ci`, disposable `codespaces-dev.db`); cloud create skipped (no `codespace` gh scope / avoid paid credits without consent) |
 | 1Password | **PENDING** | App/CLI not installed; Student Pack offer not confirmed in this agent |
-| Playwright E2E | **FAIL** (local) / GH **PENDING** | Local default suite: **11 passed / 23 failed / 1 did not run** (9.3m). Failures: owner login lands on `/admin` («Огляд»), tests still expect heading `/Привіт/` on learning dashboard |
+| Playwright E2E | **FAIL** (local + GitHub) | Local: **11 passed / 23 failed / 1 did not run** (9.3m). GitHub PR run https://github.com/eembeerr4-blip/NMT/actions/runs/41841182993 → **failure**. Root cause: owner login lands on `/admin` («Огляд»), tests still expect heading `/Привіт/` |
 | Branch protection / rulesets | **PENDING** | `main` not protected; rulesets `[]` — not enabled without owner policy |
 | npm audit (CI job) | **PASS** (job) | Job succeeded with `continue-on-error`; **not** claimed as clean audit — see vulnerabilities below |
 
@@ -80,8 +80,9 @@ Base branch note: repo `default_branch` = `codex/github-publication`; PR opened 
 | https://github.com/eembeerr4-blip/NMT/actions/runs/41833696057 | push `a7954d5` | CI **success** |
 | https://github.com/eembeerr4-blip/NMT/actions/runs/41840033034 | push `a4e4781` | CI **success** |
 | https://github.com/eembeerr4-blip/NMT/actions/runs/41840085102 | PR #8 Security | **success** (CodeQL, dependency-review, npm audit job) |
-| https://github.com/eembeerr4-blip/NMT/actions/runs/41840085176 | PR #8 CI | in progress at report time |
-| https://github.com/eembeerr4-blip/NMT/actions/runs/41840085186 | PR #8 E2E | in progress at report time |
+| https://github.com/eembeerr4-blip/NMT/actions/runs/41840085176 | PR #8 CI | **success** |
+| https://github.com/eembeerr4-blip/NMT/actions/runs/41840085186 | PR #8 E2E | **cancelled** (superseded) |
+| https://github.com/eembeerr4-blip/NMT/actions/runs/41841182993 | PR #8 E2E (latest) | **failure** (same admin/greeting drift as local) |
 
 Enabled: Dependabot security updates, Secret scanning, Push protection.  
 Not enabled / empty: branch protection on `main`, rulesets, secret validity checks, non-provider secret patterns.  
