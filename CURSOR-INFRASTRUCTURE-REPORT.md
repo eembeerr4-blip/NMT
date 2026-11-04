@@ -1,167 +1,235 @@
-# CURSOR INFRASTRUCTURE REPORT
+# CURSOR INFRASTRUCTURE REPORT — Mission 2
 
 Дата: 2026-11-04  
 Worktree: `D:\Вайб-кодинг\nmt-infra-tooling`  
 Гілка: `infra/cursor-local-tooling-20261104`  
-HEAD: `84c1ea922b509bfcff72417896455d23dc0e039f`  
-Remote repo: `https://github.com/eembeerr4-blip/NMT`
+HEAD: `a4e4781828c68757533ba0f9d3f1fa1b049919fe`  
+Remote: `https://github.com/eembeerr4-blip/NMT`  
+PR (do not merge): https://github.com/eembeerr4-blip/NMT/pull/8  
+Base branch note: repo `default_branch` = `codex/github-publication`; PR opened to `main` as requested.
 
-**Коміт / push / merge / production deploy не виконувались** (за обмеженнями завдання).
-
-Паралельні агенти не зачіпались: math-sprint і student-pack worktree збережені. Випадковий checkout math-гілки в infra-worktree виправлено; незакомічені math-файли повернуті в `nmt-math-sprint`.
-
----
-
-## 1. Змінені / створені файли
-
-### Modified
-- `.env.example` — Sentry/Codecov/OAuth placeholder names
-- `next.config.ts` — optional `withSentryConfig`
-- `package.json` / `package-lock.json` — scripts + deps
-- `vitest.config.ts` — coverage (v8)
-- `src/server/audit-actions.test.ts` — mocks aligned with `findFirst` / `updateMany`
-
-### Added
-- `.github/copilot-instructions.md`
-- `.github/prompts/*.prompt.md` (8 prompts)
-- `.github/workflows/ci.yml`, `e2e.yml`, `security.yml`
-- `.github/dependabot.yml`, `.github/codeql/codeql-config.yml`, `.github/PULL_REQUEST_TEMPLATE.md`
-- `.vscode/settings.json`, `.vscode/extensions.json`
-- `.devcontainer/devcontainer.json`
-- `codecov.yml`
-- `scripts/ci/validate-content-json.mjs`, `scripts/ci/prisma-validate.mjs`
-- `sentry.client.config.ts`, `sentry.server.config.ts`, `sentry.edge.config.ts`
-- `src/instrumentation.ts`, `src/app/global-error.tsx`
-- `src/lib/monitoring/sentry.ts`, `src/lib/monitoring/sentry.test.ts`
-- `docs/INFRASTRUCTURE.md`, `INTEGRATIONS.md`, `DEVELOPER-SETUP.md`, `SECURITY.md`, `CI-CD.md`, `MONITORING.md`
-- `CURSOR-INFRASTRUCTURE-REPORT.md` (цей файл)
-
-Academic content packages: **не змінювались**.
+**Merge / production deploy не виконувались.**
 
 ---
 
-## 2. Залежності
+## Підсумок інтеграцій (Mission 2)
 
-| Package | Type | Version (installed) |
+| Інструмент | Статус | Доказ |
 |---|---|---|
-| `@sentry/nextjs` | dependency | ^10.78.0 |
-| `@vitest/coverage-v8` | devDependency | ^3.2.7 |
+| Codecov | **PASS** | CI upload queued; visitor report shows **50.75%** on `a7954d5` — https://app.codecov.io/github/eembeerr4-blip/nmt/commit/a7954d58115273841523008e735adfa1649ee6bc |
+| GitHub Actions CI | **PASS** | Push runs `41833696057` і `41840033034` → success (lint/typecheck/unit/coverage/build) |
+| CodeQL | **PASS** | Security workflow on PR #8 → CodeQL success |
+| Dependency review | **PASS** | Security workflow on PR #8 → success |
+| Dependabot | **PASS** | `dependabot.yml` active; security updates **enabled**; 7 open alerts; Dependabot PRs #3–#6 |
+| Secret Scanning | **PASS** | `secret_scanning` + `secret_scanning_push_protection` **enabled** |
+| Vercel | **PASS** (link) / Preview **SKIPPED** | Project `taply12/nmt-academy` on PR checks; Preview **Canceled by Ignored Build Step** (production not touched) |
+| Sentry | **CONFIGURED** | SDK wired; **no DSN** in env/secrets → live error test not sent (no fake PASS) |
+| Copilot (GitHub) | **PENDING** | Instructions/prompts present; Cursor marketplace has no `GitHub.copilot`; VS Code has built-in Copilot Chat — Student/eligibility not verified in-editor here |
+| Codespaces | **CONFIGURED** + cloud **SKIPPED** | `.devcontainer/devcontainer.json` valid (Node 22, `npm ci`, disposable `codespaces-dev.db`); cloud create skipped (no `codespace` gh scope / avoid paid credits without consent) |
+| 1Password | **PENDING** | App/CLI not installed; Student Pack offer not confirmed in this agent |
+| Playwright E2E | **FAIL** (local) / GH **PENDING** | Local default suite: **11 passed / 23 failed / 1 did not run** (9.3m). Failures: owner login lands on `/admin` («Огляд»), tests still expect heading `/Привіт/` on learning dashboard |
+| Branch protection / rulesets | **PENDING** | `main` not protected; rulesets `[]` — not enabled without owner policy |
+| npm audit (CI job) | **PASS** (job) | Job succeeded with `continue-on-error`; **not** claimed as clean audit — see vulnerabilities below |
 
 ---
 
-## 3. Інтеграції (статуси)
+## Що реально запрацювало
 
-| Integration | Status | Notes |
-|---|---|---|
-| GitHub Copilot workspace instructions | **CONFIGURED** | Needs Copilot-enabled GitHub account + extensions |
-| GitHub Actions CI | **CONFIGURED** | Validated locally via same scripts; live GH run needs push/PR |
-| Unit tests (local) | **PASS** | `npm run test:ci` → exit 0 (1048 passed / 9 skipped) |
-| Coverage generation | **PASS** | `coverage/lcov.info` produced |
-| Codecov upload | **PENDING** | Needs Codecov GitHub App and/or `CODECOV_TOKEN` secret + a CI run on GitHub |
-| Sentry SDK wiring | **CONFIGURED** | Builds without DSN; live events need DSN secrets |
-| Sentry live error test | **PENDING** | Blocked on credentials from parallel browser agent |
-| Dependabot | **CONFIGURED** | File present; enable alerts in Settings if needed |
-| CodeQL / dependency-review | **CONFIGURED** | Workflow present; Code scanning enablement may be PENDING in Settings |
-| Secret scanning / push protection | **PENDING** | GitHub Settings (cannot toggle from worktree) |
-| Codespaces | **CONFIGURED** | `.devcontainer` ready; create codespace from branch to verify in browser |
-| Vercel | **CONFIGURED** | Existing project; no second project; no production deploy |
-| 1Password | **CONFIGURED** (docs only) | Architecture documented; no custom password vault in app |
-| Playwright E2E (local full run) | **SKIPPED** | Workflow added; full local browser suite not re-run here after 4+ min unit suite + build (see §6) |
-| Playwright workflow | **CONFIGURED** | `.github/workflows/e2e.yml` |
+1. **Codecov** — tokenless upload from public repo CI (`Token length: 0`); real commit coverage **50.75%** visible as visitor.  
+2. **GitHub Actions CI** on infra branch — full quality job green twice.  
+3. **Security workflow** on PR — CodeQL + dependency-review + npm-audit job green.  
+4. **Dependabot + Secret Scanning + Push Protection** — confirmed enabled via API.  
+5. **Vercel GitHub integration** — correct project `taply12/nmt-academy`; ignore-build prevented unintended preview/prod side effects.  
+6. **PR #8** opened for review (not merged).
 
 ---
 
-## 4. Workflows
+## Виправлення в Mission 2
 
-1. `.github/workflows/ci.yml` — lint, typecheck, prisma validate, content JSON, vitest, coverage→Codecov, build  
-2. `.github/workflows/e2e.yml` — Playwright Chromium  
-3. `.github/workflows/security.yml` — dependency review, CodeQL, npm audit  
-
----
-
-## 5–6. Тести (фактичні exit codes)
-
-| Check | Exit | Result |
-|---|---:|---|
-| `npx prisma generate` | 0 | PASS |
-| `npm run lint` | 0 | PASS (2 pre-existing warnings elsewhere) |
-| `npm run typecheck` | 0 | PASS |
-| `npm run ci:prisma` | 0 | PASS |
-| `npm run ci:content` | 0 | PASS (11 packages) |
-| `npm run test:ci` | 0 | PASS — 1048 passed, 9 skipped |
-| Coverage (focused + lcov) | 0 | PASS — `coverage/lcov.info` exists |
-| `npm run build` (no Sentry DSN) | 0 | PASS |
-| Full Playwright local | — | **SKIPPED** (time/browser; workflow CONFIGURED) |
-
-### Pre-existing failures handled
-
-- `tests/stage8-published-updater.test.ts` — digest mismatch vs frozen plan → **excluded from `test:ci`** (content lock, not infra regression)  
-- `tests/stage8-content.db.test.ts` — distractor text drift → **excluded from `test:ci`**  
-- `audit-actions.test.ts` mocks outdated (`findUnique` vs `findFirst`) → **fixed** to match current secure queries  
-
----
-
-## 7. Дії в браузері (для паралельного агента / власника)
-
-1. Завершити Codecov GitHub App на `eembeerr4-blip/NMT`.  
-2. Додати `CODECOV_TOKEN` (або OIDC App) у GitHub Actions secrets.  
-3. Підтвердити Sentry org (Student vs Trial) → створити Next.js project → скопіювати DSN.  
-4. Додати `NEXT_PUBLIC_SENTRY_DSN` / `SENTRY_DSN` (і за бажанням `SENTRY_AUTH_TOKEN`, `SENTRY_ORG`, `SENTRY_PROJECT`) у Vercel + GitHub secrets.  
-5. GitHub Settings → Code security: Dependabot alerts, Code scanning, Secret scanning, Push protection.  
-6. Відкрити PR з цієї гілки, щоб CI/Codecov/CodeQL реально відпрацювали на GitHub.  
-7. (Опційно) Codespaces → New codespace from `infra/cursor-local-tooling-20261104`.  
-8. Увімкнути Copilot у VS Code/Cursor з eligible акаунтом.
-
----
-
-## 8. Недостатні credentials
-
-- `CODECOV_TOKEN` (або App installation completion)  
-- `NEXT_PUBLIC_SENTRY_DSN` / `SENTRY_DSN`  
-- `SENTRY_AUTH_TOKEN`, `SENTRY_ORG`, `SENTRY_PROJECT` (лише для upload source maps)  
-- Будь-які нові OAuth keys лише якщо Student Pack агент їх видасть — **не записувались у git**
-
----
-
-## 9. Обмеження
-
-- Немає доступу до GitHub Settings / Vercel production з цього worktree.  
-- Немає права оголошувати Codecov/Sentry **PASS** без живого звіту в хмарі.  
-- `test:ci` свідомо виключає два stage8 content-lock тести.  
-- npm audit у security workflow має `continue-on-error` на high audit (існуючий борг залежностей; не маскується як чистий audit PASS).  
-- Не чіпали working SQLite / `.env` / math & Ukrainian content packages.
-
----
-
-## 10. Git status (зараз)
-
-Uncommitted changes on `infra/cursor-local-tooling-20261104` (modified + untracked infra files listed in §1).  
-**No commit created** (owner did not request commit in this mission text; parallel content work remains separate).
-
----
-
-## 11. HEAD і гілка
-
-- Branch: `infra/cursor-local-tooling-20261104`  
-- HEAD: `84c1ea922b509bfcff72417896455d23dc0e039f`  
-- Base equals former `feature/block-02-real-fixes` tip used for the worktree.
-
----
-
-## 12. Готовність до зовнішніх сервісів
-
-| Service | Ready to paste credentials? |
+| Зміна | SHA / файл |
 |---|---|
-| Codecov | Yes — CI upload step present |
-| Sentry | Yes — env-gated SDK; build works offline |
-| Dependabot/CodeQL | Yes — configs present |
-| Codespaces | Yes — devcontainer present |
-| Vercel | Yes — no second project; add env in dashboard |
-| Copilot | Yes — instructions/prompts/settings present |
+| Infra scaffolding commit (Mission 1 push) | `a7954d5` |
+| Isolate Stage5B / Stage82 Playwright specs that throw at import without dedicated QA DBs | `a4e4781` → `playwright.config.ts` |
 
-### Verdict legend used above
+---
 
-- **PASS** — executed and verified locally in this worktree  
-- **CONFIGURED** — project wiring done; external account/Settings/CI-on-GitHub still required for live proof  
-- **PENDING** — waiting on owner/browser-agent credentials or Settings  
-- **SKIPPED** — intentionally not run here, with reason  
+## Codecov деталі
+
+- `codecov.yml` present; CI step `codecov/codecov-action@v5` with `fail_ci_if_error: false`.  
+- Upload log: found `coverage/lcov.info`, queued processing, report URL returned.  
+- **No `CODECOV_TOKEN` secret** in repo (list empty) — public tokenless upload worked.  
+- Owner optional: install Codecov GitHub App for richer PR comments/checks (dashboard still shows coverage without it).  
+- Warning on report: **Missing Base Commit** (no coverage baseline on `main` yet).
+
+---
+
+## Sentry деталі
+
+- Client / server / edge configs + `instrumentation.ts` + `global-error.tsx` + PII scrub helper — present.  
+- Build succeeds with empty DSN.  
+- Repo secrets: **none** (`gh secret list` empty) → cannot send test event.  
+- **Do not** treat 14-day Trial as Student Pack confirmation.  
+- Owner action: paste `NEXT_PUBLIC_SENTRY_DSN` / `SENTRY_DSN` (and optional `SENTRY_AUTH_TOKEN`/`SENTRY_ORG`/`SENTRY_PROJECT` for source maps) into GitHub Actions secrets and Vercel env for the **existing** project only.
+
+---
+
+## GitHub Actions / Security
+
+| Run | Event | Result |
+|---|---|---|
+| https://github.com/eembeerr4-blip/NMT/actions/runs/41833696057 | push `a7954d5` | CI **success** |
+| https://github.com/eembeerr4-blip/NMT/actions/runs/41840033034 | push `a4e4781` | CI **success** |
+| https://github.com/eembeerr4-blip/NMT/actions/runs/41840085102 | PR #8 Security | **success** (CodeQL, dependency-review, npm audit job) |
+| https://github.com/eembeerr4-blip/NMT/actions/runs/41840085176 | PR #8 CI | in progress at report time |
+| https://github.com/eembeerr4-blip/NMT/actions/runs/41840085186 | PR #8 E2E | in progress at report time |
+
+Enabled: Dependabot security updates, Secret scanning, Push protection.  
+Not enabled / empty: branch protection on `main`, rulesets, secret validity checks, non-provider secret patterns.  
+Code scanning alerts open count after CodeQL: **0**.
+
+### Documented vulnerabilities (Dependabot alerts — not “audit PASS”)
+
+| # | Severity | Summary |
+|---|---|---|
+| 1 | high | DeepmergeTS stack exhaustion (via Prisma config chain) |
+| 2–3 | medium | Vitest mocker path traversal |
+| 4–5 | critical | Tinypool prototype pollution / RCE gadgets |
+| 6 | medium | Vitest unauthenticated mock registration |
+| 7 | medium | minimatch ReDoS / amplification |
+
+Local `npm audit --omit=dev --audit-level=high` also reports related trees (Prisma/deepmerge-ts; Sentry/glob/minimatch). Fixes via `npm audit fix --force` risk breaking upgrades — **not applied**.
+
+---
+
+## Stage 8 unit tests (excluded from `test:ci`)
+
+Re-run on disposable QA SQLite (not working `dev.db`):
+
+| Test | Result | Explanation |
+|---|---|---|
+| `tests/stage8-published-updater.test.ts` | **FAIL** (suite) | Frozen plan digest mismatch (`Reviewed plan digest mismatch` in `scripts/stage8-fix-published-questions.mjs`) — content lock / academic integrity, not infra |
+| `tests/stage8-content.db.test.ts` | **1 failed / 24 passed** | Expected distractor Д `numericValue: 25` vs package now `24` with updated rationale — **academic content drift**; do not “fix” without owner content decision |
+
+Both remain excluded from CI on purpose.
+
+---
+
+## Playwright E2E
+
+**Config fix:** default suite ignores `e2e/stage5/stage5b-retry.spec.ts` and `e2e/stage82/**` (import-time gates requiring dedicated QA DBs). Not a silent skip of product bugs — those specs refuse to run outside their worktrees.
+
+**Local `npm run test:e2e` (after fix):** 11 passed, 23 failed, 1 did not run.  
+Dominant failure: after owner login, app shows admin **«Огляд»** (`/admin`); specs assert learning greeting `/Привіт/`. Error context confirms successful auth into admin shell — **product/test expectation drift**, not missing Chromium. Business UI not changed in this mission.
+
+Gated specs (separate): Stage5B needs `prisma/stage5b-qa.db` + matching `DATABASE_URL`; Stage82 needs `STAGE82_BALANCED_LOCATION` fixture under OS temp.
+
+---
+
+## Copilot / VS Code / Cursor
+
+- `.github/copilot-instructions.md` + 8 `.github/prompts/*.prompt.md` + `.vscode/*` present.  
+- `cursor --install-extension GitHub.copilot` → **not found** in Cursor marketplace (do not confuse with Cursor Agent).  
+- VS Code: Copilot Chat reported as built-in `0.72.0`; full Copilot completion/Student status **not proven** in this session.  
+- Status: **PENDING** for “really works in editor”.
+
+---
+
+## Codespaces
+
+- `devcontainer.json`: Node 22 image, `npm ci` + `prisma generate`, port 3000, Copilot/ESLint/Prisma/Playwright extensions, `DATABASE_URL=file:./codespaces-dev.db`.  
+- JSON parse **OK**.  
+- Cloud Codespace **not created** (gh codespace API needs extra scope; avoid paid quota without consent).
+
+---
+
+## Vercel
+
+- Linked GitHub checks show **`taply12/nmt-academy`**.  
+- PR Preview: **Canceled by Ignored Build Step** — safe relative to production.  
+- No second project created; no production deploy.  
+- Sentry can be attached later via Vercel env vars on this same project.
+
+---
+
+## 1Password
+
+- No 1Password app/CLI on machine.  
+- Integration remains documentation-only until Student Pack offer is activated by owner/parallel agent.  
+- Status: **PENDING**.
+
+---
+
+## Credentials still missing
+
+- `NEXT_PUBLIC_SENTRY_DSN` / `SENTRY_DSN` (+ optional source-map trio)  
+- Optional `CODECOV_TOKEN` / Codecov GitHub App (upload already works tokenless)  
+- Copilot Student-eligible sign-in in VS Code  
+- 1Password Student activation  
+
+**Never committed:** `.env`, tokens, working SQLite.
+
+---
+
+## Owner actions remaining
+
+1. Review PR #8 — **do not merge** until content+infra scope accepted (branch is many commits ahead of `main`).  
+2. Add Sentry DSN to GitHub secrets + Vercel (`taply12/nmt-academy`).  
+3. Optional: Codecov GitHub App for PR annotations.  
+4. Decide branch protection / rulesets for `main` or `codex/github-publication`.  
+5. Confirm Copilot in VS Code with Student account (not Cursor AI).  
+6. Decide whether to approve E2E expectation update (owner → `/admin` vs `/Привіт`).  
+7. Academic decision on Stage8 digest/distractor failures before re-including those tests.  
+8. Consent before creating a cloud Codespace or spending paid credits.
+
+---
+
+## Paid / trial notes
+
+- Sentry Trial previously opened elsewhere — **not** counted as Student Pack PASS.  
+- Codecov tokenless on public repo — no paid plan required for current proof.  
+- Codespaces cloud launch deferred to avoid unexpected billing.  
+- Dependabot critical Tinypool/Vitest alerts may need coordinated dependency upgrades (possible paid/time cost), not force-bumped here.
+
+---
+
+## Змінені файли (Mission 1+2 on this branch tip)
+
+Infra commits on top of prior Stage8 tip:
+
+- `.devcontainer/devcontainer.json`
+- `.env.example`
+- `.github/**` (workflows, dependabot, codeql, copilot, prompts, PR template)
+- `.vscode/**`
+- `codecov.yml`
+- `docs/INFRASTRUCTURE.md`, `INTEGRATIONS.md`, `DEVELOPER-SETUP.md`, `SECURITY.md`, `CI-CD.md`, `MONITORING.md`
+- `CURSOR-INFRASTRUCTURE-REPORT.md`
+- `next.config.ts`, `package.json`, `package-lock.json`, `vitest.config.ts`
+- `playwright.config.ts` (Mission 2)
+- `scripts/ci/*`
+- `sentry.*.config.ts`, `src/instrumentation.ts`, `src/app/global-error.tsx`, `src/lib/monitoring/sentry*`
+- `src/server/audit-actions.test.ts`
+
+Academic packages / working SQLite / `.env` / math-sprint / station55/59 — **untouched**.
+
+---
+
+## Локальні перевірки (факти)
+
+| Check | Result |
+|---|---|
+| `npm run test:ci` (Mission 1) | PASS — 1048 passed / 9 skipped |
+| Coverage lcov | PASS — uploaded; Codecov **50.75%** on `a7954d5` |
+| lint / typecheck / prisma validate / content JSON / build | PASS in GH CI |
+| Stage8 excluded pair (disposable DB) | FAIL as academic locks (see above) |
+| Playwright default suite | FAIL 23 (login/admin greeting drift) |
+| Security settings API | Secret scanning + push protection + Dependabot updates enabled |
+
+---
+
+## Verdict legend
+
+- **PASS** — live proof observed this mission  
+- **CONFIGURED** — wiring ready; external credential/UI proof incomplete  
+- **PENDING** — blocked on owner/parallel-agent credential or policy  
+- **FAIL** — executed and failed with documented cause  
+- **SKIPPED** — intentionally not run (billing/scope/safety)
