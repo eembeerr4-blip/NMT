@@ -1,0 +1,357 @@
+{
+  "phase": "1-blind-independent",
+  "reviewedAt": "2026-10-30",
+  "blindness": "Only assigned blind JSON, AGENTS.md, ARCHITECTURE.md, PLAN.md and official/academic web evidence read. No package keys, proposed explanations, prior reports, database or Git accessed.",
+  "assumptions": [
+    "One diploid autosomal biallelic Mendelian locus, equal gamete probabilities, random fertilization, no mutation or viability differences. Full dominance where phenotype used; phase2 must verify shared model.",
+    "Conventional BCE/CE has no year zero. Difficulty estimates are qualitative."
+  ],
+  "sources": {
+    "gen": "https://www.genome.gov/genetics-glossary/heterozygous",
+    "dom": "https://www.genome.gov/genetics-glossary/Dominant",
+    "cross": "https://openstax.org/books/concepts-biology/pages/8-2-laws-of-inheritance",
+    "prob": "https://openstax.org/books/biology-2e/pages/12-1-mendels-experiments-and-the-laws-of-probability",
+    "obj": "https://siarchives.si.edu/sites/default/files/pdfs/SolomonGBrownLetterWritingActivity.pdf",
+    "cal": "https://aa.usno.navy.mil/faq/millennium",
+    "map": "https://www.loc.gov/static/programs/teachers/getting-started-with-primary-sources/documents/Analyzing_Maps.pdf",
+    "crit": "https://memory.loc.gov/static/programs/teachers/getting-started-with-primary-sources/documents/Analyzing_Primary_Sources.pdf",
+    "prop": "https://www.nationalarchives.gov.uk/help-with-your-research/research-guides/propaganda/",
+    "cause": "https://blogs.loc.gov/teachers/2022/05/using-claim-evidence-and-reasoning-cer-with-primary-source-analysis/"
+  },
+  "programSources": [
+    "https://testportal.gov.ua/progbio/",
+    "https://testportal.gov.ua/progist/"
+  ],
+  "programScope": "Official UCEQA programme entrypoints checked. Foundational relevance does not establish full NMT coverage. Detailed programme PDF verification incomplete: biology PDF exceeds web fetch size and history PDF extraction unreadable. No prior-year exam scope assumed current.",
+  "questions": [
+    {
+      "id": "s8-biology-foundation-01",
+      "derivedAnswer": "А",
+      "reasoning": "Aa has unlike alleles. AA/aa are homozygotes; A is not a diploid genotype.",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "https://www.genome.gov/genetics-glossary/heterozygous"
+      ],
+      "confidence": 0.99,
+      "status": "PASS"
+    },
+    {
+      "id": "s8-biology-foundation-02",
+      "derivedAnswer": "Г",
+      "reasoning": "Haploid gametes get one a from aa. A is absent; Aa/AA are diploid combinations.",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "https://openstax.org/books/concepts-biology/pages/8-2-laws-of-inheritance"
+      ],
+      "confidence": 0.99,
+      "status": "PASS"
+    },
+    {
+      "id": "s8-biology-foundation-03",
+      "derivedAnswer": "В",
+      "reasoning": "Full dominance yields dominant phenotype in Aa. It implies neither disappearance, benefit nor higher frequency.",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "https://www.genome.gov/genetics-glossary/Dominant"
+      ],
+      "confidence": 0.99,
+      "status": "PASS"
+    },
+    {
+      "id": "s8-biology-foundation-04",
+      "derivedAnswer": "Б",
+      "reasoning": "Only A gametes and a gametes unite: every child is Aa. Other outcomes require unavailable gametes.",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "https://openstax.org/books/concepts-biology/pages/8-2-laws-of-inheritance"
+      ],
+      "confidence": 0.99,
+      "status": "PASS"
+    },
+    {
+      "id": "s8-biology-foundation-05",
+      "derivedAnswer": "А",
+      "reasoning": "Own enumeration AA,Aa,aA,aa yields 1:2:1; other options omit heterozygotes or confuse genotype and phenotype.",
+      "issues": [
+        "MEDIUM generous for direct Punnett-square recall."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "https://openstax.org/books/concepts-biology/pages/8-2-laws-of-inheritance"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-biology-foundation-06",
+      "derivedAnswer": "Г",
+      "reasoning": "Three of AA,Aa,Aa,aa express dominance: 3:1. Intermediate phenotype requires incomplete dominance; 1:1 is testcross.",
+      "issues": [
+        "MEDIUM generous for direct explicitly qualified recall."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "https://openstax.org/books/concepts-biology/pages/8-2-laws-of-inheritance"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-biology-foundation-07",
+      "derivedAnswer": "В",
+      "reasoning": "Own calculation: Aa supplies a with 1/2, aa with 1, hence 1/2. Other fractions incorrect.",
+      "issues": [
+        "One-step testcross calculation fits EASY."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "https://openstax.org/books/concepts-biology/pages/8-2-laws-of-inheritance"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-biology-foundation-08",
+      "derivedAnswer": "Б",
+      "reasoning": "1/4 is per independent offspring, not a four-birth quota. aa is possible; no ordering rule applies.",
+      "issues": [],
+      "suggestedDifficulty": "MEDIUM",
+      "source": [
+        "https://openstax.org/books/biology-2e/pages/12-1-mendels-experiments-and-the-laws-of-probability"
+      ],
+      "confidence": 0.99,
+      "status": "PASS"
+    },
+    {
+      "id": "s8-biology-foundation-09",
+      "derivedAnswer": {
+        "1": "А",
+        "2": "Б",
+        "3": "В",
+        "4": "Г"
+      },
+      "reasoning": "Own enumeration gives P(aa)=0,1/2,1/4,1 respectively. 3/4 unused; unique mapping.",
+      "issues": [],
+      "suggestedDifficulty": "MEDIUM",
+      "source": [
+        "https://openstax.org/books/concepts-biology/pages/8-2-laws-of-inheritance"
+      ],
+      "confidence": 0.99,
+      "status": "PASS"
+    },
+    {
+      "id": "s8-biology-foundation-10",
+      "derivedAnswer": "Г",
+      "reasoning": "Under full dominance selected possibilities AA,Aa,Aa yield own conditional calculation (1/2)/(3/4)=2/3. Other choices are unconditioned probabilities.",
+      "issues": [
+        "Standalone stem omits full dominance. Add it unless persistent shared model clearly supplies it."
+      ],
+      "suggestedDifficulty": "HARD",
+      "source": [
+        "https://openstax.org/books/biology-2e/pages/12-1-mendels-experiments-and-the-laws-of-probability"
+      ],
+      "confidence": 0.96,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-biology-foundation-11",
+      "derivedAnswer": "В",
+      "reasoning": "Own calculation: (1/4)^2=1/16 for two independent aa offspring. Alternatives are erroneous events or arithmetic.",
+      "issues": [
+        "HARD inflated for one multiplication with independence explicit."
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": [
+        "https://openstax.org/books/biology-2e/pages/12-1-mendels-experiments-and-the-laws-of-probability"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-biology-foundation-12",
+      "derivedAnswer": "Б",
+      "reasoning": "aa child received a from unknown parent. Dominant phenotype allows AA or Aa; contribution a excludes AA. No post-birth allele creation.",
+      "issues": [
+        "HARD inflated for direct testcross inference."
+      ],
+      "suggestedDifficulty": "MEDIUM",
+      "source": [
+        "https://openstax.org/books/concepts-biology/pages/8-2-laws-of-inheritance"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-history-foundation-01",
+      "derivedAnswer": "А",
+      "reasoning": "Uninscribed vessel is a material artefact, neither text nor speech. Statistics inferred from artefacts are not its source category.",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "https://siarchives.si.edu/sites/default/files/pdfs/SolomonGBrownLetterWritingActivity.pdf"
+      ],
+      "confidence": 0.99,
+      "status": "PASS"
+    },
+    {
+      "id": "s8-history-foundation-02",
+      "derivedAnswer": "Г",
+      "reasoning": "Letter text conveys information through writing; axe, form, foundation supply physical evidence. Stem specifies channel clearly.",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "https://siarchives.si.edu/sites/default/files/pdfs/SolomonGBrownLetterWritingActivity.pdf"
+      ],
+      "confidence": 0.99,
+      "status": "PASS"
+    },
+    {
+      "id": "s8-history-foundation-03",
+      "derivedAnswer": "В",
+      "reasoning": "1991 is in 1901–2000: century XX; all other offered centuries exclude it.",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "https://aa.usno.navy.mil/faq/millennium"
+      ],
+      "confidence": 0.99,
+      "status": "PASS"
+    },
+    {
+      "id": "s8-history-foundation-04",
+      "derivedAnswer": "Б",
+      "reasoning": "XXI spans 2001–2100. 2000 closes XX, 2100 is last, 1999 earlier.",
+      "issues": [],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "https://aa.usno.navy.mil/faq/millennium"
+      ],
+      "confidence": 0.99,
+      "status": "PASS"
+    },
+    {
+      "id": "s8-history-foundation-05",
+      "derivedAnswer": "А",
+      "reasoning": "BCE years progress 700,500,100,1 toward CE: largest number earliest.",
+      "issues": [
+        "Simple reverse ordering fits EASY."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "https://aa.usno.navy.mil/faq/millennium"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-history-foundation-06",
+      "derivedAnswer": "Г",
+      "reasoning": "XVII spans 1601–1700 inclusive; XVIII starts 1701. Other options exclude 1700.",
+      "issues": [
+        "One-step boundary classification; EASY or lower MEDIUM."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "https://aa.usno.navy.mil/faq/millennium"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-history-foundation-07",
+      "derivedAnswer": "В",
+      "reasoning": "Period, title, legend establish represented borders and symbols. Modern name alone is insufficient; cover colour/page count irrelevant.",
+      "issues": [
+        "MEDIUM inflated by plainly irrelevant distractors."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "https://www.loc.gov/static/programs/teachers/getting-started-with-primary-sources/documents/Analyzing_Maps.pdf"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-history-foundation-08",
+      "derivedAnswer": "Б",
+      "reasoning": "Agitation poster evidences attempted persuasion. Neither neutrality nor truth follows; propaganda is usable historical evidence.",
+      "issues": [
+        "MEDIUM inflated by absolute/false distractors; no actual poster analysed."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "https://www.nationalarchives.gov.uk/help-with-your-research/research-guides/propaganda/"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-history-foundation-09",
+      "derivedAnswer": [
+        "Б",
+        "В",
+        "А",
+        "Г"
+      ],
+      "reasoning": "300 BCE,100 BCE,50 CE,1901 CE. Conventional chronology has 1 BCE directly followed by 1 CE: no year zero.",
+      "issues": [],
+      "suggestedDifficulty": "MEDIUM",
+      "source": [
+        "https://aa.usno.navy.mil/faq/millennium"
+      ],
+      "confidence": 0.99,
+      "status": "PASS"
+    },
+    {
+      "id": "s8-history-foundation-10",
+      "derivedAnswer": "Г",
+      "reasoning": "Four reprints derive from one diary, not independent witnesses. Another-origin source can corroborate or challenge claims; more copies/changed dates cannot.",
+      "issues": [
+        "HARD strongly inflated; changed cover date absurd. Different origin still requires independence/reliability checks."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "https://memory.loc.gov/static/programs/teachers/getting-started-with-primary-sources/documents/Analyzing_Primary_Sources.pdf"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-history-foundation-11",
+      "derivedAnswer": "В",
+      "reasoning": "Non-eyewitness reconstruction can use evidence. Check underlying sources; lateness proves neither total unreliability nor automatic superiority, nor eyewitness status.",
+      "issues": [
+        "HARD strongly inflated by absolute/self-contradictory distractors."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "https://memory.loc.gov/static/programs/teachers/getting-started-with-primary-sources/documents/Analyzing_Primary_Sources.pdf"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-history-foundation-12",
+      "derivedAnswer": "Б",
+      "reasoning": "Precedence alone is not causation. Evidence for a mechanism whereby A contributed to B is missing. Unrelated prose, repeated chronology, alphabetic order cannot establish it.",
+      "issues": [
+        "HARD strongly inflated. Mechanism must be evidence-supported, not merely asserted."
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": [
+        "https://blogs.loc.gov/teachers/2022/05/using-claim-evidence-and-reasoning-cer-with-primary-source-analysis/"
+      ],
+      "confidence": 0.99,
+      "status": "PASS_WITH_NOTES"
+    }
+  ],
+  "summary": {
+    "count": 24,
+    "wrongOrMultipleCorrectOptionsFound": 0,
+    "phase2": "Pending; phase1 must remain sealed."
+  }
+}

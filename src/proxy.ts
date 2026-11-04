@@ -2,7 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const publicPaths = ["/login", "/onboarding", "/register", "/forgot-password", "/reset-password", "/verify-email", "/api/auth/google/callback"];
+  const publicPaths = ["/login", "/onboarding", "/register", "/forgot-password", "/reset-password", "/verify-email"];
   if (publicPaths.some((path) => pathname === path) || pathname.startsWith("/_next")) return NextResponse.next();
   if (!request.cookies.get("nmt_user")?.value) {
     if (pathname === "/api" || pathname.startsWith("/api/")) {

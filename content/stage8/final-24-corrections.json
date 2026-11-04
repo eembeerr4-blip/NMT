@@ -1,0 +1,1854 @@
+{
+  "version": 1,
+  "status": "FINAL_CANDIDATE_AWAITING_OWNER_APPROVAL",
+  "workingUpdateAuthorized": false,
+  "reviewedAt": "2026-10-30",
+  "reviewIndependence": "Second substantive pass by the same executor, re-derived from sources and current options; not a separate human or agent sign-off.",
+  "sources": {
+    "UKBOOK": "https://lib.imzo.gov.ua/wa-data/public/site/books2/5kl-nush/movno-litr-galuz/ukr-mova/%D0%90%D0%A1%D0%A2%D0%9E%D0%9D_%D0%A3%D0%BA%D1%80_%D0%BC%D0%BE%D0%B2%D0%B0_5%D0%BA%D0%BB_%D0%A1%D0%B5%D0%BC%D0%B5%D0%BD%D0%BE%D0%B3_%D1%82%D0%B0_%D1%96%D0%BD..pdf",
+    "LEXICON": "https://slovnyk.ua/index.php?swrd=",
+    "HISTORY": "https://resource.history.org.ua/cgi-bin/eiu/history.exe?C21COM=S&I21DBN=EIU&P21DBN=EIU&S21CNR=20&S21COLORTERMS=0&S21FMT=eiu_all&S21P01=0&S21P02=0&S21P03=TRN%3D&S21REF=10&S21STN=1&S21STR=Danylo_Galycky&Z21ID=",
+    "ANTS": "https://resource.history.org.ua/cgi-bin/eiu/history.exe?C21COM=S&I21DBN=DOP&P21DBN=EIU&S21CNR=20&S21COLORTERMS=0&S21FMT=eiu_all&S21P01=0&S21P02=0&S21P03=TRN%3D&S21REF=10&S21STN=1&S21STR=Anty&Z21ID=",
+    "CELLS": "https://openstax.org/books/biology-2e/pages/4-3-eukaryotic-cells",
+    "PROK": "https://openstax.org/books/biology-2e/pages/4-2-prokaryotic-cells",
+    "MITOSIS": "https://www.genome.gov/genetics-glossary/Mitosis",
+    "RNA": "https://www.genome.gov/genetics-glossary/Uracil",
+    "MEIOSIS": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-9-klas/12-biologiya-9-klas/abetka-sobol-biologia-9-kl.pdf"
+  },
+  "programSources": {
+    "ukrainian": "https://testportal.gov.ua/programe/",
+    "math": "https://testportal.gov.ua/programy-nmt/",
+    "history": "https://testportal.gov.ua/progist/",
+    "biology": "https://testportal.gov.ua/progbio/"
+  },
+  "schemaSha256": "0ae3cb305d0028ecf0e21e05d2d54fb3de03cb26a966d931c5ab0485976bd68f",
+  "topics": [
+    {
+      "id": "math-quadratic-sub-01",
+      "coverage": "READY",
+      "sha256": "ef47dbf1789acb4c4574b87f8d6a2d2dd05bb6b81d8f39539be95362a3218945"
+    },
+    {
+      "id": "ukr-lexicology-section-01",
+      "coverage": "READY",
+      "sha256": "5356a77848aca1ddc6a3f880273137bcf66f9aa18c8d2854251c14a2f8311532"
+    },
+    {
+      "id": "ukr-ortho-sub-01",
+      "coverage": "READY",
+      "sha256": "0fe809065aecb37521a947f89f8cfcefb51d33d74042198b644e0dbf14d1a4ee"
+    },
+    {
+      "id": "hist-galicia-sub-01",
+      "coverage": "READY",
+      "sha256": "083f041f9a80306083bb90f4a6992c157bb861db338d967b651444a133c64844"
+    },
+    {
+      "id": "bio-cell-sec-01",
+      "coverage": "READY",
+      "sha256": "3ecdb9d8bcf4f74326fcf3cd82d2bdda69f1a4fd1c254ee601dfa50c64b99cb6"
+    },
+    {
+      "id": "zcode-biology-molecular-02",
+      "coverage": "READY",
+      "sha256": "c878a24ed685c6bd8ce763357f308f91cb1cd807a08e234cf7874b4c005a3f49"
+    },
+    {
+      "id": "cm-history-slavs-sub-01",
+      "coverage": "READY",
+      "sha256": "5cc7818abf9267436be50a07ef31c26281f12362b527d8d7c296921dc8fc6171"
+    }
+  ],
+  "changes": [
+    {
+      "id": "s7a-math-quadratic-sub-01-e08",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "problem": "За Вієтом сума коренів дорівнює −b/a=7; наявний ключ −10 хибний.",
+      "review": "CONFIRMED_AFTER_SECOND_SUBJECT_PASS",
+      "program": "Квадратні рівняння; теорема Вієта",
+      "sourceRefs": [
+        "INDEPENDENT_CALCULATION"
+      ],
+      "before": {
+        "id": "s7a-math-quadratic-sub-01-e08",
+        "subjectId": "math",
+        "topicId": "math-quadratic-sub-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "MEDIUM",
+        "prompt": "Сума коренів x²−7x+10=0 (Віет):",
+        "explanation": "−b/a=7.",
+        "correctAnswer": "e7c04ad7-7143-4196-b71e-d8188dee5ad9",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684574,
+        "updatedAt": 1793297450263
+      },
+      "options": [
+        {
+          "id": "1e769c8d-4cd1-4be0-a6f2-ef5f1ba9ddf6",
+          "questionId": "s7a-math-quadratic-sub-01-e08",
+          "label": "А",
+          "text": "−7",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "230178ed-5be5-4c69-9c4f-946c68d70450",
+          "questionId": "s7a-math-quadratic-sub-01-e08",
+          "label": "Б",
+          "text": "10",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "635ff538-a306-4c63-bce4-de8b44e2f68f",
+          "questionId": "s7a-math-quadratic-sub-01-e08",
+          "label": "В",
+          "text": "7",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "e7c04ad7-7143-4196-b71e-d8188dee5ad9",
+          "questionId": "s7a-math-quadratic-sub-01-e08",
+          "label": "Г",
+          "text": "−10",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "442039c61e9af24f1386f84686f0f0c8f3409c1ec6d4c55f33de9638b4b1687a",
+      "expectedOptionsSha256": "2c7fda0f388732ab25c6a29661b227771fab12db54262a4814ccfccf5396c973",
+      "after": {
+        "prompt": "Сума коренів x²−7x+10=0 (Віет):",
+        "explanation": "Розкладемо x²−7x+10=(x−2)(x−5). Корені 2 і 5, їхня сума 7. Незалежна перевірка: D=49−40=9, x=(7±3)/2. Число −10 не є сумою коренів.",
+        "correctAnswer": "635ff538-a306-4c63-bce4-de8b44e2f68f"
+      },
+      "optionChanges": []
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-e03",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "problem": "Омоніми мають однакову форму й різне значення; це не синоніми.",
+      "review": "CONFIRMED_AFTER_SECOND_SUBJECT_PASS",
+      "program": "Лексикологія і фразеологія",
+      "sourceRefs": [
+        "UKBOOK"
+      ],
+      "before": {
+        "id": "s7a-ukr-lexicology-section-01-e03",
+        "subjectId": "ukrainian",
+        "topicId": "ukr-lexicology-section-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "EASY",
+        "prompt": "Омоніми — це:",
+        "explanation": "Омонімія: однакова форма — різний зміст (лист — на дереві / лист — для листування).",
+        "correctAnswer": "5731be34-25ed-4193-9c66-a503a62f28a7",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684520,
+        "updatedAt": 1793297277049
+      },
+      "options": [
+        {
+          "id": "b2b61de1-9210-4c81-be5d-0a9fc3d30b10",
+          "questionId": "s7a-ukr-lexicology-section-01-e03",
+          "label": "А",
+          "text": "слова різного походження з одним значенням",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "8fc7c73f-248a-4d2c-9cee-d0297e17b929",
+          "questionId": "s7a-ukr-lexicology-section-01-e03",
+          "label": "Б",
+          "text": "слова однакової форми з різним значенням",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "5731be34-25ed-4193-9c66-a503a62f28a7",
+          "questionId": "s7a-ukr-lexicology-section-01-e03",
+          "label": "В",
+          "text": "синоніми",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "8f7d8a03-ff9b-416d-837b-f6516c383e88",
+          "questionId": "s7a-ukr-lexicology-section-01-e03",
+          "label": "Г",
+          "text": "антоніми",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "33ee36249c406f161db2b591ec4f63ebfaad619b34c9f60b4e47abc0b20ce707",
+      "expectedOptionsSha256": "6ae980004e7b4071249fe2c7f2bec5d38dfc51255afd76dad97b6e8e0aeae05a",
+      "after": {
+        "prompt": "Яке визначення найточніше характеризує лексичні омоніми?",
+        "explanation": "Омоніми — різні слова, однакові за звучанням, з не пов’язаними між собою лексичними значеннями. Наприклад, лава як місце для сидіння і лава вулкана. Синоніми, навпаки, мають близькі значення.",
+        "correctAnswer": "8fc7c73f-248a-4d2c-9cee-d0297e17b929"
+      },
+      "optionChanges": []
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-e04",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "problem": "Фразеологізм — стійке сполучення з цілісним значенням, не діалектизм.",
+      "review": "CONFIRMED_AFTER_SECOND_SUBJECT_PASS",
+      "program": "Лексикологія і фразеологія",
+      "sourceRefs": [
+        "UKBOOK"
+      ],
+      "before": {
+        "id": "s7a-ukr-lexicology-section-01-e04",
+        "subjectId": "ukrainian",
+        "topicId": "ukr-lexicology-section-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "EASY",
+        "prompt": "Фразеологізм — це:",
+        "explanation": "Фразеологізм має ціле значення, яке не зводиться до сумі слів («бити байдики»).",
+        "correctAnswer": "f9a76b93-f27f-40f6-adfd-8a848b01e7b7",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684521,
+        "updatedAt": 1793297281127
+      },
+      "options": [
+        {
+          "id": "d6fb8653-9851-423b-90f5-1aba8462f24d",
+          "questionId": "s7a-ukr-lexicology-section-01-e04",
+          "label": "А",
+          "text": "будь-яке речення",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "96b3d563-c511-41cf-8f96-962b98cdda99",
+          "questionId": "s7a-ukr-lexicology-section-01-e04",
+          "label": "Б",
+          "text": "стійке словосполучення з цілисним значенням",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "cf41e95a-2076-4e35-8891-c91c7007c78b",
+          "questionId": "s7a-ukr-lexicology-section-01-e04",
+          "label": "В",
+          "text": "одне слово",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "f9a76b93-f27f-40f6-adfd-8a848b01e7b7",
+          "questionId": "s7a-ukr-lexicology-section-01-e04",
+          "label": "Г",
+          "text": "діалектизм",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "fcea3cbb1a54711f1b919cb74fb6b0c0240a56a05b22f3be4664bb17f5722d1f",
+      "expectedOptionsSha256": "608750d7d2cc71f759685bd7c66b64fa0b378bde9f520f766cbe94a5fffe454b",
+      "after": {
+        "prompt": "Фразеологізм — це:",
+        "explanation": "Фразеологізм — відтворюване стійке поєднання слів із цілісним значенням. Наприклад, бити байдики означає ледарювати. Діалектизм характеризує територіальне вживання слова, а не цей тип сполучення.",
+        "correctAnswer": "96b3d563-c511-41cf-8f96-962b98cdda99"
+      },
+      "optionChanges": [
+        {
+          "id": "96b3d563-c511-41cf-8f96-962b98cdda99",
+          "text": "стійке словосполучення з цілісним значенням"
+        }
+      ]
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-m02",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "problem": "Пароніми подібні за звучанням, але відрізняються значенням.",
+      "review": "CONFIRMED_AFTER_SECOND_SUBJECT_PASS",
+      "program": "Лексикологія і фразеологія",
+      "sourceRefs": [
+        "UKBOOK"
+      ],
+      "before": {
+        "id": "s7a-ukr-lexicology-section-01-m02",
+        "subjectId": "ukrainian",
+        "topicId": "ukr-lexicology-section-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "MEDIUM",
+        "prompt": "Пароніми — це:",
+        "explanation": "Паронімія: ефективний — ефектний, плодовитий — плодотворний.",
+        "correctAnswer": "60d70838-832a-4c5c-a1ad-0b7802061d72",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684522,
+        "updatedAt": 1793297301923
+      },
+      "options": [
+        {
+          "id": "964d2a63-f172-4da9-acc0-00ba84627f77",
+          "questionId": "s7a-ukr-lexicology-section-01-m02",
+          "label": "А",
+          "text": "слова схожі за звучанням/написанням, але різні за значенням",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "60d70838-832a-4c5c-a1ad-0b7802061d72",
+          "questionId": "s7a-ukr-lexicology-section-01-m02",
+          "label": "Б",
+          "text": "синоніми",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "47f1a9ca-e40c-45aa-acef-06df5ea423b2",
+          "questionId": "s7a-ukr-lexicology-section-01-m02",
+          "label": "В",
+          "text": "антоніми",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "4c779a4b-655e-44d5-b68f-59d2f52a2dcb",
+          "questionId": "s7a-ukr-lexicology-section-01-m02",
+          "label": "Г",
+          "text": "омоніми",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "0445474cf1d3ba21f6f89fccac543ffb2aa1a678666bfe2ab4b676006fe29913",
+      "expectedOptionsSha256": "3306e6b2c7b95e678d8c5ba944420e8df02415d638f6d5d84886ee5a925401d7",
+      "after": {
+        "prompt": "Пароніми — це:",
+        "explanation": "Пароніми подібні за звучанням і будовою, але відрізняються значенням: ефективний — результативний, ефектний — той, що справляє враження. Це не визначення синонімів або антонімів.",
+        "correctAnswer": "964d2a63-f172-4da9-acc0-00ba84627f77"
+      },
+      "optionChanges": []
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-m03",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "problem": "Пряме значення є буквальним; наявний ключ «тільки переносне» протилежний визначенню.",
+      "review": "CONFIRMED_AFTER_SECOND_SUBJECT_PASS",
+      "program": "Лексикологія і фразеологія",
+      "sourceRefs": [
+        "UKBOOK"
+      ],
+      "before": {
+        "id": "s7a-ukr-lexicology-section-01-m03",
+        "subjectId": "ukrainian",
+        "topicId": "ukr-lexicology-section-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "MEDIUM",
+        "prompt": "Пряме значення слова — це:",
+        "explanation": "Пряме значення називає предмет без метафори («рука» — частина тіла).",
+        "correctAnswer": "6be64877-554d-453a-b2ea-2ae39e127d58",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684523,
+        "updatedAt": 1793297306004
+      },
+      "options": [
+        {
+          "id": "137180a3-7621-45bd-8a2f-0597b2b1e164",
+          "questionId": "s7a-ukr-lexicology-section-01-m03",
+          "label": "А",
+          "text": "образне значення",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "4fe35b58-e0f2-4383-a308-49e02604a1e0",
+          "questionId": "s7a-ukr-lexicology-section-01-m03",
+          "label": "Б",
+          "text": "буквальне, предметне значення",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "6be64877-554d-453a-b2ea-2ae39e127d58",
+          "questionId": "s7a-ukr-lexicology-section-01-m03",
+          "label": "В",
+          "text": "тільки переносне",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "31d89b92-7e82-44de-85a3-e1d42848e58f",
+          "questionId": "s7a-ukr-lexicology-section-01-m03",
+          "label": "Г",
+          "text": "діалектне",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "86e6111d6a6049a6c35a8e337e87b07c1408aefb5f294e28b70e848683a74864",
+      "expectedOptionsSha256": "8a66092f15a2cc2dd29b14c7f30bcd2215c7da6cf0485b70b34078ed9f16334a",
+      "after": {
+        "prompt": "Пряме значення слова — це:",
+        "explanation": "Пряме значення безпосередньо називає предмет, ознаку чи дію: золота каблучка — каблучка із золота. У сполученні золоті руки значення переносне. Отже, пряме значення не може визначатися як тільки переносне.",
+        "correctAnswer": "4fe35b58-e0f2-4383-a308-49e02604a1e0"
+      },
+      "optionChanges": []
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-m04",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "problem": "Багатозначне слово має кілька пов’язаних значень. Приклад «кінь дощів» у поясненні треба прибрати.",
+      "review": "CONFIRMED_AFTER_SECOND_SUBJECT_PASS",
+      "program": "Лексикологія і фразеологія",
+      "sourceRefs": [
+        "UKBOOK"
+      ],
+      "before": {
+        "id": "s7a-ukr-lexicology-section-01-m04",
+        "subjectId": "ukrainian",
+        "topicId": "ukr-lexicology-section-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "MEDIUM",
+        "prompt": "Багатозначне слово:",
+        "explanation": "Багатозначність: одне слово — кілька значень у лексиконі («кінь» — тварина; «кінь» дощів).",
+        "correctAnswer": "c05fa933-34d5-4ab7-baed-f3b81fe4e740",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684523,
+        "updatedAt": 1793297310044
+      },
+      "options": [
+        {
+          "id": "8a888f38-a57e-4142-8527-bbcab9e7b6bd",
+          "questionId": "s7a-ukr-lexicology-section-01-m04",
+          "label": "А",
+          "text": "має лише одне значення",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "86b2ea28-8033-48f7-964d-f13cbf15493f",
+          "questionId": "s7a-ukr-lexicology-section-01-m04",
+          "label": "Б",
+          "text": "має кілька пов’язаних значень",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "78548279-dc46-4b6e-bcc0-f5d74ee30aff",
+          "questionId": "s7a-ukr-lexicology-section-01-m04",
+          "label": "В",
+          "text": "завжди омонім",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "c05fa933-34d5-4ab7-baed-f3b81fe4e740",
+          "questionId": "s7a-ukr-lexicology-section-01-m04",
+          "label": "Г",
+          "text": "не існує в українській",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "d4a4de385068fc0d2b6113426a77c10be63e42c9207138511f523bc9f9fc4f46",
+      "expectedOptionsSha256": "3c0b09bfd1ac3946c550190f342719276871731a0fc10c3efa3778db6c279e06",
+      "after": {
+        "prompt": "Багатозначне слово:",
+        "explanation": "Багатозначне слово має кілька пов’язаних значень: крило птаха і крило літака пов’язані подібністю форми або функції. На відміну від омонімів, це значення одного слова; вислів кінь дощів не є коректним прикладом.",
+        "correctAnswer": "86b2ea28-8033-48f7-964d-f13cbf15493f"
+      },
+      "optionChanges": []
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e08",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "problem": "У слові колосся після л пишемо о. Пояснення не повинно підміняти написання посиланням на інше слово.",
+      "review": "CONFIRMED_AFTER_SECOND_SUBJECT_PASS",
+      "program": "Орфографія; правопис голосних",
+      "sourceRefs": [
+        "UKBOOK",
+        "LEXICON:колосся"
+      ],
+      "before": {
+        "id": "s7a-ukr-ortho-sub-01-e08",
+        "subjectId": "ukrainian",
+        "topicId": "ukr-ortho-sub-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "MEDIUM",
+        "prompt": "У «колосся» у корені після «л» пишеться:",
+        "explanation": "Чергування «о — і».",
+        "correctAnswer": "86f4351b-9405-4b6c-b9b5-b0809018da27",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684533,
+        "updatedAt": 1793297346461
+      },
+      "options": [
+        {
+          "id": "c51413b0-07be-44c4-b3a1-1b7fd92818d5",
+          "questionId": "s7a-ukr-ortho-sub-01-e08",
+          "label": "А",
+          "text": "о",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "58cf2d12-0c7e-4734-92ea-e6103f4f2ba7",
+          "questionId": "s7a-ukr-ortho-sub-01-e08",
+          "label": "Б",
+          "text": "а",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "f9f6c844-6595-4b1b-8bc5-3e3833b1e151",
+          "questionId": "s7a-ukr-ortho-sub-01-e08",
+          "label": "В",
+          "text": "и",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "86f4351b-9405-4b6c-b9b5-b0809018da27",
+          "questionId": "s7a-ukr-ortho-sub-01-e08",
+          "label": "Г",
+          "text": "і",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "6283b2bbc511a5e1f0ebe36e96d7df0780ad906fca1751ab2cdf15b927ed523e",
+      "expectedOptionsSha256": "4a6fbbcd12d8ee15aba98f463a983a06424daac99b994eea191279d966cfdcf0",
+      "after": {
+        "prompt": "Яку букву слід написати замість пропуску в слові «кол_сся»?",
+        "explanation": "Нормативне написання — колосся. На місці пропуску в кол_сся пишемо о. Саме це написання фіксує словник; пояснення про обов’язкову заміну о на і тут непридатне.",
+        "correctAnswer": "c51413b0-07be-44c4-b3a1-1b7fd92818d5"
+      },
+      "optionChanges": []
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e11",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "problem": "У слові пишу голосна и; у писати → пишу відбувається чергування с/ш, а не зміна и на е.",
+      "review": "CONFIRMED_AFTER_SECOND_SUBJECT_PASS",
+      "program": "Орфографія; правопис голосних",
+      "sourceRefs": [
+        "UKBOOK",
+        "LEXICON:писати"
+      ],
+      "before": {
+        "id": "s7a-ukr-ortho-sub-01-e11",
+        "subjectId": "ukrainian",
+        "topicId": "ukr-ortho-sub-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "HARD",
+        "prompt": "У «пишу» від «писати» в корені пишеться:",
+        "explanation": "Дієслівне чергування.",
+        "correctAnswer": "be46b217-f6ac-42b8-8b8f-6bdc1c7431d3",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684535,
+        "updatedAt": 1793297358700
+      },
+      "options": [
+        {
+          "id": "4c1a8ff9-1fb9-4520-888b-c432c19eafd4",
+          "questionId": "s7a-ukr-ortho-sub-01-e11",
+          "label": "А",
+          "text": "и",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "d3288cac-0997-46ee-86af-35dcd8d9aa21",
+          "questionId": "s7a-ukr-ortho-sub-01-e11",
+          "label": "Б",
+          "text": "і",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "be46b217-f6ac-42b8-8b8f-6bdc1c7431d3",
+          "questionId": "s7a-ukr-ortho-sub-01-e11",
+          "label": "В",
+          "text": "е",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "8a1eedd6-e2d2-4660-aad5-bb1cbb24c010",
+          "questionId": "s7a-ukr-ortho-sub-01-e11",
+          "label": "Г",
+          "text": "я",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "f9e096ffa81793715126dd12172b1b579e82c987917a2e2bc38b88b4829383eb",
+      "expectedOptionsSha256": "962823301d62d2f5ca55011acb8406db66a9ee17d8f682a7222930c989f9f998",
+      "after": {
+        "prompt": "Яку букву слід написати замість пропуску у формі «п_шу» (від «писати»)?",
+        "explanation": "Нормативна форма першої особи однини — пишу. У корені зберігаємо и: писати — пишу. У цій парі відбувається чергування приголосних с/ш, а не заміна и на е.",
+        "correctAnswer": "4c1a8ff9-1fb9-4520-888b-c432c19eafd4"
+      },
+      "optionChanges": []
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e04",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "problem": "Данило Романович — син Романа Мстиславича, не угорський король.",
+      "review": "CONFIRMED_AFTER_SECOND_SUBJECT_PASS",
+      "program": "Галицько-Волинська держава",
+      "sourceRefs": [
+        "HISTORY"
+      ],
+      "before": {
+        "id": "s7a-hist-galicia-sub-01-e04",
+        "subjectId": "history",
+        "topicId": "hist-galicia-sub-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "EASY",
+        "prompt": "Данило Романович — це:",
+        "explanation": "Спадкоємець.",
+        "correctAnswer": "22e2faf5-8c35-4aa4-81ac-c4f789d012fe",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684593,
+        "updatedAt": 1793297531355
+      },
+      "options": [
+        {
+          "id": "beea16f3-73fe-49f1-81e0-b7e77eb0d59b",
+          "questionId": "s7a-hist-galicia-sub-01-e04",
+          "label": "А",
+          "text": "батько Романа",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "9fefaab6-3636-4339-92eb-84d03cdd0ba2",
+          "questionId": "s7a-hist-galicia-sub-01-e04",
+          "label": "Б",
+          "text": "син Романа Мстиславича",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "63553810-f0a8-47f8-9bb6-e66856113176",
+          "questionId": "s7a-hist-galicia-sub-01-e04",
+          "label": "В",
+          "text": "візантійський імператор",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "22e2faf5-8c35-4aa4-81ac-c4f789d012fe",
+          "questionId": "s7a-hist-galicia-sub-01-e04",
+          "label": "Г",
+          "text": "угорський король",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "acb6fb30df316a761439f3870dfd4cf0ec3d9f800370c9ff39007244603730af",
+      "expectedOptionsSha256": "814352073e71eb9464ae13e9f92a11117fbfdf26655314343256bdb53201b949",
+      "after": {
+        "prompt": "Данило Романович — це:",
+        "explanation": "Данило Романович — син князя Романа Мстиславича. Після загибелі батька 1205 року він із братом Васильком виборював батьківську спадщину. Королем Угорщини Данило не був.",
+        "correctAnswer": "9fefaab6-3636-4339-92eb-84d03cdd0ba2"
+      },
+      "optionChanges": []
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e06",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "problem": "Коронація Данила традиційно датується 1253, а не 1199 роком.",
+      "review": "CONFIRMED_AFTER_SECOND_SUBJECT_PASS",
+      "program": "Галицько-Волинська держава",
+      "sourceRefs": [
+        "HISTORY"
+      ],
+      "before": {
+        "id": "s7a-hist-galicia-sub-01-e06",
+        "subjectId": "history",
+        "topicId": "hist-galicia-sub-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "MEDIUM",
+        "prompt": "Коронація Данила Галицького як короля —:",
+        "explanation": "1253 — королівська корона.",
+        "correctAnswer": "5b956287-b401-4c6f-b38a-715248aaa9f6",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684594,
+        "updatedAt": 1793297539504
+      },
+      "options": [
+        {
+          "id": "0b9adabd-8a7e-4313-92f1-8815ed2d68be",
+          "questionId": "s7a-hist-galicia-sub-01-e06",
+          "label": "А",
+          "text": "1253 р.",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "5b956287-b401-4c6f-b38a-715248aaa9f6",
+          "questionId": "s7a-hist-galicia-sub-01-e06",
+          "label": "Б",
+          "text": "1199 р.",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "fd3e73ff-db51-4384-99eb-9a5fd9d24d18",
+          "questionId": "s7a-hist-galicia-sub-01-e06",
+          "label": "В",
+          "text": "1238 р.",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "9f7d1edf-ff4e-4c41-8ccd-2667066e0223",
+          "questionId": "s7a-hist-galicia-sub-01-e06",
+          "label": "Г",
+          "text": "1362 р.",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "469b0ba741a047f6387edd15b62ad7c2e1df0a7cae9003ddd90ce49850d9fbc9",
+      "expectedOptionsSha256": "2c1755bd741d90b4b78d69ae3d44578beb5e4006ea62415ba709444472b33324",
+      "after": {
+        "prompt": "Коронація Данила Галицького як короля —:",
+        "explanation": "У 1253 році Данило прийняв королівську корону в Дорогичині. 1199 рік пов’язаний з об’єднанням Галицького та Волинського князівств Романом Мстиславичем, а не з коронацією Данила.",
+        "correctAnswer": "0b9adabd-8a7e-4313-92f1-8815ed2d68be"
+      },
+      "optionChanges": []
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e07",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "problem": "Галич і Волинь були окремими політичними центрами, не частинами Риму.",
+      "review": "CONFIRMED_AFTER_SECOND_SUBJECT_PASS",
+      "program": "Галицько-Волинська держава",
+      "sourceRefs": [
+        "HISTORY"
+      ],
+      "before": {
+        "id": "s7a-hist-galicia-sub-01-e07",
+        "subjectId": "history",
+        "topicId": "hist-galicia-sub-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "MEDIUM",
+        "prompt": "До об’єднання Галич і Волинь були:",
+        "explanation": "Суперництво князівств у XII столітті.",
+        "correctAnswer": "56b5c1f0-bcb0-4e55-9fd2-666e680f4364",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684595,
+        "updatedAt": 1793297543508
+      },
+      "options": [
+        {
+          "id": "782deef0-aefe-431d-9412-eafa16c44979",
+          "questionId": "s7a-hist-galicia-sub-01-e07",
+          "label": "А",
+          "text": "завжди одним князівством",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "fd964287-2745-461c-9306-60923af8cb62",
+          "questionId": "s7a-hist-galicia-sub-01-e07",
+          "label": "Б",
+          "text": "окремими політичними центрами",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "56b5c1f0-bcb0-4e55-9fd2-666e680f4364",
+          "questionId": "s7a-hist-galicia-sub-01-e07",
+          "label": "В",
+          "text": "частиною Риму",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "cc81d9cd-ad33-44d7-9248-829275e49281",
+          "questionId": "s7a-hist-galicia-sub-01-e07",
+          "label": "Г",
+          "text": "монгольськими улусами",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "b8aeb6320e873a314adf029edf89d7eaea6a6ec1e4c76a82ec7a20e7cae6fd24",
+      "expectedOptionsSha256": "afe5aefb48c93bca925daf8a8001e1600597f933a03f61e65b8af44fc29a0def",
+      "after": {
+        "prompt": "До об’єднання Галич і Волинь були:",
+        "explanation": "До об’єднання 1199 року Галицьке і Волинське князівства мали окремі політичні центри. Роман Мстиславич об’єднав їх; вони не були частиною Риму або монгольськими улусами.",
+        "correctAnswer": "fd964287-2745-461c-9306-60923af8cb62"
+      },
+      "optionChanges": []
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e11",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "problem": "Після загибелі Романа 1205 року тривала боротьба за спадщину, а не входження до Візантії.",
+      "review": "CONFIRMED_AFTER_SECOND_SUBJECT_PASS",
+      "program": "Галицько-Волинська держава",
+      "sourceRefs": [
+        "HISTORY"
+      ],
+      "before": {
+        "id": "s7a-hist-galicia-sub-01-e11",
+        "subjectId": "history",
+        "topicId": "hist-galicia-sub-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "HARD",
+        "prompt": "Після 1205 на Галицько-Волинь:",
+        "explanation": "Нестабільність після смерті Романа.",
+        "correctAnswer": "269dde78-5d22-4a85-b0ed-6a4f1cc7b715",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684597,
+        "updatedAt": 1793297559881
+      },
+      "options": [
+        {
+          "id": "40754796-a756-4df7-af69-8a4ad621084c",
+          "questionId": "s7a-hist-galicia-sub-01-e11",
+          "label": "А",
+          "text": "одразу наступив мир без боротьби",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "ef6da22f-0946-47a2-bf0a-091a11e375e0",
+          "questionId": "s7a-hist-galicia-sub-01-e11",
+          "label": "Б",
+          "text": "тривала боротьба за спадщину",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "269dde78-5d22-4a85-b0ed-6a4f1cc7b715",
+          "questionId": "s7a-hist-galicia-sub-01-e11",
+          "label": "В",
+          "text": "землі увійшли до Візантії",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "3cb460a0-0099-4952-8d40-6a771c06f151",
+          "questionId": "s7a-hist-galicia-sub-01-e11",
+          "label": "Г",
+          "text": "Волинь зникла з політичної карти",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "408b6c6272c5ad9ec7e097ce1b8b3a474835d87d067e90952998ac14c032dd26",
+      "expectedOptionsSha256": "11da52635b249b4b9ace9618bf6bf06731348b05ff21d93bab71294410f19cdd",
+      "after": {
+        "prompt": "Що відбувалося в Галицько-Волинській державі після загибелі Романа Мстиславича 1205 року?",
+        "explanation": "Після загибелі Романа Мстиславича 1205 року розгорнулася боротьба за його спадщину за участю бояр, князів і сусідніх держав. Це не означало приєднання земель до Візантії.",
+        "correctAnswer": "ef6da22f-0946-47a2-bf0a-091a11e375e0"
+      },
+      "optionChanges": []
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e12",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "problem": "1253 рік пов’язаний із королівським титулом Данила, а не хрещенням Русі.",
+      "review": "CONFIRMED_AFTER_SECOND_SUBJECT_PASS",
+      "program": "Галицько-Волинська держава",
+      "sourceRefs": [
+        "HISTORY"
+      ],
+      "before": {
+        "id": "s7a-hist-galicia-sub-01-e12",
+        "subjectId": "history",
+        "topicId": "hist-galicia-sub-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "HARD",
+        "prompt": "1253 р. для Данила означає:",
+        "explanation": "Коронація короля.",
+        "correctAnswer": "eb32d3a5-852b-48b6-98bc-9714d1487d04",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684598,
+        "updatedAt": 1793297563956
+      },
+      "options": [
+        {
+          "id": "d4c268ba-2a72-4353-9689-c729147dbf2b",
+          "questionId": "s7a-hist-galicia-sub-01-e12",
+          "label": "А",
+          "text": "об’єднання з Волинню",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "3752e989-b3ea-490a-acad-051b69b8815a",
+          "questionId": "s7a-hist-galicia-sub-01-e12",
+          "label": "Б",
+          "text": "отримання королівського титулу",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "73947e8a-ddee-4c0b-bd82-3c40e4b59cf4",
+          "questionId": "s7a-hist-galicia-sub-01-e12",
+          "label": "В",
+          "text": "загибель Романа",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "eb32d3a5-852b-48b6-98bc-9714d1487d04",
+          "questionId": "s7a-hist-galicia-sub-01-e12",
+          "label": "Г",
+          "text": "хрещення Русі",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "1201c91d2366597bb0c27487f2230f43bd468b9d8223e4eec672a8c29d67642d",
+      "expectedOptionsSha256": "b4c1e700158352101f2be8b7fc6ed5dac279a9788fe333a362a457c74f97e5f0",
+      "after": {
+        "prompt": "1253 р. для Данила означає:",
+        "explanation": "У 1253 році Данило отримав королівський титул. Це подія його міжнародної політики; хрещення Русі пов’язане з 988 роком і князем Володимиром, а не з коронацією Данила.",
+        "correctAnswer": "3752e989-b3ea-490a-acad-051b69b8815a"
+      },
+      "optionChanges": []
+    },
+    {
+      "id": "s7a-bio-cell-sec-01-h02",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "problem": "Велика центральна вакуоля характерна для рослинної клітини, не бактерій.",
+      "review": "CONFIRMED_AFTER_SECOND_SUBJECT_PASS",
+      "program": "Клітина та її органели",
+      "sourceRefs": [
+        "CELLS"
+      ],
+      "before": {
+        "id": "s7a-bio-cell-sec-01-h02",
+        "subjectId": "biology",
+        "topicId": "bio-cell-sec-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "HARD",
+        "prompt": "Велика центральна вакуоля з turgor-тиском характерна для:",
+        "explanation": "Вакуоля зберігає воду, підтримує форму рослинної клітини.",
+        "correctAnswer": "5225ff98-1cc7-494e-87d2-fe77cfa1974b",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684548,
+        "updatedAt": 1793297588015
+      },
+      "options": [
+        {
+          "id": "3cd6fc5d-f9cc-4f93-a5a6-fc443567a9c0",
+          "questionId": "s7a-bio-cell-sec-01-h02",
+          "label": "А",
+          "text": "тварин",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "27be72c9-7fab-4bbc-a855-f1f07e5b3a64",
+          "questionId": "s7a-bio-cell-sec-01-h02",
+          "label": "Б",
+          "text": "рослин",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "5225ff98-1cc7-494e-87d2-fe77cfa1974b",
+          "questionId": "s7a-bio-cell-sec-01-h02",
+          "label": "В",
+          "text": "бактерій",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "74cb2600-4d4f-41e7-9897-2cab094cd95c",
+          "questionId": "s7a-bio-cell-sec-01-h02",
+          "label": "Г",
+          "text": "вірусів",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "296047d716bbe47e918b6c8460653f91edfbea9db34e64a518baa09729783672",
+      "expectedOptionsSha256": "ecaec2731811f4f3c79870cf745869a099d5ffef2642d98fca551ee83d56e7df",
+      "after": {
+        "prompt": "Для клітин якої групи організмів типова велика центральна вакуоля, що підтримує тургор?",
+        "explanation": "Велика центральна вакуоля типова для зрілої рослинної клітини. Накопичення води допомагає підтримувати тургор і розпирання клітинної стінки. Бактерії та віруси не мають такої вакуолі.",
+        "correctAnswer": "27be72c9-7fab-4bbc-a855-f1f07e5b3a64"
+      },
+      "optionChanges": []
+    },
+    {
+      "id": "s7a-bio-cell-sec-01-m03",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "problem": "Лізосоми забезпечують внутрішньоклітинне травлення у багатьох тваринних клітинах; у вірусів таких органел немає.",
+      "review": "CONFIRMED_AFTER_SECOND_SUBJECT_PASS",
+      "program": "Клітина та її органели",
+      "sourceRefs": [
+        "CELLS"
+      ],
+      "before": {
+        "id": "s7a-bio-cell-sec-01-m03",
+        "subjectId": "biology",
+        "topicId": "bio-cell-sec-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "MEDIUM",
+        "prompt": "Лізosomes найхарактерніші для:",
+        "explanation": "Лізosomes — внутрішньоклітинне травлення у багатьох тваринних клітинах.",
+        "correctAnswer": "bbc9324e-80c2-4996-9eaa-2f415f9e9a72",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684545,
+        "updatedAt": 1793297604668
+      },
+      "options": [
+        {
+          "id": "bd630aaf-21e4-487a-8cb9-bd957e9586ec",
+          "questionId": "s7a-bio-cell-sec-01-m03",
+          "label": "А",
+          "text": "рослин",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "c5269d19-4440-49a0-b291-ab006133ccc7",
+          "questionId": "s7a-bio-cell-sec-01-m03",
+          "label": "Б",
+          "text": "тваринних клітин",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "bbc9324e-80c2-4996-9eaa-2f415f9e9a72",
+          "questionId": "s7a-bio-cell-sec-01-m03",
+          "label": "В",
+          "text": "вірусів",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "762f68b8-acf1-4e75-8656-1d9355ac8665",
+          "questionId": "s7a-bio-cell-sec-01-m03",
+          "label": "Г",
+          "text": "мінералів",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "d7c2e26b6ae625841562978b31fb7cb61dc82d7e936df191b98e49444fc076bf",
+      "expectedOptionsSha256": "44d527c802cf0d2f71e5b44e5ab663b358657feceef44b54a9ea72673330cd6a",
+      "after": {
+        "prompt": "Для яких клітин характерні лізосоми як органели внутрішньоклітинного розщеплення?",
+        "explanation": "Лізосоми — мембранні органели з ферментами внутрішньоклітинного розщеплення, характерні для багатьох тваринних клітин. У рослин подібні функції виконує літична вакуоля. Віруси не мають клітинних органел.",
+        "correctAnswer": "c5269d19-4440-49a0-b291-ab006133ccc7"
+      },
+      "optionChanges": []
+    },
+    {
+      "id": "s7a-bio-cell-sec-01-m04",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "problem": "Основна хромосомна ДНК прокаріотів міститься в нуклеоїді; хлоропластів у них немає. Плазмідна ДНК потребує уточнення умови.",
+      "review": "CONFIRMED_AFTER_SECOND_SUBJECT_PASS",
+      "program": "Клітина та її органели",
+      "sourceRefs": [
+        "PROK"
+      ],
+      "before": {
+        "id": "s7a-bio-cell-sec-01-m04",
+        "subjectId": "biology",
+        "topicId": "bio-cell-sec-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "MEDIUM",
+        "prompt": "ДНК прокаріота розташована:",
+        "explanation": "У прокаріотів немає ядра — ДНК у нуклеоїді.",
+        "correctAnswer": "a7853663-2798-4242-b80a-adfff3d5e4c3",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684546,
+        "updatedAt": 1793297608864
+      },
+      "options": [
+        {
+          "id": "975aa0fe-cb56-4a02-b98c-3bb8fd9ee2ab",
+          "questionId": "s7a-bio-cell-sec-01-m04",
+          "label": "А",
+          "text": "у ядрі",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "8753975b-c33c-4c94-a854-b10728644721",
+          "questionId": "s7a-bio-cell-sec-01-m04",
+          "label": "Б",
+          "text": "у нуклеоїді",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "fbda3d11-5bed-42d5-b181-19d27e4838ba",
+          "questionId": "s7a-bio-cell-sec-01-m04",
+          "label": "В",
+          "text": "лише поза клітиною",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "a7853663-2798-4242-b80a-adfff3d5e4c3",
+          "questionId": "s7a-bio-cell-sec-01-m04",
+          "label": "Г",
+          "text": "в хлоропластах",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "8e6b743db3029b88faab56e26f5c7c9d60dda879b87e7ec55f2476569ff4745c",
+      "expectedOptionsSha256": "be21fddfc141302e423c77400b344a8b3581e595b90873b93bbb16b97d812b2b",
+      "after": {
+        "prompt": "Де локалізована основна хромосомна ДНК прокаріотичної клітини?",
+        "explanation": "Основна хромосомна ДНК прокаріота локалізована в нуклеоїді — ділянці цитоплазми без ядерної оболонки. Окремо можуть існувати плазміди; тому умову уточнено саме щодо хромосомної ДНК.",
+        "correctAnswer": "8753975b-c33c-4c94-a854-b10728644721"
+      },
+      "optionChanges": []
+    },
+    {
+      "id": "s7a-zcode-biology-molecular-02-e03",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "problem": "У РНК замість тиміну зазвичай міститься урацил, а не цитозин.",
+      "review": "CONFIRMED_AFTER_SECOND_SUBJECT_PASS",
+      "program": "Молекулярні основи життя; поділ клітин",
+      "sourceRefs": [
+        "RNA"
+      ],
+      "before": {
+        "id": "s7a-zcode-biology-molecular-02-e03",
+        "subjectId": "biology",
+        "topicId": "zcode-biology-molecular-02",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "EASY",
+        "prompt": "У РНК замість тиміну входить:",
+        "explanation": "У — аналог T у РНК.",
+        "correctAnswer": "65b2b612-c082-44f9-8561-f2c90a35426f",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684551,
+        "updatedAt": 1793297625567
+      },
+      "options": [
+        {
+          "id": "e3e89a6a-5f55-41e6-9a87-6c2546bffd5b",
+          "questionId": "s7a-zcode-biology-molecular-02-e03",
+          "label": "А",
+          "text": "гуанін",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "be7ae2b0-84da-4da6-9f14-115dd60af52f",
+          "questionId": "s7a-zcode-biology-molecular-02-e03",
+          "label": "Б",
+          "text": "урацил (U)",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "65b2b612-c082-44f9-8561-f2c90a35426f",
+          "questionId": "s7a-zcode-biology-molecular-02-e03",
+          "label": "В",
+          "text": "цитозин",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "d403b181-2177-4d55-a24b-ea18ae844552",
+          "questionId": "s7a-zcode-biology-molecular-02-e03",
+          "label": "Г",
+          "text": "аденін",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "ad38b35f1c8fd15dc0aca2e77792dab1bb34939b7a137786aa895f979cd64fa5",
+      "expectedOptionsSha256": "bc176b834e92793e685f0d92d5f8617992e9a2b38eab77524a63bea798fa276a",
+      "after": {
+        "prompt": "У РНК замість тиміну входить:",
+        "explanation": "До чотирьох основ звичайної РНК належать аденін, гуанін, цитозин і урацил. У відповідному наборі основ ДНК замість урацилу міститься тимін. Отже, цитозин не є потрібною заміною.",
+        "correctAnswer": "be7ae2b0-84da-4da6-9f14-115dd60af52f"
+      },
+      "optionChanges": []
+    },
+    {
+      "id": "s7a-zcode-biology-molecular-02-m03",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "problem": "Для диплоїдної материнської клітини мітоз зберігає плоїдність: дві 2n-клітини; не лише статеві клітини. Умову треба явно обмежити диплоїдною клітиною.",
+      "review": "CONFIRMED_AFTER_SECOND_SUBJECT_PASS",
+      "program": "Молекулярні основи життя; поділ клітин",
+      "sourceRefs": [
+        "MITOSIS"
+      ],
+      "before": {
+        "id": "s7a-zcode-biology-molecular-02-m03",
+        "subjectId": "biology",
+        "topicId": "zcode-biology-molecular-02",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "MEDIUM",
+        "prompt": "Мітоз дає:",
+        "explanation": "Вегетативне ділення зі збереженням 2n.",
+        "correctAnswer": "ec84deb2-002a-4d3d-9843-8e19757ed0de",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684553,
+        "updatedAt": 1793297655311
+      },
+      "options": [
+        {
+          "id": "39ba2077-c7ad-4afd-9063-d62413d89c41",
+          "questionId": "s7a-zcode-biology-molecular-02-m03",
+          "label": "А",
+          "text": "чотири n-клітини",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "c39cb1be-d59e-406d-9823-0c0b8cd67e1a",
+          "questionId": "s7a-zcode-biology-molecular-02-m03",
+          "label": "Б",
+          "text": "дві однакові 2n-клітини",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "ec84deb2-002a-4d3d-9843-8e19757ed0de",
+          "questionId": "s7a-zcode-biology-molecular-02-m03",
+          "label": "В",
+          "text": "лише статеві клітини",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "fb719942-bba5-45e3-99f6-7bb614518f37",
+          "questionId": "s7a-zcode-biology-molecular-02-m03",
+          "label": "Г",
+          "text": "завжди мутації",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "a30183e00528d00fe3f133d88c30c7ad6888c775fa20926dba19cde03965ec73",
+      "expectedOptionsSha256": "d4314bd86e31e8096cfc048f9f91f777e000c0716bd43f88b3ca532e23a070a8",
+      "after": {
+        "prompt": "У нормальній моделі без мутацій після мітозу й цитокінезу диплоїдної клітини утворюються:",
+        "explanation": "У нормальній навчальній моделі після мітозу й цитокінезу диплоїдної клітини утворюються дві дочірні 2n-клітини з однаковою генетичною інформацією. Плоїдність зберігається; мітоз сам по собі не гарантує відсутності випадкових мутацій.",
+        "correctAnswer": "c39cb1be-d59e-406d-9823-0c0b8cd67e1a"
+      },
+      "optionChanges": []
+    },
+    {
+      "id": "s7a-zcode-biology-molecular-02-m04",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "problem": "Серед наведених процесів мейоз пов’язаний з утворенням гамет у тварин, не фотосинтезом. Умову варто обмежити тваринами: у рослин мейоз утворює спори.",
+      "review": "CONFIRMED_AFTER_SECOND_SUBJECT_PASS",
+      "program": "Молекулярні основи життя; поділ клітин",
+      "sourceRefs": [
+        "MEIOSIS"
+      ],
+      "before": {
+        "id": "s7a-zcode-biology-molecular-02-m04",
+        "subjectId": "biology",
+        "topicId": "zcode-biology-molecular-02",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "MEDIUM",
+        "prompt": "Мейоз характерний для:",
+        "explanation": "Редукційний поділ для статевих клітин.",
+        "correctAnswer": "c880f20f-d32f-44a8-8852-b7280f7936e7",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684554,
+        "updatedAt": 1793297659426
+      },
+      "options": [
+        {
+          "id": "123716dc-058c-4b4d-877d-0c98146e6bba",
+          "questionId": "s7a-zcode-biology-molecular-02-m04",
+          "label": "А",
+          "text": "росту кореня",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "3621462a-2924-4155-9481-53f308e44e5f",
+          "questionId": "s7a-zcode-biology-molecular-02-m04",
+          "label": "Б",
+          "text": "утворення статевих клітин",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "4ce69802-fb70-4790-b238-e0c64f9ba1d9",
+          "questionId": "s7a-zcode-biology-molecular-02-m04",
+          "label": "В",
+          "text": "загоєння рани",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "c880f20f-d32f-44a8-8852-b7280f7936e7",
+          "questionId": "s7a-zcode-biology-molecular-02-m04",
+          "label": "Г",
+          "text": "фотосинтезу",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "62436305dca5351b7ae22ddd042ff68216622d23bcba5552fa15afcc6a13c2ff",
+      "expectedOptionsSha256": "33d51f400349d2dd8d48266e6cd11acb8bc4fb65a3ec3d1506ec3473069f0ba8",
+      "after": {
+        "prompt": "З яким із наведених процесів у тварин безпосередньо пов’язаний мейоз?",
+        "explanation": "У тварин мейоз є етапом гаметогенезу і зменшує набір хромосом удвічі. Ріст кореня та загоєння рани пов’язані з мітозом, фотосинтез не є поділом. У вищих рослин мейоз утворює спори, тому групу організмів зазначено явно.",
+        "correctAnswer": "3621462a-2924-4155-9481-53f308e44e5f"
+      },
+      "optionChanges": []
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e04",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "problem": "Неправильний ключ поєднаний із нечітким або неточним очікуваним географічним/хронологічним формулюванням.",
+      "review": "REWRITE_REVISED_AND_CONFIRMED",
+      "program": "Давні слов’яни: анти, джерела, розселення",
+      "sourceRefs": [
+        "ANTS"
+      ],
+      "before": {
+        "id": "s7a-cm-history-slavs-sub-01-e04",
+        "subjectId": "history",
+        "topicId": "cm-history-slavs-sub-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "EASY",
+        "prompt": "Анти згадуються як народ у регіоні:",
+        "explanation": "Східна Європа.",
+        "correctAnswer": "904a682a-babb-413c-98be-e6d9f6a83589",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684585,
+        "updatedAt": 1793297482859
+      },
+      "options": [
+        {
+          "id": "2ce12dbb-d0fb-4f2e-a166-a880c5f610b0",
+          "questionId": "s7a-cm-history-slavs-sub-01-e04",
+          "label": "А",
+          "text": "Піреней",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "623818ad-ca7f-4e9e-b0d1-b1be49e534d5",
+          "questionId": "s7a-cm-history-slavs-sub-01-e04",
+          "label": "Б",
+          "text": "Дніпровський схід",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "5f355d91-a7f3-486a-aa35-95d35166db1d",
+          "questionId": "s7a-cm-history-slavs-sub-01-e04",
+          "label": "В",
+          "text": "Альп",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "904a682a-babb-413c-98be-e6d9f6a83589",
+          "questionId": "s7a-cm-history-slavs-sub-01-e04",
+          "label": "Г",
+          "text": "Апеннін",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "ca2188397f0ee56048b1b1ebcfbc4b1878c12c320f779397cfbc30f6684a56ed",
+      "expectedOptionsSha256": "1168566408089ab46fec3fe33d6a3be81b7d4b083afdbb7c29ec4eff4049c43d",
+      "after": {
+        "prompt": "Які річки окреслюють землі антів за викладом Йордана, наведеним в Енциклопедії історії України?",
+        "explanation": "За повідомленням Йордана анти мешкали між Дністром і Дніпром. Це відомості ранньосередньовічного джерела про регіон розселення; вони не описують сучасні державні кордони.",
+        "correctAnswer": "623818ad-ca7f-4e9e-b0d1-b1be49e534d5"
+      },
+      "optionChanges": [
+        {
+          "id": "2ce12dbb-d0fb-4f2e-a166-a880c5f610b0",
+          "text": "Ніл і Тигр"
+        },
+        {
+          "id": "623818ad-ca7f-4e9e-b0d1-b1be49e534d5",
+          "text": "Дністер і Дніпро"
+        },
+        {
+          "id": "5f355d91-a7f3-486a-aa35-95d35166db1d",
+          "text": "Рейн і Темза"
+        },
+        {
+          "id": "904a682a-babb-413c-98be-e6d9f6a83589",
+          "text": "Сена і По"
+        }
+      ]
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e07",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "problem": "Неправильний ключ поєднаний із нечітким або неточним очікуваним географічним/хронологічним формулюванням.",
+      "review": "REWRITE_REVISED_AND_CONFIRMED",
+      "program": "Давні слов’яни: анти, джерела, розселення",
+      "sourceRefs": [
+        "ANTS"
+      ],
+      "before": {
+        "id": "s7a-cm-history-slavs-sub-01-e07",
+        "subjectId": "history",
+        "topicId": "cm-history-slavs-sub-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "MEDIUM",
+        "prompt": "Анти та Київська Русь:",
+        "explanation": "Різні епохи.",
+        "correctAnswer": "eddaf25a-20ed-4a80-aabc-8eb1a8ede9c5",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684586,
+        "updatedAt": 1793297495002
+      },
+      "options": [
+        {
+          "id": "d59c6065-6b46-4031-b85a-1c6e07ff6a8b",
+          "questionId": "s7a-cm-history-slavs-sub-01-e07",
+          "label": "А",
+          "text": "однакові держави",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "fff6f67d-384c-4ec8-82ce-dfe39c3678fc",
+          "questionId": "s7a-cm-history-slavs-sub-01-e07",
+          "label": "Б",
+          "text": "античні племена vs X-ст. держава",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "eddaf25a-20ed-4a80-aabc-8eb1a8ede9c5",
+          "questionId": "s7a-cm-history-slavs-sub-01-e07",
+          "label": "В",
+          "text": "античні греки",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "080a439b-217d-41d3-b049-273b84fdec21",
+          "questionId": "s7a-cm-history-slavs-sub-01-e07",
+          "label": "Г",
+          "text": "середньовічна Західна Європа",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "62e7028566bd844602f8cf281cdaeb57290097d9c16c796b71f5a5d430dc3c8c",
+      "expectedOptionsSha256": "2d61e75c5a0f8252334ceb2d56eccc92b97461d752e8a062c85fdd1b50993e72",
+      "after": {
+        "prompt": "Ким були анти в історії ранньосередньовічних слов’ян?",
+        "explanation": "Анти — слов’янське міжплемінне об’єднання. Їх не слід ототожнювати з грецькою колонією, монгольським улусом або королівською династією.",
+        "correctAnswer": "fff6f67d-384c-4ec8-82ce-dfe39c3678fc"
+      },
+      "optionChanges": [
+        {
+          "id": "d59c6065-6b46-4031-b85a-1c6e07ff6a8b",
+          "text": "Це грецька колонія на Апеннінах"
+        },
+        {
+          "id": "fff6f67d-384c-4ec8-82ce-dfe39c3678fc",
+          "text": "Це слов’янське міжплемінне об’єднання"
+        },
+        {
+          "id": "eddaf25a-20ed-4a80-aabc-8eb1a8ede9c5",
+          "text": "Це назва монгольського улусу XIII століття"
+        },
+        {
+          "id": "080a439b-217d-41d3-b049-273b84fdec21",
+          "text": "Це династія угорських королів"
+        }
+      ]
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e08",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "problem": "Питання про етимологію містить недоведене або обернене запозичення; потрібна нова однозначна умова.",
+      "review": "REWRITE_REVISED_AND_CONFIRMED",
+      "program": "Давні слов’яни: анти, джерела, розселення",
+      "sourceRefs": [
+        "ANTS"
+      ],
+      "before": {
+        "id": "s7a-cm-history-slavs-sub-01-e08",
+        "subjectId": "history",
+        "topicId": "cm-history-slavs-sub-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "MEDIUM",
+        "prompt": "Етнонім «слов’яни» пов’язують із:",
+        "explanation": "Візантійська передача.",
+        "correctAnswer": "2f64fdb4-bdc6-483c-b87a-d623b92f6a8b",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684587,
+        "updatedAt": 1793297499049
+      },
+      "options": [
+        {
+          "id": "36cf4858-76a8-4e7d-81c2-2a8b30b1ca47",
+          "questionId": "s7a-cm-history-slavs-sub-01-e08",
+          "label": "А",
+          "text": "латинським «sclavus» через «склавени»",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "0858d655-90fe-4753-9270-d85f97cf4f4d",
+          "questionId": "s7a-cm-history-slavs-sub-01-e08",
+          "label": "Б",
+          "text": "єгипетськими ієрогліфами",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "ad18e120-d067-418a-998c-6e585e42b505",
+          "questionId": "s7a-cm-history-slavs-sub-01-e08",
+          "label": "В",
+          "text": "біблійним Адамом",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "2f64fdb4-bdc6-483c-b87a-d623b92f6a8b",
+          "questionId": "s7a-cm-history-slavs-sub-01-e08",
+          "label": "Г",
+          "text": "кельтським druid",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "314e7074f0bdbb431f479cad5e30f2f5d54ed3cab1b30428d379c5fc02f6edfb",
+      "expectedOptionsSha256": "ff1e0052f09ca1f0777f132a416255c9b7ae7ee3517870bc7fb6164943795fa7",
+      "after": {
+        "prompt": "Яким роком датують останню писемну згадку про антів, пов’язану з походом аварів?",
+        "explanation": "Остання згадка в наведених візантійських повідомленнях пов’язана з походом аварів 602 року. Це дата писемної згадки, а не доказ миттєвого зникнення всього населення.",
+        "correctAnswer": "36cf4858-76a8-4e7d-81c2-2a8b30b1ca47"
+      },
+      "optionChanges": [
+        {
+          "id": "36cf4858-76a8-4e7d-81c2-2a8b30b1ca47",
+          "text": "602 р."
+        },
+        {
+          "id": "0858d655-90fe-4753-9270-d85f97cf4f4d",
+          "text": "988 р."
+        },
+        {
+          "id": "ad18e120-d067-418a-998c-6e585e42b505",
+          "text": "1199 р."
+        },
+        {
+          "id": "2f64fdb4-bdc6-483c-b87a-d623b92f6a8b",
+          "text": "1654 р."
+        }
+      ]
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e11",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "problem": "Неправильний ключ поєднаний із нечітким або неточним очікуваним географічним/хронологічним формулюванням.",
+      "review": "REWRITE_REVISED_AND_CONFIRMED",
+      "program": "Давні слов’яни: анти, джерела, розселення",
+      "sourceRefs": [
+        "ANTS"
+      ],
+      "before": {
+        "id": "s7a-cm-history-slavs-sub-01-e11",
+        "subjectId": "history",
+        "topicId": "cm-history-slavs-sub-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "HARD",
+        "prompt": "Анти простягаються, за описами, від:",
+        "explanation": "Східноєвропейський контекст.",
+        "correctAnswer": "28a0667e-4006-4f63-99ba-9a2a3bbdfd4d",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684589,
+        "updatedAt": 1793297511102
+      },
+      "options": [
+        {
+          "id": "b255154c-1690-4c1c-b40f-fe6b4d4f87e5",
+          "questionId": "s7a-cm-history-slavs-sub-01-e11",
+          "label": "А",
+          "text": "Атлантики",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "b87e0882-d7af-4fd4-a71b-64de08d6729c",
+          "questionId": "s7a-cm-history-slavs-sub-01-e11",
+          "label": "Б",
+          "text": "земель біля Дніпра",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "28a0667e-4006-4f63-99ba-9a2a3bbdfd4d",
+          "questionId": "s7a-cm-history-slavs-sub-01-e11",
+          "label": "В",
+          "text": "Тихого океану",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "a46ec592-3014-4abb-a8b1-034ff41ff4a0",
+          "questionId": "s7a-cm-history-slavs-sub-01-e11",
+          "label": "Г",
+          "text": "Сахари",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "d8fe0055ca468d053564e2e690da538aa5e663572b1d7e8549820656d15356aa",
+      "expectedOptionsSha256": "eb637cf2cf4aecb7a0841f6ee9f7de00675a4740512439886563678965918c77",
+      "after": {
+        "prompt": "Хто з наведених авторів VI століття повідомляв про антів?",
+        "explanation": "Для опису розташування антів стаття посилається на Йордана та Прокопія Кесарійського. Інші пари належать до різних епох і не є цією парою ранніх джерел.",
+        "correctAnswer": "b87e0882-d7af-4fd4-a71b-64de08d6729c"
+      },
+      "optionChanges": [
+        {
+          "id": "b255154c-1690-4c1c-b40f-fe6b4d4f87e5",
+          "text": "Геродот і Богдан Хмельницький"
+        },
+        {
+          "id": "b87e0882-d7af-4fd4-a71b-64de08d6729c",
+          "text": "Йордан і Прокопій Кесарійський"
+        },
+        {
+          "id": "28a0667e-4006-4f63-99ba-9a2a3bbdfd4d",
+          "text": "Данило Романович і Тарас Шевченко"
+        },
+        {
+          "id": "a46ec592-3014-4abb-a8b1-034ff41ff4a0",
+          "text": "Михайло Грушевський і Ліна Костенко"
+        }
+      ]
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e12",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "problem": "Неправильний ключ і необґрунтована сегментація кореня; перевірочне слово слід дібрати з явним наголосом.",
+      "review": "REWRITE_REVISED_AND_CONFIRMED",
+      "program": "Орфографія: ненаголошені е та и",
+      "sourceRefs": [
+        "UKBOOK"
+      ],
+      "before": {
+        "id": "s7a-ukr-ortho-sub-01-e12",
+        "subjectId": "ukrainian",
+        "topicId": "ukr-ortho-sub-01",
+        "subtopic": "",
+        "type": "SINGLE_CHOICE",
+        "difficulty": "HARD",
+        "prompt": "У «безперервний» корінь «перерв-» перевіряється словом:",
+        "explanation": "«Перерва» для «перерв-».",
+        "correctAnswer": "781fca8b-55b5-4d77-a41d-23992a1abf97",
+        "source": "NMT Academy Stage 7A.1 · original",
+        "verificationStatus": "VERIFIED",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1793273684535,
+        "updatedAt": 1793297362759
+      },
+      "options": [
+        {
+          "id": "78e962c0-2f7d-4b5a-96a5-82c3931e563b",
+          "questionId": "s7a-ukr-ortho-sub-01-e12",
+          "label": "А",
+          "text": "перерва",
+          "sortOrder": 0,
+          "matchKey": null
+        },
+        {
+          "id": "abf033f4-4492-475a-b9ea-9fc612676926",
+          "questionId": "s7a-ukr-ortho-sub-01-e12",
+          "label": "Б",
+          "text": "перед",
+          "sortOrder": 1,
+          "matchKey": null
+        },
+        {
+          "id": "629b2936-c9e3-4a8e-90d0-8119f87b4073",
+          "questionId": "s7a-ukr-ortho-sub-01-e12",
+          "label": "В",
+          "text": "без",
+          "sortOrder": 2,
+          "matchKey": null
+        },
+        {
+          "id": "781fca8b-55b5-4d77-a41d-23992a1abf97",
+          "questionId": "s7a-ukr-ortho-sub-01-e12",
+          "label": "Г",
+          "text": "пер",
+          "sortOrder": 3,
+          "matchKey": null
+        }
+      ],
+      "expectedRowSha256": "8b77cf013baf65eea5220eba7f9812100c0b77affc9345c7acf277f0c65bc888",
+      "expectedOptionsSha256": "0dba9cbfe0fb121ab7c9cb1195ebf34b455730b52d9ee87884473596e9230e56",
+      "after": {
+        "prompt": "Яка форма перевіряє ненаголошений е в слові «весна́»? Наголос у варіантах позначено.",
+        "explanation": "У формі називного відмінка множини ве́сни кореневий е стоїть під наголосом. У трьох інших наведених формах ця голосна не є наголошеною, тому вони не перевіряють її таким способом.",
+        "correctAnswer": "78e962c0-2f7d-4b5a-96a5-82c3931e563b"
+      },
+      "optionChanges": [
+        {
+          "id": "78e962c0-2f7d-4b5a-96a5-82c3931e563b",
+          "text": "ве́сни (називний відмінок множини)"
+        },
+        {
+          "id": "abf033f4-4492-475a-b9ea-9fc612676926",
+          "text": "весни́ (родовий відмінок однини)"
+        },
+        {
+          "id": "629b2936-c9e3-4a8e-90d0-8119f87b4073",
+          "text": "весня́ний"
+        },
+        {
+          "id": "781fca8b-55b5-4d77-a41d-23992a1abf97",
+          "text": "навесні́"
+        }
+      ]
+    }
+  ],
+  "allowedQuestionFields": [
+    "prompt",
+    "explanation",
+    "correctAnswer",
+    "updatedAt"
+  ],
+  "allowedOptionFields": [
+    "text"
+  ],
+  "mathProof": {
+    "factorization": "(x-2)(x-5)",
+    "discriminant": 9,
+    "roots": [
+      2,
+      5
+    ],
+    "sum": 7
+  }
+}

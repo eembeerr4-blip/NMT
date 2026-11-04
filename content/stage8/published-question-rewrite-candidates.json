@@ -1,0 +1,311 @@
+{
+  "changes": [
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e04",
+      "topicId": "cm-history-slavs-sub-01",
+      "status": "EDITORIAL_CANDIDATE_NOT_APPLIED",
+      "before": {
+        "prompt": "Анти згадуються як народ у регіоні:",
+        "explanation": "Східна Європа.",
+        "correctAnswer": "904a682a-babb-413c-98be-e6d9f6a83589",
+        "options": [
+          {
+            "id": "2ce12dbb-d0fb-4f2e-a166-a880c5f610b0",
+            "label": "А",
+            "text": "Піреней"
+          },
+          {
+            "id": "623818ad-ca7f-4e9e-b0d1-b1be49e534d5",
+            "label": "Б",
+            "text": "Дніпровський схід"
+          },
+          {
+            "id": "5f355d91-a7f3-486a-aa35-95d35166db1d",
+            "label": "В",
+            "text": "Альп"
+          },
+          {
+            "id": "904a682a-babb-413c-98be-e6d9f6a83589",
+            "label": "Г",
+            "text": "Апеннін"
+          }
+        ]
+      },
+      "proposed": {
+        "prompt": "Які річки окреслюють землі антів за викладом Йордана, наведеним в Енциклопедії історії України?",
+        "explanation": "Енциклопедія історії України за повідомленнями Йордана й Прокопія окреслює розташування антів Дністром і Дніпром. Це не Піренеї, Альпи чи Апенніни.",
+        "correctAnswer": "623818ad-ca7f-4e9e-b0d1-b1be49e534d5",
+        "options": [
+          {
+            "id": "2ce12dbb-d0fb-4f2e-a166-a880c5f610b0",
+            "label": "А",
+            "text": "Ніл і Тигр"
+          },
+          {
+            "id": "623818ad-ca7f-4e9e-b0d1-b1be49e534d5",
+            "label": "Б",
+            "text": "Дністер і Дніпро"
+          },
+          {
+            "id": "5f355d91-a7f3-486a-aa35-95d35166db1d",
+            "label": "В",
+            "text": "Рейн і Темза"
+          },
+          {
+            "id": "904a682a-babb-413c-98be-e6d9f6a83589",
+            "label": "Г",
+            "text": "Сена і По"
+          }
+        ]
+      },
+      "source": "https://www.history.org.ua/?termin=Anty",
+      "requiresIndependentReview": true
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e07",
+      "topicId": "cm-history-slavs-sub-01",
+      "status": "EDITORIAL_CANDIDATE_NOT_APPLIED",
+      "before": {
+        "prompt": "Анти та Київська Русь:",
+        "explanation": "Різні епохи.",
+        "correctAnswer": "eddaf25a-20ed-4a80-aabc-8eb1a8ede9c5",
+        "options": [
+          {
+            "id": "d59c6065-6b46-4031-b85a-1c6e07ff6a8b",
+            "label": "А",
+            "text": "однакові держави"
+          },
+          {
+            "id": "fff6f67d-384c-4ec8-82ce-dfe39c3678fc",
+            "label": "Б",
+            "text": "античні племена vs X-ст. держава"
+          },
+          {
+            "id": "eddaf25a-20ed-4a80-aabc-8eb1a8ede9c5",
+            "label": "В",
+            "text": "античні греки"
+          },
+          {
+            "id": "080a439b-217d-41d3-b049-273b84fdec21",
+            "label": "Г",
+            "text": "середньовічна Західна Європа"
+          }
+        ]
+      },
+      "proposed": {
+        "prompt": "Яке твердження про антів відповідає визначенню Енциклопедії історії України?",
+        "explanation": "Анти — слов’янське міжплемінне об’єднання. Їх не слід ототожнювати з грецькою колонією, монгольським улусом або королівською династією.",
+        "correctAnswer": "fff6f67d-384c-4ec8-82ce-dfe39c3678fc",
+        "options": [
+          {
+            "id": "d59c6065-6b46-4031-b85a-1c6e07ff6a8b",
+            "label": "А",
+            "text": "Це грецька колонія на Апеннінах"
+          },
+          {
+            "id": "fff6f67d-384c-4ec8-82ce-dfe39c3678fc",
+            "label": "Б",
+            "text": "Це слов’янське міжплемінне об’єднання"
+          },
+          {
+            "id": "eddaf25a-20ed-4a80-aabc-8eb1a8ede9c5",
+            "label": "В",
+            "text": "Це назва монгольського улусу XIII століття"
+          },
+          {
+            "id": "080a439b-217d-41d3-b049-273b84fdec21",
+            "label": "Г",
+            "text": "Це династія угорських королів"
+          }
+        ]
+      },
+      "source": "https://www.history.org.ua/?termin=Anty",
+      "requiresIndependentReview": true
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e08",
+      "topicId": "cm-history-slavs-sub-01",
+      "status": "EDITORIAL_CANDIDATE_NOT_APPLIED",
+      "before": {
+        "prompt": "Етнонім «слов’яни» пов’язують із:",
+        "explanation": "Візантійська передача.",
+        "correctAnswer": "2f64fdb4-bdc6-483c-b87a-d623b92f6a8b",
+        "options": [
+          {
+            "id": "36cf4858-76a8-4e7d-81c2-2a8b30b1ca47",
+            "label": "А",
+            "text": "латинським «sclavus» через «склавени»"
+          },
+          {
+            "id": "0858d655-90fe-4753-9270-d85f97cf4f4d",
+            "label": "Б",
+            "text": "єгипетськими ієрогліфами"
+          },
+          {
+            "id": "ad18e120-d067-418a-998c-6e585e42b505",
+            "label": "В",
+            "text": "біблійним Адамом"
+          },
+          {
+            "id": "2f64fdb4-bdc6-483c-b87a-d623b92f6a8b",
+            "label": "Г",
+            "text": "кельтським druid"
+          }
+        ]
+      },
+      "proposed": {
+        "prompt": "Під яким роком Енциклопедія історії України наводить останню згадку про антів у візантійських авторів?",
+        "explanation": "Остання згадка в наведених візантійських повідомленнях пов’язана з походом аварів 602 року. Це дата писемної згадки, а не доказ миттєвого зникнення всього населення.",
+        "correctAnswer": "36cf4858-76a8-4e7d-81c2-2a8b30b1ca47",
+        "options": [
+          {
+            "id": "36cf4858-76a8-4e7d-81c2-2a8b30b1ca47",
+            "label": "А",
+            "text": "602 р."
+          },
+          {
+            "id": "0858d655-90fe-4753-9270-d85f97cf4f4d",
+            "label": "Б",
+            "text": "988 р."
+          },
+          {
+            "id": "ad18e120-d067-418a-998c-6e585e42b505",
+            "label": "В",
+            "text": "1199 р."
+          },
+          {
+            "id": "2f64fdb4-bdc6-483c-b87a-d623b92f6a8b",
+            "label": "Г",
+            "text": "1654 р."
+          }
+        ]
+      },
+      "source": "https://www.history.org.ua/?termin=Anty",
+      "requiresIndependentReview": true
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e11",
+      "topicId": "cm-history-slavs-sub-01",
+      "status": "EDITORIAL_CANDIDATE_NOT_APPLIED",
+      "before": {
+        "prompt": "Анти простягаються, за описами, від:",
+        "explanation": "Східноєвропейський контекст.",
+        "correctAnswer": "28a0667e-4006-4f63-99ba-9a2a3bbdfd4d",
+        "options": [
+          {
+            "id": "b255154c-1690-4c1c-b40f-fe6b4d4f87e5",
+            "label": "А",
+            "text": "Атлантики"
+          },
+          {
+            "id": "b87e0882-d7af-4fd4-a71b-64de08d6729c",
+            "label": "Б",
+            "text": "земель біля Дніпра"
+          },
+          {
+            "id": "28a0667e-4006-4f63-99ba-9a2a3bbdfd4d",
+            "label": "В",
+            "text": "Тихого океану"
+          },
+          {
+            "id": "a46ec592-3014-4abb-a8b1-034ff41ff4a0",
+            "label": "Г",
+            "text": "Сахари"
+          }
+        ]
+      },
+      "proposed": {
+        "prompt": "Яких двох авторів Енциклопедія історії України називає серед джерел відомостей про розташування антів?",
+        "explanation": "Для опису розташування антів стаття посилається на Йордана та Прокопія Кесарійського. Інші пари належать до різних епох і не є цією парою ранніх джерел.",
+        "correctAnswer": "b87e0882-d7af-4fd4-a71b-64de08d6729c",
+        "options": [
+          {
+            "id": "b255154c-1690-4c1c-b40f-fe6b4d4f87e5",
+            "label": "А",
+            "text": "Геродот і Богдан Хмельницький"
+          },
+          {
+            "id": "b87e0882-d7af-4fd4-a71b-64de08d6729c",
+            "label": "Б",
+            "text": "Йордан і Прокопій Кесарійський"
+          },
+          {
+            "id": "28a0667e-4006-4f63-99ba-9a2a3bbdfd4d",
+            "label": "В",
+            "text": "Данило Романович і Тарас Шевченко"
+          },
+          {
+            "id": "a46ec592-3014-4abb-a8b1-034ff41ff4a0",
+            "label": "Г",
+            "text": "Михайло Грушевський і Ліна Костенко"
+          }
+        ]
+      },
+      "source": "https://www.history.org.ua/?termin=Anty",
+      "requiresIndependentReview": true
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e12",
+      "topicId": "ukr-ortho-sub-01",
+      "status": "EDITORIAL_CANDIDATE_NOT_APPLIED",
+      "before": {
+        "prompt": "У «безперервний» корінь «перерв-» перевіряється словом:",
+        "explanation": "«Перерва» для «перерв-».",
+        "correctAnswer": "781fca8b-55b5-4d77-a41d-23992a1abf97",
+        "options": [
+          {
+            "id": "78e962c0-2f7d-4b5a-96a5-82c3931e563b",
+            "label": "А",
+            "text": "перерва"
+          },
+          {
+            "id": "abf033f4-4492-475a-b9ea-9fc612676926",
+            "label": "Б",
+            "text": "перед"
+          },
+          {
+            "id": "629b2936-c9e3-4a8e-90d0-8119f87b4073",
+            "label": "В",
+            "text": "без"
+          },
+          {
+            "id": "781fca8b-55b5-4d77-a41d-23992a1abf97",
+            "label": "Г",
+            "text": "пер"
+          }
+        ]
+      },
+      "proposed": {
+        "prompt": "Яка форма перевіряє ненаголошений е в слові «весна́»? Наголос у варіантах позначено.",
+        "explanation": "У формі називного відмінка множини ве́сни кореневий е стоїть під наголосом. У трьох інших наведених формах ця голосна не є наголошеною, тому вони не перевіряють її таким способом.",
+        "correctAnswer": "78e962c0-2f7d-4b5a-96a5-82c3931e563b",
+        "options": [
+          {
+            "id": "78e962c0-2f7d-4b5a-96a5-82c3931e563b",
+            "label": "А",
+            "text": "ве́сни (називний відмінок множини)"
+          },
+          {
+            "id": "abf033f4-4492-475a-b9ea-9fc612676926",
+            "label": "Б",
+            "text": "весни́ (родовий відмінок однини)"
+          },
+          {
+            "id": "629b2936-c9e3-4a8e-90d0-8119f87b4073",
+            "label": "В",
+            "text": "весня́ний"
+          },
+          {
+            "id": "781fca8b-55b5-4d77-a41d-23992a1abf97",
+            "label": "Г",
+            "text": "навесні́"
+          }
+        ]
+      },
+      "source": "https://testportal.gov.ua/programe/",
+      "requiresIndependentReview": true
+    }
+  ],
+  "workingUpdateAuthorized": false,
+  "warning": "Preserves identifiers only as an editorial proposal. No SQL updater or live correction executed."
+}

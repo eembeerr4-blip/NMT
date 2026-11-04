@@ -11,7 +11,7 @@ import {verifyMathContent} from "../scripts/verify-math-content";
 
 type Client=Prisma.TransactionClient;
 const digest=(value:unknown)=>createHash("sha256").update(JSON.stringify(value)).digest("hex");
-async function personalCounts(db:Client){return Promise.all([db.user.count(),db.session.count(),db.userSettings.count(),db.userSubject.count(),db.testAttempt.count(),db.answer.count(),db.examResult.count(),db.note.count(),db.studyTask.count(),db.userTopicProgress.count(),db.flashcard.count(),db.mistake.count(),db.studySession.count(),db.reviewSchedule.count(),db.achievement.count(),db.xpEvent.count(),db.aIConversation.count(),db.aIMessage.count()]);}
+async function personalCounts(db:Client){return Promise.all([db.user.count(),db.session.count(),db.userSettings.count(),db.userSubject.count(),db.testAttempt.count(),db.answer.count(),db.examResult.count(),db.studyTask.count(),db.userTopicProgress.count(),db.flashcard.count(),db.mistake.count(),db.studySession.count(),db.reviewSchedule.count()]);}
 async function otherSubjectsHash(db:Client){return digest(await Promise.all([db.subject.findMany({where:{id:{not:"math"}},orderBy:{id:"asc"}}),db.topic.findMany({where:{subjectId:{not:"math"}},orderBy:{id:"asc"},include:{videos:{orderBy:{id:"asc"}}}}),db.question.findMany({where:{subjectId:{not:"math"}},orderBy:{id:"asc"},include:{options:{orderBy:{id:"asc"}}}})]));}
 async function oldMathHash(db:Client,ids:string[]){return digest(await db.question.findMany({where:{id:{in:ids}},orderBy:{id:"asc"},include:{options:{orderBy:{id:"asc"}}}}));}
 async function protectedHash(db:Client,ids:string[]){return digest(await db.topic.findMany({where:{id:{in:ids}},orderBy:{id:"asc"}}));}

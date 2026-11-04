@@ -59,7 +59,7 @@ export async function registerWithEmail(input: {
   try {
     await prisma.$transaction(async (tx) => {
       const user = await tx.user.create({ data: {
-        email, firstName: nickname, nickname, passwordHash, role: "STUDENT", onboarded: false,
+        email, firstName: nickname, nickname, passwordHash, role: "STUDENT", onboarded: false, accountStatus: "PENDING",
       } });
       await tx.authToken.create({ data: {
         userId: user.id, purpose: "VERIFY_EMAIL", tokenHash: secretHash(token),

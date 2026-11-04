@@ -1,0 +1,4783 @@
+{
+  "checkedAt": "2026-10-30",
+  "scope": "All 514 questions in four selected subjects, first substantive pass. Not independent publication approval.",
+  "counts": {
+    "total": 514,
+    "math": 234,
+    "ukrainian": 100,
+    "history": 68,
+    "biology": 112
+  },
+  "limitations": [
+    "First pass is not independent subject-editor certification.",
+    "External sources checked for named disputed claims; no claim of exhaustive dictionary or PDF-page verification.",
+    "Additional findings overlap the previous eight flags; do not sum them as independent blockers."
+  ],
+  "questions": [
+    {
+      "id": "qx-bot-1",
+      "topicId": "bio-botany",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-bot-2",
+      "topicId": "bio-botany",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-bot-3",
+      "topicId": "bio-botany",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-bot-4",
+      "topicId": "bio-botany",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-b1",
+      "topicId": "bio-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-b10",
+      "topicId": "bio-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-b11",
+      "topicId": "bio-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-b12",
+      "topicId": "bio-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-b2",
+      "topicId": "bio-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-b3",
+      "topicId": "bio-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-b4",
+      "topicId": "bio-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-b5",
+      "topicId": "bio-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-b6",
+      "topicId": "bio-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FLAGGED_SEE_CONTINUATION_FINDINGS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-b7",
+      "topicId": "bio-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-b8",
+      "topicId": "bio-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FLAGGED_SEE_CONTINUATION_FINDINGS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-b9",
+      "topicId": "bio-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "bio-cell-01-q01",
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "bio-cell-01-q02",
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "bio-cell-01-q03",
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "bio-cell-01-q04",
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "bio-cell-01-q05",
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "bio-cell-01-q06",
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "bio-cell-01-q07",
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "bio-cell-01-q08",
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "bio-cell-01-q09",
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "bio-cell-01-q10",
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "bio-cell-01-q11",
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "bio-cell-01-q12",
+      "topicId": "bio-cell-01-eukaryotic-cell",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-bio-cell-sec-01-e01",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-bio-cell-sec-01-e02",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-bio-cell-sec-01-e03",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-bio-cell-sec-01-e04",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-bio-cell-sec-01-h01",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-bio-cell-sec-01-h02",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-bio-cell-sec-01-h03",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-bio-cell-sec-01-m01",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-bio-cell-sec-01-m02",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-bio-cell-sec-01-m03",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-bio-cell-sec-01-m04",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-bio-cell-sec-01-m05",
+      "topicId": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-eco-1",
+      "topicId": "bio-ecology",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-eco-2",
+      "topicId": "bio-ecology",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-eco-3",
+      "topicId": "bio-ecology",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-eco-4",
+      "topicId": "bio-ecology",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-evo-1",
+      "topicId": "bio-evolution",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-evo-2",
+      "topicId": "bio-evolution",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-evo-3",
+      "topicId": "bio-evolution",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FLAGGED_SEE_CONTINUATION_FINDINGS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-evo-4",
+      "topicId": "bio-evolution",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-gen-1",
+      "topicId": "bio-genetics",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-gen-2",
+      "topicId": "bio-genetics",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-gen-3",
+      "topicId": "bio-genetics",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-gen-4",
+      "topicId": "bio-genetics",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-hum-1",
+      "topicId": "bio-human",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-hum-2",
+      "topicId": "bio-human",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-hum-3",
+      "topicId": "bio-human",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-hum-4",
+      "topicId": "bio-human",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-met-1",
+      "topicId": "bio-metabolism",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-met-2",
+      "topicId": "bio-metabolism",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-met-3",
+      "topicId": "bio-metabolism",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-met-4",
+      "topicId": "bio-metabolism",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-zoo-1",
+      "topicId": "bio-zoology",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-zoo-2",
+      "topicId": "bio-zoology",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-zoo-3",
+      "topicId": "bio-zoology",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-zoo-4",
+      "topicId": "bio-zoology",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-zcode-biology-molecular-02-e01",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-zcode-biology-molecular-02-e02",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-zcode-biology-molecular-02-e03",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-zcode-biology-molecular-02-e04",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-zcode-biology-molecular-02-h01",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-zcode-biology-molecular-02-h02",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-zcode-biology-molecular-02-h03",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-zcode-biology-molecular-02-m01",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-zcode-biology-molecular-02-m02",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-zcode-biology-molecular-02-m03",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-zcode-biology-molecular-02-m04",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-zcode-biology-molecular-02-m05",
+      "topicId": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-division-q01",
+      "topicId": "zcode-biology-molecular-division",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-division-q02",
+      "topicId": "zcode-biology-molecular-division",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-division-q03",
+      "topicId": "zcode-biology-molecular-division",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-division-q04",
+      "topicId": "zcode-biology-molecular-division",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FLAGGED_SEE_CONTINUATION_FINDINGS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-division-q05",
+      "topicId": "zcode-biology-molecular-division",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-division-q06",
+      "topicId": "zcode-biology-molecular-division",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-division-q07",
+      "topicId": "zcode-biology-molecular-division",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-division-q08",
+      "topicId": "zcode-biology-molecular-division",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-division-q09",
+      "topicId": "zcode-biology-molecular-division",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-division-q10",
+      "topicId": "zcode-biology-molecular-division",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-division-q11",
+      "topicId": "zcode-biology-molecular-division",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-division-q12",
+      "topicId": "zcode-biology-molecular-division",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-dna-rna-q01",
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-dna-rna-q02",
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-dna-rna-q03",
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-dna-rna-q04",
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-dna-rna-q05",
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-dna-rna-q06",
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-dna-rna-q07",
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-dna-rna-q08",
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-dna-rna-q09",
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-dna-rna-q10",
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-dna-rna-q11",
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-dna-rna-q12",
+      "topicId": "zcode-biology-molecular-dna-rna",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth-q01",
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth-q02",
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth-q03",
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FLAGGED_SEE_CONTINUATION_FINDINGS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth-q04",
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth-q05",
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth-q06",
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth-q07",
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth-q08",
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth-q09",
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth-q10",
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth-q11",
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth-q12",
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "subjectId": "biology",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e01",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e02",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e03",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e04",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e05",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e06",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e07",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e08",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e09",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e10",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e11",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e12",
+      "topicId": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-anc-1",
+      "topicId": "hist-ancient",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-anc-2",
+      "topicId": "hist-ancient",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-anc-3",
+      "topicId": "hist-ancient",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-anc-4",
+      "topicId": "hist-ancient",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-cos-1",
+      "topicId": "hist-cossacks",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-cos-2",
+      "topicId": "hist-cossacks",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-cos-3",
+      "topicId": "hist-cossacks",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-cos-4",
+      "topicId": "hist-cossacks",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-gal-1",
+      "topicId": "hist-galicia",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-gal-2",
+      "topicId": "hist-galicia",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-gal-3",
+      "topicId": "hist-galicia",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-gal-4",
+      "topicId": "hist-galicia",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e01",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e02",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e03",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e04",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e05",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e06",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e07",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e08",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e09",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e10",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e11",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e12",
+      "topicId": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-ind-1",
+      "topicId": "hist-independence",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-ind-2",
+      "topicId": "hist-independence",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-ind-3",
+      "topicId": "hist-independence",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-ind-4",
+      "topicId": "hist-independence",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-h1",
+      "topicId": "hist-kyiv",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-h10",
+      "topicId": "hist-kyiv",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-h11",
+      "topicId": "hist-kyiv",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-h12",
+      "topicId": "hist-kyiv",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-h2",
+      "topicId": "hist-kyiv",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-h3",
+      "topicId": "hist-kyiv",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-h4",
+      "topicId": "hist-kyiv",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-h5",
+      "topicId": "hist-kyiv",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-h6",
+      "topicId": "hist-kyiv",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-h7",
+      "topicId": "hist-kyiv",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-h8",
+      "topicId": "hist-kyiv",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-h9",
+      "topicId": "hist-kyiv",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-lit-1",
+      "topicId": "hist-lithuania",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-lit-2",
+      "topicId": "hist-lithuania",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-lit-3",
+      "topicId": "hist-lithuania",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-lit-4",
+      "topicId": "hist-lithuania",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-rev-1",
+      "topicId": "hist-revolution",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-rev-2",
+      "topicId": "hist-revolution",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-rev-3",
+      "topicId": "hist-revolution",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-rev-4",
+      "topicId": "hist-revolution",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-sov-1",
+      "topicId": "hist-soviet",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FLAGGED_SEE_CONTINUATION_FINDINGS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-sov-2",
+      "topicId": "hist-soviet",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-sov-3",
+      "topicId": "hist-soviet",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FLAGGED_SEE_CONTINUATION_FINDINGS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-sov-4",
+      "topicId": "hist-soviet",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-ww-1",
+      "topicId": "hist-ww2",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-ww-2",
+      "topicId": "hist-ww2",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-ww-3",
+      "topicId": "hist-ww2",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-ww-4",
+      "topicId": "hist-ww2",
+      "subjectId": "history",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-derivative-01",
+      "topicId": "math-derivative",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-derivative-02",
+      "topicId": "math-derivative",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-derivative-03",
+      "topicId": "math-derivative",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-derivative-04",
+      "topicId": "math-derivative",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-derivative-05",
+      "topicId": "math-derivative",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-derivative-06",
+      "topicId": "math-derivative",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-derivative-07",
+      "topicId": "math-derivative",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-derivative-08",
+      "topicId": "math-derivative",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-derivative-09",
+      "topicId": "math-derivative",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-derivative-10",
+      "topicId": "math-derivative",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-derivative-11",
+      "topicId": "math-derivative",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-derivative-12",
+      "topicId": "math-derivative",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-der-1",
+      "topicId": "math-derivative",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-der-2",
+      "topicId": "math-derivative",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-der-3",
+      "topicId": "math-derivative",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-der-4",
+      "topicId": "math-derivative",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-der-5",
+      "topicId": "math-derivative",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-der-6",
+      "topicId": "math-derivative",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-expressions-01",
+      "topicId": "math-expressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-expressions-02",
+      "topicId": "math-expressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-expressions-03",
+      "topicId": "math-expressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-expressions-04",
+      "topicId": "math-expressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-expressions-05",
+      "topicId": "math-expressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-expressions-06",
+      "topicId": "math-expressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-expressions-07",
+      "topicId": "math-expressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-expressions-08",
+      "topicId": "math-expressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-expressions-09",
+      "topicId": "math-expressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-expressions-10",
+      "topicId": "math-expressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-expressions-11",
+      "topicId": "math-expressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-expressions-12",
+      "topicId": "math-expressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-exp-1",
+      "topicId": "math-expressions",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-exp-2",
+      "topicId": "math-expressions",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-exp-3",
+      "topicId": "math-expressions",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-exp-4",
+      "topicId": "math-expressions",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-exp-5",
+      "topicId": "math-expressions",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-exp-6",
+      "topicId": "math-expressions",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-functions-01",
+      "topicId": "math-functions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-functions-02",
+      "topicId": "math-functions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-functions-03",
+      "topicId": "math-functions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-functions-04",
+      "topicId": "math-functions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-functions-05",
+      "topicId": "math-functions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-functions-06",
+      "topicId": "math-functions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-functions-07",
+      "topicId": "math-functions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-functions-08",
+      "topicId": "math-functions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-functions-09",
+      "topicId": "math-functions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-functions-10",
+      "topicId": "math-functions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-functions-11",
+      "topicId": "math-functions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-functions-12",
+      "topicId": "math-functions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-fun-1",
+      "topicId": "math-functions",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-fun-2",
+      "topicId": "math-functions",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-fun-3",
+      "topicId": "math-functions",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-fun-4",
+      "topicId": "math-functions",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-fun-5",
+      "topicId": "math-functions",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-fun-6",
+      "topicId": "math-functions",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-m1",
+      "topicId": "math-linear-eq",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-m10",
+      "topicId": "math-linear-eq",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-m11",
+      "topicId": "math-linear-eq",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-m12",
+      "topicId": "math-linear-eq",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-m2",
+      "topicId": "math-linear-eq",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-m3",
+      "topicId": "math-linear-eq",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-m4",
+      "topicId": "math-linear-eq",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-m5",
+      "topicId": "math-linear-eq",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-m6",
+      "topicId": "math-linear-eq",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-m7",
+      "topicId": "math-linear-eq",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-m8",
+      "topicId": "math-linear-eq",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-m9",
+      "topicId": "math-linear-eq",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-linear-eq-sub-02-e01",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-linear-eq-sub-02-e02",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-linear-eq-sub-02-e03",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-linear-eq-sub-02-e04",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-linear-eq-sub-02-e05",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-linear-eq-sub-02-e06",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-linear-eq-sub-02-e07",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-linear-eq-sub-02-e08",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-linear-eq-sub-02-e09",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-linear-eq-sub-02-e10",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-linear-eq-sub-02-e11",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-linear-eq-sub-02-e12",
+      "topicId": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-01",
+      "topicId": "math-linear-systems",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-02",
+      "topicId": "math-linear-systems",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-03",
+      "topicId": "math-linear-systems",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-04",
+      "topicId": "math-linear-systems",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-05",
+      "topicId": "math-linear-systems",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-06",
+      "topicId": "math-linear-systems",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-07",
+      "topicId": "math-linear-systems",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-08",
+      "topicId": "math-linear-systems",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-09",
+      "topicId": "math-linear-systems",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-10",
+      "topicId": "math-linear-systems",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-11",
+      "topicId": "math-linear-systems",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-12",
+      "topicId": "math-linear-systems",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-sys-1",
+      "topicId": "math-linear-systems",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-sys-2",
+      "topicId": "math-linear-systems",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-sys-3",
+      "topicId": "math-linear-systems",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-sys-4",
+      "topicId": "math-linear-systems",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-sys-5",
+      "topicId": "math-linear-systems",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-sys-6",
+      "topicId": "math-linear-systems",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "foundation-percent-v1-01",
+      "topicId": "math-numbers",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FLAGGED_SEE_CONTINUATION_FINDINGS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "foundation-percent-v1-02",
+      "topicId": "math-numbers",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "foundation-percent-v1-03",
+      "topicId": "math-numbers",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "foundation-percent-v1-04",
+      "topicId": "math-numbers",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "foundation-percent-v1-05",
+      "topicId": "math-numbers",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "foundation-percent-v1-06",
+      "topicId": "math-numbers",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "foundation-percent-v1-07",
+      "topicId": "math-numbers",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "foundation-percent-v1-08",
+      "topicId": "math-numbers",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "foundation-percent-v1-09",
+      "topicId": "math-numbers",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "foundation-percent-v1-10",
+      "topicId": "math-numbers",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "foundation-percent-v1-11",
+      "topicId": "math-numbers",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "foundation-percent-v1-12",
+      "topicId": "math-numbers",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-num-1",
+      "topicId": "math-numbers",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-num-2",
+      "topicId": "math-numbers",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-num-3",
+      "topicId": "math-numbers",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-num-4",
+      "topicId": "math-numbers",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-num-5",
+      "topicId": "math-numbers",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-num-6",
+      "topicId": "math-numbers",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-plane-01",
+      "topicId": "math-plane",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-plane-02",
+      "topicId": "math-plane",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-plane-03",
+      "topicId": "math-plane",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-plane-04",
+      "topicId": "math-plane",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-plane-05",
+      "topicId": "math-plane",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-plane-06",
+      "topicId": "math-plane",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-plane-07",
+      "topicId": "math-plane",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-plane-08",
+      "topicId": "math-plane",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-plane-09",
+      "topicId": "math-plane",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-plane-10",
+      "topicId": "math-plane",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-plane-11",
+      "topicId": "math-plane",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-plane-12",
+      "topicId": "math-plane",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-plane-1",
+      "topicId": "math-plane",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-plane-2",
+      "topicId": "math-plane",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-plane-3",
+      "topicId": "math-plane",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-plane-4",
+      "topicId": "math-plane",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-plane-5",
+      "topicId": "math-plane",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-plane-6",
+      "topicId": "math-plane",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-probability-01",
+      "topicId": "math-probability",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-probability-02",
+      "topicId": "math-probability",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-probability-03",
+      "topicId": "math-probability",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-probability-04",
+      "topicId": "math-probability",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-probability-05",
+      "topicId": "math-probability",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-probability-06",
+      "topicId": "math-probability",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-probability-07",
+      "topicId": "math-probability",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-probability-08",
+      "topicId": "math-probability",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-probability-09",
+      "topicId": "math-probability",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-probability-10",
+      "topicId": "math-probability",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-probability-11",
+      "topicId": "math-probability",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-probability-12",
+      "topicId": "math-probability",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-prob-1",
+      "topicId": "math-probability",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-prob-2",
+      "topicId": "math-probability",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-prob-3",
+      "topicId": "math-probability",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-prob-4",
+      "topicId": "math-probability",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-prob-5",
+      "topicId": "math-probability",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-prob-6",
+      "topicId": "math-probability",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-progressions-01",
+      "topicId": "math-progressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-progressions-02",
+      "topicId": "math-progressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-progressions-03",
+      "topicId": "math-progressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-progressions-04",
+      "topicId": "math-progressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-progressions-05",
+      "topicId": "math-progressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-progressions-06",
+      "topicId": "math-progressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-progressions-07",
+      "topicId": "math-progressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-progressions-08",
+      "topicId": "math-progressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-progressions-09",
+      "topicId": "math-progressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-progressions-10",
+      "topicId": "math-progressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-progressions-11",
+      "topicId": "math-progressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-progressions-12",
+      "topicId": "math-progressions",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-prog-1",
+      "topicId": "math-progressions",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-prog-2",
+      "topicId": "math-progressions",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-prog-3",
+      "topicId": "math-progressions",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-prog-4",
+      "topicId": "math-progressions",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-prog-5",
+      "topicId": "math-progressions",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-prog-6",
+      "topicId": "math-progressions",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-01",
+      "topicId": "math-quadratic",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-02",
+      "topicId": "math-quadratic",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-03",
+      "topicId": "math-quadratic",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-04",
+      "topicId": "math-quadratic",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-05",
+      "topicId": "math-quadratic",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-06",
+      "topicId": "math-quadratic",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-07",
+      "topicId": "math-quadratic",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-08",
+      "topicId": "math-quadratic",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-09",
+      "topicId": "math-quadratic",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-10",
+      "topicId": "math-quadratic",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-11",
+      "topicId": "math-quadratic",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-12",
+      "topicId": "math-quadratic",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-quad-1",
+      "topicId": "math-quadratic",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-quad-2",
+      "topicId": "math-quadratic",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-quad-3",
+      "topicId": "math-quadratic",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-quad-4",
+      "topicId": "math-quadratic",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-quad-5",
+      "topicId": "math-quadratic",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-quad-6",
+      "topicId": "math-quadratic",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-quadratic-sub-01-e01",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-quadratic-sub-01-e02",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-quadratic-sub-01-e03",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-quadratic-sub-01-e04",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-quadratic-sub-01-e05",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-quadratic-sub-01-e06",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-quadratic-sub-01-e07",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-quadratic-sub-01-e08",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-quadratic-sub-01-e09",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-quadratic-sub-01-e10",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-quadratic-sub-01-e11",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-math-quadratic-sub-01-e12",
+      "topicId": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-solid-01",
+      "topicId": "math-solid",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-solid-02",
+      "topicId": "math-solid",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-solid-03",
+      "topicId": "math-solid",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-solid-04",
+      "topicId": "math-solid",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-solid-05",
+      "topicId": "math-solid",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-solid-06",
+      "topicId": "math-solid",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-solid-07",
+      "topicId": "math-solid",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-solid-08",
+      "topicId": "math-solid",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-solid-09",
+      "topicId": "math-solid",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-solid-10",
+      "topicId": "math-solid",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-solid-11",
+      "topicId": "math-solid",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-solid-12",
+      "topicId": "math-solid",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-solid-1",
+      "topicId": "math-solid",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-solid-2",
+      "topicId": "math-solid",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-solid-3",
+      "topicId": "math-solid",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-solid-4",
+      "topicId": "math-solid",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-solid-5",
+      "topicId": "math-solid",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-solid-6",
+      "topicId": "math-solid",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-trig-01",
+      "topicId": "math-trig",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-trig-02",
+      "topicId": "math-trig",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-trig-03",
+      "topicId": "math-trig",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-trig-04",
+      "topicId": "math-trig",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-trig-05",
+      "topicId": "math-trig",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-trig-06",
+      "topicId": "math-trig",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-trig-07",
+      "topicId": "math-trig",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-trig-08",
+      "topicId": "math-trig",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-trig-09",
+      "topicId": "math-trig",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-trig-10",
+      "topicId": "math-trig",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-trig-11",
+      "topicId": "math-trig",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "math-draft-v1-math-trig-12",
+      "topicId": "math-trig",
+      "subjectId": "math",
+      "verificationStatus": "DRAFT",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": true,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-trig-1",
+      "topicId": "math-trig",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-trig-2",
+      "topicId": "math-trig",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-trig-3",
+      "topicId": "math-trig",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-trig-4",
+      "topicId": "math-trig",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-trig-5",
+      "topicId": "math-trig",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-trig-6",
+      "topicId": "math-trig",
+      "subjectId": "math",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-01-q01",
+      "topicId": "ukr-lex-01-meaning",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-01-q02",
+      "topicId": "ukr-lex-01-meaning",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-01-q03",
+      "topicId": "ukr-lex-01-meaning",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-01-q04",
+      "topicId": "ukr-lex-01-meaning",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FLAGGED_SEE_CONTINUATION_FINDINGS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-01-q05",
+      "topicId": "ukr-lex-01-meaning",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-01-q06",
+      "topicId": "ukr-lex-01-meaning",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-01-q07",
+      "topicId": "ukr-lex-01-meaning",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-01-q08",
+      "topicId": "ukr-lex-01-meaning",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-01-q09",
+      "topicId": "ukr-lex-01-meaning",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-01-q10",
+      "topicId": "ukr-lex-01-meaning",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-01-q11",
+      "topicId": "ukr-lex-01-meaning",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-01-q12",
+      "topicId": "ukr-lex-01-meaning",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-02-q01",
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-02-q02",
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-02-q03",
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-02-q04",
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-02-q05",
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-02-q06",
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-02-q07",
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FLAGGED_SEE_CONTINUATION_FINDINGS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-02-q08",
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-02-q09",
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-02-q10",
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-02-q11",
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-02-q12",
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-03-q01",
+      "topicId": "ukr-lex-03-phraseology",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-03-q02",
+      "topicId": "ukr-lex-03-phraseology",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-03-q03",
+      "topicId": "ukr-lex-03-phraseology",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-03-q04",
+      "topicId": "ukr-lex-03-phraseology",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-03-q05",
+      "topicId": "ukr-lex-03-phraseology",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-03-q06",
+      "topicId": "ukr-lex-03-phraseology",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-03-q07",
+      "topicId": "ukr-lex-03-phraseology",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-03-q08",
+      "topicId": "ukr-lex-03-phraseology",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-03-q09",
+      "topicId": "ukr-lex-03-phraseology",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-03-q10",
+      "topicId": "ukr-lex-03-phraseology",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-03-q11",
+      "topicId": "ukr-lex-03-phraseology",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "ukr-lex-03-q12",
+      "topicId": "ukr-lex-03-phraseology",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-e01",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-e02",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-e03",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-e04",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-h01",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-h02",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-h03",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-m01",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-m02",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-m03",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-m04",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-m05",
+      "topicId": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-lex-1",
+      "topicId": "ukr-lexis",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-lex-2",
+      "topicId": "ukr-lexis",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-lex-3",
+      "topicId": "ukr-lexis",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-lex-4",
+      "topicId": "ukr-lexis",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-morph-1",
+      "topicId": "ukr-morph",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-morph-2",
+      "topicId": "ukr-morph",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-morph-3",
+      "topicId": "ukr-morph",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-morph-4",
+      "topicId": "ukr-morph",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-u1",
+      "topicId": "ukr-ortho",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-u10",
+      "topicId": "ukr-ortho",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-u11",
+      "topicId": "ukr-ortho",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-u12",
+      "topicId": "ukr-ortho",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-u2",
+      "topicId": "ukr-ortho",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-u3",
+      "topicId": "ukr-ortho",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-u4",
+      "topicId": "ukr-ortho",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-u5",
+      "topicId": "ukr-ortho",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-u6",
+      "topicId": "ukr-ortho",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-u7",
+      "topicId": "ukr-ortho",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-u8",
+      "topicId": "ukr-ortho",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "q-u9",
+      "topicId": "ukr-ortho",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e01",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e02",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e03",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e04",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e05",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e06",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e07",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e08",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e09",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e10",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e11",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e12",
+      "topicId": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "BLOCKER_SEE_PUBLISHED_CONTENT_BLOCKERS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-ph-1",
+      "topicId": "ukr-phonetics",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-ph-2",
+      "topicId": "ukr-phonetics",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-ph-3",
+      "topicId": "ukr-phonetics",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-ph-4",
+      "topicId": "ukr-phonetics",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-punct-1",
+      "topicId": "ukr-punct",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-punct-2",
+      "topicId": "ukr-punct",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-punct-3",
+      "topicId": "ukr-punct",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-punct-4",
+      "topicId": "ukr-punct",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FLAGGED_SEE_CONTINUATION_FINDINGS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-style-1",
+      "topicId": "ukr-style",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-style-2",
+      "topicId": "ukr-style",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-style-3",
+      "topicId": "ukr-style",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-style-4",
+      "topicId": "ukr-style",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-syn-1",
+      "topicId": "ukr-syntax",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FLAGGED_SEE_CONTINUATION_FINDINGS",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-syn-2",
+      "topicId": "ukr-syntax",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-syn-3",
+      "topicId": "ukr-syntax",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-syn-4",
+      "topicId": "ukr-syntax",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-word-1",
+      "topicId": "ukr-word",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-word-2",
+      "topicId": "ukr-word",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-word-3",
+      "topicId": "ukr-word",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    },
+    {
+      "id": "qx-word-4",
+      "topicId": "ukr-word",
+      "subjectId": "ukrainian",
+      "verificationStatus": "VERIFIED",
+      "reviewStatus": "FIRST_PASS_NO_ADDITIONAL_CONFLICT_IDENTIFIED",
+      "mathDraftRecomputed": false,
+      "independentApproval": false
+    }
+  ],
+  "additionalFindings": [
+    {
+      "id": "ukr-lex-02-q07",
+      "topicId": "ukr-lex-02-syn-ant-hom",
+      "severity": "MAJOR",
+      "status": "CONFIRMED_EXPLANATION_ERROR",
+      "reason": "Гриб і грип не є нормативними омофонами: кінцевий дзвінкий не оглушується. Ключ омографів не змінювати; виправити пояснення.",
+      "source": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-10-klas-2018/01-ukrainska-mova-10-klas/ukr-mova10-gramota.pdf",
+      "expectedRowSha256": "48a53939bc0fff3395f7333da2e03451c6d10c19ede1a5c5b476915815fa711f",
+      "application": "REVIEW_ONLY_NOT_APPLIED"
+    },
+    {
+      "id": "ukr-lex-01-q04",
+      "topicId": "ukr-lex-01-meaning",
+      "severity": "MAJOR",
+      "status": "NEEDS_NORMATIVE_REVIEW",
+      "reason": "Зіставити з q12, який допускає відкрити підручник. Внутрішня неузгодженість підтверджена; словникову норму ще не перевірено доступним першоджерелом.",
+      "source": null,
+      "expectedRowSha256": "6d255c3b8eef2180b78f3839fdccf8a72861ec2c07b2949bb13715937b09f8c1",
+      "application": "REVIEW_ONLY_NOT_APPLIED"
+    },
+    {
+      "id": "qx-syn-1",
+      "topicId": "ukr-syntax",
+      "severity": "MAJOR",
+      "status": "MISSING_SCOPE",
+      "reason": "Визначення через підмет і присудок потребує обмеження двоскладним реченням; є односкладні речення.",
+      "source": null,
+      "expectedRowSha256": "a4b0abda0c2f51613a65c892fc95046593b97cc22f8eef0c883ddd18f15efac0",
+      "application": "REVIEW_ONLY_NOT_APPLIED"
+    },
+    {
+      "id": "qx-punct-4",
+      "topicId": "ukr-punct",
+      "severity": "MAJOR",
+      "status": "MISSING_EXCEPTIONS",
+      "reason": "Правило коми між частинами складносурядного речення не універсальне: спільний член та одиничний сполучник можуть виключати кому.",
+      "source": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-9-klas/01-ukrainska-mova-9-klas/ukrainska-mova-pidruchnyk-dlya-9-klasu-zagalnoosvitnih-navchalnyh-zakladiv-glazova-o-p.pdf",
+      "expectedRowSha256": "c4b1163a09ca29fd333adb4507169ddc12f4fc83368b4e82f5b2c6565c1091fb",
+      "application": "REVIEW_ONLY_NOT_APPLIED"
+    },
+    {
+      "id": "qx-sov-1",
+      "topicId": "hist-soviet",
+      "severity": "MAJOR",
+      "status": "TOPIC_PERIOD_MISMATCH",
+      "reason": "1932–1933 не належить до назви теми 1945–1991. Сам ключ дати правильний.",
+      "source": null,
+      "expectedRowSha256": "1f89375a8cd365489276c685e2b07a5b11e5717e9a056b82151870803b8fc250",
+      "application": "REVIEW_ONLY_NOT_APPLIED"
+    },
+    {
+      "id": "qx-sov-3",
+      "topicId": "hist-soviet",
+      "severity": "MAJOR",
+      "status": "TOPIC_PERIOD_MISMATCH",
+      "reason": "Закон про визнання Голодомору геноцидом не належить до меж теми 1945–1991. Потрібна перевірка тематичного розміщення.",
+      "source": null,
+      "expectedRowSha256": "f04067b36325067d1e6ebfc7a1f55ddd9044a9c80334752518108d905507bba2",
+      "application": "REVIEW_ONLY_NOT_APPLIED"
+    },
+    {
+      "id": "q-b6",
+      "topicId": "bio-cell",
+      "severity": "MAJOR",
+      "status": "MISSING_SCOPE",
+      "reason": "Уточнити модель тварин: у вищих рослин мейоз утворює спори, гамети виникають мітотично.",
+      "source": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-9-klas/12-biologiya-9-klas/abetka-sobol-biologia-9-kl.pdf",
+      "expectedRowSha256": "fc31fab9b7559154528634a164e3b3ae3fabaa1bfd7806590245206c23f83cfa",
+      "application": "REVIEW_ONLY_NOT_APPLIED"
+    },
+    {
+      "id": "q-b8",
+      "topicId": "bio-cell",
+      "severity": "MINOR",
+      "status": "MISSING_SCOPE",
+      "reason": "Хлоропласти властиві фотосинтезувальним клітинам, не кожній рослинній клітині.",
+      "source": null,
+      "expectedRowSha256": "42eb4198b80b4074d9b239e9f54d5e30355adb0f023f523896a2304b586fa4d8",
+      "application": "REVIEW_ONLY_NOT_APPLIED"
+    },
+    {
+      "id": "qx-evo-3",
+      "topicId": "bio-evolution",
+      "severity": "MINOR",
+      "status": "MISSING_SCOPE",
+      "reason": "Визначення через плідне потомство обмежити біологічним критерієм для організмів зі статевим розмноженням.",
+      "source": null,
+      "expectedRowSha256": "ae802c76a7e4e808177c5e2bda823248846e749fbb44ef3a1f6d6b36926c5a04",
+      "application": "REVIEW_ONLY_NOT_APPLIED"
+    },
+    {
+      "id": "zcode-biology-molecular-division-q04",
+      "topicId": "zcode-biology-molecular-division",
+      "severity": "MINOR",
+      "status": "MISSING_MODEL_CONDITIONS",
+      "reason": "Чотири генетично різні клітини — навчальна модель; уточнити вихідну клітину та відмінність від результатів овогенезу.",
+      "source": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-9-klas/12-biologiya-9-klas/abetka-sobol-biologia-9-kl.pdf",
+      "expectedRowSha256": "5d77eaec431f757bf10452b879ac85a6de9be8d59478dc682a7eb8405251caf9",
+      "application": "REVIEW_ONLY_NOT_APPLIED"
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth-q03",
+      "topicId": "zcode-biology-molecular-protein-synth",
+      "severity": "MINOR",
+      "status": "ANSWER_OPTION_SCOPE",
+      "reason": "Пояснення вже містить стоп-сигнали; перевірити відповідність короткого варіанта відповіді повному визначенню кодона.",
+      "source": null,
+      "expectedRowSha256": "0c983a91f728c5622830a7f957686eb4ea2c8ab0a17b8dfbe8f8ad2897af4076",
+      "application": "REVIEW_ONLY_NOT_APPLIED"
+    },
+    {
+      "id": "foundation-percent-v1-01",
+      "topicId": "math-numbers",
+      "severity": "MINOR",
+      "status": "SEMANTIC_DUPLICATE",
+      "reason": "Той самий розрахунок 20% від 150, що qx-num-1, в одній темі. Не вважати незалежним контрольним завданням.",
+      "source": null,
+      "expectedRowSha256": "1709e94750302f14b820dab62eb88a1f55e252fe9b960bff5ee87cb4dcf1475c",
+      "application": "REVIEW_ONLY_NOT_APPLIED"
+    }
+  ],
+  "theoryReview": {
+    "status": "PARTIAL",
+    "shortLegacyLessonsRead": 24,
+    "issues": [
+      "Legacy summaries often have only one example and a few paragraphs; not a full preparation module.",
+      "hist-soviet title 1945–1991 includes Holodomor 1932–1933.",
+      "bio-ecology food-chain summary needs grazing/detrital distinction.",
+      "ukr-morph adverb definition must also allow modifying another quality.",
+      "hist-ww2 needs explicit distinction between war in Ukraine in 1939 and German-Soviet war in 1941.",
+      "Tripillia dating and some history formulations remain for external source review; not labelled confirmed factual errors."
+    ]
+  },
+  "sources": {
+    "pronunciation": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-10-klas-2018/01-ukrainska-mova-10-klas/ukr-mova10-gramota.pdf",
+    "punctuation": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-9-klas/01-ukrainska-mova-9-klas/ukrainska-mova-pidruchnyk-dlya-9-klasu-zagalnoosvitnih-navchalnyh-zakladiv-glazova-o-p.pdf",
+    "meiosis": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-9-klas/12-biologiya-9-klas/abetka-sobol-biologia-9-kl.pdf"
+  }
+}

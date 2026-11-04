@@ -1,0 +1,548 @@
+{
+  "checkedAt": "2026-10-29",
+  "publicationApproval": "BLOCKED",
+  "workingDatabaseChanged": false,
+  "keyConflicts": 19,
+  "rewriteBlockers": 5,
+  "corrections": [
+    {
+      "id": "s7a-math-quadratic-sub-01-e08",
+      "topicId": "math-quadratic-sub-01",
+      "severity": "BLOCKER",
+      "status": "PROPOSED_ONLY_NOT_APPLIED",
+      "before": {
+        "prompt": "Сума коренів x²−7x+10=0 (Віет):",
+        "explanation": "−b/a=7.",
+        "correctAnswer": "e7c04ad7-7143-4196-b71e-d8188dee5ad9",
+        "optionText": "−10",
+        "verificationStatus": "VERIFIED"
+      },
+      "proposed": {
+        "correctAnswer": "635ff538-a306-4c63-bce4-de8b44e2f68f",
+        "optionLabel": "В",
+        "optionText": "7"
+      },
+      "reason": "За Вієтом сума коренів дорівнює −b/a=7; наявний ключ −10 хибний.",
+      "expectedRowSha256": "442039c61e9af24f1386f84686f0f0c8f3409c1ec6d4c55f33de9638b4b1687a",
+      "optionsSha256": "2c7fda0f388732ab25c6a29661b227771fab12db54262a4814ccfccf5396c973",
+      "application": "Separate owner approval and full row/usage preflight required. Do not re-import a protected lesson or overwrite attempts."
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-e03",
+      "topicId": "ukr-lexicology-section-01",
+      "severity": "BLOCKER",
+      "status": "PROPOSED_ONLY_NOT_APPLIED",
+      "before": {
+        "prompt": "Омоніми — це:",
+        "explanation": "Омонімія: однакова форма — різний зміст (лист — на дереві / лист — для листування).",
+        "correctAnswer": "5731be34-25ed-4193-9c66-a503a62f28a7",
+        "optionText": "синоніми",
+        "verificationStatus": "VERIFIED"
+      },
+      "proposed": {
+        "correctAnswer": "8fc7c73f-248a-4d2c-9cee-d0297e17b929",
+        "optionLabel": "Б",
+        "optionText": "слова однакової форми з різним значенням"
+      },
+      "reason": "Омоніми мають однакову форму й різне значення; це не синоніми.",
+      "expectedRowSha256": "33ee36249c406f161db2b591ec4f63ebfaad619b34c9f60b4e47abc0b20ce707",
+      "optionsSha256": "6ae980004e7b4071249fe2c7f2bec5d38dfc51255afd76dad97b6e8e0aeae05a",
+      "application": "Separate owner approval and full row/usage preflight required. Do not re-import a protected lesson or overwrite attempts."
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-e04",
+      "topicId": "ukr-lexicology-section-01",
+      "severity": "BLOCKER",
+      "status": "PROPOSED_ONLY_NOT_APPLIED",
+      "before": {
+        "prompt": "Фразеологізм — це:",
+        "explanation": "Фразеологізм має ціле значення, яке не зводиться до сумі слів («бити байдики»).",
+        "correctAnswer": "f9a76b93-f27f-40f6-adfd-8a848b01e7b7",
+        "optionText": "діалектизм",
+        "verificationStatus": "VERIFIED"
+      },
+      "proposed": {
+        "correctAnswer": "96b3d563-c511-41cf-8f96-962b98cdda99",
+        "optionLabel": "Б",
+        "optionText": "стійке словосполучення з цілисним значенням"
+      },
+      "reason": "Фразеологізм — стійке сполучення з цілісним значенням, не діалектизм.",
+      "expectedRowSha256": "fcea3cbb1a54711f1b919cb74fb6b0c0240a56a05b22f3be4664bb17f5722d1f",
+      "optionsSha256": "608750d7d2cc71f759685bd7c66b64fa0b378bde9f520f766cbe94a5fffe454b",
+      "application": "Separate owner approval and full row/usage preflight required. Do not re-import a protected lesson or overwrite attempts."
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-m02",
+      "topicId": "ukr-lexicology-section-01",
+      "severity": "BLOCKER",
+      "status": "PROPOSED_ONLY_NOT_APPLIED",
+      "before": {
+        "prompt": "Пароніми — це:",
+        "explanation": "Паронімія: ефективний — ефектний, плодовитий — плодотворний.",
+        "correctAnswer": "60d70838-832a-4c5c-a1ad-0b7802061d72",
+        "optionText": "синоніми",
+        "verificationStatus": "VERIFIED"
+      },
+      "proposed": {
+        "correctAnswer": "964d2a63-f172-4da9-acc0-00ba84627f77",
+        "optionLabel": "А",
+        "optionText": "слова схожі за звучанням/написанням, але різні за значенням"
+      },
+      "reason": "Пароніми подібні за звучанням, але відрізняються значенням.",
+      "expectedRowSha256": "0445474cf1d3ba21f6f89fccac543ffb2aa1a678666bfe2ab4b676006fe29913",
+      "optionsSha256": "3306e6b2c7b95e678d8c5ba944420e8df02415d638f6d5d84886ee5a925401d7",
+      "application": "Separate owner approval and full row/usage preflight required. Do not re-import a protected lesson or overwrite attempts."
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-m03",
+      "topicId": "ukr-lexicology-section-01",
+      "severity": "BLOCKER",
+      "status": "PROPOSED_ONLY_NOT_APPLIED",
+      "before": {
+        "prompt": "Пряме значення слова — це:",
+        "explanation": "Пряме значення називає предмет без метафори («рука» — частина тіла).",
+        "correctAnswer": "6be64877-554d-453a-b2ea-2ae39e127d58",
+        "optionText": "тільки переносне",
+        "verificationStatus": "VERIFIED"
+      },
+      "proposed": {
+        "correctAnswer": "4fe35b58-e0f2-4383-a308-49e02604a1e0",
+        "optionLabel": "Б",
+        "optionText": "буквальне, предметне значення"
+      },
+      "reason": "Пряме значення є буквальним; наявний ключ «тільки переносне» протилежний визначенню.",
+      "expectedRowSha256": "86e6111d6a6049a6c35a8e337e87b07c1408aefb5f294e28b70e848683a74864",
+      "optionsSha256": "8a66092f15a2cc2dd29b14c7f30bcd2215c7da6cf0485b70b34078ed9f16334a",
+      "application": "Separate owner approval and full row/usage preflight required. Do not re-import a protected lesson or overwrite attempts."
+    },
+    {
+      "id": "s7a-ukr-lexicology-section-01-m04",
+      "topicId": "ukr-lexicology-section-01",
+      "severity": "BLOCKER",
+      "status": "PROPOSED_ONLY_NOT_APPLIED",
+      "before": {
+        "prompt": "Багатозначне слово:",
+        "explanation": "Багатозначність: одне слово — кілька значень у лексиконі («кінь» — тварина; «кінь» дощів).",
+        "correctAnswer": "c05fa933-34d5-4ab7-baed-f3b81fe4e740",
+        "optionText": "не існує в українській",
+        "verificationStatus": "VERIFIED"
+      },
+      "proposed": {
+        "correctAnswer": "86b2ea28-8033-48f7-964d-f13cbf15493f",
+        "optionLabel": "Б",
+        "optionText": "має кілька пов’язаних значень"
+      },
+      "reason": "Багатозначне слово має кілька пов’язаних значень. Приклад «кінь дощів» у поясненні треба прибрати.",
+      "expectedRowSha256": "d4a4de385068fc0d2b6113426a77c10be63e42c9207138511f523bc9f9fc4f46",
+      "optionsSha256": "3c0b09bfd1ac3946c550190f342719276871731a0fc10c3efa3778db6c279e06",
+      "application": "Separate owner approval and full row/usage preflight required. Do not re-import a protected lesson or overwrite attempts."
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e08",
+      "topicId": "ukr-ortho-sub-01",
+      "severity": "BLOCKER",
+      "status": "PROPOSED_ONLY_NOT_APPLIED",
+      "before": {
+        "prompt": "У «колосся» у корені після «л» пишеться:",
+        "explanation": "Чергування «о — і».",
+        "correctAnswer": "86f4351b-9405-4b6c-b9b5-b0809018da27",
+        "optionText": "і",
+        "verificationStatus": "VERIFIED"
+      },
+      "proposed": {
+        "correctAnswer": "c51413b0-07be-44c4-b3a1-1b7fd92818d5",
+        "optionLabel": "А",
+        "optionText": "о"
+      },
+      "reason": "У слові колосся після л пишемо о. Пояснення не повинно підміняти написання посиланням на інше слово.",
+      "expectedRowSha256": "6283b2bbc511a5e1f0ebe36e96d7df0780ad906fca1751ab2cdf15b927ed523e",
+      "optionsSha256": "4a6fbbcd12d8ee15aba98f463a983a06424daac99b994eea191279d966cfdcf0",
+      "application": "Separate owner approval and full row/usage preflight required. Do not re-import a protected lesson or overwrite attempts."
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e11",
+      "topicId": "ukr-ortho-sub-01",
+      "severity": "BLOCKER",
+      "status": "PROPOSED_ONLY_NOT_APPLIED",
+      "before": {
+        "prompt": "У «пишу» від «писати» в корені пишеться:",
+        "explanation": "Дієслівне чергування.",
+        "correctAnswer": "be46b217-f6ac-42b8-8b8f-6bdc1c7431d3",
+        "optionText": "е",
+        "verificationStatus": "VERIFIED"
+      },
+      "proposed": {
+        "correctAnswer": "4c1a8ff9-1fb9-4520-888b-c432c19eafd4",
+        "optionLabel": "А",
+        "optionText": "и"
+      },
+      "reason": "У слові пишу голосна и; у писати → пишу відбувається чергування с/ш, а не зміна и на е.",
+      "expectedRowSha256": "f9e096ffa81793715126dd12172b1b579e82c987917a2e2bc38b88b4829383eb",
+      "optionsSha256": "962823301d62d2f5ca55011acb8406db66a9ee17d8f682a7222930c989f9f998",
+      "application": "Separate owner approval and full row/usage preflight required. Do not re-import a protected lesson or overwrite attempts."
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e04",
+      "topicId": "hist-galicia-sub-01",
+      "severity": "BLOCKER",
+      "status": "PROPOSED_ONLY_NOT_APPLIED",
+      "before": {
+        "prompt": "Данило Романович — це:",
+        "explanation": "Спадкоємець.",
+        "correctAnswer": "22e2faf5-8c35-4aa4-81ac-c4f789d012fe",
+        "optionText": "угорський король",
+        "verificationStatus": "VERIFIED"
+      },
+      "proposed": {
+        "correctAnswer": "9fefaab6-3636-4339-92eb-84d03cdd0ba2",
+        "optionLabel": "Б",
+        "optionText": "син Романа Мстиславича"
+      },
+      "reason": "Данило Романович — син Романа Мстиславича, не угорський король.",
+      "expectedRowSha256": "acb6fb30df316a761439f3870dfd4cf0ec3d9f800370c9ff39007244603730af",
+      "optionsSha256": "814352073e71eb9464ae13e9f92a11117fbfdf26655314343256bdb53201b949",
+      "application": "Separate owner approval and full row/usage preflight required. Do not re-import a protected lesson or overwrite attempts."
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e06",
+      "topicId": "hist-galicia-sub-01",
+      "severity": "BLOCKER",
+      "status": "PROPOSED_ONLY_NOT_APPLIED",
+      "before": {
+        "prompt": "Коронація Данила Галицького як короля —:",
+        "explanation": "1253 — королівська корона.",
+        "correctAnswer": "5b956287-b401-4c6f-b38a-715248aaa9f6",
+        "optionText": "1199 р.",
+        "verificationStatus": "VERIFIED"
+      },
+      "proposed": {
+        "correctAnswer": "0b9adabd-8a7e-4313-92f1-8815ed2d68be",
+        "optionLabel": "А",
+        "optionText": "1253 р."
+      },
+      "reason": "Коронація Данила традиційно датується 1253, а не 1199 роком.",
+      "expectedRowSha256": "469b0ba741a047f6387edd15b62ad7c2e1df0a7cae9003ddd90ce49850d9fbc9",
+      "optionsSha256": "2c1755bd741d90b4b78d69ae3d44578beb5e4006ea62415ba709444472b33324",
+      "application": "Separate owner approval and full row/usage preflight required. Do not re-import a protected lesson or overwrite attempts."
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e07",
+      "topicId": "hist-galicia-sub-01",
+      "severity": "BLOCKER",
+      "status": "PROPOSED_ONLY_NOT_APPLIED",
+      "before": {
+        "prompt": "До об’єднання Галич і Волинь були:",
+        "explanation": "Суперництво князівств у XII столітті.",
+        "correctAnswer": "56b5c1f0-bcb0-4e55-9fd2-666e680f4364",
+        "optionText": "частиною Риму",
+        "verificationStatus": "VERIFIED"
+      },
+      "proposed": {
+        "correctAnswer": "fd964287-2745-461c-9306-60923af8cb62",
+        "optionLabel": "Б",
+        "optionText": "окремими політичними центрами"
+      },
+      "reason": "Галич і Волинь були окремими політичними центрами, не частинами Риму.",
+      "expectedRowSha256": "b8aeb6320e873a314adf029edf89d7eaea6a6ec1e4c76a82ec7a20e7cae6fd24",
+      "optionsSha256": "afe5aefb48c93bca925daf8a8001e1600597f933a03f61e65b8af44fc29a0def",
+      "application": "Separate owner approval and full row/usage preflight required. Do not re-import a protected lesson or overwrite attempts."
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e11",
+      "topicId": "hist-galicia-sub-01",
+      "severity": "BLOCKER",
+      "status": "PROPOSED_ONLY_NOT_APPLIED",
+      "before": {
+        "prompt": "Після 1205 на Галицько-Волинь:",
+        "explanation": "Нестабільність після смерті Романа.",
+        "correctAnswer": "269dde78-5d22-4a85-b0ed-6a4f1cc7b715",
+        "optionText": "землі увійшли до Візантії",
+        "verificationStatus": "VERIFIED"
+      },
+      "proposed": {
+        "correctAnswer": "ef6da22f-0946-47a2-bf0a-091a11e375e0",
+        "optionLabel": "Б",
+        "optionText": "тривала боротьба за спадщину"
+      },
+      "reason": "Після загибелі Романа 1205 року тривала боротьба за спадщину, а не входження до Візантії.",
+      "expectedRowSha256": "408b6c6272c5ad9ec7e097ce1b8b3a474835d87d067e90952998ac14c032dd26",
+      "optionsSha256": "11da52635b249b4b9ace9618bf6bf06731348b05ff21d93bab71294410f19cdd",
+      "application": "Separate owner approval and full row/usage preflight required. Do not re-import a protected lesson or overwrite attempts."
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e12",
+      "topicId": "hist-galicia-sub-01",
+      "severity": "BLOCKER",
+      "status": "PROPOSED_ONLY_NOT_APPLIED",
+      "before": {
+        "prompt": "1253 р. для Данила означає:",
+        "explanation": "Коронація короля.",
+        "correctAnswer": "eb32d3a5-852b-48b6-98bc-9714d1487d04",
+        "optionText": "хрещення Русі",
+        "verificationStatus": "VERIFIED"
+      },
+      "proposed": {
+        "correctAnswer": "3752e989-b3ea-490a-acad-051b69b8815a",
+        "optionLabel": "Б",
+        "optionText": "отримання королівського титулу"
+      },
+      "reason": "1253 рік пов’язаний із королівським титулом Данила, а не хрещенням Русі.",
+      "expectedRowSha256": "1201c91d2366597bb0c27487f2230f43bd468b9d8223e4eec672a8c29d67642d",
+      "optionsSha256": "b4c1e700158352101f2be8b7fc6ed5dac279a9788fe333a362a457c74f97e5f0",
+      "application": "Separate owner approval and full row/usage preflight required. Do not re-import a protected lesson or overwrite attempts."
+    },
+    {
+      "id": "s7a-bio-cell-sec-01-h02",
+      "topicId": "bio-cell-sec-01",
+      "severity": "BLOCKER",
+      "status": "PROPOSED_ONLY_NOT_APPLIED",
+      "before": {
+        "prompt": "Велика центральна вакуоля з turgor-тиском характерна для:",
+        "explanation": "Вакуоля зберігає воду, підтримує форму рослинної клітини.",
+        "correctAnswer": "5225ff98-1cc7-494e-87d2-fe77cfa1974b",
+        "optionText": "бактерій",
+        "verificationStatus": "VERIFIED"
+      },
+      "proposed": {
+        "correctAnswer": "27be72c9-7fab-4bbc-a855-f1f07e5b3a64",
+        "optionLabel": "Б",
+        "optionText": "рослин"
+      },
+      "reason": "Велика центральна вакуоля характерна для рослинної клітини, не бактерій.",
+      "expectedRowSha256": "296047d716bbe47e918b6c8460653f91edfbea9db34e64a518baa09729783672",
+      "optionsSha256": "ecaec2731811f4f3c79870cf745869a099d5ffef2642d98fca551ee83d56e7df",
+      "application": "Separate owner approval and full row/usage preflight required. Do not re-import a protected lesson or overwrite attempts."
+    },
+    {
+      "id": "s7a-bio-cell-sec-01-m03",
+      "topicId": "bio-cell-sec-01",
+      "severity": "BLOCKER",
+      "status": "PROPOSED_ONLY_NOT_APPLIED",
+      "before": {
+        "prompt": "Лізosomes найхарактерніші для:",
+        "explanation": "Лізosomes — внутрішньоклітинне травлення у багатьох тваринних клітинах.",
+        "correctAnswer": "bbc9324e-80c2-4996-9eaa-2f415f9e9a72",
+        "optionText": "вірусів",
+        "verificationStatus": "VERIFIED"
+      },
+      "proposed": {
+        "correctAnswer": "c5269d19-4440-49a0-b291-ab006133ccc7",
+        "optionLabel": "Б",
+        "optionText": "тваринних клітин"
+      },
+      "reason": "Лізосоми забезпечують внутрішньоклітинне травлення у багатьох тваринних клітинах; у вірусів таких органел немає.",
+      "expectedRowSha256": "d7c2e26b6ae625841562978b31fb7cb61dc82d7e936df191b98e49444fc076bf",
+      "optionsSha256": "44d527c802cf0d2f71e5b44e5ab663b358657feceef44b54a9ea72673330cd6a",
+      "application": "Separate owner approval and full row/usage preflight required. Do not re-import a protected lesson or overwrite attempts."
+    },
+    {
+      "id": "s7a-bio-cell-sec-01-m04",
+      "topicId": "bio-cell-sec-01",
+      "severity": "BLOCKER",
+      "status": "PROPOSED_ONLY_NOT_APPLIED",
+      "before": {
+        "prompt": "ДНК прокаріота розташована:",
+        "explanation": "У прокаріотів немає ядра — ДНК у нуклеоїді.",
+        "correctAnswer": "a7853663-2798-4242-b80a-adfff3d5e4c3",
+        "optionText": "в хлоропластах",
+        "verificationStatus": "VERIFIED"
+      },
+      "proposed": {
+        "correctAnswer": "8753975b-c33c-4c94-a854-b10728644721",
+        "optionLabel": "Б",
+        "optionText": "у нуклеоїді"
+      },
+      "reason": "Основна хромосомна ДНК прокаріотів міститься в нуклеоїді; хлоропластів у них немає. Плазмідна ДНК потребує уточнення умови.",
+      "expectedRowSha256": "8e6b743db3029b88faab56e26f5c7c9d60dda879b87e7ec55f2476569ff4745c",
+      "optionsSha256": "be21fddfc141302e423c77400b344a8b3581e595b90873b93bbb16b97d812b2b",
+      "application": "Separate owner approval and full row/usage preflight required. Do not re-import a protected lesson or overwrite attempts."
+    },
+    {
+      "id": "s7a-zcode-biology-molecular-02-e03",
+      "topicId": "zcode-biology-molecular-02",
+      "severity": "BLOCKER",
+      "status": "PROPOSED_ONLY_NOT_APPLIED",
+      "before": {
+        "prompt": "У РНК замість тиміну входить:",
+        "explanation": "У — аналог T у РНК.",
+        "correctAnswer": "65b2b612-c082-44f9-8561-f2c90a35426f",
+        "optionText": "цитозин",
+        "verificationStatus": "VERIFIED"
+      },
+      "proposed": {
+        "correctAnswer": "be7ae2b0-84da-4da6-9f14-115dd60af52f",
+        "optionLabel": "Б",
+        "optionText": "урацил (U)"
+      },
+      "reason": "У РНК замість тиміну зазвичай міститься урацил, а не цитозин.",
+      "expectedRowSha256": "ad38b35f1c8fd15dc0aca2e77792dab1bb34939b7a137786aa895f979cd64fa5",
+      "optionsSha256": "bc176b834e92793e685f0d92d5f8617992e9a2b38eab77524a63bea798fa276a",
+      "application": "Separate owner approval and full row/usage preflight required. Do not re-import a protected lesson or overwrite attempts."
+    },
+    {
+      "id": "s7a-zcode-biology-molecular-02-m03",
+      "topicId": "zcode-biology-molecular-02",
+      "severity": "BLOCKER",
+      "status": "PROPOSED_ONLY_NOT_APPLIED",
+      "before": {
+        "prompt": "Мітоз дає:",
+        "explanation": "Вегетативне ділення зі збереженням 2n.",
+        "correctAnswer": "ec84deb2-002a-4d3d-9843-8e19757ed0de",
+        "optionText": "лише статеві клітини",
+        "verificationStatus": "VERIFIED"
+      },
+      "proposed": {
+        "correctAnswer": "c39cb1be-d59e-406d-9823-0c0b8cd67e1a",
+        "optionLabel": "Б",
+        "optionText": "дві однакові 2n-клітини"
+      },
+      "reason": "Для диплоїдної материнської клітини мітоз зберігає плоїдність: дві 2n-клітини; не лише статеві клітини. Умову треба явно обмежити диплоїдною клітиною.",
+      "expectedRowSha256": "a30183e00528d00fe3f133d88c30c7ad6888c775fa20926dba19cde03965ec73",
+      "optionsSha256": "d4314bd86e31e8096cfc048f9f91f777e000c0716bd43f88b3ca532e23a070a8",
+      "application": "Separate owner approval and full row/usage preflight required. Do not re-import a protected lesson or overwrite attempts."
+    },
+    {
+      "id": "s7a-zcode-biology-molecular-02-m04",
+      "topicId": "zcode-biology-molecular-02",
+      "severity": "BLOCKER",
+      "status": "PROPOSED_ONLY_NOT_APPLIED",
+      "before": {
+        "prompt": "Мейоз характерний для:",
+        "explanation": "Редукційний поділ для статевих клітин.",
+        "correctAnswer": "c880f20f-d32f-44a8-8852-b7280f7936e7",
+        "optionText": "фотосинтезу",
+        "verificationStatus": "VERIFIED"
+      },
+      "proposed": {
+        "correctAnswer": "3621462a-2924-4155-9481-53f308e44e5f",
+        "optionLabel": "Б",
+        "optionText": "утворення статевих клітин"
+      },
+      "reason": "Серед наведених процесів мейоз пов’язаний з утворенням гамет у тварин, не фотосинтезом. Умову варто обмежити тваринами: у рослин мейоз утворює спори.",
+      "expectedRowSha256": "62436305dca5351b7ae22ddd042ff68216622d23bcba5552fa15afcc6a13c2ff",
+      "optionsSha256": "33d51f400349d2dd8d48266e6cd11acb8bc4fb65a3ec3d1506ec3473069f0ba8",
+      "application": "Separate owner approval and full row/usage preflight required. Do not re-import a protected lesson or overwrite attempts."
+    }
+  ],
+  "rewrites": [
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e04",
+      "topicId": "cm-history-slavs-sub-01",
+      "severity": "BLOCKER",
+      "status": "REWRITE_REQUIRED_NOT_SAFE_KEY_ONLY_FIX",
+      "prompt": "Анти згадуються як народ у регіоні:",
+      "currentKeyText": "Апеннін",
+      "reason": "Неправильний ключ поєднаний із нечітким або неточним очікуваним географічним/хронологічним формулюванням.",
+      "expectedRowSha256": "ca2188397f0ee56048b1b1ebcfbc4b1878c12c320f779397cfbc30f6684a56ed"
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e07",
+      "topicId": "cm-history-slavs-sub-01",
+      "severity": "BLOCKER",
+      "status": "REWRITE_REQUIRED_NOT_SAFE_KEY_ONLY_FIX",
+      "prompt": "Анти та Київська Русь:",
+      "currentKeyText": "античні греки",
+      "reason": "Неправильний ключ поєднаний із нечітким або неточним очікуваним географічним/хронологічним формулюванням.",
+      "expectedRowSha256": "62e7028566bd844602f8cf281cdaeb57290097d9c16c796b71f5a5d430dc3c8c"
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e08",
+      "topicId": "cm-history-slavs-sub-01",
+      "severity": "BLOCKER",
+      "status": "REWRITE_REQUIRED_NOT_SAFE_KEY_ONLY_FIX",
+      "prompt": "Етнонім «слов’яни» пов’язують із:",
+      "currentKeyText": "кельтським druid",
+      "reason": "Питання про етимологію містить недоведене або обернене запозичення; потрібна нова однозначна умова.",
+      "expectedRowSha256": "314e7074f0bdbb431f479cad5e30f2f5d54ed3cab1b30428d379c5fc02f6edfb"
+    },
+    {
+      "id": "s7a-cm-history-slavs-sub-01-e11",
+      "topicId": "cm-history-slavs-sub-01",
+      "severity": "BLOCKER",
+      "status": "REWRITE_REQUIRED_NOT_SAFE_KEY_ONLY_FIX",
+      "prompt": "Анти простягаються, за описами, від:",
+      "currentKeyText": "Тихого океану",
+      "reason": "Неправильний ключ поєднаний із нечітким або неточним очікуваним географічним/хронологічним формулюванням.",
+      "expectedRowSha256": "d8fe0055ca468d053564e2e690da538aa5e663572b1d7e8549820656d15356aa"
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e12",
+      "topicId": "ukr-ortho-sub-01",
+      "severity": "BLOCKER",
+      "status": "REWRITE_REQUIRED_NOT_SAFE_KEY_ONLY_FIX",
+      "prompt": "У «безперервний» корінь «перерв-» перевіряється словом:",
+      "currentKeyText": "пер",
+      "reason": "Неправильний ключ і необґрунтована сегментація кореня; перевірочне слово слід дібрати з явним наголосом.",
+      "expectedRowSha256": "8b77cf013baf65eea5220eba7f9812100c0b77affc9345c7acf277f0c65bc888"
+    }
+  ],
+  "additional": [
+    {
+      "id": "s7a-ukr-ortho-sub-01-e02",
+      "severity": "MAJOR",
+      "finding": "Пояснення «у вода наголос на о» хибне: вода́. Для перевірки о потрібне во́ди."
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e05",
+      "severity": "MAJOR",
+      "finding": "Пояснення «у земля наголос на е» хибне: земля́. Форма зе́млі без зазначення відмінка/наголосу неоднозначна."
+    },
+    {
+      "id": "s7a-ukr-ortho-sub-01-e10",
+      "severity": "MAJOR",
+      "finding": "Кілька варіантів чистий/чисто/чистка можуть бути перевірочними; потрібно явно позначити наголос і зробити одну правильну відповідь."
+    },
+    {
+      "id": "s7a-hist-galicia-sub-01-e09",
+      "severity": "MAJOR",
+      "finding": "«Данило почав правити» без уточнення території/етапу неоднозначне; 1238 стосується утвердження у Галичі, не всього початку політичної діяльності."
+    },
+    {
+      "id": "ukr-lex-01-q04",
+      "severity": "MAJOR",
+      "finding": "Вимагає лише «розгорнути підручник», тоді як ukr-lex-01-q12 прямо визнає «відкрити підручник» нормативним. Внутрішня суперечність; словникову перевірку необхідно завершити."
+    },
+    {
+      "id": "ukr-lex-02-q07",
+      "severity": "MAJOR",
+      "finding": "Пояснення називає гриб/грип омофонами, що суперечить нормі збереження дзвінкого б на кінці українського слова. Потрібне нормативне джерело й виправлення пояснення."
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth-q03",
+      "severity": "MINOR",
+      "finding": "Визначення кодона в ключі охоплює лише амінокислотні кодони; загальне визначення повинно враховувати стоп-кодони."
+    },
+    {
+      "id": "stage7-published-lessons",
+      "severity": "MAJOR",
+      "finding": "Скорочені пояснення «551», «спадкоємець», англомовні уламки рибosomes/гомologous не відповідають стандарту повноцінного навчального модуля."
+    }
+  ],
+  "sourceEvidence": [
+    {
+      "url": "https://testportal.gov.ua/programy-nmt/",
+      "scope": "Official syllabus links, not individual answer validation."
+    },
+    {
+      "url": "https://www.genome.gov/genetics-glossary/Uracil",
+      "scope": "U instead of T in RNA."
+    },
+    {
+      "url": "https://www.genome.gov/genetics-glossary/Ribonucleic-Acid-RNA",
+      "scope": "RNA structure."
+    },
+    {
+      "url": "https://www.history.org.ua/?termin=Danylo_Galycky",
+      "scope": "Danylo, son of Roman; verified via official institute article mirrored search result."
+    },
+    {
+      "url": "https://history.org.ua/JournALL/journal/journal_1991_10/journal_1991_10.pdf",
+      "scope": "Coronation 1253."
+    }
+  ],
+  "limitations": [
+    "This is a proposed correction list, not an executable working-DB updater.",
+    "Nineteen key conflicts plus five unsafe-to-fix-by-key questions; further defects may remain in 394 previously VERIFIED items.",
+    "No historic answer regrading authorized."
+  ]
+}

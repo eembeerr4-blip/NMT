@@ -20,6 +20,7 @@ export const ELECTIVE_SUBJECT_IDS = SUBJECTS.filter((subject) => subject.role ==
 export const SUBJECT_IDS: SubjectId[] = ["math", "ukrainian", "history", "biology"];
 
 export const COVERAGE_LABEL: Record<string, string> = {
+  DRAFT: "Чернетка",
   VERIFIED: "Перевірено",
   NEEDS_REVIEW: "Потребує перевірки",
   PARTIAL: "Потребує перевірки",
@@ -92,7 +93,6 @@ export const NAV = [
   { href: "/calendar", label: "Календар" },
   { href: "/mistakes", label: "Помилки" },
   { href: "/review", label: "Повторення" },
-  { href: "/notes", label: "Конспекти" },
   { href: "/settings", label: "Налаштування" },
 ] as const;
 
@@ -115,6 +115,7 @@ export type DaySlot = {
 };
 
 export type ScheduleConfig = {
+  externalPractice?: { enabled: boolean; days: number[]; durationMin: number };
   anchorMockDate: string;
   rotation: SubjectId[];
   days: Record<string, DaySlot[]>;

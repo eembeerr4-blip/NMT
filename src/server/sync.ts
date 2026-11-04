@@ -1,12 +1,63 @@
+import { practiceSchedule } from "@/lib/external-practice";
+import { syncExternalPractice } from "@/server/external-practice";
 import type { Prisma } from "@prisma/client";
 import { isAutoPlanned } from "@/lib/task-origin";
 import { cache } from "react";
 import { fitDailyLoad } from "@/lib/fit-daily-load";
-import { DEFAULT_SCHEDULE, type ScheduleConfig } from "@/lib/constants";
+import { DEFAULT_FORMAT, DEFAULT_SCHEDULE, type ScheduleConfig } from "@/lib/constants";
+
+function parseSettingsJson<T>(raw: string, fallback: T): T {
+  const trimmed = raw.trim();
+  if (!trimmed) return fallback;
+  try {
+    return JSON.parse(trimmed) as T;
+  } catch {
+    return fallback;
+  }
+}
 import { addDateKeys, dateKey, parseDateKey } from "@/lib/dates";
 import { prisma } from "@/lib/prisma";
 import { buildSlotsForDate, eachDate, windowFor, type TopicPick } from "@/lib/plan";
 import { getSessionUser } from "@/server/session";
+
+export async function ensureUserSettings(userId: string, db: Prisma.TransactionClient = prisma) {
+  const existing = await db.userSettings.findUnique({ where: { userId } });
+  if (existing) return existing;
+  const template = await db.userSettings.findUnique({ where: { id: "default" } });
+  if (template) {
+    return db.userSettings.create({
+      data: {
+        id: userId,
+        userId,
+        theme: template.theme,
+        examDate: template.examDate,
+        targetScore: template.targetScore,
+        masteryHighMin: template.masteryHighMin,
+        masteryMidMin: template.masteryMidMin,
+        mathPriority: template.mathPriority,
+        ukrainianPriority: template.ukrainianPriority,
+        historyPriority: template.historyPriority,
+        biologyPriority: template.biologyPriority,
+        timerEnabled: template.timerEnabled,
+        scheduleJson: template.scheduleJson,
+        formatJson: template.formatJson,
+        planStart: template.planStart,
+        dailyMinutes: template.dailyMinutes,
+        intensity: template.intensity,
+        preferredTime: template.preferredTime,
+        studyDaysJson: template.studyDaysJson,
+      },
+    });
+  }
+  return db.userSettings.create({
+    data: {
+      id: userId,
+      userId,
+      scheduleJson: JSON.stringify(DEFAULT_SCHEDULE),
+      formatJson: JSON.stringify(DEFAULT_FORMAT),
+    },
+  });
+}
 
 export async function getSettings(userId?: string, db: Prisma.TransactionClient = prisma) {
   const id = userId ?? (await getSessionUser())?.id;
@@ -16,9 +67,9 @@ export async function getSettings(userId?: string, db: Prisma.TransactionClient 
   if (!settings) throw new Error("Базу ще не заповнено. Запустіть npm run db:setup.");
   return {
     ...settings,
-    schedule: JSON.parse(settings.scheduleJson) as ScheduleConfig,
-    format: JSON.parse(settings.formatJson) as { year: number; officialFormatConfirmed: boolean; note: string; scales: Record<string, Record<string, { raw: number; rating: number }[]>> },
-    studyDays: JSON.parse(settings.studyDaysJson) as number[],
+    schedule: parseSettingsJson(settings.scheduleJson, DEFAULT_SCHEDULE),
+    format: parseSettingsJson(settings.formatJson, DEFAULT_FORMAT),
+    studyDays: parseSettingsJson(settings.studyDaysJson, [0, 1, 2, 3, 4, 5, 6]),
   };
 }
 
@@ -29,6 +80,8 @@ export async function syncPlanWithClient(userId?: string, db: Prisma.Transaction
   const ownerId = settings.userId;
   if (!ownerId) return;
   const schedule = settings.schedule.days ? settings.schedule : DEFAULT_SCHEDULE;
+  const externalEnabled = practiceSchedule(schedule).enabled;
+  if (externalEnabled) await syncExternalPractice(ownerId, db);
   const [topics, progress] = await Promise.all([
     db.topic.findMany({ select: { id: true, subjectId: true, title: true, status: true, sortOrder: true, parentId: true } }),
     db.userTopicProgress.findMany({ where: { userId: ownerId } }),
@@ -57,7 +110,7 @@ export async function syncPlanWithClient(userId?: string, db: Prisma.Transaction
   for (const day of eachDate(from, to)) {
     const dayTasks=existing.filter(t=>t.dateKey===day);
     const fixed=dayTasks.filter(t=>(!isAutoPlanned(t) || t.status==="DONE" || t.status==="IN_PROGRESS") && !["MOVED","SKIPPED","DROPPED"].includes(t.status)).reduce((sum,t)=>sum+t.durationMin,0);
-    const slots=settings.studyDays.includes(parseDateKey(day).getDay()) ? fitDailyLoad(buildSlotsForDate(day, schedule, picks, settings.planStart).filter(slot=>!dayTasks.some(t=>t.templateKey===slot.templateKey && ["DONE","IN_PROGRESS","MOVED","SKIPPED"].includes(t.status))), Math.max(0,settings.dailyMinutes-fixed)).filter(slot=>slot.durationMin>0 || slot.kind==="rest") : [];
+    const slots=settings.studyDays.includes(parseDateKey(day).getDay()) ? fitDailyLoad(buildSlotsForDate(day, schedule, picks, settings.planStart).filter(slot=>!externalEnabled || slot.kind!=="mock").filter(slot=>!dayTasks.some(t=>t.templateKey===slot.templateKey && ["DONE","IN_PROGRESS","MOVED","SKIPPED"].includes(t.status))), Math.max(0,settings.dailyMinutes-fixed)).filter(slot=>slot.durationMin>0 || slot.kind==="rest") : [];
     for(const task of dayTasks.filter(t=>isAutoPlanned(t) && t.status==="PLANNED" && !slots.some(slot=>slot.templateKey===t.templateKey))){
       await db.studyTask.update({where:{id:task.id},data:{status:"DROPPED",notes:"Автоплан: змінено навчальні дні або денний ліміт."}});
     }
@@ -81,7 +134,7 @@ export async function syncPlanWithClient(userId?: string, db: Prisma.Transaction
         continue;
       }
       if (current.status === "DROPPED" && current.notes.startsWith("Автоплан:")) { await db.studyTask.update({where:{id:current.id},data:{status:"PLANNED",notes:""}}); current.status="PLANNED"; }
-      if (current.status !== "PLANNED") continue;
+      if (current.status !== "PLANNED" || !isAutoPlanned(current)) continue;
       const same = current.subjectId === (slot.subjectId ?? null) && current.topicId === (slot.topicId ?? null) && current.title === slot.title && current.detail === slot.detail && current.durationMin === slot.durationMin;
       if (!same) {
         await db.studyTask.update({
@@ -120,13 +173,28 @@ async function shiftOverdue(userId: string, cap: number, studyDays: number[], db
     let cursor = today;
     for (let step = 0; step < 21; step += 1) {
       if (!studyDays.includes(parseDateKey(cursor).getDay())) { cursor = addDateKeys(cursor, 1); continue; }
-      const dayTasks = await db.studyTask.findMany({ where: { userId, dateKey: cursor, status: { in: ["PLANNED", "IN_PROGRESS"] } } });
+      const dayTasks = await db.studyTask.findMany({ where: { userId, dateKey: cursor, status: { in: ["PLANNED", "IN_PROGRESS", "DONE"] } } });
       const used = dayTasks.reduce((sum, item) => sum + item.durationMin, 0);
       if (used + task.durationMin <= cap) {
-        await db.studyTask.update({
-          where: { id: task.id },
-          data: { dateKey: cursor, movedFromId: task.movedFromId ?? task.id, notes: task.notes || "Автоматично перенесено на вільний день" },
-        }).catch(() => undefined);
+        // Keep the original date/key occupied, just as a manual move does.
+        // Claim and successor must commit together, including inside an existing transaction.
+        const move = async (tx: Prisma.TransactionClient) => {
+          const claimed = await tx.studyTask.updateMany({
+            where: { id: task.id, userId, dateKey: task.dateKey, status: "PLANNED", movedFromId: null },
+            data: { status: "MOVED" },
+          });
+          if (!claimed.count) return;
+          await tx.studyTask.create({
+            data: {
+              userId, dateKey: cursor, templateKey: `moved-${task.id}`, movedFromId: task.id,
+              subjectId: task.subjectId, topicId: task.topicId, title: task.title, detail: task.detail,
+              kind: task.kind, durationMin: task.durationMin, optional: task.optional, sortOrder: task.sortOrder,
+              status: "PLANNED", notes: task.notes || "Автоматично перенесено на вільний день",
+            },
+          });
+        };
+        if ("$transaction" in db) await (db as typeof prisma).$transaction(move);
+        else await move(db);
         break;
       }
       cursor = addDateKeys(cursor, 1);

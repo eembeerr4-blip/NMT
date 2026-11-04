@@ -1,0 +1,36 @@
+{
+  "name": "NMT Academy",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "forwardPorts": [3000],
+  "postCreateCommand": "npm ci && npx prisma generate",
+  "postStartCommand": "echo \"Use npm run dev with a disposable DATABASE_URL for local work. Never migrate the owner's working prisma/dev.db from Codespaces without approval.\"",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "github.copilot",
+        "github.copilot-chat",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "prisma.prisma",
+        "bradlc.vscode-tailwindcss",
+        "ms-playwright.playwright"
+      ],
+      "settings": {
+        "typescript.tsdk": "node_modules/typescript/lib",
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "containerEnv": {
+    "DATABASE_URL": "file:./codespaces-dev.db"
+  },
+  "remoteEnv": {
+    "DATABASE_URL": "file:./codespaces-dev.db"
+  },
+  "mounts": [],
+  "secrets": {},
+  "onCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
+}

@@ -1,0 +1,601 @@
+{
+  "phase": "2-full-content-review",
+  "reviewedAt": "2026-10-30",
+  "phase1Sha256": "91B0EAFE126BA54206D9C543C49415D0B140BC46705E98050FCA9D9A54DAD325",
+  "scope": "All24 keys/explanations, both lesson theory/rules/examples/summary/objectives/prerequisites/mistakes/sources/notes, Galicia timeline and cell-division SVG text/structure. No package mutations, DB or Git. SVG not visually rendered: subject accuracy assessment only.",
+  "overall": "PASS_WITH_EDITORIAL_NOTES",
+  "findings": [
+    {
+      "id": "H-THEORY-ORAL",
+      "severity": "MEDIUM",
+      "location": "history lesson.theory paragraph1",
+      "issue": "Unqualified 'записані спогади' can mean written memoirs, which convey information through text and are written sources under the very classification taught.",
+      "exactOld": "Усні — перекази, пісні, записані спогади.",
+      "exactNew": "Усні — перекази, пісні, усні розповіді очевидців, зокрема збережені в аудіо- чи відеозаписі. Спогади, викладені автором письмово, є писемним джерелом.",
+      "source": [
+        "https://www.loc.gov/programs/teachers/getting-started-with-primary-sources/guides/"
+      ]
+    },
+    {
+      "id": "B-SVG-LEGEND",
+      "severity": "LOW",
+      "location": "biology-cell-division.svg text y=340",
+      "issue": "'n — набори хромосом' is an imprecise definition. n denotes chromosome number of one haploid set; coefficients n/2n encode ploidy. c should name its reference rather than only relative quantity.",
+      "exactOld": "n — набори хромосом; c — відносна кількість ДНК",
+      "exactNew": "n — число хромосом гаплоїдного набору; c — вміст ДНК цього набору до реплікації",
+      "layoutNote": "Replacement longer: split into two lines or shorten label with equivalent accessible description; do not shrink illegibly.",
+      "source": [
+        "https://openstax.org/books/biology-2e/pages/11-1-the-process-of-meiosis"
+      ]
+    },
+    {
+      "id": "B10-MODEL",
+      "severity": "LOW",
+      "location": "s8-biology-foundation-10.prompt",
+      "issue": "Phase1 missing full dominance is resolved by shared theory paragraph2; answer remains correct. Add explicit qualification for standalone test reuse.",
+      "exactOld": "У Aa × Aa відібрано лише нащадків із домінантним фенотипом. Яка серед них імовірність Aa?",
+      "exactNew": "За повного домінування A над a у схрещуванні Aa × Aa відібрано лише нащадків із домінантним фенотипом. Яка серед них імовірність генотипу Aa?",
+      "source": [
+        "https://openstax.org/books/concepts-biology/pages/8-2-laws-of-inheritance"
+      ]
+    },
+    {
+      "id": "B-MODEL-COMPLETENESS",
+      "severity": "LOW",
+      "location": "biology lesson.theory paragraph2",
+      "issue": "Equal segregation is explicitly supplied in paragraph3 and independence later; no incorrect result. Model can state random fertilization and no new mutations to make diagnostic inference maximally explicit.",
+      "proposedAppend": "Передавання алелів і запліднення вважаємо випадковими; нові мутації та порушення розходження хромосом не враховуємо.",
+      "required": false
+    },
+    {
+      "id": "B-EXAMPLE-NOTATION",
+      "severity": "LOW",
+      "location": "biology lesson.examples[1].task",
+      "issue": "A_ notation used without local definition. Solution correctly interprets dominant phenotype; clarify task rather than expect unfamiliar shorthand.",
+      "exactOld": "Після схрещування A_ × aa народився aa. Який генотип першого з батьків за умов моделі?",
+      "exactNew": "Особину з домінантним фенотипом і невідомим генотипом (AA або Aa) схрестили з aa та отримали нащадка aa. Який генотип першого з батьків за умов моделі?"
+    },
+    {
+      "id": "H-CAUSAL-EVIDENCE",
+      "severity": "LOW",
+      "location": "history lesson.theory final paragraph",
+      "issue": "Question12 explanation correctly asks for evidence of mechanism; theory says only explanation. Align theory with evidence requirement.",
+      "exactOld": "причинний зв’язок потребує пояснення механізму.",
+      "exactNew": "причинний зв’язок потребує підтвердженого джерелами пояснення механізму впливу."
+    },
+    {
+      "id": "H-SOURCE-TRACEABILITY",
+      "severity": "LOW",
+      "location": "history lesson.sources",
+      "issue": "Programme link establishes curricular relevance, not factual support for source criticism or calendar conventions. Add precise public academic/official references.",
+      "proposedAdd": [
+        {
+          "title": "US Naval Observatory — межі століть і відсутність нульового року",
+          "url": "https://aa.usno.navy.mil/faq/millennium"
+        },
+        {
+          "title": "Library of Congress — аналіз історичних джерел",
+          "url": "https://www.loc.gov/programs/teachers/getting-started-with-primary-sources/guides/"
+        }
+      ]
+    },
+    {
+      "id": "B-SVG-SECOND-REPLICATION",
+      "severity": "LOW",
+      "location": "biology-cell-division.svg desc or meiosisII caption",
+      "issue": "Current transitions correct. Optional note prevents common inference that second division needs another replication.",
+      "proposedAppend": "Між мейозом I та мейозом II реплікації ДНК немає.",
+      "required": false
+    }
+  ],
+  "lessons": [
+    {
+      "subjectId": "biology",
+      "status": "PASS_WITH_NOTES",
+      "theory": "Correct: diploid autosomal two-allele model, full dominance, equal viability, haploid gametes, equal allele probabilities, Mendelian ratios, finite sample caveat, testcross inference, conditional probability, limits of simple human-trait examples. No numerical error.",
+      "rules": "All three correct.",
+      "examples": [
+        {
+          "index": 0,
+          "status": "PASS",
+          "ownDerivation": "(1/2)(1/2)=1/4=25%."
+        },
+        {
+          "index": 1,
+          "status": "PASS_WITH_NOTES",
+          "ownDerivation": "Dominant-phenotype parent must contribute a to aa child, hence Aa; define A_ shorthand."
+        },
+        {
+          "index": 2,
+          "status": "PASS",
+          "ownDerivation": "P(Aa|dominant)=(1/2)/(3/4)=2/3; Aa and aA are distinct equally likely gamete unions but same genotype."
+        }
+      ],
+      "summary": "Correct ratios and probability distinction.",
+      "otherFields": "Objectives, prerequisites and listed mistakes appropriate. Sources NHGRI Allele and autosomal recessive pages directly checked. No video claimed verified."
+    },
+    {
+      "subjectId": "history",
+      "status": "PASS_WITH_NOTES",
+      "theory": "Correct source overlap, criticism, corroboration, map-reading cautions, century formula floor((year-1)/100)+1 for CE, BCE ordering, no year zero, percentage denominator warning and causality distinction. Clarify oral vs written recorded memories.",
+      "rules": "All three correct.",
+      "examples": [
+        {
+          "index": 0,
+          "status": "PASS",
+          "ownDerivation": "1900 XIX;1901 XX."
+        },
+        {
+          "index": 1,
+          "status": "PASS",
+          "ownDerivation": "300 BCE before100 BCE before50 CE."
+        },
+        {
+          "index": 2,
+          "status": "PASS",
+          "ownDerivation": "Three reprints remain one originating testimony. Different origin alone not sufficient; independence should be checked."
+        }
+      ],
+      "summary": "Correct; 'independence more important than number of copies' is a useful heuristic, not a rule that independent sources are automatically truthful.",
+      "otherFields": "Objectives/prerequisites/mistakes appropriate for foundations. No claim this replaces period-specific NMT content. Programme entry point is insufficient as sole factual reference."
+    }
+  ],
+  "timeline": {
+    "file": "content/stage8/batch02/history-galicia-timeline.json",
+    "status": "PASS",
+    "events": [
+      {
+        "year": 1199,
+        "status": "PASS",
+        "reason": "Roman unification confirmed EIU Roman entry."
+      },
+      {
+        "year": 1205,
+        "status": "PASS",
+        "reason": "Roman death and ensuing struggle confirmed EIU Roman/Danylo."
+      },
+      {
+        "year": 1238,
+        "status": "PASS",
+        "reason": "Danylo regained Halych and restored father's principality per EIU; not his first political activity."
+      },
+      {
+        "year": 1245,
+        "status": "PASS",
+        "reason": "Yaroslav victory against rival and supporting boyar/Hungarian/Polish forces confirmed EIU. Wording important stage is cautious."
+      },
+      {
+        "year": 1253,
+        "status": "PASS",
+        "reason": "Coronation at Dorohychyn confirmed EIU and UINP; no unsupported exact day asserted."
+      },
+      {
+        "year": 1264,
+        "status": "PASS",
+        "reason": "Danylo death confirmed EIU; polity continued under successors."
+      }
+    ],
+    "causalityNote": "Correct. EIU explicitly says planned crusade did not take place, so coronation must not imply delivered Western military assistance.",
+    "exactFixes": [],
+    "optionalPrecision": {
+      "location": "events[5].distinction",
+      "old": "Не кінець існування всіх галицько-волинських земель",
+      "new": "Не припинення існування Галицько-Волинської держави"
+    },
+    "sources": [
+      "https://www.history.org.ua/?termin=Danylo_Galycky",
+      "https://www.history.org.ua/?termin=Roman_M",
+      "https://www.uinp.gov.ua/istorychnyy-kalendar/zhovten/7/1253-koronaciya-knyazya-danyla"
+    ],
+    "sourceAccess": "Danylo EIU full article accessible. Roman short supplied URL initially failed; full query reached via Danylo internal Roman link. Can normalize to stable termin links after access check.",
+    "maps": "No map assessed; stated map selection/rights pending remains pending."
+  },
+  "svg": {
+    "file": "content/stage8/batch02/biology-cell-division.svg",
+    "status": "PASS_WITH_NOTES",
+    "checks": [
+      "2n2c before replication and2n4c after replication correct.",
+      "Mitosis plus cytokinesis yields two2n2c cells in explicitly diploid model.",
+      "MeiosisI yields two n2c cells: homologs separated while chromatids remain joined.",
+      "MeiosisII yields four n1c products with no intervening replication.",
+      "Oogenesis and other lifecycle caveat prevents universal four-equivalent-gamete claim.",
+      "Description honestly says genetic variability is not drawn."
+    ],
+    "limitations": "Static source accuracy only; no rendered layout or browser/accessibility verification.",
+    "source": [
+      "https://openstax.org/books/biology-2e/pages/11-1-the-process-of-meiosis",
+      "https://openstax.org/books/biology-2e/pages/10-2-the-cell-cycle"
+    ]
+  },
+  "questions": [
+    {
+      "id": "s8-biology-foundation-01",
+      "derivedAnswer": "А",
+      "proposedAnswer": "А",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "Aa містить різні алелі. AA й aa — гомозиготи. A — запис одного алеля, а не диплоїдного генотипу.",
+      "explanationStatus": "PASS",
+      "reasoning": "Aa has unlike alleles. AA/aa are homozygotes; A is not a diploid genotype.",
+      "suggestedDifficulty": "EASY",
+      "distractorNotes": [],
+      "status": "PASS"
+    },
+    {
+      "id": "s8-biology-foundation-02",
+      "derivedAnswer": "Г",
+      "proposedAnswer": "Г",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "Гамета несе один алель. У генотипі aa обидва алелі однакові, тому всі гамети несуть a.",
+      "explanationStatus": "PASS",
+      "reasoning": "Haploid gametes get one a from aa. A is absent; Aa/AA are diploid combinations.",
+      "suggestedDifficulty": "EASY",
+      "distractorNotes": [],
+      "status": "PASS"
+    },
+    {
+      "id": "s8-biology-foundation-03",
+      "derivedAnswer": "В",
+      "proposedAnswer": "В",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "Домінування описує фенотип гетерозиготи. З нього не випливають частота або корисність алеля; рецесивний алель зберігається.",
+      "explanationStatus": "PASS",
+      "reasoning": "Full dominance yields dominant phenotype in Aa. It implies neither disappearance, benefit nor higher frequency.",
+      "suggestedDifficulty": "EASY",
+      "distractorNotes": [],
+      "status": "PASS"
+    },
+    {
+      "id": "s8-biology-foundation-04",
+      "derivedAnswer": "Б",
+      "proposedAnswer": "Б",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "Перший із батьків дає A, другий a. Кожне поєднання — Aa; алелі не зливаються й не зникають.",
+      "explanationStatus": "PASS",
+      "reasoning": "Only A gametes and a gametes unite: every child is Aa. Other outcomes require unavailable gametes.",
+      "suggestedDifficulty": "EASY",
+      "distractorNotes": [],
+      "status": "PASS"
+    },
+    {
+      "id": "s8-biology-foundation-05",
+      "derivedAnswer": "А",
+      "proposedAnswer": "А",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "Поєднання AA, Aa, aA, aa рівноймовірні. Два середні записи — той самий гетерозиготний генотип, тож 1:2:1.",
+      "explanationStatus": "PASS",
+      "reasoning": "Own enumeration AA,Aa,aA,aa yields 1:2:1; other options omit heterozygotes or confuse genotype and phenotype.",
+      "suggestedDifficulty": "EASY",
+      "distractorNotes": [
+        "MEDIUM generous for direct Punnett-square recall."
+      ],
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-biology-foundation-06",
+      "derivedAnswer": "Г",
+      "proposedAnswer": "Г",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "AA та обидва варіанти Aa мають домінантний фенотип; aa — рецесивний. Проміжний фенотип не відповідає умові повного домінування.",
+      "explanationStatus": "PASS",
+      "reasoning": "Three of AA,Aa,Aa,aa express dominance: 3:1. Intermediate phenotype requires incomplete dominance; 1:1 is testcross.",
+      "suggestedDifficulty": "EASY",
+      "distractorNotes": [
+        "MEDIUM generous for direct explicitly qualified recall."
+      ],
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-biology-foundation-07",
+      "derivedAnswer": "В",
+      "proposedAnswer": "В",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "Перший із батьків передає a з імовірністю 1/2, другий завжди a. Отже aa: 1/2·1=1/2.",
+      "explanationStatus": "PASS",
+      "reasoning": "Own calculation: Aa supplies a with 1/2, aa with 1, hence 1/2. Other fractions incorrect.",
+      "suggestedDifficulty": "EASY",
+      "distractorNotes": [
+        "One-step testcross calculation fits EASY."
+      ],
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-biology-foundation-08",
+      "derivedAnswer": "Б",
+      "proposedAnswer": "Б",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "Випадкові відхилення можливі в малій вибірці. Співвідношення 3:1 описує очікування, а не гарантований склад кожної четвірки.",
+      "explanationStatus": "PASS",
+      "reasoning": "1/4 is per independent offspring, not a four-birth quota. aa is possible; no ordering rule applies.",
+      "suggestedDifficulty": "MEDIUM",
+      "distractorNotes": [],
+      "status": "PASS"
+    },
+    {
+      "id": "s8-biology-foundation-09",
+      "derivedAnswer": {
+        "1": "А",
+        "2": "Б",
+        "3": "В",
+        "4": "Г"
+      },
+      "proposedAnswer": {
+        "1": "А",
+        "2": "Б",
+        "3": "В",
+        "4": "Г"
+      },
+      "keyMatchesBlind": true,
+      "explanationReviewed": "AA не передає a, тому 0. Aa × aa дає 1/2. Aa × Aa дає 1/4. aa × aa завжди дає aa. Значення 3/4 стосується домінантного фенотипу Aa × Aa, а не генотипу aa.",
+      "explanationStatus": "PASS",
+      "reasoning": "Own enumeration gives P(aa)=0,1/2,1/4,1 respectively. 3/4 unused; unique mapping.",
+      "suggestedDifficulty": "MEDIUM",
+      "distractorNotes": [],
+      "status": "PASS"
+    },
+    {
+      "id": "s8-biology-foundation-10",
+      "derivedAnswer": "Г",
+      "proposedAnswer": "Г",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "Після відбору лишаються AA, Aa, aA. Два з трьох рівноймовірних поєднань гетерозиготні. Знаменник 4 більше не відповідає відібраній групі.",
+      "explanationStatus": "PASS",
+      "reasoning": "Under full dominance selected possibilities AA,Aa,Aa yield own conditional calculation (1/2)/(3/4)=2/3. Other choices are unconditioned probabilities.",
+      "suggestedDifficulty": "HARD",
+      "distractorNotes": [
+        "Standalone stem omits full dominance. Add it unless persistent shared model clearly supplies it."
+      ],
+      "status": "PASS_WITH_NOTES",
+      "phase2Resolution": "Shared lesson explicitly supplies full dominance. No ambiguity within this model; standalone stem improvement remains recommended."
+    },
+    {
+      "id": "s8-biology-foundation-11",
+      "derivedAnswer": "В",
+      "proposedAnswer": "В",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "Для кожного aa має ймовірність 1/4. Для двох незалежних випадків обидва: 1/4·1/4=1/16, а не сума ймовірностей.",
+      "explanationStatus": "PASS",
+      "reasoning": "Own calculation: (1/4)^2=1/16 for two independent aa offspring. Alternatives are erroneous events or arithmetic.",
+      "suggestedDifficulty": "MEDIUM",
+      "distractorNotes": [
+        "HARD inflated for one multiplication with independence explicit."
+      ],
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-biology-foundation-12",
+      "derivedAnswer": "Б",
+      "proposedAnswer": "Б",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "Рецесивний нащадок отримав a від кожного з батьків. У досліджуваного батька є також A, бо фенотип домінантний. Отже Aa, а не AA.",
+      "explanationStatus": "PASS",
+      "reasoning": "aa child received a from unknown parent. Dominant phenotype allows AA or Aa; contribution a excludes AA. No post-birth allele creation.",
+      "suggestedDifficulty": "MEDIUM",
+      "distractorNotes": [
+        "HARD inflated for direct testcross inference."
+      ],
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-history-foundation-01",
+      "derivedAnswer": "А",
+      "proposedAnswer": "А",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "Посудина — матеріальний залишок діяльності. В умові немає тексту, усної розповіді чи статистичного підрахунку.",
+      "explanationStatus": "PASS",
+      "reasoning": "Uninscribed vessel is a material artefact, neither text nor speech. Statistics inferred from artefacts are not its source category.",
+      "suggestedDifficulty": "EASY",
+      "distractorNotes": [],
+      "status": "PASS"
+    },
+    {
+      "id": "s8-history-foundation-02",
+      "derivedAnswer": "Г",
+      "proposedAnswer": "Г",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "Лист передає повідомлення письмом. Інші названі об’єкти без текстового компонента є речовими джерелами.",
+      "explanationStatus": "PASS",
+      "reasoning": "Letter text conveys information through writing; axe, form, foundation supply physical evidence. Stem specifies channel clearly.",
+      "suggestedDifficulty": "EASY",
+      "distractorNotes": [],
+      "status": "PASS"
+    },
+    {
+      "id": "s8-history-foundation-03",
+      "derivedAnswer": "В",
+      "proposedAnswer": "В",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "XX століття охоплює 1901–2000 роки. 1991 лежить у цих межах; XXI починається з 2001.",
+      "explanationStatus": "PASS",
+      "reasoning": "1991 is in 1901–2000: century XX; all other offered centuries exclude it.",
+      "suggestedDifficulty": "EASY",
+      "distractorNotes": [],
+      "status": "PASS"
+    },
+    {
+      "id": "s8-history-foundation-04",
+      "derivedAnswer": "Б",
+      "proposedAnswer": "Б",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "I століття почалося з 1 року, тому нове століття починається роком із кінцевими 01. 2000 завершує XX століття.",
+      "explanationStatus": "PASS",
+      "reasoning": "XXI spans 2001–2100. 2000 closes XX, 2100 is last, 1999 earlier.",
+      "suggestedDifficulty": "EASY",
+      "distractorNotes": [],
+      "status": "PASS"
+    },
+    {
+      "id": "s8-history-foundation-05",
+      "derivedAnswer": "А",
+      "proposedAnswer": "А",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "У літочисленні до нашої ери більші номери віддаленіші в минуле. Тому 700 рік передує 500, 100 і 1 рокам до н. е.",
+      "explanationStatus": "PASS",
+      "reasoning": "BCE years progress 700,500,100,1 toward CE: largest number earliest.",
+      "suggestedDifficulty": "EASY",
+      "distractorNotes": [
+        "Simple reverse ordering fits EASY."
+      ],
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-history-foundation-06",
+      "derivedAnswer": "Г",
+      "proposedAnswer": "Г",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "XVII століття — 1601–1700 роки. Круглий 1700 рік завершує XVII, а XVIII починається з 1701.",
+      "explanationStatus": "PASS",
+      "reasoning": "XVII spans 1601–1700 inclusive; XVIII starts 1701. Other options exclude 1700.",
+      "suggestedDifficulty": "EASY",
+      "distractorNotes": [
+        "One-step boundary classification; EASY or lower MEDIUM."
+      ],
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-history-foundation-07",
+      "derivedAnswer": "В",
+      "proposedAnswer": "В",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "Час і легенда визначають, яку територію та які об’єкти показано. Сучасна назва сама по собі не задає кордонів минулого.",
+      "explanationStatus": "PASS",
+      "reasoning": "Period, title, legend establish represented borders and symbols. Modern name alone is insufficient; cover colour/page count irrelevant.",
+      "suggestedDifficulty": "EASY",
+      "distractorNotes": [
+        "MEDIUM inflated by plainly irrelevant distractors."
+      ],
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-history-foundation-08",
+      "derivedAnswer": "Б",
+      "proposedAnswer": "Б",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "Агітаційна мета сама є важливою відомістю. Правдивість обіцянок перевіряють іншими даними, а не самим плакатом.",
+      "explanationStatus": "PASS",
+      "reasoning": "Agitation poster evidences attempted persuasion. Neither neutrality nor truth follows; propaganda is usable historical evidence.",
+      "suggestedDifficulty": "EASY",
+      "distractorNotes": [
+        "MEDIUM inflated by absolute/false distractors; no actual poster analysed."
+      ],
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-history-foundation-09",
+      "derivedAnswer": [
+        "Б",
+        "В",
+        "А",
+        "Г"
+      ],
+      "proposedAnswer": [
+        "Б",
+        "В",
+        "А",
+        "Г"
+      ],
+      "keyMatchesBlind": true,
+      "explanationReviewed": "Спочатку 300 до н. е., потім 100 до н. е.; далі 50 н. е. і 1901 н. е. У частині до нашої ери більший номер давніший.",
+      "explanationStatus": "PASS",
+      "reasoning": "300 BCE,100 BCE,50 CE,1901 CE. Conventional chronology has 1 BCE directly followed by 1 CE: no year zero.",
+      "suggestedDifficulty": "MEDIUM",
+      "distractorNotes": [],
+      "status": "PASS"
+    },
+    {
+      "id": "s8-history-foundation-10",
+      "derivedAnswer": "Г",
+      "proposedAnswer": "Г",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "Копії мають спільне походження. Незалежне джерело дозволяє зіставити свідчення; кількість передруків не усуває первісної помилки.",
+      "explanationStatus": "PASS",
+      "reasoning": "Four reprints derive from one diary, not independent witnesses. Another-origin source can corroborate or challenge claims; more copies/changed dates cannot.",
+      "suggestedDifficulty": "EASY",
+      "distractorNotes": [
+        "HARD strongly inflated; changed cover date absurd. Different origin still requires independence/reliability checks."
+      ],
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-history-foundation-11",
+      "derivedAnswer": "В",
+      "proposedAnswer": "В",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "Пізніший автор може користуватися цінними джерелами, але не стає очевидцем. Висновок залежить від походження відомостей і перевірки.",
+      "explanationStatus": "PASS",
+      "reasoning": "Non-eyewitness reconstruction can use evidence. Check underlying sources; lateness proves neither total unreliability nor automatic superiority, nor eyewitness status.",
+      "suggestedDifficulty": "EASY",
+      "distractorNotes": [
+        "HARD strongly inflated by absolute/self-contradictory distractors."
+      ],
+      "status": "PASS_WITH_NOTES"
+    },
+    {
+      "id": "s8-history-foundation-12",
+      "derivedAnswer": "Б",
+      "proposedAnswer": "Б",
+      "keyMatchesBlind": true,
+      "explanationReviewed": "Часова першість необхідна для багатьох причинних пояснень, але сама не доводить причинності. Потрібні свідчення механізму впливу.",
+      "explanationStatus": "PASS",
+      "reasoning": "Precedence alone is not causation. Evidence for a mechanism whereby A contributed to B is missing. Unrelated prose, repeated chronology, alphabetic order cannot establish it.",
+      "suggestedDifficulty": "EASY",
+      "distractorNotes": [
+        "HARD strongly inflated. Mechanism must be evidence-supported, not merely asserted."
+      ],
+      "status": "PASS_WITH_NOTES"
+    }
+  ],
+  "difficultyNote": "Qualitative reviewer estimates. Reclassify easier items or redesign with plausible evidence-based distractors; do not force harder questions simply to fill three HARD slots.",
+  "exactDifficultyChanges": {
+    "s8-biology-foundation-05": "EASY",
+    "s8-biology-foundation-06": "EASY",
+    "s8-biology-foundation-07": "EASY",
+    "s8-biology-foundation-11": "MEDIUM",
+    "s8-biology-foundation-12": "MEDIUM",
+    "s8-history-foundation-05": "EASY",
+    "s8-history-foundation-06": "EASY",
+    "s8-history-foundation-07": "EASY",
+    "s8-history-foundation-08": "EASY",
+    "s8-history-foundation-10": "EASY",
+    "s8-history-foundation-11": "EASY",
+    "s8-history-foundation-12": "EASY"
+  },
+  "exactDistractorImprovements": [
+    {
+      "id": "s8-history-foundation-07",
+      "changes": {
+        "Б": "Масштаб карти без перевірки її дати",
+        "Г": "Межі на сучасній карті тієї самої території"
+      },
+      "note": "Unique correct answer remains В; removal of only cover/page trivia improves plausibility but does not establish MEDIUM."
+    },
+    {
+      "id": "s8-history-foundation-10",
+      "changes": {
+        "В": "Інша стаття, автор якої посилається лише на цей щоденник"
+      },
+      "note": "Correct Г unchanged; shared-source dependence becomes tested rather than absurd cover manipulation."
+    },
+    {
+      "id": "s8-history-foundation-12",
+      "changes": {
+        "Г": "Підтвердження того, що події А та Б відбулися в одному регіоні"
+      },
+      "note": "Correct Б unchanged; shared location is plausible insufficient causal evidence."
+    }
+  ],
+  "verificationLimitations": [
+    "No DB, Git, app changes or source package changes.",
+    "Not external human approval or formal psychometric calibration.",
+    "No rendered SVG QA.",
+    "Programme PDFs not fully verified in phase1; this does not establish coverage for a particular NMT year."
+  ],
+  "summary": {
+    "keysMatched": 24,
+    "explanationsCorrect": 24,
+    "questionsReviewed": 24,
+    "lessonsReviewed": 2,
+    "examplesReviewed": 6,
+    "timelineEventsReviewed": 6,
+    "subjectErrorsRequiringWrongKeyFix": 0
+  }
+}

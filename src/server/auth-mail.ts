@@ -1,4 +1,5 @@
 import "server-only";
+import { isLocalhostHttpUrl, isQaMailSinkEnabled } from "@/lib/qa-mail";
 
 const RESEND_URL = "https://api.resend.com/emails";
 const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (character) => ({
@@ -51,14 +52,10 @@ export async function sendAuthEmail(
     <p>Якщо ви не робили цей запит, просто ігноруйте лист.</p>
   </div>`;
   let endpoint = RESEND_URL;
-  if (process.env.AUTH_MAIL_QA_ENDPOINT) {
-    const target = new URL(process.env.AUTH_MAIL_QA_ENDPOINT);
-    const app = new URL(authBaseUrl());
-    if (!["localhost", "127.0.0.1"].includes(app.hostname) ||
-        !["localhost", "127.0.0.1"].includes(target.hostname) || target.protocol !== "http:") {
-      throw new Error("QA mail endpoint is allowed only on localhost");
-    }
-    endpoint = target.toString();
+  if (isQaMailSinkEnabled()) {
+    endpoint = new URL(process.env.AUTH_MAIL_QA_ENDPOINT!).toString();
+  } else if (process.env.AUTH_MAIL_QA_ENDPOINT && isLocalhostHttpUrl(process.env.AUTH_BASE_URL)) {
+    throw new Error("QA mail endpoint is misconfigured");
   }
   const response = await fetch(endpoint, {
     method: "POST",

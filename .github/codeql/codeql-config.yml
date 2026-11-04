@@ -1,0 +1,15 @@
+name: NMT Academy CodeQL
+paths:
+  - src
+  - scripts
+  - prisma
+paths-ignore:
+  - content
+  - docs
+  - audit
+  - design
+  - e2e
+  - "**/*.test.ts"
+  - "**/*.db.test.ts"
+  - "**/node_modules"
+  - "**/.next"

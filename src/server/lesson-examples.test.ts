@@ -1,0 +1,15 @@
+import {beforeEach,expect,it,vi} from "vitest";
+const m=vi.hoisted(()=>({user:{id:"learner",role:"STUDENT",onboarded:true,accountStatus:"APPROVED"},topic:vi.fn()}));
+vi.mock("@/lib/prisma",()=>({prisma:{topic:{findUnique:m.topic}}}));
+vi.mock("@/server/session",async()=>({...await vi.importActual<typeof import("@/server/session")>("@/server/session"),getSessionUser:async()=>m.user}));
+import {checkLessonExample,revealLessonExample} from "./lesson-examples";
+const example={task:"Question",solution:"PRIVATE SOLUTION",answerCheck:{type:"numeric",value:5,variable:"x"}};
+const topic=(coverage="READY",examples=[example])=>({coverage,lessonJson:JSON.stringify({objectives:[],theory:"Theory",examples})});
+beforeEach(()=>{m.user={id:"learner",role:"STUDENT",onboarded:true,accountStatus:"APPROVED"};m.topic.mockResolvedValue(topic());});
+it.each([["5",true],["x = 5",true],["4",false],["5oops",false]])("checks %s without returning the key",async(answer,correct)=>{const result=await checkLessonExample("topic",0,"Question",answer as string);expect(result).toEqual({ok:true,correct});expect(JSON.stringify(result)).not.toContain("PRIVATE");});
+it("returns the solution only on explicit disclosure",async()=>{expect(await revealLessonExample("topic",0,"Question")).toEqual({ok:true,solution:"PRIVATE SOLUTION"});});
+it.each(["STUDENT","EDITOR","ADMIN","OWNER"])("keeps draft preview explicit for %s",async role=>{m.user.role=role;m.topic.mockResolvedValue(topic("DRAFT"));expect((await checkLessonExample("topic",0,"Question","5")).ok).toBe(role!=="STUDENT");expect((await revealLessonExample("topic",0,"Question")).ok).toBe(role!=="STUDENT");});
+it("rejects pending learners, missing topics and stale reordered references",async()=>{m.user.accountStatus="PENDING";expect((await checkLessonExample("topic",0,"Question","5")).ok).toBe(false);m.user.accountStatus="APPROVED";m.topic.mockResolvedValue(null);expect((await checkLessonExample("topic",0,"Question","5")).ok).toBe(false);m.topic.mockResolvedValue(topic());expect((await checkLessonExample("topic",0,"Old question","5")).ok).toBe(false);expect((await checkLessonExample("topic",-1,"Question","5")).ok).toBe(false);});
+it("does not guess missing metadata and accepts explicit no-solution",async()=>{m.topic.mockResolvedValue(topic("READY",[{...example,answerCheck:undefined} as unknown as typeof example]));expect((await checkLessonExample("topic",0,"Question","5")).ok).toBe(false);m.topic.mockResolvedValue({coverage:"READY",lessonJson:JSON.stringify({objectives:[],theory:"Theory",examples:[{...example,answerCheck:{type:"no-solution"}}]})});expect(await checkLessonExample("topic",0,"Question","немає розв'язків")).toEqual({ok:true,correct:true});expect(await checkLessonExample("topic",0,"Question","5")).toEqual({ok:true,correct:false});});
+
+it("requires authentication before reading an example",async()=>{m.topic.mockClear();m.user=null as unknown as typeof m.user;expect((await checkLessonExample("topic",0,"Question","5")).ok).toBe(false);expect((await revealLessonExample("topic",0,"Question")).ok).toBe(false);expect(m.topic).not.toHaveBeenCalled();});

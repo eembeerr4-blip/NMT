@@ -1,0 +1,3065 @@
+{
+  "verifiedAt": "2026-10-27",
+  "provider": "ZNO Online · Освіта.ua",
+  "verification": "Public catalog link followed; metadata only, no copied questions. Counts from catalog, not maximum raw scores.",
+  "unavailable": [
+    {
+      "subjectId": "history",
+      "number": 30,
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v30/",
+      "reason": "Listed in catalog but page fetch failed; excluded from scheduling."
+    }
+  ],
+  "variants": [
+    {
+      "subjectId": "biology",
+      "number": 1,
+      "title": "Варіант №1",
+      "url": "https://zno.osvita.ua/multitest/tag-biology_nmt_tr_v1/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/biology/nmt.html"
+    },
+    {
+      "subjectId": "biology",
+      "number": 2,
+      "title": "Варіант №2",
+      "url": "https://zno.osvita.ua/multitest/tag-biology_nmt_tr_v2/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/biology/nmt.html"
+    },
+    {
+      "subjectId": "biology",
+      "number": 3,
+      "title": "Варіант №3",
+      "url": "https://zno.osvita.ua/multitest/tag-biology_nmt_tr_v3/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/biology/nmt.html"
+    },
+    {
+      "subjectId": "biology",
+      "number": 4,
+      "title": "Варіант №4",
+      "url": "https://zno.osvita.ua/multitest/tag-biology_nmt_tr_v4/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/biology/nmt.html"
+    },
+    {
+      "subjectId": "biology",
+      "number": 5,
+      "title": "Варіант №5",
+      "url": "https://zno.osvita.ua/multitest/tag-biology_nmt_tr_v5/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/biology/nmt.html"
+    },
+    {
+      "subjectId": "biology",
+      "number": 6,
+      "title": "Варіант №6",
+      "url": "https://zno.osvita.ua/multitest/tag-biology_nmt_tr_v6/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/biology/nmt.html"
+    },
+    {
+      "subjectId": "biology",
+      "number": 7,
+      "title": "Варіант №7",
+      "url": "https://zno.osvita.ua/multitest/tag-biology_nmt_tr_v7/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/biology/nmt.html"
+    },
+    {
+      "subjectId": "biology",
+      "number": 8,
+      "title": "Варіант №8",
+      "url": "https://zno.osvita.ua/multitest/tag-biology_nmt_tr_v8/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/biology/nmt.html"
+    },
+    {
+      "subjectId": "biology",
+      "number": 9,
+      "title": "Варіант №9",
+      "url": "https://zno.osvita.ua/multitest/tag-biology_nmt_tr_v9/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/biology/nmt.html"
+    },
+    {
+      "subjectId": "biology",
+      "number": 10,
+      "title": "Варіант №10",
+      "url": "https://zno.osvita.ua/multitest/tag-biology_nmt_tr_v10/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/biology/nmt.html"
+    },
+    {
+      "subjectId": "biology",
+      "number": 11,
+      "title": "Варіант №11",
+      "url": "https://zno.osvita.ua/multitest/tag-biology_nmt_tr_v11/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/biology/nmt.html"
+    },
+    {
+      "subjectId": "biology",
+      "number": 12,
+      "title": "Варіант №12",
+      "url": "https://zno.osvita.ua/multitest/tag-biology_nmt_tr_v12/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/biology/nmt.html"
+    },
+    {
+      "subjectId": "biology",
+      "number": 13,
+      "title": "Варіант №13",
+      "url": "https://zno.osvita.ua/multitest/tag-biology_nmt_tr_v13/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/biology/nmt.html"
+    },
+    {
+      "subjectId": "biology",
+      "number": 14,
+      "title": "Варіант №14",
+      "url": "https://zno.osvita.ua/multitest/tag-biology_nmt_tr_v14/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/biology/nmt.html"
+    },
+    {
+      "subjectId": "biology",
+      "number": 15,
+      "title": "Варіант №15",
+      "url": "https://zno.osvita.ua/multitest/tag-biology_nmt_tr_v15/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/biology/nmt.html"
+    },
+    {
+      "subjectId": "biology",
+      "number": 16,
+      "title": "Варіант №16",
+      "url": "https://zno.osvita.ua/multitest/tag-biology_nmt_tr_v16/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/biology/nmt.html"
+    },
+    {
+      "subjectId": "biology",
+      "number": 17,
+      "title": "Варіант №17",
+      "url": "https://zno.osvita.ua/multitest/tag-biology_nmt_tr_v17/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/biology/nmt.html"
+    },
+    {
+      "subjectId": "biology",
+      "number": 18,
+      "title": "Варіант №18",
+      "url": "https://zno.osvita.ua/multitest/tag-biology_nmt_tr_v18/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/biology/nmt.html"
+    },
+    {
+      "subjectId": "geography",
+      "number": 1,
+      "title": "Варіант №1",
+      "url": "https://zno.osvita.ua/multitest/tag-geography_nmt_tr_v1/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/geography/nmt.html"
+    },
+    {
+      "subjectId": "geography",
+      "number": 2,
+      "title": "Варіант №2",
+      "url": "https://zno.osvita.ua/multitest/tag-geography_nmt_tr_v2/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/geography/nmt.html"
+    },
+    {
+      "subjectId": "geography",
+      "number": 3,
+      "title": "Варіант №3",
+      "url": "https://zno.osvita.ua/multitest/tag-geography_nmt_tr_v3/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/geography/nmt.html"
+    },
+    {
+      "subjectId": "geography",
+      "number": 4,
+      "title": "Варіант №4",
+      "url": "https://zno.osvita.ua/multitest/tag-geography_nmt_tr_v4/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/geography/nmt.html"
+    },
+    {
+      "subjectId": "geography",
+      "number": 5,
+      "title": "Варіант №5",
+      "url": "https://zno.osvita.ua/multitest/tag-geography_nmt_tr_v5/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/geography/nmt.html"
+    },
+    {
+      "subjectId": "geography",
+      "number": 6,
+      "title": "Варіант №6",
+      "url": "https://zno.osvita.ua/multitest/tag-geography_nmt_tr_v6/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/geography/nmt.html"
+    },
+    {
+      "subjectId": "geography",
+      "number": 7,
+      "title": "Варіант №7",
+      "url": "https://zno.osvita.ua/multitest/tag-geography_nmt_tr_v7/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/geography/nmt.html"
+    },
+    {
+      "subjectId": "geography",
+      "number": 8,
+      "title": "Варіант №8",
+      "url": "https://zno.osvita.ua/multitest/tag-geography_nmt_tr_v8/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/geography/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 1,
+      "title": "Варіант №1",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v1/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 2,
+      "title": "Варіант №2",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v2/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 3,
+      "title": "Варіант №3",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v3/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 4,
+      "title": "Варіант №4",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v4/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 5,
+      "title": "Варіант №5",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v5/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 6,
+      "title": "Варіант №6",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v6/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 7,
+      "title": "Варіант №7",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v7/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 8,
+      "title": "Варіант №8",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v8/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 9,
+      "title": "Варіант №9",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v9/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 10,
+      "title": "Варіант №10",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v10/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 11,
+      "title": "Варіант №11",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v11/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 12,
+      "title": "Варіант №12",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v12/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 13,
+      "title": "Варіант №13",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v13/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 14,
+      "title": "Варіант №14",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v14/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 15,
+      "title": "Варіант №15",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v15/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 16,
+      "title": "Варіант №16",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v16/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 17,
+      "title": "Варіант №17",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v17/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 18,
+      "title": "Варіант №18",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v18/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 19,
+      "title": "Варіант №19",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v19/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 20,
+      "title": "Варіант №20",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v20/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 21,
+      "title": "Варіант №21",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v21/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 22,
+      "title": "Варіант №22",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v22/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 23,
+      "title": "Варіант №23",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v23/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 24,
+      "title": "Варіант №24",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v24/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 25,
+      "title": "Варіант №25",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v25/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 26,
+      "title": "Варіант №26",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v26/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 27,
+      "title": "Варіант №27",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v27/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 28,
+      "title": "Варіант №28",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v28/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "history",
+      "number": 29,
+      "title": "Варіант №29",
+      "url": "https://zno.osvita.ua/multitest/tag-ukraine_history_nmt_tr_v29/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukraine-history/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 1,
+      "title": "Варіант №1",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v1/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 2,
+      "title": "Варіант №2",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v2/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 3,
+      "title": "Варіант №3",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v3/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 4,
+      "title": "Варіант №4",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v4/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 5,
+      "title": "Варіант №5",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v5/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 6,
+      "title": "Варіант №6",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v6/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 7,
+      "title": "Варіант №7",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v7/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 8,
+      "title": "Варіант №8",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v8/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 9,
+      "title": "Варіант №9",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v9/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 10,
+      "title": "Варіант №10",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v10/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 11,
+      "title": "Варіант №11",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v11/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 12,
+      "title": "Варіант №12",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v12/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 13,
+      "title": "Варіант №13",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v13/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 14,
+      "title": "Варіант №14",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v14/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 15,
+      "title": "Варіант №15",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v15/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 16,
+      "title": "Варіант №16",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v16/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 17,
+      "title": "Варіант №17",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v17/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 18,
+      "title": "Варіант №18",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v18/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 19,
+      "title": "Варіант №19",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v19/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 20,
+      "title": "Варіант №20",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v20/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 21,
+      "title": "Варіант №21",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v21/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 22,
+      "title": "Варіант №22",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v22/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 23,
+      "title": "Варіант №23",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v23/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 24,
+      "title": "Варіант №24",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v24/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 25,
+      "title": "Варіант №25",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v25/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 26,
+      "title": "Варіант №26",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v26/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 27,
+      "title": "Варіант №27",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v27/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 28,
+      "title": "Варіант №28",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v28/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 29,
+      "title": "Варіант №29",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v29/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 30,
+      "title": "Варіант №30",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v30/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 31,
+      "title": "Варіант №31",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v31/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 32,
+      "title": "Варіант №32",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v32/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 33,
+      "title": "Варіант №33",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v33/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 34,
+      "title": "Варіант №34",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v34/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 35,
+      "title": "Варіант №35",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v35/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 36,
+      "title": "Варіант №36",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v36/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 37,
+      "title": "Варіант №37",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v37/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 38,
+      "title": "Варіант №38",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v38/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 39,
+      "title": "Варіант №39",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v39/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 40,
+      "title": "Варіант №40",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v40/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 41,
+      "title": "Варіант №41",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v41/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 42,
+      "title": "Варіант №42",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v42/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 43,
+      "title": "Варіант №43",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v43/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 44,
+      "title": "Варіант №44",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v44/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "math",
+      "number": 45,
+      "title": "Варіант №45",
+      "url": "https://zno.osvita.ua/multitest/tag-mathematics_nmt_tr_v45/",
+      "questionCount": 22,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/mathematics/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 1,
+      "title": "Варіант №1",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v1/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 2,
+      "title": "Варіант №2",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v2/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 3,
+      "title": "Варіант №3",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v3/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 4,
+      "title": "Варіант №4",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v4/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 5,
+      "title": "Варіант №5",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v5/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 6,
+      "title": "Варіант №6",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v6/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 7,
+      "title": "Варіант №7",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v7/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 8,
+      "title": "Варіант №8",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v8/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 9,
+      "title": "Варіант №9",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v9/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 10,
+      "title": "Варіант №10",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v10/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 11,
+      "title": "Варіант №11",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v11/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 12,
+      "title": "Варіант №12",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v12/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 13,
+      "title": "Варіант №13",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v13/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 14,
+      "title": "Варіант №14",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v14/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 15,
+      "title": "Варіант №15",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v15/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 16,
+      "title": "Варіант №16",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v16/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 17,
+      "title": "Варіант №17",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v17/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 18,
+      "title": "Варіант №18",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v18/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 19,
+      "title": "Варіант №19",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v19/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 20,
+      "title": "Варіант №20",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v20/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 21,
+      "title": "Варіант №21",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v21/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 22,
+      "title": "Варіант №22",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v22/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 23,
+      "title": "Варіант №23",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v23/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 24,
+      "title": "Варіант №24",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v24/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 25,
+      "title": "Варіант №25",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v25/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 26,
+      "title": "Варіант №26",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v26/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 27,
+      "title": "Варіант №27",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v27/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 28,
+      "title": "Варіант №28",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v28/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    },
+    {
+      "subjectId": "ukrainian",
+      "number": 29,
+      "title": "Варіант №29",
+      "url": "https://zno.osvita.ua/multitest/tag-ukrmova_nmt_tr_v29/",
+      "questionCount": 30,
+      "verifiedAt": "2026-10-27",
+      "sourceCatalog": "https://zno.osvita.ua/ukrmova/nmt.html"
+    }
+  ],
+  "collections": [
+    {
+      "subjectId": "ukrainian",
+      "title": "Склад. Наголос",
+      "questionCount": 61,
+      "url": "https://zno.osvita.ua/ukrmova/tag-sklad_nagolos_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Співвідношення звуків і букв",
+      "questionCount": 69,
+      "url": "https://zno.osvita.ua/ukrmova/tag-spivvidnoshennya_zvukiv_i_bukv/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Правопис літер, що позначають ненаголошені голосні е, и, о",
+      "questionCount": 31,
+      "url": "https://zno.osvita.ua/ukrmova/tag-pravopis_liter_sho_poznachayut_nenagolosheni_golosni_e_i_o/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Правопис префіксів",
+      "questionCount": 41,
+      "url": "https://zno.osvita.ua/ukrmova/tag-pravopis_prefiksiv/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Спрощення в групах приголосних",
+      "questionCount": 27,
+      "url": "https://zno.osvita.ua/ukrmova/tag-sproshennya_v_grupah_prigolosnih/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Зміни приголосних при творенні слів",
+      "questionCount": 21,
+      "url": "https://zno.osvita.ua/ukrmova/tag-zmini_prigolosnih_pri_tvorenni_sliv_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Апостроф",
+      "questionCount": 33,
+      "url": "https://zno.osvita.ua/ukrmova/tag-apostrof_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Мʼякий знак",
+      "questionCount": 37,
+      "url": "https://zno.osvita.ua/ukrmova/tag-myakij_znak/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Сполучення йо, ьо",
+      "questionCount": 7,
+      "url": "https://zno.osvita.ua/ukrmova/tag-spoluchennya_jo_o/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Подвоєння літер",
+      "questionCount": 51,
+      "url": "https://zno.osvita.ua/ukrmova/tag-podvoyennya_liter_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Правопис слів іншомовного походження",
+      "questionCount": 32,
+      "url": "https://zno.osvita.ua/ukrmova/tag-pravopis_sliv_inshomovnogo_pohodzhennya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Велика буква та лапки у власних назвах",
+      "questionCount": 25,
+      "url": "https://zno.osvita.ua/ukrmova/tag-velika_bukva_ta_lapki_u_vlasnih_nazvah/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Складні слова",
+      "questionCount": 66,
+      "url": "https://zno.osvita.ua/ukrmova/tag-skladni_slova_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Правопис не з різними частинами мови",
+      "questionCount": 24,
+      "url": "https://zno.osvita.ua/ukrmova/tag-pravopis_ne_z_riznimi_chastinami_movi_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Основні випадки чергування у–в, і–й",
+      "questionCount": 12,
+      "url": "https://zno.osvita.ua/ukrmova/tag-osnovni_vipadki_cherguvannya_uv_ij_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Лексичне значення слова",
+      "questionCount": 80,
+      "url": "https://zno.osvita.ua/ukrmova/tag-leksichne_znachennya_slova/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Синоніми",
+      "questionCount": 36,
+      "url": "https://zno.osvita.ua/ukrmova/tag-sinonimi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Антоніми",
+      "questionCount": 10,
+      "url": "https://zno.osvita.ua/ukrmova/tag-antonimi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Лексична помилка",
+      "questionCount": 76,
+      "url": "https://zno.osvita.ua/ukrmova/tag-leksichna_pomilka/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Фразеологія",
+      "questionCount": 90,
+      "url": "https://zno.osvita.ua/ukrmova/tag-frazeologiya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Будова слова. Словотвір",
+      "questionCount": 66,
+      "url": "https://zno.osvita.ua/ukrmova/tag-budova_slova_slovotvir_2/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Класифікація частин мови",
+      "questionCount": 65,
+      "url": "https://zno.osvita.ua/ukrmova/tag-klasifikaciya_chastin_movi_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Іменник: рід і число іменників",
+      "questionCount": 36,
+      "url": "https://zno.osvita.ua/ukrmova/tag-imennik_rid_i_chislo_imennikiv/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Іменник: відмінювання іменників",
+      "questionCount": 116,
+      "url": "https://zno.osvita.ua/ukrmova/tag-imennik_vidminyuvannya_imennikiv/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Іменник: написання імен по батькові",
+      "questionCount": 17,
+      "url": "https://zno.osvita.ua/ukrmova/tag-imennik_napisannya_imen_po_batkovi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Прикметник",
+      "questionCount": 78,
+      "url": "https://zno.osvita.ua/ukrmova/tag-prikmetnik_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Числівник",
+      "questionCount": 85,
+      "url": "https://zno.osvita.ua/ukrmova/tag-chislivnik_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Займенник",
+      "questionCount": 15,
+      "url": "https://zno.osvita.ua/ukrmova/tag-zajmennik_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Дієслово",
+      "questionCount": 69,
+      "url": "https://zno.osvita.ua/ukrmova/tag-diyeslovo_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Дієприкметник",
+      "questionCount": 20,
+      "url": "https://zno.osvita.ua/ukrmova/tag-diyeprikmetnik_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Дієприслівник",
+      "questionCount": 33,
+      "url": "https://zno.osvita.ua/ukrmova/tag-diyeprislivnik_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Прислівник",
+      "questionCount": 49,
+      "url": "https://zno.osvita.ua/ukrmova/tag-prislivnik_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Прийменник",
+      "questionCount": 59,
+      "url": "https://zno.osvita.ua/ukrmova/tag-prijmennik_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Сполучник",
+      "questionCount": 14,
+      "url": "https://zno.osvita.ua/ukrmova/tag-spoluchnik_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Частка",
+      "questionCount": 19,
+      "url": "https://zno.osvita.ua/ukrmova/tag-chastka_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Словосполучення",
+      "questionCount": 18,
+      "url": "https://zno.osvita.ua/ukrmova/tag-slovospoluchennya_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Класифікація речень",
+      "questionCount": 79,
+      "url": "https://zno.osvita.ua/ukrmova/tag-klasifikaciya_rechen_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Головні члени речення",
+      "questionCount": 85,
+      "url": "https://zno.osvita.ua/ukrmova/tag-golovni_chleni_rechennya_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Другорядні члени речення",
+      "questionCount": 73,
+      "url": "https://zno.osvita.ua/ukrmova/tag-drugoryadni_chleni_rechennya_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Односкладні речення",
+      "questionCount": 36,
+      "url": "https://zno.osvita.ua/ukrmova/tag-odnoskladni_rechennya_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Ускладнене речення: однорідні члени речення",
+      "questionCount": 129,
+      "url": "https://zno.osvita.ua/ukrmova/tag-uskladnene_rechennya_odnoridni_chleni_rechennya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Ускладнене речення: звертання, вставні слова, словосполучення, речення",
+      "questionCount": 64,
+      "url": "https://zno.osvita.ua/ukrmova/tag-uskladnene_rechennya_zvertannya_vstavni_slovahennya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Відокремлені члени речення: відокремлене означення",
+      "questionCount": 70,
+      "url": "https://zno.osvita.ua/ukrmova/tag-vidokremleni_chleni_rechennya_vidokremlene_oznachennya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Відокремлені члени речення: відокремлена обставина",
+      "questionCount": 110,
+      "url": "https://zno.osvita.ua/ukrmova/tag-vidokremleni_chleni_rechennya_vidokremlena_obstavina/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Відокремлені члени речення: відокремлений додаток",
+      "questionCount": 23,
+      "url": "https://zno.osvita.ua/ukrmova/tag-vidokremleni_chleni_rechennya_vidokremlenij_dodatok/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Складне речення: складносурядне речення",
+      "questionCount": 54,
+      "url": "https://zno.osvita.ua/ukrmova/tag-skladne_rechennya_skladnosuryadne_rechennya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Складне речення: складнопідрядне речення",
+      "questionCount": 122,
+      "url": "https://zno.osvita.ua/ukrmova/tag-skladne_rechennya_skladnopidryadne_rechennya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Складне речення: складне безсполучникове речення",
+      "questionCount": 64,
+      "url": "https://zno.osvita.ua/ukrmova/tag-skladne_rechennya_skladne_bezspoluchnikove_rechennya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Складне речення: складне речення з різними видами зв’язку",
+      "questionCount": 38,
+      "url": "https://zno.osvita.ua/ukrmova/tag-skladne_rechennya_skladne_rechennya_z_riznimi_yazku/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Чуже мовлення",
+      "questionCount": 44,
+      "url": "https://zno.osvita.ua/ukrmova/tag-chuzhe_movlennya_1/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "ukrainian",
+      "title": "Засоби міжфразової єдності",
+      "questionCount": 28,
+      "url": "https://zno.osvita.ua/ukrmova/tag-zasobi_mizhfrazovoyi_yednosti/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Дійсні числа",
+      "questionCount": 107,
+      "url": "https://zno.osvita.ua/mathematics/tag-dijsni_chysla/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Відношення та пропорції. Відсотки. Текстові задачі",
+      "questionCount": 139,
+      "url": "https://zno.osvita.ua/mathematics/tag-vidnoshennya_ta_proporciyi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Показникові, логарифмічні, тригонометричні вирази та їхні перетворення",
+      "questionCount": 143,
+      "url": "https://zno.osvita.ua/mathematics/tag-pokaznykovi_logharyfmichni_vyrazy/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Раціональні, ірраціональні, степеневі вирази та їх перетворення",
+      "questionCount": 192,
+      "url": "https://zno.osvita.ua/mathematics/tag-racionalni_irracionalni_stepenevi_virazi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Лінійні, квадратні, раціональні рівняння та системи рівнянь",
+      "questionCount": 140,
+      "url": "https://zno.osvita.ua/mathematics/tag-linijni_kvadratni_racionalni_rivnjannja_ta_systemy_rivnjan/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Ірраціональні, тригонометричні рівняння та системи рівнянь",
+      "questionCount": 63,
+      "url": "https://zno.osvita.ua/mathematics/tag-irracionalni_tryghonometrychni_rivnjannja_ta_systemy_rivnjan/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Показникові, логарифмічні рівняння та системи рівнянь",
+      "questionCount": 81,
+      "url": "https://zno.osvita.ua/mathematics/tag-pokaznykovi_logharyfmichni_rivnjannja_ta_systemy_rivnjan/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Нерівності та системи нерівностей",
+      "questionCount": 125,
+      "url": "https://zno.osvita.ua/mathematics/tag-nerivnosti_ta_systemy_nerivnostej/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Розв’язування задач за допомогою рівнянь і систем рівнянь",
+      "questionCount": 19,
+      "url": "https://zno.osvita.ua/mathematics/tag-rozvjazuvannja_zadach_z_rivnjan_i_system_rivnjan/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Числові послідовності",
+      "questionCount": 77,
+      "url": "https://zno.osvita.ua/mathematics/tag-chislovi_poslidovnosti/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Функціональна залежність",
+      "questionCount": 141,
+      "url": "https://zno.osvita.ua/mathematics/tag-funkcionalna_zalezhnist_vlastivosti/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Лінійні та квадратичні функції",
+      "questionCount": 50,
+      "url": "https://zno.osvita.ua/mathematics/tag-linijni_ta_kvadratychni_funkciyi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Степеневі, показникові, логарифмічні та тригонометричні функції",
+      "questionCount": 71,
+      "url": "https://zno.osvita.ua/mathematics/tag-pokaznykovi_logharyfmichni_tryghonometrychni_funkciyi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Похідна функції",
+      "questionCount": 65,
+      "url": "https://zno.osvita.ua/mathematics/tag-pokhidna_funkciyi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Первісна та визначений інтеграл",
+      "questionCount": 65,
+      "url": "https://zno.osvita.ua/mathematics/tag-pervisna_ta_viznachenij_integral/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Перестановки, комбінації, розміщення. Комбінаторні правила суми та добутку",
+      "questionCount": 59,
+      "url": "https://zno.osvita.ua/mathematics/tag-kombinatorni_pravila/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Ймовірність випадкової події. Вибіркові характеристики",
+      "questionCount": 124,
+      "url": "https://zno.osvita.ua/mathematics/tag-jmovirnist_vypadkovoyi_podiyi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Елементарні геометричні фігури на площині. Геометричні величини",
+      "questionCount": 43,
+      "url": "https://zno.osvita.ua/mathematics/tag-elementarni_geometrichni_figuri/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Трикутники",
+      "questionCount": 109,
+      "url": "https://zno.osvita.ua/mathematics/tag-trikutniki/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Прямокутні трикутники",
+      "questionCount": 63,
+      "url": "https://zno.osvita.ua/mathematics/tag-prjamokutni_trykutnyky/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Паралелограм. Ромб. Трапеція",
+      "questionCount": 148,
+      "url": "https://zno.osvita.ua/mathematics/tag-chotirikutniki/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Прямокутник. Квадрат",
+      "questionCount": 88,
+      "url": "https://zno.osvita.ua/mathematics/tag-prjamokutnyk_kvadrat/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Коло та круг. Многокутники",
+      "questionCount": 87,
+      "url": "https://zno.osvita.ua/mathematics/tag-kolo_ta_krugh_mnoghokutnyky/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Координати та вектори на площині. Геометричні переміщення",
+      "questionCount": 43,
+      "url": "https://zno.osvita.ua/mathematics/tag-koordinati_ta_vektori/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Прямі та площини у просторі",
+      "questionCount": 44,
+      "url": "https://zno.osvita.ua/mathematics/tag-pryami_ta_ploshini_u_prostori/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Призма",
+      "questionCount": 90,
+      "url": "https://zno.osvita.ua/mathematics/tag-mnogogranniki/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Піраміда",
+      "questionCount": 62,
+      "url": "https://zno.osvita.ua/mathematics/tag-piramida/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Тіла обертання",
+      "questionCount": 113,
+      "url": "https://zno.osvita.ua/mathematics/tag-tila_obertannja/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "math",
+      "title": "Координати та вектори у просторі",
+      "questionCount": 64,
+      "url": "https://zno.osvita.ua/mathematics/tag-koordinati_ta_vektori_u_prostori/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Вступ до історії України",
+      "questionCount": 6,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-vstup_do_istoriyi_ukrayini/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Стародавня історія України",
+      "questionCount": 102,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-starodavnya_istoriya_ukrayini/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Виникнення Київської держави",
+      "questionCount": 74,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-vynyknennja_kyyivskoyi_derzhavy/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Розквіт Київської держави",
+      "questionCount": 84,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-rozkvit_kyyivskoyi_derzhavy/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Королівство Руське. Монгольська навала",
+      "questionCount": 100,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-korolivstvo_ruske_mongolska_navala/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Руські князівства другої половини XIV – першої половини XVI ст. Кримське ханство",
+      "questionCount": 106,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-knyazivstva_u_skladi_inozemnih_derzhav_krimske_hanstvo/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Українська культура IX – першої половини XVI ст.",
+      "questionCount": 79,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinska_kultura_ix_pershoyi_polovyny_xvi_st/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Українські землі в Речі Посполитій другої половини ХVІ ст.",
+      "questionCount": 98,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_v_rechi_pospolytij_drughoyi_polovyny_khvi_st/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Українські землі у складі Речі Посполитої в першій половині ХVІІ ст.",
+      "questionCount": 108,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-u_skladi_rechi_pospolitoyi_v_xvii_st/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Національно-визвольна війна українського народу середини ХVІІ ст.",
+      "questionCount": 126,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-vizvolna_vijna_ukrayinskogo_narodu_xvii_st/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Козацька Україна кінця 50-х – 80-х рр. ХVІІ ст.",
+      "questionCount": 103,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-kozacka_ukrayina_kincja_50kh_80kh_rr_khvii_st/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Українські землі кінця ХVІІ – першої половини ХVІІІ ст.",
+      "questionCount": 109,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_kincja_khvii_pershoyi_polovyny_khviii_st/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Українські землі другої половини ХVІІІ ст.",
+      "questionCount": 103,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_drughoyi_polovyny_khviii_st/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Українські землі в Російській імперії кінця ХVІІІ – першої половини ХІХ ст.",
+      "questionCount": 107,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_v_rosijskij_imperiyi_kincja_khviii_pershoyi_polovyny_khikh_st/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Українські землі в Австрійській імперії кінця ХVІІІ – першої половини ХІХ ст.",
+      "questionCount": 87,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_v_avstrijskij_imperiyi_kincja_khviii_pershoyi_polovyny_khikh_st/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Культура України кінця ХVІІІ – першої половини ХІХ ст.",
+      "questionCount": 65,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-kultura_ukrayini_xviii_xix_st/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Українські землі в Російській імперії другої половини ХІХ ст.",
+      "questionCount": 132,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_v_rosijskij_imperiyi_drughoyi_polovyny_khikh_st/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Українські землі в Австро-Угорщині другої половини ХІХ ст.",
+      "questionCount": 63,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_v_avstroughorshhyni_drughoyi_polovyny_khikh_st/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Культура України другої половини ХІХ – початку ХХ ст.",
+      "questionCount": 80,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-kultura_ukrayiny_drughoyi_polovyny_khikh_pochatku_khkh_st/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Українські землі в Російській імперії 1900–1914 рр.",
+      "questionCount": 68,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_v_rosijskij_imperiyi_19001914_rr/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Українські землі в Австро-Угорщині 1900–1914 рр.",
+      "questionCount": 43,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayinski_zemli_v_avstroughorshhyni_19001914_rr/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Україна в роки Першої світової війни",
+      "questionCount": 87,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayina_v_roki_pershoyi_svitovoyi_vijni/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Початок Української революції",
+      "questionCount": 108,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-pochatok_ukrayinskoyi_revolyuciyi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Період Гетьманату",
+      "questionCount": 65,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-period_ghetmanatu/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Українська революція. Директорія УНР",
+      "questionCount": 124,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-dyrektorija_unr/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Встановлення комуністичного режиму в Україні",
+      "questionCount": 115,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-vstanovlennja_komunistychnogho_rezhymu_v_ukrayini/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Утвердження більшовицького режиму в Україні",
+      "questionCount": 162,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-utverdzhennja_bilshovyckogho_rezhymu_v_ukrayini/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Західноукраїнські землі в міжвоєнний період",
+      "questionCount": 93,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-zahidnoukrayinski_zemli_v_mizhvoyennij_period/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Початок Другої світової війни (1939–1941)",
+      "questionCount": 62,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-pochatok_drughoyi_svitovoyi_vijny_1939_1941/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Друга світова війна: Рух Опору (1941–1943)",
+      "questionCount": 73,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-rukh_oporu_1941_1943/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Друга світова війна: воєнні дії на теренах України (1943–1945)",
+      "questionCount": 90,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-voyenni_diyi_na_terenakh_ukrayiny_1943_1945/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Україна в перші повоєнні роки",
+      "questionCount": 130,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayina_v_pershi_povoyenni_roki/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Україна в умовах десталінізації",
+      "questionCount": 123,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayina_v_umovah_destalinizaciyi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Україна в період загострення кризи радянської системи",
+      "questionCount": 166,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-ukrayina_v_period_zagostrennya_krizi_radyanskoyi_sistemi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Відновлення незалежності України",
+      "questionCount": 122,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-vidnovlennya_nezalezhnosti_ukrayini/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Становлення України як незалежної держави",
+      "questionCount": 94,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-stanovlennya_ukrayini_yak_nezalezhnoyi_derzhavi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Творення нової України",
+      "questionCount": 76,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-tvorennya_novoyi_ukrayini/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Діячі культури освіти і науки",
+      "questionCount": 47,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-dijachi_kultury_osvity_i_nauky/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Громадсько-політичні та військові діячі",
+      "questionCount": 52,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-ghromadskopolitychni_ta_vijskovi_dijachi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Архітектура культових споруд в Україні",
+      "questionCount": 28,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-arkhitektura_kultovykh_sporud_v_ukrayini/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Архітектура фортифікаційних споруд в Україні",
+      "questionCount": 9,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-arkhitektura_fortyfikacijnykh_sporud_v_ukrayini/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Світська архітектура. Містобудування",
+      "questionCount": 16,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-svitska_arkhitektura_mistobuduvannja/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "history",
+      "title": "Скульптура. Пам’ятники",
+      "questionCount": 8,
+      "url": "https://zno.osvita.ua/ukraine-history/tag-skulptura_pamjatnyky/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Географія як наука, розвиток географічних досліджень",
+      "questionCount": 35,
+      "url": "https://zno.osvita.ua/geography/tag-gheoghrafija_jak_nauka/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Розвиток уявлень про форму, розміри та рухи Землі",
+      "questionCount": 29,
+      "url": "https://zno.osvita.ua/geography/tag-rozmiry_ta_rukhy_zemli/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Орієнтування на місцевості",
+      "questionCount": 33,
+      "url": "https://zno.osvita.ua/geography/tag-oriyentuvannja_na_miscevosti/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Способи зображення Землі. План місцевості",
+      "questionCount": 67,
+      "url": "https://zno.osvita.ua/geography/tag-plan_miscevosti/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Способи зображення Землі. Географічна карта",
+      "questionCount": 52,
+      "url": "https://zno.osvita.ua/geography/tag-gheoghrafichna_karta/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Географічні координати",
+      "questionCount": 57,
+      "url": "https://zno.osvita.ua/geography/tag-gheoghrafichni_koordynaty/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Основні види часу",
+      "questionCount": 25,
+      "url": "https://zno.osvita.ua/geography/tag-osnovni_vydy_chasu/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Літосфера та рельєф",
+      "questionCount": 15,
+      "url": "https://zno.osvita.ua/geography/tag-litosfera_ta_relyef/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Внутрішні процеси, що зумовлюють зміни в земній корі та на поверхні земної кулі",
+      "questionCount": 21,
+      "url": "https://zno.osvita.ua/geography/tag-zminy_v_zemnij_kori_ta_na_poverkhni/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Геологічне літочислення, геологічний вік",
+      "questionCount": 6,
+      "url": "https://zno.osvita.ua/geography/tag-gheologhichnyj_vik/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Зовнішні процеси, що зумовлюють зміну земної поверхні",
+      "questionCount": 11,
+      "url": "https://zno.osvita.ua/geography/tag-zminy_zemnoyi_poverkhni/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Температура повітря",
+      "questionCount": 11,
+      "url": "https://zno.osvita.ua/geography/tag-temperatura_povitrja/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Атмосферний тиск. Вітер",
+      "questionCount": 11,
+      "url": "https://zno.osvita.ua/geography/tag-atmosfernyj_tysk_viter/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Вода в атмосфері. Опади",
+      "questionCount": 3,
+      "url": "https://zno.osvita.ua/geography/tag-voda_opady/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Клімат",
+      "questionCount": 20,
+      "url": "https://zno.osvita.ua/geography/tag-klimat/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Світовий океан та його частини",
+      "questionCount": 20,
+      "url": "https://zno.osvita.ua/geography/tag-svitovyj_okean/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Водні маси",
+      "questionCount": 16,
+      "url": "https://zno.osvita.ua/geography/tag-vodni_masy/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Води суходолу. Річка",
+      "questionCount": 14,
+      "url": "https://zno.osvita.ua/geography/tag-vody_sukhodolu_richka/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Озера. Болота. Штучні водойми. Водотоки",
+      "questionCount": 9,
+      "url": "https://zno.osvita.ua/geography/tag-ozera/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Льодовики. Багаторічна мерзлота",
+      "questionCount": 3,
+      "url": "https://zno.osvita.ua/geography/tag-lodovyky/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Підземні води, умови їх утворення і залягання в земній корі",
+      "questionCount": 3,
+      "url": "https://zno.osvita.ua/geography/tag-pidzemni_vody/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Біосфера та грунти",
+      "questionCount": 8,
+      "url": "https://zno.osvita.ua/geography/tag-biosfera_ta_ghrunty/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Географічна оболонка. Природні комплекси",
+      "questionCount": 24,
+      "url": "https://zno.osvita.ua/geography/tag-gheoghrafichna_obolonka/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Природні зони Землі, їх особливості",
+      "questionCount": 20,
+      "url": "https://zno.osvita.ua/geography/tag-pryrodni_zony_zemli/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Океани: Тихий океан, Атлантичний океан, Індійський океан, Північний Льодовитий океан",
+      "questionCount": 21,
+      "url": "https://zno.osvita.ua/geography/tag-okeany/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Материки: Африка",
+      "questionCount": 35,
+      "url": "https://zno.osvita.ua/geography/tag-materiki_afrika/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Материки: Австралія",
+      "questionCount": 36,
+      "url": "https://zno.osvita.ua/geography/tag-materiki_avstraliya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Материки: Південна Америка",
+      "questionCount": 36,
+      "url": "https://zno.osvita.ua/geography/tag-materiki_pivdenna_amerika/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Материки: Антарктида",
+      "questionCount": 17,
+      "url": "https://zno.osvita.ua/geography/tag-materiki_antarktida/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Материки: Північна Америка",
+      "questionCount": 39,
+      "url": "https://zno.osvita.ua/geography/tag-materiki_pivnichna_amerika/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Материки: Євразія",
+      "questionCount": 51,
+      "url": "https://zno.osvita.ua/geography/tag-materiki_yevraziya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Географічне положення, формування території України",
+      "questionCount": 46,
+      "url": "https://zno.osvita.ua/geography/tag-geografichne_polozhennya_ukrayiny/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Рельєф. Тектонічна будова. Геологічна будова. Мінеральні ресурси.",
+      "questionCount": 63,
+      "url": "https://zno.osvita.ua/geography/tag-relyef/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Клімат і кліматичні ресурси",
+      "questionCount": 38,
+      "url": "https://zno.osvita.ua/geography/tag-klimat_i_klimatychni_resursy/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Води суходолу і водні ресурси",
+      "questionCount": 43,
+      "url": "https://zno.osvita.ua/geography/tag-vody_suhodolu_i_vodni_resursy/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Грунти та грунтові ресурси",
+      "questionCount": 28,
+      "url": "https://zno.osvita.ua/geography/tag-grunty_ta_gruntovi_resursy/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Рослинний і тваринний світ України",
+      "questionCount": 14,
+      "url": "https://zno.osvita.ua/geography/tag-roslynnyj_i_tvarynnyj_svit_ukrayiny/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Ландшафти України",
+      "questionCount": 69,
+      "url": "https://zno.osvita.ua/geography/tag-landshafty_ukrainy/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Природокористування",
+      "questionCount": 50,
+      "url": "https://zno.osvita.ua/geography/tag-pryrodokorystuvannya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Демографічні процеси та статево-віковий склад населення світу та України",
+      "questionCount": 89,
+      "url": "https://zno.osvita.ua/geography/tag-sklad_naselennya_svitu_ta_ukrayiny/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Міграції, їх показники",
+      "questionCount": 11,
+      "url": "https://zno.osvita.ua/geography/tag-migraciyi_yih_pokaznyky/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Розселення",
+      "questionCount": 27,
+      "url": "https://zno.osvita.ua/geography/tag-rozselennya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Урбанізація",
+      "questionCount": 18,
+      "url": "https://zno.osvita.ua/geography/tag-urbanizaciya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Етнічний та релігійний склад населення",
+      "questionCount": 7,
+      "url": "https://zno.osvita.ua/geography/tag-etnichnyj_sklad_naselennya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Зайнятість населення в світі й Україні",
+      "questionCount": 6,
+      "url": "https://zno.osvita.ua/geography/tag-zajnyatist_v_sviti_j_ukrayini/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Поняття «економічний розвиток» та його показники. ВВП, індекс людського розвитку (IЛP)",
+      "questionCount": 10,
+      "url": "https://zno.osvita.ua/geography/tag-ekonomichnyj_rozvytok_ta_vvp_y_iilp/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Секторальна модель економіки країни",
+      "questionCount": 7,
+      "url": "https://zno.osvita.ua/geography/tag-sektoralna_model_ekonomiky/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Форми суспільної організації виробництва",
+      "questionCount": 18,
+      "url": "https://zno.osvita.ua/geography/tag-formy_suspilnoyi_organizaciyi_vyrobnyctva/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Чинники розміщення виробництва",
+      "questionCount": 39,
+      "url": "https://zno.osvita.ua/geography/tag-chynnyky_rozmishennya_vyrobnyctva/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Форми просторової організації національної економіки",
+      "questionCount": 18,
+      "url": "https://zno.osvita.ua/geography/tag-formy_prostorovoyi_organizaciyi_nacionalnoyi_ekonomiky/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Світове господарство",
+      "questionCount": 33,
+      "url": "https://zno.osvita.ua/geography/tag-svitove_gospodarstvo/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Міжнародні економічні організації",
+      "questionCount": 8,
+      "url": "https://zno.osvita.ua/geography/tag-mizhnarodni_ekonomichni_organizaciyi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Типізація країн світу за рівнем економічного розвитку, місце України в ній",
+      "questionCount": 13,
+      "url": "https://zno.osvita.ua/geography/tag-krayiny_svitu_za_rivnem_ekonomrozvytku_misce_ukrayiny/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Первинний сектор. Сільське господарство",
+      "questionCount": 84,
+      "url": "https://zno.osvita.ua/geography/tag-pervynnyj_sektor_silske_gospodarstvo/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Первинний сектор господарства. Лісове господарство",
+      "questionCount": 7,
+      "url": "https://zno.osvita.ua/geography/tag-pervynnyj_sektor_lisove_gospodarstvo/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Первинний сектор господарства. Добувна промисловість",
+      "questionCount": 55,
+      "url": "https://zno.osvita.ua/geography/tag-pervynnyj_sektor_dobuvna_promyslovist/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Показники ресурсозабезпеченості країн мінеральними ресурсами",
+      "questionCount": 9,
+      "url": "https://zno.osvita.ua/geography/tag-pokaznyky_resursozabezpechenosti_krayin/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Вторинний сектор господарства. Виробництво та постачання електроенергії",
+      "questionCount": 36,
+      "url": "https://zno.osvita.ua/geography/tag-vyrobnyctvo_ta_postachannya_elektroenergiyi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Металургійне виробництво. Чорна металургія",
+      "questionCount": 45,
+      "url": "https://zno.osvita.ua/geography/tag-chorna_metalurgiya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Металургійне виробництво. Кольорова металургія",
+      "questionCount": 17,
+      "url": "https://zno.osvita.ua/geography/tag-kolorova_metalurgiya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Хімічне виробництво",
+      "questionCount": 22,
+      "url": "https://zno.osvita.ua/geography/tag-himichne_vyrobnyctvo/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Виробництво деревини, паперу",
+      "questionCount": 10,
+      "url": "https://zno.osvita.ua/geography/tag-vyrobnyctvo_derevyny_paperu/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Виробництво будівельних матеріалів",
+      "questionCount": 4,
+      "url": "https://zno.osvita.ua/geography/tag-vyrobnyctvo_budivelnyh_materialiv/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Вторинний сектор господарства. Виробництво машин та устаткування",
+      "questionCount": 52,
+      "url": "https://zno.osvita.ua/geography/tag-vyrobnyctvo_mashyn_ta_ustatkuvannya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Виробництво тканин, одягу, взуття",
+      "questionCount": 8,
+      "url": "https://zno.osvita.ua/geography/tag-vyrobnyctvo_tkanyn_odyagu_vzuttya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Виробництво харчових продуктів",
+      "questionCount": 19,
+      "url": "https://zno.osvita.ua/geography/tag-vyrobnyctvo_harchovyh_produktiv/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Третинний сектор господарства. Транспорт",
+      "questionCount": 32,
+      "url": "https://zno.osvita.ua/geography/tag-tretynnyj_sektor_transport/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Туризм",
+      "questionCount": 20,
+      "url": "https://zno.osvita.ua/geography/tag-turyzm/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Торгівля",
+      "questionCount": 10,
+      "url": "https://zno.osvita.ua/geography/tag-torgivlya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Фінансові послуги",
+      "questionCount": 5,
+      "url": "https://zno.osvita.ua/geography/tag-finansovi_poslugy/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Комп’ютерне програмування",
+      "questionCount": 9,
+      "url": "https://zno.osvita.ua/geography/tag-kompyuterne_programuvannya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Наукова діяльність. Освіта",
+      "questionCount": 5,
+      "url": "https://zno.osvita.ua/geography/tag-naukova_diyalnist_osvita/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Охорона здоров’я",
+      "questionCount": 1,
+      "url": "https://zno.osvita.ua/geography/tag-ohorona_zdorovya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Політична карта світу",
+      "questionCount": 32,
+      "url": "https://zno.osvita.ua/geography/tag-politychna_karta_svitu/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Австралія та Океанія",
+      "questionCount": 8,
+      "url": "https://zno.osvita.ua/geography/tag-avstraliya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Азія. Загальна характеристика Азії. Країни Азії",
+      "questionCount": 39,
+      "url": "https://zno.osvita.ua/geography/tag-krayiny_aziyi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Америка. Загальна характеристика Америки. Країни Америки",
+      "questionCount": 28,
+      "url": "https://zno.osvita.ua/geography/tag-krayiny_ameryky/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Африка. Загальна характеристика Африки. Країни Африки",
+      "questionCount": 13,
+      "url": "https://zno.osvita.ua/geography/tag-krayiny_afryky/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Глобальні проблеми людства. Сталий розвиток",
+      "questionCount": 28,
+      "url": "https://zno.osvita.ua/geography/tag-globalni_problemy_lyudstva_stalyj_rozvytok/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "geography",
+      "title": "Європа. Загальна характеристика Європи. Країни Європи",
+      "questionCount": 60,
+      "url": "https://zno.osvita.ua/geography/tag-krayiny_yevropy/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Біологія як наука про живе",
+      "questionCount": 63,
+      "url": "https://zno.osvita.ua/biology/tag-biologhija_jak_nauka_pro_zhyve/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Елементний склад клітини. Неорганічні сполуки",
+      "questionCount": 45,
+      "url": "https://zno.osvita.ua/biology/tag-elementnyj_sklad_klityny_neorghanichni_spoluky/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Органічні сполуки. Вуглеводи, ліпіди",
+      "questionCount": 61,
+      "url": "https://zno.osvita.ua/biology/tag-orghanichni_spoluky_vughlevody_lipidy/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Органічні сполуки. Білки",
+      "questionCount": 72,
+      "url": "https://zno.osvita.ua/biology/tag-orghanichni_spoluky_bilky/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Органічні сполуки. Нуклеїнові кислоти. АТФ",
+      "questionCount": 39,
+      "url": "https://zno.osvita.ua/biology/tag-orghanichni_spoluky_nukleyinovi_kysloty_atf/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Методи дослідження клітини. Еукаріотична клітина. Клітинні мембрани",
+      "questionCount": 56,
+      "url": "https://zno.osvita.ua/biology/tag-metody_doslidzhennja_klityny_eukariotychna_klityna_klitynni_membrany/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Компоненти цитоплазми еукаріотичної клітини",
+      "questionCount": 88,
+      "url": "https://zno.osvita.ua/biology/tag-komponenty_cytoplazmy_eukariotychnoyi_klityny/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Особливості організації клітин еукаріотів",
+      "questionCount": 38,
+      "url": "https://zno.osvita.ua/biology/tag-osoblyvosti_orghanizaciyi_klityn_eukariotiv/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Ядро. Хромосоми. Поняття про каріотип",
+      "questionCount": 17,
+      "url": "https://zno.osvita.ua/biology/tag-jadro_khromosomy_ponjattja_pro_kariotyp/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Обмін речовин і перетворення енергії",
+      "questionCount": 47,
+      "url": "https://zno.osvita.ua/biology/tag-obmin_rechovin/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Збереження спадкової інформації",
+      "questionCount": 35,
+      "url": "https://zno.osvita.ua/biology/tag-zberezhennja_spadkovoyi_informaciyi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Реалізація спадкової інформації",
+      "questionCount": 91,
+      "url": "https://zno.osvita.ua/biology/tag-realizacija_spadkovoyi_informaciyi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Розмноження та індивідуальний розвиток організмів",
+      "questionCount": 27,
+      "url": "https://zno.osvita.ua/biology/tag-rozmnozhennja_ta_indyvidualnyj_rozvytok_orghanizmiv/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Генетика як наука. Закономірності спадковості організмів",
+      "questionCount": 94,
+      "url": "https://zno.osvita.ua/biology/tag-ghenetyka_jak_nauka_zakonomirnosti_spadkovosti_orghanizmiv/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Закономірності мінливості організмів",
+      "questionCount": 58,
+      "url": "https://zno.osvita.ua/biology/tag-zakonomirnosti_minlivosti/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Селекція організмів. Біотехнологія",
+      "questionCount": 24,
+      "url": "https://zno.osvita.ua/biology/tag-selekciya_organizmiv/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Віруси. Віроїди. Пріони",
+      "questionCount": 41,
+      "url": "https://zno.osvita.ua/biology/tag-virusi_viroyidi_prioni/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Прокаріотичні організми",
+      "questionCount": 54,
+      "url": "https://zno.osvita.ua/biology/tag-prokariotichni_organizmi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Водорості",
+      "questionCount": 37,
+      "url": "https://zno.osvita.ua/biology/tag-vodorosti/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Рослини. Вегетативні органи та життєві функції рослин",
+      "questionCount": 79,
+      "url": "https://zno.osvita.ua/biology/tag-roslini_vegetativni_organi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Генеративні органи покритонасінних рослин",
+      "questionCount": 57,
+      "url": "https://zno.osvita.ua/biology/tag-generativni_organi_roslin/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Різноманітність і розмноження мохів, папоротей, хвощів, плаунів",
+      "questionCount": 54,
+      "url": "https://zno.osvita.ua/biology/tag-riznomanitnist_i_rozmnozhennja_mokhiv_paporotej_khvoshhiv_plauniv/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Різмноманітність, розмноження голонасінних і покритонасінних рослин",
+      "questionCount": 87,
+      "url": "https://zno.osvita.ua/biology/tag-rizmnomanitnist_rozmnozhennja_gholonasinnykh_i_pokrytonasinnykh_roslyn/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Гриби. Лишайники",
+      "questionCount": 42,
+      "url": "https://zno.osvita.ua/biology/tag-ghryby_lyshajnyky/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Одноклітинні гетеротрофні еукаріотичні організми",
+      "questionCount": 38,
+      "url": "https://zno.osvita.ua/biology/tag-odnoklitinni_organizmi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Губки. Справжні багатоклітинні тварини. Будова і життєдіяльність",
+      "questionCount": 76,
+      "url": "https://zno.osvita.ua/biology/tag-ghubky_spravzhni_baghatoklitynni_tvaryny_budova_i_zhyttyedijalnist/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Поведінка тварин",
+      "questionCount": 10,
+      "url": "https://zno.osvita.ua/biology/tag-povedinka_tvarin/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Кишковопорожнинні. Плоскі черви. Круглі черви",
+      "questionCount": 37,
+      "url": "https://zno.osvita.ua/biology/tag-kyshkovoporozhnynni_ploski_chervy_krughli_chervy/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Кільчаті черви. Молюски",
+      "questionCount": 27,
+      "url": "https://zno.osvita.ua/biology/tag-kilchati_chervy_moljusky/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Членистоногі, їхня різноманітність",
+      "questionCount": 72,
+      "url": "https://zno.osvita.ua/biology/tag-chlenystonoghi_yikhnja_riznomanitnist/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Хордові. Риби. Амфібії. Рептилії",
+      "questionCount": 65,
+      "url": "https://zno.osvita.ua/biology/tag-khordovi_ryby_amfibiyi_reptyliyi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Птахи, їхня різноманітність",
+      "questionCount": 27,
+      "url": "https://zno.osvita.ua/biology/tag-ptakhy_yikhnja_riznomanitnist/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Ссавці, їхня різноманітність",
+      "questionCount": 60,
+      "url": "https://zno.osvita.ua/biology/tag-ssavci_yikhnja_riznomanitnist/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Будова тіла людини",
+      "questionCount": 17,
+      "url": "https://zno.osvita.ua/biology/tag-budova_tila_lyudini/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Нервова регуляція. Нервова система. Вища нервова діяльність людини",
+      "questionCount": 60,
+      "url": "https://zno.osvita.ua/biology/tag-nervova_reghuljacija_nervova_systema_vyshha_nervova_dijalnist_ljudyny/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Гуморальна регуляція. Ендокринна система людини",
+      "questionCount": 66,
+      "url": "https://zno.osvita.ua/biology/tag-gumoralna_regulyaciya_endokrinna_sistema/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Внутрішнє середовище організму людини. Кров. Лімфа",
+      "questionCount": 34,
+      "url": "https://zno.osvita.ua/biology/tag-krov_limfa/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Кровоносна та лімфатична системи людини",
+      "questionCount": 79,
+      "url": "https://zno.osvita.ua/biology/tag-krovonosna_ta_limfatichna_sistemi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Імунітет. Імунна система людини",
+      "questionCount": 23,
+      "url": "https://zno.osvita.ua/biology/tag-imunitet_imunna_sistema/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Дихання. Дихальна система людини",
+      "questionCount": 49,
+      "url": "https://zno.osvita.ua/biology/tag-dihalna_sistema_lyudini/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Травлення. Травна система людини",
+      "questionCount": 95,
+      "url": "https://zno.osvita.ua/biology/tag-travna_sistema_lyudini/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Обмін речовин і перетворення енергії в організмі людини",
+      "questionCount": 35,
+      "url": "https://zno.osvita.ua/biology/tag-obmin_rechovin_v_organizmi_lyudini/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Виділення. Сечовидільна система людини",
+      "questionCount": 47,
+      "url": "https://zno.osvita.ua/biology/tag-sechovidilna_sistema_lyudini/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Шкіра. Терморегуляція",
+      "questionCount": 23,
+      "url": "https://zno.osvita.ua/biology/tag-shkira_termoregulyaciya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Опорно-рухова система людини",
+      "questionCount": 72,
+      "url": "https://zno.osvita.ua/biology/tag-oporno_ruhova_sistema_lyudini/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Сенсорні системи людини",
+      "questionCount": 46,
+      "url": "https://zno.osvita.ua/biology/tag-sensorni_sistemi_lyudini/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Репродукція та розвиток людини",
+      "questionCount": 20,
+      "url": "https://zno.osvita.ua/biology/tag-reprodukciya_lyudini/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Екологічні чинники. Популяція",
+      "questionCount": 19,
+      "url": "https://zno.osvita.ua/biology/tag-ekologichni_chinniki_populyaciya/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Екосистеми",
+      "questionCount": 78,
+      "url": "https://zno.osvita.ua/biology/tag-ekosistemi/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Біосфера як глобальна екосистема",
+      "questionCount": 29,
+      "url": "https://zno.osvita.ua/biology/tag-biosfera_yak_ekosistema/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Адаптація як загальна властивість біологічних систем",
+      "questionCount": 63,
+      "url": "https://zno.osvita.ua/biology/tag-adaptaciya_biosistem/",
+      "verifiedAt": "2026-10-27"
+    },
+    {
+      "subjectId": "biology",
+      "title": "Основи еволюційного вчення",
+      "questionCount": 57,
+      "url": "https://zno.osvita.ua/biology/tag-osnovy_evoljucijnogho_vchennja/",
+      "verifiedAt": "2026-10-27"
+    }
+  ],
+  "categories": {
+    "ukrainian": {
+      "training": "https://zno.osvita.ua/ukrmova/nmt.html",
+      "themes": "https://zno.osvita.ua/ukrmova/tema.html",
+      "random10": "https://zno.osvita.ua/ukrmova/rq.html",
+      "all": "https://zno.osvita.ua/ukrmova/list.html",
+      "archive": [
+        {
+          "title": "НМТ онлайн 2026 року з української мови – 1 сесія",
+          "url": "https://zno.osvita.ua/ukrmova/844/"
+        },
+        {
+          "title": "НМТ онлайн 2026 року з української мови – 2 сесія",
+          "url": "https://zno.osvita.ua/ukrmova/845/"
+        },
+        {
+          "title": "НМТ онлайн 2026 року з української мови – демоваріант",
+          "url": "https://zno.osvita.ua/ukrmova/711/"
+        }
+      ]
+    },
+    "math": {
+      "training": "https://zno.osvita.ua/mathematics/nmt.html",
+      "themes": "https://zno.osvita.ua/mathematics/tema.html",
+      "random10": "https://zno.osvita.ua/mathematics/rq.html",
+      "all": "https://zno.osvita.ua/mathematics/list.html",
+      "archive": [
+        {
+          "title": "НМТ онлайн 2026 року з математики – 1 сесія",
+          "url": "https://zno.osvita.ua/mathematics/846/"
+        },
+        {
+          "title": "НМТ онлайн 2026 року з математики – 2 сесія",
+          "url": "https://zno.osvita.ua/mathematics/847/"
+        },
+        {
+          "title": "НМТ онлайн 2026 року з математики – демоваріант",
+          "url": "https://zno.osvita.ua/mathematics/712/"
+        }
+      ]
+    },
+    "history": {
+      "training": "https://zno.osvita.ua/ukraine-history/nmt.html",
+      "themes": "https://zno.osvita.ua/ukraine-history/tema.html",
+      "random10": "https://zno.osvita.ua/ukraine-history/rq.html",
+      "all": "https://zno.osvita.ua/ukraine-history/list.html",
+      "archive": [
+        {
+          "title": "НМТ онлайн 2026 року з історії України – 1 сесія",
+          "url": "https://zno.osvita.ua/ukraine-history/848/"
+        },
+        {
+          "title": "НМТ онлайн 2026 року з історії України – 2 сесія",
+          "url": "https://zno.osvita.ua/ukraine-history/849/"
+        },
+        {
+          "title": "НМТ онлайн 2026 року з історії України – демоваріант",
+          "url": "https://zno.osvita.ua/ukraine-history/713/"
+        }
+      ]
+    },
+    "geography": {
+      "training": "https://zno.osvita.ua/geography/nmt.html",
+      "themes": "https://zno.osvita.ua/geography/tema.html",
+      "random10": "https://zno.osvita.ua/geography/rq.html",
+      "all": "https://zno.osvita.ua/geography/list.html",
+      "archive": [
+        {
+          "title": "НМТ онлайн 2026 року з географії – 1 сесія",
+          "url": "https://zno.osvita.ua/geography/858/"
+        },
+        {
+          "title": "НМТ онлайн 2026 року з географії – 2 сесія",
+          "url": "https://zno.osvita.ua/geography/859/"
+        },
+        {
+          "title": "НМТ онлайн 2026 року з географії – демоваріант",
+          "url": "https://zno.osvita.ua/geography/716/"
+        }
+      ]
+    },
+    "biology": {
+      "training": "https://zno.osvita.ua/biology/nmt.html",
+      "themes": "https://zno.osvita.ua/biology/tema.html",
+      "random10": "https://zno.osvita.ua/biology/rq.html",
+      "all": "https://zno.osvita.ua/biology/list.html",
+      "archive": [
+        {
+          "title": "НМТ онлайн 2026 року з біології – 1 сесія",
+          "url": "https://zno.osvita.ua/biology/852/"
+        },
+        {
+          "title": "НМТ онлайн 2026 року з біології – 2 сесія",
+          "url": "https://zno.osvita.ua/biology/853/"
+        },
+        {
+          "title": "НМТ онлайн 2026 року з біології – демоваріант",
+          "url": "https://zno.osvita.ua/biology/715/"
+        }
+      ]
+    }
+  }
+}

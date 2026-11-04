@@ -1,0 +1,24 @@
+{
+  "status": "QA_ONLY_PASS",
+  "dryRun": {
+    "status": "eligible",
+    "readOnly": true,
+    "questionUpdates": 3,
+    "topicUpdates": 0,
+    "preservedAnswerChecks": 19
+  },
+  "apply": {
+    "status": "QA_ONLY_APPLIED",
+    "questionUpdates": 3,
+    "topicUpdates": 0,
+    "preservedAnswerChecks": 19,
+    "unchangedOtherTables": 30,
+    "integrity": "ok",
+    "foreignKeyViolations": 0
+  },
+  "unchangedTables": 30,
+  "workingMathUpdated": false,
+  "workingDatabaseUnchangedDuringMathQa": true,
+  "originalLessonContentsAlreadyMatch": true,
+  "preservedAnswerChecks": 19
+}

@@ -1,0 +1,180 @@
+{
+  "reviewType": "independent_blind_mathematical_review",
+  "reviewer": "second_independent_agent",
+  "input": "content/stage8/validation82/balanced/blind-questions.json",
+  "blindness": {
+    "readOnlyQuestionFile": true,
+    "authorKeysOrSolutionsRead": false,
+    "previousReportsRead": false,
+    "packageOrProjectFilesRead": false
+  },
+  "scope": "Independent mathematical and editorial judgment on original candidates. Topic fit is assessed from question content, not an external syllabus audit. Baseline named by task is 2026; 2027 is unconfirmed. This is neither teacher validation nor empirical difficulty calibration.",
+  "difficultyRubric": {
+    "EASY": "One basic skill, including immediate substitution and arithmetic.",
+    "MEDIUM": "Two or three linked rules or operations requiring some coordination.",
+    "HARD": "Multiple ideas, cases, domain restrictions, or nontrivial reasoning."
+  },
+  "questions": [
+    {
+      "code": "math-draft-v1-math-expressions-01",
+      "answer": "9",
+      "option": "В",
+      "reasoning": "3x-2x+5=x+5; at x=4 this is 9.",
+      "unique": true,
+      "difficulty": "EASY",
+      "difficultyReason": "Basic substitution or collection of like terms followed by immediate arithmetic.",
+      "wording": "Clear and complete.",
+      "distractors": "4 omits the constant; 5 loses the variable contribution; 20 can arise from adding coefficients and omitting 5. 24 has a weak connection to a typical single error.",
+      "topicFit": "Direct fit: evaluation and like terms.",
+      "concerns": ["Some distractors, especially 24, have weak diagnostic value."]
+    },
+    {
+      "code": "math-draft-v1-math-expressions-02",
+      "answer": "64",
+      "option": "Д",
+      "reasoning": "(2*2)^3=4^3=64.",
+      "unique": true,
+      "difficulty": "EASY",
+      "difficultyReason": "One elementary power evaluation after immediate substitution.",
+      "wording": "Clear; parentheses fix the scope of the exponent.",
+      "distractors": "8 can result from cubing only a; 12 from replacing cubing with multiplication by 3; 16 from not cubing the coefficient or from squaring 4. 32 is less naturally diagnostic.",
+      "topicFit": "Direct fit: powers and numerical values of expressions.",
+      "concerns": ["32 is a relatively weak distractor."]
+    },
+    {
+      "code": "math-draft-v1-math-expressions-03",
+      "answer": "6",
+      "option": "Б",
+      "reasoning": "sqrt((-1-2)^2)=sqrt(9)=3, and log_2(8)=3; the sum is 6.",
+      "unique": true,
+      "difficulty": "MEDIUM",
+      "difficultyReason": "Combines a squared negative quantity under a principal square root with a basic logarithm.",
+      "wording": "Clear and complete.",
+      "distractors": "0 directly tests the erroneous identity sqrt(t^2)=t; 11 can result from treating log_2(8) as 8. 7 and 12 have weaker single-error explanations.",
+      "topicFit": "Fit to numerical expressions involving roots and logarithms.",
+      "concerns": ["Several distractors are less persuasive than the useful sign-error distractor 0."]
+    },
+    {
+      "code": "math-draft-v1-math-expressions-04",
+      "answer": "3",
+      "option": "Б",
+      "reasoning": "3^3=27, so log_3(27)=3.",
+      "unique": true,
+      "difficulty": "EASY",
+      "difficultyReason": "Direct application of the logarithm definition.",
+      "wording": "Clear.",
+      "distractors": "9 can arise from 27/3; 24 from 27-3; 81 from 27*3. These are recognizable operator confusions, though 24 and 81 should be easy to reject. 2 is a plausible exponent guess.",
+      "topicFit": "Fit: elementary logarithmic expressions.",
+      "concerns": []
+    },
+    {
+      "code": "math-draft-v1-math-expressions-05",
+      "answer": "-2",
+      "reasoning": "At x=-2, (x^2-9)/(x-3)=(-5)/(-5)=1 and (x^2-4)/(x-2)=0/(-4)=0; (1-0)*(-2)=-2. Alternatively the fractions simplify to x+3 and x+2 on the original domain x!=3,2.",
+      "unique": true,
+      "difficulty": "MEDIUM",
+      "difficultyReason": "Coordinates substitution, two rational expressions, subtraction and multiplication. Direct evaluation avoids any substantial domain reasoning.",
+      "wording": "Clear; the supplied value is admissible.",
+      "distractors": "Not applicable: numeric response.",
+      "topicFit": "Direct fit: rational algebraic expressions and evaluation.",
+      "concerns": ["Would not justify HARD: direct substitution makes the second fraction zero and the first fraction one."]
+    },
+    {
+      "code": "math-draft-v1-math-expressions-06",
+      "answer": "1",
+      "reasoning": "-(2a-3b)+4a=2a+3b; 2*2+3*(-1)=1. Direct substitution also gives -(4+3)+8=1.",
+      "unique": true,
+      "difficulty": "MEDIUM",
+      "difficultyReason": "Low MEDIUM: coordinates a negative variable, a subtraction inside parentheses, and the external minus. Borderline EASY if routine signed-number evaluation is treated as one skill.",
+      "wording": "Clear and complete.",
+      "distractors": "Not applicable: numeric response.",
+      "topicFit": "Direct fit: signed substitution and parentheses.",
+      "concerns": ["Borderline EASY/MEDIUM; the classification is a qualitative judgment, not calibrated difficulty."]
+    },
+    {
+      "code": "math-draft-v1-math-expressions-07",
+      "answer": "2",
+      "reasoning": "Original domain excludes -4, -2, 3. Replace square roots of squares with absolute values. The bracket is sign(x+4)-sign(x-3): it equals 2 on (-4,3) and 0 outside. The rational factor simplifies to (x+4)/(x+2), with original holes retained. Within (-4,3), it is positive exactly on (-2,3). Admissible integers are -1,0,1,2; their sum is 2.",
+      "solutionSet": "(-2,3)",
+      "integerValues": [-1, 0, 1, 2],
+      "unique": true,
+      "difficulty": "HARD",
+      "difficultyReason": "Requires absolute-value sign cases, original domain exclusions, polynomial factorization, a rational sign analysis and an integer sum.",
+      "wording": "Precise: both definedness and strict positivity are explicitly required.",
+      "distractors": "Not applicable: numeric response.",
+      "topicFit": "Fit as a synthesis task on expressions and their domains; includes inequality reasoning.",
+      "concerns": []
+    },
+    {
+      "code": "math-draft-v1-math-expressions-08",
+      "answer": "22",
+      "reasoning": "The logarithm base requires x>1 and x!=2. The rational argument originally excludes x=2,-2 and simplifies to (x-3)/(x+2). With x>1 its positivity requires x>3. The square root adds x<=7. Thus the domain is (3,7], with integers 4,5,6,7 summing to 22.",
+      "domain": "(3,7]",
+      "integerValues": [4, 5, 6, 7],
+      "unique": true,
+      "difficulty": "HARD",
+      "difficultyReason": "Combines variable-base logarithm restrictions, a rational argument, cancellation with original exclusions, and a square-root restriction.",
+      "wording": "Clear; all needed restrictions are encoded in the expression.",
+      "distractors": "Not applicable: numeric response.",
+      "topicFit": "Fit: domain of a composite algebraic/logarithmic expression.",
+      "concerns": []
+    },
+    {
+      "code": "math-draft-v1-math-expressions-09",
+      "answer": {"1": "А", "2": "Б", "3": "В"},
+      "reasoning": "For the shared rational expression, factor to (x-3)(x+3)/((x-3)(x+2)), with x!=3,-2. Its sign equals that of (x+3)/(x+2). A logarithm needs strict positivity, giving (-infinity,-3) union (-2,3) union (3,infinity), option А. A square root permits zero at -3, giving (-infinity,-3] union (-2,3) union (3,infinity), option Б. sqrt(x^2-9)/(x-3) requires x<=-3 or x>=3 and excludes 3, giving (-infinity,-3] union (3,infinity), option В.",
+      "unique": true,
+      "difficulty": "HARD",
+      "difficultyReason": "Compares three domains, distinguishes strict and non-strict inequalities, retains a canceled denominator exclusion, and uses sign intervals.",
+      "wording": "Clear; the real-variable assumption is explicitly supplied.",
+      "distractors": "Strong and targeted: Г drops the removable hole x=3; Д wrongly admits denominator zero x=-2. А and Б also test inclusion of the zero at -3.",
+      "topicFit": "Direct fit: domains of expressions.",
+      "concerns": []
+    },
+    {
+      "code": "math-draft-v1-math-expressions-10",
+      "answer": "1",
+      "reasoning": "At a=3,b=1, the first parentheses are 3/2-1/4=5/4; the divisor is (9+1)/(9-1)=10/8=5/4. Their quotient is 1. All denominators and the divisor are nonzero.",
+      "unique": true,
+      "difficulty": "MEDIUM",
+      "difficultyReason": "Links subtraction of fractions with division by a fraction and substitution. The supplied numbers make direct evaluation short.",
+      "wording": "Clear; colon unambiguously denotes division.",
+      "distractors": "Not applicable: numeric response.",
+      "topicFit": "Direct fit: rational expressions.",
+      "concerns": ["Would not justify HARD solely from the symbolic appearance: direct substitution gives two identical simple fractions."]
+    },
+    {
+      "code": "math-draft-v1-math-expressions-11",
+      "answer": "1",
+      "reasoning": "3^5*9^(-1)/sqrt(81)=243*(1/9)/9=3. Since 4^(-2)=1/16, log_4(1/16)=-2. The sum is 1.",
+      "unique": true,
+      "difficulty": "MEDIUM",
+      "difficultyReason": "Combines negative powers, a principal square root and a logarithm with fractional argument; there are no variable cases or domain decisions.",
+      "wording": "Clear and mathematically complete.",
+      "distractors": "Not applicable: numeric response.",
+      "topicFit": "Fit: numerical expressions involving powers, roots and logarithms.",
+      "concerns": []
+    },
+    {
+      "code": "math-draft-v1-math-expressions-12",
+      "answer": "1.5",
+      "acceptedMathematicalNotation": ["1.5", "1,5"],
+      "reasoning": "(1/4+1/8)/(1/2-1/4)=(3/8)/(1/4)=3/2=1.5.",
+      "unique": true,
+      "difficulty": "MEDIUM",
+      "difficultyReason": "Links conversion of negative powers to reciprocals with fraction addition/subtraction and division.",
+      "wording": "Clear. Decimal-response instruction is compatible with the terminating answer.",
+      "distractors": "Not applicable: numeric response.",
+      "topicFit": "Fit: powers and numerical expressions.",
+      "concerns": ["Ukrainian decimal comma 1,5 is mathematically valid; response handling should support it. Input handling was not inspected."]
+    }
+  ],
+  "summary": {
+    "questionCount": 12,
+    "allHaveUniqueMathematicalAnswers": true,
+    "blockingMathematicalDefects": [],
+    "difficultyCounts": {"EASY": 3, "MEDIUM": 6, "HARD": 3},
+    "difficultyClassificationComparison": "No proposed difficulty labels were present in the permitted blind input, so actual label disagreements cannot be established. Independent labels above must be compared only after this blind report is sealed. In particular 05 and 10 are MEDIUM by their short direct-substitution solutions, and 06 is borderline EASY/MEDIUM.",
+    "editorialConcerns": ["Some single-choice distractors are weak, especially 01:24, 02:32 and 03:7/12.", "All mathematical prompts are clear and fit the broad expressions topic; 07-09 are substantial domain/sign tasks.", "No empirical calibration, teacher review, or 2027 specification verification is claimed."]
+  }
+}

@@ -3,7 +3,7 @@ import {expect,test} from "@playwright/test";
 test("expired cookie never changes API auth errors into HTML or plain text",async({context,page},testInfo)=>{
  await context.addCookies([{name:"nmt_user",value:"QA-invalid-session",url:"http://127.0.0.1:3100"}]);
  const evidence=[];
- for(const route of ["/api/export/results","/api/export/questions","/api/export/backup","/api/ai/stream"]){
+ for(const route of ["/api/export/results","/api/export/questions","/api/export/backup"]){
   const response=route.includes("stream")?await page.request.post(route,{data:{prompt:"QA-no-provider"}}):await page.request.get(route);
   expect(response.status()).toBe(401);expect(response.headers()["content-type"]).toContain("application/json");expect(await response.json()).toMatchObject({error:expect.any(String)});
   evidence.push({route,status:response.status(),contentType:response.headers()["content-type"]});

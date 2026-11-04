@@ -1,0 +1,779 @@
+{
+  "version": 1,
+  "status": "EDITORIAL_PLAN_NOT_APPLIED",
+  "routes": [
+    {
+      "subjectId": "biology",
+      "topicId": "cm-biology-mendel",
+      "title": "Моногібридне схрещування: закономірності Менделя",
+      "estimatedMin": 40,
+      "prerequisites": [
+        "Диплоїдний набір, мейоз і гамети",
+        "Дроби та множення незалежних імовірностей"
+      ],
+      "steps": [
+        {
+          "kind": "entry",
+          "questionIds": [
+            "s8-biology-foundation-01",
+            "s8-biology-foundation-02",
+            "s8-biology-foundation-03"
+          ]
+        },
+        {
+          "kind": "learn",
+          "read": "Теорія → Приклади без відкриття розв’язання → Конспект",
+          "video": "MISSING_OR_NOT_REVIEWED; no random video inserted"
+        },
+        {
+          "kind": "final",
+          "questionIds": [
+            "s8-biology-foundation-04",
+            "s8-biology-foundation-05",
+            "s8-biology-foundation-06",
+            "s8-biology-foundation-07",
+            "s8-biology-foundation-08",
+            "s8-biology-foundation-09"
+          ]
+        },
+        {
+          "kind": "delayed",
+          "questionIds": [
+            "s8-biology-foundation-10",
+            "s8-biology-foundation-11",
+            "s8-biology-foundation-12"
+          ],
+          "instruction": "Окремий набір; інтервал за ReviewSchedule. Не запускати заново ті самі питання замість нового контролю."
+        }
+      ],
+      "masteryCriterion": {
+        "minimumIndependentChecks": 2,
+        "minimumPercent": 80,
+        "delayedRequired": true,
+        "meaning": "Editorial criterion; not automatically enforced by current MASTERED calculation."
+      },
+      "integration": {
+        "mechanism": "Existing /admin/tests → saveTestSet → setTestPublication; prepare only after owner approval.",
+        "automaticTopicTest": "Random balanced selection can expose holdout questions. Separate sets require staff curation; current app does not automatically reserve a holdout bank."
+      },
+      "remaining": "Add larger independent delayed/mixed banks before claiming robust mastery or exam readiness."
+    },
+    {
+      "subjectId": "history",
+      "topicId": "cm-history-sources",
+      "title": "Історичні джерела та хронологія: базовий інструментарій",
+      "estimatedMin": 40,
+      "prerequisites": [
+        "Порівняння цілих чисел",
+        "Поняття минулого й сучасності"
+      ],
+      "steps": [
+        {
+          "kind": "entry",
+          "questionIds": [
+            "s8-history-foundation-01",
+            "s8-history-foundation-02",
+            "s8-history-foundation-03"
+          ]
+        },
+        {
+          "kind": "learn",
+          "read": "Теорія → Приклади без відкриття розв’язання → Конспект",
+          "video": "MISSING_OR_NOT_REVIEWED; no random video inserted"
+        },
+        {
+          "kind": "final",
+          "questionIds": [
+            "s8-history-foundation-04",
+            "s8-history-foundation-05",
+            "s8-history-foundation-06",
+            "s8-history-foundation-07",
+            "s8-history-foundation-08",
+            "s8-history-foundation-09"
+          ]
+        },
+        {
+          "kind": "delayed",
+          "questionIds": [
+            "s8-history-foundation-10",
+            "s8-history-foundation-11",
+            "s8-history-foundation-12"
+          ],
+          "instruction": "Окремий набір; інтервал за ReviewSchedule. Не запускати заново ті самі питання замість нового контролю."
+        }
+      ],
+      "masteryCriterion": {
+        "minimumIndependentChecks": 2,
+        "minimumPercent": 80,
+        "delayedRequired": true,
+        "meaning": "Editorial criterion; not automatically enforced by current MASTERED calculation."
+      },
+      "integration": {
+        "mechanism": "Existing /admin/tests → saveTestSet → setTestPublication; prepare only after owner approval.",
+        "automaticTopicTest": "Random balanced selection can expose holdout questions. Separate sets require staff curation; current app does not automatically reserve a holdout bank."
+      },
+      "remaining": "Add larger independent delayed/mixed banks before claiming robust mastery or exam readiness."
+    },
+    {
+      "subjectId": "math",
+      "topicId": "math-expressions",
+      "title": "Алгебраїчні вирази",
+      "estimatedMin": 45,
+      "prerequisites": [
+        "Дії з дробами",
+        "Розподільна властивість множення"
+      ],
+      "steps": [
+        {
+          "kind": "entry",
+          "questionIds": [
+            "math-draft-v1-math-expressions-01",
+            "math-draft-v1-math-expressions-02",
+            "math-draft-v1-math-expressions-03"
+          ]
+        },
+        {
+          "kind": "learn",
+          "read": "Теорія → Приклади без відкриття розв’язання → Конспект",
+          "video": "MISSING_OR_NOT_REVIEWED; no random video inserted"
+        },
+        {
+          "kind": "final",
+          "questionIds": [
+            "math-draft-v1-math-expressions-04",
+            "math-draft-v1-math-expressions-05",
+            "math-draft-v1-math-expressions-06",
+            "math-draft-v1-math-expressions-07",
+            "math-draft-v1-math-expressions-08",
+            "math-draft-v1-math-expressions-09"
+          ]
+        },
+        {
+          "kind": "delayed",
+          "questionIds": [
+            "math-draft-v1-math-expressions-10",
+            "math-draft-v1-math-expressions-11",
+            "math-draft-v1-math-expressions-12"
+          ],
+          "instruction": "Окремий набір; інтервал за ReviewSchedule. Не запускати заново ті самі питання замість нового контролю."
+        }
+      ],
+      "masteryCriterion": {
+        "minimumIndependentChecks": 2,
+        "minimumPercent": 80,
+        "delayedRequired": true,
+        "meaning": "Editorial criterion; not automatically enforced by current MASTERED calculation."
+      },
+      "integration": {
+        "mechanism": "Existing /admin/tests → saveTestSet → setTestPublication; prepare only after owner approval.",
+        "automaticTopicTest": "Random balanced selection can expose holdout questions. Separate sets require staff curation; current app does not automatically reserve a holdout bank."
+      },
+      "remaining": "Add larger independent delayed/mixed banks before claiming robust mastery or exam readiness."
+    },
+    {
+      "subjectId": "math",
+      "topicId": "math-linear-systems",
+      "title": "Системи лінійних рівнянь",
+      "estimatedMin": 45,
+      "prerequisites": [
+        "Лінійне рівняння",
+        "Перетворення виразів"
+      ],
+      "steps": [
+        {
+          "kind": "entry",
+          "questionIds": [
+            "math-draft-v1-math-linear-systems-01",
+            "math-draft-v1-math-linear-systems-02",
+            "math-draft-v1-math-linear-systems-03"
+          ]
+        },
+        {
+          "kind": "learn",
+          "read": "Теорія → Приклади без відкриття розв’язання → Конспект",
+          "video": "MISSING_OR_NOT_REVIEWED; no random video inserted"
+        },
+        {
+          "kind": "final",
+          "questionIds": [
+            "math-draft-v1-math-linear-systems-04",
+            "math-draft-v1-math-linear-systems-05",
+            "math-draft-v1-math-linear-systems-06",
+            "math-draft-v1-math-linear-systems-07",
+            "math-draft-v1-math-linear-systems-08",
+            "math-draft-v1-math-linear-systems-09"
+          ]
+        },
+        {
+          "kind": "delayed",
+          "questionIds": [
+            "math-draft-v1-math-linear-systems-10",
+            "math-draft-v1-math-linear-systems-11",
+            "math-draft-v1-math-linear-systems-12"
+          ],
+          "instruction": "Окремий набір; інтервал за ReviewSchedule. Не запускати заново ті самі питання замість нового контролю."
+        }
+      ],
+      "masteryCriterion": {
+        "minimumIndependentChecks": 2,
+        "minimumPercent": 80,
+        "delayedRequired": true,
+        "meaning": "Editorial criterion; not automatically enforced by current MASTERED calculation."
+      },
+      "integration": {
+        "mechanism": "Existing /admin/tests → saveTestSet → setTestPublication; prepare only after owner approval.",
+        "automaticTopicTest": "Random balanced selection can expose holdout questions. Separate sets require staff curation; current app does not automatically reserve a holdout bank."
+      },
+      "remaining": "Add larger independent delayed/mixed banks before claiming robust mastery or exam readiness."
+    },
+    {
+      "subjectId": "math",
+      "topicId": "math-quadratic",
+      "title": "Квадратні рівняння",
+      "estimatedMin": 45,
+      "prerequisites": [
+        "Розкладання на множники",
+        "Квадратний корінь"
+      ],
+      "steps": [
+        {
+          "kind": "entry",
+          "questionIds": [
+            "math-draft-v1-math-quadratic-01",
+            "math-draft-v1-math-quadratic-02",
+            "math-draft-v1-math-quadratic-03"
+          ]
+        },
+        {
+          "kind": "learn",
+          "read": "Теорія → Приклади без відкриття розв’язання → Конспект",
+          "video": "MISSING_OR_NOT_REVIEWED; no random video inserted"
+        },
+        {
+          "kind": "final",
+          "questionIds": [
+            "math-draft-v1-math-quadratic-04",
+            "math-draft-v1-math-quadratic-05",
+            "math-draft-v1-math-quadratic-06",
+            "math-draft-v1-math-quadratic-07",
+            "math-draft-v1-math-quadratic-08",
+            "math-draft-v1-math-quadratic-09"
+          ]
+        },
+        {
+          "kind": "delayed",
+          "questionIds": [
+            "math-draft-v1-math-quadratic-10",
+            "math-draft-v1-math-quadratic-11",
+            "math-draft-v1-math-quadratic-12"
+          ],
+          "instruction": "Окремий набір; інтервал за ReviewSchedule. Не запускати заново ті самі питання замість нового контролю."
+        }
+      ],
+      "masteryCriterion": {
+        "minimumIndependentChecks": 2,
+        "minimumPercent": 80,
+        "delayedRequired": true,
+        "meaning": "Editorial criterion; not automatically enforced by current MASTERED calculation."
+      },
+      "integration": {
+        "mechanism": "Existing /admin/tests → saveTestSet → setTestPublication; prepare only after owner approval.",
+        "automaticTopicTest": "Random balanced selection can expose holdout questions. Separate sets require staff curation; current app does not automatically reserve a holdout bank."
+      },
+      "remaining": "Add larger independent delayed/mixed banks before claiming robust mastery or exam readiness."
+    },
+    {
+      "subjectId": "math",
+      "topicId": "math-functions",
+      "title": "Функції та графіки",
+      "estimatedMin": 45,
+      "prerequisites": [
+        "Координатна площина",
+        "Рівняння й ОДЗ"
+      ],
+      "steps": [
+        {
+          "kind": "entry",
+          "questionIds": [
+            "math-draft-v1-math-functions-01",
+            "math-draft-v1-math-functions-02",
+            "math-draft-v1-math-functions-03"
+          ]
+        },
+        {
+          "kind": "learn",
+          "read": "Теорія → Приклади без відкриття розв’язання → Конспект",
+          "video": "MISSING_OR_NOT_REVIEWED; no random video inserted"
+        },
+        {
+          "kind": "final",
+          "questionIds": [
+            "math-draft-v1-math-functions-04",
+            "math-draft-v1-math-functions-05",
+            "math-draft-v1-math-functions-06",
+            "math-draft-v1-math-functions-07",
+            "math-draft-v1-math-functions-08",
+            "math-draft-v1-math-functions-09"
+          ]
+        },
+        {
+          "kind": "delayed",
+          "questionIds": [
+            "math-draft-v1-math-functions-10",
+            "math-draft-v1-math-functions-11",
+            "math-draft-v1-math-functions-12"
+          ],
+          "instruction": "Окремий набір; інтервал за ReviewSchedule. Не запускати заново ті самі питання замість нового контролю."
+        }
+      ],
+      "masteryCriterion": {
+        "minimumIndependentChecks": 2,
+        "minimumPercent": 80,
+        "delayedRequired": true,
+        "meaning": "Editorial criterion; not automatically enforced by current MASTERED calculation."
+      },
+      "integration": {
+        "mechanism": "Existing /admin/tests → saveTestSet → setTestPublication; prepare only after owner approval.",
+        "automaticTopicTest": "Random balanced selection can expose holdout questions. Separate sets require staff curation; current app does not automatically reserve a holdout bank."
+      },
+      "remaining": "Add larger independent delayed/mixed banks before claiming robust mastery or exam readiness."
+    },
+    {
+      "subjectId": "math",
+      "topicId": "math-progressions",
+      "title": "Прогресії",
+      "estimatedMin": 45,
+      "prerequisites": [
+        "Степені",
+        "Лінійні рівняння"
+      ],
+      "steps": [
+        {
+          "kind": "entry",
+          "questionIds": [
+            "math-draft-v1-math-progressions-01",
+            "math-draft-v1-math-progressions-02",
+            "math-draft-v1-math-progressions-03"
+          ]
+        },
+        {
+          "kind": "learn",
+          "read": "Теорія → Приклади без відкриття розв’язання → Конспект",
+          "video": "MISSING_OR_NOT_REVIEWED; no random video inserted"
+        },
+        {
+          "kind": "final",
+          "questionIds": [
+            "math-draft-v1-math-progressions-04",
+            "math-draft-v1-math-progressions-05",
+            "math-draft-v1-math-progressions-06",
+            "math-draft-v1-math-progressions-07",
+            "math-draft-v1-math-progressions-08",
+            "math-draft-v1-math-progressions-09"
+          ]
+        },
+        {
+          "kind": "delayed",
+          "questionIds": [
+            "math-draft-v1-math-progressions-10",
+            "math-draft-v1-math-progressions-11",
+            "math-draft-v1-math-progressions-12"
+          ],
+          "instruction": "Окремий набір; інтервал за ReviewSchedule. Не запускати заново ті самі питання замість нового контролю."
+        }
+      ],
+      "masteryCriterion": {
+        "minimumIndependentChecks": 2,
+        "minimumPercent": 80,
+        "delayedRequired": true,
+        "meaning": "Editorial criterion; not automatically enforced by current MASTERED calculation."
+      },
+      "integration": {
+        "mechanism": "Existing /admin/tests → saveTestSet → setTestPublication; prepare only after owner approval.",
+        "automaticTopicTest": "Random balanced selection can expose holdout questions. Separate sets require staff curation; current app does not automatically reserve a holdout bank."
+      },
+      "remaining": "Add larger independent delayed/mixed banks before claiming robust mastery or exam readiness."
+    },
+    {
+      "subjectId": "math",
+      "topicId": "math-trig",
+      "title": "Тригонометрія",
+      "estimatedMin": 45,
+      "prerequisites": [
+        "Коло та прямокутний трикутник",
+        "Степені й корені"
+      ],
+      "steps": [
+        {
+          "kind": "entry",
+          "questionIds": [
+            "math-draft-v1-math-trig-01",
+            "math-draft-v1-math-trig-02",
+            "math-draft-v1-math-trig-03"
+          ]
+        },
+        {
+          "kind": "learn",
+          "read": "Теорія → Приклади без відкриття розв’язання → Конспект",
+          "video": "MISSING_OR_NOT_REVIEWED; no random video inserted"
+        },
+        {
+          "kind": "final",
+          "questionIds": [
+            "math-draft-v1-math-trig-04",
+            "math-draft-v1-math-trig-05",
+            "math-draft-v1-math-trig-06",
+            "math-draft-v1-math-trig-07",
+            "math-draft-v1-math-trig-08",
+            "math-draft-v1-math-trig-09"
+          ]
+        },
+        {
+          "kind": "delayed",
+          "questionIds": [
+            "math-draft-v1-math-trig-10",
+            "math-draft-v1-math-trig-11",
+            "math-draft-v1-math-trig-12"
+          ],
+          "instruction": "Окремий набір; інтервал за ReviewSchedule. Не запускати заново ті самі питання замість нового контролю."
+        }
+      ],
+      "masteryCriterion": {
+        "minimumIndependentChecks": 2,
+        "minimumPercent": 80,
+        "delayedRequired": true,
+        "meaning": "Editorial criterion; not automatically enforced by current MASTERED calculation."
+      },
+      "integration": {
+        "mechanism": "Existing /admin/tests → saveTestSet → setTestPublication; prepare only after owner approval.",
+        "automaticTopicTest": "Random balanced selection can expose holdout questions. Separate sets require staff curation; current app does not automatically reserve a holdout bank."
+      },
+      "remaining": "Add larger independent delayed/mixed banks before claiming robust mastery or exam readiness."
+    },
+    {
+      "subjectId": "math",
+      "topicId": "math-derivative",
+      "title": "Похідна",
+      "estimatedMin": 45,
+      "prerequisites": [
+        "Функції й графіки",
+        "Многочлени та степені"
+      ],
+      "steps": [
+        {
+          "kind": "entry",
+          "questionIds": [
+            "math-draft-v1-math-derivative-01",
+            "math-draft-v1-math-derivative-02",
+            "math-draft-v1-math-derivative-03"
+          ]
+        },
+        {
+          "kind": "learn",
+          "read": "Теорія → Приклади без відкриття розв’язання → Конспект",
+          "video": "MISSING_OR_NOT_REVIEWED; no random video inserted"
+        },
+        {
+          "kind": "final",
+          "questionIds": [
+            "math-draft-v1-math-derivative-04",
+            "math-draft-v1-math-derivative-05",
+            "math-draft-v1-math-derivative-06",
+            "math-draft-v1-math-derivative-07",
+            "math-draft-v1-math-derivative-08",
+            "math-draft-v1-math-derivative-09"
+          ]
+        },
+        {
+          "kind": "delayed",
+          "questionIds": [
+            "math-draft-v1-math-derivative-10",
+            "math-draft-v1-math-derivative-11",
+            "math-draft-v1-math-derivative-12"
+          ],
+          "instruction": "Окремий набір; інтервал за ReviewSchedule. Не запускати заново ті самі питання замість нового контролю."
+        }
+      ],
+      "masteryCriterion": {
+        "minimumIndependentChecks": 2,
+        "minimumPercent": 80,
+        "delayedRequired": true,
+        "meaning": "Editorial criterion; not automatically enforced by current MASTERED calculation."
+      },
+      "integration": {
+        "mechanism": "Existing /admin/tests → saveTestSet → setTestPublication; prepare only after owner approval.",
+        "automaticTopicTest": "Random balanced selection can expose holdout questions. Separate sets require staff curation; current app does not automatically reserve a holdout bank."
+      },
+      "remaining": "Add larger independent delayed/mixed banks before claiming robust mastery or exam readiness."
+    },
+    {
+      "subjectId": "math",
+      "topicId": "math-plane",
+      "title": "Планіметрія",
+      "estimatedMin": 45,
+      "prerequisites": [
+        "Кути й паралельні прямі",
+        "Квадратні корені та рівняння"
+      ],
+      "steps": [
+        {
+          "kind": "entry",
+          "questionIds": [
+            "math-draft-v1-math-plane-01",
+            "math-draft-v1-math-plane-02",
+            "math-draft-v1-math-plane-03"
+          ]
+        },
+        {
+          "kind": "learn",
+          "read": "Теорія → Приклади без відкриття розв’язання → Конспект",
+          "video": "MISSING_OR_NOT_REVIEWED; no random video inserted"
+        },
+        {
+          "kind": "final",
+          "questionIds": [
+            "math-draft-v1-math-plane-04",
+            "math-draft-v1-math-plane-05",
+            "math-draft-v1-math-plane-06",
+            "math-draft-v1-math-plane-07",
+            "math-draft-v1-math-plane-08",
+            "math-draft-v1-math-plane-09"
+          ]
+        },
+        {
+          "kind": "delayed",
+          "questionIds": [
+            "math-draft-v1-math-plane-10",
+            "math-draft-v1-math-plane-11",
+            "math-draft-v1-math-plane-12"
+          ],
+          "instruction": "Окремий набір; інтервал за ReviewSchedule. Не запускати заново ті самі питання замість нового контролю."
+        }
+      ],
+      "masteryCriterion": {
+        "minimumIndependentChecks": 2,
+        "minimumPercent": 80,
+        "delayedRequired": true,
+        "meaning": "Editorial criterion; not automatically enforced by current MASTERED calculation."
+      },
+      "integration": {
+        "mechanism": "Existing /admin/tests → saveTestSet → setTestPublication; prepare only after owner approval.",
+        "automaticTopicTest": "Random balanced selection can expose holdout questions. Separate sets require staff curation; current app does not automatically reserve a holdout bank."
+      },
+      "remaining": "Add larger independent delayed/mixed banks before claiming robust mastery or exam readiness."
+    },
+    {
+      "subjectId": "math",
+      "topicId": "math-solid",
+      "title": "Стереометрія",
+      "estimatedMin": 45,
+      "prerequisites": [
+        "Планіметрія",
+        "Теорема Піфагора"
+      ],
+      "steps": [
+        {
+          "kind": "entry",
+          "questionIds": [
+            "math-draft-v1-math-solid-01",
+            "math-draft-v1-math-solid-02",
+            "math-draft-v1-math-solid-03"
+          ]
+        },
+        {
+          "kind": "learn",
+          "read": "Теорія → Приклади без відкриття розв’язання → Конспект",
+          "video": "MISSING_OR_NOT_REVIEWED; no random video inserted"
+        },
+        {
+          "kind": "final",
+          "questionIds": [
+            "math-draft-v1-math-solid-04",
+            "math-draft-v1-math-solid-05",
+            "math-draft-v1-math-solid-06",
+            "math-draft-v1-math-solid-07",
+            "math-draft-v1-math-solid-08",
+            "math-draft-v1-math-solid-09"
+          ]
+        },
+        {
+          "kind": "delayed",
+          "questionIds": [
+            "math-draft-v1-math-solid-10",
+            "math-draft-v1-math-solid-11",
+            "math-draft-v1-math-solid-12"
+          ],
+          "instruction": "Окремий набір; інтервал за ReviewSchedule. Не запускати заново ті самі питання замість нового контролю."
+        }
+      ],
+      "masteryCriterion": {
+        "minimumIndependentChecks": 2,
+        "minimumPercent": 80,
+        "delayedRequired": true,
+        "meaning": "Editorial criterion; not automatically enforced by current MASTERED calculation."
+      },
+      "integration": {
+        "mechanism": "Existing /admin/tests → saveTestSet → setTestPublication; prepare only after owner approval.",
+        "automaticTopicTest": "Random balanced selection can expose holdout questions. Separate sets require staff curation; current app does not automatically reserve a holdout bank."
+      },
+      "remaining": "Add larger independent delayed/mixed banks before claiming robust mastery or exam readiness."
+    },
+    {
+      "subjectId": "math",
+      "topicId": "math-probability",
+      "title": "Комбінаторика та ймовірність",
+      "estimatedMin": 45,
+      "prerequisites": [
+        "Дроби та відсотки",
+        "Множення й додавання натуральних чисел"
+      ],
+      "steps": [
+        {
+          "kind": "entry",
+          "questionIds": [
+            "math-draft-v1-math-probability-01",
+            "math-draft-v1-math-probability-02",
+            "math-draft-v1-math-probability-03"
+          ]
+        },
+        {
+          "kind": "learn",
+          "read": "Теорія → Приклади без відкриття розв’язання → Конспект",
+          "video": "MISSING_OR_NOT_REVIEWED; no random video inserted"
+        },
+        {
+          "kind": "final",
+          "questionIds": [
+            "math-draft-v1-math-probability-04",
+            "math-draft-v1-math-probability-05",
+            "math-draft-v1-math-probability-06",
+            "math-draft-v1-math-probability-07",
+            "math-draft-v1-math-probability-08",
+            "math-draft-v1-math-probability-09"
+          ]
+        },
+        {
+          "kind": "delayed",
+          "questionIds": [
+            "math-draft-v1-math-probability-10",
+            "math-draft-v1-math-probability-11",
+            "math-draft-v1-math-probability-12"
+          ],
+          "instruction": "Окремий набір; інтервал за ReviewSchedule. Не запускати заново ті самі питання замість нового контролю."
+        }
+      ],
+      "masteryCriterion": {
+        "minimumIndependentChecks": 2,
+        "minimumPercent": 80,
+        "delayedRequired": true,
+        "meaning": "Editorial criterion; not automatically enforced by current MASTERED calculation."
+      },
+      "integration": {
+        "mechanism": "Existing /admin/tests → saveTestSet → setTestPublication; prepare only after owner approval.",
+        "automaticTopicTest": "Random balanced selection can expose holdout questions. Separate sets require staff curation; current app does not automatically reserve a holdout bank."
+      },
+      "remaining": "Add larger independent delayed/mixed banks before claiming robust mastery or exam readiness."
+    },
+    {
+      "subjectId": "ukrainian",
+      "topicId": "cm-ukrainian-formation",
+      "title": "Словотвір і морфемний аналіз",
+      "estimatedMin": 40,
+      "prerequisites": [
+        "Лексичне й граматичне значення",
+        "Іменник і дієслово"
+      ],
+      "steps": [
+        {
+          "kind": "entry",
+          "questionIds": [
+            "s8-ukrainian-foundation-01",
+            "s8-ukrainian-foundation-02",
+            "s8-ukrainian-foundation-03"
+          ]
+        },
+        {
+          "kind": "learn",
+          "read": "Теорія → Приклади без відкриття розв’язання → Конспект",
+          "video": "MISSING_OR_NOT_REVIEWED; no random video inserted"
+        },
+        {
+          "kind": "final",
+          "questionIds": [
+            "s8-ukrainian-foundation-04",
+            "s8-ukrainian-foundation-05",
+            "s8-ukrainian-foundation-06",
+            "s8-ukrainian-foundation-07",
+            "s8-ukrainian-foundation-08",
+            "s8-ukrainian-foundation-09"
+          ]
+        },
+        {
+          "kind": "delayed",
+          "questionIds": [
+            "s8-ukrainian-foundation-10",
+            "s8-ukrainian-foundation-11",
+            "s8-ukrainian-foundation-12"
+          ],
+          "instruction": "Окремий набір; інтервал за ReviewSchedule. Не запускати заново ті самі питання замість нового контролю."
+        }
+      ],
+      "masteryCriterion": {
+        "minimumIndependentChecks": 2,
+        "minimumPercent": 80,
+        "delayedRequired": true,
+        "meaning": "Editorial criterion; not automatically enforced by current MASTERED calculation."
+      },
+      "integration": {
+        "mechanism": "Existing /admin/tests → saveTestSet → setTestPublication; prepare only after owner approval.",
+        "automaticTopicTest": "Random balanced selection can expose holdout questions. Separate sets require staff curation; current app does not automatically reserve a holdout bank."
+      },
+      "remaining": "Add larger independent delayed/mixed banks before claiming robust mastery or exam readiness."
+    }
+  ],
+  "systemFindings": [
+    {
+      "id": "LEARNING-01",
+      "file": "src/lib/mastery.ts",
+      "finding": "learningStatus assigns MASTERED after one high-scoring attempt. Does not verify stability over multiple independent checks."
+    },
+    {
+      "id": "LEARNING-02",
+      "file": "src/lib/plan.ts",
+      "finding": "nextTopicForSubject uses status and sortOrder; TopicDependency is not an enforced prerequisite guard."
+    },
+    {
+      "id": "LEARNING-03",
+      "file": "src/server/sync.ts",
+      "finding": "plan window, study days and daily minutes are used; examDate and targetScore are not inputs to topic selection in this path."
+    },
+    {
+      "id": "LEARNING-04",
+      "file": "src/lib/grade.ts",
+      "finding": "MATCHING/SEQUENCE grade as whole-question correctness. Not official NMT partial-point scoring."
+    },
+    {
+      "id": "LEARNING-05",
+      "file": "src/lib/content-package.ts",
+      "finding": "Official history three-of-seven and biology three-group answer formats are not supported by the import schema. Do not claim full official mock coverage."
+    }
+  ],
+  "reviewIntervals": {
+    "weakOrRepeatedErrors": [
+      1,
+      3,
+      7
+    ],
+    "middle": [
+      1,
+      7,
+      30
+    ],
+    "high": [
+      7,
+      21,
+      45
+    ]
+  },
+  "forecast": "No guaranteed score, no 180–200 prediction from small thematic tests."
+}

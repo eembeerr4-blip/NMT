@@ -1,0 +1,42 @@
+{
+  "status": "EDITORIAL_CANDIDATE_NOT_IMPORTED",
+  "topicId": "hist-galicia-sub-01",
+  "events": [
+    {
+      "year": 1199,
+      "event": "Роман Мстиславич об’єднав Галицьке й Волинське князівства",
+      "distinction": "Не коронація Данила"
+    },
+    {
+      "year": 1205,
+      "event": "Загибель Романа; початок тривалої боротьби за спадщину",
+      "distinction": "Не приєднання до Візантії"
+    },
+    {
+      "year": 1238,
+      "event": "Данило утвердився в Галичі й відновив державу батька",
+      "distinction": "Не перша поява Данила на політичній сцені"
+    },
+    {
+      "year": 1245,
+      "event": "Перемога Данила в Ярославській битві",
+      "distinction": "Важливий етап подолання боярської опозиції"
+    },
+    {
+      "year": 1253,
+      "event": "Прийняття Данилом королівської корони в Дорогичині",
+      "distinction": "Не хрещення Русі"
+    },
+    {
+      "year": 1264,
+      "event": "Смерть Данила Романовича",
+      "distinction": "Не кінець існування всіх галицько-волинських земель"
+    }
+  ],
+  "causalityNote": "Послідовність дат не дорівнює поясненню причин. Для кожної події відокремлюйте внутрішні сили, зовнішні союзи й наслідки; не зводьте коронацію до отриманої військової допомоги.",
+  "sources": [
+    "https://resource.history.org.ua/cgi-bin/eiu/history.exe?C21COM=S&I21DBN=EIU&P21DBN=EIU&S21CNR=20&S21COLORTERMS=0&S21FMT=eiu_all&S21P01=0&S21P02=0&S21P03=TRN%3D&S21REF=10&S21STN=1&S21STR=Danylo_Galycky&Z21ID=",
+    "https://resource.history.org.ua/cgi-bin/eiu/history.exe?C21COM=S&I21DBN=EIU&P21DBN=EIU&S21FMT=eiu_all&S21P03=TRN%3D&S21STR=Roman_M"
+  ],
+  "maps": "No third-party historical map copied. Source-bound map selection and rights check pending."
+}

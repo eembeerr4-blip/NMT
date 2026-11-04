@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useActionFeedback } from "./use-action-feedback";
-import { moveTask, recalculateFuturePlan, setTaskStatus } from "@/server/actions";
+import { moveTask, setTaskStatus } from "@/server/actions";
 import { Badge, Button, Input } from "@/components/ui";
 
-export function TaskControls({ task }: { task: { id: string; status: string; topicId: string | null; kind: string } }) {
+export function TaskControls({ task }: { task: { id: string; status: string; topicId: string | null; kind: string; templateKey?: string | null } }) {
   const router = useRouter();
   const {pending,result,run}=useActionFeedback();
+  if (task.templateKey?.startsWith("zno:")) return <Button asChild size="sm" variant="outline"><Link href="/exams">Відкрити призначення ZNO Online</Link></Button>;
   if (task.status === "MOVED") return <Badge>Перенесено</Badge>;
   return (
     <div className="flex flex-wrap items-center gap-2">
@@ -41,11 +42,3 @@ export function TaskControls({ task }: { task: { id: string; status: string; top
   );
 }
 
-export function RecalculatePlanButton() {
-  const router = useRouter();
-  const {pending,result,run}=useActionFeedback();
-  return <div className="space-y-1">
-    <Button type="button" variant="outline" disabled={pending} onClick={() => run(recalculateFuturePlan,()=>router.refresh())}>{pending ? "Перерахунок…" : "Перерахувати план"}</Button>
-    {result ? <p role={result.ok?"status":"alert"} className="max-w-md text-xs text-muted-foreground">{result.ok?result.message??"План перераховано.":result.error}</p> : null}
-  </div>;
-}

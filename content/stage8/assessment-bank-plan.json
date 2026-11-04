@@ -1,0 +1,142 @@
+{
+  "stage": "8.1",
+  "status": "PROPOSAL_PLUS_ONE_REVIEWED_PILOT_NOT_IMPLEMENTED",
+  "existing": {
+    "mastery": "src/lib/mastery.ts learningStatus uses one high score; rounded proportional thresholds can be below exact80%.",
+    "scheduling": "reviewIntervals adapts [1,3,7]/[1,7,30]/[7,21,45]; do not claim fixed1/7/30 for everyone.",
+    "history": "Mistake/MistakeRetry retain source errors and retry records; historical Answer/TestAttempt are not rewritten.",
+    "nextTopic": "src/lib/plan.ts picks leaves by status/sort; does not enforce TopicDependency.",
+    "curation": "src/server/test-sets.ts supports manual ordered sets; no automated holdout reservation or freshness enforcement."
+  },
+  "proposedMastery": {
+    "minimumIndependentSuccesses": 2,
+    "minimumPercent": 80,
+    "minimumCorrectRule": "ceil(0.8 * gradedQuestionCount), exclude pending/manual grades",
+    "oneDelayed": true,
+    "delayDays": 7,
+    "noQuestionIdOverlap": true,
+    "noPreviouslyExposedHoldout": true,
+    "freshContextRequired": true,
+    "failedRetry": "Return to targeted practice and reschedule; do not count same-key retry as independent success.",
+    "prerequisites": "Evaluate TopicDependency before recommendation, not silently in Stage8.1.",
+    "historicalData": "No regrading or status rewrite without explicit migration/decision."
+  },
+  "pilot": "content/stage8/validation81/math-expressions-assessment-bank.json",
+  "bankCoverage": [
+    {
+      "topicId": "math-expressions",
+      "trainingQuestions": 12,
+      "finalQuestions": 6,
+      "delayedQuestions": 6,
+      "status": "PILOT_PARALLEL_FORMS_REVIEWED"
+    },
+    {
+      "topicId": "math-linear-systems",
+      "trainingQuestions": 12,
+      "finalQuestions": 0,
+      "delayedQuestions": 0,
+      "status": "NEEDS_NEW_DISJOINT_BANKS"
+    },
+    {
+      "topicId": "math-quadratic",
+      "trainingQuestions": 12,
+      "finalQuestions": 0,
+      "delayedQuestions": 0,
+      "status": "NEEDS_NEW_DISJOINT_BANKS"
+    },
+    {
+      "topicId": "math-functions",
+      "trainingQuestions": 12,
+      "finalQuestions": 0,
+      "delayedQuestions": 0,
+      "status": "NEEDS_NEW_DISJOINT_BANKS"
+    },
+    {
+      "topicId": "math-progressions",
+      "trainingQuestions": 12,
+      "finalQuestions": 0,
+      "delayedQuestions": 0,
+      "status": "NEEDS_NEW_DISJOINT_BANKS"
+    },
+    {
+      "topicId": "math-trig",
+      "trainingQuestions": 12,
+      "finalQuestions": 0,
+      "delayedQuestions": 0,
+      "status": "NEEDS_NEW_DISJOINT_BANKS"
+    },
+    {
+      "topicId": "math-derivative",
+      "trainingQuestions": 12,
+      "finalQuestions": 0,
+      "delayedQuestions": 0,
+      "status": "NEEDS_NEW_DISJOINT_BANKS"
+    },
+    {
+      "topicId": "math-plane",
+      "trainingQuestions": 12,
+      "finalQuestions": 0,
+      "delayedQuestions": 0,
+      "status": "NEEDS_NEW_DISJOINT_BANKS"
+    },
+    {
+      "topicId": "math-solid",
+      "trainingQuestions": 12,
+      "finalQuestions": 0,
+      "delayedQuestions": 0,
+      "status": "NEEDS_NEW_DISJOINT_BANKS"
+    },
+    {
+      "topicId": "math-probability",
+      "trainingQuestions": 12,
+      "finalQuestions": 0,
+      "delayedQuestions": 0,
+      "status": "NEEDS_NEW_DISJOINT_BANKS"
+    },
+    {
+      "topicId": "cm-ukrainian-formation",
+      "trainingQuestions": 12,
+      "finalQuestions": 0,
+      "delayedQuestions": 0,
+      "status": "NEEDS_NEW_DISJOINT_BANKS"
+    },
+    {
+      "topicId": "cm-history-sources",
+      "trainingQuestions": 12,
+      "finalQuestions": 0,
+      "delayedQuestions": 0,
+      "status": "NEEDS_NEW_DISJOINT_BANKS"
+    },
+    {
+      "topicId": "cm-biology-mendel",
+      "trainingQuestions": 12,
+      "finalQuestions": 0,
+      "delayedQuestions": 0,
+      "status": "NEEDS_NEW_DISJOINT_BANKS"
+    },
+    {
+      "topicId": "ukr-morph-sub-01",
+      "trainingQuestions": 12,
+      "finalQuestions": 0,
+      "delayedQuestions": 0,
+      "status": "NEEDS_NEW_DISJOINT_BANKS"
+    },
+    {
+      "topicId": "cm-ukrainian-compound-sentence",
+      "trainingQuestions": 12,
+      "finalQuestions": 0,
+      "delayedQuestions": 0,
+      "status": "NEEDS_NEW_DISJOINT_BANKS"
+    }
+  ],
+  "acceptanceTests": [
+    "Reject repeated same attempt as second success",
+    "79.9% fails exact80% rule",
+    "Pending/manual grades cannot certify mastery",
+    "Delayed success must be after minimum interval",
+    "Training/final/delayed IDs disjoint",
+    "Stale/unpublished/deverified questions blocked",
+    "Prerequisite gaps surfaced without deleting historical progress"
+  ],
+  "architectureDecision": "Separate proposal only; no production mastery/planning/schema change in this task."
+}

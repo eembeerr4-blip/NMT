@@ -4,12 +4,13 @@ import { Card, PageHeader } from "@/components/ui";
 import { dateKey, formatUk } from "@/lib/dates";
 import { isOwner } from "@/lib/permissions";
 import { requireAdministrator } from "@/server/session";
-import { getSettings } from "@/server/sync";
+import { ensureUserSettings, getSettings } from "@/server/sync";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminSettingsPage() {
   const user = await requireAdministrator();
+  await ensureUserSettings(user.id);
   const settings = await getSettings(user.id);
   return (
     <>

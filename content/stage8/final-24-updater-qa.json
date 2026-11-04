@@ -1,0 +1,339 @@
+{
+  "checkedAt": "2026-10-30",
+  "status": "PASS_ISOLATED_COPY_ONLY",
+  "directory": "<LOCAL_TEMP>/nmt-stage8-final-review-WEuHn1",
+  "workingDatabaseUnchanged": true,
+  "workingTables": 31,
+  "workingBaseline": {
+    "Answer": {
+      "rows": 12,
+      "sha256": "c5e253b2ddfe9e765ca079fa36d4989b857282a8b7bb4727b7ecde1ece037ce9"
+    },
+    "AuditLog": {
+      "rows": 187,
+      "sha256": "cf8e66939a28c5bbb9248b402f6889b1837eae569f6e8e168579dbd843bd255c"
+    },
+    "AuthToken": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "ExamResult": {
+      "rows": 7,
+      "sha256": "84cd34a34e3a22ab7bab7e6825c1cf76a647eda5c61a5ed25471b53f75d8ac7c"
+    },
+    "ExternalPractice": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "ExternalResultRevision": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "Flashcard": {
+      "rows": 9,
+      "sha256": "b97ae05587a1778c795a00753f3d85d75e5204ca21975fb3ee6a0e2217882e86"
+    },
+    "Invitation": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "Mistake": {
+      "rows": 10,
+      "sha256": "d5192edf5afd6c99fc999262445789725fbeb6293a6f8eb46f7dc628ea166461"
+    },
+    "MistakeRetry": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "OAuthAccount": {
+      "rows": 1,
+      "sha256": "43bc0ab946bc64eb7c8cefc1d4bec8560308b8290e4e27804461d4a7dc2b07d3"
+    },
+    "OAuthFlow": {
+      "rows": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "Question": {
+      "rows": 538,
+      "sha256": "1a5eeaf051ca9527638bfb8e66172a068f7a91b3eef0d4bef9376fd7cf30eee4"
+    },
+    "QuestionOption": {
+      "rows": 1617,
+      "sha256": "c59af22e221e91cdbb57c6f0dca5f82a98b79eefba921cfc6d18efdf4fa20686"
+    },
+    "ReviewSchedule": {
+      "rows": 3,
+      "sha256": "e71a0d32ac2cb6839bd907b4ea68658ed66ed2b809524bf0ce5df8f1b4330844"
+    },
+    "Session": {
+      "rows": 14,
+      "sha256": "0f39ef66afdcd7c3613c12d11ae0687837445f10392015715fad77c7e20fc117"
+    },
+    "StudySession": {
+      "rows": 1,
+      "sha256": "fcb4eaa3c0ba3395c5475cfe351abc6fc55eeac281d482de92995fe5f6506239"
+    },
+    "StudyTask": {
+      "rows": 112,
+      "sha256": "8f0d2e6ff4fe9ea584f3c95a3dc7c68d3a358c24091de3df8883478931316031"
+    },
+    "Subject": {
+      "rows": 12,
+      "sha256": "a04e13cd47b3d28c34745804d7a23cb3bdbe5e736639a6ce4dbf64562d1899d7"
+    },
+    "Test": {
+      "rows": 4,
+      "sha256": "9bf3e9884d1867f154de031b17383c5b07eb553ec3f108133cfe193eac17ce9e"
+    },
+    "TestAttempt": {
+      "rows": 3,
+      "sha256": "e4b403e119e019bf228072d7db858772eb7e7fb61bc2fe6c511ae13fd89b6411"
+    },
+    "TestQuestion": {
+      "rows": 42,
+      "sha256": "6d3abeaad9309a955e4d3c9491dcb6fa6aa73cc97264b185a37e36dbbfcda053"
+    },
+    "Topic": {
+      "rows": 101,
+      "sha256": "c1a48bc64654cff009e05c2c3137895fb3785ddaec237e1c5c1869a5d0869474"
+    },
+    "TopicDependency": {
+      "rows": 5,
+      "sha256": "81abc6963be823bab5426aca2dd3f184c08df0dd3f528b8268e5c1ec61ed5c6a"
+    },
+    "User": {
+      "rows": 2,
+      "sha256": "afca29a7c2d7581dc38fb5d124231371a3a1d60fda7ad7f3f1534042529e8439"
+    },
+    "UserSettings": {
+      "rows": 2,
+      "sha256": "277de5dfea200ebb97a19c4af5d650ef098aef8aaf47827d58a9cca22e4cbfa9"
+    },
+    "UserSubject": {
+      "rows": 4,
+      "sha256": "b26b499b1fb6d2628daffc14d449073f4fbcb02c663896bb5621b921daca08ac"
+    },
+    "UserTopicProgress": {
+      "rows": 4,
+      "sha256": "28147622b8b8ee9130016d3a6e00bca5178fcc69efb3229e527a263095c36690"
+    },
+    "UserVideoProgress": {
+      "rows": 2,
+      "sha256": "ce6a6ad360b8237af8230fa5ffd6e6bc06f2c15c93a47234bb844763bb3dfa8b"
+    },
+    "VideoLesson": {
+      "rows": 19,
+      "sha256": "c17371d35beb222dd422225f502afd3902267c7e3263364a5033fdc9b6889720"
+    },
+    "_prisma_migrations": {
+      "rows": 12,
+      "sha256": "9dc8715da7728eb59f17c88e417ffc7d14583637233058648b4e714b3b3c0323"
+    }
+  },
+  "dryRun": {
+    "eligible": 24,
+    "dependencies": [
+      {
+        "id": "s7a-math-quadratic-sub-01-e08",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-ukr-lexicology-section-01-e03",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-ukr-lexicology-section-01-e04",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-ukr-lexicology-section-01-m02",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-ukr-lexicology-section-01-m03",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-ukr-lexicology-section-01-m04",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-ukr-ortho-sub-01-e08",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-ukr-ortho-sub-01-e11",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-hist-galicia-sub-01-e04",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-hist-galicia-sub-01-e06",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-hist-galicia-sub-01-e07",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-hist-galicia-sub-01-e11",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-hist-galicia-sub-01-e12",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-bio-cell-sec-01-h02",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-bio-cell-sec-01-m03",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-bio-cell-sec-01-m04",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-zcode-biology-molecular-02-e03",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-zcode-biology-molecular-02-m03",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-zcode-biology-molecular-02-m04",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-cm-history-slavs-sub-01-e04",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-cm-history-slavs-sub-01-e07",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-cm-history-slavs-sub-01-e08",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-cm-history-slavs-sub-01-e11",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      },
+      {
+        "id": "s7a-ukr-ortho-sub-01-e12",
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      }
+    ]
+  },
+  "appliedToCopy": {
+    "status": "updated",
+    "changed": {
+      "questions": 24,
+      "questionOptions": 21,
+      "unchangedOtherTables": 29
+    },
+    "backup": "<LOCAL_TEMP>/nmt-stage8-final-review-WEuHn1\\qa-before-update.db",
+    "integrity": "ok",
+    "foreignKeyViolations": 0
+  },
+  "changedTables": [
+    "Question",
+    "QuestionOption"
+  ],
+  "unchangedOtherTables": 29,
+  "idempotent": true,
+  "integrity": "ok",
+  "foreignKeyViolations": 0,
+  "concurrentProcesses": {
+    "passed": true,
+    "updatedProcesses": 1,
+    "outcomes": [
+      {
+        "code": 0,
+        "result": {
+          "status": "updated",
+          "changed": {
+            "questions": 24,
+            "questionOptions": 21,
+            "unchangedOtherTables": 29
+          },
+          "backup": "<LOCAL_TEMP>/nmt-stage8-final-review-WEuHn1\\concurrent-backup.db",
+          "integrity": "ok",
+          "foreignKeyViolations": 0
+        },
+        "error": ""
+      },
+      {
+        "code": 1,
+        "result": null,
+        "error": "EEXIST: file already exists, link '<LOCAL_TEMP>/nmt-stage8-final-review-WEuHn1\\.stage8-backup-6HIx7S\\snapshot.db' -> '<LOCAL_TEMP>/nmt-stage8-final-review-WEuHn1\\concurrent-backup.db'"
+      }
+    ],
+    "backupPreserved": true
+  },
+  "unit": {
+    "command": "npx vitest run tests/stage8-published-updater.test.ts",
+    "passed": 40,
+    "failed": 0
+  },
+  "typecheck": "PASS",
+  "targetedEslint": "PASS",
+  "nodeCheck": "PASS",
+  "originalQuestionAndOptionHashesMatch": true,
+  "workingUpdatePerformed": false,
+  "finalWorkingRecheck": "31/31 table hashes unchanged"
+}

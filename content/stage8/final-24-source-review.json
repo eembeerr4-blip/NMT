@@ -1,0 +1,163 @@
+{
+  "checkedAt": "2026-10-30",
+  "sources": [
+    {
+      "id": "UKBOOK",
+      "url": "https://lib.imzo.gov.ua/wa-data/public/site/books2/5kl-nush/movno-litr-galuz/ukr-mova/%D0%90%D0%A1%D0%A2%D0%9E%D0%9D_%D0%A3%D0%BA%D1%80_%D0%BC%D0%BE%D0%B2%D0%B0_5%D0%BA%D0%BB_%D0%A1%D0%B5%D0%BC%D0%B5%D0%BD%D0%BE%D0%B3_%D1%82%D0%B0_%D1%96%D0%BD..pdf",
+      "status": "READ",
+      "sections": "§8–9, §14, §26; printed p121 has весна́—ве́сни",
+      "scope": "Definitions, contrast of homonymy/polysemy, stress checking; not all official syllabus pages."
+    },
+    {
+      "id": "LEXICON:колосся",
+      "url": "https://slovnyk.ua/index.php?swrd=%D0%BA%D0%BE%D0%BB%D0%BE%D1%81%D1%81%D1%8F",
+      "status": "ENTRY_READ",
+      "publisher": "Slovnyk.ua, reproduction of СУМ entries and inflection forms; not claimed to be the official NAN website."
+    },
+    {
+      "id": "LEXICON:писати",
+      "url": "https://slovnyk.ua/index.php?swrd=%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D0%B8",
+      "status": "ENTRY_READ",
+      "publisher": "Slovnyk.ua, reproduction of СУМ entries and inflection forms; not claimed to be the official NAN website."
+    },
+    {
+      "id": "LEXICON:паронім",
+      "url": "https://slovnyk.ua/index.php?swrd=%D0%BF%D0%B0%D1%80%D0%BE%D0%BD%D1%96%D0%BC",
+      "status": "ENTRY_READ",
+      "publisher": "Slovnyk.ua, reproduction of СУМ entries and inflection forms; not claimed to be the official NAN website."
+    },
+    {
+      "id": "LEXICON:фразеологізм",
+      "url": "https://slovnyk.ua/index.php?swrd=%D1%84%D1%80%D0%B0%D0%B7%D0%B5%D0%BE%D0%BB%D0%BE%D0%B3%D1%96%D0%B7%D0%BC",
+      "status": "ENTRY_READ",
+      "publisher": "Slovnyk.ua, reproduction of СУМ entries and inflection forms; not claimed to be the official NAN website."
+    },
+    {
+      "id": "LEXICON:багатозначний",
+      "url": "https://slovnyk.ua/index.php?swrd=%D0%B1%D0%B0%D0%B3%D0%B0%D1%82%D0%BE%D0%B7%D0%BD%D0%B0%D1%87%D0%BD%D0%B8%D0%B9",
+      "status": "ENTRY_READ",
+      "publisher": "Slovnyk.ua, reproduction of СУМ entries and inflection forms; not claimed to be the official NAN website."
+    },
+    {
+      "id": "LEXICON:весна",
+      "url": "https://slovnyk.ua/index.php?swrd=%D0%B2%D0%B5%D1%81%D0%BD%D0%B0",
+      "status": "ENTRY_READ",
+      "publisher": "Slovnyk.ua, reproduction of СУМ entries and inflection forms; not claimed to be the official NAN website."
+    },
+    {
+      "id": "LEXICON:вода",
+      "url": "https://slovnyk.ua/index.php?swrd=%D0%B2%D0%BE%D0%B4%D0%B0",
+      "status": "ENTRY_READ",
+      "publisher": "Slovnyk.ua, reproduction of СУМ entries and inflection forms; not claimed to be the official NAN website."
+    },
+    {
+      "id": "LEXICON:земля",
+      "url": "https://slovnyk.ua/index.php?swrd=%D0%B7%D0%B5%D0%BC%D0%BB%D1%8F",
+      "status": "ENTRY_READ",
+      "publisher": "Slovnyk.ua, reproduction of СУМ entries and inflection forms; not claimed to be the official NAN website."
+    },
+    {
+      "id": "LEXICON:чистий",
+      "url": "https://slovnyk.ua/index.php?swrd=%D1%87%D0%B8%D1%81%D1%82%D0%B8%D0%B9",
+      "status": "ENTRY_READ",
+      "publisher": "Slovnyk.ua, reproduction of СУМ entries and inflection forms; not claimed to be the official NAN website."
+    },
+    {
+      "id": "LEXICON:чисто",
+      "url": "https://slovnyk.ua/index.php?swrd=%D1%87%D0%B8%D1%81%D1%82%D0%BE",
+      "status": "ENTRY_READ",
+      "publisher": "Slovnyk.ua, reproduction of СУМ entries and inflection forms; not claimed to be the official NAN website."
+    },
+    {
+      "id": "LEXICON:відкривати",
+      "url": "https://slovnyk.ua/index.php?swrd=%D0%B2%D1%96%D0%B4%D0%BA%D1%80%D0%B8%D0%B2%D0%B0%D1%82%D0%B8",
+      "status": "ENTRY_READ",
+      "publisher": "Slovnyk.ua, reproduction of СУМ entries and inflection forms; not claimed to be the official NAN website."
+    },
+    {
+      "id": "HISTORY",
+      "url": "https://resource.history.org.ua/cgi-bin/eiu/history.exe?C21COM=S&I21DBN=EIU&P21DBN=EIU&S21CNR=20&S21COLORTERMS=0&S21FMT=eiu_all&S21P01=0&S21P02=0&S21P03=TRN%3D&S21REF=10&S21STN=1&S21STR=Danylo_Galycky&Z21ID=",
+      "status": "READ",
+      "scope": "Danylo parentage, succession after 1205, coronation 1253, establishment in Halych 1238"
+    },
+    {
+      "id": "ROMAN",
+      "url": "https://resource.history.org.ua/cgi-bin/eiu/history.exe?C21COM=S&I21DBN=EIU&P21DBN=EIU&S21CNR=20&S21COLORTERMS=0&S21FMT=eiu_all&S21P01=0&S21P02=0&S21P03=TRN%3D&S21REF=10&S21STN=1&S21STR=Roman_M&Z21ID=",
+      "status": "READ",
+      "scope": "Unification in 1199; separate Galicia and Volhynia beforehand"
+    },
+    {
+      "id": "ANTS",
+      "url": "https://resource.history.org.ua/cgi-bin/eiu/history.exe?C21COM=S&I21DBN=DOP&P21DBN=EIU&S21CNR=20&S21COLORTERMS=0&S21FMT=eiu_all&S21P01=0&S21P02=0&S21P03=TRN%3D&S21REF=10&S21STN=1&S21STR=Anty&Z21ID=",
+      "status": "READ",
+      "scope": "Slavic intertribal union; Dniester/Dnipro; Jordanes/Procopius; last written mention 602, not instantaneous extinction"
+    },
+    {
+      "id": "CELLS",
+      "url": "https://openstax.org/books/biology-2e/pages/4-3-eukaryotic-cells",
+      "status": "READ",
+      "scope": "CELLS"
+    },
+    {
+      "id": "PROK",
+      "url": "https://openstax.org/books/biology-2e/pages/4-2-prokaryotic-cells",
+      "status": "READ",
+      "scope": "PROK"
+    },
+    {
+      "id": "MITOSIS",
+      "url": "https://www.genome.gov/genetics-glossary/Mitosis",
+      "status": "READ",
+      "scope": "MITOSIS"
+    },
+    {
+      "id": "RNA",
+      "url": "https://www.genome.gov/genetics-glossary/Uracil",
+      "status": "READ",
+      "scope": "RNA"
+    },
+    {
+      "id": "MEIOSIS",
+      "url": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-9-klas/12-biologiya-9-klas/abetka-sobol-biologia-9-kl.pdf",
+      "status": "SEARCH_TEXT_READ; direct PDF returned 502",
+      "scope": "Official IMZO-hosted Sobol textbook: animal gametic / higher-plant sporic meiosis"
+    },
+    {
+      "id": "AVRAMENKO",
+      "url": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-10-klas-2018/01-ukrainska-mova-10-klas/ukr-mova10-gramota.pdf",
+      "status": "DIRECT_TIMEOUT; relevant pronunciation passage read in previous session and search",
+      "scope": "No claim of successful renewed full PDF reading"
+    },
+    {
+      "id": "PROGRAM:ukrainian",
+      "url": "https://testportal.gov.ua/programe/",
+      "status": "INDEX_OR_SUBJECT_PAGE_READ",
+      "scope": "Topic/skill scope; not a renewed full-page 2027 program certification"
+    },
+    {
+      "id": "PROGRAM:math",
+      "url": "https://testportal.gov.ua/programy-nmt/",
+      "status": "INDEX_OR_SUBJECT_PAGE_READ",
+      "scope": "Topic/skill scope; not a renewed full-page 2027 program certification"
+    },
+    {
+      "id": "PROGRAM:history",
+      "url": "https://testportal.gov.ua/progist/",
+      "status": "INDEX_OR_SUBJECT_PAGE_READ",
+      "scope": "Topic/skill scope; not a renewed full-page 2027 program certification"
+    },
+    {
+      "id": "PROGRAM:biology",
+      "url": "https://testportal.gov.ua/progbio/",
+      "status": "INDEX_OR_SUBJECT_PAGE_READ",
+      "scope": "Topic/skill scope; not a renewed full-page 2027 program certification"
+    }
+  ],
+  "limitations": [
+    "Main history.org.ua short URLs failed; readable official resource.history.org.ua pages used instead.",
+    "sum.in.ua and some plural dictionary URLs failed; successful singular Slovnyk.ua entries and official IMZO textbook used.",
+    "602 and authors are supplementary source/chronology practice, not claimed mandatory NMT date/person lists.",
+    "Difficulty labels are retained although several current HARD items test basic recognition.",
+    "Same executor performed the second pass; independent owner/architect approval remains pending."
+  ]
+}

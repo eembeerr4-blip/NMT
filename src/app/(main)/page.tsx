@@ -12,6 +12,7 @@ import { DashboardProgress } from "@/components/dashboard/progress-card";
 import { dashboardSeries } from "@/components/dashboard/progress-data";
 import { requireUser } from "@/server/session";
 import { getSettings, syncPlan } from "@/server/sync";
+import { ukLessonCount, ukLessonLabel } from "@/lib/uk-plural";
 
 export default async function DashboardPage() {
   const user = await requireUser();
@@ -45,6 +46,14 @@ export default async function DashboardPage() {
   const visibleTasks = tasks.slice(0, 4);
   const doneCount = tasks.filter(task => task.status === "DONE").length;
   const mockSubject = nextMock?.subjectId ? subjects.find(subject => subject.id === nextMock.subjectId) : null;
+  const progressSubjects = subjects.map((subject) => {
+    const subjectLeaves = leaves.filter((topic) => topic.subjectId === subject.id);
+    const mastered = subjectLeaves.filter((topic) => topic.status === "MASTERED").length;
+    const latestRating = [...results]
+      .filter((result) => result.subjectId === subject.id && result.ratingScore !== null && result.countsTowardAverage && !result.partial)
+      .sort((a, b) => b.date.getTime() - a.date.getTime())[0]?.ratingScore ?? null;
+    return { id: subject.id, name: subject.name, latestRating, mastered, total: subjectLeaves.length };
+  });
 
   return <div className="d01-dashboard">
     <div className="d01-top-grid">
@@ -58,7 +67,7 @@ export default async function DashboardPage() {
           <Link href="/curriculum?mode=personal" className="d01-text-link">Весь мій план <ArrowRight aria-hidden="true" /></Link>
         </div>
       </section>
-      <DashboardProgress rows={dashboardSeries(points, [...activeIds])} today={today} />
+      <DashboardProgress rows={dashboardSeries(points, [...activeIds])} today={today} subjects={progressSubjects} />
     </div>
 
     <section aria-labelledby="dashboard-subjects-title" className="d01-subjects-section">
@@ -77,7 +86,7 @@ export default async function DashboardPage() {
 
     <div className="d01-bottom-grid">
       <section className="d01-panel d01-plan" aria-labelledby="dashboard-plan-title">
-        <div className="d01-panel-heading"><div className="d01-heading-with-count"><h2 id="dashboard-plan-title">{focusDate === today ? "План на сьогодні" : `План на ${formatUk(focusDate, "d MMMM")}`}</h2><span aria-label={`Виконано ${doneCount} із ${tasks.length} занять`}>{doneCount}/{tasks.length}</span></div><Link href={`/calendar?view=day&date=${focusDate}`} className="d01-text-link">Увесь план <ArrowRight aria-hidden="true" /></Link></div>
+        <div className="d01-panel-heading"><div className="d01-heading-with-count"><h2 id="dashboard-plan-title">{focusDate === today ? "План на сьогодні" : `План на ${formatUk(focusDate, "d MMMM")}`}</h2><span aria-label={`Виконано ${doneCount} із ${tasks.length} ${ukLessonLabel(tasks.length)}`}>{doneCount}/{tasks.length}</span></div><Link href={`/calendar?view=day&date=${focusDate}`} className="d01-text-link">Увесь план <ArrowRight aria-hidden="true" /></Link></div>
         {visibleTasks.length ? <ul className="d01-task-list">{visibleTasks.map(task => {
           const available = task.topicId && availableLeaves.some(topic => topic.id === task.topicId);
           const href = available ? `/learn/${task.topicId}` : `/calendar?view=day&date=${task.dateKey}`;
@@ -87,7 +96,7 @@ export default async function DashboardPage() {
             <details className="d01-task-actions"><summary>Дії із заняттям</summary><div><TaskControls task={{ id: task.id, status: task.status, topicId: task.topicId, kind: task.kind }} /></div></details>
           </li>;
         })}</ul> : <div className="d01-empty"><CalendarDays aria-hidden="true" /><p>На цей день занять немає.</p><span>Можна відпочити або обрати урок самостійно.</span><Link href="/subjects" className="d01-text-link">Переглянути предмети <ArrowRight aria-hidden="true" /></Link></div>}
-        {tasks.length > 4 ? <Link href={`/calendar?view=day&date=${focusDate}`} className="d01-more-link">Ще {tasks.length - 4} занять у календарі <ChevronRight aria-hidden="true" /></Link> : null}
+        {tasks.length > 4 ? <Link href={`/calendar?view=day&date=${focusDate}`} className="d01-more-link">Ще {ukLessonCount(tasks.length - 4)} у календарі <ChevronRight aria-hidden="true" /></Link> : null}
       </section>
 
       <section className="d01-panel d01-mocks" aria-labelledby="dashboard-mocks-title">

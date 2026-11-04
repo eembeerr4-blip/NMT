@@ -1,0 +1,85 @@
+{
+  "status": "BLOCKED",
+  "steps": [
+    {
+      "name": "01 approved STUDENT login",
+      "status": "PASS"
+    },
+    {
+      "name": "control contents hidden before admission",
+      "status": "PASS"
+    },
+    {
+      "name": "02 lesson; 03 rendered theory",
+      "status": "PASS"
+    },
+    {
+      "name": "04 real balanced practice, 12 questions, holdout exclusion",
+      "status": "PASS",
+      "detail": {
+        "correct": 11,
+        "total": 12
+      }
+    },
+    {
+      "name": "05 lesson completion",
+      "status": "PASS"
+    },
+    {
+      "name": "06 final admission; 07 answers; 08 draft/reload and stored results",
+      "status": "PASS",
+      "detail": {
+        "correct": 5,
+        "total": 6
+      }
+    }
+  ],
+  "actionResponses": [
+    {
+      "route": "/login",
+      "status": 200
+    },
+    {
+      "route": "/tests",
+      "status": 200
+    },
+    {
+      "route": "/__nextjs_original-stack-frames",
+      "status": 200
+    },
+    {
+      "route": "/learn/math-expressions",
+      "status": 200
+    },
+    {
+      "route": "/learn/math-expressions",
+      "status": 200
+    },
+    {
+      "route": "/tests/cmvz5884a000jutz43jqs5kff",
+      "status": 200
+    },
+    {
+      "route": "/learn/math-expressions",
+      "status": 200
+    },
+    {
+      "route": "/tests",
+      "status": 200
+    },
+    {
+      "route": "/tests/cmvz58det001kutz4bemylz7y",
+      "status": 200
+    },
+    {
+      "route": "/tests/cmvz58det001kutz4bemylz7y",
+      "status": 200
+    }
+  ],
+  "browserErrors": [],
+  "actualSevenDayWait": false,
+  "clockMethod": "Fixture-owned FINAL recorded timestamps moved back seven days; server time left unchanged",
+  "database": "unique temporary SQLite, real pilot and real server actions",
+  "productionAccessed": false,
+  "failureReason": "Harness locator incorrectly expected capitalized Помилки instead of actual heading Мої помилки; stages 1-8 succeeded."
+}

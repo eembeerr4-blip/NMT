@@ -1,34 +1,43 @@
 "use server";
 
+import { hasIndependentMastery, isControl, lockAssessment, trainingQuestionWhere } from "@/server/assessment";
+import { completeScheduledReview, mistakeRetryReady } from "@/server/mistake-retry";
+import { exampleAnswerCheckSchema } from "@/lib/example-answer";
+
 import type { Prisma } from "@prisma/client";
 import { parseLesson } from "@/lib/lesson";
+import { lessonAccess } from "@/lib/readiness";
+import { learnerQuestionAvailable, learnerTestAvailable, unavailableTestMessage } from "@/lib/test-access";
+import { requireAccessibleAttempt } from "@/server/test-access";
 
+import { validateExternalBackup } from "@/lib/external-practice-integrity";
+import { externalPracticeReady } from "@/server/external-practice";
 import { UserError, userFacingError } from "@/lib/errors";
 import { auditedWrite, recordAudit } from "@/server/audit-log";
-import { canEditContent, isAdministrator, isOwner, canManageRole, effectiveRole } from "@/lib/permissions";
+import { accountStatus, canAccessLearning } from "@/lib/account-status";
+import { isAdministrator, canEditContent, isOwner, canManageRole, effectiveRole } from "@/lib/permissions";
 import { prepareQuestion } from "@/lib/question-input";
 import { randomUUID } from "crypto";
 import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod";
-import { aiPackSchema } from "@/lib/ai";
-import { DEFAULT_FORMAT, DEFAULT_SCHEDULE, ELECTIVE_SUBJECT_IDS, REQUIRED_SUBJECT_IDS, TASK_KINDS, type ScheduleConfig } from "@/lib/constants";
+import { MISTAKE_CATEGORY_LABEL, DEFAULT_FORMAT, DEFAULT_SCHEDULE, ELECTIVE_SUBJECT_IDS, REQUIRED_SUBJECT_IDS, type ScheduleConfig } from "@/lib/constants";
 import { addDateKeys, dateKey, isDateKey, noonUtc } from "@/lib/dates";
 import { gradeAnswer, pickBalanced } from "@/lib/grade";
 import { learningStatus, reviewIntervals } from "@/lib/mastery";
 import { prisma } from "@/lib/prisma";
-import { readSecrets, writeSecrets } from "@/lib/secrets";
 import { examResultSchema, preferencesSchema, questionSchema } from "@/lib/validators";
-import { parseYouTubeId, searchYouTube as searchYouTubeApi, youtubeSearchUrl, youtubeWatchUrl } from "@/lib/youtube";
+import { parseYouTubeId } from "@/lib/youtube";
+import { addVideoCandidate, lockVideo, reconcileVideoPrimary } from "@/server/video-lessons";
 import { personalSchedule } from "@/lib/plan";
 import { relocationMode } from "@/lib/shift";
 import { hashPasswordAsync, verifyPasswordAsync, DUMMY_HASH } from "@/lib/auth";
 import { isValidNickname, normalizeNickname } from "@/lib/nickname";
-import { addXp, refreshAchievements } from "@/server/progress";
 import { isLoginLimited, registerLoginFailure, clearAccountFailures, trustedClientIp } from "@/lib/login-throttle";
 import { clearSession, createSession, getSessionUser } from "@/server/session";
-import { getSettings, syncPlan, syncPlanWithClient, rebuildFuturePlan } from "@/server/sync";
+import { ensureUserSettings, getSettings, syncPlan, syncPlanWithClient, rebuildFuturePlan } from "@/server/sync";
+import { canFinishAttemptAfterDeadline, isAttemptExpired } from "@/lib/test-attempt-time";
 
 export type ActionState = { ok: true; message?: string; id?: string } | { ok: false; error: string };
 
@@ -46,6 +55,11 @@ function refresh() {
 async function actor() {
   const user = await getSessionUser();
   if (!user) throw new UserError("Потрібен вхід до профілю.");
+  if (!canAccessLearning(user) && !isAdministrator(user) && !canEditContent(user)) {
+    if (accountStatus(user) === "PENDING") throw new UserError("Доступ відкриється після схвалення власником платформи.");
+    if (accountStatus(user) === "REJECTED") throw new UserError("Заявку на реєстрацію відхилили. Зверніться до власника платформи.");
+    throw new UserError("Недостатньо прав для цієї дії.");
+  }
   return user;
 }
 
@@ -90,97 +104,55 @@ async function readableAnswer(questionId: string, value: unknown, db: Prisma.Tra
 export async function addVideo(topicId: string, rawUrl: string, title: string, role = "primary"): Promise<ActionState> {
   try {
     const user = await editor();
-    return await auditedWrite<ActionState>(user, { action: "VIDEO_ADDED", entityType: "video", entityId: topicId }, async (tx) => {
-
-    
     const youtubeId = parseYouTubeId(rawUrl);
-    if (!youtubeId) return { ok: false, error: "Це не схоже на посилання YouTube. Назву каналу чи відео сайт не вигадує." };
-    const allowed = ["primary", "simple", "examples", "tasks"];
-    const safeRole = allowed.includes(role) ? role : "primary";
-    const existing = await tx.videoLesson.findFirst({ where: { topicId, youtubeId } });
-    if (existing) {
-      await tx.videoLesson.update({ where: { id: existing.id }, data: { title: title.trim() || existing.title, role: safeRole, reviewStatus: "CONFIRMED", url: youtubeWatchUrl(youtubeId) } });
-      refresh();
-      return { ok: true, id: existing.id, message: "Це відео вже було в темі. Його підтверджено, дублікат не створено." };
-    }
-    const count = await tx.videoLesson.count({ where: { topicId, reviewStatus: { not: "REJECTED" } } });
-    const video = await tx.videoLesson.create({
-      data: {
-        topicId,
-        youtubeId,
-        url: youtubeWatchUrl(youtubeId),
-        title: title.trim(),
-        role: safeRole,
-        reviewStatus: "CONFIRMED",
-        isPrimary: count === 0 || safeRole === "primary",
-      },
+    if (!youtubeId) return { ok: false, error: "Вкажіть коректне посилання YouTube." };
+    return await auditedWrite<ActionState>(user, { action: "VIDEO_ADDED", entityType: "video", entityId: topicId }, async (tx) => {
+      const result = await addVideoCandidate(tx, topicId, youtubeId, title, role);
+      if (result.ok) refresh();
+      return result;
     });
-    await tx.topic.update({ where: { id: topicId }, data: { status: "IN_PROGRESS" } }).catch(() => undefined);
-    refresh();
-    return { ok: true, id: video.id };
-  
-    });
-  } catch (error) {
-    return fail(error);
-  }
+  } catch (error) { return fail(error); }
 }
 
 export async function updateVideo(id: string, rawUrl: string, title: string): Promise<ActionState> {
   try {
     const user = await editor();
-    return await auditedWrite<ActionState>(user, { action: "VIDEO_UPDATED", entityType: "video", entityId: id }, async (tx) => {
-
-    
     const youtubeId = parseYouTubeId(rawUrl);
     if (!youtubeId) return { ok: false, error: "Вкажіть коректне посилання YouTube." };
-    await tx.videoLesson.update({
-      where: { id },
-      data: { youtubeId, url: youtubeWatchUrl(youtubeId), title: title.trim(), lastPositionSec: 0 },
+    return await auditedWrite<ActionState>(user, { action: "VIDEO_UPDATED", entityType: "video", entityId: id }, async (tx) => {
+      const video = await lockVideo(tx, id);
+      if (youtubeId !== video.youtubeId) return { ok: false, error: "Це інший ролик. Додайте його окремим відеокандидатом: старе відео та особистий прогрес збережено." };
+      await tx.videoLesson.update({ where: { id }, data: { title: title.trim() } });
+      refresh();
+      return { ok: true };
     });
-    refresh();
-    return { ok: true };
-  
-    });
-  } catch (error) {
-    return fail(error);
-  }
+  } catch (error) { return fail(error); }
 }
 
 export async function deleteVideo(id: string): Promise<ActionState> {
   try {
     const user = await editor();
     return await auditedWrite<ActionState>(user, { action: "VIDEO_DELETED", entityType: "video", entityId: id }, async (tx) => {
-
-    
-    const video = await tx.videoLesson.delete({ where: { id } });
-    const next = await tx.videoLesson.findFirst({ where: { topicId: video.topicId }, orderBy: { createdAt: "asc" } });
-    if (next && video.isPrimary) await tx.videoLesson.update({ where: { id: next.id }, data: { isPrimary: true } });
-    refresh();
-    return { ok: true };
-  
+      const video = await lockVideo(tx, id);
+      await tx.videoLesson.delete({ where: { id } });
+      await reconcileVideoPrimary(tx, video.topicId);
+      refresh();
+      return { ok: true };
     });
-  } catch (error) {
-    return fail(error);
-  }
+  } catch (error) { return fail(error); }
 }
 
 export async function makePrimary(id: string): Promise<ActionState> {
   try {
     const user = await editor();
     return await auditedWrite<ActionState>(user, { action: "VIDEO_PRIMARY", entityType: "video", entityId: id }, async (tx) => {
-
-    
-    const video = await tx.videoLesson.findUnique({ where: { id } });
-    if (!video) return { ok: false, error: "Відео не знайдено." };
-    await tx.videoLesson.updateMany({ where: { topicId: video.topicId }, data: { isPrimary: false } });
-    await tx.videoLesson.update({ where: { id }, data: { isPrimary: true } });
-    refresh();
-    return { ok: true };
-  
+      const video = await lockVideo(tx, id);
+      if (video.reviewStatus !== "CONFIRMED") return { ok: false, error: "Основним може бути лише підтверджене відео." };
+      await reconcileVideoPrimary(tx, video.topicId, id);
+      refresh();
+      return { ok: true };
     });
-  } catch (error) {
-    return fail(error);
-  }
+  } catch (error) { return fail(error); }
 }
 
 export async function saveVideoNotes(id: string, notes: string): Promise<ActionState> {
@@ -205,96 +177,33 @@ export async function saveVideoPosition(id: string, seconds: number, durationSec
   } catch(error) { return fail(error); }
 }
 
-export async function searchYouTube(query: string, topicId?: string) {
-  const user = await actor();
-  const searchUrl = youtubeSearchUrl(query);
-  const found = await searchYouTubeApi(query, readSecrets().youtubeApiKey);
-  if (!found.ok) return { ok: false as const, error: found.reason, searchUrl: found.searchUrl };
-  const unique = new Map<string, { id: string; title: string; channel: string }>();
-  for (const item of found.items) unique.set(item.youtubeId, { id: item.youtubeId, title: item.title, channel: item.channel });
-  if (topicId && canEditContent(user)) {
-    await prisma.$transaction(async tx=>{
-    let changed=0;
-    for (const item of unique.values()) {
-      const existing = await tx.videoLesson.findFirst({ where: { topicId, youtubeId: item.id } });
-      if (existing) {
-        if (existing.reviewStatus !== "REJECTED") {
-          changed++;
-          await tx.videoLesson.update({ where: { id: existing.id }, data: { title: item.title, channel: item.channel } });
-        }
-        continue;
-      }
-      changed++;
-      await tx.videoLesson.create({
-        data: { topicId, youtubeId: item.id, url: youtubeWatchUrl(item.id), title: item.title, channel: item.channel, role: "simple", reviewStatus: "SUGGESTED", isPrimary: false },
-      });
-    }
-    if(changed) await recordAudit(user,{action:"VIDEO_SEARCH",entityType:"topic",entityId:topicId,metadata:{count:changed}},tx);
-    });
-    refresh();
-  }
-  return { ok: true as const, items: [...unique.values()], searchUrl };
-}
-
 export async function setVideoReview(id: string, status: "CONFIRMED" | "REJECTED"): Promise<ActionState> {
   try {
     const user = await editor();
+    if (status !== "CONFIRMED" && status !== "REJECTED") return { ok: false, error: "Невідомий статус перевірки відео." };
     return await auditedWrite<ActionState>(user, { action: "VIDEO_REVIEWED", entityType: "video", entityId: id }, async (tx) => {
-
-    
-    await tx.videoLesson.update({ where: { id }, data: { reviewStatus: status, isPrimary: status === "CONFIRMED" ? undefined : false } });
-    refresh();
-    return { ok: true };
-  
+      const video = await lockVideo(tx, id);
+      await tx.videoLesson.update({ where: { id }, data: { reviewStatus: status } });
+      await reconcileVideoPrimary(tx, video.topicId);
+      refresh();
+      return { ok: true };
     });
-  } catch (error) {
-    return fail(error);
-  }
+  } catch (error) { return fail(error); }
 }
 
 export async function setVideoRole(id: string, role: string): Promise<ActionState> {
   try {
     const user = await editor();
+    if (!["primary", "simple", "examples", "tasks"].includes(role)) return { ok: false, error: "Невідомий тип лекції." };
     return await auditedWrite<ActionState>(user, { action: "VIDEO_ROLE", entityType: "video", entityId: id }, async (tx) => {
-
-    
-    const allowed = ["primary", "simple", "examples", "tasks"];
-    if (!allowed.includes(role)) return { ok: false, error: "Невідомий тип лекції." };
-    await tx.videoLesson.update({ where: { id }, data: { role, isPrimary: role === "primary" } });
-    refresh();
-    return { ok: true };
-  
+      const video = await lockVideo(tx, id);
+      await tx.videoLesson.update({ where: { id }, data: { role } });
+      // An explanation category is not editorial confirmation or a primary selection.
+      await reconcileVideoPrimary(tx, video.topicId);
+      refresh();
+      return { ok: true };
     });
-  } catch (error) {
-    return fail(error);
-  }
-}
-
-export async function saveNote(input: { id?: string; title: string; content: string; topicId?: string; subjectId?: string }): Promise<ActionState> {
-  try {
-    const user = await actor();
-    if (!input.title.trim() || !input.content.trim()) return { ok: false, error: "Додайте заголовок і текст конспекту." };
-    if (input.id) {
-      await prisma.note.update({ where: { id: input.id, userId: user.id }, data: { title: input.title.trim(), content: input.content, topicId: input.topicId || null, subjectId: input.subjectId || null } });
-    } else {
-      await prisma.note.create({ data: { title: input.title.trim(), content: input.content, topicId: input.topicId || null, subjectId: input.subjectId || null, userId: user.id } });
-    }
-    refresh();
-    return { ok: true };
-  } catch (error) {
-    return fail(error);
-  }
-}
-
-export async function deleteNote(id: string): Promise<ActionState> {
-  try {
-    const user = await actor();
-    await prisma.note.delete({ where: { id, userId: user.id } });
-    refresh();
-    return { ok: true };
-  } catch (error) {
-    return fail(error);
-  }
+  } catch (error) { return fail(error); }
 }
 
 async function persistQuestion(tx: import("@prisma/client").Prisma.TransactionClient, raw: unknown) {
@@ -382,12 +291,16 @@ export async function verifyQuestion(id: string, status: "VERIFIED" | "DRAFT" | 
 
 export async function startTopicTest(topicId: string) {
   const user = await actor();
-  const topic = await prisma.topic.findUnique({ where: { id: topicId } });
+  const result = await prisma.$transaction(async tx => {
+  await lockAssessment(tx, user.id);
+  const topic = await tx.topic.findUnique({ where: { id: topicId } });
   if (!topic) return { ok: false as const, error: "Тему не знайдено." };
-  const bank = await prisma.question.findMany({ where: { topicId, verificationStatus: "VERIFIED" } });
+  const bank = await tx.question.findMany({ where: { topicId, verificationStatus: "VERIFIED", ...trainingQuestionWhere } });
+  // Editorial preview never grants permission to create learner attempts.
+  if (!lessonAccess({ ...topic, questions: bank }).available) return { ok: false as const, error: "Ця тема поки недоступна для практики." };
   if (bank.length === 0) return { ok: false as const, error: "Немає перевірених завдань для цієї теми. Додайте їх у банку. Сайт не підставляє вигадані офіційні питання." };
   const picked = pickBalanced(bank);
-  const test = await prisma.test.create({
+  const test = await tx.test.create({
     data: {
       subjectId: topic.subjectId,
       topicId,
@@ -397,13 +310,16 @@ export async function startTopicTest(topicId: string) {
       questions: { create: picked.questions.map((question, index) => ({ questionId: question.id, sortOrder: index })) },
     },
   });
-  const attempt = await prisma.testAttempt.create({ data: { testId: test.id, userId: user.id } });
-  await prisma.userTopicProgress.upsert({
+  const attempt = await tx.testAttempt.create({ data: { testId: test.id, userId: user.id } });
+  await tx.userTopicProgress.upsert({
     where: { userId_topicId: { userId: user.id, topicId } },
     update: {},
     create: { userId: user.id, topicId, status: "IN_PROGRESS" },
   });
-  redirect(`/tests/${attempt.id}`);
+  return { ok: true as const, id: attempt.id };
+  }, {maxWait: 15000, timeout: 20000});
+  if (!result.ok) return result;
+  redirect(`/tests/${result.id}`);
 }
 
 export async function skipDiagnostic(): Promise<ActionState> {
@@ -412,27 +328,33 @@ export async function skipDiagnostic(): Promise<ActionState> {
 
 export async function startDiagnostic(){
  const user=await actor();
- const unfinished=await prisma.testAttempt.findFirst({where:{userId:user.id,status:"IN_PROGRESS",test:{kind:"DIAGNOSTIC"}}});
- if(unfinished)redirect("/tests/"+unfinished.id);
+ const result=await prisma.$transaction(async tx=>{
+ await lockAssessment(tx,user.id);
+ const unfinished=await tx.testAttempt.findFirst({where:{userId:user.id,status:"IN_PROGRESS",test:{kind:"DIAGNOSTIC"}},include:{test:{include:{questions:{include:{question:{include:{topic:true}}}}}}}});
+ if(unfinished){if(!learnerTestAvailable(unfinished.test))return {ok:false as const,error:unavailableTestMessage};return {ok:true as const,id:unfinished.id};}
  const active=user.subjects.filter(s=>s.active).map(s=>s.subjectId);
- const bank=await prisma.question.findMany({where:{subjectId:{in:active},verificationStatus:"VERIFIED",type:{notIn:["SHORT_TEXT","STEP_BY_STEP"]}}});
+ const bank=await tx.question.findMany({where:{subjectId:{in:active},verificationStatus:"VERIFIED",type:{notIn:["SHORT_TEXT","STEP_BY_STEP"]},...trainingQuestionWhere},include:{topic:true}}).then(rows=>rows.filter(learnerQuestionAvailable));
  const selected=active.flatMap(id=>pickBalanced(bank.filter(q=>q.subjectId===id),{EASY:1,MEDIUM:1,HARD:1}).questions);
  if(!selected.length)return {ok:false as const,error:"Для діагностики ще немає перевірених завдань. Почніть із доступних уроків."};
- const test=await prisma.test.create({data:{title:"Вхідна діагностика",kind:"DIAGNOSTIC",configJson:JSON.stringify({convertsToRating:false,requested:active.length*3,actual:selected.length,shortfall:active.length*3-selected.length}),questions:{create:selected.map((q,index)=>({questionId:q.id,sortOrder:index}))}}});
- const attempt=await prisma.testAttempt.create({data:{testId:test.id,userId:user.id}});redirect("/tests/"+attempt.id);
+ const test=await tx.test.create({data:{title:"Вхідна діагностика",kind:"DIAGNOSTIC",configJson:JSON.stringify({convertsToRating:false,requested:active.length*3,actual:selected.length,shortfall:active.length*3-selected.length}),questions:{create:selected.map((q,index)=>({questionId:q.id,sortOrder:index}))}}});
+ const attempt=await tx.testAttempt.create({data:{testId:test.id,userId:user.id}});return {ok:true as const,id:attempt.id};
+ },{maxWait:15000,timeout:20000});
+ if(!result.ok)return result;redirect("/tests/"+result.id);
 }
 
 export async function startExam(input: { subjectId: string; title: string; count: number; minutes: number | null }) {
   const user = await actor();
   const settings = await getSettings(user.id);
+  const result = await prisma.$transaction(async tx => {
+  await lockAssessment(tx, user.id);
+  const bank = await tx.question.findMany({ where: { subjectId: input.subjectId, verificationStatus: "VERIFIED", ...trainingQuestionWhere }, include: { topic: true } }).then(rows => rows.filter(learnerQuestionAvailable));
+  if (bank.length === 0) return { ok: false as const, error: "У предметі немає перевірених завдань для пробника." };
   if (!settings.format.officialFormatConfirmed) {
     // The exam can still run from the user's own verified bank. Rating conversion stays disabled.
   }
-  const bank = await prisma.question.findMany({ where: { subjectId: input.subjectId, verificationStatus: "VERIFIED" } });
-  if (bank.length === 0) return { ok: false as const, error: "У предметі немає перевірених завдань для пробника." };
   const wanted = Math.max(1, Math.min(60, input.count || bank.length));
   const picked = pickBalanced(bank, scaleTargets(wanted));
-  const test = await prisma.test.create({
+  const test = await tx.test.create({
     data: {
       subjectId: input.subjectId,
       title: input.title.trim() || "Пробник",
@@ -444,12 +366,16 @@ export async function startExam(input: { subjectId: string; title: string; count
         convertsToRating: false,
         requested: wanted,
         actual: picked.questions.length,
+        shortfall: wanted - picked.questions.length,
       }),
       questions: { create: picked.questions.map((question, index) => ({ questionId: question.id, sortOrder: index })) },
     },
   });
-  const attempt = await prisma.testAttempt.create({ data: { testId: test.id, userId: user.id } });
-  redirect(`/tests/${attempt.id}`);
+  const attempt = await tx.testAttempt.create({ data: { testId: test.id, userId: user.id } });
+  return { ok: true as const, id: attempt.id };
+  }, {maxWait: 15000, timeout: 20000});
+  if (!result.ok) return result;
+  redirect(`/tests/${result.id}`);
 }
 
 function scaleTargets(total: number) {
@@ -462,14 +388,23 @@ function scaleTargets(total: number) {
 export async function saveDraft(attemptId: string, draft: Record<string, unknown>, currentIndex: number): Promise<ActionState> {
   try {
     const user = await actor();
-    const updated = await prisma.testAttempt.updateMany({where:{id:attemptId,userId:user.id,status:"IN_PROGRESS"},data:{draftJson:JSON.stringify(draft),currentIndex}});
-    return updated.count ? {ok:true} : {ok:false,error:"Спробу вже завершено або вона недоступна."};
+    const attempt = await requireAccessibleAttempt(attemptId, user.id);
+    if (!attempt || attempt.status !== "IN_PROGRESS") return { ok: false, error: "Спробу вже завершено або вона недоступна." };
+    if (isAttemptExpired(attempt.startedAt, attempt.test.timeLimitSec)) {
+      return { ok: false, error: "Час тесту вичерпано. Нові відповіді більше не приймаються." };
+    }
+    const updated = await prisma.testAttempt.updateMany({
+      where: { id: attemptId, userId: user.id, status: "IN_PROGRESS" },
+      data: { draftJson: JSON.stringify(draft), currentIndex },
+    });
+    return updated.count ? { ok: true } : { ok: false, error: "Спробу вже завершено або вона недоступна." };
   } catch(error) { return fail(error); }
 }
 
 export async function finishAttempt(attemptId: string, draft: Record<string, unknown>): Promise<ActionState> {
   try {
     const user = await actor();
+    await requireAccessibleAttempt(attemptId, user.id);
     const settings = await getSettings(user.id);
     await prisma.$transaction(async (tx) => {
     // Acquire the SQLite write lock before reading. The state change is invisible outside this transaction.
@@ -479,11 +414,11 @@ export async function finishAttempt(attemptId: string, draft: Record<string, unk
       if(existing?.status === "COMPLETED") return;
       throw new UserError("Спроба недоступна або вже завершується. Спробуйте ще раз.");
     }
-    const attempt = await tx.testAttempt.findUnique({
-      where: { id: attemptId, userId: user.id },
-      include: { test: { include: { questions: { include: { question: true }, orderBy: { sortOrder: "asc" } } } } },
-    });
+    const attempt = await requireAccessibleAttempt(attemptId, user.id, tx);
     if (!attempt || attempt.userId !== user.id) throw new UserError("Спроба недоступна.");
+    if (!canFinishAttemptAfterDeadline(attempt.startedAt, attempt.test.timeLimitSec)) {
+      throw new UserError("Час тесту вичерпано. Спроба більше не може бути завершена.");
+    }
     await tx.answer.deleteMany({ where: { attemptId } });
     let correct = 0;
     let pending = 0;
@@ -544,8 +479,6 @@ export async function finishAttempt(attemptId: string, draft: Record<string, unk
       },
     });
     if (attempt.test.topicId) await completeOpenTask(user.id, attempt.test.topicId, tx);
-    await addXp(30 + correct * 2, "Завершений тест", tx, user.id);
-    await refreshAchievements(tx, user.id);
     }, {maxWait: 15000, timeout: 30000});
     refresh();
     return { ok: true };
@@ -607,6 +540,7 @@ export async function completeLesson(topicId: string, studied: boolean): Promise
     const topic = await prisma.topic.findUnique({ where: { id: topicId } });
     if (!topic) return { ok: false, error: "Тему не знайдено." };
     const verified = await prisma.question.count({ where: { topicId, verificationStatus: "VERIFIED" } });
+    if (!lessonAccess({ ...topic, questions: verified ? [{}] : [] }).available) return { ok: false, error: unavailableTestMessage };
     const attempt = await prisma.testAttempt.findFirst({
       where: { userId: user.id, status: "COMPLETED", test: { topicId } },
       orderBy: { finishedAt: "desc" },
@@ -644,7 +578,8 @@ export async function completeLesson(topicId: string, studied: boolean): Promise
 
 async function applyMastery(topicId: string, correct: number, total: number, highMin: number, midMin: number, db: Prisma.TransactionClient = prisma, userId?: string) {
   const user = userId ? {id:userId} : await actor();
-  const status = learningStatus(correct, total, highMin, midMin);
+  const proposed = learningStatus(correct, total, highMin, midMin);
+  const status = await hasIndependentMastery(db, user.id, topicId) ? "MASTERED" : proposed === "MASTERED" ? "NEEDS_REVIEW" : proposed;
   const repeats = await db.mistake.aggregate({ where: { userId: user.id, topicId, status: { not: "FIXED" } }, _sum: { repeatCount: true } });
   await db.userTopicProgress.upsert({
     where: { userId_topicId: { userId: user.id, topicId } },
@@ -669,23 +604,31 @@ async function applyMastery(topicId: string, correct: number, total: number, hig
 export async function gradeManually(answerId: string, correct: boolean): Promise<ActionState> {
   try {
     const user = await actor();
-    const answer = await prisma.answer.update({
+    await prisma.$transaction(async tx => {
+    await lockAssessment(tx, user.id);
+    const owned = await tx.answer.findFirst({ where: { id: answerId, attempt: { userId: user.id } }, include: { attempt: { include: { test: true } } } });
+    if (!owned) throw new UserError(unavailableTestMessage);
+    await requireAccessibleAttempt(owned.attemptId, user.id, tx);
+    if (isControl(owned.attempt.test.kind) && (!owned.needsManualReview || owned.attempt.status !== "COMPLETED"))
+      throw new UserError("Ця контрольна відповідь уже перевірена або спробу ще не завершено.");
+    const answer = await tx.answer.update({
       where: { id: answerId, attempt: { userId: user.id } },
       data: { isCorrect: correct, needsManualReview: false },
       include: { attempt: { include: { test: true } }, question: true },
     });
-    if (!correct && answer.question.topicId) await rememberMistake(answer.question, JSON.parse(answer.userAnswer));
-    const answers = await prisma.answer.findMany({ where: { attemptId: answer.attemptId } });
+    if (!correct && answer.question.topicId) await rememberMistake(answer.question, JSON.parse(answer.userAnswer), tx, user.id);
+    const answers = await tx.answer.findMany({ where: { attemptId: answer.attemptId } });
     const correctCount = answers.filter((item) => item.isCorrect).length;
     const pending = answers.filter((item) => item.needsManualReview).length;
-    await prisma.testAttempt.update({
+    await tx.testAttempt.update({
       where: { id: answer.attemptId, userId: user.id },
-      data: { correctCount, pendingCount: pending, percent: answers.length ? (correctCount / answers.length) * 100 : 0 },
+      data: { ...(isControl(answer.attempt.test.kind) && pending === 0 ? {finishedAt: new Date()} : {}), correctCount, pendingCount: pending, percent: answers.length ? (correctCount / answers.length) * 100 : 0 },
     });
     if (pending === 0 && answer.attempt.test.topicId) {
-      const settings = await getSettings(user.id);
-      await applyMastery(answer.attempt.test.topicId, correctCount, answers.length, settings.masteryHighMin, settings.masteryMidMin);
+      const settings = await getSettings(user.id, tx);
+      await applyMastery(answer.attempt.test.topicId, correctCount, answers.length, settings.masteryHighMin, settings.masteryMidMin, tx, user.id);
     }
+    }, {maxWait: 15000, timeout: 20000});
     refresh();
     return { ok: true };
   } catch (error) {
@@ -697,6 +640,7 @@ export async function saveExamResult(raw: unknown): Promise<ActionState> {
   try {
     const user = await actor();
     const data = examResultSchema.parse(raw);
+    if (data.id && await externalPracticeReady() && await prisma.externalPractice.findFirst({where:{resultId:data.id}})) return {ok:false,error:"Редагуйте цей результат у розділі Пробники: попередні редакції зберігаються."};
     const payload = {
       subjectId: data.subjectId,
       date: noonUtc(data.date),
@@ -718,7 +662,6 @@ export async function saveExamResult(raw: unknown): Promise<ActionState> {
       if (!existing || existing.userId !== user.id) return { ok: false, error: "Цей результат належить іншому профілю." };
       await prisma.examResult.update({ where: { id: data.id, userId: user.id }, data: payload });
     } else await prisma.examResult.create({ data: { ...payload, userId: user.id } });
-    if (!data.id) await addXp(20, "Записаний результат");
     refreshPages("/results", "/analytics", "/", "/subjects/[slug]");
     return { ok: true };
   } catch (error) {
@@ -726,12 +669,18 @@ export async function saveExamResult(raw: unknown): Promise<ActionState> {
   }
 }
 
-export async function deleteExamResult(id: string): Promise<ActionState> {
+export async function deleteExamResult(id: string, acknowledgeHistorical = false): Promise<ActionState> {
   try {
     const user = await actor();
-    if (id.startsWith("seed-")) return { ok: false, error: "Стартовий історичний запис краще редагувати, а не видаляти. Якщо це помилка, змініть поля." };
+    if (id.startsWith("seed-") && !acknowledgeHistorical) {
+      return {
+        ok: false,
+        error: "Це стартовий історичний запис. Підтвердьте видалення в діалозі, якщо дані введені помилково.",
+      };
+    }
     const existing = await prisma.examResult.findUnique({ where: { id, userId: user.id } });
     if (!existing || existing.userId !== user.id) return { ok: false, error: "Цей результат належить іншому профілю." };
+    if (await externalPracticeReady() && await prisma.externalPractice.findFirst({where:{resultId:id}})) return {ok:false,error:"Історію зовнішнього призначення не видаляємо. Виправте результат у розділі Пробники."};
     await prisma.examResult.delete({ where: { id, userId: user.id } });
     refreshPages("/results", "/analytics", "/", "/subjects/[slug]");
     return { ok: true };
@@ -745,6 +694,7 @@ export async function setTaskStatus(id: string, status: "PLANNED" | "IN_PROGRESS
     const user = await actor();
     const current = await prisma.studyTask.findUnique({ where: { id, userId: user.id } });
     if (!current || current.userId !== user.id) return { ok: false, error: "Це заняття належить іншому профілю." };
+    if (current.templateKey?.startsWith("zno:")) return {ok:false,error:"Для ZNO Online використайте внесення результату або явний пропуск у Пробниках."};
     if (current.status === status) return { ok: true };
     const task = await prisma.studyTask.update({ where: { id, userId: user.id }, data: { status, completedAt: status === "DONE" ? new Date() : null } });
     if (status === "DONE" && task.kind !== "rest" && task.durationMin > 0) {
@@ -759,8 +709,6 @@ export async function setTaskStatus(id: string, status: "PLANNED" | "IN_PROGRESS
           kind: task.kind,
         },
       });
-      await addXp(15, "Завершене заняття");
-      await refreshAchievements();
     }
     refreshPages("/calendar", "/", "/analytics", "/curriculum", "/review");
     return { ok: true };
@@ -775,6 +723,7 @@ export async function moveTask(id: string, nextDate: string): Promise<ActionStat
     if (!isDateKey(nextDate)) return { ok: false, error: "Оберіть коректну дату." };
     const task = await prisma.studyTask.findUnique({ where: { id, userId: user.id } });
     if (!task || task.userId !== user.id || task.status === "DONE") return { ok: false, error: "Завершене заняття не переноситься." };
+    if (task.templateKey?.startsWith("zno:")) return {ok:false,error:"Перенесіть зовнішній варіант через його картку в Пробниках."};
     if (relocationMode(task) === "update") {
       await prisma.studyTask.update({ where: { id, userId: user.id }, data: { dateKey: nextDate, status: "PLANNED" } });
     } else {
@@ -805,42 +754,6 @@ export async function moveTask(id: string, nextDate: string): Promise<ActionStat
   }
 }
 
-export async function createCustomTask(input: { dateKey: string; title: string; subjectId?: string; durationMin: number; kind?: string }): Promise<ActionState> {
-  try {
-    const user = await actor();
-    if (!isDateKey(input.dateKey)) return { ok: false, error: "Оберіть коректну дату." };
-    if (input.kind !== undefined && !TASK_KINDS.some(kind => kind === input.kind)) return { ok: false, error: "Оберіть тип заняття зі списку." };
-    if (!input.title.trim()) return { ok: false, error: "Вкажіть назву заняття." };
-    await prisma.studyTask.create({
-      data: {
-        userId: user.id,
-        dateKey: input.dateKey,
-        title: input.title.trim(),
-        subjectId: input.subjectId || null,
-        durationMin: Math.max(0, input.durationMin),
-        kind: input.kind || "custom",
-        templateKey: `custom-${randomUUID()}`,
-        detail: "Власне заняття",
-      },
-    });
-    refreshPages("/calendar", "/", "/analytics", "/curriculum");
-    return { ok: true };
-  } catch (error) {
-    return fail(error);
-  }
-}
-
-export async function recalculateFuturePlan(): Promise<ActionState> {
-  try {
-    const user = await actor();
-    await prisma.$transaction(tx => rebuildFuturePlan(user.id, tx), {maxWait:15000,timeout:30000});
-    refreshPages("/calendar", "/", "/analytics", "/curriculum");
-    return { ok: true, message: "Майбутні заплановані заняття перераховано. Виконані й перенесені залишились." };
-  } catch (error) {
-    return fail(error);
-  }
-}
-
 export async function logStudyMinutes(input: { subjectId?: string; topicId?: string; minutes: number; note?: string }): Promise<ActionState> {
   try {
     const user = await actor();
@@ -857,8 +770,6 @@ export async function logStudyMinutes(input: { subjectId?: string; topicId?: str
         note: input.note ?? "",
       },
     });
-    await addXp(10, "Записаний навчальний час");
-    await refreshAchievements();
     refresh();
     return { ok: true };
   } catch (error) {
@@ -869,8 +780,7 @@ export async function logStudyMinutes(input: { subjectId?: string; topicId?: str
 export async function completeReview(id: string): Promise<ActionState> {
   try {
     const user = await actor();
-    await prisma.reviewSchedule.update({ where: { id, userId: user.id, status: "PENDING" }, data: { status: "DONE", completedAt: new Date() } });
-    await addXp(10, "Повторення");
+    await completeScheduledReview(prisma,user.id,id);
     refreshPages("/review", "/calendar", "/", "/analytics");
     return { ok: true };
   } catch (error) {
@@ -880,24 +790,18 @@ export async function completeReview(id: string): Promise<ActionState> {
 
 export async function reviewFlashcard(id: string, grade: "again" | "good"): Promise<ActionState> {
   try {
-    const user = await actor();
-    const card = await prisma.flashcard.findUnique({ where: { id, userId: user.id } });
-    if (!card) return { ok: false, error: "Картку не знайдено." };
-    if (grade === "again") {
-      await prisma.flashcard.update({ where: { id, userId: user.id }, data: { intervalDays: 1, dueKey: addDateKeys(dateKey(), 1), lapses: { increment: 1 } } });
-      if (card.topicId) {
-        await prisma.userTopicProgress.upsert({ where: { userId_topicId: { userId: user.id, topicId: card.topicId } }, update: { status: "NEEDS_REVIEW" }, create: { userId: user.id, topicId: card.topicId, status: "NEEDS_REVIEW" } });
-      }
-    } else {
-      const interval = Math.max(1, Math.round((card.intervalDays || 1) * card.ease));
-      await prisma.flashcard.update({ where: { id, userId: user.id }, data: { intervalDays: interval, dueKey: addDateKeys(dateKey(), interval), reps: { increment: 1 } } });
-      await addXp(5, "Картка");
-    }
-    refreshPages("/review", "/analytics", "/", "/subjects", "/subjects/[slug]", "/topics/[id]", "/learn/[topicId]");
-    return { ok: true };
-  } catch (error) {
-    return fail(error);
-  }
+    const user=await actor();
+    if(!['again','good'].includes(grade))return {ok:false,error:'Оцінка картки недійсна.'};
+    await prisma.$transaction(async db=>{
+      const card=await db.flashcard.findFirst({where:{id,userId:user.id},include:{topic:{include:{questions:{where:{verificationStatus:'VERIFIED'},take:1},videos:{where:{reviewStatus:'CONFIRMED'},take:1}}}}});
+      if(!card || (card.topic&&!lessonAccess(card.topic).available))throw new UserError('Картка недоступна.');
+      if(card.dueKey>dateKey())throw new UserError('Картку вже повторено або її час ще не настав.');
+      const interval=grade==='again'?1:Math.max(1,Math.round((card.intervalDays||1)*card.ease));
+      const changed=await db.flashcard.updateMany({where:{id,userId:user.id,dueKey:card.dueKey,intervalDays:card.intervalDays},data:{intervalDays:interval,dueKey:addDateKeys(dateKey(),interval),...(grade==='again'?{lapses:{increment:1}}:{reps:{increment:1}})}});
+      if(changed.count&&grade==='again'&&card.topicId)await db.userTopicProgress.upsert({where:{userId_topicId:{userId:user.id,topicId:card.topicId}},update:{status:'NEEDS_REVIEW'},create:{userId:user.id,topicId:card.topicId,status:'NEEDS_REVIEW'}});
+    });
+    refreshPages('/review','/analytics','/','/subjects','/subjects/[slug]','/topics/[id]','/learn/[topicId]');return {ok:true};
+  }catch(error){return fail(error);}
 }
 
 export async function saveFlashcard(input: { subjectId?: string; topicId?: string; kind: string; front: string; back: string }): Promise<ActionState> {
@@ -925,6 +829,9 @@ export async function saveFlashcard(input: { subjectId?: string; topicId?: strin
 export async function setMistakeMeta(id: string, category: string, status: string): Promise<ActionState> {
   try {
     const user = await actor();
+    if(!Object.hasOwn(MISTAKE_CATEGORY_LABEL,category)||!['OPEN','REVIEWING','FIXED'].includes(status))throw new UserError('Стан або причина помилки недійсні.');
+    const mistake=await prisma.mistake.findFirst({where:{id,userId:user.id},include:{question:{include:{topic:true}}}});
+    if(!mistake || (mistake.question&&!learnerQuestionAvailable(mistake.question)))throw new UserError('Помилка недоступна.');
     await prisma.mistake.update({ where: { id, userId: user.id }, data: { category, status } });
     refreshPages("/mistakes", "/review", "/analytics", "/");
     return { ok: true };
@@ -957,7 +864,7 @@ export async function savePreferences(raw: unknown): Promise<ActionState> {
     
     const data = preferencesSchema.parse(raw);
     await tx.userSettings.update({
-      where: { id: (await getSettings(user.id)).id },
+      where: { id: (await getSettings(user.id, tx)).id },
       data: {
         theme: data.theme,
         examDate: data.examDate ? noonUtc(data.examDate) : null,
@@ -965,8 +872,6 @@ export async function savePreferences(raw: unknown): Promise<ActionState> {
         masteryHighMin: data.masteryHighMin,
         masteryMidMin: data.masteryMidMin,
         timerEnabled: data.timerEnabled,
-        aiProvider: "none",
-        aiModel: "",
         mathPriority: data.mathPriority,
         ukrainianPriority: data.ukrainianPriority,
         historyPriority: data.historyPriority,
@@ -990,9 +895,9 @@ export async function saveSchedule(rawJson: string): Promise<ActionState> {
     
     const parsed = JSON.parse(rawJson) as ScheduleConfig;
     if (!parsed.days || !parsed.rotation || !parsed.anchorMockDate) return { ok: false, error: "У розкладі бракує днів, ротації або дати першого пробника." };
-    await tx.userSettings.update({ where: { id: (await getSettings(user.id)).id }, data: { scheduleJson: JSON.stringify(parsed) } });
+    await tx.userSettings.update({ where: { id: (await getSettings(user.id, tx)).id }, data: { scheduleJson: JSON.stringify(parsed) } });
     refresh();
-    return { ok: true, message: "Розклад збережено. Перерахуйте майбутній план на сторінці календаря." };
+    return { ok: true, message: "Розклад збережено." };
   
     });
   } catch (error) {
@@ -1010,7 +915,7 @@ export async function saveFormat(rawJson: string): Promise<ActionState> {
     if (typeof parsed.officialFormatConfirmed !== "boolean" || typeof parsed.year !== "number") {
       return { ok: false, error: "Формат має містити year і officialFormatConfirmed." };
     }
-    await tx.userSettings.update({ where: { id: (await getSettings(user.id)).id }, data: { formatJson: JSON.stringify({ ...DEFAULT_FORMAT, ...parsed }) } });
+    await tx.userSettings.update({ where: { id: (await getSettings(user.id, tx)).id }, data: { formatJson: JSON.stringify({ ...DEFAULT_FORMAT, ...parsed }) } });
     refresh();
     return { ok: true, message: "Конфігурацію формату збережено. Без підтвердженої таблиці рейтинговий бал не обчислюється." };
   
@@ -1020,105 +925,69 @@ export async function saveFormat(rawJson: string): Promise<ActionState> {
   }
 }
 
-export async function saveSecretSettings(input: { openaiApiKey?: string; geminiApiKey?: string; ollamaBaseUrl?: string; youtubeApiKey?: string; clearOpenai?: boolean; clearGemini?: boolean; clearYoutube?: boolean }): Promise<ActionState> {
-  try {
-    const user = await administrator();
-    const current = readSecrets();
-    const keepOrReplace = (next: string | undefined, clear: boolean | undefined, previous: string | undefined) => {
-      if (clear) return "";
-      const value = next?.trim();
-      return value ? value : previous;
-    };
-    writeSecrets({
-      openaiApiKey: keepOrReplace(input.openaiApiKey, input.clearOpenai, current.openaiApiKey),
-      geminiApiKey: keepOrReplace(input.geminiApiKey, input.clearGemini, current.geminiApiKey),
-      ollamaBaseUrl: input.ollamaBaseUrl?.trim() || current.ollamaBaseUrl,
-      youtubeApiKey: keepOrReplace(input.youtubeApiKey, input.clearYoutube, current.youtubeApiKey),
-    });
-    await recordAudit(user,{action:"INTEGRATIONS_SAVED",entityType:"settings",metadata:{fields:["integrations"]}});
-    return { ok: true, message: "Ключі збережено лише на сервері, у data/secrets.json. Файл не входить до Git." };
-  } catch (error) {
-    return fail(error);
-  }
-}
-
-export async function enableLocalTutor(): Promise<ActionState> {
-  try {
-    await actor();
-    return { ok: false, error: "AI-репетитор тимчасово вимкнено. Усі інші розділи працюють без нього." };
-  } catch (error) {
-    return fail(error);
-  }
-}
-
-export async function askTutor(input: { mode: string; subjectId?: string; topicId?: string; prompt: string }) {
-  try {
-    void input;
-    await actor();
-    return { ok: false as const, error: "AI-репетитор тимчасово вимкнено. Усі інші розділи працюють без нього." };
-  } catch (error) {
-    return { ok: false as const, error: error instanceof Error ? error.message : "Помилка AI." };
-  }
-}
-
-export async function saveGeneratedQuestions(raw: unknown, subjectId: string, topicId: string): Promise<ActionState> {
-  try {
-    const user = await editor();
-    const pack = aiPackSchema.parse(raw);
-    await prisma.$transaction(async tx=>{
-      for(const question of pack.questions){
-        const id=await persistQuestion(tx,{...question,subjectId,topicId,source:"Згенеровано AI. Потребує перевірки. Не офіційне завдання НМТ.",verificationStatus:"DRAFT"});
-        await tx.question.update({where:{id},data:{generatedByAi:true}});
-      }
-      await recordAudit(user,{action:"QUESTIONS_GENERATED",entityType:"topic",entityId:topicId,metadata:{count:pack.questions.length}},tx);
-    });
-    refresh();
-    return { ok: true, message: "Чернетки збережено. Вони не потрапляють у тести, доки ви не позначите їх перевіреними." };
-  } catch (error) {
-    return fail(error);
-  }
-}
-
 export async function buildBackup() {
   const user=await owner();
-  const [users, userSubjects, progress, videoProgress, oauthAccounts] = await Promise.all([prisma.user.findMany(), prisma.userSubject.findMany(), prisma.userTopicProgress.findMany(), prisma.userVideoProgress.findMany(), prisma.oAuthAccount.findMany()]);
-  const [settings, subjects, topics, dependencies, videos, notes, questions, options, tests, testQuestions, attempts, answers, examResults, sessions, tasks, reviews, mistakes, flashcards, conversations, messages, achievements, xp] = await Promise.all([
-    prisma.userSettings.findMany(),
-    prisma.subject.findMany(),
-    prisma.topic.findMany(),
-    prisma.topicDependency.findMany(),
-    prisma.videoLesson.findMany(),
-    prisma.note.findMany(),
-    prisma.question.findMany(),
-    prisma.questionOption.findMany(),
-    prisma.test.findMany(),
-    prisma.testQuestion.findMany(),
-    prisma.testAttempt.findMany(),
-    prisma.answer.findMany(),
-    prisma.examResult.findMany(),
-    prisma.studySession.findMany(),
-    prisma.studyTask.findMany(),
-    prisma.reviewSchedule.findMany(),
-    prisma.mistake.findMany(),
-    prisma.flashcard.findMany(),
-    prisma.aIConversation.findMany(),
-    prisma.aIMessage.findMany(),
-    prisma.achievement.findMany(),
-    prisma.xpEvent.findMany(),
+  return prisma.$transaction(async tx=>{
+  await recordAudit(user,{action:"BACKUP_CREATED",entityType:"backup"},tx);
+  const [users, userSubjects, progress, videoProgress, oauthAccounts] = await Promise.all([tx.user.findMany(), tx.userSubject.findMany(), tx.userTopicProgress.findMany(), tx.userVideoProgress.findMany(), tx.oAuthAccount.findMany()]);
+  const [settings, subjects, topics, dependencies, videos, questions, options, tests, testQuestions, attempts, answers, examResults, sessions, tasks, reviews, mistakes, flashcards] = await Promise.all([
+    tx.userSettings.findMany(),
+    tx.subject.findMany(),
+    tx.topic.findMany(),
+    tx.topicDependency.findMany(),
+    tx.videoLesson.findMany(),
+    tx.question.findMany(),
+    tx.questionOption.findMany(),
+    tx.test.findMany(),
+    tx.testQuestion.findMany(),
+    tx.testAttempt.findMany(),
+    tx.answer.findMany(),
+    tx.examResult.findMany(),
+    tx.studySession.findMany(),
+    tx.studyTask.findMany(),
+    tx.reviewSchedule.findMany(),
+    tx.mistake.findMany(),
+    tx.flashcard.findMany(),
   ]);
-  await recordAudit(user,{action:"BACKUP_CREATED",entityType:"backup"});
-  const auditLogs=await prisma.auditLog.findMany({orderBy:[{createdAt:"asc"},{id:"asc"}]});
+  const mistakeRetries=await mistakeRetryReady(tx)?await tx.mistakeRetry.findMany():[];
+  const auditLogs=await tx.auditLog.findMany({orderBy:[{createdAt:"asc"},{id:"asc"}]});
   // Never export active verification/reset tokens, OAuth state, or unused invitations.
-  return { auditLogs, version: 4, users, userSubjects, progress, videoProgress, oauthAccounts, exportedAt: new Date().toISOString(), settings, subjects, topics, dependencies, videos, notes, questions, options, tests, testQuestions, attempts, answers, examResults, sessions, tasks, reviews, mistakes, flashcards, conversations, messages, achievements, xp };
+  const hasExternal=await externalPracticeReady(tx);
+  const externalPractice=hasExternal?await tx.externalPractice.findMany():[];
+  const externalResultRevisions=hasExternal?await tx.externalResultRevision.findMany():[];
+  return { mistakeRetries, externalPractice, externalResultRevisions, auditLogs, version: hasExternal?6:5, users, userSubjects, progress, videoProgress, oauthAccounts, exportedAt: new Date().toISOString(), settings, subjects, topics, dependencies, videos, questions, options, tests, testQuestions, attempts, answers, examResults, sessions, tasks, reviews, mistakes, flashcards };
+  });
 }
 
 export async function restoreBackup(rawJson: string, confirmation?: string): Promise<ActionState> {
   try {
     const user=await owner();
     if (confirmation !== "ВІДНОВИТИ") return { ok: false, error: "Відновлення скасовано. Введіть ВІДНОВИТИ." };
-    const data = JSON.parse(rawJson) as Awaited<ReturnType<typeof buildBackup>>;
-    if ((data.version >= 3 && !Array.isArray(data.videoProgress)) || (data.version === 4 && !Array.isArray(data.oauthAccounts)) || ![2, 3, 4].includes(data.version) || !Array.isArray(data.users) || !data.users.some((user) => user.id === "owner" && user.passwordHash) || !Array.isArray(data.userSubjects) || !Array.isArray(data.progress) || !Array.isArray(data.messages) || !Array.isArray(data.subjects) || !Array.isArray(data.settings)) return { ok: false, error: "Файл резервної копії не підходить." };
+    const data = JSON.parse(rawJson) as Awaited<ReturnType<typeof buildBackup>> & {
+      notes?: unknown[];
+      conversations?: unknown[];
+      messages?: unknown[];
+      achievements?: unknown[];
+      xp?: unknown[];
+    };
+    if ((data.version >= 3 && !Array.isArray(data.videoProgress)) || (data.version >= 4 && !Array.isArray(data.oauthAccounts)) || ![2, 3, 4, 5, 6].includes(data.version) || !Array.isArray(data.users) || !data.users.some((user) => user.id === "owner" && user.passwordHash) || !Array.isArray(data.userSubjects) || !Array.isArray(data.progress) || (data.version <= 4 && !Array.isArray(data.messages)) || !Array.isArray(data.subjects) || !Array.isArray(data.settings)) return { ok: false, error: "Файл резервної копії не підходить." };
+    if(data.version<6 && ([data.externalPractice,data.externalResultRevisions].some(rows=>rows!==undefined && (!Array.isArray(rows)||rows.length>0)))) return {ok:false,error:"Зовнішня практика потребує коректної копії версії 6."};
+    if(data.version>=6 && (!Array.isArray(data.externalPractice)||!Array.isArray(data.externalResultRevisions))) return {ok:false,error:"У копії бракує зовнішніх призначень або історії результатів."};
+    if(data.version>=6 && !await externalPracticeReady()) return {ok:false,error:"Перед відновленням цієї копії потрібна погоджена міграція зовнішньої практики."};
+    if(data.version>=6) validateExternalBackup(data);
+    const hasRetryHistory=await mistakeRetryReady(prisma);
+    if(data.mistakeRetries!==undefined&&!Array.isArray(data.mistakeRetries))return {ok:false,error:'Історія виправлень має бути масивом.'};
+    if(data.mistakeRetries?.length&&!hasRetryHistory)return {ok:false,error:'Для історії виправлень потрібна погоджена міграція.'};
+    if(data.mistakeRetries===undefined&&hasRetryHistory&&await prisma.mistakeRetry.count())return {ok:false,error:'Стара копія не містить історії виправлень. Відновлення з втратою історії заблоковано.'};
+    const settingsRows = data.settings.map((row) => {
+      const legacy = row as typeof row & { aiProvider?: string; aiModel?: string };
+      const { aiProvider: _dropProvider, aiModel: _dropModel, ...rest } = legacy;
+      void _dropProvider;
+      void _dropModel;
+      return rest;
+    });
     await prisma.$transaction(async (tx) => {
+      if(await externalPracticeReady(tx)){await tx.externalResultRevision.deleteMany();await tx.externalPractice.deleteMany();}
       await tx.answer.deleteMany();
       await tx.testQuestion.deleteMany();
       await tx.testAttempt.deleteMany();
@@ -1128,16 +997,12 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
       await tx.studyTask.deleteMany();
       await tx.studySession.deleteMany();
       await tx.videoLesson.deleteMany();
-      await tx.note.deleteMany();
       await tx.questionOption.deleteMany();
       await tx.question.deleteMany();
       await tx.flashcard.deleteMany();
-      await tx.xpEvent.deleteMany();
-      await tx.aIConversation.deleteMany();
       await tx.examResult.deleteMany();
       await tx.topicDependency.deleteMany();
       await tx.topic.deleteMany();
-      await tx.achievement.deleteMany();
       await tx.subject.deleteMany();
       await tx.userSettings.deleteMany();
       await tx.session.deleteMany();
@@ -1149,15 +1014,17 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
       if (data.users.length) await tx.user.createMany({ data: data.users });
       if (data.oauthAccounts?.length) await tx.oAuthAccount.createMany({ data: data.oauthAccounts });
       if (data.subjects.length) await tx.subject.createMany({ data: data.subjects });
-      if (data.settings.length) await tx.userSettings.createMany({ data: data.settings });
+      if (settingsRows.length) await tx.userSettings.createMany({ data: settingsRows });
       if (data.topics.length) await tx.topic.createMany({ data: data.topics });
       if (data.userSubjects.length) await tx.userSubject.createMany({ data: data.userSubjects });
       if (data.progress.length) await tx.userTopicProgress.createMany({ data: data.progress });
       if (data.dependencies.length) await tx.topicDependency.createMany({ data: data.dependencies });
       if (data.questions.length) await tx.question.createMany({ data: data.questions });
       if (data.options.length) await tx.questionOption.createMany({ data: data.options });
-      if (data.notes.length) await tx.note.createMany({ data: data.notes });
-      if (data.videos.length) await tx.videoLesson.createMany({ data: data.videos });
+      if (data.videos.length) {
+        await tx.videoLesson.createMany({ data: data.videos.map(video => ({ ...video, reviewStatus: video.reviewStatus ?? "SUGGESTED", isPrimary: video.reviewStatus === "CONFIRMED" && video.isPrimary })) });
+        for (const topicId of new Set(data.videos.map(video => video.topicId))) await reconcileVideoPrimary(tx, topicId);
+      }
       if (data.videoProgress?.length) await tx.userVideoProgress.createMany({ data: data.videoProgress });
       if (data.flashcards.length) await tx.flashcard.createMany({ data: data.flashcards });
       if (data.tests.length) await tx.test.createMany({ data: data.tests });
@@ -1167,12 +1034,11 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
       if (data.examResults.length) await tx.examResult.createMany({ data: data.examResults });
       if (data.sessions.length) await tx.studySession.createMany({ data: data.sessions });
       if (data.tasks.length) await tx.studyTask.createMany({ data: data.tasks });
+      if(data.externalPractice?.length) await tx.externalPractice.createMany({data:data.externalPractice});
+      if(data.externalResultRevisions?.length) await tx.externalResultRevision.createMany({data:data.externalResultRevisions});
       if (data.reviews.length) await tx.reviewSchedule.createMany({ data: data.reviews });
       if (data.mistakes.length) await tx.mistake.createMany({ data: data.mistakes });
-      if (data.conversations.length) await tx.aIConversation.createMany({ data: data.conversations });
-      if (data.messages.length) await tx.aIMessage.createMany({ data: data.messages });
-      if (data.achievements.length) await tx.achievement.createMany({ data: data.achievements });
-      if (data.xp.length) await tx.xpEvent.createMany({ data: data.xp });
+      if (data.mistakeRetries?.length) await tx.mistakeRetry.createMany({data:data.mistakeRetries});
       // Preserve the live journal; archived events must never be replayed as new actions.
       await recordAudit(user,{action:"BACKUP_RESTORED",entityType:"backup",metadata:{version:data.version}},tx);
     });
@@ -1184,7 +1050,7 @@ export async function restoreBackup(rawJson: string, confirmation?: string): Pro
   }
 }
 
-export async function login(nickname: string, password: string, rememberMe = false, continueGoogleLink = false) {
+export async function login(nickname: string, password: string, rememberMe = false) {
   const key = normalizeNickname(nickname);
   const clientIp = trustedClientIp(await headers());
   const denied = {ok:false as const,error:"Не вдалося увійти. Перевірте дані або спробуйте пізніше."};
@@ -1206,10 +1072,17 @@ export async function login(nickname: string, password: string, rememberMe = fal
     return denied;
   }
   clearAccountFailures(accountKey);
+  const status = accountStatus(user);
+  if (status === "REJECTED") {
+    registerLoginFailure(accountKey, clientIp);
+    return { ok: false as const, error: "Заявку на реєстрацію відхилили. Зверніться до власника платформи." };
+  }
   await prisma.session.deleteMany({where:{expiresAt:{lt:new Date()}}});
   await createSession(user.id, rememberMe);
   await recordAudit(user,{action:"AUTH_LOGIN",entityType:"session"});
-  redirect(continueGoogleLink ? "/login?oauth=confirm_link" : user.onboarded ? "/" : "/onboarding");
+  if (status === "PENDING") redirect("/pending");
+  if (isAdministrator(user)) redirect("/admin");
+  redirect(user.onboarded ? "/" : "/onboarding");
 }
 
 export async function logout() {
@@ -1255,6 +1128,7 @@ export async function completeOnboarding(input: {
   // Password material is intentionally excluded from session users.
   const existing = await prisma.user.findUnique({ where: { id: signedIn.id } });
   if (!existing) return { ok: false as const, error: "Профіль не знайдено." };
+  if (accountStatus(existing) !== "APPROVED") return { ok: false as const, error: "Налаштування доступне лише після схвалення власником." };
   if (existing.id === "owner" && !existing.passwordHash && !input.password) return { ok: false as const, error: "Встановіть пароль власника." };
   const [taken] = await prisma.$queryRaw<{id:string}[]>`SELECT "id" FROM "User" WHERE "nickname" = ${nickname} COLLATE NOCASE LIMIT 1`;
   if (taken && taken.id !== existing?.id) return { ok: false as const, error: "Цей нікнейм уже зайнятий." };
@@ -1349,6 +1223,8 @@ export async function updateTopic(input: { id: string; title: string; summary: s
 
     if (!input.title.trim()) return { ok: false, error: "Вкажіть назву теми." };
     if (!["NOT_STARTED", "IN_PROGRESS", "NEEDS_REVIEW", "MASTERED"].includes(input.status)) return { ok: false, error: "Невідомий статус." };
+    if (input.status === "MASTERED" && !await hasIndependentMastery(tx, user.id, input.id))
+      return { ok: false, error: "Засвоєння потребує двох незалежних успішних перевірок з інтервалом щонайменше 7 діб." };
     
     
     await tx.topic.update({
@@ -1403,7 +1279,7 @@ export async function resetScheduleToDefault(): Promise<ActionState> {
     return await auditedWrite<ActionState>(user, { action: "SCHEDULE_RESET", entityType: "settings", entityId: user.id }, async (tx) => {
 
     
-    await tx.userSettings.update({ where: { id: (await getSettings(user.id)).id }, data: { scheduleJson: JSON.stringify(DEFAULT_SCHEDULE) } });
+    await tx.userSettings.update({ where: { id: (await getSettings(user.id, tx)).id }, data: { scheduleJson: JSON.stringify(DEFAULT_SCHEDULE) } });
     refresh();
     return { ok: true };
   
@@ -1420,12 +1296,49 @@ export async function saveLessonContent(topicId: string, raw: unknown): Promise<
 
   
   const lines=z.array(z.string().trim().min(1).max(1000)).max(30);
-  const lesson=z.object({objectives:lines,prerequisites:lines,theory:z.string().trim().min(50,"Додайте пояснення щонайменше на 50 символів.").max(50000),rules:lines,examples:z.array(z.object({task:z.string().trim().min(1).max(3000),solution:z.string().trim().min(1).max(5000)})).max(20),mistakes:lines,summary:z.string().trim().max(3000),sources:z.array(z.object({title:z.string().trim().min(1).max(200),url:z.string().url().refine(url=>url.startsWith("https://"),"Джерело має використовувати https://")})).max(10)}).parse(raw);
-  await tx.topic.update({where:{id:topicId},data:{lessonJson:JSON.stringify(lesson),coverage:"PARTIAL"}});
+  const lesson=z.object({objectives:lines,prerequisites:lines.optional(),theory:z.string().trim().min(50,"Додайте пояснення щонайменше на 50 символів.").max(50000),rules:lines,examples:z.array(z.object({task:z.string().trim().min(1).max(3000),solution:z.string().trim().min(1).max(5000),answerCheck:exampleAnswerCheckSchema.nullable().optional()})).max(20),mistakes:lines,summary:z.string().trim().max(3000),notes:z.string().trim().max(5000).optional(),sources:z.array(z.object({title:z.string().trim().min(1).max(200),url:z.string().url().refine(url=>url.startsWith("https://"),"Джерело має використовувати https://")})).max(10).optional()}).parse(raw);
+  const current=await tx.topic.findUnique({where:{id:topicId},select:{coverage:true,lessonJson:true}});
+  if(!current)return {ok:false,error:"Тему не знайдено."};
+  const previous=parseLesson(current.lessonJson);
+  const examples=lesson.examples.map(({answerCheck,...example})=>{
+    if(answerCheck!==undefined)return answerCheck?{...example,answerCheck}:example;
+    const matches=previous?.examples.filter(prior=>prior.task===example.task&&prior.solution===example.solution)??[];
+    return matches.length===1&&matches[0].answerCheck?{...example,answerCheck:matches[0].answerCheck}:example;
+  });
+  const stored={...lesson,examples,prerequisites:lesson.prerequisites??[],notes:lesson.notes??"",sources:lesson.sources??[],...(previous?.provenance?{provenance:previous.provenance}:{})};
+  await tx.topic.update({where:{id:topicId},data:{lessonJson:JSON.stringify(stored),coverage:current.coverage==="DRAFT"?"DRAFT":"PARTIAL"}});
   refresh();return {ok:true};
  
     });
   }catch(error){return fail(error)}
+}
+
+export async function moderateUserAccount(id: string, rawStatus: string): Promise<ActionState> {
+  try {
+    const user = await owner();
+    const status = z.enum(["APPROVED", "REJECTED"]).parse(rawStatus);
+    return await prisma.$transaction(async (tx) => {
+      const target = await tx.user.findUnique({ where: { id }, select: { id: true, accountStatus: true, nickname: true } });
+      if (!target) return { ok: false as const, error: "Профіль не знайдено." };
+      if (target.id === "owner") return { ok: false as const, error: "Профіль власника не модерується." };
+      if (accountStatus(target) !== "PENDING") return { ok: false as const, error: "Цю заявку уже опрацьовано." };
+      await tx.user.update({ where: { id }, data: { accountStatus: status } });
+      await recordAudit(
+        user,
+        {
+          action: status === "APPROVED" ? "USER_ACCOUNT_APPROVED" : "USER_ACCOUNT_REJECTED",
+          entityType: "user",
+          entityId: id,
+          metadata: { accountStatus: status, nickname: target.nickname },
+        },
+        tx,
+      );
+      refreshPages("/admin/moderation", "/admin/users", "/admin");
+      return { ok: true as const, message: status === "APPROVED" ? `Профіль @${target.nickname} схвалено.` : `Профіль @${target.nickname} відхилено.` };
+    }, { timeout: 20000 });
+  } catch (error) {
+    return fail(error);
+  }
 }
 
 export async function updateUserRole(id: string, rawRole: string, rawConfirmation?: { password?: string; nickname?: string }): Promise<ActionState> {
@@ -1446,14 +1359,18 @@ export async function updateUserRole(id: string, rawRole: string, rawConfirmatio
       if(ownerSensitive) {
         if(effectiveRole(current)!=="OWNER") return {ok:false as const,error:"Призначати та змінювати роль власника може лише власник платформи."};
         if(!confirmation.password||!await verifyPasswordAsync(confirmation.password,current.passwordHash)) return {ok:false as const,error:"Повторно підтвердьте особу паролем власника."};
-        if(confirmation.nickname?.normalize("NFKC").toLocaleLowerCase("uk-UA")!==target.nickname.normalize("NFKC").toLocaleLowerCase("uk-UA")) return {ok:false as const,error:"Введіть нікнейм користувача для підтвердження."};
         if(previousRole==="OWNER"&&role!=="OWNER") {
           const owners=await tx.user.findMany({where:{OR:[{id:"owner"},{role:"OWNER"}]},select:{id:true,role:true}});
           if(owners.filter((ownerProfile)=>effectiveRole(ownerProfile)==="OWNER").length<=1) return {ok:false as const,error:"Не можна змінити роль останнього власника платформи."};
         }
       }
       await tx.user.update({where:{id},data:{role}});
-      await recordAudit(current,{action:"USER_ROLE_CHANGED",entityType:"user",entityId:id,metadata:{role,previousRole}},tx);
+      if (role === "ADMIN" || role === "EDITOR") await ensureUserSettings(id, tx);
+      await recordAudit(
+        { id: user.id, firstName: user.firstName, nickname: user.nickname, role: effectiveRole(current) },
+        { action: "USER_ROLE_CHANGED", entityType: "user", entityId: id, metadata: { role, previousRole } },
+        tx,
+      );
       refreshPages("/admin/users", "/admin", "/admin/audit");
       return {ok:true as const};
     },{timeout:20000});

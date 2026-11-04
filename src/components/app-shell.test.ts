@@ -7,5 +7,12 @@ import {AppShell} from "./app-shell";
 it("student navigation stays educational for an owner; management is a profile context switch",()=>{
  const html=renderToStaticMarkup(jsx(AppShell,{isAdmin:true,isOwner:true,name:"QA-owner",children:"QA-content"}));
  const aside=html.match(/<aside[^>]*>([\s\S]*?)<\/aside>/)?.[1];expect(aside).toBeDefined();
- expect(aside).not.toContain('href="/admin"');expect(html).toContain("Центр керування власника");
+ expect(aside).not.toContain('href="/admin"');expect(html).toContain('aria-label="Меню профілю"');
+});
+it("highlights the five primary student destinations in quick navigation",()=>{
+ const html=renderToStaticMarkup(jsx(AppShell,{name:"QA-student",children:"QA-content"}));
+ for(const label of ["Головна","Предмети","Календар","Тести","Прогрес"])expect(html).toContain(label);
+ expect(html).toContain("Профіль і налаштування");
+ expect(html).toMatch(/<nav[^>]*aria-label="Основна навігація"[^>]*>[\s\S]*Головна/);
+ expect(html).toContain('aria-label="Швидка навігація"');
 });

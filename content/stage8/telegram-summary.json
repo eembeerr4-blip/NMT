@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-10-30",
+  "indexedNonVideoFiles": 5984,
+  "bytes": 5431235344,
+  "extensionCounts": {
+    ".pdf": 810,
+    ".jpg": 5121,
+    ".ppt": 3,
+    ".pptx": 8,
+    ".png": 42
+  },
+  "exactDuplicateGroups": 47,
+  "duplicateExtraFiles": 56,
+  "thumbnailFiles": 2596,
+  "subjectCandidateCounts": {
+    "ukrainian": 371,
+    "math": 13,
+    "history": 74,
+    "biology": 24
+  },
+  "unassigned": 5535,
+  "visuallyReviewed": 3,
+  "rightsClearedForPublicRedistribution": 0,
+  "videosUsed": 0,
+  "originalsChanged": false,
+  "privacy": "Detailed local filenames/message links remain only in private local index. Public summary contains no message text, channel identity, user names or raw media.",
+  "limitations": [
+    "Subject mapping is provisional, not a validated topic assignment.",
+    "Thumbnail and full image versions are not treated as exact duplicates unless their bytes match.",
+    "No third-party file copied into repository."
+  ],
+  "sampleReview": {
+    "coverPages": 1,
+    "contentPages": 2,
+    "readable": true,
+    "topic": "math-numbers",
+    "finding": "One sampled summary incorrectly equates real numbers with all mathematical numbers; another worked divisibility solution checks correctly. Archive content requires independent correction/review, not blanket import.",
+    "rights": "Watermarked teaching pages observed; no redistribution permission established."
+  }
+}

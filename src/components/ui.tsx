@@ -4,7 +4,7 @@ import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex shrink-0 items-center justify-center gap-2 rounded-xl text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:h-4 [&_svg]:w-4 [&_svg]:shrink-0",
+  "ui-button cursor-pointer disabled:cursor-not-allowed inline-flex shrink-0 items-center justify-center gap-2 rounded-xl text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:opacity-45 [&_svg]:h-4 [&_svg]:w-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -39,7 +39,7 @@ export function Input(props: ComponentProps<"input">) {
 }
 
 export function Textarea(props: ComponentProps<"textarea">) {
-  return <textarea {...props} className={cn("min-h-28 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm outline-none", props.className)} />;
+  return <textarea {...props} className={cn("min-h-28 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring", props.className)} />;
 }
 
 export function Label(props: ComponentProps<"label">) {

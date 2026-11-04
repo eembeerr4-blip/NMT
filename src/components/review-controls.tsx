@@ -5,12 +5,12 @@ import {completeReview,reviewFlashcard,saveFlashcard} from "@/server/actions";
 import {Button,Input} from "./ui";
 import {useActionFeedback} from "./use-action-feedback";
 
-export function ReviewControls({id,card=false}:{id:string;card?:boolean}) {
+export function ReviewControls({id,card=false,disabled=false}:{id:string;card?:boolean;disabled?:boolean}) {
   const {pending,result,run}=useActionFeedback();
   const router=useRouter();
   return <div className="space-y-2"><div className="flex gap-2">
-    {card?<><Button size="sm" variant="outline" disabled={pending} onClick={()=>run(()=>reviewFlashcard(id,"again"),()=>router.refresh())}>Повторити</Button><Button size="sm" disabled={pending} onClick={()=>run(()=>reviewFlashcard(id,"good"),()=>router.refresh())}>Пам’ятаю</Button></>:<Button size="sm" disabled={pending} onClick={()=>run(()=>completeReview(id),()=>router.refresh())}>Позначити повтореним</Button>}
-  </div>{result?<p role={result.ok?"status":"alert"} className="text-sm">{result.ok?result.message??"Повторення збережено.":result.error}</p>:null}</div>;
+    {card?<><Button size="sm" variant="outline" disabled={pending} onClick={()=>run(()=>reviewFlashcard(id,"again"),()=>router.refresh())}>Повторити</Button><Button size="sm" disabled={pending} onClick={()=>run(()=>reviewFlashcard(id,"good"),()=>router.refresh())}>Пам’ятаю</Button></>:<Button size="sm" disabled={pending||disabled} onClick={()=>run(()=>completeReview(id),()=>router.refresh())}>Позначити повтореним</Button>}
+  </div>{!card?<p className="text-xs text-muted-foreground">Самостійна позначка повторення не підтверджує виправлення помилок. Для цього розв’яжіть завдання повторно.</p>:null}{result?<p role={result.ok?"status":"alert"} className="text-sm">{result.ok?result.message??"Повторення збережено.":result.error}</p>:null}</div>;
 }
 
 export function FlashcardForm({topics}:{topics:{id:string;subjectId:string;title:string}[]}) {

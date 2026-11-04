@@ -1,0 +1,127 @@
+{
+  "status": "PASS_FOR_ISOLATED_PILOT",
+  "baseline": "4c2a5c0742fca2d6eaff292b5571107e8c8cae43",
+  "files": [
+    {
+      "path": "content/stage8/validation82/balanced/RESULT.md",
+      "bytes": 7351,
+      "sha256": "26a831682068c37ba0928e88730d053c8cc97137c5a9fa95d0269647453434c4"
+    },
+    {
+      "path": "content/stage8/validation82/balanced/author-revision-sealed.json",
+      "bytes": 662,
+      "sha256": "b205a4f05bb35714c2a8599f9f69842ee8feb1e2d571c5cb828ae5c85e443979"
+    },
+    {
+      "path": "content/stage8/validation82/balanced/author-solutions-sealed.json",
+      "bytes": 2181,
+      "sha256": "2297683948b4ff1f34195fcc7230cc54cc3d9e45a0e13665f85094339ac8017e"
+    },
+    {
+      "path": "content/stage8/validation82/balanced/blind-questions.json",
+      "bytes": 11709,
+      "sha256": "968d020bdddea79d2c10b8feabfd4ffa900f65f7805ac24228970d65b68c9d33"
+    },
+    {
+      "path": "content/stage8/validation82/balanced/blind-questions.v2.json",
+      "bytes": 11787,
+      "sha256": "99d89e08662da033faaa96974da0680737f9853d6e72830dea2a24ac2e8e41bc"
+    },
+    {
+      "path": "content/stage8/validation82/balanced/browser-QA.json",
+      "bytes": 2729,
+      "sha256": "edd7c082b46c2082f9bd3a3ca3314415ff6e2095600d74cb0cd7935d364b0bd2"
+    },
+    {
+      "path": "content/stage8/validation82/balanced/browser-initial-run.json",
+      "bytes": 1933,
+      "sha256": "5640436c8699de4c340a4acc3d98f1c86e7ac29d600ca50036f6e80a0f62fa0f"
+    },
+    {
+      "path": "content/stage8/validation82/balanced/database-QA.json",
+      "bytes": 873,
+      "sha256": "2a5fe6eec582efb16b3ffc96dfd401efa39d2f2316e91b067272f46a6c29d081"
+    },
+    {
+      "path": "content/stage8/validation82/balanced/final-independent-blind-review.json",
+      "bytes": 11408,
+      "sha256": "3cdcfc62383547d69c3bacd48f8634cecdef115b7ebd4f05d6d960091f153534"
+    },
+    {
+      "path": "content/stage8/validation82/balanced/independent-blind-review.json",
+      "bytes": 11248,
+      "sha256": "a2d0adc21c4224b6bf5b8ac48ecc1ded550d6e3a1edccd5c052203a145f523ee"
+    },
+    {
+      "path": "content/stage8/validation82/balanced/regression-QA.json",
+      "bytes": 3938,
+      "sha256": "1a6b6862b6ace2f8bc9b3364f46101fecc971734d784fcdc2d4b83d94182680f"
+    },
+    {
+      "path": "content/stage8/validation82/balanced/review-ledger.json",
+      "bytes": 18806,
+      "sha256": "a5a30814a0e7f32b441000e13a8e64d87cfbf54f8bfbffb0e76d1d53638f27f3"
+    },
+    {
+      "path": "content/stage8/validation82/balanced/screenshots/delayed-mastered-desktop.png",
+      "bytes": 838132,
+      "sha256": "d1bd872081d83ce64ba85a155c3f0d54ae8b5ab75c5587009b903b15ede4c151"
+    },
+    {
+      "path": "content/stage8/validation82/balanced/screenshots/delayed-mastered-mobile.png",
+      "bytes": 679280,
+      "sha256": "8274c9a2305686e646544e192d83b73e4eebcab73dad882b13401b2ed9869c7d"
+    },
+    {
+      "path": "content/stage8/validation82/balanced/screenshots/examples-mobile.png",
+      "bytes": 281911,
+      "sha256": "0089856b1427438fd8f82377eb963a05c32d302498b1d284c025d1bae4f37538"
+    },
+    {
+      "path": "content/stage8/validation82/balanced/screenshots/lesson-desktop.png",
+      "bytes": 843717,
+      "sha256": "0fee20931a4e43e83a0fef5bd4dc95c6c6d0c391d34c919c60668e5abeade66b"
+    },
+    {
+      "path": "content/stage8/validation82/packages/math-reviewed.package.json",
+      "bytes": 251670,
+      "sha256": "e4b1260bc86dfb42287623cea92fdde963f17d71a0224d837b2c37027855587d"
+    },
+    {
+      "path": "content/stage8/validation82/algebraic-expressions-study-module.md",
+      "bytes": 11372,
+      "sha256": "2b8af429f89609721bce2d6e1d463686c8894687e2ee9de161656f9a9a132967"
+    },
+    {
+      "path": "scripts/stage82-verify-balanced-bank.ts",
+      "bytes": 2999,
+      "sha256": "4ad25738c7cfce3e6a562ed0ae4a798b3e1b7fe4b3fea449c23436f68a139499"
+    },
+    {
+      "path": "scripts/stage82-balanced-qa-server.mjs",
+      "bytes": 1225,
+      "sha256": "d9aa5bc4a8fc0f63fce96eb8b4a7e31158d8bdbc4a0da303a358f67b181aa2c9"
+    },
+    {
+      "path": "tests/stage82-assessment.db.test.ts",
+      "bytes": 22058,
+      "sha256": "44e43b8fc3b2cf866fe58f52a6c1670500a12db77b3e304d9072e91889e5c67e"
+    },
+    {
+      "path": "tests/stage82-balanced-fixture.test.ts",
+      "bytes": 6354,
+      "sha256": "966b562882bcc70aa5dc0fe8bcfc944bfcfd700dddc1e6e755da42d9619e637d"
+    },
+    {
+      "path": "e2e/stage82/balanced-pilot.spec.ts",
+      "bytes": 13881,
+      "sha256": "34be99deb8b1d28a6df62b76583684fd4c7f26c00aa5d9321d243f3bf167cd90"
+    },
+    {
+      "path": "playwright.stage82-balanced.config.ts",
+      "bytes": 585,
+      "sha256": "9696bb7e512b10ca1de5df0a10ea36d68cc0d1cb7a3bb574e826fc73091ddc2e"
+    }
+  ],
+  "hashing": "Git canonical LF bytes for text, original bytes for PNG; manifest excludes itself"
+}

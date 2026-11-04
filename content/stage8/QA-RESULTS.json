@@ -1,0 +1,461 @@
+{
+  "checkedAt": "2026-10-29",
+  "unit": {
+    "command": "npx vitest run tests/stage8-content.db.test.ts",
+    "passed": 25,
+    "failed": 0,
+    "isolated": true,
+    "rerunAt": "2026-10-30",
+    "durationSeconds": 40.37,
+    "defaultTeardown": "Removes only this fixture-owned unique synthetic directory; STAGE8_RETAIN_QA=1 retains for browser follow-up."
+  },
+  "typecheck": "PASS",
+  "targetedEslint": "PASS",
+  "gitDiffCheck": "PASS",
+  "browser": {
+    "database": "<LOCAL_TEMP>/nmt-stage8-synthetic-xWZO1d\\qa.db",
+    "packageSha256": {
+      "biology-foundation.package.json": "ba50c2b81e2e87e3ad58b2d5b6e0bd8c271ee849a29af8378a1c7693e5676361",
+      "history-foundation.package.json": "fd30353bdafd96171c210f6cde87edade8003249dcaacc6fce1105d157a3e627",
+      "math-reviewed.package.json": "dddfd94e36c27dd7c39a17b0aad22eab3b5d3c1bb494fbc8a0e6c5b169a5e33a",
+      "ukrainian-foundation.package.json": "d52e7e60559b918c19bbc8ca822b7037edde2ace4589a6c9165a542f02abaefd"
+    },
+    "login": true,
+    "viewports": [
+      {
+        "topic": "cm-biology-mendel",
+        "width": 320,
+        "ok": true
+      },
+      {
+        "topic": "cm-history-sources",
+        "width": 320,
+        "ok": true
+      },
+      {
+        "topic": "cm-ukrainian-formation",
+        "width": 320,
+        "ok": true
+      },
+      {
+        "topic": "math-derivative",
+        "width": 320,
+        "ok": true
+      },
+      {
+        "topic": "math-expressions",
+        "width": 320,
+        "ok": true
+      },
+      {
+        "topic": "math-functions",
+        "width": 320,
+        "ok": true
+      },
+      {
+        "topic": "math-linear-systems",
+        "width": 320,
+        "ok": true
+      },
+      {
+        "topic": "math-plane",
+        "width": 320,
+        "ok": true
+      },
+      {
+        "topic": "math-probability",
+        "width": 320,
+        "ok": true
+      },
+      {
+        "topic": "math-progressions",
+        "width": 320,
+        "ok": true
+      },
+      {
+        "topic": "math-quadratic",
+        "width": 320,
+        "ok": true
+      },
+      {
+        "topic": "math-solid",
+        "width": 320,
+        "ok": true
+      },
+      {
+        "topic": "math-trig",
+        "width": 320,
+        "ok": true
+      },
+      {
+        "topic": "cm-biology-mendel",
+        "width": 360,
+        "ok": true
+      },
+      {
+        "topic": "cm-history-sources",
+        "width": 360,
+        "ok": true
+      },
+      {
+        "topic": "cm-ukrainian-formation",
+        "width": 360,
+        "ok": true
+      },
+      {
+        "topic": "math-derivative",
+        "width": 360,
+        "ok": true
+      },
+      {
+        "topic": "math-expressions",
+        "width": 360,
+        "ok": true
+      },
+      {
+        "topic": "math-functions",
+        "width": 360,
+        "ok": true
+      },
+      {
+        "topic": "math-linear-systems",
+        "width": 360,
+        "ok": true
+      },
+      {
+        "topic": "math-plane",
+        "width": 360,
+        "ok": true
+      },
+      {
+        "topic": "math-probability",
+        "width": 360,
+        "ok": true
+      },
+      {
+        "topic": "math-progressions",
+        "width": 360,
+        "ok": true
+      },
+      {
+        "topic": "math-quadratic",
+        "width": 360,
+        "ok": true
+      },
+      {
+        "topic": "math-solid",
+        "width": 360,
+        "ok": true
+      },
+      {
+        "topic": "math-trig",
+        "width": 360,
+        "ok": true
+      },
+      {
+        "topic": "cm-biology-mendel",
+        "width": 390,
+        "ok": true
+      },
+      {
+        "topic": "cm-history-sources",
+        "width": 390,
+        "ok": true
+      },
+      {
+        "topic": "cm-ukrainian-formation",
+        "width": 390,
+        "ok": true
+      },
+      {
+        "topic": "math-derivative",
+        "width": 390,
+        "ok": true
+      },
+      {
+        "topic": "math-expressions",
+        "width": 390,
+        "ok": true
+      },
+      {
+        "topic": "math-functions",
+        "width": 390,
+        "ok": true
+      },
+      {
+        "topic": "math-linear-systems",
+        "width": 390,
+        "ok": true
+      },
+      {
+        "topic": "math-plane",
+        "width": 390,
+        "ok": true
+      },
+      {
+        "topic": "math-probability",
+        "width": 390,
+        "ok": true
+      },
+      {
+        "topic": "math-progressions",
+        "width": 390,
+        "ok": true
+      },
+      {
+        "topic": "math-quadratic",
+        "width": 390,
+        "ok": true
+      },
+      {
+        "topic": "math-solid",
+        "width": 390,
+        "ok": true
+      },
+      {
+        "topic": "math-trig",
+        "width": 390,
+        "ok": true
+      },
+      {
+        "topic": "cm-biology-mendel",
+        "width": 768,
+        "ok": true
+      },
+      {
+        "topic": "cm-history-sources",
+        "width": 768,
+        "ok": true
+      },
+      {
+        "topic": "cm-ukrainian-formation",
+        "width": 768,
+        "ok": true
+      },
+      {
+        "topic": "math-derivative",
+        "width": 768,
+        "ok": true
+      },
+      {
+        "topic": "math-expressions",
+        "width": 768,
+        "ok": true
+      },
+      {
+        "topic": "math-functions",
+        "width": 768,
+        "ok": true
+      },
+      {
+        "topic": "math-linear-systems",
+        "width": 768,
+        "ok": true
+      },
+      {
+        "topic": "math-plane",
+        "width": 768,
+        "ok": true
+      },
+      {
+        "topic": "math-probability",
+        "width": 768,
+        "ok": true
+      },
+      {
+        "topic": "math-progressions",
+        "width": 768,
+        "ok": true
+      },
+      {
+        "topic": "math-quadratic",
+        "width": 768,
+        "ok": true
+      },
+      {
+        "topic": "math-solid",
+        "width": 768,
+        "ok": true
+      },
+      {
+        "topic": "math-trig",
+        "width": 768,
+        "ok": true
+      },
+      {
+        "topic": "cm-biology-mendel",
+        "width": 1280,
+        "ok": true
+      },
+      {
+        "topic": "cm-history-sources",
+        "width": 1280,
+        "ok": true
+      },
+      {
+        "topic": "cm-ukrainian-formation",
+        "width": 1280,
+        "ok": true
+      },
+      {
+        "topic": "math-derivative",
+        "width": 1280,
+        "ok": true
+      },
+      {
+        "topic": "math-expressions",
+        "width": 1280,
+        "ok": true
+      },
+      {
+        "topic": "math-functions",
+        "width": 1280,
+        "ok": true
+      },
+      {
+        "topic": "math-linear-systems",
+        "width": 1280,
+        "ok": true
+      },
+      {
+        "topic": "math-plane",
+        "width": 1280,
+        "ok": true
+      },
+      {
+        "topic": "math-probability",
+        "width": 1280,
+        "ok": true
+      },
+      {
+        "topic": "math-progressions",
+        "width": 1280,
+        "ok": true
+      },
+      {
+        "topic": "math-quadratic",
+        "width": 1280,
+        "ok": true
+      },
+      {
+        "topic": "math-solid",
+        "width": 1280,
+        "ok": true
+      },
+      {
+        "topic": "math-trig",
+        "width": 1280,
+        "ok": true
+      }
+    ],
+    "cycles": [
+      {
+        "topic": "math-expressions",
+        "answers": 12,
+        "correct": 11,
+        "wrong": 1,
+        "matching": 1,
+        "sequence": 0,
+        "reloaded": true,
+        "ok": true
+      },
+      {
+        "topic": "cm-ukrainian-formation",
+        "answers": 12,
+        "correct": 11,
+        "wrong": 1,
+        "matching": 1,
+        "sequence": 0,
+        "reloaded": true,
+        "ok": true
+      },
+      {
+        "topic": "cm-history-sources",
+        "answers": 12,
+        "correct": 11,
+        "wrong": 1,
+        "matching": 0,
+        "sequence": 1,
+        "reloaded": true,
+        "ok": true
+      },
+      {
+        "topic": "cm-biology-mendel",
+        "answers": 12,
+        "correct": 11,
+        "wrong": 1,
+        "matching": 1,
+        "sequence": 0,
+        "reloaded": true,
+        "ok": true
+      }
+    ],
+    "retry": true,
+    "errors": [],
+    "ok": true,
+    "interactive": {
+      "examples": 19,
+      "matchingWidths": [
+        {
+          "width": 320,
+          "ok": true
+        },
+        {
+          "width": 360,
+          "ok": true
+        },
+        {
+          "width": 390,
+          "ok": true
+        },
+        {
+          "width": 768,
+          "ok": true
+        },
+        {
+          "width": 1280,
+          "ok": true
+        }
+      ],
+      "ok": true
+    },
+    "serverStopped": true,
+    "executedAt": "2026-10-29"
+  },
+  "productionBuild": {
+    "newBuildRun": false,
+    "reason": "No application source or dependency changes; existing production build source hashes match main src, excluding test files.",
+    "buildId": "XJpob7NDyh-tLWzPQqcYO"
+  },
+  "working": {
+    "path": "prisma/dev.db",
+    "all31TablesUnchanged": true,
+    "changedTables": [],
+    "integrity": "ok",
+    "foreignKeyViolations": 0,
+    "StudyTask": 112,
+    "Topic": 101,
+    "Question": 538,
+    "QuestionOption": 1617
+  },
+  "backup": {
+    "backup": "<LOCAL_BACKUPS>/stage8-readonly-IoZG8c\\before-working-update.db",
+    "sha256": "03e87f410eb5161d92e53f3f5578448b02c1bb92b321a52214a3967d91fd9c23",
+    "integrity": "ok",
+    "foreignKeyViolations": 0,
+    "tableCount": 31,
+    "allWorkingTablesUnchanged": true,
+    "StudyTask": 112
+  },
+  "rewriteCandidates": {
+    "validated": 5,
+    "status": "PASS_STRUCTURE_AND_GRADING_ONLY"
+  },
+  "limitations": [
+    "No production import, update, publication, question verification, role change or learner activity performed.",
+    "No new video viewing confirmation.",
+    "All 514 selected questions have a first substantive pass; 394 previously VERIFIED questions are not independently approved. 24 blockers and additional flags remain.",
+    "Official program fine-grained page mapping still needs independent review."
+  ],
+  "finalReadOnlyCheckedAt": "2026-10-30"
+}

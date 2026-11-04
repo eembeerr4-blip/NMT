@@ -1,7 +1,7 @@
 import {beforeEach,expect,it,vi} from "vitest";
 import {isValidElement,type ReactNode} from "react";
-const calls=vi.hoisted(()=>({setTaskStatus:vi.fn(),moveTask:vi.fn(),recalculateFuturePlan:vi.fn(),push:vi.fn(),refresh:vi.fn(),notify:vi.fn()}));
-vi.mock("@/server/actions",()=>({setTaskStatus:calls.setTaskStatus,moveTask:calls.moveTask,recalculateFuturePlan:calls.recalculateFuturePlan}));
+const calls=vi.hoisted(()=>({setTaskStatus:vi.fn(),moveTask:vi.fn(),push:vi.fn(),refresh:vi.fn(),notify:vi.fn()}));
+vi.mock("@/server/actions",()=>({setTaskStatus:calls.setTaskStatus,moveTask:calls.moveTask}));
 vi.mock("next/navigation",()=>({useRouter:()=>({push:calls.push,refresh:calls.refresh})}));
 vi.mock("react",async()=>({...await vi.importActual<typeof import("react")>("react"),useState:(value:unknown)=>[value,calls.notify],useRef:(value:unknown)=>({current:value}),useCallback:(value:unknown)=>value}));
 import {TaskControls} from "./task-controls";

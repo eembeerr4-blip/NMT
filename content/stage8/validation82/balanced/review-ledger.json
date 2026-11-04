@@ -1,0 +1,309 @@
+{
+  "status": "SUBJECT_REVIEW_PASS_NOT_TEACHER_APPROVAL",
+  "distribution": {
+    "EASY": 4,
+    "MEDIUM": 5,
+    "HARD": 3
+  },
+  "baseline": "https://testportal.gov.ua/matematyka-2026/",
+  "confirmed2027": false,
+  "questions": [
+    {
+      "code": "math-draft-v1-math-expressions-01",
+      "prompt": "Обчисліть $3x-2x+5$ при $x=4$.",
+      "options": [
+        {
+          "label": "А",
+          "text": "4"
+        },
+        {
+          "label": "Б",
+          "text": "5"
+        },
+        {
+          "label": "В",
+          "text": "9"
+        },
+        {
+          "label": "Г",
+          "text": "20"
+        },
+        {
+          "label": "Д",
+          "text": "-3"
+        }
+      ],
+      "independentSolution": "3x-2x+5=x+5=9.",
+      "correctAnswer": "В",
+      "explanation": "Зводимо подібні доданки: 3x−2x+5=x+5. При x=4 отримуємо 9. А: пропущено сталий доданок5; Б: пропущено змінний доданокx; Г: додавання у4+5 помилково замінено множенням4·5; Д: пропущено перший доданок3x і обчислено−2·4+5=−3. В — єдина правильна відповідь.",
+      "difficulty": "EASY",
+      "difficultyReason": "Одне базове зведення подібних доданків із прямою підстановкою.",
+      "topicFit": "Алгебраїчні вирази, числові значення та/або ОДЗ.",
+      "secondBlindReview": "final-independent-blind-review.json"
+    },
+    {
+      "code": "math-draft-v1-math-expressions-02",
+      "prompt": "Обчисліть $(-2a)^3$ при $a=2$.",
+      "options": [
+        {
+          "label": "А",
+          "text": "-8"
+        },
+        {
+          "label": "Б",
+          "text": "-12"
+        },
+        {
+          "label": "В",
+          "text": "-16"
+        },
+        {
+          "label": "Г",
+          "text": "64"
+        },
+        {
+          "label": "Д",
+          "text": "-64"
+        }
+      ],
+      "independentSolution": "(-4)^3=-64",
+      "correctAnswer": "Д",
+      "explanation": "При a=2 маємо (−2a)³=(−4)³=−64. Непарний степінь від’ємного числа від’ємний. А: втрачено множник2 передa, обчислено(−a)³=−8; Б: піднесення до степеня замінено множенням(−4)·3=−12; В: показник застосовано лише доa: −2a³=−16; Г: втрачено знак мінус при непарному степені. Д — правильна відповідь.",
+      "difficulty": "EASY",
+      "difficultyReason": "Пряме обчислення непарного степеня від’ємного числа.",
+      "topicFit": "Алгебраїчні вирази, числові значення та/або ОДЗ.",
+      "secondBlindReview": "final-independent-blind-review.json"
+    },
+    {
+      "code": "math-draft-v1-math-expressions-03",
+      "prompt": "Обчисліть $\\sqrt{(x-2)^2}+\\log_2 8$ при $x=-1$.",
+      "options": [
+        {
+          "label": "А",
+          "text": "0"
+        },
+        {
+          "label": "Б",
+          "text": "6"
+        },
+        {
+          "label": "В",
+          "text": "7"
+        },
+        {
+          "label": "Г",
+          "text": "11"
+        },
+        {
+          "label": "Д",
+          "text": "12"
+        }
+      ],
+      "independentSolution": "sqrt((-1-2)^2)=|-3|=3; log2(8)=3; sum6.",
+      "correctAnswer": "Б",
+      "explanation": "Після підстановки x=−1: sqrt((−1−2)²)=sqrt9=3, а log₂8=3. Сума6. А: помилкове sqrt(u²)=u дає−3+3=0; В: логарифм замінено діленням8:2 і отримано3+4=7; Г: знак логарифма проігноровано й залишено аргумент8, тому3+8=11; Д: квадрат9 залишено без добування кореня, потім додано3. Б — правильна відповідь.",
+      "difficulty": "MEDIUM",
+      "difficultyReason": "Поєднання підстановки, арифметичного кореня від квадрата і логарифма.",
+      "topicFit": "Алгебраїчні вирази, числові значення та/або ОДЗ.",
+      "secondBlindReview": "final-independent-blind-review.json"
+    },
+    {
+      "code": "math-draft-v1-math-expressions-04",
+      "prompt": "Обчисліть $\\log_3 27$.",
+      "options": [
+        {
+          "label": "А",
+          "text": "$\\frac13$"
+        },
+        {
+          "label": "Б",
+          "text": "3"
+        },
+        {
+          "label": "В",
+          "text": "9"
+        },
+        {
+          "label": "Г",
+          "text": "24"
+        },
+        {
+          "label": "Д",
+          "text": "81"
+        }
+      ],
+      "independentSolution": "3^3=27.",
+      "correctAnswer": "Б",
+      "explanation": "Логарифм log₃27 — показникt, для якого3ᵗ=27. Отже t=3. А: основу й аргумент переставлено місцями, log₂₇3=1/3; В: логарифм замінено часткою27:3=9; Г: різницею27−3=24; Д: добутком3·27=81. Б — правильна відповідь.",
+      "difficulty": "EASY",
+      "difficultyReason": "Безпосереднє застосування означення логарифма.",
+      "topicFit": "Алгебраїчні вирази, числові значення та/або ОДЗ.",
+      "secondBlindReview": "final-independent-blind-review.json"
+    },
+    {
+      "code": "math-draft-v1-math-expressions-05",
+      "prompt": "Обчисліть $\\left(\\frac{x^2-9}{x-3}-\\frac{x^2-4}{x-2}\\right)x$ при $x=-2$. У відповіді запишіть лише число.",
+      "options": [],
+      "independentSolution": "Original x!=3,2. Fractions reduce to x+3 and x+2; their difference1, times x gives x=-2.",
+      "correctAnswer": "-2",
+      "explanation": "ОДЗ: x≠3 і x≠2. За цих обмежень (x²−9)/(x−3)=x+3, (x²−4)/(x−2)=x+2. Різниця дорівнює1, тому весь вираз дорівнюєx. При x=−2 отримуємо−2. Перевірка підстановкою: ((4−9)/(−5)−(4−4)/(−4))·(−2)=(1−0)·(−2)=−2. Виключені значення не повертаються після скорочення.",
+      "difficulty": "MEDIUM",
+      "difficultyReason": "Два скорочення дробів, збереження ОДЗ, різниця й підстановка; можливе коротше пряме обчислення.",
+      "topicFit": "Алгебраїчні вирази, числові значення та/або ОДЗ.",
+      "secondBlindReview": "final-independent-blind-review.json"
+    },
+    {
+      "code": "math-draft-v1-math-expressions-06",
+      "prompt": "Обчисліть $\\sqrt{(-5)^2}$. У відповіді запишіть лише число.",
+      "options": [],
+      "independentSolution": "sqrt25=5",
+      "correctAnswer": "5",
+      "explanation": "Арифметичний квадратний корінь невід’ємний: sqrt((−5)²)=|−5|=5. Значення−5 не є арифметичним коренем числа25.",
+      "difficulty": "EASY",
+      "difficultyReason": "Одна базова тотожність арифметичного кореня від квадрата.",
+      "topicFit": "Алгебраїчні вирази, числові значення та/або ОДЗ.",
+      "secondBlindReview": "final-independent-blind-review.json"
+    },
+    {
+      "code": "math-draft-v1-math-expressions-07",
+      "prompt": "Знайдіть суму всіх цілих значень x, за яких вираз $\\left(\\frac{\\sqrt{(x+4)^2}}{x+4}-\\frac{\\sqrt{(x-3)^2}}{x-3}\\right)\\frac{x^2+x-12}{x^2-x-6}$ визначений і додатний. У відповіді запишіть лише число.",
+      "options": [],
+      "independentSolution": "Domain x!=-4,-2,3. Root ratios are signs. Their difference is 2 on (-4,3), 0 outside. Rational factor simplifies to (x+4)/(x+2) preserving exclusions. Positive only on (-2,3); integers -1,0,1,2 sum2.",
+      "correctAnswer": "2",
+      "explanation": "ОДЗ початкового виразу: x≠−4, x≠3 та x≠−2. Корені від квадратів є модулями. Різниця |x+4|/(x+4)−|x−3|/(x−3) дорівнює2 на(−4;3) і0 поза цим проміжком. Дріб (x²+x−12)/(x²−x−6)=(x+4)(x−3)/((x−3)(x+2)) скорочується до(x+4)/(x+2), але початкові обмеження залишаються. На(−4;−2) дріб від’ємний, на(−2;3) додатний. Отже весь вираз визначений і додатний лише при−2<x<3. Цілі значення: −1,0,1,2; їх сума2. Зовнішні проміжки не підходять, бо множник із модулями дорівнює0.",
+      "difficulty": "HARD",
+      "difficultyReason": "Модулі та знакові випадки, початкова ОДЗ, розклад многочленів, знак дробу й вибір цілих аргументів.",
+      "topicFit": "Алгебраїчні вирази; міжтематичний міст до знакових нерівностей. Без параметрів або дослідження коренів рівнянь.",
+      "secondBlindReview": "final-independent-blind-review.json"
+    },
+    {
+      "code": "math-draft-v1-math-expressions-08",
+      "prompt": "Знайдіть суму всіх цілих значень x з області допустимих значень виразу $\\log_{x-1}\\left(\\frac{x^2-5x+6}{x^2-4}\\right)+\\sqrt{7-x}$. У відповіді запишіть лише число.",
+      "options": [],
+      "independentSolution": "Base x-1>0 and !=1: x>1,x!=2. Original denominator x!=+-2. Positive argument (x-3)/(x+2)>0 gives x<-2 or x>3. Radicand requires x<=7. Intersection(3,7]; integers4,5,6,7 sum22.",
+      "correctAnswer": "22",
+      "explanation": "Для основи логарифма потрібно x−1>0 і x−1≠1, тобто x>1 та x≠2. Початковий знаменник дає x≠−2,2. Аргумент після розкладання на множники дорівнює(x−3)/(x+2) лише на початковій ОДЗ. Умова його додатності: x<−2 або x>3. Корінь sqrt(7−x) вимагає x≤7. Перетин усіх умов: 3<x≤7. Цілі допустимі значення4,5,6,7 мають суму22. Умова на основу відсікає від’ємну гілку; не можна перевірити тільки аргумент логарифма.",
+      "difficulty": "HARD",
+      "difficultyReason": "Перетин обмежень змінної основи логарифма, аргументу раціонального дробу та арифметичного кореня.",
+      "topicFit": "Алгебраїчні вирази, числові значення та/або ОДЗ.",
+      "secondBlindReview": "final-independent-blind-review.json"
+    },
+    {
+      "code": "math-draft-v1-math-expressions-09",
+      "prompt": "Установіть відповідність між виразом (1–3) та його областю допустимих значень (А–Д). Усі змінні дійсні.",
+      "options": [
+        {
+          "label": "1",
+          "text": "$\\log_2\\left(\\frac{x^2-9}{x^2-x-6}\\right)$",
+          "matchKey": "left"
+        },
+        {
+          "label": "2",
+          "text": "$\\sqrt{\\frac{x^2-9}{x^2-x-6}}$",
+          "matchKey": "left"
+        },
+        {
+          "label": "3",
+          "text": "$\\frac{\\sqrt{x^2-9}}{x-3}$",
+          "matchKey": "left"
+        },
+        {
+          "label": "А",
+          "text": "$(-\\infty;-3)\\cup(-2;3)\\cup(3;+\\infty)$",
+          "matchKey": "right"
+        },
+        {
+          "label": "Б",
+          "text": "$(-\\infty;-3]\\cup(-2;3)\\cup(3;+\\infty)$",
+          "matchKey": "right"
+        },
+        {
+          "label": "В",
+          "text": "$(-\\infty;-3]\\cup(3;+\\infty)$",
+          "matchKey": "right"
+        },
+        {
+          "label": "Г",
+          "text": "$(-\\infty;-3)\\cup(-2;+\\infty)$",
+          "matchKey": "right"
+        },
+        {
+          "label": "Д",
+          "text": "$(-\\infty;-3]\\cup[-2;3)\\cup(3;+\\infty)$",
+          "matchKey": "right"
+        }
+      ],
+      "independentSolution": "For1/2 cancel x-3 preserving x!=-2,3; ratio(x+3)/(x+2), positive on x<-3 or x>-2, nonnegative additionally x=-3. For3 root x²-9>=0 and x!=3 gives x<=-3 or x>3.",
+      "correctAnswer": "{\"1\":\"А\",\"2\":\"Б\",\"3\":\"В\"}",
+      "explanation": "1 і2: початковий знаменник (x−3)(x+2) виключає x=3,−2. Після скорочення залишається(x+3)/(x+2), але точку3 не повертаємо. Для логарифма потрібна строга додатність: x<−3 або x>−2 із виключенням3 — А. Для квадратного кореня потрібна невід’ємність: додатково дозволено x=−3, але−2 і3 лишаються забороненими — Б. Для3: x²−9≥0 дає x≤−3 або x≥3, а знаменник виключає3 — В. Г втрачає початкову заборонену точку3; Д помилково включає полюс−2 у невід’ємну область. Відповідь: 1—А,2—Б,3—В.",
+      "difficulty": "HARD",
+      "difficultyReason": "Три області: строга/нестрога знакова умова, початковий полюс після скорочення та інша позиція радикала.",
+      "topicFit": "Алгебраїчні вирази, числові значення та/або ОДЗ.",
+      "secondBlindReview": "final-independent-blind-review.json"
+    },
+    {
+      "code": "math-draft-v1-math-expressions-10",
+      "prompt": "Обчисліть $\\left(\\frac{a}{a-b}-\\frac{b}{a+b}\\right):\\frac{a^2+b^2}{a^2-b^2}$ при $a=3$, $b=1$. У відповіді запишіть лише число.",
+      "options": [],
+      "independentSolution": "Common denominator a²-b² gives numerator a(a+b)-b(a-b)=a²+b²; divide by identical nonzero fraction gives1. At3,1 all denominators nonzero.",
+      "correctAnswer": "1",
+      "explanation": "При a=3,b=1 усі знаменники ненульові. Зведення до спільного знаменника дає a/(a−b)−b/(a+b)=[a(a+b)−b(a−b)]/(a²−b²)=(a²+b²)/(a²−b²). Ділення цього ненульового дробу на самого себе дає1. Перевірка: (3/2−1/4):(10/8)=(5/4):(5/4)=1. Скорочувати окремі доданки до зведення не можна.",
+      "difficulty": "MEDIUM",
+      "difficultyReason": "Спільний знаменник, різниця дробів, ділення на раціональний вираз; допустима пряма перевірка.",
+      "topicFit": "Алгебраїчні вирази, числові значення та/або ОДЗ.",
+      "secondBlindReview": "final-independent-blind-review.json"
+    },
+    {
+      "code": "math-draft-v1-math-expressions-11",
+      "prompt": "Обчисліть $\\frac{3^5\\cdot9^{-1}}{\\sqrt{81}}+\\log_4\\frac1{16}$. У відповіді запишіть лише число.",
+      "options": [],
+      "independentSolution": "3^5/9/sqrt81=243/9/9=3; log4(1/16)=-2; sum1.",
+      "correctAnswer": "1",
+      "explanation": "9⁻¹=1/9, sqrt81=9. Тому перший доданок дорівнює3⁵/(9·9)=243/81=3. Оскільки4⁻²=1/16, другий доданок дорівнює−2. Сума3−2=1. Від’ємний показник не означає від’ємного значення степеня з додатною основою.",
+      "difficulty": "MEDIUM",
+      "difficultyReason": "Від’ємний степінь, корінь, логарифм дробового аргументу і послідовність дій.",
+      "topicFit": "Алгебраїчні вирази, числові значення та/або ОДЗ.",
+      "secondBlindReview": "final-independent-blind-review.json"
+    },
+    {
+      "code": "math-draft-v1-math-expressions-12",
+      "prompt": "Обчисліть $\\frac{2^{-2}+2^{-3}}{2^{-1}-2^{-2}}$. У відповіді запишіть десяткове число.",
+      "options": [],
+      "independentSolution": "Numerator1/4+1/8=3/8; denominator1/2-1/4=1/4; quotient3/2=1.5.",
+      "correctAnswer": "1.5",
+      "explanation": "Чисельник: 2⁻²+2⁻³=1/4+1/8=3/8. Знаменник: 2⁻¹−2⁻²=1/2−1/4=1/4≠0. Ділення дає(3/8):(1/4)=3/2=1,5. У полі можна ввести1,5 або1.5. Додавання степенів не дозволяє складати показники.",
+      "difficulty": "MEDIUM",
+      "difficultyReason": "Від’ємні степені, додавання/віднімання дробів і ділення на дріб.",
+      "topicFit": "Алгебраїчні вирази, числові значення та/або ОДЗ.",
+      "secondBlindReview": "final-independent-blind-review.json"
+    }
+  ],
+  "changes": {
+    "easyToMedium": [
+      "03",
+      "05"
+    ],
+    "easyToHard": [
+      "07",
+      "08",
+      "09"
+    ],
+    "otherRewrites": [
+      "02: odd-negative power and diagnostic options",
+      "06: genuinely one-skill EASY",
+      "10-12: replace cross-topic parameter/equation problems with expressions"
+    ],
+    "distractorRepairs": [
+      "01:24→-3 first-term omission",
+      "02: negative-power sign alternatives",
+      "03: linked root/logarithm mistakes",
+      "04:2→1/3 reversed logarithm",
+      "09: canceled-hole and denominator-endpoint errors"
+    ]
+  },
+  "limitations": [
+    "Qualitative difficulty, not empirical calibration",
+    "Two AI reviewers, no teacher approval",
+    "2026 content baseline only; no NMT2027 confirmation"
+  ]
+}

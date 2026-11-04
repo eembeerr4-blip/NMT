@@ -1,2 +1,0 @@
-import {Search} from "lucide-react";
-export function HeaderSearch(){return <form action="/search" method="get" role="search" className="hidden min-w-0 flex-1 sm:block sm:max-w-md"><label className="relative block"><span className="sr-only">Пошук тем і предметів</span><Search className="pointer-events-none absolute left-3 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-muted-foreground"/><input name="q" maxLength={120} placeholder="Пошук тем і предметів…" className="h-10 w-full border-border bg-card pl-10 pr-3 text-sm"/></label></form>;}

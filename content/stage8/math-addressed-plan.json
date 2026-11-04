@@ -1,0 +1,177 @@
+{
+  "status": "PREPARED_QA_ONLY_NO_WORKING_APPLY",
+  "checkedAt": "2026-10-30",
+  "reviewedQuestionCount": 120,
+  "topics": [
+    {
+      "id": "math-expressions",
+      "sha256": "b04f65ad15a2e04c8f309833084478ac70df27614469ea07a0d88b6b0da6edb5",
+      "lessonJsonSha256": "8fcf3c273b245da40fabd48f0105780e9b86d31450f48a57b56b279a525203e4",
+      "answerChecks": 1,
+      "lessonUpdateRequired": false
+    },
+    {
+      "id": "math-linear-systems",
+      "sha256": "fd54ef1b9288ed2ae3b446db5cb968a7b3cd70f5c9d071b79d19ca0ce31b993b",
+      "lessonJsonSha256": "211ee6fec74bd85a05d5a6d3ef2852d464ceac9817a9f8658a5c67a961f47f76",
+      "answerChecks": 2,
+      "lessonUpdateRequired": false
+    },
+    {
+      "id": "math-quadratic",
+      "sha256": "b6efb27e439cb53b10ea0896bc03345f7b01583feaf5cc6cc7c74a916af6781e",
+      "lessonJsonSha256": "3519facf2889c8412cc643d747d9f8e370f028cf4fdd2d310afe03031e7da314",
+      "answerChecks": 2,
+      "lessonUpdateRequired": false
+    },
+    {
+      "id": "math-functions",
+      "sha256": "446067f72ec6982e966a4bf0db3ebe63455a30a1be75f9db08774e9a1a6e6fc9",
+      "lessonJsonSha256": "9125b84c1fa992e66381a84ce6439c5c7695af8fa3e84edc993994b093a426dd",
+      "answerChecks": 2,
+      "lessonUpdateRequired": false
+    },
+    {
+      "id": "math-progressions",
+      "sha256": "ed6c0042063517e0f5685ac25e1a3344a7ca317e4a9e98e2f7e3c0775ffd248e",
+      "lessonJsonSha256": "10c956493c7930648896dc48d21d0358ec77882dd4e19aba79f722afdc097cb5",
+      "answerChecks": 2,
+      "lessonUpdateRequired": false
+    },
+    {
+      "id": "math-trig",
+      "sha256": "42d44c4f657800bd07fb5cccbc4e8ae661f140d336e747fe4cc66169b54fbae3",
+      "lessonJsonSha256": "7ee617ca9b22811ad8e8b2a44cc12064231bff84c9f915fa42defd553241f55c",
+      "answerChecks": 2,
+      "lessonUpdateRequired": false
+    },
+    {
+      "id": "math-derivative",
+      "sha256": "ed605bfc1b8c0536a624ad0dde0a80ab477708f8be222eac724d2909d10ec5db",
+      "lessonJsonSha256": "8fb494e1fb3b9a0463ddcaf38685bdd3f05fb55e3f981912eb007f44292ee72e",
+      "answerChecks": 2,
+      "lessonUpdateRequired": false
+    },
+    {
+      "id": "math-plane",
+      "sha256": "a130bda194016a1842ad2eed01666ee57c55f9fa11d69e26ad50964833e54049",
+      "lessonJsonSha256": "23a2e082df3a338b0f2e22337e6ccafa07017c2045f78dc4ef7485fa6a8d63b5",
+      "answerChecks": 2,
+      "lessonUpdateRequired": false
+    },
+    {
+      "id": "math-solid",
+      "sha256": "a563567389d38e428d518a89c090b231574fc00fa864d6f490dc9ccacbbeb80f",
+      "lessonJsonSha256": "33434bf66f3250e9f8fe1affc08f407295d692b46edae606fdc5861a38088a3b",
+      "answerChecks": 2,
+      "lessonUpdateRequired": false
+    },
+    {
+      "id": "math-probability",
+      "sha256": "a1beedede2a743e5407fad2477cbb07c7d609dc796194edc61bd4cb64924ae20",
+      "lessonJsonSha256": "a09d5a406292c5689f1e3713a5fd099790a7d6f9d94ee313b9ba31c6f9139251",
+      "answerChecks": 2,
+      "lessonUpdateRequired": false
+    }
+  ],
+  "changes": [
+    {
+      "id": "math-draft-v1-math-solid-05",
+      "topicId": "math-solid",
+      "before": {
+        "id": "math-draft-v1-math-solid-05",
+        "subjectId": "math",
+        "topicId": "math-solid",
+        "subtopic": "",
+        "type": "NUMERIC",
+        "difficulty": "MEDIUM",
+        "prompt": "Знайдіть просторову діагональ паралелепіпеда з ребрами 3, 4, 12. У відповіді запишіть лише число.",
+        "explanation": "d=√(9+16+144)=13.\n\nТипова помилка: Діагональ основи 5 — лише проміжний результат.",
+        "correctAnswer": "13",
+        "source": "Авторська AI-чернетка NMT Academy, 18.10.2026. Обчислення перевірено кодом; потрібна перевірка викладача. Не офіційне завдання НМТ.",
+        "verificationStatus": "DRAFT",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1792319758104,
+        "updatedAt": 1792319758104
+      },
+      "expectedRowSha256": "2391bfb35f60adacc3be3d27699434b6ddec0ded966077598c30f15685721b96",
+      "fields": {
+        "prompt": "Знайдіть просторову діагональ прямокутного паралелепіпеда з ребрами 3, 4, 12. У відповіді запишіть лише число."
+      },
+      "dependencies": {
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      }
+    },
+    {
+      "id": "math-draft-v1-math-solid-08",
+      "topicId": "math-solid",
+      "before": {
+        "id": "math-draft-v1-math-solid-08",
+        "subjectId": "math",
+        "topicId": "math-solid",
+        "subtopic": "",
+        "type": "NUMERIC",
+        "difficulty": "MEDIUM",
+        "prompt": "Знайдіть площу повної поверхні паралелепіпеда з ребрами 2, 3, 4. У відповіді запишіть лише число.",
+        "explanation": "Три площі різних граней 6, 8, 12; кожна трапляється двічі. Разом 52.\n\nТипова помилка: Добуток 24 — об’єм, а не площа поверхні.",
+        "correctAnswer": "52",
+        "source": "Авторська AI-чернетка NMT Academy, 18.10.2026. Обчислення перевірено кодом; потрібна перевірка викладача. Не офіційне завдання НМТ.",
+        "verificationStatus": "DRAFT",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1792319758106,
+        "updatedAt": 1792319758106
+      },
+      "expectedRowSha256": "62476c5d301f412969ab8f0e259aaf18bb955893e7144955763326e472914b3d",
+      "fields": {
+        "prompt": "Знайдіть площу повної поверхні прямокутного паралелепіпеда з ребрами 2, 3, 4. У відповіді запишіть лише число."
+      },
+      "dependencies": {
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      }
+    },
+    {
+      "id": "math-draft-v1-math-probability-09",
+      "topicId": "math-probability",
+      "before": {
+        "id": "math-draft-v1-math-probability-09",
+        "subjectId": "math",
+        "topicId": "math-probability",
+        "subtopic": "",
+        "type": "MATCHING",
+        "difficulty": "MEDIUM",
+        "prompt": "Установіть відповідність між кожним виразом або умовою (1–3) та числовим результатом (А–Д).",
+        "explanation": "Результати 6, 24, 5. Варіант 3 — кількість виборів за іншою умовою, 8 — сума замість середнього для іншого набору.",
+        "correctAnswer": "{\"167474d1-c230-48e2-ac47-0fd9e7878697\":\"888619f2-6ac6-4ab5-84a7-1a773e47c181\",\"df6be110-0dcc-4b93-9cde-78d1b7275c85\":\"b00c237e-2b6c-4891-b1b4-f87b3de7a35b\",\"13662f0f-2af2-47eb-8c91-82467c4a2066\":\"f71a781d-5765-45ad-9a9b-7b3bd58b5c50\"}",
+        "source": "Авторська AI-чернетка NMT Academy, 18.10.2026. Обчислення перевірено кодом; потрібна перевірка викладача. Не офіційне завдання НМТ.",
+        "verificationStatus": "DRAFT",
+        "generatedByAi": 1,
+        "issueReport": "",
+        "createdAt": 1792319758120,
+        "updatedAt": 1792319758120
+      },
+      "expectedRowSha256": "e898234f3d53f36492414276b87b514a2e9e17757fe457ff83c804c7a0b147a4",
+      "fields": {
+        "explanation": "Кількість неупорядкованих пар із чотирьох: 4·3/2=6. Кількість перестановок чотирьох різних предметів: 4!=24. Середнє чисел 2 і 8: (2+8)/2=5. Дистрактор 3 може виникнути при помилковому підрахунку пар лише з одним зафіксованим учасником; 8 — при виборі більшого числа замість середнього. Сума чисел 2 і 8 дорівнює 10, а не 8."
+      },
+      "dependencies": {
+        "TestQuestion": 0,
+        "Answer": 0,
+        "Mistake": 0
+      }
+    }
+  ],
+  "topicUpdates": 0,
+  "reason": "All ten existing lesson contents already match the reviewed candidate, including 19 answerCheck. The importer-only default notes field is empty and does not justify rewriting lessons. Only three substantiated question fields differ.",
+  "allowedQuestionFields": [
+    "prompt",
+    "explanation",
+    "updatedAt"
+  ],
+  "workingApplyAuthorized": false
+}

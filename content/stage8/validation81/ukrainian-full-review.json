@@ -1,0 +1,743 @@
+{
+  "subjectId": "ukrainian",
+  "phase": "2_FULL_PACKET_COMPARISON",
+  "reviewKind": "independent_model_review_not_human_approval",
+  "phase1": {
+    "path": "content/stage8/validation81/ukrainian-blind-review.json",
+    "sha256": "F22872907960879FD256736F2B6DD19FB837FED47B7FABB4E69068C2A55C65F3",
+    "unchanged": true
+  },
+  "fullInput": "PRIVATE_BLIND_PACKET/ukrainian-full.json",
+  "scope": "Read-only educational comparison from authorized full packet and exact proposed changes. No original source package files, application code, git or database accessed/modified.",
+  "summary": {
+    "questionsCompared": 36,
+    "uniqueKeysMatched": 34,
+    "blockedKeys": 2,
+    "additionalExplanationReferenceErrors": 1,
+    "currentEducationalDecision": "REVISE_BEFORE_ACCEPTANCE",
+    "conditionalDecision": "After required derivation and explanation-reference corrections, suitable as foundational practice; not a calibrated NMT assessment bank.",
+    "humanApproval": false
+  },
+  "phase1Corrections": [
+    {
+      "id": "s8b2-1-11",
+      "retract": "The phase1 note claiming that -ям does not match читанням was my error.",
+      "correctFinding": "Читанням is written with ending -ям. Distractor А is false because endings do not make every word a particle, not because -ям is misspelled. Do not change this ending.",
+      "phase1Preserved": true
+    }
+  ],
+  "questionComparisons": [
+    {
+      "id": "s8-ukrainian-foundation-01",
+      "blindDerivedAnswer": "А",
+      "providedAnswer": "А",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "EASY",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8-ukrainian-foundation-02",
+      "blindDerivedAnswer": "Г",
+      "providedAnswer": "Г",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "EASY",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8-ukrainian-foundation-03",
+      "blindDerivedAnswer": "В",
+      "providedAnswer": "В",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "EASY",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8-ukrainian-foundation-04",
+      "blindDerivedAnswer": "Б",
+      "providedAnswer": "Б",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "EASY",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8-ukrainian-foundation-05",
+      "blindDerivedAnswer": "А",
+      "providedAnswer": "А",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "MEDIUM",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8-ukrainian-foundation-06",
+      "blindDerivedAnswer": "Г",
+      "providedAnswer": "Г",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "MEDIUM",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8-ukrainian-foundation-07",
+      "blindDerivedAnswer": "В",
+      "providedAnswer": "В",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "MEDIUM",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8-ukrainian-foundation-08",
+      "blindDerivedAnswer": "Б",
+      "providedAnswer": "Б",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "MEDIUM",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8-ukrainian-foundation-09",
+      "blindDerivedAnswer": {
+        "1": "А",
+        "2": "Б",
+        "3": "NO_UNAMBIGUOUS_VALID_PAIR",
+        "4": "Г"
+      },
+      "providedAnswer": {
+        "1": "А",
+        "2": "Б",
+        "3": "В",
+        "4": "Г"
+      },
+      "keyComparison": "NOT_ACCEPTABLE_AS_UNIQUE_KEY",
+      "explanationStatus": "REVISE_CONTENT",
+      "issues": [
+        "Provided answer/explanation asserts the derivation disputed independently in phase1."
+      ],
+      "providedDifficulty": "MEDIUM",
+      "suggestedDifficulty": "MEDIUM"
+    },
+    {
+      "id": "s8-ukrainian-foundation-10",
+      "blindDerivedAnswer": "Г",
+      "providedAnswer": "Г",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "HARD",
+      "suggestedDifficulty": "MEDIUM"
+    },
+    {
+      "id": "s8-ukrainian-foundation-11",
+      "blindDerivedAnswer": "NO_VALID_UNAMBIGUOUS_OPTION",
+      "providedAnswer": "В",
+      "keyComparison": "NOT_ACCEPTABLE_AS_UNIQUE_KEY",
+      "explanationStatus": "REVISE_CONTENT",
+      "issues": [
+        "Provided answer/explanation asserts the derivation disputed independently in phase1."
+      ],
+      "providedDifficulty": "HARD",
+      "suggestedDifficulty": "MEDIUM"
+    },
+    {
+      "id": "s8-ukrainian-foundation-12",
+      "blindDerivedAnswer": "Б",
+      "providedAnswer": "Б",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "HARD",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-1-01",
+      "blindDerivedAnswer": "А",
+      "providedAnswer": "А",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "EASY",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-1-02",
+      "blindDerivedAnswer": "Г",
+      "providedAnswer": "Г",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "EASY",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-1-03",
+      "blindDerivedAnswer": "В",
+      "providedAnswer": "В",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "EASY",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-1-04",
+      "blindDerivedAnswer": "Б",
+      "providedAnswer": "Б",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "EASY",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-1-05",
+      "blindDerivedAnswer": "А",
+      "providedAnswer": "А",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "MEDIUM",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-1-06",
+      "blindDerivedAnswer": "Г",
+      "providedAnswer": "Г",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "MEDIUM",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-1-07",
+      "blindDerivedAnswer": "В",
+      "providedAnswer": "В",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "MEDIUM",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-1-08",
+      "blindDerivedAnswer": "Б",
+      "providedAnswer": "Б",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "MEDIUM",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-1-09",
+      "blindDerivedAnswer": {
+        "1": "А",
+        "2": "Б",
+        "3": "В",
+        "4": "Г"
+      },
+      "providedAnswer": {
+        "1": "А",
+        "2": "Б",
+        "3": "В",
+        "4": "Г"
+      },
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "MEDIUM",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-1-10",
+      "blindDerivedAnswer": "Г",
+      "providedAnswer": "Г",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "HARD",
+      "suggestedDifficulty": "MEDIUM"
+    },
+    {
+      "id": "s8b2-1-11",
+      "blindDerivedAnswer": "В",
+      "providedAnswer": "В",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "HARD",
+      "suggestedDifficulty": "MEDIUM"
+    },
+    {
+      "id": "s8b2-1-12",
+      "blindDerivedAnswer": "Б",
+      "providedAnswer": "Б",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "HARD",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-2-01",
+      "blindDerivedAnswer": "Г",
+      "providedAnswer": "Г",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "EASY",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-2-02",
+      "blindDerivedAnswer": "В",
+      "providedAnswer": "В",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "EASY",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-2-03",
+      "blindDerivedAnswer": "Б",
+      "providedAnswer": "Б",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "EASY",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-2-04",
+      "blindDerivedAnswer": "А",
+      "providedAnswer": "А",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "EASY",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-2-05",
+      "blindDerivedAnswer": "Г",
+      "providedAnswer": "Г",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "MEDIUM",
+      "suggestedDifficulty": "MEDIUM"
+    },
+    {
+      "id": "s8b2-2-06",
+      "blindDerivedAnswer": "В",
+      "providedAnswer": "В",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "MEDIUM",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-2-07",
+      "blindDerivedAnswer": "Б",
+      "providedAnswer": "Б",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "MEDIUM",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-2-08",
+      "blindDerivedAnswer": "А",
+      "providedAnswer": "А",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "MEDIUM",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-2-09",
+      "blindDerivedAnswer": {
+        "1": "А",
+        "2": "Б",
+        "3": "В",
+        "4": "Г"
+      },
+      "providedAnswer": {
+        "1": "А",
+        "2": "Б",
+        "3": "В",
+        "4": "Г"
+      },
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "MEDIUM",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-2-10",
+      "blindDerivedAnswer": "В",
+      "providedAnswer": "В",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "HARD",
+      "suggestedDifficulty": "MEDIUM"
+    },
+    {
+      "id": "s8b2-2-11",
+      "blindDerivedAnswer": "Б",
+      "providedAnswer": "Б",
+      "keyComparison": "MATCH",
+      "explanationStatus": "REVISE_REFERENCE",
+      "issues": [
+        "Explanation refers to first example, but answer Б is the second option."
+      ],
+      "providedDifficulty": "HARD",
+      "suggestedDifficulty": "EASY"
+    },
+    {
+      "id": "s8b2-2-12",
+      "blindDerivedAnswer": "А",
+      "providedAnswer": "А",
+      "keyComparison": "MATCH",
+      "explanationStatus": "CORRECT",
+      "issues": [],
+      "providedDifficulty": "HARD",
+      "suggestedDifficulty": "EASY"
+    }
+  ],
+  "lessonReviews": [
+    {
+      "topicId": "cm-ukrainian-formation",
+      "status": "REVISE",
+      "theory": "Definitions, forms versus lexemes, zero endings, and warning to use immediate derivational base are sound for a basic lesson. The simultaneity assertion for хмара→безхмарний directly contradicts that warning; theory and summary must be corrected.",
+      "rules": "Three rules consistent with the immediate-base approach; preserve.",
+      "examples": [
+        {
+          "index": 0,
+          "status": "CORRECT",
+          "note": "School forms give -ою and школ-."
+        },
+        {
+          "index": 1,
+          "status": "CORRECT",
+          "note": "Пере- derivation demonstrated correctly."
+        },
+        {
+          "index": 2,
+          "status": "CORRECT",
+          "note": "Form лісу versus derived лісник distinguished."
+        }
+      ],
+      "summary": "REVISE chain; exact replacement supplied.",
+      "objectivesAndBoundaries": "Appropriate foundational scope; deferring compounding, zero derivation and conversion is explicitly declared. Do not present this as complete word formation coverage.",
+      "sources": "Current official program source establishes syllabus alignment, not the disputed lexical derivation. Add exact textbook section."
+    },
+    {
+      "topicId": "ukr-morph-sub-01",
+      "status": "CORRECT_FOR_FOUNDATION",
+      "theory": "Context, semantic and grammatical criteria, six independent parts, three service classes and separate interjection category are appropriate. Noun action reading, adverb modifying adjective, and тепло contextual distinction correct.",
+      "rules": "Correct.",
+      "examples": [
+        {
+          "index": 0,
+          "status": "CORRECT",
+          "note": "All five words categorized correctly."
+        },
+        {
+          "index": 1,
+          "status": "CORRECT",
+          "note": "Action noun versus verb differentiated through grammatical behavior."
+        },
+        {
+          "index": 2,
+          "status": "CORRECT",
+          "note": "Тепло has clearly different syntactic roles and inflectional capacity."
+        }
+      ],
+      "summary": "Correct concise account.",
+      "objectivesAndBoundaries": "Introductory scope clearly declared. Actual test mostly recognizes obvious forms and only one contextual homonym pair; transfer to unseen contexts remains untested.",
+      "sources": "Supplied Semenog5 official IMZO PDF accessible and identity confirmed; more precise page/section citation would improve traceability."
+    },
+    {
+      "topicId": "cm-ukrainian-compound-sentence",
+      "status": "CORRECT_WITH_EXPLANATION_REFERENCE_FIX",
+      "theory": "Distinguishes homogeneous predicates from two clauses correctly. Coordination classes and shared adverb/parenthetical comma exceptions are sound, including single conjunction and shared scope qualifications.",
+      "rules": "Correct within explicitly limited basic scope; not exhaustive comma exceptions.",
+      "examples": [
+        {
+          "index": 0,
+          "status": "CORRECT",
+          "note": "One versus two clause bases correctly identified."
+        },
+        {
+          "index": 1,
+          "status": "CORRECT",
+          "note": "Shared scope explicitly stipulated, so omission of comma unambiguous."
+        },
+        {
+          "index": 2,
+          "status": "CORRECT",
+          "note": "Comma after parenthetical remains, clause-separating comma omitted with shared scope."
+        }
+      ],
+      "summary": "Correct for taught scope; omitted broader exceptions deferred, not falsely negated.",
+      "sources": "Provided Glazova9 official IMZO PDF directly read, §12 printed pp.84–85; shared parenthetical confirmed. Official MON orthography corroborates."
+    }
+  ],
+  "exactProposedReplacements": [
+    {
+      "priority": "REQUIRED",
+      "package": "ukrainian-foundation.package.json",
+      "selector": "lesson.theory (morphemic sentence)",
+      "before": "У безхмарний порівняння з хмара допомагає побачити префікс без- і суфікс -н-.",
+      "after": "У слові безхмарний виділяємо префікс без-, корінь -хмар-, суфікс -н- і закінчення -ий.",
+      "reason": "Show existing morphemes without implying an immediate derivation from хмара."
+    },
+    {
+      "priority": "REQUIRED",
+      "package": "ukrainian-foundation.package.json",
+      "selector": "lesson.theory (two sentences beginning У хмара)",
+      "before": "У хмара → безхмарний одночасно додано префікс і суфікс, тому спосіб префіксально-суфіксальний. У навчальному аналізі вікно → підвіконня також одночасно з’являються під- і словотвірний суфікс.",
+      "after": "У ланцюжку хмара → хмарний → безхмарний перший крок суфіксальний: додано -н-, а другий — префіксальний: додано без-. Суфікс -н- уже був у безпосередньо твірному слові хмарний. Приклад префіксально-суфіксального творення: піч → запічок; одночасно додано за- і -ок-.",
+      "reason": "Remove false simultaneity and provide textbook-supported contrasting example.",
+      "sources": [
+        "A6",
+        "S6_DIRECT"
+      ]
+    },
+    {
+      "priority": "REQUIRED",
+      "package": "ukrainian-foundation.package.json",
+      "selector": "lesson.summary",
+      "before": "Корінь перевіряємо спорідненими словами, закінчення — зміною форми. Основа без закінчення. Словотвірний аналіз описує останній крок: ліс → лісник; писати → переписати; хмара → безхмарний. Лісу — форма слова, а не нова лексема.",
+      "after": "Корінь перевіряємо спорідненими словами, закінчення — зміною форми. Словотвірний аналіз описує останній крок: ліс → лісник — суфіксальний; писати → переписати — префіксальний; піч → запічок — префіксально-суфіксальний. У ланцюжку хмара → хмарний → безхмарний останній крок префіксальний. Лісу — форма слова ліс, а не нова лексема.",
+      "reason": "Summary must reinforce immediate base and contrast the methods."
+    },
+    {
+      "priority": "REQUIRED",
+      "package": "ukrainian-foundation.package.json",
+      "selector": "questions[code=s8-ukrainian-foundation-09].options[label=3].text",
+      "before": "хмара → безхмарний",
+      "after": "піч → запічок",
+      "reason": "Independent textbook-supported replacement preserving all four distinct matching classes."
+    },
+    {
+      "priority": "REQUIRED",
+      "package": "ukrainian-foundation.package.json",
+      "selector": "questions[code=s8-ukrainian-foundation-09].explanation",
+      "before": "1–А: додано пере-. 2–Б: додано -ник. 3–В: одночасно без- і -н-. 4–Г: відмінкова форма тієї самої лексеми. Складання двох слів у цих парах немає.",
+      "after": "1–А: додано пере-. 2–Б: додано -ник-. 3–В: піч → запічок — одночасно додано за- і -ок-. 4–Г: відмінкова форма тієї самої лексеми. Складання двох слів у цих парах немає.",
+      "correctAnswerAfter": {
+        "1": "А",
+        "2": "Б",
+        "3": "В",
+        "4": "Г"
+      },
+      "reason": "Key retained only because new independently justified pair fits class В; old pair is not approved.",
+      "sources": [
+        "A6",
+        "S6_DIRECT"
+      ]
+    },
+    {
+      "priority": "REQUIRED",
+      "package": "ukrainian-foundation.package.json",
+      "selector": "questions[code=s8-ukrainian-foundation-11]",
+      "replacementFields": {
+        "prompt": "У ланцюжку хмара → хмарний → безхмарний яким способом утворено останнє слово від безпосередньо твірного?",
+        "options": [
+          {
+            "label": "А",
+            "text": "Суфіксальним"
+          },
+          {
+            "label": "Б",
+            "text": "Префіксально-суфіксальним"
+          },
+          {
+            "label": "В",
+            "text": "Префіксальним"
+          },
+          {
+            "label": "Г",
+            "text": "Складанням основ"
+          }
+        ],
+        "correctAnswer": "В",
+        "explanation": "Безпосередньо твірне слово — хмарний. На останньому кроці додано тільки префікс без-. Суфікс -н- уже був у слові хмарний, тому творення слова безхмарний префіксальне.",
+        "difficulty": "MEDIUM"
+      },
+      "reason": "Tests immediate base with plausible alternatives; retains code/type and independently derives answer.",
+      "sources": [
+        "A6"
+      ]
+    },
+    {
+      "priority": "REQUIRED_EDITORIAL",
+      "package": "ukrainian-grammar.package.json",
+      "topicId": "cm-ukrainian-compound-sentence",
+      "selector": "questions[code=s8b2-2-11].explanation",
+      "before": "У першому прикладі і поєднує однорідні присудки при одному підметі. Інші приклади не містять і, тому не перевіряють саме запропоноване правило.",
+      "after": "У варіанті Б сполучник і поєднує однорідні присудки при одному підметі, тому коми немає. Інші варіанти не містять і, тож не перевіряють запропонованого правила.",
+      "reason": "Correct second-option reference."
+    },
+    {
+      "priority": "OPTIONAL_PRECISION",
+      "package": "ukrainian-foundation.package.json",
+      "selector": "lesson.theory (algorithm clause)",
+      "before": "змініть форму й визначте закінчення",
+      "after": "якщо слово змінюване, змініть його форму й визначте закінчення; якщо незмінюване, поясніть відсутність закінчення",
+      "reason": "Avoid suggesting that какао can be inflected."
+    },
+    {
+      "priority": "OPTIONAL_EDITORIAL",
+      "package": "ukrainian-grammar.package.json",
+      "topicId": "ukr-morph-sub-01",
+      "selector": "questions[code=s8b2-1-11].prompt",
+      "before": "Чому слово «читання» у «Захоплююся читанням» не є дієсловом?",
+      "after": "Чому форма «читанням» у реченні «Захоплююся читанням» не є дієсловом?",
+      "reason": "Name exact inflected form being analyzed; key/explanation remain correct."
+    },
+    {
+      "priority": "OPTIONAL_DISTRACTOR",
+      "package": "ukrainian-foundation.package.json",
+      "selector": "questions[code=s8-ukrainian-foundation-03].options[label=А].text",
+      "before": "-оюю",
+      "after": "-о",
+      "reason": "Replace typographical-looking distractor with plausible last-vowel boundary error."
+    }
+  ],
+  "assessmentQualitySeparateFromCorrectness": {
+    "foundationalPractice": "Usable after factual corrections; beginner remediation and first recognition exercises are plausible purposes.",
+    "realisticNmtAssessment": "Not demonstrated. No evidence of calibration, adequate discrimination or transfer assessment. The existing author label correctly disclaims official exam/score forecast.",
+    "difficulty": {
+      "originalCounts": {
+        "EASY": 12,
+        "MEDIUM": 15,
+        "HARD": 9
+      },
+      "recommendedCounts": {
+        "EASY": 29,
+        "MEDIUM": 7,
+        "HARD": 0
+      },
+      "method": "Expert model judgement of cognitive demand and distractors, not empirical item calibration.",
+      "perQuestion": "See questionComparisons; suggestions concern original questions except new q11 also MEDIUM."
+    },
+    "bankIssues": [
+      "Many distractors are nonsensical or unrelated to the tested grammatical contrast; recognition of the longest sensible sentence can substitute for knowing the rule.",
+      "s8b2-2-11 uniquely contains і in answer Б, enabling choice without punctuation reasoning.",
+      "Grammar matching tasks use 4 left and 4 right answers with no unused alternative.",
+      "Examples and exact sentence frames recur in theory, examples and several questions; memorization can mimic mastery.",
+      "The opening single-choice answers in foundation and morphology repeat А, Г, В, Б twice; positional regularity should not be a learning cue.",
+      "No valid HARD item requires analysis comparable to demanding exam tasks; relabel first, expand bank separately if desired."
+    ],
+    "scopeRecommendation": "Correct factual issues now. Treat difficulty relabeling, new distractors and additional unseen-context items as a separate assessment-bank improvement, not an excuse to broaden this educational fix."
+  },
+  "sourceCatalog": {
+    "A6": {
+      "title": "Авраменко О., Тищенко З. Українська мова, 6 клас (2023), §31–32",
+      "url": "https://lib.imzo.gov.ua/wa-data/public/site/books2/6-kl-23/movna-galuz/ukr-mova/ГРАМОТА_Українська_мова_6_кл_Авраменко_Тищенко_2023.pdf",
+      "access": "Official IMZO PDF discovered by search; repeated direct fetch returned 502. Primary textbook section read via mirror.",
+      "readUrl": "https://uahistory.co/pidruchniki/avramenko-ukrainian-language-6-class-2023/26.php",
+      "supports": "Direct derivational base matters; хмара → хмарний → безхмарний explicitly given, final step prefixal."
+    },
+    "S6": {
+      "title": "Семеног та ін. Українська мова, 6 клас (2023), змінні та незмінні слова",
+      "url": "https://files.pidruchnyk.com.ua/uploads/book/6-klas-ukrmova-semenog-2023.pdf",
+      "access": "Textbook text read via indexed PDF mirror.",
+      "supports": "Unchangeable words lack endings; zero ending belongs to an inflected word."
+    },
+    "A7": {
+      "title": "Авраменко О., Тищенко З. Українська мова, 7 клас (2024), частини мови / члени речення",
+      "url": "https://uahistory.co/pidruchniki/avramenko-ukrainian-language-7-class-2024/1.php",
+      "access": "Primary textbook text on mirror; publication identity corroborated in PDF bibliographic record.",
+      "supports": "School classification of parts of speech and sentence members."
+    },
+    "ORTH": {
+      "title": "Український правопис, офіційне видання 2026, §158 I та II.2, примітка 2",
+      "url": "https://mon.gov.ua/static-objects/mon/sites/1/zagalna%20serednya/Pravopys.2019/ukrayinskii-pravopis-oficiine-vidannia-2026.pdf",
+      "access": "Official MON PDF read; printed pp.184–185 for compound sentence exceptions.",
+      "supports": "Comma between coordinated clauses; exceptions for shared modifier or parenthetical word with single і."
+    },
+    "SUMK": {
+      "title": "СУМ-11, какао (authorized reproduction)",
+      "url": "https://slovnyk.ua/index.php?swrd=какао",
+      "access": "Article explicitly attributed to СУМ, with institute permission stated.",
+      "supports": "Какао marked невідм."
+    },
+    "SUMT": {
+      "title": "СУМ-11, тепло (authorized reproduction)",
+      "url": "https://slovnyk.ua/index.php?swrd=тепло",
+      "access": "Read article and paradigms.",
+      "supports": "Separate noun and adverb entries."
+    },
+    "SUMC": {
+      "title": "СУМ-11, читання (authorized reproduction)",
+      "url": "https://slovnyk.ua/index.php?swrd=читання",
+      "access": "Read article and paradigms.",
+      "supports": "Action noun; instrumental singular читанням."
+    },
+    "PROG": {
+      "title": "Офіційна програма ЗНО з української мови і літератури, наказ МОН №696 від 26.06.2018",
+      "url": "https://testportal.gov.ua/wp-content/uploads/2016/12/Programa_2020_ukr.mova.pdf",
+      "access": "Official PDF read.",
+      "supports": "Topic alignment: morphemics/word formation, morphology, compound sentence syntax."
+    },
+    "S6_DIRECT": {
+      "title": "Семеног та ін. Українська мова, 6 клас (2023), table of word-formation methods",
+      "url": "https://lib.imzo.gov.ua/wa-data/public/site/books2/6-kl-23/movna-galuz/ukr-mova/АСТОН_Українська_мова_6_кл_Семеног_та_ін_2023.pdf",
+      "access": "Official-domain indexed search text read; direct PDF fetch 502.",
+      "supports": "Table explicitly gives запічок←за+піч+ок under prefixal-suffixal formation."
+    },
+    "Z5_DIRECT": {
+      "title": "Заболотний, Українська мова 5, розділ 12 Префікс, printed p.67",
+      "url": "https://lib.imzo.gov.ua/wa-data/public/site/books2/osoblyvi-osvitni-potreby/Заболотний_Укр.мова_П_5_[СлЗ]_ч.1_(037-24)_S.pdf",
+      "access": "Official-domain indexed text read; direct fetch 502.",
+      "supports": "хмарний—безхмарний listed as prefix example."
+    },
+    "SUMZ": {
+      "title": "СУМ-11, запічок, authorized reproduction",
+      "url": "https://slovnyk.ua/index.php?swrd=запічок",
+      "access": "Article and inflection table directly read.",
+      "supports": "Normative existence and meaning of запічок."
+    },
+    "GLAZ9": {
+      "title": "Глазова, Українська мова 9, §12, printed pp.84–85",
+      "url": "https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-9-klas/01-ukrainska-mova-9-klas/ukrainska-mova-pidruchnyk-dlya-9-klasu-zagalnoosvitnih-navchalnyh-zakladiv-glazova-o-p.pdf",
+      "access": "Official IMZO PDF directly read.",
+      "supports": "Compound comma exceptions, including common parenthetical word."
+    }
+  },
+  "limits": [
+    "Review is a model review, not human teacher sign-off.",
+    "No browser lesson rendering, runtime behavior or scoring implementation tested; educational review only.",
+    "Phase1 sealed file remains unchanged, including the erroneous minor ending advisory explicitly retracted here.",
+    "No proposed change has been applied to source packages."
+  ],
+  "verificationPlan": [
+    "After applying replacements, independently resolve q09 as 1-А,2-Б,3-В,4-Г and q11 as В from revised stems.",
+    "Verify no assertion of simultaneous без-/-н- addition to хмара remains in theory, summary or explanations.",
+    "Ensure compound11 explanation names option Б, not first option.",
+    "Preserve all codes and content-only scope; no data import or database operation is authorized by this report."
+  ]
+}

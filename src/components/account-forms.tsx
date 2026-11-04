@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState, useState } from "react";
-import { Button, Input } from "@/components/ui";
+import { Button, Input, Label } from "@/components/ui";
 import Link from "next/link";
 import {
   type AccountState, createInvitationAction, linkEmailAction, registerAction, requestResetAction,
@@ -15,7 +15,7 @@ function Feedback({ state }: { state: AccountState }) {
   return null;
 }
 
-export function RegistrationForm({ googleAction }: { googleAction?: (form: FormData) => Promise<void> }) {
+export function RegistrationForm() {
   const [state, action, pending] = useActionState(registerAction, {});
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -50,12 +50,6 @@ export function RegistrationForm({ googleAction }: { googleAction?: (form: FormD
     <Feedback state={state} />
     <Button type="submit" disabled={pending}>{pending ? "Реєстрація…" : "Зареєструватися"}</Button>
   </form>
-    {googleAction ? <div className="border-t border-border pt-4">
-      <p className="mb-2 text-sm">Або зареєструйтеся через Google:</p>
-      <form action={googleAction}><input type="hidden" name="mode" value="register" />
-        <Button type="submit" variant="outline">Продовжити з Google</Button>
-      </form>
-    </div> : null}
   </>;
 }
 
@@ -109,12 +103,14 @@ export function InvitationForm() {
 
 export function EmailLinkForm({ currentEmail }: { currentEmail: string | null }) {
   const [state, action, pending] = useActionState(linkEmailAction, {});
-  return <form action={action} className="space-y-2">
-    <label className="grid gap-1 text-sm">{currentEmail ? "Змінити підтверджений email" : "Додати email для відновлення пароля"}
-      <Input name="email" type="email" required autoComplete="email" />
-    </label>
+  const label = currentEmail ? "Змінити підтверджений email" : "Додати email для відновлення пароля";
+  return <form action={action} className="space-y-3">
+    <div className="grid gap-1.5">
+      <Label htmlFor="settings-recovery-email">{label}</Label>
+      <Input id="settings-recovery-email" name="email" type="email" required autoComplete="email" placeholder="you@example.com" />
+    </div>
     <Feedback state={state} />
-    <Button type="submit" variant="outline" disabled={pending}>Надіслати підтвердження</Button>
+    <Button type="submit" disabled={pending}>{pending ? "Надсилання…" : "Надіслати підтвердження"}</Button>
   </form>;
 }
 

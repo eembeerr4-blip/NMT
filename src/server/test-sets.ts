@@ -3,27 +3,35 @@ import type {Prisma} from "@prisma/client";
 import {revalidatePath} from "next/cache";
 import {prisma} from "@/lib/prisma";
 import {UserError,userFacingError} from "@/lib/errors";
-import {isAdministrator} from "@/lib/permissions";
+import {canEditContent} from "@/lib/permissions";
 import {publicationConfig,testPublication,type Publication} from "@/lib/test-publication";
+import {learnerTestAvailable} from "@/lib/test-access";
 import {getSessionUser} from "./session";
 import {recordAudit} from "./audit-log";
+import {canAccessLearning} from "@/lib/account-status";
+import {assertControlStart,assertQuestionRoles,isControl,lockAssessment} from "./assessment";
 import type {ActionState} from "./actions";
 
-async function actor(admin=false) {const user=await getSessionUser();if(!user)throw new UserError("Потрібен вхід до профілю.");if(admin&&!isAdministrator(user))throw new UserError("Керування наборами доступне адміністратору.");return user;}
-async function lock(tx:Prisma.TransactionClient,id:string) {await tx.$executeRaw`UPDATE "Test" SET "configJson"="configJson" WHERE "id"=${id}`;return tx.test.findUniqueOrThrow({where:{id},include:{questions:{orderBy:{sortOrder:"asc"},include:{question:true}},_count:{select:{attempts:true}}}});}
-function refresh(){revalidatePath("/admin/tests");revalidatePath("/admin/tests/[id]","page");revalidatePath("/tests");}
-export async function saveTestSet(input:{id?:string;title:string;subjectId:string;timeLimitMin:number;questionIds:string[]}):Promise<ActionState> {
+async function actor(staff=false) {const user=await getSessionUser();if(!user)throw new UserError("Потрібен вхід до профілю.");if(staff&&!canEditContent(user))throw new UserError("Керування наборами доступне редактору, адміністратору або власнику.");if(!canAccessLearning(user)&&!canEditContent(user))throw new UserError("Доступ до навчання ще не схвалено.");return user;}
+async function lock(tx:Prisma.TransactionClient,id:string) {await tx.$executeRaw`UPDATE "Test" SET "configJson"="configJson" WHERE "id"=${id}`;return tx.test.findUniqueOrThrow({where:{id},include:{questions:{orderBy:{sortOrder:"asc"},include:{question:{include:{topic:true}}}},_count:{select:{attempts:true}}}});}
+function refresh(){revalidatePath("/admin/tests");revalidatePath("/admin/tests/[id]","page");revalidatePath("/editor/tests");revalidatePath("/editor/tests/[id]","page");revalidatePath("/tests");}
+export async function saveTestSet(input:{id?:string;title:string;subjectId:string;timeLimitMin:number;questionIds:string[];assessmentPurpose?:"TRAINING"|"FINAL"|"DELAYED"}):Promise<ActionState> {
  try {
   const user=await actor(true);
   if(!input||typeof input.title!=="string"||!input.title.trim()||input.title.length>160||!Number.isInteger(input.timeLimitMin)||input.timeLimitMin<0||input.timeLimitMin>240||!Array.isArray(input.questionIds)||!input.questionIds.length||input.questionIds.length>200||input.questionIds.some(id=>typeof id!=="string"))throw new UserError("Перевірте назву, час і склад набору (1–200 запитань).");
   const ids=[...new Set(input.questionIds)];
+  if(input.assessmentPurpose!==undefined&&!["TRAINING","FINAL","DELAYED"].includes(input.assessmentPurpose))throw new UserError("Невідоме призначення набору.");
   const id=await prisma.$transaction(async tx=>{
+   await lockAssessment(tx,user.id);
    const existing=input.id?await lock(tx,input.id):null;
    if(existing?._count.attempts)throw new UserError("Набір уже має спроби. Створіть нову версію, щоб зберегти історію.");
    const questions=await tx.question.findMany({where:{id:{in:ids},subjectId:input.subjectId,verificationStatus:"VERIFIED"}});
    if(questions.length!==ids.length)throw new UserError("Оберіть лише перевірені запитання одного предмета.");
    const topicId=questions.every(q=>q.topicId===questions[0].topicId)?questions[0].topicId:null;
-   const data={title:input.title.trim(),subjectId:input.subjectId,topicId,kind:existing?.kind??"TOPIC",timeLimitSec:input.timeLimitMin?input.timeLimitMin*60:null,configJson:publicationConfig(existing?.configJson??"{}","DRAFT")};
+   const kind=input.assessmentPurpose===undefined?(existing?.kind??"TOPIC"):input.assessmentPurpose==="TRAINING"?"TOPIC":input.assessmentPurpose;
+   if(isControl(kind)&&!topicId)throw new UserError("Контрольний набір має стосуватися однієї теми.");
+   await assertQuestionRoles(tx,ids,kind,existing?.id);
+   const data={title:input.title.trim(),subjectId:input.subjectId,topicId,kind,timeLimitSec:input.timeLimitMin?input.timeLimitMin*60:null,configJson:publicationConfig(existing?.configJson??"{}","DRAFT")};
    const set=existing?await tx.test.update({where:{id:existing.id},data}):await tx.test.create({data});
    if(existing)await tx.testQuestion.deleteMany({where:{testId:set.id}});
    await tx.testQuestion.createMany({data:ids.map((questionId,sortOrder)=>({testId:set.id,questionId,sortOrder}))});
@@ -41,6 +49,6 @@ export async function cloneTestSet(id:string):Promise<ActionState> {
  }catch(error){return {ok:false,error:userFacingError(error)};}
 }
 export async function startPublishedTestSet(id:string):Promise<ActionState> {
- try {const user=await actor();const attempt=await prisma.$transaction(async tx=>{const set=await lock(tx,id);if(testPublication(set.configJson)!=="PUBLISHED"||!set.questions.length||set.questions.some(q=>q.question.verificationStatus!=="VERIFIED")||!set.subjectId||!user.subjects.some(subject=>subject.active&&subject.subjectId===set.subjectId))throw new UserError("Цей набір зараз недоступний. Оберіть інший тест.");return tx.testAttempt.create({data:{testId:id,userId:user.id}});},{maxWait:15000,timeout:20000});return {ok:true,id:attempt.id};
+ try {const user=await actor();const attempt=await prisma.$transaction(async tx=>{await lockAssessment(tx,user.id);const set=await lock(tx,id);if(testPublication(set.configJson)!=="PUBLISHED"||!learnerTestAvailable(set)||!set.subjectId||!user.subjects.some(subject=>subject.active&&subject.subjectId===set.subjectId))throw new UserError("Цей набір зараз недоступний. Оберіть інший тест.");const now=new Date();await assertControlStart(tx,user.id,set,now);return tx.testAttempt.create({data:{testId:id,userId:user.id,startedAt:now}});},{maxWait:15000,timeout:20000});return {ok:true,id:attempt.id};
  }catch(error){return {ok:false,error:userFacingError(error)};}
 }

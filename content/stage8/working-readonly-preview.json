@@ -1,0 +1,111 @@
+{
+  "writingAuthorized": false,
+  "results": [
+    {
+      "file": "biology-foundation.package.json",
+      "ok": true,
+      "counts": {
+        "sectionsToCreate": 1,
+        "topicsToCreate": 1,
+        "topicsToUpdate": 0,
+        "topicsSkipped": 0,
+        "questionsToCreate": 12,
+        "questionsToUpdate": 0,
+        "questionsSkipped": 0,
+        "videosToAdd": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "file": "history-foundation.package.json",
+      "ok": true,
+      "counts": {
+        "sectionsToCreate": 1,
+        "topicsToCreate": 1,
+        "topicsToUpdate": 0,
+        "topicsSkipped": 0,
+        "questionsToCreate": 12,
+        "questionsToUpdate": 0,
+        "questionsSkipped": 0,
+        "videosToAdd": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "file": "math-reviewed.package.json",
+      "ok": true,
+      "counts": {
+        "sectionsToCreate": 1,
+        "topicsToCreate": 0,
+        "topicsToUpdate": 0,
+        "topicsSkipped": 10,
+        "questionsToCreate": 0,
+        "questionsToUpdate": 0,
+        "questionsSkipped": 0,
+        "videosToAdd": 0
+      },
+      "errors": [],
+      "warnings": [
+        {
+          "path": "sections.0.topics.0",
+          "message": "Тема вже має матеріал і не є чернеткою. Її не перезаписано."
+        },
+        {
+          "path": "sections.0.topics.1",
+          "message": "Тема вже має матеріал і не є чернеткою. Її не перезаписано."
+        },
+        {
+          "path": "sections.0.topics.2",
+          "message": "Тема вже має матеріал і не є чернеткою. Її не перезаписано."
+        },
+        {
+          "path": "sections.0.topics.3",
+          "message": "Тема вже має матеріал і не є чернеткою. Її не перезаписано."
+        },
+        {
+          "path": "sections.0.topics.4",
+          "message": "Тема вже має матеріал і не є чернеткою. Її не перезаписано."
+        },
+        {
+          "path": "sections.0.topics.5",
+          "message": "Тема вже має матеріал і не є чернеткою. Її не перезаписано."
+        },
+        {
+          "path": "sections.0.topics.6",
+          "message": "Тема вже має матеріал і не є чернеткою. Її не перезаписано."
+        },
+        {
+          "path": "sections.0.topics.7",
+          "message": "Тема вже має матеріал і не є чернеткою. Її не перезаписано."
+        },
+        {
+          "path": "sections.0.topics.8",
+          "message": "Тема вже має матеріал і не є чернеткою. Її не перезаписано."
+        },
+        {
+          "path": "sections.0.topics.9",
+          "message": "Тема вже має матеріал і не є чернеткою. Її не перезаписано."
+        }
+      ]
+    },
+    {
+      "file": "ukrainian-foundation.package.json",
+      "ok": true,
+      "counts": {
+        "sectionsToCreate": 1,
+        "topicsToCreate": 1,
+        "topicsToUpdate": 0,
+        "topicsSkipped": 0,
+        "questionsToCreate": 12,
+        "questionsToUpdate": 0,
+        "questionsSkipped": 0,
+        "videosToAdd": 0
+      },
+      "errors": [],
+      "warnings": []
+    }
+  ],
+  "warning": "Mathematics is a QA-only export of protected existing topic IDs. Normal import skips all 10 lessons and would create an empty section: DO NOT import this package into working DB. Prepare a separately approved targeted update instead."
+}

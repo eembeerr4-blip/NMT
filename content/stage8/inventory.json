@@ -1,0 +1,2494 @@
+{
+  "checkedAt": "2026-10-29",
+  "databaseMode": "READ_ONLY",
+  "workingDatabase": "prisma/dev.db",
+  "subjects": [
+    {
+      "id": "math",
+      "READY": 2,
+      "VERIFIED": 3,
+      "PARTIAL": 10,
+      "DRAFT": 0,
+      "NEEDS_CONTENT": 1,
+      "topics": 16,
+      "questions": 234,
+      "verified": 114,
+      "draft": 120
+    },
+    {
+      "id": "ukrainian",
+      "READY": 5,
+      "VERIFIED": 8,
+      "PARTIAL": 0,
+      "DRAFT": 0,
+      "NEEDS_CONTENT": 2,
+      "topics": 15,
+      "questions": 100,
+      "verified": 100,
+      "draft": 0
+    },
+    {
+      "id": "history",
+      "READY": 2,
+      "VERIFIED": 9,
+      "PARTIAL": 0,
+      "DRAFT": 0,
+      "NEEDS_CONTENT": 1,
+      "topics": 12,
+      "questions": 68,
+      "verified": 68,
+      "draft": 0
+    },
+    {
+      "id": "biology",
+      "READY": 6,
+      "VERIFIED": 8,
+      "PARTIAL": 0,
+      "DRAFT": 0,
+      "NEEDS_CONTENT": 2,
+      "topics": 16,
+      "questions": 112,
+      "verified": 112,
+      "draft": 0
+    }
+  ],
+  "topics": [
+    {
+      "id": "bio-cell",
+      "subjectId": "biology",
+      "title": "Хімічний склад і клітина",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "f2920ac9bc6793c971b7705d99bb3540b104b905196ef6dfa62f8bbdb78e5507",
+      "theoryChars": 1327,
+      "examples": 2,
+      "hasShortNotes": true,
+      "questions": 12,
+      "verified": 12,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "explanationsUnder80": [
+        "q-b1",
+        "q-b10",
+        "q-b11",
+        "q-b12",
+        "q-b2",
+        "q-b3",
+        "q-b4",
+        "q-b5",
+        "q-b6",
+        "q-b8",
+        "q-b9"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "SEQUENCE",
+        "SHORT_TEXT",
+        "NUMERIC",
+        "MATCHING"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "bio-metabolism",
+      "subjectId": "biology",
+      "title": "Обмін речовин",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "f8e135461d120f30bb8adc3db37564f6476df07966e07ed8ed79943463e1f9d9",
+      "theoryChars": 275,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 2,
+        "MEDIUM": 1,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-met-1",
+        "qx-met-2",
+        "qx-met-3",
+        "qx-met-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "bio-botany",
+      "subjectId": "biology",
+      "title": "Ботаніка",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "9b6b84f432d7d99f4afb85eb62998da1fbfd2aaea832dc27a9cc91425bac4229",
+      "theoryChars": 213,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 1,
+        "MEDIUM": 2,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-bot-1",
+        "qx-bot-2",
+        "qx-bot-3",
+        "qx-bot-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "bio-zoology",
+      "subjectId": "biology",
+      "title": "Зоологія",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "52eeb5a0ffe3e96439cca253d22c24b3a3dfe5928bce34975736b248538d1845",
+      "theoryChars": 232,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 2,
+        "MEDIUM": 1,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-zoo-1",
+        "qx-zoo-2",
+        "qx-zoo-3",
+        "qx-zoo-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "bio-human",
+      "subjectId": "biology",
+      "title": "Людина та її здоров'я",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "0a8a5bc5e17a9163101cfce8cf46d5569bcfee1bb97cfa79f20dfa144530d794",
+      "theoryChars": 268,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 2,
+        "MEDIUM": 1,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-hum-1",
+        "qx-hum-2",
+        "qx-hum-3",
+        "qx-hum-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "bio-genetics",
+      "subjectId": "biology",
+      "title": "Генетика",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "eeb4fb5c6c9eb4b3f728ed2c892e67f4ef570ee42f1b9c31a08db53f06979025",
+      "theoryChars": 240,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 1,
+        "MEDIUM": 2,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-gen-1",
+        "qx-gen-2",
+        "qx-gen-3",
+        "qx-gen-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "bio-evolution",
+      "subjectId": "biology",
+      "title": "Еволюція",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "4c84c564fa1d3ba5d3e24de8aa0bf29ef7ac0109c7e25b3103034993afae712b",
+      "theoryChars": 291,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 1,
+        "MEDIUM": 2,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-evo-1",
+        "qx-evo-2",
+        "qx-evo-3",
+        "qx-evo-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "bio-ecology",
+      "subjectId": "biology",
+      "title": "Екологія",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "a337274a2cd14d1cae9c605be15cf1fb0d02e60184851ba4443df7b6929c28da",
+      "theoryChars": 242,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 2,
+        "MEDIUM": 1,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-eco-1",
+        "qx-eco-2",
+        "qx-eco-3",
+        "qx-eco-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "bio-cell-sec-01",
+      "subjectId": "biology",
+      "title": "Цитологія: будова клітини",
+      "parentId": null,
+      "coverage": "READY",
+      "lessonSha256": "483432ad34c0606df61225bb830b91c36a0dd71162d9c33c71095807e5c6b4a3",
+      "theoryChars": 1192,
+      "examples": 4,
+      "hasShortNotes": true,
+      "questions": 12,
+      "verified": 12,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "explanationsUnder80": [
+        "s7a-bio-cell-sec-01-e01",
+        "s7a-bio-cell-sec-01-e02",
+        "s7a-bio-cell-sec-01-e03",
+        "s7a-bio-cell-sec-01-e04",
+        "s7a-bio-cell-sec-01-h01",
+        "s7a-bio-cell-sec-01-h02",
+        "s7a-bio-cell-sec-01-h03",
+        "s7a-bio-cell-sec-01-m01",
+        "s7a-bio-cell-sec-01-m02",
+        "s7a-bio-cell-sec-01-m03",
+        "s7a-bio-cell-sec-01-m04",
+        "s7a-bio-cell-sec-01-m05"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NEEDS_FIXES_PUBLISHED_KEYS",
+      "issues": [
+        "VIDEO_MISSING",
+        "PUBLISHED_KEY_CONFLICT_OR_UNSAFE_STEM"
+      ]
+    },
+    {
+      "id": "bio-cell-01-eukaryotic-cell",
+      "subjectId": "biology",
+      "title": "Будова еукаріотичної клітини",
+      "parentId": "s7a-sec-bio-cell",
+      "coverage": "READY",
+      "lessonSha256": "b00c0dc2d9e8c2448f03847053bec7b5fb3a45c9ad2ec54ac529cb520cb8cfd1",
+      "theoryChars": 8017,
+      "examples": 8,
+      "hasShortNotes": true,
+      "questions": 12,
+      "verified": 12,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "explanationsUnder80": [],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "MATCHING",
+        "SEQUENCE",
+        "NUMERIC",
+        "SHORT_TEXT"
+      ],
+      "videos": [
+        {
+          "id": "cmvqmvazg000aut9sfo6c0nu3",
+          "topicId": "bio-cell-01-eukaryotic-cell",
+          "youtubeId": "7DtFjdHJvKg",
+          "url": "https://www.youtube.com/watch?v=7DtFjdHJvKg",
+          "title": "Будова еукаріотичної клітини",
+          "reviewStatus": "SUGGESTED",
+          "language": "uk",
+          "durationSec": null,
+          "channel": "",
+          "stage8ContentViewing": "NOT_RUN"
+        },
+        {
+          "id": "cmvsm4lbu000put38i93c4rlr",
+          "topicId": "bio-cell-01-eukaryotic-cell",
+          "youtubeId": "bBymW0PtVT0",
+          "url": "https://www.youtube.com/watch?v=bBymW0PtVT0",
+          "title": "Будова клітини [Nucleus Medical Media]",
+          "reviewStatus": "SUGGESTED",
+          "language": "uk",
+          "durationSec": null,
+          "channel": "",
+          "stage8ContentViewing": "NOT_RUN"
+        },
+        {
+          "id": "cmvsm4lbw000rut38speuoptm",
+          "topicId": "bio-cell-01-eukaryotic-cell",
+          "youtubeId": "jCVunU5VGbI",
+          "url": "https://www.youtube.com/watch?v=jCVunU5VGbI",
+          "title": "Різноманітність еукаріотичних клітин",
+          "reviewStatus": "SUGGESTED",
+          "language": "uk",
+          "durationSec": null,
+          "channel": "",
+          "stage8ContentViewing": "NOT_RUN"
+        }
+      ],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": []
+    },
+    {
+      "id": "zcode-biology-molecular-02",
+      "subjectId": "biology",
+      "title": "Молекулярні основи життя та поділ клітини",
+      "parentId": null,
+      "coverage": "READY",
+      "lessonSha256": "54ee3871c82282fbf3d3e09bb3eaa5936a81448ef4fabd9a60d031d189dccfc4",
+      "theoryChars": 823,
+      "examples": 4,
+      "hasShortNotes": true,
+      "questions": 12,
+      "verified": 12,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "explanationsUnder80": [
+        "s7a-zcode-biology-molecular-02-e01",
+        "s7a-zcode-biology-molecular-02-e02",
+        "s7a-zcode-biology-molecular-02-e03",
+        "s7a-zcode-biology-molecular-02-e04",
+        "s7a-zcode-biology-molecular-02-h01",
+        "s7a-zcode-biology-molecular-02-h02",
+        "s7a-zcode-biology-molecular-02-h03",
+        "s7a-zcode-biology-molecular-02-m01",
+        "s7a-zcode-biology-molecular-02-m02",
+        "s7a-zcode-biology-molecular-02-m03",
+        "s7a-zcode-biology-molecular-02-m04",
+        "s7a-zcode-biology-molecular-02-m05"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NEEDS_FIXES_PUBLISHED_KEYS",
+      "issues": [
+        "VIDEO_MISSING",
+        "PUBLISHED_KEY_CONFLICT_OR_UNSAFE_STEM"
+      ]
+    },
+    {
+      "id": "zcode-biology-molecular-dna-rna",
+      "subjectId": "biology",
+      "title": "ДНК і РНК",
+      "parentId": "s7a-sec-bio-molecular",
+      "coverage": "READY",
+      "lessonSha256": "c6e7697d273528e4e192988731aaa6e08ee1ac8369a80948e2e728ec45b63852",
+      "theoryChars": 3644,
+      "examples": 7,
+      "hasShortNotes": true,
+      "questions": 12,
+      "verified": 12,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "explanationsUnder80": [
+        "zcode-biology-molecular-dna-rna-q11",
+        "zcode-biology-molecular-dna-rna-q12"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "NUMERIC",
+        "MATCHING"
+      ],
+      "videos": [
+        {
+          "id": "cmvqmvazh000dut9sxffamuyt",
+          "topicId": "zcode-biology-molecular-dna-rna",
+          "youtubeId": "R4USDzLsfNk",
+          "url": "https://www.youtube.com/watch?v=R4USDzLsfNk",
+          "title": "ДНК. РНК.(нуклеїнові кислоти)",
+          "reviewStatus": "SUGGESTED",
+          "language": "uk",
+          "durationSec": null,
+          "channel": "",
+          "stage8ContentViewing": "NOT_RUN"
+        },
+        {
+          "id": "cmvsm4lbx000tut385t7bjbfr",
+          "topicId": "zcode-biology-molecular-dna-rna",
+          "youtubeId": "G63P4uoP6Fs",
+          "url": "https://www.youtube.com/watch?v=G63P4uoP6Fs",
+          "title": "9 клас. Біологія. Нуклеїнові кислоти. Роль нуклеїнових кислот як носія спадкової інформації. АТФ. Ч1",
+          "reviewStatus": "SUGGESTED",
+          "language": "uk",
+          "durationSec": null,
+          "channel": "",
+          "stage8ContentViewing": "NOT_RUN"
+        },
+        {
+          "id": "cmvsm4lbz000vut38kc7lt50d",
+          "topicId": "zcode-biology-molecular-dna-rna",
+          "youtubeId": "K541lnwQmTQ",
+          "url": "https://www.youtube.com/watch?v=K541lnwQmTQ",
+          "title": "9 клас. Біологія. Подвоєння ДНК; репарація. Типи РНК. Транскрипція.",
+          "reviewStatus": "SUGGESTED",
+          "language": "uk",
+          "durationSec": null,
+          "channel": "",
+          "stage8ContentViewing": "NOT_RUN"
+        }
+      ],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": []
+    },
+    {
+      "id": "zcode-biology-molecular-protein-synth",
+      "subjectId": "biology",
+      "title": "Реплікація ДНК і біосинтез білка",
+      "parentId": "s7a-sec-bio-molecular",
+      "coverage": "READY",
+      "lessonSha256": "fdb99add945e631cc985e441fa9aa4842feb650d71b469cb82654dedd28bf8ef",
+      "theoryChars": 4710,
+      "examples": 7,
+      "hasShortNotes": true,
+      "questions": 12,
+      "verified": 12,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "explanationsUnder80": [
+        "zcode-biology-molecular-protein-synth-q11",
+        "zcode-biology-molecular-protein-synth-q12"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "SEQUENCE",
+        "NUMERIC"
+      ],
+      "videos": [
+        {
+          "id": "cmvqmvazl000gut9sta1xl6cb",
+          "topicId": "zcode-biology-molecular-protein-synth",
+          "youtubeId": "ia61JnRXC9o",
+          "url": "https://www.youtube.com/watch?v=ia61JnRXC9o",
+          "title": "Реплікація ДНК та РНК транскрипція і трансляція | Академія Хана",
+          "reviewStatus": "SUGGESTED",
+          "language": "uk",
+          "durationSec": null,
+          "channel": "",
+          "stage8ContentViewing": "NOT_RUN"
+        },
+        {
+          "id": "cmvsm4lc0000xut38p7ahiwoy",
+          "topicId": "zcode-biology-molecular-protein-synth",
+          "youtubeId": "vs6GLwIxI-U",
+          "url": "https://www.youtube.com/watch?v=vs6GLwIxI-U",
+          "title": "9 клас. Біологія. Генетичний код. Біосинтез білка",
+          "reviewStatus": "SUGGESTED",
+          "language": "uk",
+          "durationSec": null,
+          "channel": "",
+          "stage8ContentViewing": "NOT_RUN"
+        },
+        {
+          "id": "cmvsm4lc2000zut38f4ea2nc1",
+          "topicId": "zcode-biology-molecular-protein-synth",
+          "youtubeId": "UGE4mfJliqo",
+          "url": "https://www.youtube.com/watch?v=UGE4mfJliqo",
+          "title": "Біологія 9 клас  Подвоєння ДНК  Репарація пошкоджень ДНК",
+          "reviewStatus": "SUGGESTED",
+          "language": "uk",
+          "durationSec": null,
+          "channel": "",
+          "stage8ContentViewing": "NOT_RUN"
+        }
+      ],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": []
+    },
+    {
+      "id": "zcode-biology-molecular-division",
+      "subjectId": "biology",
+      "title": "Клітинний цикл. Мітоз і мейоз",
+      "parentId": "s7a-sec-bio-molecular",
+      "coverage": "READY",
+      "lessonSha256": "356287cd3b408fe57a431feba7bb4bcf8ad5fc1f4075d033ef5407d9d3951632",
+      "theoryChars": 4663,
+      "examples": 7,
+      "hasShortNotes": true,
+      "questions": 12,
+      "verified": 12,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "explanationsUnder80": [
+        "zcode-biology-molecular-division-q11",
+        "zcode-biology-molecular-division-q12"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "SEQUENCE",
+        "NUMERIC"
+      ],
+      "videos": [
+        {
+          "id": "cmvqmvazm000jut9syst6u8un",
+          "topicId": "zcode-biology-molecular-division",
+          "youtubeId": "WMtpCLP1B2A",
+          "url": "https://www.youtube.com/watch?v=WMtpCLP1B2A",
+          "title": "Мітоз і мейоз/ Фази мітозу і мейозу / будова хромосом.",
+          "reviewStatus": "SUGGESTED",
+          "language": "uk",
+          "durationSec": null,
+          "channel": "",
+          "stage8ContentViewing": "NOT_RUN"
+        },
+        {
+          "id": "cmvsm4lc40011ut38ucbo3u6b",
+          "topicId": "zcode-biology-molecular-division",
+          "youtubeId": "19a17ENs64g",
+          "url": "https://www.youtube.com/watch?v=19a17ENs64g",
+          "title": "9 клас. Біологія. Поділ клітин: клітинний цикл, мітоз. Мейоз",
+          "reviewStatus": "SUGGESTED",
+          "language": "uk",
+          "durationSec": null,
+          "channel": "",
+          "stage8ContentViewing": "NOT_RUN"
+        },
+        {
+          "id": "cmvsm4lc50013ut38oy47jejm",
+          "topicId": "zcode-biology-molecular-division",
+          "youtubeId": "RV-aJuuOHrE",
+          "url": "https://www.youtube.com/watch?v=RV-aJuuOHrE",
+          "title": "Мітоз | Академія Хана",
+          "reviewStatus": "SUGGESTED",
+          "language": "uk",
+          "durationSec": null,
+          "channel": "",
+          "stage8ContentViewing": "NOT_RUN"
+        }
+      ],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": []
+    },
+    {
+      "id": "s7a-sec-bio-cell",
+      "subjectId": "biology",
+      "title": "Stage 7A.1 · biology",
+      "parentId": null,
+      "coverage": "NEEDS_CONTENT",
+      "lessonSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "theoryChars": 0,
+      "examples": 0,
+      "hasShortNotes": false,
+      "questions": 0,
+      "verified": 0,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 0,
+        "MEDIUM": 0,
+        "HARD": 0
+      },
+      "explanationsUnder80": [],
+      "questionTypes": [],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "NO_PARSED_LESSON",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "s7a-sec-bio-molecular",
+      "subjectId": "biology",
+      "title": "Stage 7A.1 · biology",
+      "parentId": null,
+      "coverage": "NEEDS_CONTENT",
+      "lessonSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "theoryChars": 0,
+      "examples": 0,
+      "hasShortNotes": false,
+      "questions": 0,
+      "verified": 0,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 0,
+        "MEDIUM": 0,
+        "HARD": 0
+      },
+      "explanationsUnder80": [],
+      "questionTypes": [],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "NO_PARSED_LESSON",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "hist-ancient",
+      "subjectId": "history",
+      "title": "Стародавня історія України",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "717e3ad92d178ffe5cb393e07aa8e5eca40a34b62f257bb1699ea36ffb5b3754",
+      "theoryChars": 256,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 1,
+        "MEDIUM": 2,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-anc-1",
+        "qx-anc-2",
+        "qx-anc-3",
+        "qx-anc-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "hist-kyiv",
+      "subjectId": "history",
+      "title": "Київська Русь",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "5ddb923c2b70ca7537f4355dec9511556b5712d519da75517e3ed39dfdf7675e",
+      "theoryChars": 1317,
+      "examples": 2,
+      "hasShortNotes": true,
+      "questions": 12,
+      "verified": 12,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "explanationsUnder80": [
+        "q-h1",
+        "q-h10",
+        "q-h11",
+        "q-h12",
+        "q-h2",
+        "q-h3",
+        "q-h4",
+        "q-h6",
+        "q-h7",
+        "q-h8",
+        "q-h9"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "SHORT_TEXT",
+        "NUMERIC",
+        "MATCHING",
+        "SEQUENCE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "hist-galicia",
+      "subjectId": "history",
+      "title": "Галицько-Волинська держава",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "e95d6fb94476b7fd3ec953a914984d539048fd898b21cec3c41089ff70df1710",
+      "theoryChars": 238,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 1,
+        "MEDIUM": 2,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-gal-1",
+        "qx-gal-2",
+        "qx-gal-3",
+        "qx-gal-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "hist-lithuania",
+      "subjectId": "history",
+      "title": "Литовсько-польська доба",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "39a21c29f19ee96288f54c9ea45bb4fda3ce4d5c608dbc649db3108e7ada88de",
+      "theoryChars": 263,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 2,
+        "MEDIUM": 1,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-lit-1",
+        "qx-lit-2",
+        "qx-lit-3",
+        "qx-lit-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "hist-cossacks",
+      "subjectId": "history",
+      "title": "Козацька доба",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "9846f64695eaa80f698aa112d2bdea9da50c33f1e4eb2dd367944bc155710ce5",
+      "theoryChars": 323,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 2,
+        "MEDIUM": 1,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-cos-1",
+        "qx-cos-2",
+        "qx-cos-3",
+        "qx-cos-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "hist-revolution",
+      "subjectId": "history",
+      "title": "Українська революція 1917–1921",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "8e3c8e389add8436e6451c2e88eb7a9b04ce0e876bd2410fd865d807d27a73c8",
+      "theoryChars": 323,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 2,
+        "MEDIUM": 1,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-rev-1",
+        "qx-rev-2",
+        "qx-rev-3",
+        "qx-rev-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "hist-ww2",
+      "subjectId": "history",
+      "title": "Україна в Другій світовій війні",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "e09bc065f2d3e0b81f20f642922b108458dba15287539911ddb2888109a291fd",
+      "theoryChars": 267,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 2,
+        "MEDIUM": 1,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-ww-1",
+        "qx-ww-2",
+        "qx-ww-3",
+        "qx-ww-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "hist-soviet",
+      "subjectId": "history",
+      "title": "Україна в 1945–1991 роках",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "f197927392f95087e762c3ec373dd361121ae377d7c3257e7fb8ad7cf4160b6d",
+      "theoryChars": 270,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 1,
+        "MEDIUM": 2,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-sov-1",
+        "qx-sov-2",
+        "qx-sov-3",
+        "qx-sov-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "hist-independence",
+      "subjectId": "history",
+      "title": "Незалежна Україна",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "3896e06c0bde93d65e577f92cd1a04d250fbd4ca4d4fb0e521bf7d422cae69fe",
+      "theoryChars": 234,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 2,
+        "MEDIUM": 1,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-ind-1",
+        "qx-ind-2",
+        "qx-ind-3",
+        "qx-ind-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "s7a-sec-history-v2",
+      "subjectId": "history",
+      "title": "Stage 7A.1 · history",
+      "parentId": null,
+      "coverage": "NEEDS_CONTENT",
+      "lessonSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "theoryChars": 0,
+      "examples": 0,
+      "hasShortNotes": false,
+      "questions": 0,
+      "verified": 0,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 0,
+        "MEDIUM": 0,
+        "HARD": 0
+      },
+      "explanationsUnder80": [],
+      "questionTypes": [],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "NO_PARSED_LESSON",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "cm-history-slavs-sub-01",
+      "subjectId": "history",
+      "title": "Венеди, анти, склавини",
+      "parentId": "s7a-sec-history-v2",
+      "coverage": "READY",
+      "lessonSha256": "383fb8afde062c48487d83146e894731d9ae927409c43014d850944b9030d2f8",
+      "theoryChars": 1334,
+      "examples": 4,
+      "hasShortNotes": true,
+      "questions": 12,
+      "verified": 12,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "explanationsUnder80": [
+        "s7a-cm-history-slavs-sub-01-e01",
+        "s7a-cm-history-slavs-sub-01-e02",
+        "s7a-cm-history-slavs-sub-01-e03",
+        "s7a-cm-history-slavs-sub-01-e04",
+        "s7a-cm-history-slavs-sub-01-e05",
+        "s7a-cm-history-slavs-sub-01-e06",
+        "s7a-cm-history-slavs-sub-01-e07",
+        "s7a-cm-history-slavs-sub-01-e08",
+        "s7a-cm-history-slavs-sub-01-e09",
+        "s7a-cm-history-slavs-sub-01-e10",
+        "s7a-cm-history-slavs-sub-01-e11",
+        "s7a-cm-history-slavs-sub-01-e12"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NEEDS_FIXES_PUBLISHED_KEYS",
+      "issues": [
+        "VIDEO_MISSING",
+        "PUBLISHED_KEY_CONFLICT_OR_UNSAFE_STEM"
+      ]
+    },
+    {
+      "id": "hist-galicia-sub-01",
+      "subjectId": "history",
+      "title": "Обʼєднання князівств",
+      "parentId": "s7a-sec-history-v2",
+      "coverage": "READY",
+      "lessonSha256": "a428785e8d83a7a3013ffdb5a058bfef2c90eda2436b030d8642cf0889800d2e",
+      "theoryChars": 1441,
+      "examples": 4,
+      "hasShortNotes": true,
+      "questions": 12,
+      "verified": 12,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "explanationsUnder80": [
+        "s7a-hist-galicia-sub-01-e01",
+        "s7a-hist-galicia-sub-01-e02",
+        "s7a-hist-galicia-sub-01-e03",
+        "s7a-hist-galicia-sub-01-e04",
+        "s7a-hist-galicia-sub-01-e05",
+        "s7a-hist-galicia-sub-01-e06",
+        "s7a-hist-galicia-sub-01-e07",
+        "s7a-hist-galicia-sub-01-e08",
+        "s7a-hist-galicia-sub-01-e09",
+        "s7a-hist-galicia-sub-01-e10",
+        "s7a-hist-galicia-sub-01-e11",
+        "s7a-hist-galicia-sub-01-e12"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NEEDS_FIXES_PUBLISHED_KEYS",
+      "issues": [
+        "VIDEO_MISSING",
+        "PUBLISHED_KEY_CONFLICT_OR_UNSAFE_STEM"
+      ]
+    },
+    {
+      "id": "math-numbers",
+      "subjectId": "math",
+      "title": "Числа, відсотки та пропорції",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "6ee7c87f344c5d3d4684f121b68c1f79334139d4d68acaa939a8c6121546d6ec",
+      "theoryChars": 1228,
+      "examples": 3,
+      "hasShortNotes": true,
+      "questions": 18,
+      "verified": 18,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 6,
+        "MEDIUM": 8,
+        "HARD": 4
+      },
+      "explanationsUnder80": [
+        "foundation-percent-v1-01",
+        "foundation-percent-v1-02",
+        "foundation-percent-v1-03",
+        "foundation-percent-v1-04",
+        "foundation-percent-v1-05",
+        "foundation-percent-v1-06",
+        "foundation-percent-v1-07",
+        "foundation-percent-v1-08",
+        "foundation-percent-v1-09",
+        "foundation-percent-v1-10",
+        "foundation-percent-v1-11",
+        "foundation-percent-v1-12",
+        "qx-num-1",
+        "qx-num-2",
+        "qx-num-3",
+        "qx-num-4",
+        "qx-num-5",
+        "qx-num-6"
+      ],
+      "questionTypes": [
+        "NUMERIC"
+      ],
+      "videos": [],
+      "explicitTests": [
+        "cmvccruaz0001ut6sb6smtejw"
+      ],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "math-expressions",
+      "subjectId": "math",
+      "title": "Алгебраїчні вирази",
+      "parentId": null,
+      "coverage": "PARTIAL",
+      "lessonSha256": "8fcf3c273b245da40fabd48f0105780e9b86d31450f48a57b56b279a525203e4",
+      "theoryChars": 1349,
+      "examples": 2,
+      "hasShortNotes": true,
+      "questions": 18,
+      "verified": 6,
+      "draft": 12,
+      "difficulties": {
+        "EASY": 6,
+        "MEDIUM": 8,
+        "HARD": 4
+      },
+      "explanationsUnder80": [
+        "qx-exp-1",
+        "qx-exp-2",
+        "qx-exp-3",
+        "qx-exp-4",
+        "qx-exp-5",
+        "qx-exp-6"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "NUMERIC",
+        "MATCHING"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "120_MATH_DRAFT_QUESTIONS_REVIEWED_IN_COPY",
+      "issues": [
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "math-linear",
+      "subjectId": "math",
+      "title": "Лінійні рівняння та системи",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "590174f9b4ab1202afba039733528a45183d5ac9d17c438739f74a42b05c1c4c",
+      "theoryChars": 194,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 0,
+      "verified": 0,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 0,
+        "MEDIUM": 0,
+        "HARD": 0
+      },
+      "explanationsUnder80": [],
+      "questionTypes": [],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "math-linear-eq",
+      "subjectId": "math",
+      "title": "Лінійні рівняння",
+      "parentId": "math-linear",
+      "coverage": "VERIFIED",
+      "lessonSha256": "e71486ba99bea9198167d305518e9dfe72b1555cb36203cb36b18218ec3cdfaa",
+      "theoryChars": 1390,
+      "examples": 3,
+      "hasShortNotes": true,
+      "questions": 12,
+      "verified": 12,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "explanationsUnder80": [
+        "q-m1",
+        "q-m10",
+        "q-m11",
+        "q-m12",
+        "q-m2",
+        "q-m3",
+        "q-m4",
+        "q-m5",
+        "q-m6",
+        "q-m7",
+        "q-m8",
+        "q-m9"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "NUMERIC",
+        "STEP_BY_STEP",
+        "SEQUENCE",
+        "MATCHING"
+      ],
+      "videos": [
+        {
+          "id": "cmvci5sod0001utjo56grad2h",
+          "topicId": "math-linear-eq",
+          "youtubeId": "hoM0AHKTc7k",
+          "url": "https://www.youtube.com/watch?v=hoM0AHKTc7k",
+          "title": "ВШО: Лінійне рівняння з однією змінною",
+          "reviewStatus": "CONFIRMED",
+          "language": "uk",
+          "durationSec": null,
+          "channel": "Всеукраїнська школа онлайн",
+          "stage8ContentViewing": "NOT_RUN"
+        }
+      ],
+      "explicitTests": [
+        "cmvqnd8u70028ut9sh8r48aqj",
+        "cmvqnfscq0048ut9sc50zsye0"
+      ],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": []
+    },
+    {
+      "id": "math-linear-systems",
+      "subjectId": "math",
+      "title": "Системи лінійних рівнянь",
+      "parentId": "math-linear",
+      "coverage": "PARTIAL",
+      "lessonSha256": "211ee6fec74bd85a05d5a6d3ef2852d464ceac9817a9f8658a5c67a961f47f76",
+      "theoryChars": 1483,
+      "examples": 2,
+      "hasShortNotes": true,
+      "questions": 18,
+      "verified": 6,
+      "draft": 12,
+      "difficulties": {
+        "EASY": 6,
+        "MEDIUM": 8,
+        "HARD": 4
+      },
+      "explanationsUnder80": [
+        "qx-sys-1",
+        "qx-sys-2",
+        "qx-sys-3",
+        "qx-sys-4",
+        "qx-sys-5",
+        "qx-sys-6"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "NUMERIC",
+        "MATCHING"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "120_MATH_DRAFT_QUESTIONS_REVIEWED_IN_COPY",
+      "issues": [
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "math-quadratic",
+      "subjectId": "math",
+      "title": "Квадратні рівняння",
+      "parentId": null,
+      "coverage": "PARTIAL",
+      "lessonSha256": "3519facf2889c8412cc643d747d9f8e370f028cf4fdd2d310afe03031e7da314",
+      "theoryChars": 1441,
+      "examples": 2,
+      "hasShortNotes": true,
+      "questions": 18,
+      "verified": 6,
+      "draft": 12,
+      "difficulties": {
+        "EASY": 6,
+        "MEDIUM": 8,
+        "HARD": 4
+      },
+      "explanationsUnder80": [
+        "math-draft-v1-math-quadratic-09",
+        "qx-quad-1",
+        "qx-quad-2",
+        "qx-quad-3",
+        "qx-quad-4",
+        "qx-quad-5",
+        "qx-quad-6"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "NUMERIC",
+        "MATCHING"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "120_MATH_DRAFT_QUESTIONS_REVIEWED_IN_COPY",
+      "issues": [
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "math-functions",
+      "subjectId": "math",
+      "title": "Функції та графіки",
+      "parentId": null,
+      "coverage": "PARTIAL",
+      "lessonSha256": "9125b84c1fa992e66381a84ce6439c5c7695af8fa3e84edc993994b093a426dd",
+      "theoryChars": 1509,
+      "examples": 2,
+      "hasShortNotes": true,
+      "questions": 18,
+      "verified": 6,
+      "draft": 12,
+      "difficulties": {
+        "EASY": 6,
+        "MEDIUM": 8,
+        "HARD": 4
+      },
+      "explanationsUnder80": [
+        "math-draft-v1-math-functions-07",
+        "qx-fun-1",
+        "qx-fun-2",
+        "qx-fun-3",
+        "qx-fun-4",
+        "qx-fun-5",
+        "qx-fun-6"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "NUMERIC",
+        "MATCHING"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "120_MATH_DRAFT_QUESTIONS_REVIEWED_IN_COPY",
+      "issues": [
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "math-progressions",
+      "subjectId": "math",
+      "title": "Прогресії",
+      "parentId": null,
+      "coverage": "PARTIAL",
+      "lessonSha256": "10c956493c7930648896dc48d21d0358ec77882dd4e19aba79f722afdc097cb5",
+      "theoryChars": 1458,
+      "examples": 2,
+      "hasShortNotes": true,
+      "questions": 18,
+      "verified": 6,
+      "draft": 12,
+      "difficulties": {
+        "EASY": 6,
+        "MEDIUM": 8,
+        "HARD": 4
+      },
+      "explanationsUnder80": [
+        "qx-prog-1",
+        "qx-prog-2",
+        "qx-prog-3",
+        "qx-prog-4",
+        "qx-prog-5",
+        "qx-prog-6"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "NUMERIC",
+        "MATCHING"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "120_MATH_DRAFT_QUESTIONS_REVIEWED_IN_COPY",
+      "issues": [
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "math-trig",
+      "subjectId": "math",
+      "title": "Тригонометрія",
+      "parentId": null,
+      "coverage": "PARTIAL",
+      "lessonSha256": "7ee617ca9b22811ad8e8b2a44cc12064231bff84c9f915fa42defd553241f55c",
+      "theoryChars": 1617,
+      "examples": 2,
+      "hasShortNotes": true,
+      "questions": 18,
+      "verified": 6,
+      "draft": 12,
+      "difficulties": {
+        "EASY": 6,
+        "MEDIUM": 7,
+        "HARD": 5
+      },
+      "explanationsUnder80": [
+        "qx-trig-1",
+        "qx-trig-2",
+        "qx-trig-3",
+        "qx-trig-4",
+        "qx-trig-5",
+        "qx-trig-6"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "NUMERIC",
+        "MATCHING"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "120_MATH_DRAFT_QUESTIONS_REVIEWED_IN_COPY",
+      "issues": [
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "math-derivative",
+      "subjectId": "math",
+      "title": "Похідна",
+      "parentId": null,
+      "coverage": "PARTIAL",
+      "lessonSha256": "8fb494e1fb3b9a0463ddcaf38685bdd3f05fb55e3f981912eb007f44292ee72e",
+      "theoryChars": 1559,
+      "examples": 2,
+      "hasShortNotes": true,
+      "questions": 18,
+      "verified": 6,
+      "draft": 12,
+      "difficulties": {
+        "EASY": 6,
+        "MEDIUM": 8,
+        "HARD": 4
+      },
+      "explanationsUnder80": [
+        "math-draft-v1-math-derivative-09",
+        "qx-der-1",
+        "qx-der-2",
+        "qx-der-3",
+        "qx-der-4",
+        "qx-der-5",
+        "qx-der-6"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "NUMERIC",
+        "MATCHING"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "120_MATH_DRAFT_QUESTIONS_REVIEWED_IN_COPY",
+      "issues": [
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "math-plane",
+      "subjectId": "math",
+      "title": "Планіметрія",
+      "parentId": null,
+      "coverage": "PARTIAL",
+      "lessonSha256": "23a2e082df3a338b0f2e22337e6ccafa07017c2045f78dc4ef7485fa6a8d63b5",
+      "theoryChars": 1589,
+      "examples": 2,
+      "hasShortNotes": true,
+      "questions": 18,
+      "verified": 6,
+      "draft": 12,
+      "difficulties": {
+        "EASY": 6,
+        "MEDIUM": 8,
+        "HARD": 4
+      },
+      "explanationsUnder80": [
+        "math-draft-v1-math-plane-05",
+        "math-draft-v1-math-plane-07",
+        "math-draft-v1-math-plane-09",
+        "qx-plane-1",
+        "qx-plane-2",
+        "qx-plane-3",
+        "qx-plane-4",
+        "qx-plane-5",
+        "qx-plane-6"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "NUMERIC",
+        "MATCHING"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "120_MATH_DRAFT_QUESTIONS_REVIEWED_IN_COPY",
+      "issues": [
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "math-solid",
+      "subjectId": "math",
+      "title": "Стереометрія",
+      "parentId": null,
+      "coverage": "PARTIAL",
+      "lessonSha256": "33434bf66f3250e9f8fe1affc08f407295d692b46edae606fdc5861a38088a3b",
+      "theoryChars": 1590,
+      "examples": 2,
+      "hasShortNotes": true,
+      "questions": 18,
+      "verified": 6,
+      "draft": 12,
+      "difficulties": {
+        "EASY": 6,
+        "MEDIUM": 7,
+        "HARD": 5
+      },
+      "explanationsUnder80": [
+        "qx-solid-1",
+        "qx-solid-2",
+        "qx-solid-3",
+        "qx-solid-4",
+        "qx-solid-5",
+        "qx-solid-6"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "NUMERIC",
+        "MATCHING"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "120_MATH_DRAFT_QUESTIONS_REVIEWED_IN_COPY",
+      "issues": [
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "math-probability",
+      "subjectId": "math",
+      "title": "Комбінаторика та ймовірність",
+      "parentId": null,
+      "coverage": "PARTIAL",
+      "lessonSha256": "a09d5a406292c5689f1e3713a5fd099790a7d6f9d94ee313b9ba31c6f9139251",
+      "theoryChars": 1665,
+      "examples": 2,
+      "hasShortNotes": true,
+      "questions": 18,
+      "verified": 6,
+      "draft": 12,
+      "difficulties": {
+        "EASY": 6,
+        "MEDIUM": 7,
+        "HARD": 5
+      },
+      "explanationsUnder80": [
+        "qx-prob-1",
+        "qx-prob-2",
+        "qx-prob-3",
+        "qx-prob-4",
+        "qx-prob-5",
+        "qx-prob-6"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "NUMERIC",
+        "MATCHING"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "120_MATH_DRAFT_QUESTIONS_REVIEWED_IN_COPY",
+      "issues": [
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "s7a-sec-math-v2",
+      "subjectId": "math",
+      "title": "Stage 7A.1 · math",
+      "parentId": null,
+      "coverage": "NEEDS_CONTENT",
+      "lessonSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "theoryChars": 0,
+      "examples": 0,
+      "hasShortNotes": false,
+      "questions": 0,
+      "verified": 0,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 0,
+        "MEDIUM": 0,
+        "HARD": 0
+      },
+      "explanationsUnder80": [],
+      "questionTypes": [],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "NO_PARSED_LESSON",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "math-linear-eq-sub-02",
+      "subjectId": "math",
+      "title": "Лінійне рівняння",
+      "parentId": "s7a-sec-math-v2",
+      "coverage": "READY",
+      "lessonSha256": "4a875f6acaac9edac1cfeaad5bfd3e42f35364f315a4fb2de480bba6e45ae84e",
+      "theoryChars": 1267,
+      "examples": 4,
+      "hasShortNotes": true,
+      "questions": 12,
+      "verified": 12,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "explanationsUnder80": [
+        "s7a-math-linear-eq-sub-02-e01",
+        "s7a-math-linear-eq-sub-02-e02",
+        "s7a-math-linear-eq-sub-02-e03",
+        "s7a-math-linear-eq-sub-02-e04",
+        "s7a-math-linear-eq-sub-02-e05",
+        "s7a-math-linear-eq-sub-02-e06",
+        "s7a-math-linear-eq-sub-02-e07",
+        "s7a-math-linear-eq-sub-02-e08",
+        "s7a-math-linear-eq-sub-02-e09",
+        "s7a-math-linear-eq-sub-02-e10",
+        "s7a-math-linear-eq-sub-02-e11",
+        "s7a-math-linear-eq-sub-02-e12"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "math-quadratic-sub-01",
+      "subjectId": "math",
+      "title": "Дискримінант і корені",
+      "parentId": "s7a-sec-math-v2",
+      "coverage": "READY",
+      "lessonSha256": "e42a592210c789edac636ac73eb771053a619d57eeebb581d11b0dab7eff1f69",
+      "theoryChars": 1258,
+      "examples": 4,
+      "hasShortNotes": true,
+      "questions": 12,
+      "verified": 12,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "explanationsUnder80": [
+        "s7a-math-quadratic-sub-01-e01",
+        "s7a-math-quadratic-sub-01-e02",
+        "s7a-math-quadratic-sub-01-e03",
+        "s7a-math-quadratic-sub-01-e04",
+        "s7a-math-quadratic-sub-01-e05",
+        "s7a-math-quadratic-sub-01-e06",
+        "s7a-math-quadratic-sub-01-e07",
+        "s7a-math-quadratic-sub-01-e08",
+        "s7a-math-quadratic-sub-01-e09",
+        "s7a-math-quadratic-sub-01-e10",
+        "s7a-math-quadratic-sub-01-e11",
+        "s7a-math-quadratic-sub-01-e12"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NEEDS_FIXES_PUBLISHED_KEYS",
+      "issues": [
+        "VIDEO_MISSING",
+        "PUBLISHED_KEY_CONFLICT_OR_UNSAFE_STEM"
+      ]
+    },
+    {
+      "id": "ukr-phonetics",
+      "subjectId": "ukrainian",
+      "title": "Фонетика та орфоепія",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "70c8899034841a2b8202cb057aedc2809daa73157596224b227bffeb20f2104b",
+      "theoryChars": 215,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 2,
+        "MEDIUM": 1,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-ph-1",
+        "qx-ph-2",
+        "qx-ph-3",
+        "qx-ph-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "ukr-lexis",
+      "subjectId": "ukrainian",
+      "title": "Лексикологія",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "19aaf5d595281579420e3fb2f5395f99dee6314ef7b2e779a701fef2b22aeacc",
+      "theoryChars": 222,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 2,
+        "MEDIUM": 1,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-lex-1",
+        "qx-lex-2",
+        "qx-lex-3",
+        "qx-lex-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "ukr-word",
+      "subjectId": "ukrainian",
+      "title": "Будова слова",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "8e299c1ca6534cc871b950513030ccf3d6ab4ceeb93a542fb5987f53c7c90ec7",
+      "theoryChars": 202,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 1,
+        "MEDIUM": 2,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-word-1",
+        "qx-word-2",
+        "qx-word-3",
+        "qx-word-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "ukr-ortho",
+      "subjectId": "ukrainian",
+      "title": "Орфографія",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "93bad2887623d86b60af942ebd49d7d27da154f07e12e592943a15e716a60534",
+      "theoryChars": 1536,
+      "examples": 3,
+      "hasShortNotes": true,
+      "questions": 12,
+      "verified": 12,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "explanationsUnder80": [
+        "q-u1",
+        "q-u10",
+        "q-u11",
+        "q-u12",
+        "q-u2",
+        "q-u3",
+        "q-u4",
+        "q-u5",
+        "q-u7",
+        "q-u9"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "SHORT_TEXT",
+        "MATCHING"
+      ],
+      "videos": [
+        {
+          "id": "cmvci5soe0003utjo3ntmto58",
+          "topicId": "ukr-ortho",
+          "youtubeId": "uDffUp7AuYQ",
+          "url": "https://www.youtube.com/watch?v=uDffUp7AuYQ",
+          "title": "ВШО: Орфографія (9 клас)",
+          "reviewStatus": "SUGGESTED",
+          "language": "uk",
+          "durationSec": null,
+          "channel": "Всеукраїнська школа онлайн",
+          "stage8ContentViewing": "NOT_RUN"
+        }
+      ],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": []
+    },
+    {
+      "id": "ukr-morph",
+      "subjectId": "ukrainian",
+      "title": "Морфологія",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "ff65163536958298414104f39264cabb0fbdff7252c3b8334705ab14b083145c",
+      "theoryChars": 227,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 2,
+        "MEDIUM": 1,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-morph-1",
+        "qx-morph-2",
+        "qx-morph-3",
+        "qx-morph-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "ukr-syntax",
+      "subjectId": "ukrainian",
+      "title": "Синтаксис",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "246910c48f411584f9e23ed796cb39f11bfc16901f817a7c9883a4ef070e5392",
+      "theoryChars": 235,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 1,
+        "MEDIUM": 2,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-syn-1",
+        "qx-syn-2",
+        "qx-syn-3",
+        "qx-syn-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "ukr-punct",
+      "subjectId": "ukrainian",
+      "title": "Пунктуація",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "3f7535e3f8baa6a1f03d2af6926a00cdb99a17b87df6672f769a9a6b7174a1a4",
+      "theoryChars": 204,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 2,
+        "MEDIUM": 1,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-punct-1",
+        "qx-punct-2",
+        "qx-punct-3",
+        "qx-punct-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "ukr-style",
+      "subjectId": "ukrainian",
+      "title": "Текст і стилістика",
+      "parentId": null,
+      "coverage": "VERIFIED",
+      "lessonSha256": "70d21d0816ca186775722f623e69bf5287677baa4eea39f5ebe18f391675e871",
+      "theoryChars": 258,
+      "examples": 1,
+      "hasShortNotes": true,
+      "questions": 4,
+      "verified": 4,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 1,
+        "MEDIUM": 2,
+        "HARD": 1
+      },
+      "explanationsUnder80": [
+        "qx-style-1",
+        "qx-style-2",
+        "qx-style-3",
+        "qx-style-4"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "SHORT_THEORY",
+        "FEWER_THAN_TWO_EXAMPLES",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "ukr-lexicology-section-01",
+      "subjectId": "ukrainian",
+      "title": "Лексикологія та фразеологія",
+      "parentId": null,
+      "coverage": "READY",
+      "lessonSha256": "a70f888e7d7c54296f736f9d8236535f3cbbd0bf56438a624751264fe7b573c6",
+      "theoryChars": 1147,
+      "examples": 4,
+      "hasShortNotes": true,
+      "questions": 12,
+      "verified": 12,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "explanationsUnder80": [
+        "s7a-ukr-lexicology-section-01-e04",
+        "s7a-ukr-lexicology-section-01-h01",
+        "s7a-ukr-lexicology-section-01-h02",
+        "s7a-ukr-lexicology-section-01-h03",
+        "s7a-ukr-lexicology-section-01-m01",
+        "s7a-ukr-lexicology-section-01-m02",
+        "s7a-ukr-lexicology-section-01-m03"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NEEDS_FIXES_PUBLISHED_KEYS",
+      "issues": [
+        "VIDEO_MISSING",
+        "PUBLISHED_KEY_CONFLICT_OR_UNSAFE_STEM"
+      ]
+    },
+    {
+      "id": "ukr-lex-01-meaning",
+      "subjectId": "ukrainian",
+      "title": "Лексичне значення слова",
+      "parentId": "s7a-sec-ukr-lex",
+      "coverage": "READY",
+      "lessonSha256": "d41db4128b3481d3ea29393632fa489feb357f4b82799f3c8a98a2348ee17109",
+      "theoryChars": 5675,
+      "examples": 6,
+      "hasShortNotes": true,
+      "questions": 12,
+      "verified": 12,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "explanationsUnder80": [],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "MATCHING",
+        "SHORT_TEXT"
+      ],
+      "videos": [
+        {
+          "id": "cmvqmvaz90001ut9s70jnfxgc",
+          "topicId": "ukr-lex-01-meaning",
+          "youtubeId": "NDmd6xU9F2E",
+          "url": "https://www.youtube.com/watch?v=NDmd6xU9F2E",
+          "title": "Українська мова. Лексикологія. Лексичне значення слова. Однозначні й багатозначні слова",
+          "reviewStatus": "SUGGESTED",
+          "language": "uk",
+          "durationSec": null,
+          "channel": "",
+          "stage8ContentViewing": "NOT_RUN"
+        }
+      ],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": []
+    },
+    {
+      "id": "ukr-lex-02-syn-ant-hom",
+      "subjectId": "ukrainian",
+      "title": "Синоніми, антоніми, омоніми",
+      "parentId": "s7a-sec-ukr-lex",
+      "coverage": "READY",
+      "lessonSha256": "40bf3952ed53ee6a0f9ced287ef09cdd7241d435d9aa2b40c5d7cfac5a5b305f",
+      "theoryChars": 3735,
+      "examples": 6,
+      "hasShortNotes": true,
+      "questions": 12,
+      "verified": 12,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "explanationsUnder80": [
+        "ukr-lex-02-q12"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "MATCHING"
+      ],
+      "videos": [
+        {
+          "id": "cmvqmvazb0004ut9s6vgj6u3e",
+          "topicId": "ukr-lex-02-syn-ant-hom",
+          "youtubeId": "scigg_eN4qs",
+          "url": "https://www.youtube.com/watch?v=scigg_eN4qs",
+          "title": "10 клас. Українська мова. Лексичні та фразеологічні синоніми, антоніми. Синонімічне багатство мови",
+          "reviewStatus": "SUGGESTED",
+          "language": "uk",
+          "durationSec": null,
+          "channel": "",
+          "stage8ContentViewing": "NOT_RUN"
+        },
+        {
+          "id": "cmvsm4lbp000lut38el0x1plt",
+          "topicId": "ukr-lex-02-syn-ant-hom",
+          "youtubeId": "o9xcL5pCxog",
+          "url": "https://www.youtube.com/watch?v=o9xcL5pCxog",
+          "title": "Українська мова. Омоніми. Пароніми. Словник омонімів. Словник паронімів",
+          "reviewStatus": "SUGGESTED",
+          "language": "uk",
+          "durationSec": null,
+          "channel": "",
+          "stage8ContentViewing": "NOT_RUN"
+        }
+      ],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": []
+    },
+    {
+      "id": "ukr-lex-03-phraseology",
+      "subjectId": "ukrainian",
+      "title": "Фразеологізми",
+      "parentId": "s7a-sec-ukr-lex",
+      "coverage": "READY",
+      "lessonSha256": "aa095222fa31b9f8d2fc7375fdddd7e673039fdfbe88d5cdcd960d875fca61b5",
+      "theoryChars": 4756,
+      "examples": 6,
+      "hasShortNotes": true,
+      "questions": 12,
+      "verified": 12,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "explanationsUnder80": [],
+      "questionTypes": [
+        "SINGLE_CHOICE",
+        "MATCHING"
+      ],
+      "videos": [
+        {
+          "id": "cmvqmvazd0007ut9s5df76dyb",
+          "topicId": "ukr-lex-03-phraseology",
+          "youtubeId": "oZfA9V0mhV4",
+          "url": "https://www.youtube.com/watch?v=oZfA9V0mhV4",
+          "title": "Українська мова. Джерела українських фразеологізмів. Фразеологізми у мовленні людини",
+          "reviewStatus": "SUGGESTED",
+          "language": "uk",
+          "durationSec": null,
+          "channel": "",
+          "stage8ContentViewing": "NOT_RUN"
+        },
+        {
+          "id": "cmvsm4lbr000nut38z1cb30gr",
+          "topicId": "ukr-lex-03-phraseology",
+          "youtubeId": "wm0X68H_WtQ",
+          "url": "https://www.youtube.com/watch?v=wm0X68H_WtQ",
+          "title": "Українська мова. Фразеологія. Поняття про фразеологізм, його лексичне значення",
+          "reviewStatus": "SUGGESTED",
+          "language": "uk",
+          "durationSec": null,
+          "channel": "",
+          "stage8ContentViewing": "NOT_RUN"
+        }
+      ],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": []
+    },
+    {
+      "id": "s7a-sec-ukr-lex",
+      "subjectId": "ukrainian",
+      "title": "Stage 7A.1 · ukrainian",
+      "parentId": null,
+      "coverage": "NEEDS_CONTENT",
+      "lessonSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "theoryChars": 0,
+      "examples": 0,
+      "hasShortNotes": false,
+      "questions": 0,
+      "verified": 0,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 0,
+        "MEDIUM": 0,
+        "HARD": 0
+      },
+      "explanationsUnder80": [],
+      "questionTypes": [],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "NO_PARSED_LESSON",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "s7a-sec-ukrainian-v2",
+      "subjectId": "ukrainian",
+      "title": "Stage 7A.1 · ukrainian",
+      "parentId": null,
+      "coverage": "NEEDS_CONTENT",
+      "lessonSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "theoryChars": 0,
+      "examples": 0,
+      "hasShortNotes": false,
+      "questions": 0,
+      "verified": 0,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 0,
+        "MEDIUM": 0,
+        "HARD": 0
+      },
+      "explanationsUnder80": [],
+      "questionTypes": [],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NOT_YET_INDEPENDENTLY_REVIEWED",
+      "issues": [
+        "NO_PARSED_LESSON",
+        "LIMITED_PRACTICE_BANK",
+        "VIDEO_MISSING"
+      ]
+    },
+    {
+      "id": "ukr-ortho-sub-01",
+      "subjectId": "ukrainian",
+      "title": "Ненаголошені голосні",
+      "parentId": "s7a-sec-ukrainian-v2",
+      "coverage": "READY",
+      "lessonSha256": "14eb11ac00f7af860d804ec79f72256cdd674be5294069312f48581aeb0cfeb5",
+      "theoryChars": 1209,
+      "examples": 4,
+      "hasShortNotes": true,
+      "questions": 12,
+      "verified": 12,
+      "draft": 0,
+      "difficulties": {
+        "EASY": 4,
+        "MEDIUM": 5,
+        "HARD": 3
+      },
+      "explanationsUnder80": [
+        "s7a-ukr-ortho-sub-01-e01",
+        "s7a-ukr-ortho-sub-01-e02",
+        "s7a-ukr-ortho-sub-01-e03",
+        "s7a-ukr-ortho-sub-01-e04",
+        "s7a-ukr-ortho-sub-01-e05",
+        "s7a-ukr-ortho-sub-01-e06",
+        "s7a-ukr-ortho-sub-01-e07",
+        "s7a-ukr-ortho-sub-01-e08",
+        "s7a-ukr-ortho-sub-01-e09",
+        "s7a-ukr-ortho-sub-01-e10",
+        "s7a-ukr-ortho-sub-01-e11",
+        "s7a-ukr-ortho-sub-01-e12"
+      ],
+      "questionTypes": [
+        "SINGLE_CHOICE"
+      ],
+      "videos": [],
+      "explicitTests": [],
+      "subjectReview": "NEEDS_FIXES_PUBLISHED_KEYS",
+      "issues": [
+        "VIDEO_MISSING",
+        "PUBLISHED_KEY_CONFLICT_OR_UNSAFE_STEM"
+      ]
+    }
+  ],
+  "limitations": [
+    "First substantive pass covers all 514 selected questions; independent final subject approval remains incomplete.",
+    "No video was newly confirmed by viewing.",
+    "Existing publication status does not override the 24 content blockers."
+  ],
+  "qualityFindings": {
+    "publishedKeyConflicts": 19,
+    "questionsRequiringRewrite": 5,
+    "otherFlags": 8,
+    "existingQuestionsSubjectReviewedFirstPass": 514,
+    "previouslyVerifiedQuestionsStillRequiringFullReview": 394,
+    "newAuthoredQuestionsReviewed": 36,
+    "explanationsUnder80": 314,
+    "shortExplanationPolicy": "Length is a screening signal, not proof that each short explanation is wrong.",
+    "meaningOfFullReview": "Independent final subject approval remains pending even after first pass of all 514.",
+    "continuationFindings": 12
+  }
+}

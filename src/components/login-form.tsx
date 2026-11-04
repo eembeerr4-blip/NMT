@@ -20,7 +20,7 @@ export function LoginForm({ action }: {
         <input name="rememberMe" type="checkbox" defaultChecked />
         Запам’ятати мене на цьому пристрої
       </label>
-      {state?.error ? <p role="alert" className="text-sm text-destructive">{state.error}</p> : null}
+      {state?.error ? <p role="alert" className="text-sm">{state.error}</p> : null}
       <Button type="submit" disabled={pending}>{pending ? "Вхід…" : "Увійти"}</Button>
     </form>
     {state?.verificationNeeded ? <ResendVerificationForm /> : null}</>

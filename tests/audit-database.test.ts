@@ -36,22 +36,22 @@ describe.skipIf(process.env.NMT_AUDIT_DB !== "1")("isolated audit database expor
   it("restores accounts, subject choices and personal progress without losing them", async () => {
     auth.id = "owner";
     const snapshot = await buildBackup();
-    expect(snapshot.version).toBe(3);
+    expect(snapshot.version).toBe(5);
     expect(snapshot.users.length).toBeGreaterThanOrEqual(2);
     expect(snapshot.progress.length).toBeGreaterThan(0);
     expect(snapshot.userSubjects.length).toBeGreaterThanOrEqual(8);
-    await prisma.note.create({ data: { title: "Temporary restore probe", content: "Disposable audit data", userId: "owner" } });
+    const extraResults = await prisma.examResult.count();
+    await prisma.examResult.create({ data: { userId: "owner", subjectId: "math", date: new Date("2026-10-20"), testType: "MANUAL", title: "Temporary restore probe", source: "QA", ratingScore: 150, belowThreshold: false, partial: false, countsTowardAverage: true, comment: "" } });
     const restored = await restoreBackup(JSON.stringify(snapshot), "ВІДНОВИТИ");
     expect(restored, JSON.stringify(restored)).toMatchObject({ ok: true });
     expect(await prisma.user.count()).toBe(snapshot.users.length);
     expect(await prisma.userSubject.count()).toBe(snapshot.userSubjects.length);
     expect(await prisma.userTopicProgress.count()).toBe(snapshot.progress.length);
-    expect(await prisma.note.count()).toBe(snapshot.notes.length);
     expect(await prisma.userVideoProgress.count()).toBe(snapshot.videoProgress.length);
-    expect(await prisma.aIMessage.count()).toBe(snapshot.messages.length);
     expect(await prisma.examResult.count()).toBe(snapshot.examResults.length);
     expect(await prisma.testAttempt.count()).toBe(snapshot.attempts.length);
-    expect(await prisma.note.count({ where: { title: "Temporary restore probe" } })).toBe(0);
+    expect(await prisma.examResult.count({ where: { title: "Temporary restore probe" } })).toBe(0);
+    expect(extraResults).toBeGreaterThanOrEqual(0);
   }, 20000);
 
   it("rejects incomplete old copies before changing any data", async () => {

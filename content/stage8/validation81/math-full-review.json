@@ -1,0 +1,1750 @@
+{
+  "phase": 2,
+  "reviewType": "Independent model-agent educational review; not human sign-off",
+  "input": "PRIVATE_BLIND_PACKET/math-full.json",
+  "inputSha256": "b1be613d10fdd1e39f9488748fa740b90d57bab9911b049f1afbff9e7c22ead4",
+  "sealedPhase1Sha256": "81ef85423cee9239683056dcd9510a5ecb9947afa0d535a2805906c07f059871",
+  "summary": {
+    "questionCount": 120,
+    "keyAgreements": 120,
+    "keyDisagreements": 0,
+    "lessonsReviewed": 10,
+    "examplesReviewed": 20,
+    "answerChecks": 19,
+    "answerCheckPasses": 19,
+    "factualKeyFailures": 0,
+    "packageEdits": 0
+  },
+  "pendingChanges": [
+    {
+      "id": "math-draft-v1-math-solid-05",
+      "verdict": "APPROVE",
+      "classification": "factual-condition-precision",
+      "reason": "Rectangular qualification is necessary: only then three given edges are mutually perpendicular and d^2=a^2+b^2+c^2. Current prompt contains it. Derived d=13."
+    },
+    {
+      "id": "math-draft-v1-math-solid-08",
+      "verdict": "APPROVE",
+      "classification": "factual-condition-precision",
+      "reason": "Rectangular qualification ensures rectangular faces; general parallelepiped cannot use2(ab+bc+ca). Current prompt contains it. Derived surface52."
+    },
+    {
+      "id": "math-draft-v1-math-probability-09",
+      "verdict": "APPROVE",
+      "classification": "factual-explanation-correction",
+      "reason": "Current explanation correctly obtains6,24,5; distractor8 identified as choosing larger observation; sum explicitly10,not8. Full pairs1-А,2-В,3-Г."
+    }
+  ],
+  "lessons": [
+    {
+      "topicId": "math-expressions",
+      "theoryStatus": "ACCEPT_WITH_PRECISION_NOTES",
+      "objectivesPrerequisitesRulesMistakesSummaryReviewed": true,
+      "notes": [
+        "Power identities understood only where both sides defined (including negative/zero exponent cases). Domain/log restrictions are correctly discussed."
+      ]
+    },
+    {
+      "topicId": "math-linear-systems",
+      "theoryStatus": "ACCEPT_WITH_PRECISION_NOTES",
+      "objectivesPrerequisitesRulesMistakesSummaryReviewed": true,
+      "notes": [
+        "State each linear equation has at least one nonzero variable coefficient before saying it always defines a line; otherwise 0x+0y=e is degenerate. All concrete examples/tasks nondegenerate."
+      ]
+    },
+    {
+      "topicId": "math-quadratic",
+      "theoryStatus": "ACCEPT_WITH_PRECISION_NOTES",
+      "objectivesPrerequisitesRulesMistakesSummaryReviewed": true,
+      "notes": [
+        "Discriminant,Vieta,strict endpoint exclusions and parameter-degenerate warning correct."
+      ]
+    },
+    {
+      "topicId": "math-functions",
+      "theoryStatus": "ACCEPT_WITH_PRECISION_NOTES",
+      "objectivesPrerequisitesRulesMistakesSummaryReviewed": true,
+      "notes": [
+        "Correct elementary function/domain transformations. Objective includes power/exponential/log functions more broadly than assessed pool. No diagram-reading practice."
+      ]
+    },
+    {
+      "topicId": "math-progressions",
+      "theoryStatus": "ACCEPT_WITH_PRECISION_NOTES",
+      "objectivesPrerequisitesRulesMistakesSummaryReviewed": true,
+      "notes": [
+        "nth-term,sum,q=1 exception,sign issue and adjacent-term relations correct."
+      ]
+    },
+    {
+      "topicId": "math-trig",
+      "theoryStatus": "ACCEPT_WITH_PRECISION_NOTES",
+      "objectivesPrerequisitesRulesMistakesSummaryReviewed": true,
+      "notes": [
+        "Unit circle,parity,periods,double angle and interval endpoint distinctions correct. No substantial defect."
+      ]
+    },
+    {
+      "topicId": "math-derivative",
+      "theoryStatus": "ACCEPT_WITH_PRECISION_NOTES",
+      "objectivesPrerequisitesRulesMistakesSummaryReviewed": true,
+      "notes": [
+        "Derivative08 placement concern resolved by full lesson: objectives explicitly distinguish primitive and final paragraph introduces definite integration. Rename title or expand only if intended larger coverage; no factual correction needed.",
+        "For general power antiderivative identity retain domain where x^n is real/defined. Critical points should explicitly include points where derivative fails to exist."
+      ]
+    },
+    {
+      "topicId": "math-plane",
+      "theoryStatus": "ACCEPT_WITH_PRECISION_NOTES",
+      "objectivesPrerequisitesRulesMistakesSummaryReviewed": true,
+      "notes": [
+        "Heron,similarity,area and circle formulas correct. Arc-central-angle statement needs central angle corresponding to same arc (reflex when arc>180degrees); current wording uses same-arc condition and all tasks use minor arc.",
+        "For plane10 add S=pr to theory if lesson advertised self-contained; currently introduced only in solution."
+      ]
+    },
+    {
+      "topicId": "math-solid",
+      "theoryStatus": "ACCEPT_WITH_PRECISION_NOTES",
+      "objectivesPrerequisitesRulesMistakesSummaryReviewed": true,
+      "notes": [
+        "Theory correctly specifies right circular cone before l^2=r^2+h^2 but compact rules omit qualifier; add прямого кругового to that rule and relevant tasks/example if precision desired.",
+        "Current solid05/08 correctly say rectangular parallelepiped; required for diagonal and surface formulas."
+      ]
+    },
+    {
+      "topicId": "math-probability",
+      "theoryStatus": "ACCEPT_WITH_PRECISION_NOTES",
+      "objectivesPrerequisitesRulesMistakesSummaryReviewed": true,
+      "notes": [
+        "Counting,uniform models,without-replacement and statistics are correct. Corrected probability09 distractor explanation now matches actual options."
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "topicId": "math-expressions",
+      "index": 1,
+      "task": "Спростіть $\\frac{x^2-9}{x-3}$ і обчисліть при $x=5$.",
+      "derivedNumeric": 8,
+      "reasoning": "Domain x!=3;(25-9)/(5-3)=8",
+      "solutionCorrect": true,
+      "answerCheck": null,
+      "answerCheckStatus": "NOT_PRESENT",
+      "assumptions": []
+    },
+    {
+      "topicId": "math-expressions",
+      "index": 2,
+      "task": "Обчисліть $\\sqrt{(-7)^2}+\\log_2 8$.",
+      "derivedNumeric": 10,
+      "reasoning": "sqrt49+log_2(8)=7+3=10",
+      "solutionCorrect": true,
+      "answerCheck": {
+        "type": "numeric",
+        "value": 10
+      },
+      "answerCheckStatus": "PASS",
+      "assumptions": []
+    },
+    {
+      "topicId": "math-linear-systems",
+      "index": 1,
+      "task": "Знайдіть $x$ у системі $x+y=7$, $x-y=1$.",
+      "derivedNumeric": 4,
+      "reasoning": "Add equations2x=8,x=4,y=3",
+      "solutionCorrect": true,
+      "answerCheck": {
+        "type": "numeric",
+        "value": 4
+      },
+      "answerCheckStatus": "PASS",
+      "assumptions": []
+    },
+    {
+      "topicId": "math-linear-systems",
+      "index": 2,
+      "task": "Два дорослих і три дитячих квитки коштують 390 грн; дорослий на 45 грн дорожчий. Знайдіть ціну дитячого квитка.",
+      "derivedNumeric": 60,
+      "reasoning": "2(c+45)+3c=390 givesc=60",
+      "solutionCorrect": true,
+      "answerCheck": {
+        "type": "numeric",
+        "value": 60
+      },
+      "answerCheckStatus": "PASS",
+      "assumptions": []
+    },
+    {
+      "topicId": "math-quadratic",
+      "index": 1,
+      "task": "Знайдіть більший корінь $x^2-5x+6=0$.",
+      "derivedNumeric": 3,
+      "reasoning": "(x-2)(x-3)=0,larger3",
+      "solutionCorrect": true,
+      "answerCheck": {
+        "type": "numeric",
+        "value": 3
+      },
+      "answerCheckStatus": "PASS",
+      "assumptions": []
+    },
+    {
+      "topicId": "math-quadratic",
+      "index": 2,
+      "task": "Прямокутник має площу 48 см², а довжина на 2 см більша за ширину. Знайдіть ширину.",
+      "derivedNumeric": 6,
+      "reasoning": "x(x+2)=48 gives6,-8;positive width6",
+      "solutionCorrect": true,
+      "answerCheck": {
+        "type": "numeric",
+        "value": 6
+      },
+      "answerCheckStatus": "PASS",
+      "assumptions": []
+    },
+    {
+      "topicId": "math-functions",
+      "index": 1,
+      "task": "Для $f(x)=2x^2-3x+1$ знайдіть $f(-2)$.",
+      "derivedNumeric": 15,
+      "reasoning": "2*4+6+1=15",
+      "solutionCorrect": true,
+      "answerCheck": {
+        "type": "numeric",
+        "value": 15
+      },
+      "answerCheckStatus": "PASS",
+      "assumptions": []
+    },
+    {
+      "topicId": "math-functions",
+      "index": 2,
+      "task": "Знайдіть найменше значення $y=x^2-6x+11$.",
+      "derivedNumeric": 2,
+      "reasoning": "(x-3)^2+2 has minimum2",
+      "solutionCorrect": true,
+      "answerCheck": {
+        "type": "numeric",
+        "value": 2
+      },
+      "answerCheckStatus": "PASS",
+      "assumptions": []
+    },
+    {
+      "topicId": "math-progressions",
+      "index": 1,
+      "task": "В арифметичній прогресії a₁=3, d=4. Знайдіть a₆.",
+      "derivedNumeric": 23,
+      "reasoning": "3+5*4=23",
+      "solutionCorrect": true,
+      "answerCheck": {
+        "type": "numeric",
+        "value": 23
+      },
+      "answerCheckStatus": "PASS",
+      "assumptions": []
+    },
+    {
+      "topicId": "math-progressions",
+      "index": 2,
+      "task": "Знайдіть суму перших чотирьох членів геометричної прогресії b₁=2, q=3.",
+      "derivedNumeric": 80,
+      "reasoning": "2+6+18+54=80",
+      "solutionCorrect": true,
+      "answerCheck": {
+        "type": "numeric",
+        "value": 80
+      },
+      "answerCheckStatus": "PASS",
+      "assumptions": []
+    },
+    {
+      "topicId": "math-trig",
+      "index": 1,
+      "task": "Знайдіть $\\sin150^\\circ$.",
+      "derivedNumeric": 0.5,
+      "reasoning": "sin(180-30)=sin30=.5",
+      "solutionCorrect": true,
+      "answerCheck": {
+        "type": "numeric",
+        "value": 0.5
+      },
+      "answerCheckStatus": "PASS",
+      "assumptions": []
+    },
+    {
+      "topicId": "math-trig",
+      "index": 2,
+      "task": "Якщо $\\sin x=3/5$ і $x$ у другій чверті, знайдіть $\\cos x$.",
+      "derivedNumeric": -0.8,
+      "reasoning": "QuadrantII cos=-sqrt(1-9/25)=-4/5",
+      "solutionCorrect": true,
+      "answerCheck": {
+        "type": "numeric",
+        "value": -0.8
+      },
+      "answerCheckStatus": "PASS",
+      "assumptions": []
+    },
+    {
+      "topicId": "math-derivative",
+      "index": 1,
+      "task": "Для $f(x)=x^3-2x+1$ знайдіть $f'(2)$.",
+      "derivedNumeric": 10,
+      "reasoning": "f prime=3x^2-2,at2 gives10",
+      "solutionCorrect": true,
+      "answerCheck": {
+        "type": "numeric",
+        "value": 10
+      },
+      "answerCheckStatus": "PASS",
+      "assumptions": []
+    },
+    {
+      "topicId": "math-derivative",
+      "index": 2,
+      "task": "Знайдіть найбільше значення $f(x)=x(6-x)$ на [0;6].",
+      "derivedNumeric": 9,
+      "reasoning": "6x-x^2=9-(x-3)^2 on[0,6],maximum9",
+      "solutionCorrect": true,
+      "answerCheck": {
+        "type": "numeric",
+        "value": 9
+      },
+      "answerCheckStatus": "PASS",
+      "assumptions": []
+    },
+    {
+      "topicId": "math-plane",
+      "index": 1,
+      "task": "Катети трикутника 6 см і 8 см. Знайдіть гіпотенузу.",
+      "derivedNumeric": 10,
+      "reasoning": "sqrt(6^2+8^2)=10",
+      "solutionCorrect": true,
+      "answerCheck": {
+        "type": "numeric",
+        "value": 10
+      },
+      "answerCheckStatus": "PASS",
+      "assumptions": []
+    },
+    {
+      "topicId": "math-plane",
+      "index": 2,
+      "task": "Рівнобедрений трикутник має сторони 13, 13 і 10 см. Знайдіть площу.",
+      "derivedNumeric": 60,
+      "reasoning": "Altitude sqrt(13^2-5^2)=12;area10*12/2=60",
+      "solutionCorrect": true,
+      "answerCheck": {
+        "type": "numeric",
+        "value": 60
+      },
+      "answerCheckStatus": "PASS",
+      "assumptions": []
+    },
+    {
+      "topicId": "math-solid",
+      "index": 1,
+      "task": "Знайдіть просторову діагональ прямокутного паралелепіпеда з ребрами 3, 4, 12.",
+      "derivedNumeric": 13,
+      "reasoning": "sqrt(3^2+4^2+12^2)=13",
+      "solutionCorrect": true,
+      "answerCheck": {
+        "type": "numeric",
+        "value": 13
+      },
+      "answerCheckStatus": "PASS",
+      "assumptions": []
+    },
+    {
+      "topicId": "math-solid",
+      "index": 2,
+      "task": "Конус має радіус 3 см і твірну 5 см. Об’єм дорівнює kπ см³. Знайдіть k.",
+      "derivedNumeric": 12,
+      "reasoning": "Right cone height sqrt(25-9)=4;volume pi*9*4/3=12pi",
+      "solutionCorrect": true,
+      "answerCheck": {
+        "type": "numeric",
+        "value": 12
+      },
+      "answerCheckStatus": "PASS",
+      "assumptions": [
+        "Right circular cone convention"
+      ]
+    },
+    {
+      "topicId": "math-probability",
+      "index": 1,
+      "task": "Із 6 учнів обирають команду з 2 без розподілу ролей. Скільки є команд?",
+      "derivedNumeric": 15,
+      "reasoning": "C(6,2)=15",
+      "solutionCorrect": true,
+      "answerCheck": {
+        "type": "numeric",
+        "value": 15
+      },
+      "answerCheckStatus": "PASS",
+      "assumptions": []
+    },
+    {
+      "topicId": "math-probability",
+      "index": 2,
+      "task": "У мішку 3 білі й 2 чорні кульки. Навмання дістають дві без повернення. Знайдіть ймовірність, що обидві білі.",
+      "derivedNumeric": 0.3,
+      "reasoning": "C(3,2)/C(5,2)=3/10=.3",
+      "solutionCorrect": true,
+      "answerCheck": {
+        "type": "numeric",
+        "value": 0.3
+      },
+      "answerCheckStatus": "PASS",
+      "assumptions": []
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-draft-v1-math-expressions-01",
+      "blindDerived": "А",
+      "proposedKey": "А",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION_WITH_DISTRACTOR_PRECISION_NOTE",
+      "independentReasoning": "3*4-2*4+5=9",
+      "issues": [
+        {
+          "classification": "factual-explanation-precision",
+          "severity": "minor",
+          "field": "explanation.Д",
+          "finding": "The phrase Усі коефіцієнти додано до підстановки does not reproduce distractor25: adding signed coefficients gives3-2+5=6, and treating all as coefficient then x=4 gives24. The correct reasoning/key9 remains sound.",
+          "minimalFix": "Replace Д explanation with: Після спрощення x+5 помилково підставлено x=20 замість x=4; отримано25. Alternatively use a transparent distractor24 with explicit (3-2+5)*4=24, keeping label Д incorrect."
+        }
+      ],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-expressions-02",
+      "blindDerived": "Б",
+      "proposedKey": "Б",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "(2*2)^3=64",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-expressions-03",
+      "blindDerived": "В",
+      "proposedKey": "В",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Principal sqrt81=9, because9^2=81",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-expressions-04",
+      "blindDerived": "Г",
+      "proposedKey": "Г",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "3^3=27, so log_3(27)=3",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-expressions-05",
+      "blindDerived": "10",
+      "proposedKey": "10",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "(6^2-16)/(6-4)=20/2=10; denominator nonzero",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-expressions-06",
+      "blindDerived": "1",
+      "proposedKey": "1",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "-(2a-3b)+4a=2a+3b=4-3=1",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-expressions-07",
+      "blindDerived": "10",
+      "proposedKey": "10",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "sqrt50*sqrt2=sqrt100=10, radicands positive",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-expressions-08",
+      "blindDerived": "5",
+      "proposedKey": "5",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "8*4=32=2^5; logarithm5",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-expressions-09",
+      "blindDerived": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "proposedKey": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "1:3^2-4=5 ->А;2:2*3+1=7 ->В;3:(3+1)^2=16 ->Д",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-expressions-10",
+      "blindDerived": "4",
+      "proposedKey": "4",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Domain x!=3,1. Cancel x-3: (x+3)(x-1)=2x+13 gives x^2=16. Roots -4,4 both allowed; positive root4",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-expressions-11",
+      "blindDerived": "24",
+      "proposedKey": "24",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "2^x=8 implies x=3; (4^4-2^6)/8=(256-64)/8=24",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-expressions-12",
+      "blindDerived": "47",
+      "proposedKey": "47",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "(a+1/a)^2=9 gives a^2+1/a^2=7; squaring gives a^4+1/a^4=49-2=47",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-01",
+      "blindDerived": "А",
+      "proposedKey": "А",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "s=2+3=5;2-3=-1 satisfies second equation",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-02",
+      "blindDerived": "Б",
+      "proposedKey": "Б",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Add equations:2x=10,x=5",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-03",
+      "blindDerived": "В",
+      "proposedKey": "В",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "x=2y gives3y=9,y=3",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-04",
+      "blindDerived": "Г",
+      "proposedKey": "Г",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Subtract equations:2y=2,y=1",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-05",
+      "blindDerived": "2",
+      "proposedKey": "2",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "x=y+3;2(y+3)+3y=16 gives5y=10,y=2",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-06",
+      "blindDerived": "4",
+      "proposedKey": "4",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "y=8-x;3x-2(8-x)=4 gives5x=20,x=4",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-07",
+      "blindDerived": "8",
+      "proposedKey": "8",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Smaller t: t+(t+7)=23 gives t=8",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-08",
+      "blindDerived": "105",
+      "proposedKey": "105",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Child c,adult c+45:2(c+45)+3c=390 gives c=60,adult105",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-09",
+      "blindDerived": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "proposedKey": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "1:2x=8,x=4 ->А;2:2y=6,y=3 ->В;3:y=2,x=4,sum6 ->Д",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-10",
+      "blindDerived": "16",
+      "proposedKey": "16",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Downstream60/3=20,upstream60/5=12; own speed=(20+12)/2=16 km/h, assuming constant speeds",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-11",
+      "blindDerived": "7",
+      "proposedKey": "7",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "40% alloy x kg: .4x+.2(10-x)=.34*10 gives .2x=1.4,x=7",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-linear-systems-12",
+      "blindDerived": "3",
+      "proposedKey": "3",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "For infinitely many solutions second equation must be twice first:2a=6,a=3; constants already proportional",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-01",
+      "blindDerived": "А",
+      "proposedKey": "А",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "D=25-4*6=1",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-02",
+      "blindDerived": "Б",
+      "proposedKey": "Б",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Roots of x^2=49 are -7,7; larger7",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-03",
+      "blindDerived": "В",
+      "proposedKey": "В",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Vieta sum=-b/a=8",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-04",
+      "blindDerived": "Г",
+      "proposedKey": "Г",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "D=0-4*1*4=-16",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-05",
+      "blindDerived": "3",
+      "proposedKey": "3",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "D=49-24=25; roots(7+5)/4=3,(7-5)/4=.5; larger3",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-06",
+      "blindDerived": "-3",
+      "proposedKey": "-3",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "(x+3)^2=0 gives one distinct root-3",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-07",
+      "blindDerived": "-2",
+      "proposedKey": "-2",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Vieta product=c/a=-6/3=-2;D=97>0",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-08",
+      "blindDerived": "0",
+      "proposedKey": "0",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "(x-2)(x-3)<0 iff2<x<3; no integers",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-09",
+      "blindDerived": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "proposedKey": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Roots2,5:1:sum7 ->А;2:product10 ->В;3:larger5 ->Д",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-10",
+      "blindDerived": "3",
+      "proposedKey": "3",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Domain x!=2. Numerator(x-2)(x-3) vanishes at2,3, only3 valid. Sum3",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-11",
+      "blindDerived": "2",
+      "proposedKey": "2",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Insert root3:9-3(m+2)+2m=0 gives m=3. Equation(x-2)(x-3)=0; other root2",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-quadratic-12",
+      "blindDerived": "12",
+      "proposedKey": "12",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Sides sum22,product120; roots of t^2-22t+120=0 are10,12; longer12",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-functions-01",
+      "blindDerived": "А",
+      "proposedKey": "А",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "f(4)=8-3=5",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-functions-02",
+      "blindDerived": "Б",
+      "proposedKey": "Б",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Zero:3x-12=0,x=4",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-functions-03",
+      "blindDerived": "В",
+      "proposedKey": "В",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "On Oy x=0 so y=7",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-functions-04",
+      "blindDerived": "Г",
+      "proposedKey": "Г",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Denominator x-5=0 at excluded x=5",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-functions-05",
+      "blindDerived": "3",
+      "proposedKey": "3",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Vertex abscissa=-b/(2a)=6/2=3",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-functions-06",
+      "blindDerived": "-3",
+      "proposedKey": "-3",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Square>=0; atx=4 square0,minimum-3",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-functions-07",
+      "blindDerived": "8",
+      "proposedKey": "8",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "f(-3)=9-1=8",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-functions-08",
+      "blindDerived": "7",
+      "proposedKey": "7",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Real square root requires7-x>=0,x<=7;greatest integer7",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-functions-09",
+      "blindDerived": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "proposedKey": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "1:f(2)=4 ->А;2:zero2x-6 gives3 ->В;3:2^5=32,log=5 ->Д",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-functions-10",
+      "blindDerived": "5",
+      "proposedKey": "5",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Negative branch f(-3)=10; nonnegative branch f(4)=5; difference5",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-functions-11",
+      "blindDerived": "1",
+      "proposedKey": "1",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "g(-2)=-3,f(-3)=8;f(2)=3,g(3)=7;difference1",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-functions-12",
+      "blindDerived": "15",
+      "proposedKey": "15",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Intersection x^2-7x+10=0 givesx=2,5;ordinates3,12;sum15",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-progressions-01",
+      "blindDerived": "А",
+      "proposedKey": "А",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "a5=2+4*3=14",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-progressions-02",
+      "blindDerived": "Б",
+      "proposedKey": "Б",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "d=4-7=-3,also1-4=-3",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-progressions-03",
+      "blindDerived": "В",
+      "proposedKey": "В",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "b4=3*2^3=24",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-progressions-04",
+      "blindDerived": "Г",
+      "proposedKey": "Г",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "q=15/5=45/15=3",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-progressions-05",
+      "blindDerived": "100",
+      "proposedKey": "100",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "a10=1+9*2=19;S10=10*(1+19)/2=100",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-progressions-06",
+      "blindDerived": "3",
+      "proposedKey": "3",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "a7-a3=4d=12,d=3",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-progressions-07",
+      "blindDerived": "62",
+      "proposedKey": "62",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "2+4+8+16+32=62",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-progressions-08",
+      "blindDerived": "10",
+      "proposedKey": "10",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "4+3(n-1)=31 givesn=10",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-progressions-09",
+      "blindDerived": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "proposedKey": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "1:a4=1+3*2=7 ->А;2:b4=2^3=8 ->В;3:S4=1+2+3+4=10 ->Д",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-progressions-10",
+      "blindDerived": "145",
+      "proposedKey": "145",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "5d=22-7=15,d=3;a1=7-2*3=1;a10=28;S10=10*(1+28)/2=145",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-progressions-11",
+      "blindDerived": "242",
+      "proposedKey": "242",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "q^3=162/6=27,q>0 givesq=3;b1=2;S5=2*(3^5-1)/(3-1)=242",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-progressions-12",
+      "blindDerived": "59",
+      "proposedKey": "59",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "a10=S10-S9=(300+20)-(243+18)=59",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-trig-01",
+      "blindDerived": "А",
+      "proposedKey": "А",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "sin30degrees=1/2=.5",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-trig-02",
+      "blindDerived": "Б",
+      "proposedKey": "Б",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "cos180degrees=-1 by unit circle",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-trig-03",
+      "blindDerived": "В",
+      "proposedKey": "В",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "tan45degrees=sin45/cos45=1",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-trig-04",
+      "blindDerived": "Г",
+      "proposedKey": "Г",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "pi radians=180degrees;pi/2=90degrees",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-trig-05",
+      "blindDerived": "1.5",
+      "proposedKey": "1.5",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "2sin30+cos60=2*.5+.5=1.5",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-trig-06",
+      "blindDerived": "0.8",
+      "proposedKey": "0.8",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "cos^2=1-.6^2=.64;first quadrant selects positive .8",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-trig-07",
+      "blindDerived": "2",
+      "proposedKey": "2",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "cosx=0 atpi/2+k*pi;only pi/2,3pi/2 in[0,2pi];count2",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-trig-08",
+      "blindDerived": "1",
+      "proposedKey": "1",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Identity sin^2t+cos^2t=1",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-trig-09",
+      "blindDerived": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "proposedKey": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "1:sin30=.5 ->А;2:cos180=-1 ->В;3:tan45=1 ->Д",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-trig-10",
+      "blindDerived": "-0.96",
+      "proposedKey": "-0.96",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "QuadrantII:cos=-4/5;sin2x=2*(3/5)*(-4/5)=-24/25=-.96",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-trig-11",
+      "blindDerived": "5",
+      "proposedKey": "5",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "QuadrantIII:sin=-5/13,tan=5/12,12tan=5",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-trig-12",
+      "blindDerived": "4",
+      "proposedKey": "4",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "x=pi/4+k*pi/2;four roots pi/4,3pi/4,5pi/4,7pi/4 in[0,2pi]",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-derivative-01",
+      "blindDerived": "А",
+      "proposedKey": "А",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "f'=2x,f'(2)=4",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-derivative-02",
+      "blindDerived": "Б",
+      "proposedKey": "Б",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Derivative of constant7 is0",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-derivative-03",
+      "blindDerived": "В",
+      "proposedKey": "В",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "(3x+2)'=3 everywhere",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-derivative-04",
+      "blindDerived": "Г",
+      "proposedKey": "Г",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Slope of line and tangent is5",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-derivative-05",
+      "blindDerived": "10",
+      "proposedKey": "10",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "f'=3x^2-2;f'(2)=12-2=10",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-derivative-06",
+      "blindDerived": "54",
+      "proposedKey": "54",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Chain rule:f'=6(2x+1)^2;at1 gives6*9=54;expanding polynomial gives same",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-derivative-07",
+      "blindDerived": "4",
+      "proposedKey": "4",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "f=(x-4)^2+4;minimum atx=4;alsof'=2x-8",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-derivative-08",
+      "blindDerived": "8",
+      "proposedKey": "8",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Antiderivative x^3;integral=2^3-0^3=8",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-derivative-09",
+      "blindDerived": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "proposedKey": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "1:(x^2)'at1=2 ->А;2:(x^3)'at1=3 ->В;3:(4x+7)'=4 ->Д",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-derivative-10",
+      "blindDerived": "2",
+      "proposedKey": "2",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "At(2,4) slope4;tangent y=4x-4;intercepts(1,0),(0,-4);triangle area=1*4/2=2",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-derivative-11",
+      "blindDerived": "18",
+      "proposedKey": "18",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "f'=3x^2-3=0 at-1,1;values at-2,-1,1,3 are-2,2,-2,18;maximum18",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-derivative-12",
+      "blindDerived": "100",
+      "proposedKey": "100",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Sidesx,20-x;area=x(20-x)=100-(x-10)^2<=100,attained by10x10 square",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-plane-01",
+      "blindDerived": "А",
+      "proposedKey": "А",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Triangle area8*5/2=20",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-plane-02",
+      "blindDerived": "Б",
+      "proposedKey": "Б",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Rectangle perimeter2*(3+7)=20",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-plane-03",
+      "blindDerived": "В",
+      "proposedKey": "В",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Radius12/2=6",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-plane-04",
+      "blindDerived": "Г",
+      "proposedKey": "Г",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Triangle angle180-50-60=70",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-plane-05",
+      "blindDerived": "15",
+      "proposedKey": "15",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Hypotenuse sqrt(9^2+12^2)=sqrt225=15",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-plane-06",
+      "blindDerived": "16",
+      "proposedKey": "16",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Circle area pi*4^2=16pi,k=16",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-plane-07",
+      "blindDerived": "32",
+      "proposedKey": "32",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Trapezoid area(6+10)*4/2=32",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-plane-08",
+      "blindDerived": "5",
+      "proposedKey": "5",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Distance sqrt((4-1)^2+(6-2)^2)=sqrt25=5",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-plane-09",
+      "blindDerived": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "proposedKey": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "1:square area3^2=9 ->А;2:perimeter4*3=12 ->В;3:triangle area4*3/2=6 ->Д",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-plane-10",
+      "blindDerived": "4",
+      "proposedKey": "4",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Semiperimeter21;Heron area sqrt(21*8*7*6)=84;inradius84/21=4",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-plane-11",
+      "blindDerived": "312",
+      "proposedKey": "312",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Base difference10;height sqrt(26^2-10^2)=24;area(8+18)*24/2=312",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-plane-12",
+      "blindDerived": "900",
+      "proposedKey": "900",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Inscribed30degrees subtends60degree arc=pi/3 radians;r*pi/3=10pi,r=30;area900pi,k=900",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-solid-01",
+      "blindDerived": "А",
+      "proposedKey": "А",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Cube volume3^3=27",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-solid-02",
+      "blindDerived": "Б",
+      "proposedKey": "Б",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Prism volume base area*height=12*5=60,perpendicular height",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-solid-03",
+      "blindDerived": "В",
+      "proposedKey": "В",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Pyramid volume18*4/3=24",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-solid-04",
+      "blindDerived": "Г",
+      "proposedKey": "Г",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Cylinder volume pi*2^2*3=12pi,k=12",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-solid-05",
+      "blindDerived": "13",
+      "proposedKey": "13",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Space diagonal sqrt(9+16+144)=sqrt169=13",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-solid-06",
+      "blindDerived": "5",
+      "proposedKey": "5",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Right circular cone assumed:generatrix sqrt(3^2+4^2)=5",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-solid-07",
+      "blindDerived": "36",
+      "proposedKey": "36",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Ball volume4/3*pi*3^3=36pi,k=36",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-solid-08",
+      "blindDerived": "52",
+      "proposedKey": "52",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Surface area2*(2*3+2*4+3*4)=52",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-solid-09",
+      "blindDerived": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "proposedKey": {
+        "1": "А",
+        "2": "В",
+        "3": "Д"
+      },
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "1:volume2^3=8 ->А;2:surface6*2^2=24 ->В;3:twelve edges length3 total36 ->Д",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-solid-10",
+      "blindDerived": "144",
+      "proposedKey": "144",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Third edge sqrt(13^2-3^2-4^2)=12;volume3*4*12=144",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-solid-11",
+      "blindDerived": "96",
+      "proposedKey": "96",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Right circular cone assumed:axial area12h/2=48,h=8;r=6;volume pi*36*8/3=96pi,k=96",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-solid-12",
+      "blindDerived": "216",
+      "proposedKey": "216",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Cube diagonal equals sphere diameter6sqrt3;edge a satisfies a*sqrt3=6sqrt3,a=6;volume216",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-probability-01",
+      "blindDerived": "А",
+      "proposedKey": "А",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "One shirt and one pair of trousers:3*4=12",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-probability-02",
+      "blindDerived": "Б",
+      "proposedKey": "Б",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "4!=4*3*2*1=24",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-probability-03",
+      "blindDerived": "В",
+      "proposedKey": "В",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Fair standard die:even2,4,6 among6 outcomes;probability3/6=.5",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-probability-04",
+      "blindDerived": "Г",
+      "proposedKey": "Г",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Mean(2+4+6)/3=4",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-probability-05",
+      "blindDerived": "15",
+      "proposedKey": "15",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Unordered teams C(6,2)=6*5/2=15",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-probability-06",
+      "blindDerived": "20",
+      "proposedKey": "20",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "5 choices head then4 secretary:5*4=20",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-probability-07",
+      "blindDerived": "0.3",
+      "proposedKey": "0.3",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Uniform draws without replacement:P(WW)=3/5*2/4=.3",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-probability-08",
+      "blindDerived": "5.5",
+      "proposedKey": "5.5",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Sorted2,4,7,9;median=(4+7)/2=5.5",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-probability-09",
+      "blindDerived": {
+        "1": "А",
+        "2": "В",
+        "3": "Г"
+      },
+      "proposedKey": {
+        "1": "А",
+        "2": "В",
+        "3": "Г"
+      },
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "1:C(4,2)=6 ->А;2:4!=24 ->В;3:(2+8)/2=5 ->Г",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-probability-10",
+      "blindDerived": "30",
+      "proposedKey": "30",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "C(4,2) ways choose girls times5 boys=6*5=30",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-probability-11",
+      "blindDerived": "0.5",
+      "proposedKey": "0.5",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Favorable C(6,2)*C(4,1)=60;total C(10,3)=120;probability=.5",
+      "issues": [],
+      "confidence": 0.99
+    },
+    {
+      "id": "math-draft-v1-math-probability-12",
+      "blindDerived": "108",
+      "proposedKey": "108",
+      "keyAgreement": true,
+      "explanationStatus": "CORRECT_MAIN_DERIVATION",
+      "independentReasoning": "Last digit0:5*4*3=60. Last digit5:first digit one of1,2,3,4,then4,3 choices including0:4*4*3=48. Total108",
+      "issues": [],
+      "confidence": 0.99
+    }
+  ],
+  "methodologyFindings": [
+    {
+      "severity": "moderate",
+      "finding": "Every module starts with identical correct-label pattern А,Б,В,Г; matching is almost always1-А,2-В,3-Д.",
+      "minimalFix": "Shuffle options and regenerate label references/key mappings together, then rerun independent mapping checks."
+    },
+    {
+      "severity": "minor",
+      "finding": "76 difficulty downgrades recommended in blind review,including all30 HARD to MEDIUM. No psychometric validation exists.",
+      "minimalFix": "Calibrate labels conservatively or supply genuinely harder transfer tasks; do not claim measured difficulty."
+    },
+    {
+      "severity": "moderate",
+      "finding": "Several assessment questions exactly reuse worked examples or their data: probability05/07,derivative05,solid05; systems ticket item asks other price but same data. They test immediate recall and should not be sole evidence of independent transfer.",
+      "minimalFix": "Keep for guided practice; separate unseen assessment with changed data/context and no worked-example duplicates."
+    },
+    {
+      "severity": "minor",
+      "finding": "Limited question pool does not operationally test all broad lesson objectives,including graphs,space vectors,and most exponential/log behavior.",
+      "minimalFix": "Label coverage as basic practice; add targeted unseen items only where readiness claims require it."
+    }
+  ],
+  "minimalFactualFixes": [
+    {
+      "classification": "factual-explanation-precision",
+      "severity": "minor",
+      "field": "explanation.Д",
+      "finding": "The phrase Усі коефіцієнти додано до підстановки does not reproduce distractor25: adding signed coefficients gives3-2+5=6, and treating all as coefficient then x=4 gives24. The correct reasoning/key9 remains sound.",
+      "minimalFix": "Replace Д explanation with: Після спрощення x+5 помилково підставлено x=20 замість x=4; отримано25. Alternatively use a transparent distractor24 with explicit (3-2+5)*4=24, keeping label Д incorrect."
+    },
+    {
+      "classification": "factual-condition-precision",
+      "severity": "minor",
+      "field": "math-solid.lesson.rules[1]",
+      "minimalFix": "Для прямого кругового конуса l^2=r^2+h^2."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://testportal.gov.ua/matematyka-2026/",
+      "status": "Read official domains/formats in phase1"
+    },
+    {
+      "url": "https://testportal.gov.ua/wp-content/uploads/2019/12/nakaz-1513_04.12_programa_matematyka.pdf",
+      "status": "Opened successfully as8-page official PDF; no machine-readable lines; no claim of full visual PDF review"
+    },
+    {
+      "url": "https://testportal.gov.ua/wp-content/uploads/2026/01/NMT-2026_matematyka_demo.pdf",
+      "status": "Opened official demo; confirms graph/diagram and integral assessment in contemporary NMT; unrelated official answer table not used to derive author questions"
+    }
+  ],
+  "limits": [
+    "No browser/app-render verification; educational text review only.",
+    "No DB access, source package edits or git operations.",
+    "Official sources support syllabus/form context; all120 mathematical solutions were sealed before provided keys."
+  ]
+}

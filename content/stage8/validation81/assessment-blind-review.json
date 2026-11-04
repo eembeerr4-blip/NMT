@@ -1,0 +1,275 @@
+{
+  "phase": "new-bank-blind",
+  "reviewType": "Independent model-agent review, not human sign-off",
+  "inputSha256": "0968bf5d54be02e033aeb646fe569451b7e6070c5eef540cab9e404dbab0e641",
+  "blindness": "Answers locked before seeing assessment-full or new bank keys/explanations.",
+  "questions": [
+    {
+      "id": "s81-expressions-final-01",
+      "derivedAnswer": "3",
+      "reasoning": "Domain a!=3. Factor (a^2-9)/(a-3)=a+3 on original domain; subtract a to get3. At a=-2 original fraction=(-5)/(-5)=1, minus(-2)=3.",
+      "domain": "a!=3",
+      "issues": [
+        {
+          "category": "difficulty",
+          "severity": "minor",
+          "message": "Direct elementary computation/domain selection; recommend EASY pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Independent own calculation from blind prompt/options only. assessment-full and proposed keys not read.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "s81-expressions-final-02",
+      "derivedAnswer": "2",
+      "reasoning": "2^5=32,4^(-1)=1/4,principal sqrt16=4;32*(1/4)/4=2.",
+      "domain": "Real quantities; all constant logarithm bases/arguments and roots valid.",
+      "issues": [
+        {
+          "category": "difficulty",
+          "severity": "minor",
+          "message": "Direct elementary computation/domain selection; recommend EASY pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Independent own calculation from blind prompt/options only. assessment-full and proposed keys not read.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "s81-expressions-final-03",
+      "derivedAnswer": "В",
+      "reasoning": "x^2-4=(x-2)(x+2) must not be zero, so both x=2 and x=-2 are excluded. Cancelling x+2 does not restore x=-2.",
+      "domain": "x!=-2,2",
+      "issues": [
+        {
+          "category": "difficulty",
+          "severity": "minor",
+          "message": "Direct elementary computation/domain selection; recommend EASY pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Independent own calculation from blind prompt/options only. assessment-full and proposed keys not read.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "s81-expressions-final-04",
+      "derivedAnswer": "7",
+      "reasoning": "Principal sqrt(x^2)=abs(x)=7. Given x>0 selects x=7; negative root excluded.",
+      "domain": "Real quantities; all constant logarithm bases/arguments and roots valid.",
+      "issues": [
+        {
+          "category": "difficulty",
+          "severity": "minor",
+          "message": "Direct elementary computation/domain selection; recommend EASY pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Independent own calculation from blind prompt/options only. assessment-full and proposed keys not read.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "s81-expressions-final-05",
+      "derivedAnswer": "60",
+      "reasoning": "Let original price P>0. After a20% rise,1.2P=360 so P=300. Increase=360-300=60 hryvnias, also .2*300=60.",
+      "domain": "Real quantities; all constant logarithm bases/arguments and roots valid.",
+      "issues": [],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Independent own calculation from blind prompt/options only. assessment-full and proposed keys not read.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "s81-expressions-final-06",
+      "derivedAnswer": "5",
+      "reasoning": "log_2(32)=5,log_2(4)=2,and3^(-1)*6=2. Result5-2+2=5.",
+      "domain": "Real quantities; all constant logarithm bases/arguments and roots valid.",
+      "issues": [
+        {
+          "category": "difficulty",
+          "severity": "minor",
+          "message": "Direct elementary computation/domain selection; recommend EASY pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Independent own calculation from blind prompt/options only. assessment-full and proposed keys not read.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "s81-expressions-delayed-01",
+      "derivedAnswer": "4",
+      "reasoning": "Domain b!=4. Factor fraction=(b-4)(b+4)/(b-4)=b+4,subtract b=4. At b=-1 original fraction=(-15)/(-5)=3,minus(-1)=4.",
+      "domain": "b!=4",
+      "issues": [
+        {
+          "category": "difficulty",
+          "severity": "minor",
+          "message": "Direct elementary computation/domain selection; recommend EASY pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Independent own calculation from blind prompt/options only. assessment-full and proposed keys not read.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "s81-expressions-delayed-02",
+      "derivedAnswer": "1",
+      "reasoning": "3^3=27,9^(-1)=1/9,principal sqrt9=3;27*(1/9)/3=1.",
+      "domain": "Real quantities; all constant logarithm bases/arguments and roots valid.",
+      "issues": [
+        {
+          "category": "difficulty",
+          "severity": "minor",
+          "message": "Direct elementary computation/domain selection; recommend EASY pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Independent own calculation from blind prompt/options only. assessment-full and proposed keys not read.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "s81-expressions-delayed-03",
+      "derivedAnswer": "Г",
+      "reasoning": "x^2-9=(x-3)(x+3) must be nonzero,so x!=3 and x!=-3. Cancellation retains both original exclusions.",
+      "domain": "x!=-3,3",
+      "issues": [
+        {
+          "category": "difficulty",
+          "severity": "minor",
+          "message": "Direct elementary computation/domain selection; recommend EASY pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Independent own calculation from blind prompt/options only. assessment-full and proposed keys not read.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "s81-expressions-delayed-04",
+      "derivedAnswer": "-9",
+      "reasoning": "Principal sqrt(t^2)=abs(t)=9; t<0 selects t=-9.",
+      "domain": "Real quantities; all constant logarithm bases/arguments and roots valid.",
+      "issues": [
+        {
+          "category": "difficulty",
+          "severity": "minor",
+          "message": "Direct elementary computation/domain selection; recommend EASY pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Independent own calculation from blind prompt/options only. assessment-full and proposed keys not read.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "s81-expressions-delayed-05",
+      "derivedAnswer": "150",
+      "reasoning": "Let original price P. After25% decrease .75P=450 givesP=600. Decrease=600-450=150 hryvnias;also .25*600=150.",
+      "domain": "Real quantities; all constant logarithm bases/arguments and roots valid.",
+      "issues": [],
+      "suggestedDifficulty": "MEDIUM",
+      "source": {
+        "calculation": "Independent own calculation from blind prompt/options only. assessment-full and proposed keys not read.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    },
+    {
+      "id": "s81-expressions-delayed-06",
+      "derivedAnswer": "8",
+      "reasoning": "log_3(81)=4,log_3(3)=1,and2^(-1)*10=5. Result4-1+5=8.",
+      "domain": "Real quantities; all constant logarithm bases/arguments and roots valid.",
+      "issues": [
+        {
+          "category": "difficulty",
+          "severity": "minor",
+          "message": "Direct elementary computation/domain selection; recommend EASY pending psychometric calibration."
+        }
+      ],
+      "suggestedDifficulty": "EASY",
+      "source": {
+        "calculation": "Independent own calculation from blind prompt/options only. assessment-full and proposed keys not read.",
+        "syllabus": "https://testportal.gov.ua/matematyka-2026/"
+      },
+      "confidence": 0.99,
+      "status": "SOLVED"
+    }
+  ],
+  "findings": [
+    {
+      "classification": "methodological",
+      "severity": "moderate",
+      "message": "Six final/delayed pairs are parallel forms with the same solution structure. This supports short-term retention of taught procedures; it does not independently demonstrate broad transfer. Pair1 factor-cancel-subtract,2 numerical negative powers/root,3 rational domain,4 abs/sign,5 reverse percentage price change,6 log/power sum."
+    },
+    {
+      "classification": "methodological",
+      "severity": "minor",
+      "message": "No exact verbatim question clone within the12 or compared with the120 previously reviewed prompt bank. Many structural near-clones of taught examples exist. Phrase independent assessment narrowly: unseen numerical/context variants, not independent skills."
+    },
+    {
+      "classification": "methodological",
+      "severity": "moderate",
+      "message": "For stronger transfer include richer unseen contexts and combined constraints, keep variants from reusable practice/explanation exposure before scheduled assessment, and distinguish first unseen attempt from repeats."
+    },
+    {
+      "classification": "coverage",
+      "severity": "minor",
+      "message": "Percent items05 are valid NMT school mathematics but reverse-percentage prerequisite is not taught explicitly in existing expressions lesson. Add short base-quantity/percent explanation or identify as a prerequisite diagnostic; otherwise a result conflates algebra with untaught percent knowledge."
+    },
+    {
+      "classification": "difficulty",
+      "severity": "minor",
+      "message": "Ten of12 MEDIUM labels are routine one-step or direct formula tasks, judged EASY; price reverse-percentage items suitably MEDIUM."
+    }
+  ],
+  "summary": {
+    "questions": 12,
+    "mathematicalAmbiguities": 0,
+    "exactClonesDetected": 0,
+    "difficultyChanges": 10,
+    "allKeysStillWithheld": true
+  },
+  "limits": [
+    "No full assessment source or keys read.",
+    "No package/app/DB/git changes.",
+    "Earlier120 bank keys known from sealed phase2, so independence applies to these12 answers before their new proposed keys, not a fresh-naive learner perspective."
+  ]
+}

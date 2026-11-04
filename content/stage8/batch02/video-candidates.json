@@ -1,0 +1,26 @@
+{
+  "status": "METADATA_ONLY_NOT_CONFIRMED",
+  "candidates": [
+    {
+      "topicId": "ukr-morph-sub-01",
+      "url": "https://www.youtube.com/watch?v=lNg2auJDOpQ",
+      "claimedProvider": "Всеукраїнська школа онлайн",
+      "title": "Загальна характеристика частин мови",
+      "evidence": "URL recommended in an indexed official VSHO lesson PDF; direct YouTube page fetch failed.",
+      "watched": false,
+      "duration": null
+    },
+    {
+      "topicId": "cm-ukrainian-compound-sentence",
+      "url": "https://www.youtube.com/watch?v=cUvqQWFhbwY",
+      "claimedProvider": "Всеукраїнська школа онлайн",
+      "title": "9 клас. Українська мова. Складносурядне речення, його будова й засоби зв’язку між його частинами",
+      "evidence": "Indexed YouTube title/description matches topic; direct YouTube page fetch failed.",
+      "watched": false,
+      "duration": null
+    }
+  ],
+  "newConfirmed": 0,
+  "VideoLessonWrites": 0,
+  "note": "No ratings, viewing confirmation, timestamps or availability invented. Manual playback and substantive review needed."
+}

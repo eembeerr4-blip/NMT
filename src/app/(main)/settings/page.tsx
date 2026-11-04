@@ -43,8 +43,6 @@ export default async function SettingsPage() {
             masteryHighMin: settings.masteryHighMin,
             masteryMidMin: settings.masteryMidMin,
             timerEnabled: settings.timerEnabled,
-            aiProvider: "none",
-            aiModel: "",
             mathPriority: settings.mathPriority,
             ukrainianPriority: settings.ukrainianPriority,
             historyPriority: settings.historyPriority,

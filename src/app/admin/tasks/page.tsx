@@ -3,6 +3,7 @@ import { Button, Card, EmptyState, PageHeader } from "@/components/ui";
 import { formatUk } from "@/lib/dates";
 import { prisma } from "@/lib/prisma";
 import { requireAdministrator } from "@/server/session";
+import { ukLessonCount } from "@/lib/uk-plural";
 
 export const dynamic = "force-dynamic";
 
@@ -53,7 +54,7 @@ export default async function AdminTasksPage({ searchParams }: { searchParams: P
           <label className="grid gap-1.5 text-sm"><span className="font-medium">Предмет</span><select name="subject" defaultValue={params.subject ?? ""}><option value="">Усі предмети</option>{subjects.map((subject) => <option key={subject.id} value={subject.id}>{subject.name}</option>)}</select></label>
           <div className="flex items-end gap-2"><Button type="submit">Знайти</Button><Button asChild variant="ghost"><Link href="/admin/tasks">Скинути</Link></Button></div>
         </form>
-        <p className="text-sm text-muted-foreground">За фільтром знайдено {total.toLocaleString("uk-UA")} занять.</p>
+        <p className="text-sm text-muted-foreground">За фільтром знайдено {ukLessonCount(total)}.</p>
       </Card>
       {tasks.length === 0 ? <EmptyState title="Занять за фільтрами не знайдено" text="Спробуйте інший пошук або статус." /> : (
         <Card className="overflow-hidden">
