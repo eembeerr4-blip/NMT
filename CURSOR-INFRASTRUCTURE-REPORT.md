@@ -3,7 +3,7 @@
 Дата: 2026-11-04  
 Worktree: `D:\Вайб-кодинг\nmt-infra-tooling`  
 Гілка: `infra/cursor-local-tooling-20261104`  
-HEAD: `246e345c09fca1d6cbfe91d12b6ac3d878a9cf02`  
+HEAD: `8a66d6976786d558fc23ff7481f6c206c00e65fb`  
 Remote: `https://github.com/eembeerr4-blip/NMT`  
 PR (do not merge): https://github.com/eembeerr4-blip/NMT/pull/8  
 Base branch note: repo `default_branch` = `codex/github-publication`; PR opened to `main` as requested.
