@@ -233,4 +233,4 @@ it("backs up committed WAL data before checkpoint while the source connection st
     expect(snapshot(file).questions.find(q => q.id === "other-question")).toEqual(before.questions.find(q => q.id === "other-question"));
     noTemporaryBackups();
   } finally { writer.close(); }
-});
+}, 30_000); // Includes a child CLI process and live-WAL backup I/O on shared CI runners.

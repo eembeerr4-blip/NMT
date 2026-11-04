@@ -19,11 +19,11 @@ All 39 registered worktrees were inventoried in the local-only, ignored `worktre
 | All eligible benefits activated | PENDING | No new benefit claimed as activated; browser page control fails before page access |
 | Copilot in VS Code | CONFIGURED | VS Code 1.144.1 includes GitHub Copilot 0.72.0; instructions, nine prompts and workspace settings added; real authenticated completion/chat still unverified |
 | Copilot plan, models, credits, cloud agent, review | PENDING | Previous Student/Pro claims are not reused as evidence; billing dashboard required |
-| Codecov | CONFIGURED | Vitest V8/LCOV, codecov.yml and OIDC workflow prepared; App installation, vendor report and PR comment unverified |
+| Codecov | CONFIGURED | OIDC upload succeeded; public Codecov API reports commit 8a26e0d complete, 181 files and 51.46% coverage. Native App installation and PR comment remain unverified |
 | Sentry | PENDING | No SDK added before educational entitlement is confirmed; no test event sent |
 | 1Password | PENDING | Account/benefit not verified; no vault read, export or migration performed |
 | Codespaces | CONFIGURED | Node 22 devcontainer, npm ci, Prisma generation, extensions and private forwarding prepared; cloud launch and allowance unverified |
-| Actions | CONFIGURED | CI, E2E and Security files prepared; remote runs require safe branch publication after successful local checks |
+| Actions | CONFIGURED | Push runs CI 41836100803, E2E 41836100890 and Security 41836100905 succeeded. PR E2E/Security succeeded; one PR CI backup test exceeded its default 5-second timeout and is being corrected |
 | Secret scanning / push protection | PASS | Both reported enabled by authenticated GitHub repository API |
 | Dependabot alerts / security updates | PASS | Enabled and independently re-read through GitHub API |
 | Vercel | CONFIGURED | Created separate Hobby project taply12/nmt-academy after confirming taply belongs to finance-tracker; verified Git link to eembeerr4-blip/NMT, Next.js, Node 24.x, npm ci/build; all automatic builds skipped, zero deployments |
@@ -42,7 +42,9 @@ All 39 registered worktrees were inventoried in the local-only, ignored `worktre
 - Dependency audit after fixes: PASS at high severity; 0 high, 0 critical, 19 moderate remain.
 - All workflow, Dependabot and Codecov YAML files parse successfully; editor/devcontainer/Vercel JSON parses successfully.
 - E2E: PASS, all 32 standard tests in one fresh isolated run (3.0 minutes), including registration/email confirmation/moderation, role/record isolation, learning/results, imports, backups and mobile/tablet navigation. Local run used `NMT_E2E_PORT=3037` because another worktree owned 3010; that server was not stopped. Historical stage-specific suites remain opt-in because they require separate worktrees/fixtures.
-- Remote Actions, Codecov upload/PR feedback, live Copilot and external benefit activation remain unverified.
+- Push Actions CI/E2E/Security: PASS. PR Security includes successful dependency review and CodeQL; PR E2E: PASS. PR CI required a scoped timeout fix for a child-process/live-WAL backup test. Its assertions remain unchanged; targeted regression passed all 10 tests after the change.
+- Codecov processed commit 8a26e0d successfully: 181 files, 4543 reported lines, 2338 hits, 1737 misses and 468 partials; API coverage is 51.46%. This service metric differs from Vitest's local line percentage; neither is substituted for the other. Native PR feedback still requires verification.
+- Live editor Copilot and external benefit activation remain unverified.
 
 ## Implementation files
 
@@ -63,6 +65,7 @@ All 39 registered worktrees were inventoried in the local-only, ignored `worktre
 - Backup E2E verifies the actual version-6 payload and retry/external-practice arrays. The incomplete demo import explicitly tests rejection by publication readiness and continued student isolation; it is not published just to satisfy an old test expectation.
 - `vercel.json` disables automatic deployment only for this infrastructure branch until existing Vercel settings are verified. Other branches keep their default behavior. This is not a preview deployment.
 - Dedicated Vercel project `taply12/nmt-academy` is configured for Next.js, Node 24.x, `npm ci` and `npm run build`, and linked to the exact NMT GitHub repository. Project-level `commandForIgnoringBuildStep=exit 0` currently skips all automatic builds; deployment listing is empty. Its current production-branch setting is `main`, whereas GitHub's default is `codex/github-publication`; resolve the intended release branch before enabling any production build. No production exists.
+- Draft PR [#7](https://github.com/eembeerr4-blip/NMT/pull/7) targets the exact application base branch `feature/block-02-real-fixes`; it contains only this infrastructure work, rather than the 39 application commits ahead of the default branch. No merge is performed.
 
 ## Installed editor tools
 
@@ -110,7 +113,7 @@ Preview must use an isolated database and synthetic identities; production email
 - [GitHub Copilot settings](https://github.com/settings/copilot)
 - [GitHub billing](https://github.com/settings/billing)
 - [Codespaces](https://github.com/codespaces)
-- [Codecov repository](https://app.codecov.io/gh/eembeerr4-blip/NMT) — dashboard content not verified
+- [Processed Codecov commit report](https://app.codecov.io/github/eembeerr4-blip/nmt/commit/8a26e0d9785c5270a6f6dbd3fe3ebfa0b8c73638) — completion and totals verified through the public API
 - [Sentry](https://sentry.io/) — organization/project URL not verified
 - [1Password](https://my.1password.com/) — account region and URL not verified
 - [Vercel NMT Academy](https://vercel.com/taply12/nmt-academy) — dedicated project configured; no deployment exists
